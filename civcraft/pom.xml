@@ -16,6 +16,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>spongepowered-repo</id>
+            <name>Sponge Maven Repository</name>
+            <url>https://repo.spongepowered.org/maven/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>spongeapi</artifactId>
+            <version>7.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <profiles>
         <profile>
             <id>release</id>
@@ -143,19 +160,4 @@
         </plugins>
     </reporting>
 
-    <repositories>
-        <repository>
-            <id>spongepowered-repo</id>
-            <url>https://repo.spongepowered.org/maven/</url>
-        </repository>
-    </repositories>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.spongepowered</groupId>
-            <artifactId>spongeapi</artifactId>
-            <version>7.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 </project>
