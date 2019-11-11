@@ -33,19 +33,19 @@ implements GuiAction {
         Resident whoClicked = CivGlobal.getResident(player);
         if (whoClicked.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "งc"+CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send((Object)player, "ยงc"+CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         Civilization civ = whoClicked.getCiv();
         if (!civ.getLeaderGroup().hasMember(whoClicked) && !civ.getAdviserGroup().hasMember(whoClicked)) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "งc"+CivSettings.localize.localizedString("cmd_NeedHigherCivRank"));
+            CivMessage.send((Object)player, "ยงc"+CivSettings.localize.localizedString("cmd_NeedHigherCivRank"));
             return;
         }
-        ItemStack talentList = LoreGuiItem.build(CivSettings.localize.localizedString("talentGui_talentList"), ItemManager.getId(Material.PAPER), 0, "ง6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
+        ItemStack talentList = LoreGuiItem.build(CivSettings.localize.localizedString("talentGui_talentList"), ItemManager.getId(Material.PAPER), 0, "ยง6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
         talentList = LoreGuiItem.setAction(talentList, "TalentList");
         inventory.setItem(0, talentList);
-        ItemStack talentChoose = LoreGuiItem.build(CivSettings.localize.localizedString("talentGui_talentChoose"), ItemManager.getId(Material.BOOK_AND_QUILL), 0, "ง6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
+        ItemStack talentChoose = LoreGuiItem.build(CivSettings.localize.localizedString("talentGui_talentChoose"), ItemManager.getId(Material.BOOK_AND_QUILL), 0, "ยง6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
         talentChoose = LoreGuiItem.setAction(talentChoose, "TalentChoose");
         inventory.setItem(1, talentChoose);
         ItemStack backButton = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_back"), ItemManager.getId(Material.MAP), 0, CivSettings.localize.localizedString("bookReborn_backToDashBoard"));

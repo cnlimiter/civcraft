@@ -1290,7 +1290,7 @@ public abstract class Buildable extends SQLObject {
 		}
 
         if ((this instanceof TradeOutpost || this instanceof FishingBoat) && player != null) {
-            CivMessage.sendError(player, CivSettings.localize.localizedString("var_buildable_cannotBeBroken", "ง6" + hit.getOwner().getDisplayName() + "งc"));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("var_buildable_cannotBeBroken", "ยง6" + hit.getOwner().getDisplayName() + "ยงc"));
             return;
         }
 

@@ -246,8 +246,8 @@ public class DebugCommand extends CommandBase {
 	
 	public void disablemap_cmd() throws CivException {
 		Player player = getPlayer();
-		player.sendMessage("񗱎񗱎񗱎");
-		player.sendMessage("񗱎񗱎񗱎");
+		player.sendMessage("搂3搂6搂3搂6搂3搂6搂e");
+		player.sendMessage("搂3搂6搂3搂6搂3搂6搂d");
 		CivMessage.sendSuccess(player, "Disabled.");
 	}
 	

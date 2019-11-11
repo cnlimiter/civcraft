@@ -129,7 +129,7 @@ public class MoscowStateUni extends Wonder
 			}
 			final ConfigEnchant configEnchant = CivSettings.enchants.get("ench_infinity");
 			if (!resident.getTreasury().hasEnough(configEnchant.cost)) {
-				CivMessage.send(player, "§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
+				CivMessage.send(player, "Â§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
 				return;
 			}
 			resident.getTreasury().withdraw(configEnchant.cost);
@@ -151,7 +151,7 @@ public class MoscowStateUni extends Wonder
 			}
 			final ConfigEnchant configEnchant = CivSettings.enchants.get("ench_fall_protection");
 			if (!resident.getTreasury().hasEnough(configEnchant.cost)) {
-				CivMessage.send(player, "§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
+				CivMessage.send(player, "Â§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
 				return;
 			}
 			resident.getTreasury().withdraw(configEnchant.cost);
@@ -173,7 +173,7 @@ public class MoscowStateUni extends Wonder
 			}
 			final ConfigEnchant configEnchant = CivSettings.enchants.get("ench_oxygen");
 			if (!resident.getTreasury().hasEnough(configEnchant.cost)) {
-				CivMessage.send(player, "§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
+				CivMessage.send(player, "Â§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
 				return;
 			}
 			resident.getTreasury().withdraw(configEnchant.cost);
@@ -202,7 +202,7 @@ public class MoscowStateUni extends Wonder
 					return;
 				}
 				if (!resident.getTreasury().hasEnough(configEnchant.cost)) {
-					CivMessage.send(player, "§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
+					CivMessage.send(player, "Â§c" + CivSettings.localize.localizedString("var_moscowstateuni_enchant_cannotAfford", configEnchant.cost, CivSettings.CURRENCY_NAME));
 					return;
 				}
 				resident.getTreasury().withdraw(configEnchant.cost);

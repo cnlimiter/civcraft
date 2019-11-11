@@ -25,10 +25,10 @@ public class ReportCommand extends CommandBase {
 	public void bug_cmd() throws CivException {
         Resident resident = this.getResident();
         CivMessage.sendHeading(this.sender, CivSettings.localize.localizedString("cmd_report_Heading"));
-        CivMessage.send((Object)this.sender, "§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_5"));
+        CivMessage.send((Object)this.sender, "Â§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_5"));
         CivMessage.send((Object)this.sender, " ");
-        CivMessage.send((Object)this.sender, "§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_6") + CivSettings.localize.localizedString("cmd_report_7"));
-        CivMessage.send((Object)this.sender, "§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("interactive_report_descriptionBuG"));
+        CivMessage.send((Object)this.sender, "Â§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_6") + CivSettings.localize.localizedString("cmd_report_7"));
+        CivMessage.send((Object)this.sender, "Â§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("interactive_report_descriptionBuG"));
         CivMessage.send((Object)this.sender, CivColor.LightGray + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_8"));
         resident.setInteractiveMode(new InteractiveReportBug());
     }
@@ -37,10 +37,10 @@ public class ReportCommand extends CommandBase {
         Resident resident = this.getResident();
         Resident reportedResident = this.getNamedResident(1);
         CivMessage.sendHeading(this.sender, CivSettings.localize.localizedString("cmd_report_Heading"));
-        CivMessage.send((Object)this.sender, "§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_1", reportedResident.getName()));
+        CivMessage.send((Object)this.sender, "Â§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_1", reportedResident.getName()));
         CivMessage.send((Object)this.sender, " ");
-        CivMessage.send((Object)this.sender, "§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_2") + CivSettings.localize.localizedString("cmd_report_3"));
-        CivMessage.send((Object)this.sender, "§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("interactive_report_description"));
+        CivMessage.send((Object)this.sender, "Â§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_2") + CivSettings.localize.localizedString("cmd_report_3"));
+        CivMessage.send((Object)this.sender, "Â§e" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("interactive_report_description"));
         CivMessage.send((Object)this.sender, CivColor.LightGray + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("cmd_report_4"));
         resident.setDesiredReportPlayerName(reportedResident.getName());
         resident.setInteractiveMode(new InteractiveReportPlayer(command));

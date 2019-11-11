@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.threading.tasks;
 
-import java.sql.SQLException;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.bukkit.block.Block;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivLog;
@@ -39,6 +32,12 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.SimpleBlock;
 import com.avrgaming.civcraft.util.SimpleBlock.Type;
+import org.bukkit.block.Block;
+
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BuildAsyncTask extends CivAsyncTask {
 	/*
@@ -233,9 +232,9 @@ public class BuildAsyncTask extends CivAsyncTask {
 		buildable.getTown().build_tasks.remove(this);
 		TaskMaster.syncTask(new PostBuildSyncTask(tpl, buildable), 10);
 		if (this.buildable instanceof Structure) {
-            CivMessage.global(CivSettings.localize.localizedString("var_buildAsync_completed", this.buildable.getTown().getName(), "ง2" + this.buildable.getDisplayName() + CivColor.RESET));
+            CivMessage.global(CivSettings.localize.localizedString("var_buildAsync_completed", this.buildable.getTown().getName(), "ยง2" + this.buildable.getDisplayName() + CivColor.RESET));
         } else if (this.buildable instanceof Wonder) {
-            CivMessage.global(CivSettings.localize.localizedString("var_buildAsync_completedWonder", CivColor.Red + this.buildable.getCiv().getName() + CivColor.RESET, "ง6" + this.buildable.getTown().getName() + CivColor.RESET, "งa" + this.buildable.getDisplayName() + CivColor.RESET));
+            CivMessage.global(CivSettings.localize.localizedString("var_buildAsync_completedWonder", CivColor.Red + this.buildable.getCiv().getName() + CivColor.RESET, "ยง6" + this.buildable.getTown().getName() + CivColor.RESET, "ยงa" + this.buildable.getDisplayName() + CivColor.RESET));
         }
 		buildable.onComplete();
 		return false;

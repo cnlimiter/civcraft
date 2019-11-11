@@ -3,14 +3,13 @@ package com.avrgaming.civcraft.loreenhancements;
 
 import gpl.AttributeUtil;
 import org.bukkit.inventory.ItemStack;
-import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 
 public class LoreEnhancementBuyItem
 extends LoreEnhancement {
     @Override
     public AttributeUtil add(AttributeUtil attrs) {
         attrs.addEnhancement("LoreEnhancementBuyItem", null, null);
-        attrs.addLore("§b" + this.getDisplayName());
+        attrs.addLore("Â§b" + this.getDisplayName());
         return attrs;
     }
 

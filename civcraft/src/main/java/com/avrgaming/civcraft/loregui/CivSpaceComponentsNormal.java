@@ -1,6 +1,13 @@
 
 package com.avrgaming.civcraft.loregui;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigSpaceRocket;
+import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
+import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
+import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
+import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.util.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -8,18 +15,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
-
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigSpaceRocket;
-import com.avrgaming.civcraft.loregui.CivSpaceEnded;
-import com.avrgaming.civcraft.loregui.CivSpaceFuture;
-import com.avrgaming.civcraft.loregui.GuiAction;
-import com.avrgaming.civcraft.loregui.OpenInventoryTask;
-import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
-import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
-import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.util.ItemManager;
 
 public class CivSpaceComponentsNormal
 implements GuiAction {
@@ -34,7 +29,7 @@ implements GuiAction {
             int count = Integer.parseInt(craftMatID.replaceAll("[^\\d]", ""));
             String craftMat = craftMatID.replace(String.valueOf(count), "");
             LoreCraftableMaterial itemToGetName = LoreCraftableMaterial.getCraftMaterialFromId(craftMat);
-            ItemStack itemStack = LoreGuiItem.build(itemToGetName.getName(), itemToGetName.getConfigMaterial().item_id, itemToGetName.getConfigMaterial().item_data, "ง6"+CivSettings.localize.localizedString("bookReborn_civSpaceMenu"));
+            ItemStack itemStack = LoreGuiItem.build(itemToGetName.getName(), itemToGetName.getConfigMaterial().item_id, itemToGetName.getConfigMaterial().item_data, "ยง6"+CivSettings.localize.localizedString("bookReborn_civSpaceMenu"));
             itemStack.setAmount(count);
             guiInventory.addItem(itemStack);
         }

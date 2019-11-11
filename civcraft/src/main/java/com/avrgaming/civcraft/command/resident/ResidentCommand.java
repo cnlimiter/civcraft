@@ -18,16 +18,6 @@
  */
 package com.avrgaming.civcraft.command.resident;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.TimeZone;
-
-import org.bukkit.Location;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -42,6 +32,15 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Location;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.TimeZone;
 
 public class ResidentCommand extends CommandBase {
 
@@ -88,7 +87,7 @@ public class ResidentCommand extends CommandBase {
             throw new CivException(CivSettings.localize.localizedString("cmd_res_report_badMessage", CivColor.GoldBold + split[2] + " " + split[3]));
         }
 		SimpleDateFormat sdf = new SimpleDateFormat("M/dd/yy h:mm:ss a z");
-        CivMessage.send((Object)this.sender, CivColor.Red + admin + ": Complaint #" + report.getId() + ": " + "§a" + result + "§b" + " (" + sdf.format(report.getCloseTime()) + ")");
+        CivMessage.send((Object)this.sender, CivColor.Red + admin + ": Complaint #" + report.getId() + ": " + "Â§a" + result + "Â§b" + " (" + sdf.format(report.getCloseTime()) + ")");
         resident.setReportChecked(false);
     }
 	

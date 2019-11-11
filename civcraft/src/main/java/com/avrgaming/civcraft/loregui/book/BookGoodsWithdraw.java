@@ -1,19 +1,10 @@
 
 package com.avrgaming.civcraft.loregui.book;
 
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTradeGood;
 import com.avrgaming.civcraft.loregui.GuiAction;
 import com.avrgaming.civcraft.loregui.OpenInventoryTask;
-import com.avrgaming.civcraft.loregui.book.BookGoodsGui;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
 import com.avrgaming.civcraft.main.CivGlobal;
@@ -24,6 +15,13 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.apache.commons.lang.StringUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class BookGoodsWithdraw
 implements GuiAction {
@@ -38,11 +36,11 @@ implements GuiAction {
             return;
         }
         if (!to.getLeaderGroup().hasMember(resident) && !resident.getSelectedTown().getMayorGroup().hasMember(resident)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "ง6" + to.getName() + CivColor.Red, "ง6" + from.getName() + CivColor.Red));
+            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "ยง6" + to.getName() + CivColor.Red, "ยง6" + from.getName() + CivColor.Red));
             return;
         }
         if (StringUtils.isBlank((String)from.tradeGoods)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", "ง6" + from.getName() + CivColor.Red));
+            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", "ยง6" + from.getName() + CivColor.Red));
             return;
         }
         Inventory withdrawInventory = Bukkit.getServer().createInventory(player, 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_gift_giftInvName", CivColor.RoseBold + from.getName()));
@@ -50,7 +48,7 @@ implements GuiAction {
         for (String goodID : from.tradeGoods.split(", ")) {
             ConfigTradeGood configTradeGood = CivSettings.goods.get(goodID);
             if (configTradeGood == null) continue;
-            String[] split = CivSettings.getBonusDisplayString(configTradeGood, "งa" + CivSettings.localize.localizedString("cmd_civ_trade_withdraw_clickToWithdraw", new StringBuilder().append("ง2").append(to.getName()).append("งa").toString())).split(";");
+            String[] split = CivSettings.getBonusDisplayString(configTradeGood, "ยงa" + CivSettings.localize.localizedString("cmd_civ_trade_withdraw_clickToWithdraw", new StringBuilder().append("ยง2").append(to.getName()).append("ยงa").toString())).split(";");
             ItemStack tradeGood = LoreGuiItem.build(configTradeGood.name, configTradeGood.material, configTradeGood.material_data, split);
             tradeGood = LoreGuiItem.setAction(tradeGood, "Confirmation");
             tradeGood = LoreGuiItem.setActionData(tradeGood, "civilizationName", to.getName());
@@ -58,7 +56,7 @@ implements GuiAction {
             tradeGood = LoreGuiItem.setActionData(tradeGood, "tradeGoodID", goodID);
             tradeGood = LoreGuiItem.setActionData(tradeGood, "passFields", "civilizationName,townName,tradeGoodID");
             tradeGood = LoreGuiItem.setActionData(tradeGood, "passAction", "WithdrawTradeGood");
-            tradeGood = LoreGuiItem.setActionData(tradeGood, "confirmText", CivSettings.localize.localizedString("cmd_civ_trade_withdraw_confirmText", "ง2" + to.getName() + "งa"));
+            tradeGood = LoreGuiItem.setActionData(tradeGood, "confirmText", CivSettings.localize.localizedString("cmd_civ_trade_withdraw_confirmText", "ยง2" + to.getName() + "ยงa"));
             withdrawInventory.setItem(i, tradeGood);
             ++i;
         }

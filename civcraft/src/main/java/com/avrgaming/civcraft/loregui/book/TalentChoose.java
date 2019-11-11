@@ -1,19 +1,10 @@
 
 package com.avrgaming.civcraft.loregui.book;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigLevelTalent;
 import com.avrgaming.civcraft.loregui.GuiAction;
 import com.avrgaming.civcraft.loregui.OpenInventoryTask;
-import com.avrgaming.civcraft.loregui.book.BookTalentGui;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
 import com.avrgaming.civcraft.main.CivGlobal;
@@ -24,6 +15,13 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 
 public class TalentChoose
 implements GuiAction {
@@ -63,7 +61,7 @@ implements GuiAction {
         firstTalent = LoreGuiItem.setActionData(firstTalent, "description", configLevelTalent.levelBuffDesc1);
         firstTalent = LoreGuiItem.setActionData(firstTalent, "passFields", "buff,number,description");
         firstTalent = LoreGuiItem.setActionData(firstTalent, "passAction", "ChooseTalent");
-        firstTalent = LoreGuiItem.setActionData(firstTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "§a", CivColor.GoldBold + "1" + "§a"));
+        firstTalent = LoreGuiItem.setActionData(firstTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "Â§a", CivColor.GoldBold + "1" + "Â§a"));
         firstTalent = LoreGuiItem.setActionData(firstTalent, "confirmText2", CivColor.RoseBold + configLevelTalent.levelBuffDesc1);
         ItemStack secondTalent = LoreGuiItem.build("", ItemManager.getId(Material.EMERALD_BLOCK), 0, configLevelTalent.levelBuffDesc2);
         secondTalent = LoreGuiItem.setAction(secondTalent, "Confirmation");
@@ -73,7 +71,7 @@ implements GuiAction {
         secondTalent = LoreGuiItem.setActionData(secondTalent, "description", configLevelTalent.levelBuffDesc2);
         secondTalent = LoreGuiItem.setActionData(secondTalent, "passFields", "buff,number,description");
         secondTalent = LoreGuiItem.setActionData(secondTalent, "passAction", "ChooseTalent");
-        secondTalent = LoreGuiItem.setActionData(secondTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "§a", CivColor.GoldBold + "2" + "§a"));
+        secondTalent = LoreGuiItem.setActionData(secondTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "Â§a", CivColor.GoldBold + "2" + "Â§a"));
         secondTalent = LoreGuiItem.setActionData(secondTalent, "confirmText2", CivColor.GoldBold + configLevelTalent.levelBuffDesc2);
         ItemStack thirdTalent = LoreGuiItem.build("", ItemManager.getId(Material.LAPIS_BLOCK), 0, configLevelTalent.levelBuffDesc3);
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "confirmText2", CivColor.BlueBold + configLevelTalent.levelBuffDesc3);
@@ -84,7 +82,7 @@ implements GuiAction {
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "description", configLevelTalent.levelBuffDesc3);
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "passFields", "buff,number,description");
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "passAction", "ChooseTalent");
-        thirdTalent = LoreGuiItem.setActionData(thirdTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "§a", CivColor.GoldBold + "3" + "§a"));
+        thirdTalent = LoreGuiItem.setActionData(thirdTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "Â§a", CivColor.GoldBold + "3" + "Â§a"));
         this.inventory.addItem(new ItemStack[]{firstTalent});
         this.inventory.addItem(new ItemStack[]{secondTalent});
         this.inventory.addItem(new ItemStack[]{thirdTalent});

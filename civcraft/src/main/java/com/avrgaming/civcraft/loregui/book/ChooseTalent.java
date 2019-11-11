@@ -1,22 +1,21 @@
 
 package com.avrgaming.civcraft.loregui.book;
 
-import java.sql.SQLException;
-
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.loregui.GuiAction;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Talent;
 import com.avrgaming.civcraft.object.Town;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.sql.SQLException;
 
 public class ChooseTalent
 implements GuiAction {
@@ -48,7 +47,7 @@ implements GuiAction {
 			e.printStackTrace();
 		}
         CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_talent_choose_sucusses", player.getDisplayName(), number, description, capitol.getCultureLevel()));
-        CivMessage.send((Object)player, "§a" + CivSettings.localize.localizedString("cmd_civ_talent_choose_sucussesSender"));
+        CivMessage.send((Object)player, "Â§a" + CivSettings.localize.localizedString("cmd_civ_talent_choose_sucussesSender"));
         player.closeInventory();
     }
 

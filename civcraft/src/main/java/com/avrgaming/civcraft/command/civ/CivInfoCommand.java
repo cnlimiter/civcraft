@@ -177,7 +177,7 @@ public class CivInfoCommand extends CommandBase {
 		CivMessage.send(sender, CivColor.Green+CivSettings.localize.localizedString("Score")+" "+CivColor.LightGreen+civ.getScore()+
 				CivColor.Green+" "+CivSettings.localize.localizedString("Towns")+" "+CivColor.LightGreen+civ.getTownCount());
 		if (civ.hasResident(resident)) {
-            CivMessage.send((Object)sender, "ง2" + CivSettings.localize.localizedString("Goverment", new StringBuilder().append("งa").append(civ.getGovernment().displayName).toString()));
+            CivMessage.send((Object)sender, "ยง2" + CivSettings.localize.localizedString("Goverment", new StringBuilder().append("ยงa").append(civ.getGovernment().displayName).toString()));
         }
 		if (civ.getLeaderGroup() == null) {
 			CivMessage.send(sender, CivColor.Green+CivSettings.localize.localizedString("Leaders")+" "+CivColor.Rose+"NONE");

@@ -4,28 +4,29 @@
 
 package com.avrgaming.civcraft.loregui.book;
 
-import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigLevelTalent;
+import com.avrgaming.civcraft.loregui.GuiAction;
+import com.avrgaming.civcraft.loregui.OpenInventoryTask;
+import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
+import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.object.Buff;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.loregui.OpenInventoryTask;
-import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 import com.avrgaming.civcraft.util.CivColor;
-import org.bukkit.Material;
-import com.avrgaming.civcraft.config.ConfigLevelTalent;
-import com.avrgaming.civcraft.object.Buff;
-import java.util.TreeMap;
-import org.bukkit.inventory.InventoryHolder;
-import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.util.ItemManager;
 import org.bukkit.Bukkit;
-import com.avrgaming.civcraft.main.CivGlobal;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import com.avrgaming.civcraft.loregui.GuiAction;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.TreeMap;
 
 public class TalentList implements GuiAction
 {
@@ -55,15 +56,15 @@ public class TalentList implements GuiAction
                 String description = CivSettings.localize.localizedString("Broken");
                 if (configLevelTalent.levelBuff1.equals(buff.getId())) {
                     id = ItemManager.getId(Material.REDSTONE_BLOCK);
-                    description = "§c" + configLevelTalent.levelBuffDesc1;
+                    description = "Â§c" + configLevelTalent.levelBuffDesc1;
                 }
                 else if (configLevelTalent.levelBuff2.equals(buff.getId())) {
                     id = ItemManager.getId(Material.EMERALD_BLOCK);
-                    description = "§a" + configLevelTalent.levelBuffDesc2;
+                    description = "Â§a" + configLevelTalent.levelBuffDesc2;
                 }
                 else if (configLevelTalent.levelBuff3.equals(buff.getId())) {
                     id = ItemManager.getId(Material.LAPIS_BLOCK);
-                    description = "§b" + configLevelTalent.levelBuffDesc3;
+                    description = "Â§b" + configLevelTalent.levelBuffDesc3;
                 }
                 final ItemStack talent = LoreGuiItem.build(CivColor.GoldBold + configLevelTalent.levelName + CivColor.RESET + " (" + CivColor.BlueBold + configLevelTalent.level + CivColor.RESET + ")", id, 0, description);
                 talents.put(configLevelTalent.level, talent);
@@ -71,7 +72,7 @@ public class TalentList implements GuiAction
             }
         }
         if (!hasAnyTalent) {
-            final ItemStack talent2 = LoreGuiItem.build("§c" + CivSettings.localize.localizedString("cmd_civ_talent_list_noOne"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, new String[0]);
+            final ItemStack talent2 = LoreGuiItem.build("Â§c" + CivSettings.localize.localizedString("cmd_civ_talent_list_noOne"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, new String[0]);
             this.inventory.addItem(talent2);
         }
         this.inventory.addItem((ItemStack[])talents.values().toArray(new ItemStack[talents.values().size()]));

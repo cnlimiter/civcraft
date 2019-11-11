@@ -1,19 +1,10 @@
 
 package com.avrgaming.civcraft.loregui.book;
 
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTradeGood;
 import com.avrgaming.civcraft.loregui.GuiAction;
 import com.avrgaming.civcraft.loregui.OpenInventoryTask;
-import com.avrgaming.civcraft.loregui.book.BookGoodsGui;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
 import com.avrgaming.civcraft.main.CivGlobal;
@@ -24,25 +15,32 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.apache.commons.lang.StringUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class BookGoodsDeposit
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident resident = CivGlobal.getResident(player);
         Civilization from = resident.getCiv();
         Town to = resident.getSelectedTown();
         if (from == null) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
             return;
         }
         if (!from.getLeaderGroup().hasMember(resident)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_virtualTG_noPerm", "ง6" + from.getName() + CivColor.Red));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noPerm", "ยง6" + from.getName() + CivColor.Red));
             return;
         }
-        if (StringUtils.isBlank((String)from.tradeGoods)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
+        if (StringUtils.isBlank((String) from.tradeGoods)) {
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
             return;
         }
         Inventory gepositInventory = Bukkit.getServer().createInventory(player, 54, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_gift_giftInvName", CivColor.RoseBold + from.getName()));
@@ -50,14 +48,14 @@ implements GuiAction {
         for (String goodID : from.tradeGoods.split(", ")) {
             ConfigTradeGood configTradeGood = CivSettings.goods.get(goodID);
             if (configTradeGood == null) continue;
-            String[] split = CivSettings.getBonusDisplayString(configTradeGood, "งa" + CivSettings.localize.localizedString("cmd_civ_trade_deposit_clickToDeposit", new StringBuilder().append("ง2").append(to.getName()).append("งa").toString())).split(";");
+            String[] split = CivSettings.getBonusDisplayString(configTradeGood, "ยงa" + CivSettings.localize.localizedString("cmd_civ_trade_deposit_clickToDeposit", new StringBuilder().append("ยง2").append(to.getName()).append("ยงa").toString())).split(";");
             ItemStack tradeGood = LoreGuiItem.build(configTradeGood.name, configTradeGood.material, configTradeGood.material_data, split);
             tradeGood = LoreGuiItem.setAction(tradeGood, "Confirmation");
             tradeGood = LoreGuiItem.setActionData(tradeGood, "townName", to.getName());
             tradeGood = LoreGuiItem.setActionData(tradeGood, "tradeGoodID", goodID);
             tradeGood = LoreGuiItem.setActionData(tradeGood, "passFields", "townName,tradeGoodID");
             tradeGood = LoreGuiItem.setActionData(tradeGood, "passAction", "DepositTradeGood");
-            tradeGood = LoreGuiItem.setActionData(tradeGood, "confirmText", CivSettings.localize.localizedString("cmd_civ_trade_deposit_confirmText", "ง2" + to.getName() + "งa"));
+            tradeGood = LoreGuiItem.setActionData(tradeGood, "confirmText", CivSettings.localize.localizedString("cmd_civ_trade_deposit_confirmText", "ยง2" + to.getName() + "ยงa"));
             gepositInventory.setItem(i, tradeGood);
             ++i;
         }

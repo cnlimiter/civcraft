@@ -276,7 +276,7 @@ public class Blacksmith extends Structure {
 		Catalyst catalyst;
 		
 		if (!CivGlobal.getResident(player).getTreasury().hasEnough(cost)) {
-            throw new CivException("งc" + CivSettings.localize.localizedString("blacksmith_forge_notEnough", "ง6" + (cost - CivGlobal.getResident(player).getTreasury().getBalance())));
+            throw new CivException("ยงc" + CivSettings.localize.localizedString("blacksmith_forge_notEnough", "ยง6" + (cost - CivGlobal.getResident(player).getTreasury().getBalance())));
         }
 		
 		String freeStr = attrs.getCivCraftProperty("freeCatalyst");
@@ -347,7 +347,7 @@ public class Blacksmith extends Structure {
             }
         }
         if (bonusDefense > 0.0 && bonusDefense >= 3.75) {
-            throw new CivException("งc" + CivSettings.localize.localizedString("blacksmith_forge_invalidCatasOnItem", ""));
+            throw new CivException("ยงc" + CivSettings.localize.localizedString("blacksmith_forge_invalidCatasOnItem", ""));
         }
 		
 		stack = player.getInventory().getItemInMainHand();

@@ -60,7 +60,7 @@ extends Structure {
     private String getArtifactSignText(int index) throws IndexOutOfBoundsException {
         ArrayList<ConfigUnit> artifactList = this.getTown().getAvailableArtifacts();
         if (artifactList.size() == 0) {
-            return "\nง7" + CivSettings.localize.localizedString("Nothing") + "\n" + CivColor.LightGray + CivSettings.localize.localizedString("Available");
+            return "\nยง7" + CivSettings.localize.localizedString("Nothing") + "\n" + CivColor.LightGray + CivSettings.localize.localizedString("Available");
         }
         ConfigUnit unit = artifactList.get(index);
         String out = "\n";
@@ -276,7 +276,7 @@ extends Structure {
             catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
                 this.trainingArtifact = null;
                 this.currentHammers = 0.0;
-                CivMessage.sendTown(this.getTown(), "ง4" + CivSettings.localize.localizedString("ordinary_errorUnknown") + e.getMessage());
+                CivMessage.sendTown(this.getTown(), "ยง4" + CivSettings.localize.localizedString("ordinary_errorUnknown") + e.getMessage());
             }
             catch (InvocationTargetException e) {
                 CivMessage.sendTown(this.getTown(), CivColor.Red + e.getCause().getMessage());

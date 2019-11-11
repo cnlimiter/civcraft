@@ -12,7 +12,7 @@ public class BookTutorialWikiLink
 implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        CivMessage.send((Object)event.getWhoClicked(), "§a" + CivSettings.localize.localizedString("cmd_wiki_wikiLink", "http://wiki.minetexas.com/index.php/Civcraft_Wiki"));
+        CivMessage.send((Object)event.getWhoClicked(), "Â§a" + CivSettings.localize.localizedString("cmd_wiki_wikiLink", "http://wiki.minetexas.com/index.php/Civcraft_Wiki"));
     }
 }
 

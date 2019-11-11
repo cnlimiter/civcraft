@@ -270,7 +270,7 @@ public class DailyTimer implements Runnable {
 						var1.save();
 						newCiv = town.getCiv().getName();
 					}
-					CivMessage.globalTitle("ง6" + CivSettings.localize.localizedString("var_autoCapitulate_CivTitle", town.getMotherCiv().getName()), "ง6" + CivSettings.localize.localizedString("var_autoCapitulate_CivSubTitle", newCiv));
+					CivMessage.globalTitle("ยง6" + CivSettings.localize.localizedString("var_autoCapitulate_CivTitle", town.getMotherCiv().getName()), "ยง6" + CivSettings.localize.localizedString("var_autoCapitulate_CivSubTitle", newCiv));
 					try {
 						town.getMotherCiv().delete();
 					}
@@ -283,7 +283,7 @@ public class DailyTimer implements Runnable {
 				town.setMotherCiv(null);
 				town.setConqueredDate(0L);
 				town.save();
-				CivMessage.globalTitle("ง6" + CivSettings.localize.localizedString("var_autoCapitulate_townTitle", town.getName()), "ง6" + CivSettings.localize.localizedString("var_autoCapitulate_townSubTitle", motherCiv));
+				CivMessage.globalTitle("ยง6" + CivSettings.localize.localizedString("var_autoCapitulate_townTitle", town.getName()), "ยง6" + CivSettings.localize.localizedString("var_autoCapitulate_townSubTitle", motherCiv));
 				continue;
 			}
 			CivLog.warning(town.getName() + "has no Mother civilization. AutoCapitulate interrupted");

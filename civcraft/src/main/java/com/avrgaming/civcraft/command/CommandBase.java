@@ -692,13 +692,13 @@ public abstract class CommandBase implements CommandExecutor {
 			throw new CivException(CivSettings.localize.localizedString("cmd_NameNoResults") + " '" + this.args[index] + "'");
 		}
 		if (potentialMatches.size() != 1) {
-			CivMessage.send(this.sender, "§d" + ChatColor.UNDERLINE + CivSettings.localize.localizedString("cmd_NameMoreThan1"));
+			CivMessage.send(this.sender, "Â§d" + ChatColor.UNDERLINE + CivSettings.localize.localizedString("cmd_NameMoreThan1"));
 			CivMessage.send(this.sender, " ");
 			final StringBuilder out = new StringBuilder();
 			for (final Civilization civ2 : potentialMatches) {
 				out.append(civ2.getName()).append(", ");
 			}
-			CivMessage.send(this.sender, "§b" + ChatColor.ITALIC + (Object)out);
+			CivMessage.send(this.sender, "Â§b" + ChatColor.ITALIC + (Object)out);
 			throw new CivException(CivSettings.localize.localizedString("cmd_NameMoreThan2"));
 		}
 		return potentialMatches.get(0);

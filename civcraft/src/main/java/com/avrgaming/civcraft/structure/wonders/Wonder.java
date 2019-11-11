@@ -18,15 +18,6 @@
  */
 package com.avrgaming.civcraft.structure.wonders;
 
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-
-import org.bukkit.Location;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuff;
 import com.avrgaming.civcraft.config.ConfigWonderBuff;
@@ -42,6 +33,14 @@ import com.avrgaming.civcraft.structure.Buildable;
 import com.avrgaming.civcraft.template.Template;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
 
 public abstract class Wonder extends Buildable {
 
@@ -562,7 +561,7 @@ public abstract class Wonder extends Buildable {
         double coinsPerTown = 2000.0;
         double total = coinsPerTown * castleCount;
         this.getCiv().getTreasury().deposit(total);
-        CivMessage.sendCiv(this.getCiv(), CivColor.LightGreen+CivSettings.localize.localizedString("var_neuschwanstein_generatedCoins", "§e" + total + "§a", CivSettings.CURRENCY_NAME, castleCount, "§b" + this.getTown().getName()));
+        CivMessage.sendCiv(this.getCiv(), CivColor.LightGreen+CivSettings.localize.localizedString("var_neuschwanstein_generatedCoins", "Â§e" + total + "Â§a", CivSettings.CURRENCY_NAME, castleCount, "Â§b" + this.getTown().getName()));
     }
 	
 }

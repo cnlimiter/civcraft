@@ -105,10 +105,10 @@ public class CivCommand extends CommandBase {
         }
         final int summary = 16500000 - cultureSummary;
         if (!culturePassed) {
-            CivMessage.send(this.sender, "ง2" + CivSettings.localize.localizedString("cmd_civ_culture_cultureRequired", CivColor.LightGreenBold + summary + "ง2"));
+            CivMessage.send(this.sender, "ยง2" + CivSettings.localize.localizedString("cmd_civ_culture_cultureRequired", CivColor.LightGreenBold + summary + "ยง2"));
         }
         if (!hasBurj) {
-            CivMessage.send(this.sender, "ง2" + CivSettings.localize.localizedString("cmd_civ_culture_burjRequired", CivColor.LightGreenBold + "Burj Kalifa"));
+            CivMessage.send(this.sender, "ยง2" + CivSettings.localize.localizedString("cmd_civ_culture_burjRequired", CivColor.LightGreenBold + "Burj Kalifa"));
         }
     }
 
@@ -388,7 +388,7 @@ public class CivCommand extends CommandBase {
 		out.add(CivColor.Green+CivSettings.localize.localizedString("cmd_civ_timeRepo")+" "+CivColor.LightGreen+sdf.format(cal.getTime()));
 		
 		cal.setTimeInMillis(CivGlobal.cantDemolishFrom);
-        out.add("ง2" + CivSettings.localize.localizedString("cmd_civ_timeCantDemolish", "ง6" + sdf.format(cal.getTime()) + "งa", "งc" + sdf.format(cal.getTimeInMillis() + 18000000L) + "งa", "งa"));
+        out.add("ยง2" + CivSettings.localize.localizedString("cmd_civ_timeCantDemolish", "ยง6" + sdf.format(cal.getTime()) + "ยงa", "ยงc" + sdf.format(cal.getTimeInMillis() + 18000000L) + "ยงa", "ยงa"));
         
 		if (War.isWarTime()) {
 			out.add(CivColor.Yellow+CivSettings.localize.localizedString("cmd_civ_timeWarNow"));
@@ -401,7 +401,7 @@ public class CivCommand extends CommandBase {
 			cal.setTime(War.getNextWarTime());
 			out.add(CivColor.Green+CivSettings.localize.localizedString("cmd_civ_timeWarNext")+" "+CivColor.LightGreen+sdf.format(cal.getTime()));
 		}
-        out.add("ง7" + CivSettings.localize.localizedString("cmd_civ_timeCantDemolishHelp"));
+        out.add("ยง7" + CivSettings.localize.localizedString("cmd_civ_timeCantDemolishHelp"));
 		
 		Player player = null;
 		try {

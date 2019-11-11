@@ -33,23 +33,23 @@ implements GuiAction {
         Resident resident = CivGlobal.getResident(player);
         if (resident.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, ""+CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send((Object)player, "搂c"+CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         inventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("resident_relationsGuiHeading"));
-        ItemStack relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_ally"), ItemManager.getId(Material.EMERALD_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_allyInfo"), "񘬒" + CivSettings.localize.localizedString("bookReborn_clickToView"));
+        ItemStack relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_ally"), ItemManager.getId(Material.EMERALD_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_allyInfo"), "搂6搂6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
         relation = LoreGuiItem.setAction(relation, "RelationGuiAllies");
         relation = LoreGuiItem.setActionData(relation, "civilization", resident.getCiv().getName());
         inventory.addItem(relation);
-        relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_peace"), ItemManager.getId(Material.LAPIS_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_peaceInfo"), "񘬒" + CivSettings.localize.localizedString("bookReborn_clickToView"));
+        relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_peace"), ItemManager.getId(Material.LAPIS_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_peaceInfo"), "搂6搂6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
         relation = LoreGuiItem.setAction(relation, "RelationGuiPeaces");
         relation = LoreGuiItem.setActionData(relation, "civilization", resident.getCiv().getName());
         inventory.addItem(relation);
-        relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_hostile"), ItemManager.getId(Material.GOLD_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_hostileInfo"), "񘬒" + CivSettings.localize.localizedString("bookReborn_clickToView"));
+        relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_hostile"), ItemManager.getId(Material.GOLD_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_hostileInfo"), "搂6搂6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
         relation = LoreGuiItem.setAction(relation, "RelationGuiHostiles");
         relation = LoreGuiItem.setActionData(relation, "civilization", resident.getCiv().getName());
         inventory.addItem(relation);
-        relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_war"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_warInfo"), "񘬒" + CivSettings.localize.localizedString("bookReborn_clickToView"));
+        relation = LoreGuiItem.build(CivColor.LightGreenBold + CivSettings.localize.localizedString("resident_relationsGui_war"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, (Object)ChatColor.RESET + CivSettings.localize.localizedString("resident_relationsGui_warInfo"), "搂6搂6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
         relation = LoreGuiItem.setAction(relation, "RelationGuiWars");
         relation = LoreGuiItem.setActionData(relation, "civilization", resident.getCiv().getName());
         inventory.addItem(relation);

@@ -90,9 +90,9 @@ public class TownInfoCommand extends CommandBase {
             throw new CivException(CivSettings.localize.localizedString("cmd_town_info_tradeship_noShip"));
         }
         TradeShip tradeShip = (TradeShip)town.getStructureByType("ti_trade_ship");
-        CivMessage.sendSuccess(this.sender, CivSettings.localize.localizedString("cmd_town_info_tradeship_level", "งb" + tradeShip.getLevel()));
+        CivMessage.sendSuccess(this.sender, CivSettings.localize.localizedString("cmd_town_info_tradeship_level", "ยงb" + tradeShip.getLevel()));
         CivMessage.sendSuccess(this.sender, CivSettings.localize.localizedString("cmd_town_info_tradeship_progress", CivColor.Red + tradeShip.getConsumeComponent().getCountString()));
-        CivMessage.sendSuccess(this.sender, CivSettings.localize.localizedString("cmd_town_info_tradeship_stagnateDebuff", "ง6" + tradeShip.getLastResult() + "งa", "ง2" + "Progress" + "งa"));
+        CivMessage.sendSuccess(this.sender, CivSettings.localize.localizedString("cmd_town_info_tradeship_stagnateDebuff", "ยง6" + tradeShip.getLastResult() + "ยงa", "ยง2" + "Progress" + "ยงa"));
         CivMessage.sendHeading(this.sender, "");
     }
 
@@ -452,16 +452,16 @@ public class TownInfoCommand extends CommandBase {
 		out.add(CivColor.Green+CivSettings.localize.localizedString("SubTotal")+" "+CivColor.Yellow+total);
 		out.add(CivColor.Green+CivSettings.localize.localizedString("cmd_civ_gov_infoCottage")+" "+CivColor.Yellow+df.format(town.getCottageRate()*100)+"%");
         if (town.getBuffManager().hasBuff("buff_pyramid_cottage_bonus")) {
-            out.add("ง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_pyramid", new StringBuilder().append("งa").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus") - 1.0) * 100.0)).toString()));
+            out.add("ยง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_pyramid", new StringBuilder().append("ยงa").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus") - 1.0) * 100.0)).toString()));
         }
         if (town.getBuffManager().hasBuff("buff_hotel")) {
-            out.add("ง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", new StringBuilder().append("งa").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)).toString()));
+            out.add("ยง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", new StringBuilder().append("ยงa").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)).toString()));
         }
         if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraCottageTown")) {
-            out.add("ง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", new StringBuilder().append("งa").append(Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraCottageTown") - 1.0) * 100.0)).toString()));
+            out.add("ยง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", new StringBuilder().append("ยงa").append(Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraCottageTown") - 1.0) * 100.0)).toString()));
         }
         if (town.getCiv().getStockExchangeLevel() >= 1) {
-            out.add("ง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_stockExchange", "งa30%", String.valueOf(town.getCiv().getStockExchangeLevel())));
+            out.add("ยง2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_stockExchange", "ยงa30%", String.valueOf(town.getCiv().getStockExchangeLevel())));
         }
 		total *= town.getCottageRate();
         total *= town.getBonusCottageRate();

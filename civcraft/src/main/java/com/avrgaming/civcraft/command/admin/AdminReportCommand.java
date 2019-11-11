@@ -1,16 +1,17 @@
 
 package com.avrgaming.civcraft.command.admin;
 
-import java.text.SimpleDateFormat;
-import org.bukkit.Bukkit;
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Report;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.Bukkit;
+
+import java.text.SimpleDateFormat;
 
 public class AdminReportCommand
 extends CommandBase {
@@ -59,7 +60,7 @@ extends CommandBase {
         CivMessage.sendHeading(this.sender, "Server Bugs " + Bukkit.getServerName());
         for (Report report : CivGlobal.getReports()) {
             if (report.getClosed() || !report.getBug()) continue;
-            String message = CivColor.LightGray + "(" + report.getId() + ") " + "§a" + "Reporter: " + CivColor.Red + report.getReportedBy() + " " + "§d" + "Time: " + sdf.format(report.getTime()) + " " + "§b" + "Proof: " + report.getProof();
+            String message = CivColor.LightGray + "(" + report.getId() + ") " + "Â§a" + "Reporter: " + CivColor.Red + report.getReportedBy() + " " + "Â§d" + "Time: " + sdf.format(report.getTime()) + " " + "Â§b" + "Proof: " + report.getProof();
             CivMessage.send((Object)this.sender, message);
         }
     }
@@ -69,7 +70,7 @@ extends CommandBase {
         CivMessage.sendHeading(this.sender, "Player Reports " + Bukkit.getServerName());
         for (Report report : CivGlobal.getReports()) {
             if (report.getClosed() || report.getBug()) continue;
-            String message = CivColor.LightGray + "(" + report.getId() + ") " + "§a" + "Reporter: " + CivColor.Red + report.getReportedBy() + " " + "§d" + "Time: " + sdf.format(report.getTime()) + " " + "§b" + "Proof: " + report.getProof() + " " + "§2" + "Player: " + report.getCause();
+            String message = CivColor.LightGray + "(" + report.getId() + ") " + "Â§a" + "Reporter: " + CivColor.Red + report.getReportedBy() + " " + "Â§d" + "Time: " + sdf.format(report.getTime()) + " " + "Â§b" + "Proof: " + report.getProof() + " " + "Â§2" + "Player: " + report.getCause();
             CivMessage.send((Object)this.sender, message);
         }
     }

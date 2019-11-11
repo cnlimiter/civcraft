@@ -14,14 +14,14 @@ public class BookLinksAction
 implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        CivMessage.send((Object)event.getWhoClicked(), "งa" + CivSettings.localize.localizedString("cmd_wiki_wikiLink", "http://wiki.minetexas.com/index.php/Civcraft_Wiki"));
+        CivMessage.send((Object)event.getWhoClicked(), "ยงa" + CivSettings.localize.localizedString("cmd_wiki_wikiLink", "http://wiki.minetexas.com/index.php/Civcraft_Wiki"));
         try {
 			String url = CivSettings.getStringBase("dynmap_url");
 			if (!url.isEmpty()) {
-		        CivMessage.send((Object)event.getWhoClicked(), "ง2" + CivSettings.localize.localizedString("cmd_map_dynmapLink", url));
+		        CivMessage.send((Object)event.getWhoClicked(), "ยง2" + CivSettings.localize.localizedString("cmd_map_dynmapLink", url));
 			}
 		} catch (InvalidConfiguration e) {
-	        CivMessage.send((Object)event.getWhoClicked(), "ง2" + CivSettings.localize.localizedString("cmd_map_dynmapLink", "None"));
+	        CivMessage.send((Object)event.getWhoClicked(), "ยง2" + CivSettings.localize.localizedString("cmd_map_dynmapLink", "None"));
 		}
     }
 }

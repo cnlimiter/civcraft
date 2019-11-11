@@ -96,10 +96,10 @@ public class CivData {
 	public static final int GUNPOWDER = 289;
 	
 	public static final int MONSTER_EGG = 383;
-	public static final String BOOK_UNDERLINE = "§n";
-	public static final String BOOK_BOLD = "§l";
-	public static final String BOOK_ITALIC = "§o";
-	public static final String BOOK_NORMAL = "§r";
+	public static final String BOOK_UNDERLINE = "Â§n";
+	public static final String BOOK_BOLD = "Â§l";
+	public static final String BOOK_ITALIC = "Â§o";
+	public static final String BOOK_NORMAL = "Â§r";
 	
 	public static final byte DATA_SIGN_EAST = 0x5;
 	public static final int DATA_SIGN_WEST = 0x4;

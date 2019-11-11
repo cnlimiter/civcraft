@@ -2,237 +2,235 @@ package com.avrgaming.civcraft.util;
 
 import org.bukkit.ChatColor;
 
-public class CivColor
-{
-  public static final String Black = "ง0";
-  public static final String Navy = "ง1";
-  public static final String Green = "ง2";
-  public static final String Blue = "ง3";
-  public static final String Red = "ง4";
-  public static final String Purple = "ง5";
-  public static final String Gold = "ง6";
-  public static final String LightGray = "ง7";
-  public static final String Gray = "ง8";
-  public static final String DarkPurple = "ง9";
-  public static final String LightGreen = "งa";
-  public static final String LightBlue = "งb";
-  public static final String Rose = "งc";
-  public static final String LightPurple = "งd";
-  public static final String Yellow = "งe";
-  public static final String White = "งf";
-  public static final String BOLD = "" + ChatColor.BOLD;
-  public static final String ITALIC = "" + ChatColor.ITALIC;
-  public static final String RESET = "" + ChatColor.RESET;
-  public static final String UNDERLINE = "" + ChatColor.UNDERLINE;
-  
-  public static final String BlackBold = "ง0" + ChatColor.BOLD;
-  public static final String NavyBold = "ง1" + ChatColor.BOLD;
-  public static final String GreenBold = "ง2" + ChatColor.BOLD;
-  public static final String BlueBold = "ง3" + ChatColor.BOLD;
-  public static final String RedBold = "ง4" + ChatColor.BOLD;
-  public static final String PurpleBold = "ง5" + ChatColor.BOLD;
-  public static final String GoldBold = "ง6" + ChatColor.BOLD;
-  public static final String LightGrayBold = "ง7" + ChatColor.BOLD;
-  public static final String GrayBold = "ง8" + ChatColor.BOLD;
-  public static final String DarkPurpleBold = "ง9" + ChatColor.BOLD;
-  public static final String LightGreenBold = "งa" + ChatColor.BOLD;
-  public static final String LightBlueBold = "งb" + ChatColor.BOLD;
-  public static final String RoseBold = "งc" + ChatColor.BOLD;
-  public static final String LightPurpleBold = "งd" + ChatColor.BOLD;
-  public static final String YellowBold = "งe" + ChatColor.BOLD;
-  public static final String WhiteBold = "งf" + ChatColor.BOLD;
-  
-  public static final String BlackItalic = "ง0" + ChatColor.ITALIC;
-  public static final String NavyItalic = "ง1" + ChatColor.ITALIC;
-  public static final String GreenItalic = "ง2" + ChatColor.ITALIC;
-  public static final String BlueItalic = "ง3" + ChatColor.ITALIC;
-  public static final String RedItalic = "ง4" + ChatColor.ITALIC;
-  public static final String PurpleItalic = "ง5" + ChatColor.ITALIC;
-  public static final String GoldItalic = "ง6" + ChatColor.ITALIC;
-  public static final String LightGrayItalic = "ง7" + ChatColor.ITALIC;
-  public static final String GrayItalic = "ง8" + ChatColor.ITALIC;
-  public static final String DarkPurpleItalic = "ง9" + ChatColor.ITALIC;
-  public static final String LightGreenItalic = "งa" + ChatColor.ITALIC;
-  public static final String LightBlueItalic = "งb" + ChatColor.ITALIC;
-  public static final String RoseItalic = "งc" + ChatColor.ITALIC;
-  public static final String LightPurpleItalic = "งd" + ChatColor.ITALIC;
-  public static final String YellowItalic = "งe" + ChatColor.ITALIC;
-  public static final String WhiteItalic = "งf" + ChatColor.ITALIC;
-  
-  public static final String YellowBoldItalic = "งe" + ChatColor.BOLD + ChatColor.ITALIC;
-  
-  public static String colorize(String input) {
-    String output = input;
-    
-    output = output.replaceAll("<red>", "ง4");
-    output = output.replaceAll("<rose>", "งc");
-    output = output.replaceAll("<gold>", "ง6");
-    output = output.replaceAll("<yellow>", "งe");
-    output = output.replaceAll("<green>", "ง2");
-    output = output.replaceAll("<lightgreen>", "งa");
-    output = output.replaceAll("<lightblue>", "งb");
-    output = output.replaceAll("<blue>", "ง3");
-    output = output.replaceAll("<navy>", "ง1");
-    output = output.replaceAll("<darkpurple>", "ง9");
-    output = output.replaceAll("<lightpurple>", "งd");
-    output = output.replaceAll("<purple>", "ง5");
-    output = output.replaceAll("<white>", "งf");
-    output = output.replaceAll("<lightgray>", "ง7");
-    output = output.replaceAll("<gray>", "ง8");
-    output = output.replaceAll("<black>", "ง0");
-    
-    output = output.replaceAll("<redb>", RedBold);
-    output = output.replaceAll("<roseb>", RoseBold);
-    output = output.replaceAll("<goldb>", GoldBold);
-    output = output.replaceAll("<yellowb>", YellowBold);
-    output = output.replaceAll("<greenb>", GreenBold);
-    output = output.replaceAll("<lightgreenb>", LightGreenBold);
-    output = output.replaceAll("<lightblueb>", LightBlueBold);
-    output = output.replaceAll("<blueb>", BlueBold);
-    output = output.replaceAll("<navyb>", NavyBold);
-    output = output.replaceAll("<darkpurpleb>", DarkPurpleBold);
-    output = output.replaceAll("<lightpurpleb>", LightPurpleBold);
-    output = output.replaceAll("<purpleb>", PurpleBold);
-    output = output.replaceAll("<whiteb>", WhiteBold);
-    output = output.replaceAll("<lightgrayb>", LightGrayBold);
-    output = output.replaceAll("<grayb>", GrayBold);
-    output = output.replaceAll("<blackb>", BlackBold);
-    
-    output = output.replaceAll("<redi>", RedItalic);
-    output = output.replaceAll("<rosei>", RoseItalic);
-    output = output.replaceAll("<goldi>", GoldItalic);
-    output = output.replaceAll("<yellowi>", YellowItalic);
-    output = output.replaceAll("<greeni>", GreenItalic);
-    output = output.replaceAll("<lightgreeni>", LightGreenItalic);
-    output = output.replaceAll("<lightbluei>", LightBlueItalic);
-    output = output.replaceAll("<bluei>", BlueItalic);
-    output = output.replaceAll("<navyi>", NavyItalic);
-    output = output.replaceAll("<darkpurplei>", DarkPurpleItalic);
-    output = output.replaceAll("<lightpurplei>", LightPurpleItalic);
-    output = output.replaceAll("<purplei>", PurpleItalic);
-    output = output.replaceAll("<whitei>", WhiteItalic);
-    output = output.replaceAll("<lightgrayi>", LightGrayItalic);
-    output = output.replaceAll("<grayi>", GrayItalic);
-    output = output.replaceAll("<blacki>", BlackItalic);
-    
-    output = output.replaceAll("<yellowib>", YellowBoldItalic);
-    
-    output = output.replaceAll("<b>", "" + ChatColor.BOLD);
-    output = output.replaceAll("<u>", "" + ChatColor.UNDERLINE);
-    output = output.replaceAll("<i>", "" + ChatColor.ITALIC);
-    output = output.replaceAll("<r>", "" + ChatColor.RESET);
-    
-    return output;
-  }
-  
-  public static String strip(String line) {
-		for (ChatColor cc : ChatColor.values())
-			line.replaceAll(cc.toString(), "");
-		return line;
-	}
-  
-  public static String valueOf(String color) {
-    switch (color.toLowerCase()) {
-    case "black": 
-      return "ง0";
-    case "navy": 
-      return "ง1";
-    case "green": 
-      return "ง2";
-    case "blue": 
-      return "ง3";
-    case "red": 
-      return "ง4";
-    case "purple": 
-      return "ง5";
-    case "gold": 
-      return "ง6";
-    case "lightgray": 
-      return "ง7";
-    case "gray": 
-      return "ง8";
-    case "darkpurple": 
-      return "ง9";
-    case "lightgreen": 
-      return "งa";
-    case "lightblue": 
-      return "งb";
-    case "rose": 
-      return "งc";
-    case "lightpurple": 
-      return "งd";
-    case "yellow": 
-      return "งe";
-    case "white": 
-      return "งf";
+public class CivColor {
+    public static final String Black = "ยง0";
+    public static final String Navy = "ยง1";
+    public static final String Green = "ยง2";
+    public static final String Blue = "ยง3";
+    public static final String Red = "ยง4";
+    public static final String Purple = "ยง5";
+    public static final String Gold = "ยง6";
+    public static final String LightGray = "ยง7";
+    public static final String Gray = "ยง8";
+    public static final String DarkPurple = "ยง9";
+    public static final String LightGreen = "ยงa";
+    public static final String LightBlue = "ยงb";
+    public static final String Rose = "ยงc";
+    public static final String LightPurple = "ยงd";
+    public static final String Yellow = "ยงe";
+    public static final String White = "ยงf";
+    public static final String BOLD = "" + ChatColor.BOLD;
+    public static final String ITALIC = "" + ChatColor.ITALIC;
+    public static final String RESET = "" + ChatColor.RESET;
+    public static final String UNDERLINE = "" + ChatColor.UNDERLINE;
+
+    public static final String BlackBold = "ยง0" + ChatColor.BOLD;
+    public static final String NavyBold = "ยง1" + ChatColor.BOLD;
+    public static final String GreenBold = "ยง2" + ChatColor.BOLD;
+    public static final String BlueBold = "ยง3" + ChatColor.BOLD;
+    public static final String RedBold = "ยง4" + ChatColor.BOLD;
+    public static final String PurpleBold = "ยง5" + ChatColor.BOLD;
+    public static final String GoldBold = "ยง6" + ChatColor.BOLD;
+    public static final String LightGrayBold = "ยง7" + ChatColor.BOLD;
+    public static final String GrayBold = "ยง8" + ChatColor.BOLD;
+    public static final String DarkPurpleBold = "ยง9" + ChatColor.BOLD;
+    public static final String LightGreenBold = "ยงa" + ChatColor.BOLD;
+    public static final String LightBlueBold = "ยงb" + ChatColor.BOLD;
+    public static final String RoseBold = "ยงc" + ChatColor.BOLD;
+    public static final String LightPurpleBold = "ยงd" + ChatColor.BOLD;
+    public static final String YellowBold = "ยงe" + ChatColor.BOLD;
+    public static final String WhiteBold = "ยงf" + ChatColor.BOLD;
+
+    public static final String BlackItalic = "ยง0" + ChatColor.ITALIC;
+    public static final String NavyItalic = "ยง1" + ChatColor.ITALIC;
+    public static final String GreenItalic = "ยง2" + ChatColor.ITALIC;
+    public static final String BlueItalic = "ยง3" + ChatColor.ITALIC;
+    public static final String RedItalic = "ยง4" + ChatColor.ITALIC;
+    public static final String PurpleItalic = "ยง5" + ChatColor.ITALIC;
+    public static final String GoldItalic = "ยง6" + ChatColor.ITALIC;
+    public static final String LightGrayItalic = "ยง7" + ChatColor.ITALIC;
+    public static final String GrayItalic = "ยง8" + ChatColor.ITALIC;
+    public static final String DarkPurpleItalic = "ยง9" + ChatColor.ITALIC;
+    public static final String LightGreenItalic = "ยงa" + ChatColor.ITALIC;
+    public static final String LightBlueItalic = "ยงb" + ChatColor.ITALIC;
+    public static final String RoseItalic = "ยงc" + ChatColor.ITALIC;
+    public static final String LightPurpleItalic = "ยงd" + ChatColor.ITALIC;
+    public static final String YellowItalic = "ยงe" + ChatColor.ITALIC;
+    public static final String WhiteItalic = "ยงf" + ChatColor.ITALIC;
+
+    public static final String YellowBoldItalic = "ยงe" + ChatColor.BOLD + ChatColor.ITALIC;
+
+    public static String colorize(String input) {
+        String output = input;
+        
+        output = output.replaceAll("<red>", "ยง4");
+        output = output.replaceAll("<rose>", "ยงc");
+        output = output.replaceAll("<gold>", "ยง6");
+        output = output.replaceAll("<yellow>", "ยงe");
+        output = output.replaceAll("<green>", "ยง2");
+        output = output.replaceAll("<lightgreen>", "ยงa");
+        output = output.replaceAll("<lightblue>", "ยงb");
+        output = output.replaceAll("<blue>", "ยง3");
+        output = output.replaceAll("<navy>", "ยง1");
+        output = output.replaceAll("<darkpurple>", "ยง9");
+        output = output.replaceAll("<lightpurple>", "ยงd");
+        output = output.replaceAll("<purple>", "ยง5");
+        output = output.replaceAll("<white>", "ยงf");
+        output = output.replaceAll("<lightgray>", "ยง7");
+        output = output.replaceAll("<gray>", "ยง8");
+        output = output.replaceAll("<black>", "ยง0");
+
+        output = output.replaceAll("<redb>", RedBold);
+        output = output.replaceAll("<roseb>", RoseBold);
+        output = output.replaceAll("<goldb>", GoldBold);
+        output = output.replaceAll("<yellowb>", YellowBold);
+        output = output.replaceAll("<greenb>", GreenBold);
+        output = output.replaceAll("<lightgreenb>", LightGreenBold);
+        output = output.replaceAll("<lightblueb>", LightBlueBold);
+        output = output.replaceAll("<blueb>", BlueBold);
+        output = output.replaceAll("<navyb>", NavyBold);
+        output = output.replaceAll("<darkpurpleb>", DarkPurpleBold);
+        output = output.replaceAll("<lightpurpleb>", LightPurpleBold);
+        output = output.replaceAll("<purpleb>", PurpleBold);
+        output = output.replaceAll("<whiteb>", WhiteBold);
+        output = output.replaceAll("<lightgrayb>", LightGrayBold);
+        output = output.replaceAll("<grayb>", GrayBold);
+        output = output.replaceAll("<blackb>", BlackBold);
+
+        output = output.replaceAll("<redi>", RedItalic);
+        output = output.replaceAll("<rosei>", RoseItalic);
+        output = output.replaceAll("<goldi>", GoldItalic);
+        output = output.replaceAll("<yellowi>", YellowItalic);
+        output = output.replaceAll("<greeni>", GreenItalic);
+        output = output.replaceAll("<lightgreeni>", LightGreenItalic);
+        output = output.replaceAll("<lightbluei>", LightBlueItalic);
+        output = output.replaceAll("<bluei>", BlueItalic);
+        output = output.replaceAll("<navyi>", NavyItalic);
+        output = output.replaceAll("<darkpurplei>", DarkPurpleItalic);
+        output = output.replaceAll("<lightpurplei>", LightPurpleItalic);
+        output = output.replaceAll("<purplei>", PurpleItalic);
+        output = output.replaceAll("<whitei>", WhiteItalic);
+        output = output.replaceAll("<lightgrayi>", LightGrayItalic);
+        output = output.replaceAll("<grayi>", GrayItalic);
+        output = output.replaceAll("<blacki>", BlackItalic);
+
+        output = output.replaceAll("<yellowib>", YellowBoldItalic);
+
+        output = output.replaceAll("<b>", "" + ChatColor.BOLD);
+        output = output.replaceAll("<u>", "" + ChatColor.UNDERLINE);
+        output = output.replaceAll("<i>", "" + ChatColor.ITALIC);
+        output = output.replaceAll("<r>", "" + ChatColor.RESET);
+
+        return output;
     }
-    return "งf";
-  }
-  
-  public static String stripTags(String input)
-  {
-    String output = input;
-    
-    output = output.replaceAll("<red>", "");
-    output = output.replaceAll("<rose>", "");
-    output = output.replaceAll("<gold>", "");
-    output = output.replaceAll("<yellow>", "");
-    output = output.replaceAll("<green>", "");
-    output = output.replaceAll("<lightgreen>", "");
-    output = output.replaceAll("<lightblue>", "");
-    output = output.replaceAll("<blue>", "");
-    output = output.replaceAll("<navy>", "");
-    output = output.replaceAll("<darkpurple>", "");
-    output = output.replaceAll("<lightpurple>", "");
-    output = output.replaceAll("<purple>", "");
-    output = output.replaceAll("<white>", "");
-    output = output.replaceAll("<lightgray>", "");
-    output = output.replaceAll("<gray>", "");
-    output = output.replaceAll("<black>", "");
-    
-    output = output.replaceAll("<redb>", "");
-    output = output.replaceAll("<roseb>", "");
-    output = output.replaceAll("<goldb>", "");
-    output = output.replaceAll("<yellowb>", "");
-    output = output.replaceAll("<greenb>", "");
-    output = output.replaceAll("<lightgreenb>", "");
-    output = output.replaceAll("<lightblueb>", "");
-    output = output.replaceAll("<blueb>", "");
-    output = output.replaceAll("<navyb>", "");
-    output = output.replaceAll("<darkpurpleb>", "");
-    output = output.replaceAll("<lightpurpleb>", "");
-    output = output.replaceAll("<purpleb>", "");
-    output = output.replaceAll("<whiteb>", "");
-    output = output.replaceAll("<lightgrayb>", "");
-    output = output.replaceAll("<grayb>", "");
-    output = output.replaceAll("<blackb>", "");
-    
-    output = output.replaceAll("<redi>", "");
-    output = output.replaceAll("<rosei>", "");
-    output = output.replaceAll("<goldi>", "");
-    output = output.replaceAll("<yellowi>", "");
-    output = output.replaceAll("<greeni>", "");
-    output = output.replaceAll("<lightgreeni>", "");
-    output = output.replaceAll("<lightbluei>", "");
-    output = output.replaceAll("<bluei>", "");
-    output = output.replaceAll("<navyi>", "");
-    output = output.replaceAll("<darkpurplei>", "");
-    output = output.replaceAll("<lightpurplei>", "");
-    output = output.replaceAll("<purplei>", "");
-    output = output.replaceAll("<whitei>", "");
-    output = output.replaceAll("<lightgrayi>", "");
-    output = output.replaceAll("<grayi>", "");
-    output = output.replaceAll("<blacki>", "");
-    
-    output = output.replaceAll("<yellowib>", "");
-    
-    output = output.replaceAll("<i>", "");
-    output = output.replaceAll("<u>", "");
-    output = output.replaceAll("<i>", "");
-    output = output.replaceAll("<s>", "");
-    output = output.replaceAll("<r>", "");
-    
-    return output;
-  }
+
+    public static String strip(String line) {
+        for (ChatColor cc : ChatColor.values())
+            line.replaceAll(cc.toString(), "");
+        return line;
+    }
+
+    public static String valueOf(String color) {
+        switch (color.toLowerCase()) {
+            case "black":
+                return "ยง0";
+            case "navy":
+                return "ยง1";
+            case "green":
+                return "ยง2";
+            case "blue":
+                return "ยง3";
+            case "red":
+                return "ยง4";
+            case "purple":
+                return "ยง5";
+            case "gold":
+                return "ยง6";
+            case "lightgray":
+                return "ยง7";
+            case "gray":
+                return "ยง8";
+            case "darkpurple":
+                return "ยง9";
+            case "lightgreen":
+                return "ยงa";
+            case "lightblue":
+                return "ยงb";
+            case "rose":
+                return "ยงc";
+            case "lightpurple":
+                return "ยงd";
+            case "yellow":
+                return "ยงe";
+            case "white":
+                return "ยงf";
+        }
+        return "ยงf";
+    }
+
+    public static String stripTags(String input) {
+        String output = input;
+
+        output = output.replaceAll("<red>", "");
+        output = output.replaceAll("<rose>", "");
+        output = output.replaceAll("<gold>", "");
+        output = output.replaceAll("<yellow>", "");
+        output = output.replaceAll("<green>", "");
+        output = output.replaceAll("<lightgreen>", "");
+        output = output.replaceAll("<lightblue>", "");
+        output = output.replaceAll("<blue>", "");
+        output = output.replaceAll("<navy>", "");
+        output = output.replaceAll("<darkpurple>", "");
+        output = output.replaceAll("<lightpurple>", "");
+        output = output.replaceAll("<purple>", "");
+        output = output.replaceAll("<white>", "");
+        output = output.replaceAll("<lightgray>", "");
+        output = output.replaceAll("<gray>", "");
+        output = output.replaceAll("<black>", "");
+
+        output = output.replaceAll("<redb>", "");
+        output = output.replaceAll("<roseb>", "");
+        output = output.replaceAll("<goldb>", "");
+        output = output.replaceAll("<yellowb>", "");
+        output = output.replaceAll("<greenb>", "");
+        output = output.replaceAll("<lightgreenb>", "");
+        output = output.replaceAll("<lightblueb>", "");
+        output = output.replaceAll("<blueb>", "");
+        output = output.replaceAll("<navyb>", "");
+        output = output.replaceAll("<darkpurpleb>", "");
+        output = output.replaceAll("<lightpurpleb>", "");
+        output = output.replaceAll("<purpleb>", "");
+        output = output.replaceAll("<whiteb>", "");
+        output = output.replaceAll("<lightgrayb>", "");
+        output = output.replaceAll("<grayb>", "");
+        output = output.replaceAll("<blackb>", "");
+
+        output = output.replaceAll("<redi>", "");
+        output = output.replaceAll("<rosei>", "");
+        output = output.replaceAll("<goldi>", "");
+        output = output.replaceAll("<yellowi>", "");
+        output = output.replaceAll("<greeni>", "");
+        output = output.replaceAll("<lightgreeni>", "");
+        output = output.replaceAll("<lightbluei>", "");
+        output = output.replaceAll("<bluei>", "");
+        output = output.replaceAll("<navyi>", "");
+        output = output.replaceAll("<darkpurplei>", "");
+        output = output.replaceAll("<lightpurplei>", "");
+        output = output.replaceAll("<purplei>", "");
+        output = output.replaceAll("<whitei>", "");
+        output = output.replaceAll("<lightgrayi>", "");
+        output = output.replaceAll("<grayi>", "");
+        output = output.replaceAll("<blacki>", "");
+
+        output = output.replaceAll("<yellowib>", "");
+
+        output = output.replaceAll("<i>", "");
+        output = output.replaceAll("<u>", "");
+        output = output.replaceAll("<i>", "");
+        output = output.replaceAll("<s>", "");
+        output = output.replaceAll("<r>", "");
+
+        return output;
+    }
 }
 

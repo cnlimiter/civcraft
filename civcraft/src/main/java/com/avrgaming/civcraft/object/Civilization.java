@@ -2037,7 +2037,7 @@ public class Civilization extends SQLObject {
     
     public void withdrawTradeGood(final String id) throws CivException {
         if (!this.hasTradeGood(id)) {
-            throw new CivException(CivSettings.localize.localizedString("var_virtualTG_civHasNoGood", "ง6" + CivSettings.goods.get(id).name + "งc"));
+            throw new CivException(CivSettings.localize.localizedString("var_virtualTG_civHasNoGood", "ยง6" + CivSettings.goods.get(id).name + "ยงc"));
         }
         final String[] goods = this.tradeGoods.split(", ");
         final ArrayList<String> newGoods = new ArrayList<String>();

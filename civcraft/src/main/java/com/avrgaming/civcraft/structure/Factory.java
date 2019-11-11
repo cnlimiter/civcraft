@@ -68,7 +68,7 @@ public class Factory extends Structure
         if (this.getChests().size() == 0) {
             return;
         }
-        CivMessage.send(player, "§5" + CivSettings.localize.localizedString("var_science_w8"));
+        CivMessage.send(player, "Â§5" + CivSettings.localize.localizedString("var_science_w8"));
         final MultiInventory source = new MultiInventory();
         final MultiInventory target = new MultiInventory();
         final Collection<StructureChest> chests = this.getAllChestsById(0, 6);
@@ -181,7 +181,7 @@ public class Factory extends Structure
                     allMatchCraftMat = false;
                     final boolean succusess = true;
                     if (succusess) {
-                        notMatchComponents.append("§a");
+                        notMatchComponents.append("Â§a");
                     }
                     notMatchComponents.append(configSpaceCraftMat2.name).append(" ").append(count3).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
                 }
@@ -192,7 +192,7 @@ public class Factory extends Structure
                     allMatchCraftMat = false;
                     final boolean succusess = true;
                     if (succusess) {
-                        notMatchComponents.append("§a");
+                        notMatchComponents.append("Â§a");
                     }
                     final int reaming2 = count3 - multiInvContentsMinecraft.get(id2);
                     notMatchComponents.append(configSpaceCraftMat2.name).append(" ").append(reaming2).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
@@ -212,7 +212,7 @@ public class Factory extends Structure
                 }
             }
             final String fullName = player.getDisplayName();
-            CivMessage.sendCiv(super.getCiv(), "§a" + CivSettings.localize.localizedString("var_factory_succusess", craftMat.getName(), fullName));
+            CivMessage.sendCiv(super.getCiv(), "Â§a" + CivSettings.localize.localizedString("var_factory_succusess", craftMat.getName(), fullName));
 
             final ItemStack stack = LoreMaterial.spawn(craftMat);
             task.updateInventory(UpdateInventoryRequest.Action.ADD, target, stack);

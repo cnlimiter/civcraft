@@ -18,10 +18,6 @@
  */
 package com.avrgaming.civcraft.command.civ;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTech;
@@ -33,6 +29,10 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.util.CivColor;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class CivResearchCommand extends CommandBase {
 
@@ -112,7 +112,7 @@ public class CivResearchCommand extends CommandBase {
         if (civ.getTechQueued() == null) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueErrorListRemove"));
         }
-        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueListSucusses") + "§d" + civ.getTechQueued().name);
+        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueListSucusses") + "Â§d" + civ.getTechQueued().name);
     }
 
     public void calc_cmd() throws CivException {

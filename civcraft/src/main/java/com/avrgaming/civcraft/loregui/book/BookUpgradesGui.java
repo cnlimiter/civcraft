@@ -34,14 +34,14 @@ implements GuiAction {
         Resident whoClicked = CivGlobal.getResident(player);
         if (whoClicked.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "งc"+CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send((Object)player, "ยงc"+CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         Civilization civ = whoClicked.getCiv();
         Town town = whoClicked.getSelectedTown();
         if (!(town.getMayorGroup().hasMember(whoClicked) || town.getAssistantGroup().hasMember(whoClicked) || civ.getLeaderGroup().hasMember(whoClicked))) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "งc"+CivSettings.localize.localizedString("cmd_NeedHigherTownOrCivRank"));
+            CivMessage.send((Object)player, "ยงc"+CivSettings.localize.localizedString("cmd_NeedHigherTownOrCivRank"));
             return;
         }
         Inventory inv = Bukkit.getServer().createInventory((InventoryHolder)player, 54, CivSettings.localize.localizedString("resident_upgradesGuiHeading"));
@@ -52,17 +52,17 @@ implements GuiAction {
             }
             ItemStack is = null;
             if (upgrade.isAvailable(town)) {
-                is = LoreGuiItem.build(upgrade.name, ItemManager.getId(Material.EMERALD_BLOCK), 0, "งb" + CivSettings.localize.localizedString("money_requ", Math.round(cost)), "ง6" + CivSettings.localize.localizedString("tutorial_lore_clicktoView"));
+                is = LoreGuiItem.build(upgrade.name, ItemManager.getId(Material.EMERALD_BLOCK), 0, "ยงb" + CivSettings.localize.localizedString("money_requ", Math.round(cost)), "ยง6" + CivSettings.localize.localizedString("tutorial_lore_clicktoView"));
                 is = LoreGuiItem.setAction(is, "UpgradeGuiBuy");
                 is = LoreGuiItem.setActionData(is, "info", upgrade.name);
             } else if (!town.hasStructure(upgrade.require_structure)) {
                 ConfigBuildableInfo structure = CivSettings.structures.get(upgrade.require_structure);
-                is = LoreGuiItem.build(upgrade.name, ItemManager.getId(Material.EMERALD), 0, "งb" + CivSettings.localize.localizedString("money_requ", Math.round(cost)), CivColor.Red + CivSettings.localize.localizedString("requ") + structure.displayName, "ง3" + CivSettings.localize.localizedString("clicktobuild"));
+                is = LoreGuiItem.build(upgrade.name, ItemManager.getId(Material.EMERALD), 0, "ยงb" + CivSettings.localize.localizedString("money_requ", Math.round(cost)), CivColor.Red + CivSettings.localize.localizedString("requ") + structure.displayName, "ยง3" + CivSettings.localize.localizedString("clicktobuild"));
                 is = LoreGuiItem.setAction(is, "WonderGuiBuild");
                 is = LoreGuiItem.setActionData(is, "info", structure.displayName);
             } else if (!town.hasUpgrade(upgrade.require_upgrade)) {
                 ConfigTownUpgrade upgrade1 = CivSettings.getUpgradeById(upgrade.require_upgrade);
-                is = LoreGuiItem.build(upgrade.name, ItemManager.getId(Material.GLOWSTONE_DUST), 0, "งb" + CivSettings.localize.localizedString("money_requ", Math.round(cost)), CivColor.Red + CivSettings.localize.localizedString("requ") + upgrade1.name, "ง3" + CivSettings.localize.localizedString("tutorial_lore_clicktoView"));
+                is = LoreGuiItem.build(upgrade.name, ItemManager.getId(Material.GLOWSTONE_DUST), 0, "ยงb" + CivSettings.localize.localizedString("money_requ", Math.round(cost)), CivColor.Red + CivSettings.localize.localizedString("requ") + upgrade1.name, "ยง3" + CivSettings.localize.localizedString("tutorial_lore_clicktoView"));
                 is = LoreGuiItem.setAction(is, "UpgradeGuiBuy");
                 is = LoreGuiItem.setActionData(is, "info", upgrade1.name);
             }

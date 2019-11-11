@@ -107,7 +107,7 @@ public class TownCommand extends CommandBase {
         final Town town = this.getNamedTown(1);
         final Player player = this.getPlayer();
         if (War.isWarTime()) {
-            throw new CivException("งc" + CivSettings.localize.localizedString("wartime_now_cenceled"));
+            throw new CivException("ยงc" + CivSettings.localize.localizedString("wartime_now_cenceled"));
         }
         if (resident.getTown() == town) {
             throw new CivException(CivSettings.localize.localizedString("var_switchtown_own"));
@@ -122,7 +122,7 @@ public class TownCommand extends CommandBase {
             throw new CivException(CivSettings.localize.localizedString("var_switchtown_last_mayor"));
         }
         if (this.getSelectedTown().getResidents().size() == 1) {
-            throw new CivException(CivSettings.localize.localizedString("var_switchtown_lastResident", "ง6" + this.getSelectedTown().getName() + "งc"));
+            throw new CivException(CivSettings.localize.localizedString("var_switchtown_lastResident", "ยง6" + this.getSelectedTown().getName() + "ยงc"));
         }
         ChangeTownRequest request = new ChangeTownRequest();
         request.resident = resident;
@@ -131,8 +131,8 @@ public class TownCommand extends CommandBase {
         request.civ = resident.getCiv();
         final String fullPlayerName = player.getDisplayName();
         try {
-            CivGlobal.questionLeaders(player, resident.getCiv(), CivSettings.localize.localizedString("var_changetownrequest_requestMessage", fullPlayerName, "งc" + resident.getTown().getName(), "งc" + town.getName()), 30000L, request);
-            CivMessage.send(this.sender, "ง7" + CivSettings.localize.localizedString("var_switchtown_pleaseWait"));
+            CivGlobal.questionLeaders(player, resident.getCiv(), CivSettings.localize.localizedString("var_changetownrequest_requestMessage", fullPlayerName, "ยงc" + resident.getTown().getName(), "ยงc" + town.getName()), 30000L, request);
+            CivMessage.send(this.sender, "ยง7" + CivSettings.localize.localizedString("var_switchtown_pleaseWait"));
         }
         catch (CivException e) {
             CivMessage.sendError(player, e.getMessage());
