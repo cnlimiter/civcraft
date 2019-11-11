@@ -1,0 +1,319 @@
+# 
+# Unit configuration
+#
+
+# Base rates and information for items 
+# without any units attached.
+#
+base:
+    # T1 Leather speed bonus, greater than 1 is an increase
+    T1_leather_speed: 1.05
+
+    # T2 Leather speed bonus, greater than 1 is an increase
+    T2_leather_speed: 1.1
+
+    # T3 Leather speed bonus, greater than 1 is an increase
+    T3_leather_speed: 1.15
+
+    # T4 Leather speed bonus, greater than 1 is an increase
+    T4_leather_speed: 1.2
+
+    # T1 'Metal' speed bonus
+    T1_metal_speed: 0.95
+
+    # T2 'Metal' speed bonus
+    T2_metal_speed: 0.9
+
+    # T3 'Metal' speed bonus
+    T3_metal_speed: 0.85
+
+    # T4 'Metal' speed bonus
+    T4_metal_speed: 0.8
+
+# Special information per unit
+unit_info:
+    # Percentage of damage increase for warrior unit.
+    warrior_damage: 1.00
+
+    # Percentage of damage increase for archer unit.
+    archer_damage: 1.5
+
+units:
+
+  - id: 'u_spy'
+    name: "Spy"
+    class_name: 'com.avrgaming.civcraft.items.units.Spy'
+    require_tech: 'tech_nationalism'
+    require_struct:
+    require_upgrade:
+    cost: 5000.0
+    hammer_cost: 500.0
+    limit: 1
+    item_id: 381
+    item_data: 0
+    
+  - id: 'u_settler'
+    name: "Settler"
+    class_name: 'com.avrgaming.civcraft.items.units.Settler'
+    require_tech:
+    require_struct:
+    require_upgrade:
+    cost: 25000.0
+    hammer_cost: 1000.0
+    limit: 0
+    item_id: 330
+    item_data: 0
+
+  - id: 'a_archer'
+    name: "Archer"
+    class_name: 'Archer'
+    require_tech: 'tech_republic'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 100000.0
+    hammer_cost: 4000.0
+    limit: 0
+    item_id: 261
+    item_data: 0
+
+  - id: 'a_warrior'
+    name: "Warrior"
+    class_name: 'Warrior'
+    require_tech: 'tech_republic'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 100000.0
+    hammer_cost: 4000.0
+    limit: 0
+    item_id: 267
+    item_data: 0
+
+  - id: 'a_berserker'
+    name: "Berserker"
+    class_name: 'Berserker'
+    require_tech: 'tech_republic'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 150000.0
+    hammer_cost: 6000.0
+    limit: 0
+    item_id: 258
+    item_data: 0
+
+  - id: 'a_swordsman'
+    name: "Swordsman"
+    class_name: 'Swordsman'
+    require_tech: 'tech_powerhouse'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 200000.0
+    hammer_cost: 8000.0
+    limit: 0
+    item_id: 131
+    item_data: 0
+
+  - id: 'a_crossbowman'
+    name: "Crossbowman"
+    class_name: 'Crossbowman'
+    require_tech: 'tech_powerhouse'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 200000.0
+    hammer_cost: 8000.0
+    limit: 0
+    item_id: 416
+    item_data: 0
+
+  - id: 'a_spearman'
+    name: "SpearMan"
+    class_name: 'SpearMan'
+    require_tech: 'tech_powerhouse'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 300000.0
+    hammer_cost: 12000.0
+    limit: 0
+    item_id: 282
+    item_data: 0
+
+  - id: 'a_slinger'
+    name: "Slinger"
+    class_name: 'Slinger'
+    require_tech: 'tech_refrigeration'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 400000.0
+    hammer_cost: 15000.0
+    limit: 0
+    item_id: 198
+    item_data: 0
+
+  - id: 'a_musketman'
+    name: "Musketman"
+    class_name: 'Musketman'
+    require_tech: 'tech_refrigeration'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 400000.0
+    hammer_cost: 15000.0
+    limit: 0
+    item_id: 359
+    item_data: 0
+
+  - id: 'a_knight'
+    name: "Knight"
+    class_name: 'Knight'
+    require_tech: 'tech_refrigeration'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 500000.0
+    hammer_cost: 20000.0
+    limit: 0
+    item_id: 276
+    item_data: 0
+
+  - id: 'ax_bootsOfTravel'
+    name: "Boots Of Travel"
+    class_name: 'BootsOfTravel'
+    require_tech: 'tech_scientific_method'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 150000.0
+    hammer_cost: 1500.0
+    limit: 0
+    item_id: 345 # компас
+    item_data: 0
+
+  - id: 'ax_rabbitFeet'
+    name: "Rabbit Feet"
+    class_name: 'RabbitFeet'
+    require_tech: 'tech_scientific_method'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 100000.0
+    hammer_cost: 1500.0
+    limit: 0
+    item_id: 414 # лапка кролика
+    item_data: 0
+
+  - id: 'a_heroesShield'
+    name: "Heroe's Shield"
+    class_name: 'HeroesShield'
+    require_tech:
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 40000.0
+    hammer_cost: 1500.0
+    limit: 0
+    item_id: 322 # зач. яблоко
+    item_data: 1
+
+  - id: 'a_assasinsStigma'
+    name: "Assassins Stigma"
+    class_name: 'AssasinsStigma'
+    require_tech:
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 60000.0
+    hammer_cost: 2000.0
+    limit: 0
+    item_id: 331 # Редстоун
+    item_data: 0
+
+  - id: 'ax_minersAmulet'
+    name: "Miner's Amulet"
+    class_name: 'MinersAmulet'
+    require_tech: 'tech_innovation'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 250000.0
+    hammer_cost: 3000.0
+    limit: 0
+    item_id: 264 # алмаз
+    item_data: 0
+
+  - id: 'ax_diver'
+    name: "Diver"
+    class_name: 'Diver'
+    require_tech: 'tech_machinery'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 50000.0
+    hammer_cost: 3000.0
+    limit: 0
+    item_id: 351 # хз
+    item_data: 12
+
+  - id: 'ax_witchTrick'
+    name: "Witch Trick"
+    class_name: 'WitchTrick'
+    require_tech: 'tech_malting'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 30000.0
+    hammer_cost: 1500.0
+    limit: 0
+    item_id: 372 # нарост
+    item_data: 0
+
+  - id: 'ax_cacheOfGluttons'
+    name: "Cache of Gluttons"
+    class_name: 'CacheOfGluttons'
+    require_tech: 'tech_advanced_efficiency'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 125000.0
+    hammer_cost: 3500.0
+    limit: 0
+    item_id: 410 # кристалл призмарина
+    item_data: 0
+
+  - id: 'ax_engineer'
+    name: "Engineer"
+    class_name: 'Engineer'
+    require_tech: 'tech_construction'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 100000.0
+    hammer_cost: 2500.0
+    limit: 0
+    item_id: 76 # ред торч
+    item_data: 0
+
+  - id: 'ax_invader'
+    name: "Invader"
+    class_name: 'Invader'
+    require_tech: 'tech_innovation'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 175000.0
+    hammer_cost: 3500.0
+    limit: 0
+    item_id: 369 # ифрит палка
+    item_data: 0
+
+  - id: 'ax_advanced_tools'
+    name: "Advanced Tools"
+    class_name: 'AdvancedTools'
+    require_tech: 'tech_machinery'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 75000.0
+    hammer_cost: 3000.0
+    limit: 0
+    item_id: 145 # наковальня
+    item_data: 0
+
+  - id: 'ax_archer2'
+    name: "Advanced Archer"
+    class_name: 'AdvArcher'
+    require_tech: 'tech_tillering'
+    require_struct: 's_ordinary'
+    require_upgrade:
+    cost: 150000.0
+    hammer_cost: 3500.0
+    limit: 0
+    item_id: 287 # нить
+    item_data: 0
+    
+

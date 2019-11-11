@@ -1,0 +1,452 @@
+#
+# This file contains the configuration information about
+# wonders.
+
+
+
+# Wonders
+#
+#  This is a standard configuration for a structure. See structures.yml for details.
+#  Any option for structures is also available for wonders.
+wonders:
+  - id: w_pyramid
+    template: the_great_pyramid
+    template_y_shift: 0
+    displayName: The Great Pyramid
+    require_tech: 'tech_great_pyramid'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 750000.0
+    upkeep: 0.0
+    hammer_cost: 508000.0
+    max_hitpoints: 5000
+    points: 190000
+    regen_rate: 6
+  
+  - id: w_greatlibrary
+    template: the_great_library
+    template_y_shift: 0
+    displayName: Great Library of Alexandria
+    require_tech: 'tech_great_library'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 1000000.0
+    upkeep: 0.0
+    hammer_cost: 448000.0
+    points: 220000
+    max_hitpoints: 5000
+    regen_rate: 6
+  
+  - id: w_hanginggardens
+    template: the_hanging_gardens
+    template_y_shift: 0
+    displayName: The Hanging Gardens
+    require_tech: 'tech_hanging_gardens'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 1000000.0
+    upkeep: 0.0
+    hammer_cost: 666000.0
+    points: 220000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_colossus
+    template: the_colossus
+    template_y_shift: 0
+    displayName: Colossus of Rhodes
+    require_tech: 'tech_colossus'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 1000000.0
+    upkeep: 0.0
+    hammer_cost: 600000.0
+    points: 235000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_notre_dame
+    template: notre_dame
+    template_y_shift: 0
+    displayName: Notre Dame Cathedral
+    require_tech: 'tech_notre_dame'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 1750000.0
+    upkeep: 0.0
+    hammer_cost: 805000.0
+    points: 275000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_chichen_itza
+    template: chichen_itza
+    template_y_shift: 0
+    displayName: Chichen Itza Temple
+    require_tech: 'tech_chichen_itza'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 800000.0
+    upkeep: 0.0
+    hammer_cost: 550000.0
+    points: 250000
+    max_hitpoints: 5000
+    regen_rate: 6
+  
+  - id: w_council_of_eight
+    template: council_of_eight
+    template_y_shift: 0
+    displayName: Council of Eight
+    require_tech: 'tech_council_of_eight'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 35000000.0
+    upkeep: 0.0
+    hammer_cost: 15000000.0
+    points: 250000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_colosseum
+    template: colosseum
+    template_y_shift: -1
+    displayName: Great Colosseum
+    require_tech: 'tech_colosseum'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 0
+    cost: 100000.0
+    upkeep: 0.0
+    hammer_cost: 80000.0
+    points: 100000
+    max_hitpoints: 1000
+    regen_rate: 1
+
+  - id: w_globe_theatre
+    template: globe_theatre
+    template_y_shift: -1
+    displayName: Globe Theatre
+    require_tech: 'tech_globe_theatre'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 800000.0
+    upkeep: 0.0
+    hammer_cost: 550000.0
+    points: 250000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_great_lighthouse
+    template: great_lighthouse
+    template_y_shift: 0
+    displayName: Great Lighthouse of Alexandria
+    require_tech: 'tech_great_lighthouse'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 800000.0
+    upkeep: 0.0
+    hammer_cost: 550000.0
+    points: 250000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_mother_tree
+    template: mother_tree
+    template_y_shift: 0
+    displayName: Mother Tree
+    require_tech: 'tech_mother_tree'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 800000.0
+    upkeep: 0.0
+    hammer_cost: 550000.0
+    points: 250000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_grand_ship_ingermanland
+    template: grand_ship_ingermanland
+    template_y_shift: -8
+    displayName: Grand Ship Ingermanland
+    require_tech: 'tech_grand_ship_ingermanland'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    ignore_floating: true
+    limit: 1
+    cost: 1500000.0
+    upkeep: 0.0
+    hammer_cost: 1000000.0
+    points: 500000
+    max_hitpoints: 2000
+    regen_rate: 4
+
+  - id: w_grandcanyon
+    template: grand
+    template_y_shift: 0
+    displayName: The Grand Canyon
+    require_tech: 'tech_grand_canyon'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 1100000.0
+    upkeep: 0.0
+    hammer_cost: 655000.0
+    points: 220000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_burj
+    template: burj
+    template_y_shift: 0
+    displayName: Burj Khalifa
+    require_tech: 'tech_burj'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 1200000.0
+    upkeep: 0.0
+    hammer_cost: 650000.0
+    points: 220000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_stock_exchange
+    template: global_bank
+    template_y_shift: 0
+    displayName: Global Stock Exchange
+    require_tech: 'tech_stock_exchange'
+    require_upgrade: 'upgrade_bank_interest_level_4'
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 700000.0
+    upkeep: 0.0
+    hammer_cost: 900000.0
+    points: 351488
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_statue_of_zeus
+    template: statue_of_zeus
+    template_y_shift: 0
+    displayName: Statue of Zeus
+    require_tech: 'tech_statue_of_zeus'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    limit: 1
+    cost: 600000.0
+    upkeep: 0.0
+    hammer_cost: 400000.0
+    points: 225000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_moscow_state_uni
+    template: mgu
+    template_y_shift: -1
+    displayName: Moscow State Univeristy
+    require_tech: 'tech_moscow_state_university'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    ignore_floating: false
+    limit: 1
+    cost: 1500000.0
+    upkeep: 0.0
+    hammer_cost: 600000.0
+    points: 365000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_space_shuttle
+    template: space_shuttle
+    template_y_shift: 0
+    displayName: Soace Shuttle
+    require_tech: 'tech_space_shuttle'
+    require_upgrade:
+    require_structure: 'ti_factory'
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    ignore_floating: false
+    limit: 1
+    cost: 1500000.0
+    upkeep: 50000.0
+    hammer_cost: 1500000.0
+    points: 423000
+    max_hitpoints: 5000
+    regen_rate: 6
+
+  - id: w_neuschwanstein
+    template: neuschwanstein
+    template_y_shift: 0
+    displayName: Neuschwanstein Castle
+    require_tech: 'tech_neuschwanstein'
+    require_structure: 's_castle'
+    require_upgrade:
+    check_event:
+    effect_event:
+    update_event:
+    onBuild_event:
+    ignore_floating: false
+    limit: 0
+    cost: 2500000.0
+    upkeep: 0.0
+    hammer_cost: 1000000.0
+    points: 350000
+    max_hitpoints: 7500
+    regen_rate: 9
+  
+# Wonder Buffs
+#
+# To de-complicate the structure/wonder relationship the buffs for wonders
+# are configured here. To add new wonder, add a new id with the id for the 
+# wonder configured above, then add a buff per line under the buffs section
+# as shown below.
+#
+# To configure new buffs use buffs.yml
+#
+#
+wonder_buffs:
+   - id: w_pyramid
+     buffs: 
+         - buff_pyramid_cottage_consume
+         - buff_pyramid_cottage_bonus
+         - buff_pyramid_culture
+         - buff_pyramid_leech
+
+   - id: w_greatlibrary
+     buffs:
+         - buff_greatlibrary_extra_beakers
+         - buff_greatlibrary_double_tax_beakers
+    
+   - id: w_hanginggardens
+     buffs: 
+         - buff_hanging_gardens_growth
+         - buff_hanging_gardens_regen
+   
+   - id: w_colossus
+     buffs:
+         - buff_colossus_reduce_upkeep
+         - buff_colossus_coins_from_culture
+
+   - id: w_notre_dame
+     buffs:
+         - buff_notre_dame_no_anarchy
+         - buff_notre_dame_coins_from_peace
+         - buff_notre_dame_extra_war_penalty
+   
+   - id: w_chichen_itza
+     buffs:
+         - buff_chichen_itza_tower_hp
+         - buff_chichen_itza_regen_rate
+
+   - id: w_colosseum
+     buffs:
+         - buff_colosseum_coins_from_towns
+
+   - id: w_globe_theatre
+     buffs:
+         - buff_globe_theatre_culture_from_towns
+
+   - id: w_great_lighthouse
+     buffs:
+         - buff_great_lighthouse_tower_range
+         - buff_great_lighthouse_trade_ship_income
+
+   - id: w_mother_tree
+     buffs:
+         - buff_mother_tree_growth
+         - buff_mother_tree_tile_improvement_cost
+         - buff_mother_tree_tile_improvement_bonus
+
+   - id: w_grand_ship_ingermanland
+     buffs:
+         - buff_ingermanland_fishing_boat_immunity
+         - buff_ingermanland_trade_ship_income
+         - buff_ingermanland_water_range
+
+   - id: w_grandcanyon
+     buffs:
+         - buff_grandcanyon_rush
+         - buff_grandcanyon_hammers
+         - buff_grandcanyon_quarry_and_trommel
+
+   - id: w_burj
+     buffs:
+         - buff_burj_growth
+         - buff_burj_happy
+
+   - id: w_statue_of_zeus
+     buffs:
+         - buff_statue_of_zeus_tower_range
+         - buff_statue_of_zeus_struct_regen
+
+   - id: w_moscow_state_uni
+     buffs:
+         - buff_moscowstateuni_extra_beakers
+         - buff_moscowstateuni_profit_sharing
+
+   - id: w_neuschwanstein
+     buffs:
+         - buff_neuschwanstein_culture
