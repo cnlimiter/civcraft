@@ -1,0 +1,3 @@
+name: CivCraft
+version: ${project.version}
+main: com.avrgaming.civcraft.main.CivCraft
