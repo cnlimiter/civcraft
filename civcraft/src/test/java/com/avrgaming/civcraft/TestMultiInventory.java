@@ -1,4 +1,4 @@
-package com.avrgaming.civcraft.unittests;
+package com.avrgaming.civcraft;
 
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.util.ItemManager;
