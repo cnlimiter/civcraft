@@ -18,15 +18,14 @@
  */
 package com.avrgaming.civcraft.threading.sync;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.locks.ReentrantLock;
-
+import com.avrgaming.civcraft.main.CivLog;
+import com.avrgaming.civcraft.threading.sync.request.LoadChunkRequest;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.threading.sync.request.LoadChunkRequest;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class SyncLoadChunk implements Runnable {
 	/*
@@ -49,7 +48,7 @@ public class SyncLoadChunk implements Runnable {
 				for (int i = 0; i < UPDATE_LIMIT; i++) {
 					LoadChunkRequest request = requestQueue.poll();
 					if (request == null) {
-						return;
+						continue;
 					}
 					
 					Chunk chunk = Bukkit.getWorld(request.worldName).getChunkAt(request.x, request.z);

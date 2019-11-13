@@ -54,7 +54,12 @@ implements GuiAction {
         }
         guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceFutureHeading"));
         for (int i = current; i <= 7; ++i) {
+
             ConfigSpaceMissions configSpaceMissions = CivSettings.spacemissions_levels.get(i);
+            // 感觉这是对每个item项放到位置
+            if(configSpaceMissions == null) {
+                continue;
+            }
             ItemStack itemStack = LoreGuiItem.build(CivColor.Red + configSpaceMissions.name, ItemManager.getId(Material.GLASS), CivCraft.civRandom.nextInt(15), "§6" + CivSettings.localize.localizedString("click_to_view"));
             itemStack = LoreGuiItem.setAction(itemStack, "CivSpaceComponents");
             itemStack = LoreGuiItem.setActionData(itemStack, "i", String.valueOf(i));
