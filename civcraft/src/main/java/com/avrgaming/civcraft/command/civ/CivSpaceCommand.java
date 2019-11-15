@@ -10,8 +10,7 @@ import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.util.CivColor;
 
-public class CivSpaceCommand
-extends CommandBase {
+public class CivSpaceCommand extends CommandBase {
     public static Inventory guiInventory;
 
     @Override
@@ -30,11 +29,11 @@ extends CommandBase {
             throw new CivException(CivSettings.localize.localizedString("var_spaceshuttle_noProgress"));
         }
         String[] split = civ.getMissionProgress().split(":");
-        String missionName = CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)civ.getCurrentMission())).name;
+        String missionName = CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).name;
         double beakers = Math.round(Double.parseDouble(split[0]));
         double hammers = Math.round(Double.parseDouble(split[1]));
-        int percentageCompleteBeakers = (int)((double)Math.round(Double.parseDouble(split[0])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)civ.getCurrentMission())).require_beakers) * 100.0);
-        int percentageCompleteHammers = (int)((double)Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)civ.getCurrentMission())).require_hammers) * 100.0);
+        int percentageCompleteBeakers = (int) ((double) Math.round(Double.parseDouble(split[0])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).require_beakers) * 100.0);
+        int percentageCompleteHammers = (int) ((double) Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).require_hammers) * 100.0);
         String message = CivColor.LightBlue + missionName + ":" + CivColor.RESET + "\n" + CivColor.Gold + "Beakers: " + beakers + CivColor.Red + " (" + percentageCompleteBeakers + "%)" + CivColor.LightPurple + "Hammers: " + hammers + CivColor.Red + " (" + percentageCompleteHammers + "%)";
         CivMessage.sendSuccess(sender, message);
     }
@@ -42,18 +41,22 @@ extends CommandBase {
     public void future_cmd() throws CivException {
         Civilization civ = this.getSenderCiv();
         if (civ.getCurrentMission() >= 8) {
-            throw new CivException(CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)7)).name));
+            throw new CivException(CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) 7)).name));
         }
         int current = civ.getCurrentMission();
-        StringBuilder futureMissions = new StringBuilder(CivSettings.localize.localizedString("cmd_space_future")+": \n" + CivColor.LightPurple);
+        StringBuilder futureMissions = new StringBuilder(CivSettings.localize.localizedString("cmd_space_future") + ": \n" + CivColor.LightPurple);
         if (current == 7 && civ.getMissionActive()) {
-            throw new CivException(CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)7)).name));
+            throw new CivException(CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) 7)).name));
         }
         if (civ.getMissionActive()) {
             ++current;
         }
         for (int i = current; i <= 7; ++i) {
             ConfigSpaceMissions configSpaceMissions = CivSettings.spacemissions_levels.get(i);
+            // 空就跳过
+            if (configSpaceMissions == null) {
+                continue;
+            }
             futureMissions.append(configSpaceMissions.name).append("\n");
         }
         CivMessage.sendSuccess(sender, futureMissions.toString());
