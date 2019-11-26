@@ -27,12 +27,12 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.util.CivColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class CampUpgradeCommand extends CommandBase implements TabExecutor {
+public class CampUpgradeCommand extends CommandBase {
     @Override
     public void init() {
         command = "/camp upgrade";
@@ -57,7 +57,7 @@ public class CampUpgradeCommand extends CommandBase implements TabExecutor {
         CivMessage.send(sender, out);
     }
 
-    private void list_upgrades(Camp camp) throws CivException {
+    private void upgradeList(Camp camp) throws CivException {
         for (ConfigCampUpgrade upgrade : CivSettings.campUpgrades.values()) {
             if (upgrade.isAvailable(camp)) {
                 CivMessage.send(sender, upgrade.name + " " + CivColor.LightGray + CivSettings.localize.localizedString("Cost") + " " + CivColor.Yellow + upgrade.cost);
@@ -68,7 +68,7 @@ public class CampUpgradeCommand extends CommandBase implements TabExecutor {
     public void list_cmd() throws CivException {
         Camp camp = this.getCurrentCamp();
         CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_camp_upgrade_list"));
-        list_upgrades(camp);
+        upgradeList(camp);
     }
 
     public void buy_cmd() throws CivException {
@@ -76,7 +76,7 @@ public class CampUpgradeCommand extends CommandBase implements TabExecutor {
 
         if (args.length < 2) {
             CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_camp_upgrade_list"));
-            list_upgrades(camp);
+            upgradeList(camp);
             CivMessage.send(sender, CivSettings.localize.localizedString("cmd_camp_upgrade_buyHeading"));
             return;
         }
@@ -103,11 +103,22 @@ public class CampUpgradeCommand extends CommandBase implements TabExecutor {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        // 对buy的科技支持
         if (args.length == 2 && "buy".equalsIgnoreCase(args[0])) {
-            //return
+            List<String> list = new ArrayList<>();
+            try {
+                for (ConfigCampUpgrade upgrade : CivSettings.campUpgrades.values()) {
+                    if (upgrade.isAvailable(getCurrentCamp())) {
+                        list.add(upgrade.name);
+                    }
+                }
+
+            } catch (CivException e) {
+                e.printStackTrace();
+            }
+            return list.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
         }
-        super.onTabComplete(sender, command, alias, args);
-        return new ArrayList<>();
+        return super.onTabComplete(sender, command, alias, args);
     }
 
 

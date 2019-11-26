@@ -18,18 +18,17 @@
  */
 package com.avrgaming.civcraft.threading.sync;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.bukkit.Bukkit;
-import org.bukkit.block.Block;
-import org.bukkit.block.Sign;
-
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.SimpleBlock;
+import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class SyncBuildUpdateTask implements Runnable {
@@ -61,15 +60,12 @@ public class SyncBuildUpdateTask implements Runnable {
 	 */
 	@Override
 	public void run() {
-		
 		if (buildBlockLock.tryLock()) {
 			try {
-			
-				int i = 0;
-				for (i = 0; i < UPDATE_LIMIT; i++) {
+				for (int i = 0; i < UPDATE_LIMIT; i++) {
 					SimpleBlock next = updateBlocks.poll();
 					if (next == null) {
-						break;
+						continue;
 					}
 					
 					Block block = Bukkit.getWorld(next.worldname).getBlockAt(next.x, next.y, next.z);			

@@ -73,6 +73,7 @@ public class FoundCamp extends ItemComponent implements CallbackInterface {
 		Buildable.buildVerifyStatic(player, info, player.getLocation(), this);
 	}
 	
+	@Override
 	public void onInteract(PlayerInteractEvent event) {
 		
 		event.setCancelled(true);

@@ -43,7 +43,7 @@ public class InteractiveBuildableRefresh implements InteractiveResponse {
     public void respond(String message, Resident resident) {
         resident.clearInteractiveMode();
 
-        if (!message.equalsIgnoreCase("yes")) {
+        if (!"yes".equalsIgnoreCase(message)) {
             CivMessage.send(resident, CivColor.LightGray + CivSettings.localize.localizedString("interactive_refresh_cancel"));
             return;
         }

@@ -18,15 +18,15 @@
  * from AVRGAMING LLC.
  */package com.avrgaming.global.scores;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.TreeMap;
-
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class CalculateScoreTimer extends CivAsyncTask {
 	
@@ -43,7 +43,7 @@ public class CalculateScoreTimer extends CivAsyncTask {
 			return;
 		}
 		
-		TreeMap<Integer, Civilization> civScores = new TreeMap<Integer, Civilization>();
+		TreeMap<Integer, Civilization> civScores = new TreeMap<>();
 		for (Civilization civ : CivGlobal.getCivs()) {
 			if (civ.isAdminCiv()) {
 				continue;
