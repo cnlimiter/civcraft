@@ -17,14 +17,13 @@ import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.ItemManager;
 
-public class BookCivSpace
-implements GuiAction {
+public class BookCivSpace implements GuiAction {
     public static Inventory guiInventory;
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
-        guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceHeading"));
+        Player player = (Player) event.getWhoClicked();
+        guiInventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceHeading"));
         ItemStack progressButton = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_civSpaceProgressHeading"), ItemManager.getId(Material.MAP), 0, "§6" + CivSettings.localize.localizedString("click_to_view"));
         progressButton = LoreGuiItem.setAction(progressButton, "BookCivSpaceProgress");
         guiInventory.setItem(0, progressButton);

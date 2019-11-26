@@ -23,8 +23,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-public class BookCivSpaceFuture
-implements GuiAction {
+public class BookCivSpaceFuture implements GuiAction {
     public static Inventory guiInventory;
 
     @Override

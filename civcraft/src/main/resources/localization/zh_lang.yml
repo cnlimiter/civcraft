@@ -103,8 +103,6 @@ SetSuccess: "设置成功"
 Broken: "损坏:"
 #Camp: "Camp"（CN:同一个单词，统一的翻译）
 Camp: "营地"
-#Members: "Members"
-Members: "成员"
 #NextRaid: "Next Raid"
 NextRaid: "下一次袭击"
 #Info: "Info"
@@ -187,8 +185,6 @@ Members: "成员:"
 TaxRate: "税率:"
 #FlatTax: "Flat Tax:"
 FlatTax: "固定税:"
-#Culture: "Culture:"
-Culture: "文化:"
 #Goodies: "Goodies:"
 Goodies: "贸易品:"
 #Time: "Time:"
@@ -302,9 +298,9 @@ camp_longhouseStagnated: "停滞"
 camp_longhouseSomethingUnknown: "完成了一些未知的东西"
 
 #camp_hitControlBlock: Damaged Control Block
-camp_hitControlBlock: 控制方块损坏！！
+camp_hitControlBlock: "控制方块损坏！！"
 #camp_controlBlockUnderAttack: One of our camp's Control Points is under attack!（CN:同一个单词，统一翻译）
-camp_controlBlockUnderAttack: 我们营地其中一个控制方块正在遭受攻击！
+camp_controlBlockUnderAttack: "我们营地其中一个控制方块正在遭受攻击！"
 #camp_destroyed: "Our camp has been destroyed!"
 camp_destroyed: "我们的营地已经被摧毁!"
 #camp_controlBlockDestroyed: "One of camps's Control Points has been destroyed!"（CN:同一个单词，统一翻译）
@@ -2481,7 +2477,7 @@ loreEnhancement_arenaIllegal: "Some items were detected as illegal/impossible an
 # =========================== Other Lore Messages =========================
 loreGui_perkActivationFailed: "Failed to assign correctly. Have an admin reload the perks hashmap."
 
-loreGui_template_clickToBuild: "<Click To Build>"
+loreGui_template_clickToBuild: "<点击以建筑>"
 loreGui_template_clickToBind: "<Click To Bind>"
 loreGui_template_providedBy: "Provided by:"
 loreGui_template_Yourself: "Yourself :)"
@@ -3750,7 +3746,7 @@ town_found_databaseException: "我们检测到与数据库的内部不一致。�
 # town_buildwonder_errorLimit2: "Can only have at most two wonders in a town."
 town_buildwonder_errorLimit2: "一个城镇最多只能有两个奇迹。"                                                                   
 # var_townupgrade_alch: "Alchemist's House now at level [%0]"
-var_townupgrade_alch: "Alchemist's House 现在正处于等级：[%0]"                                  
+#var_townupgrade_alch: "Alchemist's House 现在正处于等级：[%0]"
 # cmd_build_calc_result: "Structure [%0] progress [%1]"
 cmd_build_calc_result: "建筑 [%0] 将于 [%1] 完成"
 # adcmd_find_xrayers: "Query all players to find ones at Diamond xray level"
@@ -3801,7 +3797,7 @@ researchSpaceShuttle_lore6: "You have successfully studied the Space Shuttle!"
 researchSpaceShuttle_lore7: "[%0] from [%1] has studied the Space Shuttle!"
 researchSpaceShuttle_lore8: "[%0] is studying the Space Shuttle!"
 
-adcmd_talentcount: "Count the Talents"
+#adcmd_talentcount: "Count the Talents"
 cmd_talentcount_broken: "Something Broke =("
 adcmd_talentcount_broken: "Something Broke =("
 adcmd_replenish: "Replenish Trade Goodie"
@@ -3829,7 +3825,7 @@ alch_sign_buy: "Buy"
 alch_sign_for: "Price"
 alch_sign_empty: "Counter is \n Empty"
 alch_sign_needUpgrade: "Upgrade Alch\nto unlock\n/town upgrade."
-var_townupgrade_alch: "Alchemist's House now at level [%0]"
+var_townupgrade_alch: "Alchemist's House 现在正处于等级：[%0]"
 
 bonus_chichen_itza_and_library_capitol: "The town of [%0] receives an ultrabuff and multiplies the health of the control blocks by 1.5! (150 hp) (30 hp in the military camp)"
 bonus_chichen_itza_and_library_townhall: "The town of [%0] receives an ultrabuff and multiplies the health of the control units by 1.5! (30 hp) (30 hp in the military camp)"
@@ -3838,7 +3834,6 @@ bonus_lighthouse_and_ingermanland: "The town of [%0] receives an ultrabuff and r
 event_found_by_scoutTower: "Scout Tower from the town of [%0] has spotted you!"
 event_found_by_scoutship: "Scout Ship from the town of [%0] has spotted you!"
 wonder_limit: "There is no way to begin construction of Wonder as the limit of wonders in the town is reached."
-var_alch_msgBought: "Purchased [%0] [%1] for [%2]"
 
 var_lab_maxed: "Level [%0] of the Observatory. Now: [%1] (Maximum [%1])"
 var_lab_lvlUp: "Observatory now level of [%0]"
@@ -3962,8 +3957,6 @@ var_plc_entityMessage: "Tesla from [%0] Damaged you!"
 resident_upgradesGuiHeading: "城镇改进"
 # clicktoupgrade: "<Click to improve>"
 clicktoupgrade: "<点击以改进>"
-# loreGui_template_clickToBuild: "<Click to build>"
-loreGui_template_clickToBuild: "<点击以建筑>"
 
 bookReborn_heading: "CivCraft's Knowledge Book"
 bookReborn_backToDashBoard: "Back to CivCraft's Knowledge Book"
@@ -4085,7 +4078,8 @@ var_buildable_tooCloseToMagicShip: "Cannot build here. Too close to the Magic Sh
 var_pmc_entityMessage: "Mages of the town [%0] have cast a curse on you!"
 
 adcmd_count: "Shows the total number of Residents, Camps, Towns, and Civs"
-adcmd_talentcount: "Shows the total number of talents"
+#adcmd_talentcount: "Shows the total number of talents"
+adcmd_talentcount: "显示天赋的总数"
 
 var_autoCapitulate_townTitle: "The captured town of [%0] has given up."
 var_autoCapitulate_townSubTitle: " [%0] has refused to resist."
@@ -4219,7 +4213,7 @@ var_virtualTG_civFullSlots: "You can not have more than 53 trading resources on 
 stackable: "Stackable"
 notStackable: "Not Stackable"
 
-cmd_civ_trade_name: "Manage the Trade Resources of your civilization."
+# cmd_civ_trade_name: "Manage the Trade Resources of your civilization."
 
 var_buildable_cannotBeBroken: "[%0] can not be broken because it contains a trade resource."
 
@@ -4302,8 +4296,8 @@ var_buildable_cannotSabotaged: "[%0] can not be destroyed by sabotage, because i
 loreEnh_LightStrike_warning: "You could not send a bolt of lightning to this creature, for this is a LIQUID creature!"
 loreEnh_LightStrike_Sucusses: "You sent a lightning bolt to [%1] [%0] and inflicted 3 pure damage!"
 
-# tutorial_lore_clicktoView: "<Click to Upgrade>"
-tutorial_lore_clicktoView: "<点击以升级>"
+#tutorial_lore_clicktoView: "<Click to Upgrade>"
+#tutorial_lore_clicktoView: "<点击以升级>"
 # cmd_civ_culture_name: "Counts and displays to you the requirements left for a cultural victory"
 cmd_civ_culture_name: "统计并向您显示文化胜利的要求"
 cmd_civ_culture_notLeader: "Only leaders and advisers of civilization can count the requirements for a cultural victory."

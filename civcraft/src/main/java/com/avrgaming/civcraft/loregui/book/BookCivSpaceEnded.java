@@ -22,8 +22,7 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.ItemManager;
 
-public class BookCivSpaceEnded
-implements GuiAction {
+public class BookCivSpaceEnded implements GuiAction {
     public static Inventory guiInventory;
 
     @Override
@@ -43,7 +42,7 @@ implements GuiAction {
         guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceEndedHeading"));
         for (int i = 1; i < ended; ++i) {
             ConfigSpaceMissions configSpaceMissions = CivSettings.spacemissions_levels.get(i);
-            ItemStack itemStack = LoreGuiItem.build("�a" + configSpaceMissions.name, ItemManager.getId(Material.STAINED_GLASS_PANE), CivCraft.civRandom.nextInt(15), "�6" + CivSettings.localize.localizedString("click_to_view"));
+            ItemStack itemStack = LoreGuiItem.build("§a" + configSpaceMissions.name, ItemManager.getId(Material.STAINED_GLASS_PANE), CivCraft.civRandom.nextInt(15), "§6" + CivSettings.localize.localizedString("click_to_view"));
             itemStack = LoreGuiItem.setAction(itemStack, "CivSpaceComponents");
             itemStack = LoreGuiItem.setActionData(itemStack, "i", String.valueOf(i));
             itemStack = LoreGuiItem.setActionData(itemStack, "b", "true");
