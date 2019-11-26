@@ -15,18 +15,17 @@ import org.bukkit.entity.Player;
 import java.sql.SQLException;
 
 public class InteractiveReportBug
-implements InteractiveResponse {
+        implements InteractiveResponse {
     @Override
     public void respond(String message, Resident resident) {
         Player player;
         try {
             player = CivGlobal.getPlayer(resident);
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             return;
         }
         if (message.equalsIgnoreCase("cancel")) {
-            CivMessage.send((Object)player, "§a" + (Object)ChatColor.BOLD + CivSettings.localize.localizedString("interactive_report_cancel"));
+            CivMessage.send((Object) player, "§a" + (Object) ChatColor.BOLD + CivSettings.localize.localizedString("interactive_report_cancel"));
             resident.clearInteractiveMode();
             return;
         }
@@ -36,12 +35,11 @@ implements InteractiveResponse {
         Report report = new Report(resident.getName(), message, resident.getName(), true);
         try {
             report.saveNow();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         CivGlobal.addReport(report);
-        CivMessage.sendSuccess((CommandSender)player, CivSettings.localize.localizedString("var_interactive_reportbug_success", CivColor.Red + message + CivColor.RESET, "§b" + report.getId()));
+        CivMessage.sendSuccess((CommandSender) player, CivSettings.localize.localizedString("var_interactive_reportbug_success", CivColor.Red + message + CivColor.RESET, "§b" + report.getId()));
         resident.clearInteractiveMode();
     }
 }

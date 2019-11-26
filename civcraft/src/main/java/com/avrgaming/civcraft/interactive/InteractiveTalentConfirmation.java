@@ -1,22 +1,19 @@
 
 package com.avrgaming.civcraft.interactive;
 
-import java.sql.SQLException;
-
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.interactive.InteractiveResponse;
-import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Talent;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.entity.Player;
 
-public class InteractiveTalentConfirmation
-implements InteractiveResponse {
+import java.sql.SQLException;
+
+public class InteractiveTalentConfirmation implements InteractiveResponse {
     public Civilization target;
     public Player leader;
     public Talent talent;
@@ -45,12 +42,11 @@ implements InteractiveResponse {
         try {
             capitol.addTalent(talent);
             capitol.saveNow();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (CivException e) {
-			e.printStackTrace();
-		}
+            e.printStackTrace();
+        }
         CivMessage.sendCiv(this.target, this.succesesMessage);
         CivMessage.send(resident, CivColor.Green + CivSettings.localize.localizedString("cmd_civ_talent_choose_sucussesSender"));
     }
@@ -58,8 +54,7 @@ implements InteractiveResponse {
     protected void addBuffToTown(Town town, String id) {
         try {
             town.getBuffManager().addBuff(id, id, "Talent in " + town.getName());
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             e.printStackTrace();
         }
     }

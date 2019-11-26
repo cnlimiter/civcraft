@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -32,34 +32,30 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class InteractiveCampName implements InteractiveResponse {
 
-	@Override
-	public void respond(String message, Resident resident) {
-		Player player;
-		try {
-			player = CivGlobal.getPlayer(resident);
-		} catch (CivException e) {
-			return;
-		}
+    @Override
+    public void respond(String message, Resident resident) {
+        Player player;
+        try {
+            player = CivGlobal.getPlayer(resident);
+        } catch (CivException e) {
+            return;
+        }
+        if ("cancel".equalsIgnoreCase(message)) {
+            CivMessage.send(player, CivSettings.localize.localizedString("interactive_camp_cancel"));
+            resident.clearInteractiveMode();
+            return;
+        }
+		//|| !StringUtils.isAsciiPrintable(message)
+		// 检查是否只包含unicode字母
+        if (!StringUtils.isAlpha(message) ) {
+            CivMessage.send(player, CivColor.Rose + ChatColor.BOLD + CivSettings.localize.localizedString("interactive_camp_invalid"));
+            return;
+        }
+        message = message.replace(" ", "_");
+        message = message.replace("\"", "");
+        message = message.replace("\'", "");
 
-		if (message.equalsIgnoreCase("cancel")) {
-			CivMessage.send(player, CivSettings.localize.localizedString("interactive_camp_cancel"));
-			resident.clearInteractiveMode();
-			return;
-		}
-
-		if (!StringUtils.isAlpha(message) || !StringUtils.isAsciiPrintable(message)) {
-			CivMessage.send(player, CivColor.Rose+ChatColor.BOLD+CivSettings.localize.localizedString("interactive_camp_invalid"));
-			return;
-		}
-	
-		message = message.replace(" ", "_");
-		message = message.replace("\"", "");
-		message = message.replace("\'", "");
-		
-		Camp.newCamp(resident, player, message);
-
-		return;
-		
-	}
+        Camp.newCamp(resident, player, message);
+    }
 
 }

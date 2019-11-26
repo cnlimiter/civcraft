@@ -55,7 +55,7 @@ public class InteractiveBuildCommand implements InteractiveResponse {
 			return;
 		}
 		
-		if (!message.equalsIgnoreCase("yes")) {
+		if (!"yes".equalsIgnoreCase(message)) {
 			CivMessage.sendError(player, CivSettings.localize.localizedString("interactive_build_cancel"));
 			resident.clearInteractiveMode();
 			resident.undoPreview();

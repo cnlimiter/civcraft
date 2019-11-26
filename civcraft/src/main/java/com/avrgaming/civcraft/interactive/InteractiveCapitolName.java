@@ -43,13 +43,15 @@ public class InteractiveCapitolName implements InteractiveResponse {
 			return;
 		}
 
-		if (message.equalsIgnoreCase("cancel")) {
+		if ("cancel".equalsIgnoreCase(message)) {
 			CivMessage.send(player, CivSettings.localize.localizedString("interactive_capitol_cancel"));
 			resident.clearInteractiveMode();
 			return;
 		}
-		
-		if (!StringUtils.isAlpha(message) || !StringUtils.isAsciiPrintable(message)) {
+
+		//|| !StringUtils.isAsciiPrintable(message)
+		// 检查是否只包含unicode字母
+		if (!StringUtils.isAlpha(message)) {
 			CivMessage.send(player, CivColor.Rose+ChatColor.BOLD+CivSettings.localize.localizedString("interactive_capitol_invalidname"));
 			return;
 		}
