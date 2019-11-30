@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.structure;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.bukkit.Location;
 import com.avrgaming.civcraft.components.ProjectileMagicComponent;
 import com.avrgaming.civcraft.config.CivSettings;
@@ -14,7 +15,7 @@ import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.util.BlockCoord;
 
 public class MagicTower
-extends Structure {
+        extends Structure {
     ProjectileMagicComponent magicComponent;
 
     protected MagicTower(Location center, String id, Town town) throws CivException {
@@ -35,7 +36,7 @@ extends Structure {
 
     public int getDamage() {
         double rate = 1.0;
-        return (int)((double)this.magicComponent.getDamage() * (rate += this.getTown().getBuffManager().getEffectiveDouble("buff_fire_bomb")));
+        return (int) ((double) this.magicComponent.getDamage() * (rate += this.getTown().getBuffManager().getEffectiveDouble("buff_fire_bomb")));
     }
 
     @Override
@@ -55,7 +56,7 @@ extends Structure {
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown") && this.getCiv().getCapitol() != null) {
             rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraTowerHPTown");
         }
-        return (int)((double)this.info.max_hitpoints * rate);
+        return (int) ((double) this.info.max_hitpoints * rate);
     }
 
     public void setTurretLocation(BlockCoord absCoord) {
@@ -68,18 +69,17 @@ extends Structure {
             double build_distance = CivSettings.getDouble(CivSettings.warConfig, "tesla_tower.build_distance");
             for (Town town : this.getTown().getCiv().getTowns()) {
                 for (Structure structure : town.getStructures()) {
-					BlockCoord center = structure.getCenterLocation();
-					double distance = center.distance(this.getCenterLocation());
+                    BlockCoord center = structure.getCenterLocation();
+                    double distance = center.distance(this.getCenterLocation());
                     if (structure instanceof MagicTower && distance <= build_distance) {
                         throw new CivException(CivSettings.localize.localizedString("var_buildable_tooCloseToMagicTower", "" + center.getX() + "," + center.getY() + "," + center.getZ()));
                     }
                     if (structure instanceof MagicShip && distance <= build_distance) {
-                    	throw new CivException(CivSettings.localize.localizedString("var_buildable_tooCloseToMagicShip", "" + center.getX() + "," + center.getY() + "," + center.getZ()));
+                        throw new CivException(CivSettings.localize.localizedString("var_buildable_tooCloseToMagicShip", "" + center.getX() + "," + center.getY() + "," + center.getZ()));
                     }
                 }
             }
-        }
-        catch (InvalidConfiguration e) {
+        } catch (InvalidConfiguration e) {
             e.printStackTrace();
             throw new CivException(e.getMessage());
         }

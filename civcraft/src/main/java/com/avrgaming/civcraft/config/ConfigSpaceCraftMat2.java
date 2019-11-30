@@ -4,8 +4,7 @@
 
 package com.avrgaming.civcraft.config;
 
-public class ConfigSpaceCraftMat2
-{
+public class ConfigSpaceCraftMat2 {
     public int typeID;
     public int data;
     public String name;

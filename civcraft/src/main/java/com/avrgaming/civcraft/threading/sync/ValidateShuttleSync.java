@@ -2,13 +2,14 @@
 package com.avrgaming.civcraft.threading.sync;
 
 import java.util.concurrent.locks.ReentrantLock;
+
 import org.bukkit.entity.Player;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.wonders.SpaceShuttle;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
 
 public class ValidateShuttleSync
-extends CivAsyncTask {
+        extends CivAsyncTask {
     public static ReentrantLock runningLock = new ReentrantLock();
     public static Town town;
     public static Player player;
@@ -19,11 +20,10 @@ extends CivAsyncTask {
     }
 
     private void processTick() {
-        SpaceShuttle spaceShuttle = (SpaceShuttle)town.getWonderByType("w_space_shuttle");
+        SpaceShuttle spaceShuttle = (SpaceShuttle) town.getWonderByType("w_space_shuttle");
         try {
             spaceShuttle.startMission(this, player);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -33,8 +33,7 @@ extends CivAsyncTask {
         if (runningLock.tryLock()) {
             try {
                 this.processTick();
-            }
-            finally {
+            } finally {
                 runningLock.unlock();
             }
         }

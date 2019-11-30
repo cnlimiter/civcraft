@@ -18,33 +18,33 @@ import com.avrgaming.civcraft.war.War;
 
 public class BuildCannon extends ItemComponent {
 
-	public void onInteract(PlayerInteractEvent event) {
-		try {
-			
-			if (!War.isWarTime()) {
-				throw new CivException(CivSettings.localize.localizedString("buildCannon_NotWar"));
-			}
-			
-			Resident resident = CivGlobal.getResident(event.getPlayer());
-			Cannon.newCannon(resident);
-			
-			CivMessage.sendCiv(resident.getCiv(), CivSettings.localize.localizedString("var_buildCannon_Success",
-					(event.getPlayer().getLocation().getBlockX()+","+
-					event.getPlayer().getLocation().getBlockY()+","+
-					event.getPlayer().getLocation().getBlockZ())));
-			
-			ItemStack newStack = new ItemStack(Material.AIR);
-			event.getPlayer().getInventory().setItemInMainHand(newStack);
-		} catch (CivException e) {
-			CivMessage.sendError(event.getPlayer(), e.getMessage());
-		}
-		
-	}
+    public void onInteract(PlayerInteractEvent event) {
+        try {
 
-	@Override
-	public void onPrepareCreate(AttributeUtil attrUtil) {
-		attrUtil.addLore(ChatColor.RESET+CivColor.Gold+CivSettings.localize.localizedString("buildCannon_Lore1"));
-		attrUtil.addLore(ChatColor.RESET+CivColor.Rose+CivSettings.localize.localizedString("itemLore_RightClickToUse"));	
-	}
-	
+            if (!War.isWarTime()) {
+                throw new CivException(CivSettings.localize.localizedString("buildCannon_NotWar"));
+            }
+
+            Resident resident = CivGlobal.getResident(event.getPlayer());
+            Cannon.newCannon(resident);
+
+            CivMessage.sendCiv(resident.getCiv(), CivSettings.localize.localizedString("var_buildCannon_Success",
+                    (event.getPlayer().getLocation().getBlockX() + "," +
+                            event.getPlayer().getLocation().getBlockY() + "," +
+                            event.getPlayer().getLocation().getBlockZ())));
+
+            ItemStack newStack = new ItemStack(Material.AIR);
+            event.getPlayer().getInventory().setItemInMainHand(newStack);
+        } catch (CivException e) {
+            CivMessage.sendError(event.getPlayer(), e.getMessage());
+        }
+
+    }
+
+    @Override
+    public void onPrepareCreate(AttributeUtil attrUtil) {
+        attrUtil.addLore(ChatColor.RESET + CivColor.Gold + CivSettings.localize.localizedString("buildCannon_Lore1"));
+        attrUtil.addLore(ChatColor.RESET + CivColor.Rose + CivSettings.localize.localizedString("itemLore_RightClickToUse"));
+    }
+
 }

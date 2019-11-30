@@ -18,52 +18,57 @@ import com.avrgaming.civcraft.exception.CivTaskAbortException;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
 import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+
 import java.util.HashMap;
 import java.util.Collection;
+
 import com.avrgaming.civcraft.config.ConfigSpaceCraftMat;
+
 import java.util.ArrayList;
+
 import com.avrgaming.civcraft.object.StructureChest;
 import com.avrgaming.civcraft.util.MultiInventory;
 import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.config.CivSettings;
 import org.bukkit.entity.Player;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
+
 import java.sql.SQLException;
 import java.sql.ResultSet;
+
 import com.avrgaming.civcraft.object.Town;
 import org.bukkit.Location;
 import com.avrgaming.civcraft.object.StructureSign;
 
-public class Factory extends Structure
-{
+public class Factory extends Structure {
     private StructureSign trainSign;
     private int index;
-    
+
     protected Factory(final Location center, final String id, final Town town) throws CivException {
         super(center, id, town);
         this.index = 0;
     }
-    
+
     public Factory(final ResultSet rs) throws SQLException, CivException {
         super(rs);
         this.index = 0;
     }
-    
+
     @Override
     public void loadSettings() {
         super.loadSettings();
     }
-    
+
     @Override
     public String getDynmapDescription() {
         return "";
     }
-    
+
     @Override
     public String getMarkerIconName() {
         return "factory";
     }
-    
+
     public void trainCraftMat(final CivAsyncTask task, final Player player) throws InterruptedException {
         if (this.getChests().size() == 0) {
             return;
@@ -78,8 +83,7 @@ public class Factory extends Structure
             Inventory tmp;
             try {
                 tmp = task.getChestInventory(c.getCoord().getWorldname(), c.getCoord().getX(), c.getCoord().getY(), c.getCoord().getZ(), false);
-            }
-            catch (CivTaskAbortException e) {
+            } catch (CivTaskAbortException e) {
                 return;
             }
             source.addInventory(tmp);
@@ -89,8 +93,7 @@ public class Factory extends Structure
             Inventory tmp;
             try {
                 tmp = task.getChestInventory(c.getCoord().getWorldname(), c.getCoord().getX(), c.getCoord().getY(), c.getCoord().getZ(), false);
-            }
-            catch (CivTaskAbortException e) {
+            } catch (CivTaskAbortException e) {
                 e.printStackTrace();
                 return;
             }
@@ -115,8 +118,7 @@ public class Factory extends Structure
             if (configSpaceCraftMat.minecraftComponents == null) {
                 allMatchMinecraft = true;
             }
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             allMatchMinecraft = true;
         }
         final HashMap<String, Integer> multiInvContentsCraftMat = new HashMap<String, Integer>();
@@ -128,8 +130,7 @@ public class Factory extends Structure
                     if (loreMaterial != null) {
                         if (multiInvContentsCraftMat.get(loreMaterial.getId()) == null) {
                             multiInvContentsCraftMat.put(loreMaterial.getId(), itemStack.getAmount());
-                        }
-                        else {
+                        } else {
                             final int oldAmount = multiInvContentsCraftMat.get(loreMaterial.getId());
                             multiInvContentsCraftMat.put(loreMaterial.getId(), itemStack.getAmount() + oldAmount);
                         }
@@ -145,8 +146,7 @@ public class Factory extends Structure
                         final Integer id = ItemManager.getId(itemStack);
                         if (multiInvContentsMinecraft.get(id) == null) {
                             multiInvContentsMinecraft.put(id, itemStack.getAmount());
-                        }
-                        else {
+                        } else {
                             final int oldAmount2 = multiInvContentsMinecraft.get(id);
                             multiInvContentsMinecraft.put(id, itemStack.getAmount() + oldAmount2);
                         }
@@ -165,8 +165,7 @@ public class Factory extends Structure
                 if (multiInvContentsCraftMat.get(craftMatID2) == null) {
                     allMatchCraftMat = false;
                     notMatchComponents.append(itemToGetName.getName()).append(" ").append(count2).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
-                }
-                else if (multiInvContentsCraftMat.get(craftMatID2) < count2) {
+                } else if (multiInvContentsCraftMat.get(craftMatID2) < count2) {
                     allMatchCraftMat = false;
                     final int reaming = count2 - multiInvContentsCraftMat.get(craftMatID2);
                     notMatchComponents.append(itemToGetName.getName()).append(" ").append(reaming).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
@@ -184,8 +183,7 @@ public class Factory extends Structure
                         notMatchComponents.append("§a");
                     }
                     notMatchComponents.append(configSpaceCraftMat2.name).append(" ").append(count3).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
-                }
-                else {
+                } else {
                     if (multiInvContentsMinecraft.get(id2) >= count3) {
                         continue;
                     }
@@ -220,7 +218,7 @@ public class Factory extends Structure
         }
         CivMessage.send(player, notMatchComponents.toString());
     }
-    
+
     public boolean lastKeySet(final int current, final HashMap<String, Integer> array) {
         int lenght = 0;
         for (final String string : array.keySet()) {
@@ -230,7 +228,7 @@ public class Factory extends Structure
         }
         return current == lenght;
     }
-    
+
     private void changeIndex(final int newIndex) {
         final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<ConfigSpaceCraftMat>();
         crafts.addAll(CivSettings.space_crafts.values());
@@ -239,8 +237,7 @@ public class Factory extends Structure
                 final LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterialFromId(crafts.get(newIndex).originalCraftMat);
                 this.trainSign.setText(CivSettings.localize.localizedString("structure_factory_sign_construct") + "\n" + CivColor.GreenBold + craftMat.getName());
                 this.index = newIndex;
-            }
-            catch (IndexOutOfBoundsException e) {
+            } catch (IndexOutOfBoundsException e) {
                 if (crafts.size() > 0) {
                     final LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterialFromId(crafts.get(0).originalCraftMat);
                     this.trainSign.setText(CivSettings.localize.localizedString("structure_factory_sign_construct") + "\n" + CivColor.GreenBold + craftMat.getName());
@@ -248,12 +245,11 @@ public class Factory extends Structure
                 }
             }
             this.trainSign.update();
-        }
-        else {
+        } else {
             CivLog.warning("Cannot find Construct sign for " + this.getId() + " in " + this.getCorner());
         }
     }
-    
+
     @Override
     public void processSignAction(final Player player, final StructureSign sign, final PlayerInteractEvent event) {
         final Resident resident = CivGlobal.getResident(player);
@@ -280,12 +276,11 @@ public class Factory extends Structure
                     break;
                 }
             }
-        }
-        else {
+        } else {
             CivMessage.sendError(player, CivSettings.localize.localizedString("var_factory_noPerm", sign.getOwner().getCiv().getName()));
         }
     }
-    
+
     @Override
     public void onPostBuild(final BlockCoord absCoord, final SimpleBlock commandBlock) {
         final String command = commandBlock.command;

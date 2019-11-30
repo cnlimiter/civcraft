@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.items.units;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import gpl.AttributeUtil;
 
 import org.bukkit.Location;
@@ -28,7 +29,7 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.war.War;
 
 public class MinersAmulet
-extends UnitMaterial {
+        extends UnitMaterial {
     public MinersAmulet(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -38,8 +39,8 @@ extends UnitMaterial {
         MinersAmulet.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow +"Single Use");
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
         attrs.addLore(CivColor.LightGray + "Increases your dig speed");
@@ -56,7 +57,7 @@ extends UnitMaterial {
         ItemStack is = LoreMaterial.spawn(Unit.MINERSAMULET_ARTIFACT);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
         attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
@@ -71,10 +72,10 @@ extends UnitMaterial {
     @Override
     public void onInteract(PlayerInteractEvent event) {
         if (War.isWarTime()) {
-            CivMessage.sendError((Object)event.getPlayer(), CivSettings.localize.localizedString("var_artifact_useFailureSinceWar", Unit.MINERSAMULET_ARTIFACT.getUnit().name));
+            CivMessage.sendError((Object) event.getPlayer(), CivSettings.localize.localizedString("var_artifact_useFailureSinceWar", Unit.MINERSAMULET_ARTIFACT.getUnit().name));
             return;
         }
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
         Player player = event.getPlayer();
         Resident interacter = CivGlobal.getResident(player);
         long nextUse = CivGlobal.getUnitCooldown(this.getClass(), event.getPlayer());
@@ -84,7 +85,7 @@ extends UnitMaterial {
             CivGlobal.setUnitCooldown(this.getClass(), 20, event.getPlayer());
             CivMessage.sendSuccess(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusess", sdf.format(timeNow + 1200000L), Unit.MINERSAMULET_ARTIFACT.getUnit().name));
             if (CivGlobal.isOneUseArtifact(event.getItem())) {
-            	this.removeChildren(player.getInventory());
+                this.removeChildren(player.getInventory());
                 CivMessage.sendError(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusessButNot"));
             }
         } else {

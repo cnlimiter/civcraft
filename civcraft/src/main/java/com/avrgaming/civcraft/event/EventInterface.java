@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -23,6 +23,7 @@ import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import java.util.Calendar;
 
 public interface EventInterface {
-	void process();
-	Calendar getNextDate() throws InvalidConfiguration;
+    void process();
+
+    Calendar getNextDate() throws InvalidConfiguration;
 }

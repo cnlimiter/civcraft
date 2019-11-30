@@ -10,22 +10,22 @@ import com.avrgaming.civcraft.object.Town;
 
 public class Stadium extends Structure {
 
-	protected Stadium(Location center, String id, Town town)
-			throws CivException {
-		super(center, id, town);
-	}
+    protected Stadium(Location center, String id, Town town)
+            throws CivException {
+        super(center, id, town);
+    }
 
-	public Stadium(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
+    public Stadium(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
 
-	@Override
-	public String getDynmapDescription() {
-		return null;
-	}
-	
-	@Override
-	public String getMarkerIconName() {
-		return "flower";
-	}
+    @Override
+    public String getDynmapDescription() {
+        return null;
+    }
+
+    @Override
+    public String getMarkerIconName() {
+        return "flower";
+    }
 }

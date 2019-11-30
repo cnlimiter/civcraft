@@ -1243,9 +1243,9 @@ public class BlockListener implements Listener {
                     break;
                 case CHICKEN:
                     if (inHand.getType().equals(Material.SEEDS)
-							|| inHand.getType().equals(Material.MELON_SEEDS)
-							|| inHand.getType().equals(Material.PUMPKIN_SEEDS)
-							|| inHand.getType().equals(Material.BEETROOT_SEEDS)) {
+                            || inHand.getType().equals(Material.MELON_SEEDS)
+                            || inHand.getType().equals(Material.PUMPKIN_SEEDS)
+                            || inHand.getType().equals(Material.BEETROOT_SEEDS)) {
                         denyBreeding = true;
                     }
                     break;
@@ -1256,19 +1256,19 @@ public class BlockListener implements Listener {
                         denyBreeding = true;
                     }
                     break;
-				case WOLF:
-					if (inHand.getType().equals(Material.RAW_BEEF)
-							|| inHand.getType().equals(Material.COOKED_BEEF)
-							|| inHand.getType().equals(Material.RAW_CHICKEN)
-							|| inHand.getType().equals(Material.COOKED_CHICKEN)
-							|| inHand.getType().equals(Material.MUTTON)
-							|| inHand.getType().equals(Material.COOKED_MUTTON)
-							|| inHand.getType().equals(Material.COOKED_RABBIT)
-							|| inHand.getType().equals(Material.RABBIT)
-							|| inHand.getType().equals(Material.GRILLED_PORK)
-							|| inHand.getType().equals(Material.PORK)) {
-						denyBreeding = true;
-					}
+                case WOLF:
+                    if (inHand.getType().equals(Material.RAW_BEEF)
+                            || inHand.getType().equals(Material.COOKED_BEEF)
+                            || inHand.getType().equals(Material.RAW_CHICKEN)
+                            || inHand.getType().equals(Material.COOKED_CHICKEN)
+                            || inHand.getType().equals(Material.MUTTON)
+                            || inHand.getType().equals(Material.COOKED_MUTTON)
+                            || inHand.getType().equals(Material.COOKED_RABBIT)
+                            || inHand.getType().equals(Material.RABBIT)
+                            || inHand.getType().equals(Material.GRILLED_PORK)
+                            || inHand.getType().equals(Material.PORK)) {
+                        denyBreeding = true;
+                    }
                 default:
                     break;
             }

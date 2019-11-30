@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.items.units;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import gpl.AttributeUtil;
 
 import org.bukkit.Location;
@@ -27,7 +28,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class Diver
-extends UnitMaterial {
+        extends UnitMaterial {
     public Diver(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -37,8 +38,8 @@ extends UnitMaterial {
         Diver.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow +"Single Use");
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
         attrs.addLore(CivColor.LightGray + "Respiration III");
@@ -54,7 +55,7 @@ extends UnitMaterial {
         ItemStack is = LoreMaterial.spawn(Unit.DIVER_ARTIFACT);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
         attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
@@ -67,7 +68,7 @@ extends UnitMaterial {
 
     @Override
     public void onInteract(PlayerInteractEvent event) {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
         Player player = event.getPlayer();
         Resident interacter = CivGlobal.getResident(player);
         long nextUse = CivGlobal.getUnitCooldown(this.getClass(), event.getPlayer());
@@ -77,7 +78,7 @@ extends UnitMaterial {
             CivGlobal.setUnitCooldown(this.getClass(), 25, event.getPlayer());
             CivMessage.sendSuccess(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusess", sdf.format(timeNow + 1500000L), Unit.DIVER_ARTIFACT.getUnit().name));
             if (CivGlobal.isOneUseArtifact(event.getItem())) {
-            	this.removeChildren(player.getInventory());
+                this.removeChildren(player.getInventory());
                 CivMessage.sendError(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusessButNot"));
             }
         } else {

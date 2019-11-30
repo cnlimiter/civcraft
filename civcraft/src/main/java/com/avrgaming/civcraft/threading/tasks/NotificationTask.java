@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -25,23 +25,23 @@ import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
 
 public class NotificationTask implements Runnable {
-	//private Server server;
-	String message;
-	String playerName;
-	
-	public NotificationTask(String playerName, String msg) {
-		message = msg;
-		this.playerName = playerName;
-	}
+    //private Server server;
+    String message;
+    String playerName;
 
-	@Override
-	public void run() {
-		try {
-			Player player = CivGlobal.getPlayer(playerName);
-			CivMessage.send(player, message);
-		} catch (CivException e) {
-			//Player not online
-		}
-		
-	}
+    public NotificationTask(String playerName, String msg) {
+        message = msg;
+        this.playerName = playerName;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Player player = CivGlobal.getPlayer(playerName);
+            CivMessage.send(player, message);
+        } catch (CivException e) {
+            //Player not online
+        }
+
+    }
 }

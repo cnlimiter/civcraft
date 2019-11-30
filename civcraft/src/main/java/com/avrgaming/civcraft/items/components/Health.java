@@ -21,7 +21,7 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class Health
-extends ItemComponent {
+        extends ItemComponent {
     @Override
     public void onPrepareCreate(AttributeUtil attrs) {
         attrs.addLore(CivColor.Blue + this.getDouble("value") + " " + CivSettings.localize.localizedString("newItemLore_Defense"));
@@ -31,7 +31,7 @@ extends ItemComponent {
     public void onHold(PlayerItemHeldEvent event) {
         Resident resident = CivGlobal.getResident(event.getPlayer());
         if (!resident.hasTechForItem(event.getPlayer().getInventory().getItem(event.getNewSlot()))) {
-            CivMessage.send((Object)resident, CivColor.Red + CivSettings.localize.localizedString("itemLore_Warning") + " - " + CivColor.LightGray + CivSettings.localize.localizedString("itemLore_defenseHalfPower"));
+            CivMessage.send((Object) resident, CivColor.Red + CivSettings.localize.localizedString("itemLore_Warning") + " - " + CivColor.LightGray + CivSettings.localize.localizedString("itemLore_defenseHalfPower"));
         }
     }
 
@@ -46,11 +46,11 @@ extends ItemComponent {
         AttributeUtil attrs = new AttributeUtil(stack);
         for (LoreEnhancement enh : attrs.getEnhancements()) {
             if (!(enh instanceof LoreEnhancementDefense)) continue;
-            extraDef += ((LoreEnhancementDefense)enh).getExtraDefense(attrs);
+            extraDef += ((LoreEnhancementDefense) enh).getExtraDefense(attrs);
         }
         defValue += extraDef;
         double damage = event.getDamage();
-        if (event.getEntity() instanceof Player && !(CivGlobal.getResident((Player)event.getEntity())).hasTechForItem(stack)) {
+        if (event.getEntity() instanceof Player && !(CivGlobal.getResident((Player) event.getEntity())).hasTechForItem(stack)) {
             defValue /= 2.0;
         }
         if ((damage -= defValue) < 0.5) {

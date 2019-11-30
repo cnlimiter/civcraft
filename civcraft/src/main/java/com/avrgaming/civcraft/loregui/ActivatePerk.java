@@ -13,19 +13,19 @@ import com.avrgaming.global.perks.Perk;
 
 public class ActivatePerk implements GuiAction {
 
-	@Override
-	public void performAction(InventoryClickEvent event, ItemStack stack) {
-		Player player = (Player)event.getWhoClicked();
-		Resident resident = CivGlobal.getResident((Player)event.getWhoClicked());
-		String perk_id = LoreGuiItem.getActionData(stack, "perk");
-		Perk perk = resident.perks.get(perk_id);
-		if (perk != null) {
+    @Override
+    public void performAction(InventoryClickEvent event, ItemStack stack) {
+        Player player = (Player) event.getWhoClicked();
+        Resident resident = CivGlobal.getResident((Player) event.getWhoClicked());
+        String perk_id = LoreGuiItem.getActionData(stack, "perk");
+        Perk perk = resident.perks.get(perk_id);
+        if (perk != null) {
 
-				perk.onActivate(resident);
-		} else {
-			CivLog.error(perk_id+" "+CivSettings.localize.localizedString("loreGui_perkActivationFailed"));
-		}
-		player.closeInventory();		
-	}
-	
+            perk.onActivate(resident);
+        } else {
+            CivLog.error(perk_id + " " + CivSettings.localize.localizedString("loreGui_perkActivationFailed"));
+        }
+        player.closeInventory();
+    }
+
 }

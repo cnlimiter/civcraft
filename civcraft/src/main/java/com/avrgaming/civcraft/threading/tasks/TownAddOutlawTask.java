@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -30,28 +30,28 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class TownAddOutlawTask implements Runnable {
 
-	String name;
-	Town town;
-	
-	
-	public TownAddOutlawTask(String name, Town town) {
-		this.name = name;
-		this.town = town;
-	}
+    String name;
+    Town town;
 
-	@Override
-	public void run() {
-		
-		try {
-			Player player = CivGlobal.getPlayer(name);
-			CivMessage.send(player, CivColor.Yellow+ChatColor.BOLD+CivSettings.localize.localizedString("var_TownAddOutlawTask_Notify",town.getName()));
-		} catch (CivException e) {
-		}
-		
-		town.addOutlaw(name);
-		town.save();
-		CivMessage.sendTown(town, CivColor.Yellow+CivSettings.localize.localizedString("var_TownAddOutlawTask_Message",name));
-		
-	}
-	
+
+    public TownAddOutlawTask(String name, Town town) {
+        this.name = name;
+        this.town = town;
+    }
+
+    @Override
+    public void run() {
+
+        try {
+            Player player = CivGlobal.getPlayer(name);
+            CivMessage.send(player, CivColor.Yellow + ChatColor.BOLD + CivSettings.localize.localizedString("var_TownAddOutlawTask_Notify", town.getName()));
+        } catch (CivException e) {
+        }
+
+        town.addOutlaw(name);
+        town.save();
+        CivMessage.sendTown(town, CivColor.Yellow + CivSettings.localize.localizedString("var_TownAddOutlawTask_Message", name));
+
+    }
+
 }

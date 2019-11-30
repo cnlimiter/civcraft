@@ -8,7 +8,7 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class LoreEnhancementLightningStrike
-extends LoreEnhancement {
+        extends LoreEnhancement {
     @Override
     public AttributeUtil add(AttributeUtil attrs) {
         attrs.addEnhancement("LoreEnhancementLightningStrike", null, null);

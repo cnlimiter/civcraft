@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -23,17 +23,17 @@ import java.util.Date;
 
 public class TimeTools {
 
-	public static long toTicks(long seconds) {
-		return 20*seconds;
-	}
+    public static long toTicks(long seconds) {
+        return 20 * seconds;
+    }
 
-	public static long getTicksUnitl(Date next) {
-		Calendar c = Calendar.getInstance();
-		Date now = c.getTime();
-		
-		long seconds = Math.abs((now.getTime() - next.getTime())/1000);
-		
-		return seconds*20;
-	}
-	
+    public static long getTicksUnitl(Date next) {
+        Calendar c = Calendar.getInstance();
+        Date now = c.getTime();
+
+        long seconds = Math.abs((now.getTime() - next.getTime()) / 1000);
+
+        return seconds * 20;
+    }
+
 }

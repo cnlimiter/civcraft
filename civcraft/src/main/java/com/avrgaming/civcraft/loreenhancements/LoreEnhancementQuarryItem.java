@@ -8,8 +8,8 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class LoreEnhancementQuarryItem
-extends LoreEnhancement
-implements Listener {
+        extends LoreEnhancement
+        implements Listener {
     @Override
     public String getDisplayName() {
         return "Quarry Item";

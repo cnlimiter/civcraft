@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -21,18 +21,18 @@ package com.avrgaming.civcraft.items.components;
 
 public class RegisterItemComponentAsync implements Runnable {
 
-	public ItemComponent component;
-	public String name;
-	public boolean register;
-	
-	public RegisterItemComponentAsync(ItemComponent itemComp, String name, boolean register) {
-		this.component = itemComp;
-		this.name = name;
-		this.register = register;
-	}
-	
-	@Override
-	public void run() {
+    public ItemComponent component;
+    public String name;
+    public boolean register;
+
+    public RegisterItemComponentAsync(ItemComponent itemComp, String name, boolean register) {
+        this.component = itemComp;
+        this.name = name;
+        this.register = register;
+    }
+
+    @Override
+    public void run() {
 //		
 //		if (register) {
 //		ItemComponent.lock.lock();
@@ -63,6 +63,6 @@ public class RegisterItemComponentAsync implements Runnable {
 //				ItemComponent.lock.unlock();
 //			}
 //		}	
-	}
+    }
 
 }

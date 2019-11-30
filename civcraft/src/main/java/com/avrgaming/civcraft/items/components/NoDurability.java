@@ -7,13 +7,13 @@ import org.bukkit.inventory.ItemStack;
 
 public class NoDurability extends ItemComponent {
 
-	@Override
-	public void onPrepareCreate(AttributeUtil attrUtil) {		
-	}
-	
-	@Override
-	public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {
-		stack.setDurability((short) 0);		
-	}
+    @Override
+    public void onPrepareCreate(AttributeUtil attrUtil) {
+    }
+
+    @Override
+    public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {
+        stack.setDurability((short) 0);
+    }
 
 }

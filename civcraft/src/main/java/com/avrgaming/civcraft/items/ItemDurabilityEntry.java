@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -21,6 +21,6 @@ package com.avrgaming.civcraft.items;
 import org.bukkit.inventory.ItemStack;
 
 public class ItemDurabilityEntry {
-	public ItemStack stack;
-	public short oldValue;
+    public ItemStack stack;
+    public short oldValue;
 }

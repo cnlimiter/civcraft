@@ -31,42 +31,41 @@ import com.avrgaming.civcraft.util.ItemManager;
 
 public class LoreCraftableMaterialListener implements Listener {
 
-	@EventHandler(priority = EventPriority.LOW)
-	public void OnCraftItemEvent(CraftItemEvent event) {
-		if (event.getWhoClicked() instanceof Player) {
-			Player player = (Player)event.getWhoClicked();
-						
-			LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(event.getInventory().getResult());
-			if (craftMat == null) {
-				
-				/* Disable notch apples */
-				ItemStack resultStack = event.getInventory().getResult();
-				if (resultStack == null)
-				{
-					return;
-				}
-				if (resultStack.getType().equals(Material.GOLDEN_APPLE)) {
-					CivMessage.sendError((Player)event.getWhoClicked(), CivSettings.localize.localizedString("loreCraft_goldenApples"));
-					event.setCancelled(true);
-					return;
-				}
-				
-				ConfigTechItem restrictedTechItem = CivSettings.techItems.get(ItemManager.getId(resultStack));
-				if (restrictedTechItem != null) {
-					ConfigTech tech = CivSettings.techs.get(restrictedTechItem.require_tech);
-					CivMessage.sendError(player, CivSettings.localize.localizedString("var_loreCraft_missingTech",tech.name));
-					event.setCancelled(true);
-					return;
-				}
-				
-				return;
-			}
-			
-			if (!craftMat.getConfigMaterial().playerHasTechnology(player)) {
-				CivMessage.sendError(player, CivSettings.localize.localizedString("var_loreCraft_missingTech",craftMat.getConfigMaterial().getRequireString()));
-				event.setCancelled(true);
-				return;
-			}
+    @EventHandler(priority = EventPriority.LOW)
+    public void OnCraftItemEvent(CraftItemEvent event) {
+        if (event.getWhoClicked() instanceof Player) {
+            Player player = (Player) event.getWhoClicked();
+
+            LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(event.getInventory().getResult());
+            if (craftMat == null) {
+
+                /* Disable notch apples */
+                ItemStack resultStack = event.getInventory().getResult();
+                if (resultStack == null) {
+                    return;
+                }
+                if (resultStack.getType().equals(Material.GOLDEN_APPLE)) {
+                    CivMessage.sendError((Player) event.getWhoClicked(), CivSettings.localize.localizedString("loreCraft_goldenApples"));
+                    event.setCancelled(true);
+                    return;
+                }
+
+                ConfigTechItem restrictedTechItem = CivSettings.techItems.get(ItemManager.getId(resultStack));
+                if (restrictedTechItem != null) {
+                    ConfigTech tech = CivSettings.techs.get(restrictedTechItem.require_tech);
+                    CivMessage.sendError(player, CivSettings.localize.localizedString("var_loreCraft_missingTech", tech.name));
+                    event.setCancelled(true);
+                    return;
+                }
+
+                return;
+            }
+
+            if (!craftMat.getConfigMaterial().playerHasTechnology(player)) {
+                CivMessage.sendError(player, CivSettings.localize.localizedString("var_loreCraft_missingTech", craftMat.getConfigMaterial().getRequireString()));
+                event.setCancelled(true);
+                return;
+            }
 //			String matName =craftMat.getId(); 
 //			if (matName.contains("_alt"))
 //			{
@@ -77,7 +76,7 @@ public class LoreCraftableMaterialListener implements Listener {
 //				event.getInventory().setResult(newStack);
 //				CivLog.debug("Item Crafting: " +id);
 //			}
-			
+
 //			if (craftMat.hasComponent("Tagged")) {
 //				String tag = Tagged.matrixHasSameTag(event.getInventory().getMatrix());
 //				if (tag == null) {
@@ -93,78 +92,78 @@ public class LoreCraftableMaterialListener implements Listener {
 //				stack = attrs.getStack();
 //				event.getInventory().setResult(stack);
 //			}
-			
-			Resident resident = CivGlobal.getResident(player);
-			if (craftMat.getId().equals("mat_found_camp")) {
+
+            Resident resident = CivGlobal.getResident(player);
+            if (craftMat.getId().equals("mat_found_camp")) {
 //				PlatinumManager.givePlatinumOnce(resident, 
 //						CivSettings.platinumRewards.get("buildCamp").name,
 //						CivSettings.platinumRewards.get("buildCamp").amount, 
 //						"Achievement! You've founded your first camp and earned %d");
-			} else if(craftMat.getId().equals("mat_found_civ")) {
+            } else if (craftMat.getId().equals("mat_found_civ")) {
 //				PlatinumManager.givePlatinumOnce(resident, 
 //						CivSettings.platinumRewards.get("buildCiv").name,
 //						CivSettings.platinumRewards.get("buildCiv").amount, 
 //						"Achievement! You've founded your first Civilization and earned %d");				
-			} else {
-				class AsyncTask implements Runnable {
-					Resident resident;
-					int craftAmount;
-					
-					public AsyncTask(Resident resident, int craftAmount) {
-						this.resident = resident;
-						this.craftAmount = craftAmount;
-					}
-					
-					
-					@Override
-					public void run() {
-						String key = resident.getName()+":platinumCrafted";
-						ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(key);
-						Integer amount = 0;
-						
-						if (entries.size() == 0) {
-							amount = craftAmount;
-							CivGlobal.getSessionDB().add(key, ""+amount, 0, 0, 0);
-							
-						} else {
-							amount = Integer.valueOf(entries.get(0).value);
-							amount += craftAmount;
-							if (amount >= 100) {
+            } else {
+                class AsyncTask implements Runnable {
+                    Resident resident;
+                    int craftAmount;
+
+                    public AsyncTask(Resident resident, int craftAmount) {
+                        this.resident = resident;
+                        this.craftAmount = craftAmount;
+                    }
+
+
+                    @Override
+                    public void run() {
+                        String key = resident.getName() + ":platinumCrafted";
+                        ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(key);
+                        Integer amount = 0;
+
+                        if (entries.size() == 0) {
+                            amount = craftAmount;
+                            CivGlobal.getSessionDB().add(key, "" + amount, 0, 0, 0);
+
+                        } else {
+                            amount = Integer.valueOf(entries.get(0).value);
+                            amount += craftAmount;
+                            if (amount >= 100) {
 //								PlatinumManager.givePlatinum(resident, 
 //										CivSettings.platinumRewards.get("craft100Items").amount, 
 //										"Expert crafting earns you %d");
-								amount -= 100;
-							}
-						
-							CivGlobal.getSessionDB().update(entries.get(0).request_id, key, ""+amount);
-						}
-					}
-				}
-				
-				/* if shift clicked, the amount crafted is always min. */
-				int amount;
-				if (event.isShiftClick()) {
-					amount = 64; //cant craft more than 64.
-					for (ItemStack stack : event.getInventory().getMatrix()) {
-						if (stack == null) {
-							continue;
-						}
-						
-						if (stack.getAmount() < amount) {
-							amount = stack.getAmount();
-						}
-					}
-				} else {
-					amount = 1;
-				}
-				
-				TaskMaster.asyncTask(new AsyncTask(resident, amount), 0);
-			}
-		}
-	}
-	
-	
-//	private boolean checkCustomMismatch(ItemStack item1, ItemStack item2) {
+                                amount -= 100;
+                            }
+
+                            CivGlobal.getSessionDB().update(entries.get(0).request_id, key, "" + amount);
+                        }
+                    }
+                }
+
+                /* if shift clicked, the amount crafted is always min. */
+                int amount;
+                if (event.isShiftClick()) {
+                    amount = 64; //cant craft more than 64.
+                    for (ItemStack stack : event.getInventory().getMatrix()) {
+                        if (stack == null) {
+                            continue;
+                        }
+
+                        if (stack.getAmount() < amount) {
+                            amount = stack.getAmount();
+                        }
+                    }
+                } else {
+                    amount = 1;
+                }
+
+                TaskMaster.asyncTask(new AsyncTask(resident, amount), 0);
+            }
+        }
+    }
+
+
+    //	private boolean checkCustomMismatch(ItemStack item1, ItemStack item2) {
 //		if (LoreMaterial.isCustom(item1)) {
 //		//	CivLog.debug("\tmatrix is custom.");
 //			if (!LoreMaterial.isCustom(item2)) {
@@ -198,129 +197,127 @@ public class LoreCraftableMaterialListener implements Listener {
 //		}
 //		return true;
 //	}
-	private boolean matrixContainsCustom(ItemStack[] matrix) {
-		for (ItemStack stack : matrix) {
-			if (LoreMaterial.isCustom(stack)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
+    private boolean matrixContainsCustom(ItemStack[] matrix) {
+        for (ItemStack stack : matrix) {
+            if (LoreMaterial.isCustom(stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	@EventHandler(priority = EventPriority.LOW)
-	public void OnPrepareItemCraftEvent(PrepareItemCraftEvent event) {
-		if (event.getRecipe() instanceof ShapedRecipe) {
-			String key = LoreCraftableMaterial.getShapedRecipeKey(event.getInventory().getMatrix());
-			LoreCraftableMaterial loreMat = LoreCraftableMaterial.shapedKeys.get(key);
 
-			if (loreMat == null) {
-				if(LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
-					/* Result is custom, but we have found no custom recipie. Set to blank. */
-					event.getInventory().setResult(new ItemStack(Material.AIR));
-				}
-				
-				if (matrixContainsCustom(event.getInventory().getMatrix())) {
-					event.getInventory().setResult(new ItemStack(Material.AIR));
-				}
-				
-				return;
-			} else {				
-				if(!LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
-					/* Result is not custom, but recipie is. Set to blank. */
-					if (!loreMat.isVanilla()) {
-						/* A Minecraft 1.12 Fix */
-						if (!LoreEnhancement.isTool(event.getRecipe().getResult())) {
-							event.getInventory().setResult(new ItemStack(Material.AIR));
-							return;
-						}
-						return;
-					}
-				}
-			}
+    @EventHandler(priority = EventPriority.LOW)
+    public void OnPrepareItemCraftEvent(PrepareItemCraftEvent event) {
+        if (event.getRecipe() instanceof ShapedRecipe) {
+            String key = LoreCraftableMaterial.getShapedRecipeKey(event.getInventory().getMatrix());
+            LoreCraftableMaterial loreMat = LoreCraftableMaterial.shapedKeys.get(key);
 
-			String matName =loreMat.getId(); 
-			if (matName.contains("_alt"))
-			{
-				String id = matName.replaceAll("_alt(.*)", "");
-				loreMat = LoreCraftableMaterial.getCraftMaterialFromId(id);
-			}
-			
-			ItemStack newStack;
-			if (!loreMat.isVanilla()) {
-				newStack = LoreMaterial.spawn(loreMat);
-				AttributeUtil attrs = new AttributeUtil(newStack);
-				loreMat.applyAttributes(attrs);
-				newStack.setAmount(loreMat.getCraftAmount());
-			} else {
-				newStack = ItemManager.createItemStack(loreMat.getTypeID(), loreMat.getCraftAmount());
-			}
-			
-			event.getInventory().setResult(newStack);
-			
-		} else if (event.getRecipe() instanceof ShapelessRecipe) {
-			String key = LoreCraftableMaterial.getShapelessRecipeKey(event.getInventory().getMatrix());
-			LoreCraftableMaterial loreMat = LoreCraftableMaterial.shapelessKeys.get(key);
-						
-			if (loreMat == null) {
-				if(LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
-					/* Result is custom, but we have found no custom recipie. Set to blank. */
-					event.getInventory().setResult(new ItemStack(Material.AIR));
-				}
-				
-				if (matrixContainsCustom(event.getInventory().getMatrix())) {
-					event.getInventory().setResult(new ItemStack(Material.AIR));
-				}
-				
-				return;
-			} else {
-				if(!LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
-					/* Result is not custom, but recipie is. Set to blank. */
-					if (!loreMat.isVanilla()) {
-						event.getInventory().setResult(new ItemStack(Material.AIR));
-						return;
-					}
-				}
-			}
-			
-			String matName =loreMat.getId(); 
-			if (matName.contains("_alt"))
-			{
-				String id = matName.replaceAll("_alt(.*)", "");
-				loreMat = LoreCraftableMaterial.getCraftMaterialFromId(id);
-			}
-			
-			ItemStack newStack;
-			if (!loreMat.isVanilla()) {
-				newStack = LoreMaterial.spawn(loreMat);
-				AttributeUtil attrs = new AttributeUtil(newStack);
-				loreMat.applyAttributes(attrs);
-				newStack.setAmount(loreMat.getCraftAmount());
-			} else {
-				newStack = ItemManager.createItemStack(loreMat.getTypeID(), loreMat.getCraftAmount());
-			}	
-			
-			event.getInventory().setResult(newStack);
-		}
-		
-		ItemStack result = event.getInventory().getResult();
-		LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(result);
-		if (craftMat != null) {
-			if (craftMat.hasComponent("Tagged")) {
-				String tag = Tagged.matrixHasSameTag(event.getInventory().getMatrix());
-				if (tag == null) {
-					event.getInventory().setResult(ItemManager.createItemStack(CivData.AIR, 1));
-					return;
-				}
-				
-				Tagged tagged = (Tagged)craftMat.getComponent("Tagged");
-				ItemStack stack = tagged.addTag(event.getInventory().getResult(), tag);
-				AttributeUtil attrs = new AttributeUtil(stack);
-				attrs.addLore(CivColor.LightGray+tag);
-				stack = attrs.getStack();
-				event.getInventory().setResult(stack);
-			}
-		}
-		
-	}	
+            if (loreMat == null) {
+                if (LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
+                    /* Result is custom, but we have found no custom recipie. Set to blank. */
+                    event.getInventory().setResult(new ItemStack(Material.AIR));
+                }
+
+                if (matrixContainsCustom(event.getInventory().getMatrix())) {
+                    event.getInventory().setResult(new ItemStack(Material.AIR));
+                }
+
+                return;
+            } else {
+                if (!LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
+                    /* Result is not custom, but recipie is. Set to blank. */
+                    if (!loreMat.isVanilla()) {
+                        /* A Minecraft 1.12 Fix */
+                        if (!LoreEnhancement.isTool(event.getRecipe().getResult())) {
+                            event.getInventory().setResult(new ItemStack(Material.AIR));
+                            return;
+                        }
+                        return;
+                    }
+                }
+            }
+
+            String matName = loreMat.getId();
+            if (matName.contains("_alt")) {
+                String id = matName.replaceAll("_alt(.*)", "");
+                loreMat = LoreCraftableMaterial.getCraftMaterialFromId(id);
+            }
+
+            ItemStack newStack;
+            if (!loreMat.isVanilla()) {
+                newStack = LoreMaterial.spawn(loreMat);
+                AttributeUtil attrs = new AttributeUtil(newStack);
+                loreMat.applyAttributes(attrs);
+                newStack.setAmount(loreMat.getCraftAmount());
+            } else {
+                newStack = ItemManager.createItemStack(loreMat.getTypeID(), loreMat.getCraftAmount());
+            }
+
+            event.getInventory().setResult(newStack);
+
+        } else if (event.getRecipe() instanceof ShapelessRecipe) {
+            String key = LoreCraftableMaterial.getShapelessRecipeKey(event.getInventory().getMatrix());
+            LoreCraftableMaterial loreMat = LoreCraftableMaterial.shapelessKeys.get(key);
+
+            if (loreMat == null) {
+                if (LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
+                    /* Result is custom, but we have found no custom recipie. Set to blank. */
+                    event.getInventory().setResult(new ItemStack(Material.AIR));
+                }
+
+                if (matrixContainsCustom(event.getInventory().getMatrix())) {
+                    event.getInventory().setResult(new ItemStack(Material.AIR));
+                }
+
+                return;
+            } else {
+                if (!LoreCraftableMaterial.isCustom(event.getRecipe().getResult())) {
+                    /* Result is not custom, but recipie is. Set to blank. */
+                    if (!loreMat.isVanilla()) {
+                        event.getInventory().setResult(new ItemStack(Material.AIR));
+                        return;
+                    }
+                }
+            }
+
+            String matName = loreMat.getId();
+            if (matName.contains("_alt")) {
+                String id = matName.replaceAll("_alt(.*)", "");
+                loreMat = LoreCraftableMaterial.getCraftMaterialFromId(id);
+            }
+
+            ItemStack newStack;
+            if (!loreMat.isVanilla()) {
+                newStack = LoreMaterial.spawn(loreMat);
+                AttributeUtil attrs = new AttributeUtil(newStack);
+                loreMat.applyAttributes(attrs);
+                newStack.setAmount(loreMat.getCraftAmount());
+            } else {
+                newStack = ItemManager.createItemStack(loreMat.getTypeID(), loreMat.getCraftAmount());
+            }
+
+            event.getInventory().setResult(newStack);
+        }
+
+        ItemStack result = event.getInventory().getResult();
+        LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(result);
+        if (craftMat != null) {
+            if (craftMat.hasComponent("Tagged")) {
+                String tag = Tagged.matrixHasSameTag(event.getInventory().getMatrix());
+                if (tag == null) {
+                    event.getInventory().setResult(ItemManager.createItemStack(CivData.AIR, 1));
+                    return;
+                }
+
+                Tagged tagged = (Tagged) craftMat.getComponent("Tagged");
+                ItemStack stack = tagged.addTag(event.getInventory().getResult(), tag);
+                AttributeUtil attrs = new AttributeUtil(stack);
+                attrs.addLore(CivColor.LightGray + tag);
+                stack = attrs.getStack();
+                event.getInventory().setResult(stack);
+            }
+        }
+
+    }
 }

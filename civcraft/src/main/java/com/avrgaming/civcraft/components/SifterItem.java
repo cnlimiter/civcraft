@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -19,11 +19,11 @@
 package com.avrgaming.civcraft.components;
 
 public class SifterItem {
-	public int source_type;
-	public short source_data;
-	public double rate;
-	
-	public int result_type;
-	public int result_data;
-	public int amount;
+    public int source_type;
+    public short source_data;
+    public double rate;
+
+    public int result_type;
+    public int result_data;
+    public int amount;
 }

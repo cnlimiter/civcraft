@@ -28,35 +28,35 @@ public class BookCivSpaceFuture implements GuiAction {
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident interactor = CivGlobal.getResident(player);
         if (interactor.getCiv() == null) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_bookcivspacegui_noCiv"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_bookcivspacegui_noCiv"));
             return;
         }
         Civilization civ = interactor.getCiv();
         if (!civ.getLeaderGroup().hasMember(interactor)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_bookcivspacegui_noLeader", civ.getName()));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_bookcivspacegui_noLeader", civ.getName()));
             return;
         }
         if (civ.getCurrentMission() >= 8) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)7)).name));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) 7)).name));
             return;
         }
         int current = civ.getCurrentMission();
         if (current == 7 && civ.getMissionActive()) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)7)).name));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) 7)).name));
             return;
         }
         if (civ.getMissionActive()) {
             ++current;
         }
-        guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceFutureHeading"));
+        guiInventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceFutureHeading"));
         for (int i = current; i <= 7; ++i) {
 
             ConfigSpaceMissions configSpaceMissions = CivSettings.spacemissions_levels.get(i);
             // 感觉这是对每个item项放到位置
-            if(configSpaceMissions == null) {
+            if (configSpaceMissions == null) {
                 continue;
             }
             ItemStack itemStack = LoreGuiItem.build(CivColor.Red + configSpaceMissions.name, ItemManager.getId(Material.GLASS), CivCraft.civRandom.nextInt(15), "§6" + CivSettings.localize.localizedString("click_to_view"));

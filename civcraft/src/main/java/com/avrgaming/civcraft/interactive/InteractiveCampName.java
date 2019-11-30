@@ -45,9 +45,9 @@ public class InteractiveCampName implements InteractiveResponse {
             resident.clearInteractiveMode();
             return;
         }
-		//|| !StringUtils.isAsciiPrintable(message)
-		// 检查是否只包含unicode字母
-        if (!StringUtils.isAlpha(message) ) {
+        //|| !StringUtils.isAsciiPrintable(message)
+        // 检查是否只包含unicode字母
+        if (!StringUtils.isAlpha(message)) {
             CivMessage.send(player, CivColor.Rose + ChatColor.BOLD + CivSettings.localize.localizedString("interactive_camp_invalid"));
             return;
         }

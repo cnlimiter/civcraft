@@ -19,17 +19,17 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class ProcessScroll
-extends ItemComponent {
+        extends ItemComponent {
     @Override
     public void onPrepareCreate(AttributeUtil attrUtil) {
     }
 
     @Override
     public void onInteract(PlayerInteractEvent event) {
-        if (event.getAction().equals((Object)Action.RIGHT_CLICK_AIR)) {
+        if (event.getAction().equals((Object) Action.RIGHT_CLICK_AIR)) {
             event.getPlayer().updateInventory();
             event.setCancelled(true);
-        } else if (event.getAction().equals((Object)Action.RIGHT_CLICK_BLOCK) && event.getClickedBlock().getType() != Material.CHEST) {
+        } else if (event.getAction().equals((Object) Action.RIGHT_CLICK_BLOCK) && event.getClickedBlock().getType() != Material.CHEST) {
             event.getPlayer().updateInventory();
             event.setCancelled(true);
         }
@@ -43,9 +43,9 @@ extends ItemComponent {
         AttributeUtil attr = new AttributeUtil(event.getItem());
         CivMessage.sendSuccess(resident, CivSettings.localize.localizedString("var_processScroll_interactive1"));
         for (String lore : attr.getLore()) {
-            CivMessage.send((Object)resident, lore);
+            CivMessage.send((Object) resident, lore);
         }
-        CivMessage.send((Object)resident, CivColor.LightGray + CivSettings.localize.localizedString("var_processScroll_interactive2"));
+        CivMessage.send((Object) resident, CivColor.LightGray + CivSettings.localize.localizedString("var_processScroll_interactive2"));
         InteractiveConfirmScroll interactiveConfirmScroll = new InteractiveConfirmScroll();
         resident.setInteractiveMode(interactiveConfirmScroll);
     }

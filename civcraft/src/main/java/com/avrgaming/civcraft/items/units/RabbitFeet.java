@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.items.units;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import gpl.AttributeUtil;
 
 import org.bukkit.Location;
@@ -27,7 +28,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class RabbitFeet
-extends UnitMaterial {
+        extends UnitMaterial {
     public RabbitFeet(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -37,8 +38,8 @@ extends UnitMaterial {
         RabbitFeet.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow +"Single Use");
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
         attrs.addLore(CivColor.LightGray + "Gives increased jump height");
@@ -54,7 +55,7 @@ extends UnitMaterial {
         ItemStack is = LoreMaterial.spawn(Unit.RABBITFEET_ARTIFACT);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
         attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
@@ -67,7 +68,7 @@ extends UnitMaterial {
 
     @Override
     public void onInteract(PlayerInteractEvent event) {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
 
         Player player = event.getPlayer();
         Resident interacter = CivGlobal.getResident(player);
@@ -78,8 +79,8 @@ extends UnitMaterial {
             CivGlobal.setUnitCooldown(this.getClass(), 15, event.getPlayer());
             CivMessage.sendSuccess(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusess", sdf.format(timeNow + 900000L), Unit.RABBITFEET_ARTIFACT.getUnit().name));
             if (CivGlobal.isOneUseArtifact(event.getItem())) {
-            	this.removeChildren(player.getInventory());
-            	CivMessage.sendError(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusessButNot"));
+                this.removeChildren(player.getInventory());
+                CivMessage.sendError(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusessButNot"));
             }
         } else {
             CivMessage.sendError(interacter, CivSettings.localize.localizedString("var_artifact_useFailure", sdf.format(nextUse), Unit.RABBITFEET_ARTIFACT.getUnit().name));

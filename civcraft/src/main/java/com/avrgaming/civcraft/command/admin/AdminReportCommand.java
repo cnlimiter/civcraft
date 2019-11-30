@@ -14,7 +14,7 @@ import org.bukkit.Bukkit;
 import java.text.SimpleDateFormat;
 
 public class AdminReportCommand
-extends CommandBase {
+        extends CommandBase {
     @Override
     public void init() {
         this.command = "/ad report";
@@ -56,22 +56,22 @@ extends CommandBase {
     }
 
     public void buglist_cmd() {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd/yy h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd/yy h:mm:ss a z");
         CivMessage.sendHeading(this.sender, "Server Bugs " + Bukkit.getServerName());
         for (Report report : CivGlobal.getReports()) {
             if (report.getClosed() || !report.getBug()) continue;
             String message = CivColor.LightGray + "(" + report.getId() + ") " + "§a" + "Reporter: " + CivColor.Red + report.getReportedBy() + " " + "§d" + "Time: " + sdf.format(report.getTime()) + " " + "§b" + "Proof: " + report.getProof();
-            CivMessage.send((Object)this.sender, message);
+            CivMessage.send((Object) this.sender, message);
         }
     }
 
     public void playerlist_cmd() {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd/yy h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd/yy h:mm:ss a z");
         CivMessage.sendHeading(this.sender, "Player Reports " + Bukkit.getServerName());
         for (Report report : CivGlobal.getReports()) {
             if (report.getClosed() || report.getBug()) continue;
             String message = CivColor.LightGray + "(" + report.getId() + ") " + "§a" + "Reporter: " + CivColor.Red + report.getReportedBy() + " " + "§d" + "Time: " + sdf.format(report.getTime()) + " " + "§b" + "Proof: " + report.getProof() + " " + "§2" + "Player: " + report.getCause();
-            CivMessage.send((Object)this.sender, message);
+            CivMessage.send((Object) this.sender, message);
         }
     }
 

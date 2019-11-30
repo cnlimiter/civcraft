@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -27,40 +27,40 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 
 public class FarmGrowthRegrowTask extends CivAsyncTask {
 
-	Queue<FarmChunk> farmsToGrow;
+    Queue<FarmChunk> farmsToGrow;
 
-	
-	public FarmGrowthRegrowTask(Queue<FarmChunk> farms) {
-		this.farmsToGrow = farms;
-	}
-	
-	@Override
-	public void run() {
-		
-		Queue<FarmChunk> regrow = new LinkedList<FarmChunk>();
-		CivLog.info("Regrowing "+farmsToGrow.size()+" farms due to locking failures.");
-		
-		FarmChunk fc;
-		while((fc = farmsToGrow.poll()) != null) {
-			if (fc.lock.tryLock()) {
-				try {
-					try {
-						fc.processGrowth(this);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-						return;
-					}
-				} finally {
-					fc.lock.unlock();
-				}
-			} else {
-				regrow.add(fc);
-			}
-		}
 
-		if (regrow.size() > 0) {
-			TaskMaster.syncTask(new FarmGrowthRegrowTask(regrow));
-		}
-	}
+    public FarmGrowthRegrowTask(Queue<FarmChunk> farms) {
+        this.farmsToGrow = farms;
+    }
+
+    @Override
+    public void run() {
+
+        Queue<FarmChunk> regrow = new LinkedList<FarmChunk>();
+        CivLog.info("Regrowing " + farmsToGrow.size() + " farms due to locking failures.");
+
+        FarmChunk fc;
+        while ((fc = farmsToGrow.poll()) != null) {
+            if (fc.lock.tryLock()) {
+                try {
+                    try {
+                        fc.processGrowth(this);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                } finally {
+                    fc.lock.unlock();
+                }
+            } else {
+                regrow.add(fc);
+            }
+        }
+
+        if (regrow.size() > 0) {
+            TaskMaster.syncTask(new FarmGrowthRegrowTask(regrow));
+        }
+    }
 
 }

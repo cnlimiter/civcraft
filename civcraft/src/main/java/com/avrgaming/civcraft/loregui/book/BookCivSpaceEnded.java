@@ -27,19 +27,19 @@ public class BookCivSpaceEnded implements GuiAction {
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident interactor = CivGlobal.getResident(player);
         if (interactor.getCiv() == null) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_bookcivspacegui_noCiv"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_bookcivspacegui_noCiv"));
             return;
         }
         Civilization civ = interactor.getCiv();
         if (!civ.getLeaderGroup().hasMember(interactor)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_bookcivspacegui_noLeader", civ.getName()));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_bookcivspacegui_noLeader", civ.getName()));
             return;
         }
         int ended = civ.getCurrentMission();
-        guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceEndedHeading"));
+        guiInventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceEndedHeading"));
         for (int i = 1; i < ended; ++i) {
             ConfigSpaceMissions configSpaceMissions = CivSettings.spacemissions_levels.get(i);
             ItemStack itemStack = LoreGuiItem.build("§a" + configSpaceMissions.name, ItemManager.getId(Material.STAINED_GLASS_PANE), CivCraft.civRandom.nextInt(15), "§6" + CivSettings.localize.localizedString("click_to_view"));

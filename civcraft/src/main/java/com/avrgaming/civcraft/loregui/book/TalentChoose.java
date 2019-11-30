@@ -24,12 +24,12 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 public class TalentChoose
-implements GuiAction {
+        implements GuiAction {
     Inventory inventory = null;
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident whoClicked = CivGlobal.getResident(player);
         Civilization civ = whoClicked.getCiv();
         Town capitol = civ.getCapitol();
@@ -39,7 +39,7 @@ implements GuiAction {
         int talentLevel = capitol.highestTalentLevel();
         int cultureLevel = capitol.getCultureLevel();
         if (talentLevel == cultureLevel && talentLevel < 10) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("cmd_civ_talent_choose_notNow", civ.getCapitol().getName(), civ.getCapitol().getCultureLevel() + 1));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_talent_choose_notNow", civ.getCapitol().getName(), civ.getCapitol().getCultureLevel() + 1));
             return;
         }
 
@@ -52,10 +52,10 @@ implements GuiAction {
             CivMessage.sendError(whoClicked, CivColor.Red + CivSettings.localize.localizedString("cmd_civ_talent_next_invalid"));
             return;
         }
-        this.inventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, configLevelTalent.levelName + " (" + configLevelTalent.level + ")");
+        this.inventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, configLevelTalent.levelName + " (" + configLevelTalent.level + ")");
         ItemStack firstTalent = LoreGuiItem.build("", ItemManager.getId(Material.REDSTONE_BLOCK), 0, configLevelTalent.levelBuffDesc1);
         firstTalent = LoreGuiItem.setAction(firstTalent, "Confirmation");
-        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", ""+configLevelTalent.level);
+        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", "" + configLevelTalent.level);
         firstTalent = LoreGuiItem.setActionData(firstTalent, "buff", configLevelTalent.levelBuff1);
         firstTalent = LoreGuiItem.setActionData(firstTalent, "number", "1");
         firstTalent = LoreGuiItem.setActionData(firstTalent, "description", configLevelTalent.levelBuffDesc1);
@@ -65,7 +65,7 @@ implements GuiAction {
         firstTalent = LoreGuiItem.setActionData(firstTalent, "confirmText2", CivColor.RoseBold + configLevelTalent.levelBuffDesc1);
         ItemStack secondTalent = LoreGuiItem.build("", ItemManager.getId(Material.EMERALD_BLOCK), 0, configLevelTalent.levelBuffDesc2);
         secondTalent = LoreGuiItem.setAction(secondTalent, "Confirmation");
-        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", ""+configLevelTalent.level);
+        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", "" + configLevelTalent.level);
         secondTalent = LoreGuiItem.setActionData(secondTalent, "buff", configLevelTalent.levelBuff2);
         secondTalent = LoreGuiItem.setActionData(secondTalent, "number", "2");
         secondTalent = LoreGuiItem.setActionData(secondTalent, "description", configLevelTalent.levelBuffDesc2);
@@ -76,7 +76,7 @@ implements GuiAction {
         ItemStack thirdTalent = LoreGuiItem.build("", ItemManager.getId(Material.LAPIS_BLOCK), 0, configLevelTalent.levelBuffDesc3);
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "confirmText2", CivColor.BlueBold + configLevelTalent.levelBuffDesc3);
         thirdTalent = LoreGuiItem.setAction(thirdTalent, "Confirmation");
-        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", ""+configLevelTalent.level);
+        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", "" + configLevelTalent.level);
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "buff", configLevelTalent.levelBuff3);
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "number", "3");
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "description", configLevelTalent.levelBuffDesc3);

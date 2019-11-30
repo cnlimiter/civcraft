@@ -17,8 +17,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class ProjectileLightningComponent
-extends ProjectileComponent {
+public class ProjectileLightningComponent extends ProjectileComponent {
     private int fireRate;
     private int halfSecondCount = 0;
 
@@ -46,11 +45,11 @@ extends ProjectileComponent {
         if (!(entity instanceof LivingEntity)) {
             return;
         }
-        LivingEntity target = (LivingEntity)entity;
+        LivingEntity target = (LivingEntity) entity;
         int dmg = this.getDamage();
         if (!(target instanceof Player)) {
-            if (target.getHealth() - (double)dmg > 0.0) {
-                target.setHealth(target.getHealth() - (double)dmg);
+            if (target.getHealth() - (double) dmg > 0.0) {
+                target.setHealth(target.getHealth() - (double) dmg);
                 target.damage(0.5);
             } else {
                 target.setHealth(0.1);
@@ -59,15 +58,15 @@ extends ProjectileComponent {
             target.setFireTicks(60);
             return;
         }
-        Resident resident = CivGlobal.getResident((Player)target);
+        Resident resident = CivGlobal.getResident((Player) target);
         if (resident.isPLCImmuned()) {
             return;
         }
         if (resident.getCiv().hasWonder("w_statue_of_zeus")) {
             dmg -= 2;
         }
-        if (target.getHealth() - (double)dmg > 0.0) {
-            target.setHealth(target.getHealth() - (double)dmg);
+        if (target.getHealth() - (double) dmg > 0.0) {
+            target.setHealth(target.getHealth() - (double) dmg);
             target.damage(0.5);
         } else {
             target.setHealth(0.1);
@@ -75,8 +74,8 @@ extends ProjectileComponent {
         }
         target.setFireTicks(60);
         resident.addPLCImmune(3);
-        CivMessage.send((Object)target, CivColor.LightGray + CivSettings.localize.localizedString("playerListen_combatHeading") + " " + CivSettings.localize.localizedString("var_playerListen_combatDefend", "§d'Enemey Tesla'", CivColor.Red + dmg));
-        CivMessage.sendTitle((Object)target, "", CivSettings.localize.localizedString("var_plc_entityMessage", this.getTown().getName()));
+        CivMessage.send((Object) target, CivColor.LightGray + CivSettings.localize.localizedString("playerListen_combatHeading") + " " + CivSettings.localize.localizedString("var_playerListen_combatDefend", "§d'Enemey Tesla'", CivColor.Red + dmg));
+        CivMessage.sendTitle((Object) target, "", CivSettings.localize.localizedString("var_plc_entityMessage", this.getTown().getName()));
     }
 
     @Override
@@ -101,8 +100,7 @@ extends ProjectileComponent {
             this.proximityComponent.setBuildable(this.buildable);
             this.proximityComponent.setCenter(new BlockCoord(this.getTurretCenter()));
             this.proximityComponent.setRadius(this.range);
-        }
-        catch (InvalidConfiguration e) {
+        } catch (InvalidConfiguration e) {
             e.printStackTrace();
         }
     }

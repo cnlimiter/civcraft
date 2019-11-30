@@ -16,7 +16,7 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class Neuschwanstein extends Wonder implements RespawnLocationHolder {
-	private ArrayList<BlockCoord> revivePoints = new ArrayList<BlockCoord>();
+    private ArrayList<BlockCoord> revivePoints = new ArrayList<BlockCoord>();
 
     protected Neuschwanstein(Location center, String id, Town town) throws CivException {
         super(center, id, town);

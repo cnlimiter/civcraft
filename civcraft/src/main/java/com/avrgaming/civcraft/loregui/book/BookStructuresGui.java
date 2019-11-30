@@ -42,7 +42,7 @@ public class BookStructuresGui
         Civilization civ = whoClicked.getCiv();
         Town town = whoClicked.getSelectedTown();
         // 如果没有切换过城镇返回的是null,赋予当前所在城镇即可
-        if(town == null) {
+        if (town == null) {
             town = whoClicked.getTown();
         }
         if (!(town.getMayorGroup().hasMember(whoClicked) || town.getAssistantGroup().hasMember(whoClicked) || civ.getLeaderGroup().hasMember(whoClicked))) {

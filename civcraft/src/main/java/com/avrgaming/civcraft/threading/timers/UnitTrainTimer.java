@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -18,26 +18,26 @@
  */
 package com.avrgaming.civcraft.threading.timers;
 
-import java.util.Iterator;
-import java.util.Map.Entry;
-
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.structure.Barracks;
 import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.util.BlockCoord;
 
+import java.util.Iterator;
+import java.util.Map.Entry;
+
 public class UnitTrainTimer implements Runnable {
 
-	@Override
-	public void run() {
-		
-		Iterator<Entry<BlockCoord, Structure>> iter = CivGlobal.getStructureIterator();
-		while(iter.hasNext()) {
-			Structure struct = iter.next().getValue();
-			if (struct instanceof Barracks) {
-				((Barracks)struct).updateTraining();
-			}
-		}
-	}
+    @Override
+    public void run() {
+
+        Iterator<Entry<BlockCoord, Structure>> iter = CivGlobal.getStructureIterator();
+        while (iter.hasNext()) {
+            Structure struct = iter.next().getValue();
+            if (struct instanceof Barracks) {
+                ((Barracks) struct).updateTraining();
+            }
+        }
+    }
 
 }

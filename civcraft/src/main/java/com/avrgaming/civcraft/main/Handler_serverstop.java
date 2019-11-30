@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -26,12 +26,12 @@ import com.avrgaming.civcraft.util.BlockCoord;
 
 public class Handler_serverstop extends Thread {
 
-	public void run() {
-		Iterator<Entry<BlockCoord, Structure>> iter = CivGlobal.getStructureIterator();
-		while(iter.hasNext()) {
-			Structure struct = iter.next().getValue();	
-			struct.onUnload();
-		}
-	}
-	
+    public void run() {
+        Iterator<Entry<BlockCoord, Structure>> iter = CivGlobal.getStructureIterator();
+        while (iter.hasNext()) {
+            Structure struct = iter.next().getValue();
+            struct.onUnload();
+        }
+    }
+
 }

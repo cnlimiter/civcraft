@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -33,35 +33,35 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class FoundTownSync implements Runnable {
 
-	Resident resident;
-	
-	public FoundTownSync(Resident resident) {
-		this.resident = resident;
-	}
-	
-	@Override
-	public void run() {
-		Player player;
-		try {
-			player = CivGlobal.getPlayer(resident);
-		} catch (CivException e1) {
-			return;
-		}
-		
-		try {
-			Town.newTown(resident, resident.desiredTownName, resident.getCiv(), false, false, resident.desiredTownLocation);
-		} catch (CivException | SQLException e) {
-			CivLog.error("Caught exception:" + e.getMessage());
-			if (e.getMessage().contains("Duplicate entry")) {
-				CivMessage.send(player, CivColor.Rose+CivSettings.localize.localizedString("town_found_databaseException"));
-			} else {
-				CivMessage.send(player, CivColor.Rose+e.getMessage());
-			}
-			return;
-		}
+    Resident resident;
 
-		//CivMessage.sendSuccess(sender, "Town "+args[1]+" has been founded.");
-		CivMessage.global(CivSettings.localize.localizedString("var_FoundTownSync_Success",resident.desiredTownName,resident.getCiv().getName()));
-	}
+    public FoundTownSync(Resident resident) {
+        this.resident = resident;
+    }
+
+    @Override
+    public void run() {
+        Player player;
+        try {
+            player = CivGlobal.getPlayer(resident);
+        } catch (CivException e1) {
+            return;
+        }
+
+        try {
+            Town.newTown(resident, resident.desiredTownName, resident.getCiv(), false, false, resident.desiredTownLocation);
+        } catch (CivException | SQLException e) {
+            CivLog.error("Caught exception:" + e.getMessage());
+            if (e.getMessage().contains("Duplicate entry")) {
+                CivMessage.send(player, CivColor.Rose + CivSettings.localize.localizedString("town_found_databaseException"));
+            } else {
+                CivMessage.send(player, CivColor.Rose + e.getMessage());
+            }
+            return;
+        }
+
+        //CivMessage.sendSuccess(sender, "Town "+args[1]+" has been founded.");
+        CivMessage.global(CivSettings.localize.localizedString("var_FoundTownSync_Success", resident.desiredTownName, resident.getCiv().getName()));
+    }
 
 }

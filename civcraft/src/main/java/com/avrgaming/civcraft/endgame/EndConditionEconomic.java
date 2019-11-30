@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class EndConditionEconomic
-extends EndGameCondition {
+        extends EndGameCondition {
     public static boolean check = false;
     int daysAfterStart;
     Date startDate = null;
@@ -32,7 +32,7 @@ extends EndGameCondition {
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int)0).value);
+            long time = Long.valueOf(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }
@@ -77,7 +77,7 @@ extends EndGameCondition {
         if (stock == null) {
             return false;
         }
-        StockExchange stockExchange = (StockExchange)stock;
+        StockExchange stockExchange = (StockExchange) stock;
         int stockLevel = stockExchange.getLevel();
         if (stockLevel != 6) {
             return false;

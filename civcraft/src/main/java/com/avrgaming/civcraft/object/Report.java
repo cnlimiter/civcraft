@@ -11,7 +11,7 @@ import com.avrgaming.civcraft.database.SQLUpdate;
 import com.avrgaming.civcraft.main.CivLog;
 
 public class Report
-extends SQLObject {
+        extends SQLObject {
     public static final String TABLE_NAME = "REPORTS";
     private String cause;
     private String proof;

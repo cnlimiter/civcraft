@@ -11,11 +11,11 @@ import com.avrgaming.civcraft.object.Resident;
 
 public class ShowPerkPage implements GuiAction {
 
-	@Override
-	public void performAction(InventoryClickEvent event, ItemStack stack) {
-		
-		Resident resident = CivGlobal.getResident((Player)event.getWhoClicked());
-		resident.showPerkPage(Integer.valueOf(LoreGuiItem.getActionData(stack, "page")));				
-	}
+    @Override
+    public void performAction(InventoryClickEvent event, ItemStack stack) {
+
+        Resident resident = CivGlobal.getResident((Player) event.getWhoClicked());
+        resident.showPerkPage(Integer.valueOf(LoreGuiItem.getActionData(stack, "page")));
+    }
 
 }

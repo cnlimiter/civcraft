@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -24,12 +24,12 @@ import gpl.AttributeUtil.AttributeType;
 
 public class MaxHealth extends ItemComponent {
 
-	@Override
-	public void onPrepareCreate(AttributeUtil attrs) {
-		attrs.add(Attribute.newBuilder().name("Health").
-				type(AttributeType.GENERIC_MAX_HEALTH).
-				amount(this.getDouble("value")).
-				build());
-	}
+    @Override
+    public void onPrepareCreate(AttributeUtil attrs) {
+        attrs.add(Attribute.newBuilder().name("Health").
+                type(AttributeType.GENERIC_MAX_HEALTH).
+                amount(this.getDouble("value")).
+                build());
+    }
 
 }

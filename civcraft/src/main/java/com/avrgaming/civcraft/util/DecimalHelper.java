@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -21,11 +21,9 @@ package com.avrgaming.civcraft.util;
 import java.text.DecimalFormat;
 
 public class DecimalHelper {
+    public static String formatPercentage(double d) {
+        DecimalFormat df = new DecimalFormat();
+        return df.format(d * 100) + "%";
+    }
 
-	
-	public static String formatPercentage(double d) {
-		DecimalFormat df = new DecimalFormat();
-		return df.format(d*100)+"%";
-	}
-	
 }

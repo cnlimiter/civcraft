@@ -3,13 +3,14 @@ package com.avrgaming.civcraft.structure.wonders;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.bukkit.Location;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.wonders.Wonder;
 
 public class GrandCanyon
-extends Wonder {
+        extends Wonder {
     public GrandCanyon(ResultSet rs) throws SQLException, CivException {
         super(rs);
     }

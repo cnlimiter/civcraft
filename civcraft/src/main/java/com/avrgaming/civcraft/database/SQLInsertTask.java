@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -23,22 +23,21 @@ import java.util.HashMap;
 
 public class SQLInsertTask implements Runnable {
 
-	HashMap<String, Object> hashmap;
-	String tablename;
-	
-	public SQLInsertTask(HashMap<String, Object> hashmap, String tablename) {
-		
-	}
+    HashMap<String, Object> hashmap;
+    String tablename;
 
-	@Override
-	public void run() {
-		try {
-			SQL.insertNow(hashmap, tablename);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	
-	
+    public SQLInsertTask(HashMap<String, Object> hashmap, String tablename) {
+
+    }
+
+    @Override
+    public void run() {
+        try {
+            SQL.insertNow(hashmap, tablename);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

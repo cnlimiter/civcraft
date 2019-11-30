@@ -13,7 +13,7 @@ import com.avrgaming.civcraft.util.CivColor;
 import org.bukkit.entity.Player;
 
 public class ChangeTownRequest
-implements QuestionResponseInterface {
+        implements QuestionResponseInterface {
     public Resident resident;
     public Resident leader;
     public Civilization civ;
@@ -25,11 +25,10 @@ implements QuestionResponseInterface {
         String fullLeaderName;
         String fullResidentName;
         try {
-        	if (!CivGlobal.getPlayer(resident).isOnline()) {
+            if (!CivGlobal.getPlayer(resident).isOnline()) {
                 return;
             }
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             return;
         }
         try {
@@ -37,8 +36,7 @@ implements QuestionResponseInterface {
             Player residentPlayer = CivGlobal.getPlayer(resident);
             fullLeaderName = leaderPlayer.getDisplayName();
             fullResidentName = residentPlayer.getDisplayName();
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             e.printStackTrace();
             CivMessage.sendError(this.leader, CivSettings.localize.localizedString("internalCommandException"));
             return;
@@ -53,11 +51,10 @@ implements QuestionResponseInterface {
 
     protected void changeTown() {
         try {
-        	if (!CivGlobal.getPlayer(resident).isOnline()) {
+            if (!CivGlobal.getPlayer(resident).isOnline()) {
                 return;
             }
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             return;
         }
         try {
@@ -67,13 +64,11 @@ implements QuestionResponseInterface {
             this.resident.getTreasury().withdraw(50000.0);
             this.from.removeResident(this.resident);
             this.to.addResident(this.resident);
-            CivMessage.send((Object)this.resident, "§b" + CivSettings.localize.localizedString("sucusses_switch", this.to.getName()));
-        }
-        catch (AlreadyRegisteredException e) {
+            CivMessage.send((Object) this.resident, "§b" + CivSettings.localize.localizedString("sucusses_switch", this.to.getName()));
+        } catch (AlreadyRegisteredException e) {
             e.printStackTrace();
             CivMessage.sendError(this.resident, CivSettings.localize.localizedString("var_switchtown_arleady_in_this_town"));
-        }
-        catch (CivException e1) {
+        } catch (CivException e1) {
             CivMessage.sendError(this.resident, e1.getMessage());
         }
     }

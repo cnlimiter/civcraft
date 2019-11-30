@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -27,78 +27,78 @@ import org.bukkit.configuration.file.FileConfiguration;
 import com.avrgaming.civcraft.main.CivLog;
 
 public class ConfigTradeGood implements Comparable<ConfigTradeGood> {
-	public String id;
-	public String name;
-	public double value;
-	public boolean water;
-	public HashMap<String, ConfigBuff> buffs = new HashMap<String, ConfigBuff>();
-	public int material;
-	public int material_data;
-	public String hemiString = null;
-	public int rarity = 0;
+    public String id;
+    public String name;
+    public double value;
+    public boolean water;
+    public HashMap<String, ConfigBuff> buffs = new HashMap<String, ConfigBuff>();
+    public int material;
+    public int material_data;
+    public String hemiString = null;
+    public int rarity = 0;
 
-	public static void loadBuffsString(ConfigTradeGood good, String bonus) {
-		String[] keys = bonus.split(",");
+    public static void loadBuffsString(ConfigTradeGood good, String bonus) {
+        String[] keys = bonus.split(",");
 
-		for (String key : keys) {
-			ConfigBuff cBuff = CivSettings.buffs.get(key.replace(" ", ""));
-			if (cBuff != null) {
-				good.buffs.put(key, cBuff);
-			}
-		}
+        for (String key : keys) {
+            ConfigBuff cBuff = CivSettings.buffs.get(key.replace(" ", ""));
+            if (cBuff != null) {
+                good.buffs.put(key, cBuff);
+            }
+        }
 
-	}
+    }
 
-	public static void loadConfig(FileConfiguration cfg, Map<String, ConfigTradeGood> goods,
-			Map<String, ConfigTradeGood> landGoods, Map<String, ConfigTradeGood> waterGoods) {
-		goods.clear();
-		List<Map<?, ?>> land_goods = cfg.getMapList("land_goods");
-		for (Map<?, ?> g : land_goods) {
-			ConfigTradeGood good = new ConfigTradeGood();
-			good.id = (String) g.get("id");
-			good.name = (String) g.get("name");
-			good.value = (Double) g.get("value");
-			loadBuffsString(good, (String) g.get("buffs"));
-			good.water = false;
-			good.material = (Integer) g.get("material");
-			good.material_data = (Integer) g.get("material_data");
-			good.hemiString = ((String) g.get("hemispheres"));
-			good.rarity = ((Integer) g.get("rarity"));
+    public static void loadConfig(FileConfiguration cfg, Map<String, ConfigTradeGood> goods,
+                                  Map<String, ConfigTradeGood> landGoods, Map<String, ConfigTradeGood> waterGoods) {
+        goods.clear();
+        List<Map<?, ?>> land_goods = cfg.getMapList("land_goods");
+        for (Map<?, ?> g : land_goods) {
+            ConfigTradeGood good = new ConfigTradeGood();
+            good.id = (String) g.get("id");
+            good.name = (String) g.get("name");
+            good.value = (Double) g.get("value");
+            loadBuffsString(good, (String) g.get("buffs"));
+            good.water = false;
+            good.material = (Integer) g.get("material");
+            good.material_data = (Integer) g.get("material_data");
+            good.hemiString = ((String) g.get("hemispheres"));
+            good.rarity = ((Integer) g.get("rarity"));
 
-			landGoods.put(good.id, good);
-			goods.put(good.id, good);
-		}
+            landGoods.put(good.id, good);
+            goods.put(good.id, good);
+        }
 
-		List<Map<?, ?>> water_goods = cfg.getMapList("water_goods");
-		for (Map<?, ?> g : water_goods) {
-			ConfigTradeGood good = new ConfigTradeGood();
-			good.id = (String) g.get("id");
-			good.name = (String) g.get("name");
-			good.value = (Double) g.get("value");
-			loadBuffsString(good, (String) g.get("buffs"));
-			good.water = true;
-			good.material = (Integer) g.get("material");
-			good.material_data = (Integer) g.get("material_data");
-			good.hemiString = ((String) g.get("hemispheres"));
-			good.rarity = ((Integer) g.get("rarity"));
+        List<Map<?, ?>> water_goods = cfg.getMapList("water_goods");
+        for (Map<?, ?> g : water_goods) {
+            ConfigTradeGood good = new ConfigTradeGood();
+            good.id = (String) g.get("id");
+            good.name = (String) g.get("name");
+            good.value = (Double) g.get("value");
+            loadBuffsString(good, (String) g.get("buffs"));
+            good.water = true;
+            good.material = (Integer) g.get("material");
+            good.material_data = (Integer) g.get("material_data");
+            good.hemiString = ((String) g.get("hemispheres"));
+            good.rarity = ((Integer) g.get("rarity"));
 
-			waterGoods.put(good.id, good);
-			goods.put(good.id, good);
-		}
+            waterGoods.put(good.id, good);
+            goods.put(good.id, good);
+        }
 
-		CivLog.info("Loaded " + goods.size() + " Trade Goods.");
-	}
+        CivLog.info("Loaded " + goods.size() + " Trade Goods.");
+    }
 
-	@Override
-	public int compareTo(ConfigTradeGood otherGood) {
+    @Override
+    public int compareTo(ConfigTradeGood otherGood) {
 
-		if (this.rarity < otherGood.rarity) {
-			// A lower rarity should go first.
-			return 1;
-		} else if (this.rarity == otherGood.rarity) {
-			return 0;
-		}
-		return -1;
-	}
+        if (this.rarity < otherGood.rarity) {
+            // A lower rarity should go first.
+            return 1;
+        } else if (this.rarity == otherGood.rarity) {
+            return 0;
+        }
+        return -1;
+    }
 
 }

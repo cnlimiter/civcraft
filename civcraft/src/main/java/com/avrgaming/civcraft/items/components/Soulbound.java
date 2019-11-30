@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -25,9 +25,9 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class Soulbound extends ItemComponent {
 
-	@Override
-	public void onPrepareCreate(AttributeUtil attrs) {
-		attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("Soulbound"));
-	}
+    @Override
+    public void onPrepareCreate(AttributeUtil attrs) {
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("Soulbound"));
+    }
 
 }

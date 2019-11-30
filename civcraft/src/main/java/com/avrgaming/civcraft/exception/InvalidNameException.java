@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -20,13 +20,13 @@ package com.avrgaming.civcraft.exception;
 
 public class InvalidNameException extends Exception {
 
-	private static final long serialVersionUID = -697962518690144537L;
-	
-	public InvalidNameException() {
-		super("Invalid name, name was null");
-	}
-	
-	public InvalidNameException(String message) {
-		super("Invalid name:"+message);
-	}
+    private static final long serialVersionUID = -697962518690144537L;
+
+    public InvalidNameException() {
+        super("Invalid name, name was null");
+    }
+
+    public InvalidNameException(String message) {
+        super("Invalid name:" + message);
+    }
 }

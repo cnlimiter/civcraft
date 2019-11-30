@@ -2,14 +2,19 @@ package com.avrgaming.civcraft.util;
 
 
 import java.io.IOException;
+
 import org.jnbt.Tag;
+
 import java.util.Map;
+
 import org.jnbt.ByteArrayTag;
 import org.jnbt.ShortTag;
 import org.jnbt.CompoundTag;
 import org.jnbt.NBTInputStream;
+
 import java.io.FileInputStream;
 import java.io.File;
+
 import org.bukkit.block.Block;
 import com.avrgaming.civcraft.main.CivCraft;
 import org.bukkit.block.Skull;
@@ -17,15 +22,14 @@ import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 import org.bukkit.Location;
 
-public class Schematic
-{
+public class Schematic {
     private short[] blocks;
     private byte[] data;
     private short width;
     private short lenght;
     private short height;
     private String name;
-    
+
     public Schematic(final String name, final short[] blocks, final byte[] data, final short width, final short lenght, final short height) {
         this.blocks = blocks;
         this.data = data;
@@ -34,10 +38,10 @@ public class Schematic
         this.height = height;
         this.name = name;
     }
-    
+
     @SuppressWarnings("deprecation")
-	public void paste(final Location loc) {
-        final BlockFace[] bf = { BlockFace.NORTH, BlockFace.NORTH_EAST, BlockFace.EAST, BlockFace.SOUTH_EAST, BlockFace.SOUTH, BlockFace.SOUTH_WEST, BlockFace.WEST, BlockFace.NORTH_WEST };
+    public void paste(final Location loc) {
+        final BlockFace[] bf = {BlockFace.NORTH, BlockFace.NORTH_EAST, BlockFace.EAST, BlockFace.SOUTH_EAST, BlockFace.SOUTH, BlockFace.SOUTH_WEST, BlockFace.WEST, BlockFace.NORTH_WEST};
         final short[] blocks = this.getBlocks();
         final byte[] blockData = this.getData();
         final short length = this.getLenght();
@@ -50,21 +54,20 @@ public class Schematic
                 for (int z = 0; z < length; ++z) {
                     final int index = y * width * length + z * width + x;
                     final Block block = new Location(loc.getWorld(), x + loc.getX(), y + loc.getY(), z + loc.getZ()).getBlock();
-                    if (Material.getMaterial((int)blocks[index]) != null && (blocks[index] != 0 || (block.getType() != Material.STATIONARY_WATER && block.getType() != Material.STATIONARY_LAVA))) {
-                        block.setTypeIdAndData((int)blocks[index], blockData[index], false);
+                    if (Material.getMaterial((int) blocks[index]) != null && (blocks[index] != 0 || (block.getType() != Material.STATIONARY_WATER && block.getType() != Material.STATIONARY_LAVA))) {
+                        block.setTypeIdAndData((int) blocks[index], blockData[index], false);
                     }
                     Material.getMaterial("test");
-                    if (Material.getMaterial((int)blocks[index]) == Material.CHEST) {
+                    if (Material.getMaterial((int) blocks[index]) == Material.CHEST) {
 //                        if (!luckkyBlockPasted) {
 //                            block.setType(Material.LUCKY_BLOCK);
 //                            luckkyBlockPasted = true;
 //                        }
 //                        else {
-                            block.setType(Material.AIR);
+                        block.setType(Material.AIR);
 //                        }
-                    }
-                    else if (Material.getMaterial((int)blocks[index]) == Material.SKULL) {
-                        final Skull skull = (Skull)block.getState();
+                    } else if (Material.getMaterial((int) blocks[index]) == Material.SKULL) {
+                        final Skull skull = (Skull) block.getState();
                         skull.setRotation(bf[CivCraft.civRandom.nextInt(bf.length)]);
                         skull.update();
                     }
@@ -72,11 +75,11 @@ public class Schematic
             }
         }
     }
-    
+
     public static Schematic loadSchematic(final File file) throws IOException {
         final FileInputStream stream = new FileInputStream(file);
         final NBTInputStream nbtStream = new NBTInputStream(stream);
-        final CompoundTag schematicTag = (CompoundTag)nbtStream.readTag();
+        final CompoundTag schematicTag = (CompoundTag) nbtStream.readTag();
         if (!schematicTag.getName().equals("Schematic")) {
             nbtStream.close();
             throw new IllegalArgumentException("Tag \"Schematic\" does not exist or is not first");
@@ -98,19 +101,17 @@ public class Schematic
         }
         for (int index = 0; index < blockId.length; ++index) {
             if (index >> 1 >= addId.length) {
-                blocks[index] = (short)(blockId[index] & 0xFF);
-            }
-            else if ((index & 0x1) == 0x0) {
-                blocks[index] = (short)(((addId[index >> 1] & 0xF) << 8) + (blockId[index] & 0xFF));
-            }
-            else {
-                blocks[index] = (short)(((addId[index >> 1] & 0xF0) << 4) + (blockId[index] & 0xFF));
+                blocks[index] = (short) (blockId[index] & 0xFF);
+            } else if ((index & 0x1) == 0x0) {
+                blocks[index] = (short) (((addId[index >> 1] & 0xF) << 8) + (blockId[index] & 0xFF));
+            } else {
+                blocks[index] = (short) (((addId[index >> 1] & 0xF0) << 4) + (blockId[index] & 0xFF));
             }
         }
         nbtStream.close();
         return new Schematic(file.getName().replace(".schematic", ""), blocks, blockData, width, length, height);
     }
-    
+
     private static <T extends Tag> T getChildTag(final Map<String, Tag> items, final String key, final Class<T> expected) throws IllegalArgumentException {
         if (!items.containsKey(key)) {
             throw new IllegalArgumentException("Schematic file is missing a \"" + key + "\" tag");
@@ -121,27 +122,27 @@ public class Schematic
         }
         return expected.cast(tag);
     }
-    
+
     public short[] getBlocks() {
         return this.blocks;
     }
-    
+
     public String getName() {
         return this.name;
     }
-    
+
     public byte[] getData() {
         return this.data;
     }
-    
+
     public short getWidth() {
         return this.width;
     }
-    
+
     public short getLenght() {
         return this.lenght;
     }
-    
+
     public short getHeight() {
         return this.height;
     }

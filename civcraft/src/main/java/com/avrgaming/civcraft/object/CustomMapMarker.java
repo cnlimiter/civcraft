@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -19,7 +19,7 @@
 package com.avrgaming.civcraft.object;
 
 public class CustomMapMarker {
-	public String name;
-	public String description;
-	public String icon;
+    public String name;
+    public String description;
+    public String icon;
 }

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 public class WorldListener
-implements Listener {
+        implements Listener {
     public static List<Schematic> schematics = new ArrayList<Schematic>();
     int skipCount = 0;
 
@@ -40,7 +40,7 @@ implements Listener {
         return min + CivCraft.civRandom.nextInt(max - min + 1);
     }
 
-    @EventHandler(priority=EventPriority.HIGH, ignoreCancelled=true)
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onChunkGenerate(ChunkPopulateEvent event) {
         Random rand = CivCraft.civRandom;
         if (rand.nextInt(10000000) < 500000) {
@@ -57,13 +57,14 @@ implements Listener {
                 for (int i = 0; i < 6; ++i) {
                     for (int j = 0; j < 6; ++j) {
                         for (int k = 0; k < 8; ++k) {
-                            if (!current.getRelative(i, k, j).getType().isSolid() && !current.getRelative(i, k, j).getType().toString().contains("LEAVES") && current.getRelative(i, -1, j).getType().isSolid()) continue;
+                            if (!current.getRelative(i, k, j).getType().isSolid() && !current.getRelative(i, k, j).getType().toString().contains("LEAVES") && current.getRelative(i, -1, j).getType().isSolid())
+                                continue;
                             flat = false;
                         }
                     }
                 }
                 if (!flat) continue;
-                WorldListener.buildRuin(new Location(event.getWorld(), (double)x, (double)y, (double)z));
+                WorldListener.buildRuin(new Location(event.getWorld(), (double) x, (double) y, (double) z));
                 ++CivGlobal.ruinsGenerated;
                 break;
             }

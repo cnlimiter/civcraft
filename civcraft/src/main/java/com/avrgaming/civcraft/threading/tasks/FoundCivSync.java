@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -29,30 +29,27 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class FoundCivSync implements Runnable {
 
-	Resident resident;
-	
-	public FoundCivSync(Resident resident) {
-		this.resident = resident;
-	}
-	
-	@Override
-	public void run() {
+    Resident resident;
 
-		Player player;
-		try {
-			player = CivGlobal.getPlayer(resident);
-		} catch (CivException e1) {
-			return;
-		}
-		
-		try {
-			Civilization.newCiv(resident.desiredCivName, resident.desiredCapitolName, resident, player, resident.desiredTownLocation);
-		} catch (CivException e) {
-			CivMessage.send(player, CivColor.Rose+e.getMessage());
-		}
-		
-	}
+    public FoundCivSync(Resident resident) {
+        this.resident = resident;
+    }
 
-	
-	
+    @Override
+    public void run() {
+        Player player;
+        try {
+            player = CivGlobal.getPlayer(resident);
+        } catch (CivException e1) {
+            return;
+        }
+        try {
+            Civilization.newCiv(resident.desiredCivName, resident.desiredCapitolName, resident, player, resident.desiredTownLocation);
+        } catch (CivException e) {
+            CivMessage.send(player, CivColor.Rose + e.getMessage());
+        }
+
+    }
+
+
 }

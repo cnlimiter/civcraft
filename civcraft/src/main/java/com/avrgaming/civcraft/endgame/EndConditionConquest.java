@@ -4,6 +4,7 @@ package com.avrgaming.civcraft.endgame;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
 import org.bukkit.Bukkit;
 import com.avrgaming.civcraft.endgame.EndGameCondition;
 import com.avrgaming.civcraft.main.CivGlobal;
@@ -15,7 +16,7 @@ import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.war.War;
 
 public class EndConditionConquest
-extends EndGameCondition {
+        extends EndGameCondition {
     public static boolean check = false;
     int daysAfterStart;
     double percentCaptured;
@@ -37,7 +38,7 @@ extends EndGameCondition {
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int)0).value);
+            long time = Long.valueOf(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }
@@ -90,7 +91,7 @@ extends EndGameCondition {
             }
             CivLog.debug("Town with number " + towncountciv + " = null. Sure ?\nEndCondition Class");
         }
-        double captured = (double)towncountciv / (double)towncountglobal;
+        double captured = (double) towncountciv / (double) towncountglobal;
         if (!hasChichenItza) {
             if (captured < this.percentCaptured) {
                 CivLog.debug("No towns for condition win " + captured + " needed:" + this.percentCaptured);

@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -26,30 +26,30 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.structure.Library;
 
 public class LibraryEnchantment {
-	public Enchantment enchant;
-	public LoreEnhancement enhancement;
-	public int level;
-	public double price;
-	public String name;
-	public String displayName;
+    public Enchantment enchant;
+    public LoreEnhancement enhancement;
+    public int level;
+    public double price;
+    public String name;
+    public String displayName;
 
-	public LibraryEnchantment(String name, int lvl, double p) throws CivException {
-		enchant = Library.getEnchantFromString(name);
-		if (enchant == null)  {
-			enhancement = LoreEnhancement.enhancements.get(name);
-			if (enhancement == null) {
-				throw new CivException(CivSettings.localize.localizedString("libraryEnchantError1",name));
-			}
-		}
-		level = lvl;
-		price = p;
-		
-		this.name = name;
-		if (enchant != null) {
-			displayName = name.replace("_", " ");
-		} else {
-			displayName = enhancement.getDisplayName();
-		}
-		
-	}
+    public LibraryEnchantment(String name, int lvl, double p) throws CivException {
+        enchant = Library.getEnchantFromString(name);
+        if (enchant == null) {
+            enhancement = LoreEnhancement.enhancements.get(name);
+            if (enhancement == null) {
+                throw new CivException(CivSettings.localize.localizedString("libraryEnchantError1", name));
+            }
+        }
+        level = lvl;
+        price = p;
+
+        this.name = name;
+        if (enchant != null) {
+            displayName = name.replace("_", " ");
+        } else {
+            displayName = enhancement.getDisplayName();
+        }
+
+    }
 }

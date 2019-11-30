@@ -27,43 +27,44 @@ import java.util.Calendar;
 public class Shipyard extends WaterStructure {
     private StructureSign respawnSign;
     private int index = 0;
-	
-	protected Shipyard(Location center, String id, Town town) throws CivException {
-		super(center, id, town);
-	}
 
-	public Shipyard(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
-		
-	@Override
-	public void loadSettings() {
-		super.loadSettings();
-	}
-	
-	public String getkey() {
-		return getTown().getName()+"_"+this.getConfigId()+"_"+this.getCorner().toString(); 
-	}
-		
-	@Override
-	public String getDynmapDescription() {
-		return null;
-	}
-	
-	@Override
-	public String getMarkerIconName() {
-		return "anchor";
-	}
-	
-	public double getHammersPerTile() {
-		AttributeBiomeRadiusPerLevel attrBiome = (AttributeBiomeRadiusPerLevel)this.getComponent("AttributeBiomeBase");
-		double base = attrBiome.getBaseValue();
-	
-		double rate = 1;
-		rate += this.getTown().getBuffManager().getEffectiveDouble(Buff.ADVANCED_TOOLING);
-		return (rate*base);
-	}
-	private RespawnLocationHolder getSelectedHolder() {
+    protected Shipyard(Location center, String id, Town town) throws CivException {
+        super(center, id, town);
+    }
+
+    public Shipyard(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
+
+    @Override
+    public void loadSettings() {
+        super.loadSettings();
+    }
+
+    public String getkey() {
+        return getTown().getName() + "_" + this.getConfigId() + "_" + this.getCorner().toString();
+    }
+
+    @Override
+    public String getDynmapDescription() {
+        return null;
+    }
+
+    @Override
+    public String getMarkerIconName() {
+        return "anchor";
+    }
+
+    public double getHammersPerTile() {
+        AttributeBiomeRadiusPerLevel attrBiome = (AttributeBiomeRadiusPerLevel) this.getComponent("AttributeBiomeBase");
+        double base = attrBiome.getBaseValue();
+
+        double rate = 1;
+        rate += this.getTown().getBuffManager().getEffectiveDouble(Buff.ADVANCED_TOOLING);
+        return (rate * base);
+    }
+
+    private RespawnLocationHolder getSelectedHolder() {
         ArrayList<RespawnLocationHolder> respawnables = this.getTown().getCiv().getAvailableRespawnables();
         return respawnables.get(this.index);
     }
@@ -71,12 +72,12 @@ public class Shipyard extends WaterStructure {
     private void changeIndex(int newIndex) {
         ArrayList<RespawnLocationHolder> respawnables = this.getTown().getCiv().getAvailableRespawnables();
         if (this.respawnSign != null) {
-            block4 : {
+            block4:
+            {
                 try {
                     this.respawnSign.setText(CivSettings.localize.localizedString("stable_sign_respawnAt") + "\n" + CivColor.GreenBold + respawnables.get(newIndex).getRespawnName());
                     this.index = newIndex;
-                }
-                catch (IndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e) {
                     if (respawnables.size() <= 0) break block4;
                     this.respawnSign.setText(CivSettings.localize.localizedString("stable_sign_respawnAt") + "\n" + CivColor.GreenBold + respawnables.get(0).getRespawnName());
                     this.index = 0;
@@ -136,7 +137,7 @@ public class Shipyard extends WaterStructure {
                 }
                 long nextTeleport = resident.getNextTeleport();
                 if (nextTeleport > (timeNow = Calendar.getInstance().getTimeInMillis())) {
-    				SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+                    SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
                     CivMessage.sendError(resident, CivSettings.localize.localizedString("var_stable2_teleportNotAva", sdf.format(nextTeleport)));
                     return;
                 }
@@ -147,7 +148,7 @@ public class Shipyard extends WaterStructure {
                 for (Structure structure : toTeleport.getStructures()) {
                     if (!(structure instanceof Shipyard)) continue;
                     hasShipyard = true;
-                    placeToTeleport = ((Shipyard)structure).respawnSign.getCoord().getLocation();
+                    placeToTeleport = ((Shipyard) structure).respawnSign.getCoord().getLocation();
                     break;
                 }
                 if (!hasShipyard) {
@@ -159,7 +160,7 @@ public class Shipyard extends WaterStructure {
                     return;
                 }
                 nextTeleport = timeNow + 60000L;
-                CivMessage.send((Object)player, "§a" + CivSettings.localize.localizedString("stable_respawningAlert"));
+                CivMessage.send((Object) player, "§a" + CivSettings.localize.localizedString("stable_respawningAlert"));
                 player.teleport(placeToTeleport);
                 resident.getTreasury().withdraw(1000.0);
                 resident.setNextTeleport(nextTeleport);
@@ -175,7 +176,7 @@ public class Shipyard extends WaterStructure {
                 ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
                 ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_nextLocation"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_nextLocation"));
                 structSign.setDirection(commandBlock.getData());
                 structSign.setAction("next");
                 structSign.update();
@@ -187,7 +188,7 @@ public class Shipyard extends WaterStructure {
                 ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
                 ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_previousLocation"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_previousLocation"));
                 structSign.setDirection(commandBlock.getData());
                 structSign.setAction("prev");
                 structSign.update();

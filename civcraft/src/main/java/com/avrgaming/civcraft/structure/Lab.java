@@ -23,7 +23,7 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.MultiInventory;
 
 public class Lab
-extends Structure {
+        extends Structure {
     private ConsumeLevelComponent consumeComp = null;
 
     protected Lab(Location center, String id, Town town) throws CivException {
@@ -55,7 +55,7 @@ extends Structure {
 
     public ConsumeLevelComponent getConsumeComponent() {
         if (this.consumeComp == null) {
-            this.consumeComp = (ConsumeLevelComponent)this.getComponent(ConsumeLevelComponent.class.getSimpleName());
+            this.consumeComp = (ConsumeLevelComponent) this.getComponent(ConsumeLevelComponent.class.getSimpleName());
         }
         return this.consumeComp;
     }
@@ -71,8 +71,7 @@ extends Structure {
             task.syncLoadChunk(c.getCoord().getWorldname(), c.getCoord().getX(), c.getCoord().getZ());
             try {
                 tmp = task.getChestInventory(c.getCoord().getWorldname(), c.getCoord().getX(), c.getCoord().getY(), c.getCoord().getZ(), true);
-            }
-            catch (CivTaskAbortException e) {
+            } catch (CivTaskAbortException e) {
                 return ConsumeLevelComponent.Result.STAGNATE;
             }
             multiInv.addInventory(tmp);
@@ -85,36 +84,36 @@ extends Structure {
     }
 
     public void process_lab(CivAsyncTask task) throws InterruptedException {
-    	ConsumeLevelComponent.Result result = this.consume(task);
-    	switch (result) {
-    	case STARVE: {
-    		CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_productionFell", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
-    		break;
-    	}
-    	case LEVELDOWN: {
-    		CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_lostalvl", this.getConsumeComponent().getLevel()));
-    		break;
-    	}
-    	case STAGNATE: {
-    		CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_stagnated", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
-    		break;
-    	}
-    	case GROW: {
-    		CivMessage.sendTown(this.getTown(), CivColor.Green + CivSettings.localize.localizedString("var_lab_productionGrew", this.getConsumeComponent().getLevel(), this.getConsumeComponent().getCountString()));
-    		break;
-    	}
-    	case LEVELUP: {
-    		CivMessage.sendTown(this.getTown(), CivColor.Green + CivSettings.localize.localizedString("var_lab_lvlUp", this.getConsumeComponent().getLevel()));
-    		break;
-    	}
-    	case MAXED: {
-    		CivMessage.sendTown(this.getTown(), CivColor.Green + CivSettings.localize.localizedString("var_lab_maxed", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
-    		break;
-    	}
-    	default:
-    		CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_productionFell", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
-    		break;
-    	}
+        ConsumeLevelComponent.Result result = this.consume(task);
+        switch (result) {
+            case STARVE: {
+                CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_productionFell", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
+                break;
+            }
+            case LEVELDOWN: {
+                CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_lostalvl", this.getConsumeComponent().getLevel()));
+                break;
+            }
+            case STAGNATE: {
+                CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_stagnated", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
+                break;
+            }
+            case GROW: {
+                CivMessage.sendTown(this.getTown(), CivColor.Green + CivSettings.localize.localizedString("var_lab_productionGrew", this.getConsumeComponent().getLevel(), this.getConsumeComponent().getCountString()));
+                break;
+            }
+            case LEVELUP: {
+                CivMessage.sendTown(this.getTown(), CivColor.Green + CivSettings.localize.localizedString("var_lab_lvlUp", this.getConsumeComponent().getLevel()));
+                break;
+            }
+            case MAXED: {
+                CivMessage.sendTown(this.getTown(), CivColor.Green + CivSettings.localize.localizedString("var_lab_maxed", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
+                break;
+            }
+            default:
+                CivMessage.sendTown(this.getTown(), CivColor.Red + CivSettings.localize.localizedString("var_lab_productionFell", this.getConsumeComponent().getLevel(), new StringBuilder().append(CivColor.Green).append(this.getConsumeComponent().getCountString()).toString()));
+                break;
+        }
     }
 
     public int getLevel() {
@@ -122,7 +121,7 @@ extends Structure {
     }
 
     public double getBeakersPerTile() {
-        AttributeBiomeRadiusPerLevel attrBiome = (AttributeBiomeRadiusPerLevel)this.getComponent("AttributeBiomeRadiusPerLevel");
+        AttributeBiomeRadiusPerLevel attrBiome = (AttributeBiomeRadiusPerLevel) this.getComponent("AttributeBiomeRadiusPerLevel");
         double base = attrBiome.getBaseValue();
         double rate = 1.0;
         if (this.getTown().getBuffManager().hasBuff("ADVANCED_TOOLING")) {

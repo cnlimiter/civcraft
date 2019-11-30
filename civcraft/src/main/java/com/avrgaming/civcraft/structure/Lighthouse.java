@@ -12,33 +12,33 @@ import com.avrgaming.civcraft.object.Town;
 
 public class Lighthouse extends Structure {
 
-	
-	protected Lighthouse(Location center, String id, Town town) throws CivException {
-		super(center, id, town);
-	}
 
-	public Lighthouse(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
+    protected Lighthouse(Location center, String id, Town town) throws CivException {
+        super(center, id, town);
+    }
 
-	@Override
-	public void loadSettings() {
-		super.loadSettings();
+    public Lighthouse(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
 
-	}
-	
-	@Override
-	public String getMarkerIconName() {
-		return "compass";
-	}
+    @Override
+    public void loadSettings() {
+        super.loadSettings();
 
-	public double getHammersPerTile() {
-		AttributeBiomeRadiusPerLevel attrBiome = (AttributeBiomeRadiusPerLevel)this.getComponent("AttributeBiomeBase");
-		double base = attrBiome.getBaseValue();
-	
-		double rate = 1;
-		rate += this.getTown().getBuffManager().getEffectiveDouble(Buff.ADVANCED_TOOLING);
-		return (rate*base);
-	}
+    }
+
+    @Override
+    public String getMarkerIconName() {
+        return "compass";
+    }
+
+    public double getHammersPerTile() {
+        AttributeBiomeRadiusPerLevel attrBiome = (AttributeBiomeRadiusPerLevel) this.getComponent("AttributeBiomeBase");
+        double base = attrBiome.getBaseValue();
+
+        double rate = 1;
+        rate += this.getTown().getBuffManager().getEffectiveDouble(Buff.ADVANCED_TOOLING);
+        return (rate * base);
+    }
 
 }

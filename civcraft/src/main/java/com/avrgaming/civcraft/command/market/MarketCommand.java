@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -24,33 +24,33 @@ import com.avrgaming.civcraft.exception.CivException;
 
 public class MarketCommand extends CommandBase {
 
-	@Override
-	public void init() {
-		command = "/market";
-		displayName = CivSettings.localize.localizedString("cmd_market_Name");	
-				
-		commands.put("buy", CivSettings.localize.localizedString("cmd_market_buyDesc"));
+    @Override
+    public void init() {
+        command = "/market";
+        displayName = CivSettings.localize.localizedString("cmd_market_Name");
 
-	}
+        commands.put("buy", CivSettings.localize.localizedString("cmd_market_buyDesc"));
 
-	public void buy_cmd() {
-		MarketBuyCommand cmd = new MarketBuyCommand();	
-		cmd.onCommand(sender, null, "buy", this.stripArgs(args, 1));
-	}
-	
-	@Override
-	public void doDefaultAction() throws CivException {
-		showHelp();
-	}
+    }
 
-	@Override
-	public void showHelp() {
-		showBasicHelp();
-	}
+    public void buy_cmd() {
+        MarketBuyCommand cmd = new MarketBuyCommand();
+        cmd.onCommand(sender, null, "buy", this.stripArgs(args, 1));
+    }
 
-	@Override
-	public void permissionCheck() throws CivException {
-		
-	}
+    @Override
+    public void doDefaultAction() throws CivException {
+        showHelp();
+    }
+
+    @Override
+    public void showHelp() {
+        showBasicHelp();
+    }
+
+    @Override
+    public void permissionCheck() throws CivException {
+
+    }
 
 }

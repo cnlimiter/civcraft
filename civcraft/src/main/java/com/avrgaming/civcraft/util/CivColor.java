@@ -62,7 +62,7 @@ public class CivColor {
 
     public static String colorize(String input) {
         String output = input;
-        
+
         output = output.replaceAll("<red>", "§4");
         output = output.replaceAll("<rose>", "§c");
         output = output.replaceAll("<gold>", "§6");

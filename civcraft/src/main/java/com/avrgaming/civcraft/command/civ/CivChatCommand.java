@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -30,41 +30,41 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class CivChatCommand implements CommandExecutor {
-	
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
-		//TODO let non players use this command
-		if ((sender instanceof Player) == false) {
-			return false;
-		}
-		
-		Player player = (Player)sender;
-		Resident resident = CivGlobal.getResident(player);
-		if (resident == null) {
-			CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_civchat_notResident"));
-			return false;
-		}
-	
-		if (args.length == 0) {
-			resident.setCivChat(!resident.isCivChat());
-			resident.setTownChat(false);
-			CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_civchat_modeSet")+" "+resident.isCivChat());
-			return true;
-		}
-		
-		
-		String fullArgs = "";
-		for (String arg : args) {
-			fullArgs += arg + " ";
-		}
-	
-		if (resident.getTown() == null) {
-			player.sendMessage(CivColor.Rose+CivSettings.localize.localizedString("cmd_civchat_error"));
-			return false;
-		}
-		
-		CivMessage.sendCivChat(resident.getTown().getCiv(), resident, "<%s> %s", fullArgs);
-		return true;
-	}
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+
+        //TODO let non players use this command
+        if ((sender instanceof Player) == false) {
+            return false;
+        }
+
+        Player player = (Player) sender;
+        Resident resident = CivGlobal.getResident(player);
+        if (resident == null) {
+            CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_civchat_notResident"));
+            return false;
+        }
+
+        if (args.length == 0) {
+            resident.setCivChat(!resident.isCivChat());
+            resident.setTownChat(false);
+            CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_civchat_modeSet") + " " + resident.isCivChat());
+            return true;
+        }
+
+
+        String fullArgs = "";
+        for (String arg : args) {
+            fullArgs += arg + " ";
+        }
+
+        if (resident.getTown() == null) {
+            player.sendMessage(CivColor.Rose + CivSettings.localize.localizedString("cmd_civchat_error"));
+            return false;
+        }
+
+        CivMessage.sendCivChat(resident.getTown().getCiv(), resident, "<%s> %s", fullArgs);
+        return true;
+    }
 }

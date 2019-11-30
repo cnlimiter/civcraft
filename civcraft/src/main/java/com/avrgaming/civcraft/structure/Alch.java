@@ -23,7 +23,7 @@ import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class Alch
-extends Structure {
+        extends Structure {
     private int level = 1;
     private NonMemberFeeComponent nonMemberFeeComponent;
 
@@ -72,7 +72,7 @@ extends Structure {
     }
 
     private String getNonResidentFeeString() {
-        return "Fee: " + new StringBuilder().append((int)(this.getNonResidentFee() * 100.0)).append("%").toString().toString();
+        return "Fee: " + new StringBuilder().append((int) (this.getNonResidentFee() * 100.0)).append("%").toString().toString();
     }
 
     private StructureSign getSignFromSpecialId(int special_id) {
@@ -85,22 +85,21 @@ extends Structure {
     }
 
     public void sign_buy_material(Player player, String itemName, int id, byte data, int amount, double price) {
-        int payToTown = (int)Math.round(price * this.getNonResidentFee());
+        int payToTown = (int) Math.round(price * this.getNonResidentFee());
         try {
             Resident resident = CivGlobal.getResident(player.getName());
             Civilization c = resident.getCiv();
             if (c == this.getCiv()) {
                 resident.buyItem(itemName, id, data, price, amount);
-                CivMessage.send((Object)player, CivColor.Green + CivSettings.localize.localizedString("var_alch_msgBought", amount, itemName, new StringBuilder().append(price).append(" ").append(CivSettings.CURRENCY_NAME).toString()));
+                CivMessage.send((Object) player, CivColor.Green + CivSettings.localize.localizedString("var_alch_msgBought", amount, itemName, new StringBuilder().append(price).append(" ").append(CivSettings.CURRENCY_NAME).toString()));
                 return;
             }
-            resident.buyItem(itemName, id, data, price + (double)payToTown, amount);
+            resident.buyItem(itemName, id, data, price + (double) payToTown, amount);
             this.getTown().depositDirect(payToTown);
-            CivMessage.send((Object)player, CivColor.Green + CivSettings.localize.localizedString("var_alch_msgBought", amount, itemName, price, CivSettings.CURRENCY_NAME));
-            CivMessage.send((Object)player, CivColor.Yellow + CivSettings.localize.localizedString("var_taxes_paid", this.getTown().getName(), new StringBuilder().append(payToTown).append(" ").append(CivSettings.CURRENCY_NAME).toString()));
-        }
-        catch (CivException e) {
-            CivMessage.send((Object)player, CivColor.Red + e.getMessage());
+            CivMessage.send((Object) player, CivColor.Green + CivSettings.localize.localizedString("var_alch_msgBought", amount, itemName, price, CivSettings.CURRENCY_NAME));
+            CivMessage.send((Object) player, CivColor.Yellow + CivSettings.localize.localizedString("var_taxes_paid", this.getTown().getName(), new StringBuilder().append(payToTown).append(" ").append(CivSettings.CURRENCY_NAME).toString()));
+        } catch (CivException e) {
+            CivMessage.send((Object) player, CivColor.Red + e.getMessage());
         }
     }
 
@@ -135,9 +134,9 @@ extends Structure {
         int special_id = Integer.valueOf(sign.getAction());
         if (special_id < this.level) {
             ConfigAlchLevel alchlevel = CivSettings.alchLevels.get(special_id + 1);
-            this.sign_buy_material(player, alchlevel.itemName, alchlevel.itemId, (byte)alchlevel.itemData, alchlevel.amount, alchlevel.price);
+            this.sign_buy_material(player, alchlevel.itemName, alchlevel.itemId, (byte) alchlevel.itemData, alchlevel.amount, alchlevel.price);
         } else {
-            CivMessage.send((Object)player, CivColor.Red + CivSettings.localize.localizedString("alch_sign_needUpgrade"));
+            CivMessage.send((Object) player, CivColor.Red + CivSettings.localize.localizedString("alch_sign_needUpgrade"));
         }
     }
 }

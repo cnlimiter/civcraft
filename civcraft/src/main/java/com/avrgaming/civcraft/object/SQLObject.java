@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -30,23 +30,23 @@ import com.avrgaming.civcraft.exception.InvalidObjectException;
  * saved in the database.
  */
 public abstract class SQLObject extends NamedObject {
-	
-	private boolean isDeleted = false;
 
-	public abstract void load(ResultSet rs) throws SQLException, InvalidNameException, InvalidObjectException, CivException;
-		
-	public abstract void save();
-	
-	public abstract void saveNow() throws SQLException;
-	
-	public abstract void delete() throws SQLException;
+    private boolean isDeleted = false;
 
-	public boolean isDeleted() {
-		return isDeleted;
-	}
+    public abstract void load(ResultSet rs) throws SQLException, InvalidNameException, InvalidObjectException, CivException;
 
-	public void setDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
-	
+    public abstract void save();
+
+    public abstract void saveNow() throws SQLException;
+
+    public abstract void delete() throws SQLException;
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
 }

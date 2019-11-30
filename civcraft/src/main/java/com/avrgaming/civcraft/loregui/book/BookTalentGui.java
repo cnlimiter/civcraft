@@ -23,23 +23,23 @@ import com.avrgaming.civcraft.tutorial.Book;
 import com.avrgaming.civcraft.util.ItemManager;
 
 public class BookTalentGui
-implements GuiAction {
+        implements GuiAction {
     public static Inventory inventory = null;
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
-        inventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("talentGui_heading"));
+        Player player = (Player) event.getWhoClicked();
+        inventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, CivSettings.localize.localizedString("talentGui_heading"));
         Resident whoClicked = CivGlobal.getResident(player);
         if (whoClicked.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "§c"+CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         Civilization civ = whoClicked.getCiv();
         if (!civ.getLeaderGroup().hasMember(whoClicked) && !civ.getAdviserGroup().hasMember(whoClicked)) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "§c"+CivSettings.localize.localizedString("cmd_NeedHigherCivRank"));
+            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("cmd_NeedHigherCivRank"));
             return;
         }
         ItemStack talentList = LoreGuiItem.build(CivSettings.localize.localizedString("talentGui_talentList"), ItemManager.getId(Material.PAPER), 0, "§6" + CivSettings.localize.localizedString("bookReborn_clickToView"));

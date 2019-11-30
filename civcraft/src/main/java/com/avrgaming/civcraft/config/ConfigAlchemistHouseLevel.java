@@ -20,10 +20,10 @@ public class ConfigAlchemistHouseLevel {
 
     public static void loadConfig(final FileConfiguration cfg, final Map<Integer, ConfigAlchemistHouseLevel> levels) {
         levels.clear();
-        final List<Map<?, ?>> culture_levels =  cfg.getMapList("alchemisthouse_levels");
+        final List<Map<?, ?>> culture_levels = cfg.getMapList("alchemisthouse_levels");
         for (final Map<?, ?> level : culture_levels) {
             final ConfigAlchemistHouseLevel alchemisthouse_level = new ConfigAlchemistHouseLevel();
-            alchemisthouse_level.level = (Integer)level.get("level");
+            alchemisthouse_level.level = (Integer) level.get("level");
             alchemisthouse_level.itemName = (String) level.get("itemName");
             alchemisthouse_level.itemId = (Integer) level.get("itemId");
             alchemisthouse_level.itemData = (Integer) level.get("itemData");

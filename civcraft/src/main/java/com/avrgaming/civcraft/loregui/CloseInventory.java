@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import com.avrgaming.civcraft.loregui.GuiAction;
 
 public class CloseInventory
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         event.getWhoClicked().closeInventory();

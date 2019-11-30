@@ -8,7 +8,7 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class LoreEnhancementPoison
-extends LoreEnhancement {
+        extends LoreEnhancement {
     @Override
     public String getDisplayName() {
         return CivColor.LightGreenBold + CivSettings.localize.localizedString("itemLore_poision");

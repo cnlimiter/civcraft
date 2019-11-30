@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -29,29 +29,29 @@ import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.util.BlockCoord;
 
 public class ScoutTowerTask implements Runnable {
-	@Override
-	public void run() {		
-		HashSet<String> announced = new HashSet<String>();
-		
-		try {
-			if (!CivGlobal.towersEnabled) {
-				return;
-			}
-			
-			Iterator<Entry<BlockCoord, Structure>> iter = CivGlobal.getStructureIterator();
-			while(iter.hasNext()) {
-				Structure struct = iter.next().getValue();
-				if (struct instanceof ScoutTower) {
-					((ScoutTower)struct).process(announced);
-				} else if (struct instanceof ScoutShip) {
-					((ScoutShip)struct).process(announced);
-				}
-				
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+    @Override
+    public void run() {
+        HashSet<String> announced = new HashSet<String>();
+
+        try {
+            if (!CivGlobal.towersEnabled) {
+                return;
+            }
+
+            Iterator<Entry<BlockCoord, Structure>> iter = CivGlobal.getStructureIterator();
+            while (iter.hasNext()) {
+                Structure struct = iter.next().getValue();
+                if (struct instanceof ScoutTower) {
+                    ((ScoutTower) struct).process(announced);
+                } else if (struct instanceof ScoutShip) {
+                    ((ScoutShip) struct).process(announced);
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -26,7 +26,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class Archer2
-extends UnitMaterial {
+        extends UnitMaterial {
     public Archer2(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -36,8 +36,8 @@ extends UnitMaterial {
         Archer2.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow +"Single Use");
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
         attrs.addLore(CivColor.LightGray + "Prevents Hand-to-hand combat");
@@ -53,7 +53,7 @@ extends UnitMaterial {
 
     @Override
     public void onInteract(PlayerInteractEvent event) {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
 
         Player player = event.getPlayer();
         Resident interacter = CivGlobal.getResident(player);

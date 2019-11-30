@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -31,78 +31,78 @@ import com.avrgaming.civcraft.structure.Store;
 
 public class TownResetCommand extends CommandBase {
 
-	@Override
-	public void init() {
-		command = "/town reset";
-		displayName = CivSettings.localize.localizedString("cmd_town_reset_name");
-		
-		commands.put("library", CivSettings.localize.localizedString("cmd_town_reset_libraryDesc"));
-		commands.put("store", CivSettings.localize.localizedString("cmd_town_reset_storeDesc"));
-	}
+    @Override
+    public void init() {
+        command = "/town reset";
+        displayName = CivSettings.localize.localizedString("cmd_town_reset_name");
 
-	public void library_cmd() throws CivException {
-		Town town = getSelectedTown();
-		
-		Library library = (Library) town.findStructureByConfigId("s_library");
-		if (library == null) {
-			throw new CivException(CivSettings.localize.localizedString("cmd_town_reset_libraryNone"));
-		}
-		
-		ArrayList<ConfigTownUpgrade> removeUs = new ArrayList<ConfigTownUpgrade>();
-		for(ConfigTownUpgrade upgrade : town.getUpgrades().values()) {
-			if (upgrade.action.contains("enable_library_enchantment")) {
-				removeUs.add(upgrade);
-			}
-		}
-		
-		for (ConfigTownUpgrade upgrade : removeUs) {
-			town.removeUpgrade(upgrade);
-		}
-		
-		library.reset();
-		
-		town.save();
-		CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_town_reset_librarySuccess"));
-	}
-	
-	public void store_cmd() throws CivException {
-		Town town = getSelectedTown();
-		
-		Store store = (Store) town.findStructureByConfigId("s_store");
-		if (store == null) {
-			throw new CivException(CivSettings.localize.localizedString("cmd_town_reset_storeNone"));
-		}
-		
-		ArrayList<ConfigTownUpgrade> removeUs = new ArrayList<ConfigTownUpgrade>();
-		for(ConfigTownUpgrade upgrade : town.getUpgrades().values()) {
-			if (upgrade.action.contains("set_store_material")) {
-				removeUs.add(upgrade);
-			}
-		}
-		
-		for (ConfigTownUpgrade upgrade : removeUs) {
-			town.removeUpgrade(upgrade);
-		}
-		
-		store.reset();
-		
-		town.save();
-		CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_town_reset_storeSuccess"));
-	}
-	
-	@Override
-	public void doDefaultAction() throws CivException {
-		showHelp();
-	}
+        commands.put("library", CivSettings.localize.localizedString("cmd_town_reset_libraryDesc"));
+        commands.put("store", CivSettings.localize.localizedString("cmd_town_reset_storeDesc"));
+    }
 
-	@Override
-	public void showHelp() {
-		this.showBasicHelp();
-	}
+    public void library_cmd() throws CivException {
+        Town town = getSelectedTown();
 
-	@Override
-	public void permissionCheck() throws CivException {
-		this.validMayorAssistantLeader();
-	}
+        Library library = (Library) town.findStructureByConfigId("s_library");
+        if (library == null) {
+            throw new CivException(CivSettings.localize.localizedString("cmd_town_reset_libraryNone"));
+        }
+
+        ArrayList<ConfigTownUpgrade> removeUs = new ArrayList<ConfigTownUpgrade>();
+        for (ConfigTownUpgrade upgrade : town.getUpgrades().values()) {
+            if (upgrade.action.contains("enable_library_enchantment")) {
+                removeUs.add(upgrade);
+            }
+        }
+
+        for (ConfigTownUpgrade upgrade : removeUs) {
+            town.removeUpgrade(upgrade);
+        }
+
+        library.reset();
+
+        town.save();
+        CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_town_reset_librarySuccess"));
+    }
+
+    public void store_cmd() throws CivException {
+        Town town = getSelectedTown();
+
+        Store store = (Store) town.findStructureByConfigId("s_store");
+        if (store == null) {
+            throw new CivException(CivSettings.localize.localizedString("cmd_town_reset_storeNone"));
+        }
+
+        ArrayList<ConfigTownUpgrade> removeUs = new ArrayList<ConfigTownUpgrade>();
+        for (ConfigTownUpgrade upgrade : town.getUpgrades().values()) {
+            if (upgrade.action.contains("set_store_material")) {
+                removeUs.add(upgrade);
+            }
+        }
+
+        for (ConfigTownUpgrade upgrade : removeUs) {
+            town.removeUpgrade(upgrade);
+        }
+
+        store.reset();
+
+        town.save();
+        CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_town_reset_storeSuccess"));
+    }
+
+    @Override
+    public void doDefaultAction() throws CivException {
+        showHelp();
+    }
+
+    @Override
+    public void showHelp() {
+        this.showBasicHelp();
+    }
+
+    @Override
+    public void permissionCheck() throws CivException {
+        this.validMayorAssistantLeader();
+    }
 
 }

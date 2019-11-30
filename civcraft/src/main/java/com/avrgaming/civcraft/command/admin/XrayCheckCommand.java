@@ -11,7 +11,7 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.exception.CivException;
 
 public class XrayCheckCommand
-extends CommandBase {
+        extends CommandBase {
     @Override
     public void init() {
         this.command = "/xraycheck";
@@ -23,15 +23,15 @@ extends CommandBase {
     public void doDefaultAction() throws CivException {
         StringBuilder out = new StringBuilder();
         for (Player player : Bukkit.getOnlinePlayers()) {
-            String loc = this.onCheck((int)player.getLocation().getY(), player);
+            String loc = this.onCheck((int) player.getLocation().getY(), player);
             if ("".equals(loc)) continue;
             out.append(loc);
         }
         CivMessage.sendHeading(this.sender, "Potential XRAYers");
         if (!"".equals(out.toString())) {
-            CivMessage.send((Object)this.sender, out.toString());
+            CivMessage.send((Object) this.sender, out.toString());
         } else {
-            CivMessage.send((Object)this.sender, "No Players Found");
+            CivMessage.send((Object) this.sender, "No Players Found");
         }
     }
 

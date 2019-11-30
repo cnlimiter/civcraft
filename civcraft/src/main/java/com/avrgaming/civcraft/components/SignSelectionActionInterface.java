@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -21,5 +21,5 @@ package com.avrgaming.civcraft.components;
 import org.bukkit.entity.Player;
 
 public interface SignSelectionActionInterface {
-	public void process(Player player);
+    public void process(Player player);
 }

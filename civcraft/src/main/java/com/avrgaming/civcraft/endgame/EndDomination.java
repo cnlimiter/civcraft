@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.TreeMap;
 
 public class EndDomination
-extends EndGameCondition {
+        extends EndGameCondition {
     public static boolean check = false;
     int daysAfterStart;
     int timesMore;
@@ -34,7 +34,7 @@ extends EndGameCondition {
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int)0).value);
+            long time = Long.valueOf(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }
@@ -64,8 +64,8 @@ extends EndGameCondition {
         }
         TreeMap<Integer, Civilization> treeMap = CivGlobal.civilizationScores;
         synchronized (treeMap) {
-            top1 = (Civilization)CivGlobal.civilizationScores.values().toArray()[0];
-            top2 = (Civilization)CivGlobal.civilizationScores.values().toArray()[1];
+            top1 = (Civilization) CivGlobal.civilizationScores.values().toArray()[0];
+            top2 = (Civilization) CivGlobal.civilizationScores.values().toArray()[1];
         }
         int diff = top1.getScore() / top2.getScore();
         if (diff < 9) {
@@ -74,7 +74,8 @@ extends EndGameCondition {
         int wonderCount = 0;
         for (Town town : top1.getTowns()) {
             for (Wonder wonder : town.getWonders()) {
-                if (wonder.getConfigId().equalsIgnoreCase("w_space_shuttle") || wonder.getConfigId().equalsIgnoreCase("w_colosseum") || wonder.getConfigId().equalsIgnoreCase("")) continue;
+                if (wonder.getConfigId().equalsIgnoreCase("w_space_shuttle") || wonder.getConfigId().equalsIgnoreCase("w_colosseum") || wonder.getConfigId().equalsIgnoreCase(""))
+                    continue;
                 ++wonderCount;
             }
         }

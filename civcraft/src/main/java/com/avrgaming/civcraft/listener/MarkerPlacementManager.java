@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -43,90 +43,90 @@ import java.util.HashMap;
 
 public class MarkerPlacementManager implements Listener {
 
-	private static HashMap<String, Structure> playersInPlacementMode = new HashMap<String, Structure>();
-	private static HashMap<String, ArrayList<Location>> markers = new HashMap<String, ArrayList<Location>>();
-	
-	
-	public static void addToPlacementMode(Player player, Structure structure, String markerName) throws CivException {
+    private static HashMap<String, Structure> playersInPlacementMode = new HashMap<String, Structure>();
+    private static HashMap<String, ArrayList<Location>> markers = new HashMap<String, ArrayList<Location>>();
 
-		if (player.getInventory().getItemInMainHand() != null && ItemManager.getId(player.getInventory().getItemInMainHand()) != CivData.AIR) {
-			throw new CivException(CivSettings.localize.localizedString("placement_errorHolding"));
-		}
-		
-		playersInPlacementMode.put(player.getName(), structure);
-		markers.put(player.getName(), new ArrayList<Location>());
-		
-		ItemStack stack = ItemManager.createItemStack(CivData.REDSTONE_TORCH_OFF, 2);
-		ItemMeta meta = stack.getItemMeta();
-		if (markerName != null) {
-			meta.setDisplayName(markerName);
-		} else {
-			meta.setDisplayName("Marker");
-		}
-		stack.setItemMeta(meta);
-		player.getInventory().setItemInMainHand(stack);
-		
-		CivMessage.send(player, CivSettings.localize.localizedString("var_placement_enabled",structure.getDisplayName()));
-	}
-	
-	public static void removeFromPlacementMode(Player player, boolean canceled) {
-		if (canceled) {
-			Structure struct = playersInPlacementMode.get(player.getName());
-			struct.getTown().removeStructure(struct);
-			CivGlobal.removeStructure(struct);
-		}
-		playersInPlacementMode.remove(player.getName());
-		markers.remove(player.getName());
-		player.getInventory().setItemInMainHand(ItemManager.createItemStack(CivData.AIR, 1));
-		CivMessage.send(player, CivSettings.localize.localizedString("placement_ended"));
-	}
-	
-	public static boolean isPlayerInPlacementMode(Player player) {
-		return isPlayerInPlacementMode(player.getName());
-	}
-	
-	public static boolean isPlayerInPlacementMode(String name) {
-		return playersInPlacementMode.containsKey(name);
-	}
-	
-	public static void setMarker(Player player, Location location) throws CivException {
-		ArrayList<Location> locs = markers.get(player.getName());
 
-		Structure struct = playersInPlacementMode.get(player.getName());
-		int amount = player.getInventory().getItemInMainHand().getAmount();
-		if (amount == 1) {
-			player.getInventory().setItemInMainHand(null);
-		} else {
-			player.getInventory().getItemInMainHand().setAmount((amount -1));
-		}
-		
-		locs.add(location);
-		struct.onMarkerPlacement(player, location, locs);
-					
-	}
-	
-	@EventHandler(priority = EventPriority.MONITOR) 
-	public void OnItemHeldChange(PlayerItemHeldEvent event) {
-		if (isPlayerInPlacementMode(event.getPlayer())) {
-			removeFromPlacementMode(event.getPlayer(), true);
-		}
-	}
-	
-	@EventHandler(priority = EventPriority.MONITOR) 
-	public void OnPlayerDropItemEvent(PlayerDropItemEvent event) {
-		if (isPlayerInPlacementMode(event.getPlayer())) {
-			event.setCancelled(true);
-			removeFromPlacementMode(event.getPlayer(), true);
-		}
-	}
-	
-	@EventHandler(priority = EventPriority.MONITOR) 
-	public void OnPlayerQuit(PlayerQuitEvent event) {
-		if (isPlayerInPlacementMode(event.getPlayer())) {
-			removeFromPlacementMode(event.getPlayer(), true);
-		}
-	}
-	
+    public static void addToPlacementMode(Player player, Structure structure, String markerName) throws CivException {
+
+        if (player.getInventory().getItemInMainHand() != null && ItemManager.getId(player.getInventory().getItemInMainHand()) != CivData.AIR) {
+            throw new CivException(CivSettings.localize.localizedString("placement_errorHolding"));
+        }
+
+        playersInPlacementMode.put(player.getName(), structure);
+        markers.put(player.getName(), new ArrayList<Location>());
+
+        ItemStack stack = ItemManager.createItemStack(CivData.REDSTONE_TORCH_OFF, 2);
+        ItemMeta meta = stack.getItemMeta();
+        if (markerName != null) {
+            meta.setDisplayName(markerName);
+        } else {
+            meta.setDisplayName("Marker");
+        }
+        stack.setItemMeta(meta);
+        player.getInventory().setItemInMainHand(stack);
+
+        CivMessage.send(player, CivSettings.localize.localizedString("var_placement_enabled", structure.getDisplayName()));
+    }
+
+    public static void removeFromPlacementMode(Player player, boolean canceled) {
+        if (canceled) {
+            Structure struct = playersInPlacementMode.get(player.getName());
+            struct.getTown().removeStructure(struct);
+            CivGlobal.removeStructure(struct);
+        }
+        playersInPlacementMode.remove(player.getName());
+        markers.remove(player.getName());
+        player.getInventory().setItemInMainHand(ItemManager.createItemStack(CivData.AIR, 1));
+        CivMessage.send(player, CivSettings.localize.localizedString("placement_ended"));
+    }
+
+    public static boolean isPlayerInPlacementMode(Player player) {
+        return isPlayerInPlacementMode(player.getName());
+    }
+
+    public static boolean isPlayerInPlacementMode(String name) {
+        return playersInPlacementMode.containsKey(name);
+    }
+
+    public static void setMarker(Player player, Location location) throws CivException {
+        ArrayList<Location> locs = markers.get(player.getName());
+
+        Structure struct = playersInPlacementMode.get(player.getName());
+        int amount = player.getInventory().getItemInMainHand().getAmount();
+        if (amount == 1) {
+            player.getInventory().setItemInMainHand(null);
+        } else {
+            player.getInventory().getItemInMainHand().setAmount((amount - 1));
+        }
+
+        locs.add(location);
+        struct.onMarkerPlacement(player, location, locs);
+
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void OnItemHeldChange(PlayerItemHeldEvent event) {
+        if (isPlayerInPlacementMode(event.getPlayer())) {
+            removeFromPlacementMode(event.getPlayer(), true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void OnPlayerDropItemEvent(PlayerDropItemEvent event) {
+        if (isPlayerInPlacementMode(event.getPlayer())) {
+            event.setCancelled(true);
+            removeFromPlacementMode(event.getPlayer(), true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void OnPlayerQuit(PlayerQuitEvent event) {
+        if (isPlayerInPlacementMode(event.getPlayer())) {
+            removeFromPlacementMode(event.getPlayer(), true);
+        }
+    }
+
 //	@EventHandler(priority = EventPriority.MONITOR) 
 //	public void OnInventoryClick(InventoryClickEvent event) {
 //		Player player;

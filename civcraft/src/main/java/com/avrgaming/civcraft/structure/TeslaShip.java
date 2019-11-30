@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.structure;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.bukkit.Location;
 import com.avrgaming.civcraft.components.ProjectileLightningComponent;
 import com.avrgaming.civcraft.config.CivSettings;
@@ -15,7 +16,7 @@ import com.avrgaming.civcraft.structure.WaterStructure;
 import com.avrgaming.civcraft.util.BlockCoord;
 
 public class TeslaShip
-extends WaterStructure {
+        extends WaterStructure {
     ProjectileLightningComponent teslaComponent;
 
     protected TeslaShip(Location center, String id, Town town) throws CivException {
@@ -36,7 +37,7 @@ extends WaterStructure {
 
     public int getDamage() {
         double rate = 1.0;
-        return (int)((double)this.teslaComponent.getDamage() * (rate += this.getTown().getBuffManager().getEffectiveDouble("buff_fire_bomb")));
+        return (int) ((double) this.teslaComponent.getDamage() * (rate += this.getTown().getBuffManager().getEffectiveDouble("buff_fire_bomb")));
     }
 
     @Override
@@ -54,18 +55,17 @@ extends WaterStructure {
             double build_distance = CivSettings.getDouble(CivSettings.warConfig, "tesla_tower.build_distance");
             for (Town town : this.getTown().getCiv().getTowns()) {
                 for (Structure struct : town.getStructures()) {
-					BlockCoord center = struct.getCenterLocation();
-					double distance = center.distance(this.getCenterLocation());
+                    BlockCoord center = struct.getCenterLocation();
+                    double distance = center.distance(this.getCenterLocation());
                     if (struct instanceof TeslaTower && distance <= build_distance) {
                         throw new CivException(CivSettings.localize.localizedString("var_buildable_tooCloseToTeslaTower", "" + center.getX() + "," + center.getY() + "," + center.getZ()));
                     }
                     if (struct instanceof TeslaShip && distance <= build_distance) {
-                    	throw new CivException(CivSettings.localize.localizedString("var_buildable_tooCloseToTeslaShip", "" + center.getX() + "," + center.getY() + "," + center.getZ()));
+                        throw new CivException(CivSettings.localize.localizedString("var_buildable_tooCloseToTeslaShip", "" + center.getX() + "," + center.getY() + "," + center.getZ()));
                     }
                 }
             }
-        }
-        catch (InvalidConfiguration e) {
+        } catch (InvalidConfiguration e) {
             e.printStackTrace();
             throw new CivException(e.getMessage());
         }
@@ -77,7 +77,7 @@ extends WaterStructure {
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown")) {
             rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraTowerHPTown");
         }
-        return (int)((double)this.info.max_hitpoints * rate);
+        return (int) ((double) this.info.max_hitpoints * rate);
     }
 }
 

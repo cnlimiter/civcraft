@@ -8,7 +8,7 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class LoreEnhancementNoTech
-extends LoreEnhancement {
+        extends LoreEnhancement {
     @Override
     public String getDisplayName() {
         return CivColor.RoseBold + CivSettings.localize.localizedString("itemLore_noTech");

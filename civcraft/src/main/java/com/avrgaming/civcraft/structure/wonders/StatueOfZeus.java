@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.structure.wonders;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.bukkit.Location;
 import com.avrgaming.civcraft.components.ProjectileLightningComponent;
 import com.avrgaming.civcraft.config.CivSettings;
@@ -15,7 +16,7 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class StatueOfZeus
-extends Wonder {
+        extends Wonder {
     ProjectileLightningComponent teslaComponent;
 
     public StatueOfZeus(ResultSet rs) throws SQLException, CivException {
@@ -39,7 +40,7 @@ extends Wonder {
         if (this.getTown().getBuffManager().hasBuff("buff_powerstation")) {
             rate = 1.4;
         }
-        return (int)((double)this.teslaComponent.getDamage() * rate);
+        return (int) ((double) this.teslaComponent.getDamage() * rate);
     }
 
     public void setTurretLocation(BlockCoord absCoord) {
@@ -58,7 +59,7 @@ extends Wonder {
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown")) {
             rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraTowerHPTown");
         }
-        return (int)((double)this.info.max_hitpoints * rate);
+        return (int) ((double) this.info.max_hitpoints * rate);
     }
 
     @Override
@@ -93,8 +94,8 @@ extends Wonder {
             this.getTown().addAccumulatedCulture(totalCulture);
             int captured = totalCulture / culture;
             CivMessage.sendCiv(this.getCiv(), CivSettings.localize.localizedString("var_statue_of_zeus_addedCoinsAndCulture",
-            		CivColor.LightGreen + totalCulture + CivColor.RESET, CivColor.Gold + totalCoins + " " + CivSettings.CURRENCY_NAME + CivColor.RESET, CivColor.Rose + captured + CivColor.RESET,
-            		CivColor.Yellow + this.getTown().getName() + CivColor.RESET));
+                    CivColor.LightGreen + totalCulture + CivColor.RESET, CivColor.Gold + totalCoins + " " + CivSettings.CURRENCY_NAME + CivColor.RESET, CivColor.Rose + captured + CivColor.RESET,
+                    CivColor.Yellow + this.getTown().getName() + CivColor.RESET));
         }
     }
 }

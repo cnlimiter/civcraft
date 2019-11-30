@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -30,31 +30,31 @@ import com.avrgaming.civcraft.object.Resident;
 
 public class GlobalChatCommand implements CommandExecutor {
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
-		//TODO let non players use this command
-		if ((sender instanceof Player) == false) {
-			return false;
-		}
-		
-		Player player = (Player)sender;
-		Resident resident = CivGlobal.getResident(player);
-		if (resident == null) {
-			CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_gc_notResident"));
-			return false;
-		}
-	
-		if (args.length == 0) {
-			resident.setCivChat(false);
-			resident.setTownChat(false);
-			CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_gc_enabled"));
-			return true;
-		}
-		
-		CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_gc_disabled"));
-		return true;
-		
+        //TODO let non players use this command
+        if ((sender instanceof Player) == false) {
+            return false;
+        }
+
+        Player player = (Player) sender;
+        Resident resident = CivGlobal.getResident(player);
+        if (resident == null) {
+            CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_gc_notResident"));
+            return false;
+        }
+
+        if (args.length == 0) {
+            resident.setCivChat(false);
+            resident.setTownChat(false);
+            CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("cmd_gc_enabled"));
+            return true;
+        }
+
+        CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_gc_disabled"));
+        return true;
+
 //		String fullArgs = "";
 //		for (String arg : args) {
 //			fullArgs += arg + " ";
@@ -62,5 +62,5 @@ public class GlobalChatCommand implements CommandExecutor {
 //		
 //		CivMessage.sendChat(resident, "<%s> %s", fullArgs);
 //		return true;
-	}
+    }
 }

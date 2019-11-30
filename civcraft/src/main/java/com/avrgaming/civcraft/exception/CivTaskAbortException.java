@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -20,13 +20,13 @@ package com.avrgaming.civcraft.exception;
 
 public class CivTaskAbortException extends Exception {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1124555676255765506L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1124555676255765506L;
 
-	public CivTaskAbortException(String message) {
-		super(message);
-	}
+    public CivTaskAbortException(String message) {
+        super(message);
+    }
 
 }

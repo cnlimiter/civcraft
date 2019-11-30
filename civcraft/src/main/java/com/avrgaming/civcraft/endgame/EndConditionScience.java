@@ -4,6 +4,7 @@ package com.avrgaming.civcraft.endgame;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
 import org.bukkit.Bukkit;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.endgame.EndGameCondition;
@@ -16,7 +17,7 @@ import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.war.War;
 
 public class EndConditionScience
-extends EndGameCondition {
+        extends EndGameCondition {
     public static boolean check = false;
     String wonderId;
     int daysAfterStart;
@@ -31,7 +32,7 @@ extends EndGameCondition {
         if (entries.size() == 0) {
             return 0.0;
         }
-        return Double.valueOf(entries.get((int)0).value);
+        return Double.valueOf(entries.get((int) 0).value);
     }
 
     @Override
@@ -48,7 +49,7 @@ extends EndGameCondition {
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int)0).value);
+            long time = Long.valueOf(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }
@@ -132,8 +133,8 @@ extends EndGameCondition {
         if (entries.size() == 0) {
             CivGlobal.getSessionDB().add(EndConditionScience.getBeakerSessionKey(civ), "" + beakers, civ.getId(), 0, 0);
         } else {
-            current = Double.valueOf(entries.get((int)0).value);
-            CivGlobal.getSessionDB().update(entries.get((int)0).request_id, entries.get((int)0).key, "" + (current += beakers));
+            current = Double.valueOf(entries.get((int) 0).value);
+            CivGlobal.getSessionDB().update(entries.get((int) 0).request_id, entries.get((int) 0).key, "" + (current += beakers));
         }
     }
 }

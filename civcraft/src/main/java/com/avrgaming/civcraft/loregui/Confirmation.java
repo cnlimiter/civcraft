@@ -15,10 +15,10 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 public class Confirmation
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Inventory inv = Bukkit.createInventory((InventoryHolder)event.getWhoClicked(), (int)27, (String)"§a"+CivSettings.localize.localizedString("resident_tradeNotconfirmed"));
+        Inventory inv = Bukkit.createInventory((InventoryHolder) event.getWhoClicked(), (int) 27, (String) "§a" + CivSettings.localize.localizedString("resident_tradeNotconfirmed"));
         String fields = LoreGuiItem.getActionData(stack, "passFields");
         String action = LoreGuiItem.getActionData(stack, "passAction");
         String confirmText = LoreGuiItem.getActionData(stack, "confirmText");
@@ -28,11 +28,11 @@ implements GuiAction {
             confirm = LoreGuiItem.setActionData(confirm, field, LoreGuiItem.getActionData(stack, field));
         }
         inv.setItem(11, confirm);
-        ItemStack cancel = LoreGuiItem.build("§c"+CivSettings.localize.localizedString("loregui_cancel"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, new String[0]);
+        ItemStack cancel = LoreGuiItem.build("§c" + CivSettings.localize.localizedString("loregui_cancel"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, new String[0]);
         cancel = LoreGuiItem.setAction(cancel, "CloseInventory");
         inv.setItem(15, cancel);
         LoreGuiItemListener.guiInventories.put(inv.getName(), inv);
-        TaskMaster.syncTask(new OpenInventoryTask((Player)event.getWhoClicked(), inv));
+        TaskMaster.syncTask(new OpenInventoryTask((Player) event.getWhoClicked(), inv));
     }
 }
 

@@ -11,17 +11,17 @@ import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 import com.avrgaming.civcraft.main.CivGlobal;
 
 public class ResearchGui
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         String oh = LoreGuiItem.getActionData(stack, "info");
         String startResearch = "civ research on " + oh;
         String addToQueue = "civ research queueadd " + oh;
         if (CivGlobal.getResident(player).getCiv().getResearchTech() == null) {
-            Bukkit.dispatchCommand((CommandSender)player, (String)startResearch);
+            Bukkit.dispatchCommand((CommandSender) player, (String) startResearch);
         } else {
-            Bukkit.dispatchCommand((CommandSender)player, (String)addToQueue);
+            Bukkit.dispatchCommand((CommandSender) player, (String) addToQueue);
         }
         player.closeInventory();
     }

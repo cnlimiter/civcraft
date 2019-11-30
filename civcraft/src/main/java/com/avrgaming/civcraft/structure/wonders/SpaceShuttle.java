@@ -14,14 +14,18 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import com.avrgaming.civcraft.object.StructureSign;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Inventory;
+
 import java.util.Collection;
+
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.threading.sync.ValidateShuttleSync;
 import com.avrgaming.civcraft.threading.sync.request.UpdateInventoryRequest;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
 import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+
 import java.util.HashMap;
+
 import com.avrgaming.civcraft.object.StructureChest;
 import com.avrgaming.civcraft.util.MultiInventory;
 import com.avrgaming.civcraft.main.CivMessage;
@@ -33,44 +37,45 @@ import com.avrgaming.civcraft.exception.CivTaskAbortException;
 
 import org.bukkit.entity.Player;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
+
 import java.sql.SQLException;
 import java.sql.ResultSet;
+
 import com.avrgaming.civcraft.object.Town;
 import org.bukkit.Location;
 
-public class SpaceShuttle extends Wonder
-{
+public class SpaceShuttle extends Wonder {
     protected SpaceShuttle(final Location center, final String id, final Town town) throws CivException {
         super(center, id, town);
     }
-    
+
     public SpaceShuttle(final ResultSet rs) throws SQLException, CivException {
         super(rs);
     }
-    
+
     @Override
     public void loadSettings() {
         super.loadSettings();
     }
-    
+
     @Override
     public String getDynmapDescription() {
         return null;
     }
-    
+
     @Override
     protected void removeBuffs() {
     }
-    
+
     @Override
     protected void addBuffs() {
     }
-    
+
     @Override
     public String getMarkerIconName() {
         return "";
     }
-    
+
     public void startMission(final CivAsyncTask task, final Player player) throws InterruptedException {
         if (this.getChests().size() == 0) {
             return;
@@ -83,8 +88,7 @@ public class SpaceShuttle extends Wonder
             Inventory tmp;
             try {
                 tmp = task.getChestInventory(c.getCoord().getWorldname(), c.getCoord().getX(), c.getCoord().getY(), c.getCoord().getZ(), false);
-            }
-            catch (CivTaskAbortException e) {
+            } catch (CivTaskAbortException e) {
                 e.printStackTrace();
                 return;
             }
@@ -108,8 +112,7 @@ public class SpaceShuttle extends Wonder
                 if (loreMaterial != null) {
                     if (multiInvContents.get(loreMaterial.getId()) == null) {
                         multiInvContents.put(loreMaterial.getId(), itemStack.getAmount());
-                    }
-                    else {
+                    } else {
                         final int oldAmount = multiInvContents.get(loreMaterial.getId());
                         multiInvContents.put(loreMaterial.getId(), itemStack.getAmount() + oldAmount);
                     }
@@ -124,8 +127,7 @@ public class SpaceShuttle extends Wonder
             if (multiInvContents.get(craftMatID2) == null) {
                 allMatch = false;
                 notMatchComponents.append(itemToGetName.getName()).append(" ").append(count2).append(" ").append("piece(s)/n");
-            }
-            else if (multiInvContents.get(craftMatID2) < count2) {
+            } else if (multiInvContents.get(craftMatID2) < count2) {
                 allMatch = false;
                 final int reaming = count2 - multiInvContents.get(craftMatID2);
                 notMatchComponents.append(itemToGetName.getName()).append(" ").append(reaming).append(" ").append("piece(s)/n");
@@ -144,7 +146,7 @@ public class SpaceShuttle extends Wonder
         }
         CivMessage.send(player, notMatchComponents.toString());
     }
-    
+
     public boolean lastKeySet(final int current, final HashMap<String, Integer> array) {
         int lenght = 0;
         for (final String string : array.keySet()) {
@@ -154,7 +156,7 @@ public class SpaceShuttle extends Wonder
         }
         return current == lenght;
     }
-    
+
     @Override
     public void processSignAction(final Player player, final StructureSign sign, final PlayerInteractEvent event) throws CivException {
         final Resident resident = CivGlobal.getResident(player);
@@ -188,18 +190,17 @@ public class SpaceShuttle extends Wonder
                     final String[] split = sign.getOwner().getCiv().getMissionProgress().split(":");
                     final double completedBeakers = Math.round(Double.valueOf(split[0]));
                     final double completedHammers = Math.round(Double.valueOf(split[1]));
-                    final int percentageCompleteBeakers = (int)(Math.round(Double.parseDouble(split[0])) / Double.parseDouble(CivSettings.spacemissions_levels.get(sign.getOwner().getCiv().getCurrentMission()).require_beakers) * 100.0);
-                    final int percentageCompleteHammers = (int)(Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get(sign.getOwner().getCiv().getCurrentMission()).require_hammers) * 100.0);
-                    CivMessage.sendSuccess((CommandSender)player, CivSettings.localize.localizedString("var_spaceshuttle_progress", "§c" + missionName + CivColor.RESET, "§b" + completedBeakers + "§c" + "(" + percentageCompleteBeakers + "%)" + CivColor.RESET, "§7" + completedHammers + "§c" + "(" + percentageCompleteHammers + "%)" + CivColor.RESET));
+                    final int percentageCompleteBeakers = (int) (Math.round(Double.parseDouble(split[0])) / Double.parseDouble(CivSettings.spacemissions_levels.get(sign.getOwner().getCiv().getCurrentMission()).require_beakers) * 100.0);
+                    final int percentageCompleteHammers = (int) (Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get(sign.getOwner().getCiv().getCurrentMission()).require_hammers) * 100.0);
+                    CivMessage.sendSuccess((CommandSender) player, CivSettings.localize.localizedString("var_spaceshuttle_progress", "§c" + missionName + CivColor.RESET, "§b" + completedBeakers + "§c" + "(" + percentageCompleteBeakers + "%)" + CivColor.RESET, "§7" + completedHammers + "§c" + "(" + percentageCompleteHammers + "%)" + CivColor.RESET));
                     break;
                 }
             }
-        }
-        else {
+        } else {
             CivMessage.sendError(player, CivSettings.localize.localizedString("var_spaceshuttle_noPerm", sign.getOwner().getCiv().getName()));
         }
     }
-    
+
     @Override
     public void onPostBuild(final BlockCoord absCoord, final SimpleBlock commandBlock) {
         if (commandBlock.command.equals("/runMission")) {
@@ -212,8 +213,7 @@ public class SpaceShuttle extends Wonder
             structSign.update();
             this.addStructureSign(structSign);
             CivGlobal.addStructureSign(structSign);
-        }
-        else if (commandBlock.command.equals("/missionProgress")) {
+        } else if (commandBlock.command.equals("/missionProgress")) {
             ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
             ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
             final StructureSign structSign = new StructureSign(absCoord, this);

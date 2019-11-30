@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -33,70 +33,70 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class InteractiveCapitolName implements InteractiveResponse {
 
-	@Override
-	public void respond(String message, Resident resident) {
-		
-		Player player;
-		try {
-			player = CivGlobal.getPlayer(resident);
-		} catch (CivException e) {
-			return;
-		}
+    @Override
+    public void respond(String message, Resident resident) {
 
-		if ("cancel".equalsIgnoreCase(message)) {
-			CivMessage.send(player, CivSettings.localize.localizedString("interactive_capitol_cancel"));
-			resident.clearInteractiveMode();
-			return;
-		}
+        Player player;
+        try {
+            player = CivGlobal.getPlayer(resident);
+        } catch (CivException e) {
+            return;
+        }
 
-		//|| !StringUtils.isAsciiPrintable(message)
-		// 检查是否只包含unicode字母
-		if (!StringUtils.isAlpha(message)) {
-			CivMessage.send(player, CivColor.Rose+ChatColor.BOLD+CivSettings.localize.localizedString("interactive_capitol_invalidname"));
-			return;
-		}
-		
-		message = message.replace(" ", "_");
-		message = message.replace("\"", "");
-		message = message.replace("\'", "");
-		
-		resident.desiredCapitolName = message;
-		CivMessage.send(player, CivColor.LightGreen+CivSettings.localize.localizedString("var_interactive_capitol_confirm1",CivColor.Yellow+resident.desiredCivName+CivColor.LightGreen,CivColor.Yellow+resident.desiredCapitolName+CivColor.LightGreen));
-		CivMessage.sendHeading(player, CivSettings.localize.localizedString("interactive_capitol_confirmSurvey"));
-		
-		class SyncTask implements Runnable {
-			String playerName;
-			
-			
-			public SyncTask(String name) {
-				this.playerName = name;
-			}
+        if ("cancel".equalsIgnoreCase(message)) {
+            CivMessage.send(player, CivSettings.localize.localizedString("interactive_capitol_cancel"));
+            resident.clearInteractiveMode();
+            return;
+        }
 
-			@Override
-			public void run() {
-				Player player;
-				try {
-					player = CivGlobal.getPlayer(playerName);
-				} catch (CivException e) {
-					return;
-				}
-				
-				Resident resident = CivGlobal.getResident(playerName);
-				if (resident == null) {
-					return;
-				}
-				
-				CivMessage.send(player, TownCommand.survey(player.getLocation()));
-				CivMessage.send(player, "");
-				CivMessage.send(player, CivColor.LightGreen+ChatColor.BOLD+CivSettings.localize.localizedString("interactive_capitol_confirmPrompt"));
-				resident.setInteractiveMode(new InteractiveConfirmCivCreation());				
-			}
-		
-		}
+        //|| !StringUtils.isAsciiPrintable(message)
+        // 检查是否只包含unicode字母
+        if (!StringUtils.isAlpha(message)) {
+            CivMessage.send(player, CivColor.Rose + ChatColor.BOLD + CivSettings.localize.localizedString("interactive_capitol_invalidname"));
+            return;
+        }
 
-		TaskMaster.syncTask(new SyncTask(resident.getName())); 
+        message = message.replace(" ", "_");
+        message = message.replace("\"", "");
+        message = message.replace("\'", "");
 
-		return;
-	}
+        resident.desiredCapitolName = message;
+        CivMessage.send(player, CivColor.LightGreen + CivSettings.localize.localizedString("var_interactive_capitol_confirm1", CivColor.Yellow + resident.desiredCivName + CivColor.LightGreen, CivColor.Yellow + resident.desiredCapitolName + CivColor.LightGreen));
+        CivMessage.sendHeading(player, CivSettings.localize.localizedString("interactive_capitol_confirmSurvey"));
+
+        class SyncTask implements Runnable {
+            String playerName;
+
+
+            public SyncTask(String name) {
+                this.playerName = name;
+            }
+
+            @Override
+            public void run() {
+                Player player;
+                try {
+                    player = CivGlobal.getPlayer(playerName);
+                } catch (CivException e) {
+                    return;
+                }
+
+                Resident resident = CivGlobal.getResident(playerName);
+                if (resident == null) {
+                    return;
+                }
+
+                CivMessage.send(player, TownCommand.survey(player.getLocation()));
+                CivMessage.send(player, "");
+                CivMessage.send(player, CivColor.LightGreen + ChatColor.BOLD + CivSettings.localize.localizedString("interactive_capitol_confirmPrompt"));
+                resident.setInteractiveMode(new InteractiveConfirmCivCreation());
+            }
+
+        }
+
+        TaskMaster.syncTask(new SyncTask(resident.getName()));
+
+        return;
+    }
 
 }

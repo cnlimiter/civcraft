@@ -2,6 +2,7 @@
 package com.avrgaming.civcraft.items.units;
 
 import java.util.Random;
+
 import gpl.AttributeUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -21,7 +22,7 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.war.War;
 
 public class SpearMan
-extends UnitMaterial {
+        extends UnitMaterial {
     public SpearMan(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -31,7 +32,7 @@ extends UnitMaterial {
         SpearMan.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
         attrs.addLore(CivColor.Yellow + "Level 2");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
@@ -46,18 +47,18 @@ extends UnitMaterial {
 
     @Override
     public void onPlayerDeath(EntityDeathEvent event, ItemStack stack) {
-        Player player = (Player)event.getEntity();
+        Player player = (Player) event.getEntity();
         Random random = CivCraft.civRandom;
         int destroyChance = random.nextInt(100);
         if (War.isWarTime()) {
             if (5 < destroyChance) {
                 this.removeChildren(player.getInventory());
-                CivMessage.send((Object)player, CivColor.RoseBold + CivSettings.localize.localizedString("var_arrtifacts_Break", destroyChance));
+                CivMessage.send((Object) player, CivColor.RoseBold + CivSettings.localize.localizedString("var_arrtifacts_Break", destroyChance));
             } else {
-                CivMessage.send((Object)player, CivColor.YellowBold + CivSettings.localize.localizedString("var_arrtifacts_Keept_Since_WarTime_No_Rolled"));
+                CivMessage.send((Object) player, CivColor.YellowBold + CivSettings.localize.localizedString("var_arrtifacts_Keept_Since_WarTime_No_Rolled"));
             }
         } else {
-            CivMessage.send((Object)player, CivColor.LightBlueBold + CivSettings.localize.localizedString("var_arrtifacts_Keept_Since_No_WarTime"));
+            CivMessage.send((Object) player, CivColor.LightBlueBold + CivSettings.localize.localizedString("var_arrtifacts_Keept_Since_No_WarTime"));
         }
     }
 }

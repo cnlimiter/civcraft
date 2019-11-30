@@ -24,8 +24,8 @@ import com.avrgaming.civcraft.util.CivColor;
 public class ResearchSpaceShuttle extends ItemComponent implements CallbackInterface {
     @Override
     public void onPrepareCreate(AttributeUtil attrUtil) {
-        attrUtil.addLore((Object)ChatColor.RESET + CivColor.Gold + CivSettings.localize.localizedString("researchSpaceShuttle_lore1"));
-        attrUtil.addLore((Object)ChatColor.RESET + CivColor.Red + CivSettings.localize.localizedString("itemLore_RightClickToUse"));
+        attrUtil.addLore((Object) ChatColor.RESET + CivColor.Gold + CivSettings.localize.localizedString("researchSpaceShuttle_lore1"));
+        attrUtil.addLore((Object) ChatColor.RESET + CivColor.Red + CivSettings.localize.localizedString("itemLore_RightClickToUse"));
         attrUtil.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrUtil.addLore(CivColor.Gold + CivSettings.localize.localizedString("Soulbound"));
     }
@@ -40,34 +40,33 @@ public class ResearchSpaceShuttle extends ItemComponent implements CallbackInter
         Player player;
         try {
             player = CivGlobal.getPlayer(playerName);
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             return;
         }
         Resident interactor = CivGlobal.getResident(player);
         ItemStack itemStack = player.getInventory().getItemInMainHand();
         LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(itemStack);
         if (craftMat == null || !craftMat.hasComponent("ResearchSpaceShuttle")) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("researchSpaceShuttle_lore2"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("researchSpaceShuttle_lore2"));
             return;
         }
         if (interactor.getCiv() == null) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("researchSpaceShuttle_lore3"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("researchSpaceShuttle_lore3"));
             return;
         }
         Civilization civ = interactor.getCiv();
         if (!civ.getLeaderGroup().hasMember(interactor)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("researchSpaceShuttle_lore4", civ.getName()));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("researchSpaceShuttle_lore4", civ.getName()));
             return;
         }
         if (civ.hasTechnology("tech_space_shuttle")) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("researchSpaceShuttle_lore5"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("researchSpaceShuttle_lore5"));
             return;
         }
         ItemStack newStack = new ItemStack(Material.AIR);
         player.getInventory().setItemInMainHand(newStack);
         civ.addTech(CivSettings.techs.get("tech_space_shuttle"));
-        CivMessage.sendSuccess((CommandSender)player, CivSettings.localize.localizedString("researchSpaceShuttle_lore6"));
+        CivMessage.sendSuccess((CommandSender) player, CivSettings.localize.localizedString("researchSpaceShuttle_lore6"));
         String fullName = player.getDisplayName();
         String message = CivSettings.localize.localizedString("researchSpaceShuttle_lore7", fullName, civ.getName());
         CivMessage.global(message);

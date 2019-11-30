@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -33,33 +33,33 @@ import com.avrgaming.civcraft.template.Template;
 
 public class StartStructureBuild implements Runnable {
 
-	public String playerName;
-	public Structure struct;
-	public Template tpl;
-	public Location centerLoc;
-	
-	@Override
-	public void run() {
-		Player player;
-		try {
-			player = CivGlobal.getPlayer(playerName);
-		} catch (CivException e1) {
-			e1.printStackTrace();
-			return;
-		}
+    public String playerName;
+    public Structure struct;
+    public Template tpl;
+    public Location centerLoc;
 
-		try {
-			struct.doBuild(player, centerLoc, tpl);
-			struct.save();
-		} catch (CivException e) {
-			CivMessage.sendError(player, CivSettings.localize.localizedString("internalCommandException")+" "+e.getMessage());
-		} catch (IOException e) {
-			CivMessage.sendError(player, CivSettings.localize.localizedString("internalIOException"));
-			e.printStackTrace();
-		} catch (SQLException e) {
-			CivMessage.sendError(player, CivSettings.localize.localizedString("internalDatabaseException"));
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void run() {
+        Player player;
+        try {
+            player = CivGlobal.getPlayer(playerName);
+        } catch (CivException e1) {
+            e1.printStackTrace();
+            return;
+        }
+
+        try {
+            struct.doBuild(player, centerLoc, tpl);
+            struct.save();
+        } catch (CivException e) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("internalCommandException") + " " + e.getMessage());
+        } catch (IOException e) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("internalIOException"));
+            e.printStackTrace();
+        } catch (SQLException e) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("internalDatabaseException"));
+            e.printStackTrace();
+        }
+    }
 
 }

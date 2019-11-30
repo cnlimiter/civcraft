@@ -5,7 +5,7 @@ import gpl.AttributeUtil;
 import org.bukkit.inventory.ItemStack;
 
 public class LoreEnhancementBuyItem
-extends LoreEnhancement {
+        extends LoreEnhancement {
     @Override
     public AttributeUtil add(AttributeUtil attrs) {
         attrs.addEnhancement("LoreEnhancementBuyItem", null, null);

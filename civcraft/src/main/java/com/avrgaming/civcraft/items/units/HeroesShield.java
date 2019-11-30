@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.items.units;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import gpl.AttributeUtil;
 
 import org.bukkit.entity.Player;
@@ -26,7 +27,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class HeroesShield
-extends UnitMaterial {
+        extends UnitMaterial {
     public HeroesShield(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -36,7 +37,7 @@ extends UnitMaterial {
         HeroesShield.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
         attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Active");
@@ -51,7 +52,7 @@ extends UnitMaterial {
 
     @Override
     public void onInteract(PlayerInteractEvent event) {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
         Player player = event.getPlayer();
         Resident interacter = CivGlobal.getResident(player);
         long nextUse = CivGlobal.getUnitCooldown(this.getClass(), event.getPlayer());

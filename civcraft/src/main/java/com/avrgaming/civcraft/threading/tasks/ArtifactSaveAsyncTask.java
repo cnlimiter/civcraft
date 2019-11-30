@@ -4,7 +4,7 @@ package com.avrgaming.civcraft.threading.tasks;
 import com.avrgaming.civcraft.structure.Ordinary;
 
 public class ArtifactSaveAsyncTask
-implements Runnable {
+        implements Runnable {
     Ordinary ordinary;
 
     public ArtifactSaveAsyncTask(Ordinary ordinary) {

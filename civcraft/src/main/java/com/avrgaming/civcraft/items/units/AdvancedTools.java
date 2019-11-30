@@ -18,7 +18,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class AdvancedTools
-extends UnitMaterial {
+        extends UnitMaterial {
     public AdvancedTools(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -28,7 +28,7 @@ extends UnitMaterial {
         AdvancedTools.setOwningTown(town, is);
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
-        attrs.addLore(CivColor.Gold+CivSettings.localize.localizedString("itemLore_Souldbound"));
+        attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
         attrs.addLore(CivColor.LightGray + "40% Chance");

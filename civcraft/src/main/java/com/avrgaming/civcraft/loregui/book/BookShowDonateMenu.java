@@ -8,10 +8,10 @@ import org.bukkit.inventory.ItemStack;
 import com.avrgaming.civcraft.loregui.GuiAction;
 
 public class BookShowDonateMenu
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Bukkit.dispatchCommand((CommandSender)event.getWhoClicked(), (String)"buy");
+        Bukkit.dispatchCommand((CommandSender) event.getWhoClicked(), (String) "buy");
     }
 }
 

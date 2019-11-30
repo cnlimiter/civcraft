@@ -1,11 +1,9 @@
 
 package com.avrgaming.civcraft.components;
 
-import com.avrgaming.civcraft.components.Component;
 import com.avrgaming.civcraft.structure.Buildable;
 
-public class AttributeWarUnpkeep
-extends Component {
+public class AttributeWarUnpkeep extends Component {
     public double value;
 
     @Override

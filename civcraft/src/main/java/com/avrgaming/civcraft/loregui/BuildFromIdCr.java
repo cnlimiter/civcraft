@@ -9,12 +9,12 @@ import com.avrgaming.civcraft.loregui.GuiAction;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
 
 public class BuildFromIdCr
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         String buildableName = LoreGuiItem.getActionData(stack, "buildableName");
         event.getWhoClicked().closeInventory();
-        Bukkit.dispatchCommand((CommandSender)event.getWhoClicked(), (String)("build " + buildableName));
+        Bukkit.dispatchCommand((CommandSender) event.getWhoClicked(), (String) ("build " + buildableName));
     }
 }
 

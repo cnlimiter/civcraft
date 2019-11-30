@@ -20,13 +20,13 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 
 public class BookGoodsGui
-implements GuiAction {
+        implements GuiAction {
     public static Inventory guiInventory;
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
-        guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivColor.Red + CivSettings.localize.localizedString("bookReborn_goodsMenuHeading"));
+        Player player = (Player) event.getWhoClicked();
+        guiInventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, CivColor.Red + CivSettings.localize.localizedString("bookReborn_goodsMenuHeading"));
         ItemStack is = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_goodsMenu_town"), ItemManager.getId(Material.PAPER), 0, "§6" + CivSettings.localize.localizedString("click_to_view"));
         is = LoreGuiItem.setAction(is, "BookGoodsTown");
         guiInventory.setItem(0, is);

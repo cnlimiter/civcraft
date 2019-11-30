@@ -8,7 +8,7 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class LoreEnhancementEvrei
-extends LoreEnhancement {
+        extends LoreEnhancement {
     @Override
     public String getDisplayName() {
         return CivColor.LightPurpleBold + CivSettings.localize.localizedString("itemLore_evrei");

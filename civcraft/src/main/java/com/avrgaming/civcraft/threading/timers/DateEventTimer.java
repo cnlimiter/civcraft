@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -18,27 +18,27 @@
  */
 package com.avrgaming.civcraft.threading.timers;
 
-import java.util.Date;
-
 import com.avrgaming.civcraft.main.CivGlobal;
+
+import java.util.Date;
 
 public class DateEventTimer implements Runnable {
 
-	/*
-	 * This task runs once per min to check various times. If the time for an event is after the
-	 * current time then we run the specified task.
-	 */
-		
-	@Override
-	public void run() {
-	
-		Date now = new Date();
-		
-		/* Check for spawn regen. */
-		if (now.after(CivGlobal.getTodaysSpawnRegenDate())) {
-			
-		}
-		
-	}
+    /*
+     * This task runs once per min to check various times. If the time for an event is after the
+     * current time then we run the specified task.
+     */
+
+    @Override
+    public void run() {
+
+        Date now = new Date();
+
+        /* Check for spawn regen. */
+        if (now.after(CivGlobal.getTodaysSpawnRegenDate())) {
+
+        }
+
+    }
 
 }

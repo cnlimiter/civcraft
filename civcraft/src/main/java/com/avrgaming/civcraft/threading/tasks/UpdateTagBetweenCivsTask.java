@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -32,33 +32,33 @@ import com.avrgaming.civcraft.threading.sync.SyncUpdateTagsBetweenCivs;
 
 public class UpdateTagBetweenCivsTask implements Runnable {
 
-	Civilization civ;
-	Civilization otherCiv;
-	
-	public UpdateTagBetweenCivsTask(Civilization civ, Civilization otherCiv) {
-		this.civ = civ;
-		this.otherCiv = otherCiv;
-	}
-	
-	@Override
-	public void run() {
-		Set<Player> civList = new HashSet<Player>();
-		Set<Player> otherCivList = new HashSet<Player>();
-		
-		for (Player player : Bukkit.getOnlinePlayers()) {
-			Resident resident = CivGlobal.getResident(player);
-			if (resident == null || !resident.hasTown()) {
-				continue;
-			}
-			
-			if (resident.getTown().getCiv() == civ) {
-				civList.add(player);
-			} else if (resident.getTown().getCiv() == otherCiv) {
-				otherCivList.add(player);
-			}
-		}
-		
-		TaskMaster.syncTask(new SyncUpdateTagsBetweenCivs(civList, otherCivList));		
-	}
+    Civilization civ;
+    Civilization otherCiv;
+
+    public UpdateTagBetweenCivsTask(Civilization civ, Civilization otherCiv) {
+        this.civ = civ;
+        this.otherCiv = otherCiv;
+    }
+
+    @Override
+    public void run() {
+        Set<Player> civList = new HashSet<Player>();
+        Set<Player> otherCivList = new HashSet<Player>();
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            Resident resident = CivGlobal.getResident(player);
+            if (resident == null || !resident.hasTown()) {
+                continue;
+            }
+
+            if (resident.getTown().getCiv() == civ) {
+                civList.add(player);
+            } else if (resident.getTown().getCiv() == otherCiv) {
+                otherCivList.add(player);
+            }
+        }
+
+        TaskMaster.syncTask(new SyncUpdateTagsBetweenCivs(civList, otherCivList));
+    }
 
 }

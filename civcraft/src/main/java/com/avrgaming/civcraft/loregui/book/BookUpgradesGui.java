@@ -27,24 +27,24 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 
 public class BookUpgradesGui
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident whoClicked = CivGlobal.getResident(player);
         if (whoClicked.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "§c"+CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         Civilization civ = whoClicked.getCiv();
         Town town = whoClicked.getSelectedTown();
         if (!(town.getMayorGroup().hasMember(whoClicked) || town.getAssistantGroup().hasMember(whoClicked) || civ.getLeaderGroup().hasMember(whoClicked))) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "§c"+CivSettings.localize.localizedString("cmd_NeedHigherTownOrCivRank"));
+            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("cmd_NeedHigherTownOrCivRank"));
             return;
         }
-        Inventory inv = Bukkit.getServer().createInventory((InventoryHolder)player, 54, CivSettings.localize.localizedString("resident_upgradesGuiHeading"));
+        Inventory inv = Bukkit.getServer().createInventory((InventoryHolder) player, 54, CivSettings.localize.localizedString("resident_upgradesGuiHeading"));
         for (ConfigTownUpgrade upgrade : ConfigTownUpgrade.getAllUpgrades(town)) {
             double cost = upgrade.cost;
             if (town.getCiv().getGovernment().id.equalsIgnoreCase("gov_theocracy")) {

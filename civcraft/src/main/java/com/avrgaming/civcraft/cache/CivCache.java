@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -25,11 +25,11 @@ import java.util.UUID;
 
 public class CivCache {
 
-	/* Arrows fired that need to be updated. */
-	public static Map<UUID, ArrowFiredCache> arrowsFired = new HashMap<UUID, ArrowFiredCache>();
-	
-	/* Cannon balls fired that need to be updated. */
-	public static Map<UUID, CannonFiredCache> cannonBallsFired = new HashMap<UUID, CannonFiredCache>();
-	
-	
+    /* Arrows fired that need to be updated. */
+    public static Map<UUID, ArrowFiredCache> arrowsFired = new HashMap<UUID, ArrowFiredCache>();
+
+    /* Cannon balls fired that need to be updated. */
+    public static Map<UUID, CannonFiredCache> cannonBallsFired = new HashMap<UUID, CannonFiredCache>();
+
+
 }

@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -53,33 +53,33 @@ import com.avrgaming.civcraft.util.ItemManager;
 
 public abstract class LoreMaterial {
 
-	private String id;
-	private int typeID;
-	private short damage;
+    private String id;
+    private int typeID;
+    private short damage;
 
-	private LinkedList<String> lore = new LinkedList<String>();
-	private String name;
-		
-	public static Map<String, LoreMaterial> materialMap = new HashMap<String, LoreMaterial>();
-	public static final String MID_TAG = CivColor.Black+"MID";
-	
-	public LoreMaterial(String id, int typeID, short damage) {
-		this.id = id;
-		this.typeID = typeID;
-		this.damage = damage;
-		/* Adding quotes around id since NBTString does it =\ */
-		materialMap.put(id, this);
-	}
-	
-	public String getId() {
-		return id;
-	}
+    private LinkedList<String> lore = new LinkedList<String>();
+    private String name;
 
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	/* Sets MID in LORE, use for debugging. */
+    public static Map<String, LoreMaterial> materialMap = new HashMap<String, LoreMaterial>();
+    public static final String MID_TAG = CivColor.Black + "MID";
+
+    public LoreMaterial(String id, int typeID, short damage) {
+        this.id = id;
+        this.typeID = typeID;
+        this.damage = damage;
+        /* Adding quotes around id since NBTString does it =\ */
+        materialMap.put(id, this);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /* Sets MID in LORE, use for debugging. */
 //	public static String getMID(ItemStack stack) {
 //		AttributeUtil attrs = new AttributeUtil(stack);	
 //		String[] lore = attrs.getLore();
@@ -100,209 +100,234 @@ public abstract class LoreMaterial {
 //		attrs.setLore(MID_TAG+":"+mid);
 //		attrs.setName(name);
 //	}
-	
-	/* Sets MID in NBT Data, use for production. */
-	public static String getMID(ItemStack stack) {
-		AttributeUtil attrs = new AttributeUtil(stack);
-		
-		String mid = attrs.getCivCraftProperty("mid");
-		if (mid == null) {
-			return "";
-		}
-		
-		return mid;
-	}
-	
-	public static void setMIDAndName(AttributeUtil attrs, String mid, String name) {
-		attrs.setCivCraftProperty("mid", mid);
-		attrs.setName(name);
-	}
-	
-	public static boolean isCustom(ItemStack stack) {
-		if (stack == null) {
-			return false;
-		}
-		
-		LoreMaterial material = getMaterial(stack);
-		if (material == null) {
-			return false;
-		}
-		return true;
-	}
-		
-	public static LoreMaterial getMaterial(ItemStack stack) {
-		if (stack == null) {
-			return null;
-		}
-		return materialMap.get(getMID(stack));
-	}
-	
-	/*
-	 * Moves an item stack off of this slot by trying
-	 * to re-add it to the inventory, if it fails, then
-	 * we drop it on the ground.
-	 */
-	public void moveDropSet(Player player, Inventory inv, int slot, ItemStack newItem) {
-		
-		ItemStack stack = inv.getItem(slot);
-		inv.setItem(slot, newItem);
 
-		if (stack != null) {
-			if (stack.equals(newItem)) {
-				return;
-			}
-			
-			HashMap<Integer, ItemStack> leftovers = inv.addItem(stack);
-			
-			for (ItemStack s : leftovers.values()) {
-				player.getWorld().dropItem(player.getLocation(), s);
-			}
-		}
-		
-	}
-	
-	public Player getPlayer(InventoryClickEvent event) {
-		if (event.getWhoClicked() instanceof Player) {
-			return (Player)event.getWhoClicked();
-		}
-		return null;
-	}
+    /* Sets MID in NBT Data, use for production. */
+    public static String getMID(ItemStack stack) {
+        AttributeUtil attrs = new AttributeUtil(stack);
 
-	public static ItemStack spawn(LoreMaterial material) {
-		return spawn(material,1);
-	}
-	
-	public static ItemStack spawn(LoreMaterial material, int quantity) {
-		ItemStack stack = ItemManager.createItemStack(material.getTypeID(), quantity, material.getDamage());
-		AttributeUtil attrs = new AttributeUtil(stack);
-		setMIDAndName(attrs, material.getId(), material.getName());
-		Boolean isShiny = false;
-		if (material instanceof LoreCraftableMaterial) {
-			LoreCraftableMaterial craftMat = (LoreCraftableMaterial)material;
-				attrs.addLore(CivColor.ITALIC+craftMat.getConfigMaterial().category);
-				if (craftMat.getConfigMaterial().tradeable) {
-					attrs.setCivCraftProperty("tradeable", "true");
-				}
-				if (craftMat.getConfigMaterial().tradeValue >= 0) {
-					attrs.setCivCraftProperty("tradeValue", ""+craftMat.getConfigMaterial().tradeValue);
-				}
-				isShiny = craftMat.getConfigMaterial().shiny;
-		}
-		
-		material.applyAttributes(attrs);
-		ItemStack newStack = attrs.getStack();
+        String mid = attrs.getCivCraftProperty("mid");
+        if (mid == null) {
+            return "";
+        }
 
-		if (isShiny) {
-			addGlow(newStack);
-		}
-		
-		return newStack;
-	}
-	
-	public static void addGlow(ItemStack stack)
-    {
-        ItemMeta meta = stack.getItemMeta();
-        meta.addEnchant( Enchantment.LURE, 1, false );
-        meta.addItemFlags( ItemFlag.HIDE_ENCHANTS );
-        stack.setItemMeta( meta );
+        return mid;
     }
-	
-	public int getTypeID() {
-		return typeID;
-	}
 
-	public void setTypeID(int typeID) {
-		this.typeID = typeID;
-	}
+    public static void setMIDAndName(AttributeUtil attrs, String mid, String name) {
+        attrs.setCivCraftProperty("mid", mid);
+        attrs.setName(name);
+    }
 
-	public short getDamage() {
-		return damage;
-	}
+    public static boolean isCustom(ItemStack stack) {
+        if (stack == null) {
+            return false;
+        }
 
-	public void setDamage(short damage) {
-		this.damage = damage;
-	}
-	
-	public void addLore(String lore) {
-		this.lore.add(lore);
-	}
-	
-	public void setLore(String lore) {
-		this.lore.clear();
-		this.lore.add(lore);
-	}
-	
-	public void setLore(String[] lore) {
-		this.lore.clear();
-		for (String str : lore) {
-			this.lore.add(str);
-		}
-	}
-	
-	public LinkedList<String> getLore() {
-		return this.lore;
-	}
+        LoreMaterial material = getMaterial(stack);
+        if (material == null) {
+            return false;
+        }
+        return true;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public static ItemStack addEnhancement(ItemStack stack, LoreEnhancement enhancement) {
-		AttributeUtil attrs = new AttributeUtil(stack);
-		attrs = enhancement.add(attrs);		
-		return attrs.getStack();	
-	}
-	
-	public static boolean hasEnhancement(ItemStack stack, String enhName) {
-		AttributeUtil attrs = new AttributeUtil(stack);
-		return attrs.hasEnhancement(enhName);
-	}
-	
-	public static boolean hasEnhancements(ItemStack stack) {
-		AttributeUtil attrs = new AttributeUtil(stack);
-		return attrs.hasEnhancements();
-	}
-	
-	public static LinkedList<LoreEnhancement> getEnhancements(ItemStack stack) {
-		AttributeUtil attrs = new AttributeUtil(stack);
-		return attrs.getEnhancements();
-	}
-	
-	public void applyAttributes(AttributeUtil attrs) {
-		/* 
-		 * This is called when the item is created via the LoreMaterial.spawn() command.
-		 * Can optionally be overriden by classes.
-		 */
-		return;
-	}
-	
-	/* Events for this Material */
-	public abstract void onHit(EntityDamageByEntityEvent event); /* Called when this is the item in-hand */
-	public abstract void onInteract(PlayerInteractEvent event);
-	public abstract void onInteractEntity(PlayerInteractEntityEvent event);
-	public abstract void onBlockPlaced(BlockPlaceEvent event);
-	public abstract void onBlockBreak(BlockBreakEvent event);
-	public abstract void onBlockDamage(BlockDamageEvent event);
-	public abstract void onBlockInteract(PlayerInteractEvent event);
-	public abstract void onHold(PlayerItemHeldEvent event);
-	public abstract void onDrop(PlayerDropItemEvent event);
-	public abstract void onItemDrop(PlayerDropItemEvent event);
-	public abstract void onItemCraft(CraftItemEvent event);
-	public abstract void onItemPickup(PlayerPickupItemEvent event);
-	public abstract void onItemSpawn(ItemSpawnEvent event);
-	public abstract boolean onAttack(EntityDamageByEntityEvent event, ItemStack stack); /* Called when this item is in inventory. */
-	public abstract void onInvItemPickup(InventoryClickEvent event, Inventory fromInv, ItemStack stack);
-	public abstract void onInvItemDrop(InventoryClickEvent event, Inventory toInv, ItemStack stack);
-	public abstract void onInvShiftClick(InventoryClickEvent event, Inventory fromInv, Inventory toInv, ItemStack stack);
-	public abstract void onInvItemSwap(InventoryClickEvent event, Inventory toInv, ItemStack droppedStack, ItemStack pickedStack);	
-	public abstract void onPlayerDeath(EntityDeathEvent event, ItemStack stack);
-	public abstract void onInventoryClose(InventoryCloseEvent event);
-	public void onDefense(EntityDamageByEntityEvent event, ItemStack stack) {}
-	public int onStructureBlockBreak(BuildableDamageBlock dmgBlock, int damage) { return damage; }
-	public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {}
-	
+    public static LoreMaterial getMaterial(ItemStack stack) {
+        if (stack == null) {
+            return null;
+        }
+        return materialMap.get(getMID(stack));
+    }
+
+    /*
+     * Moves an item stack off of this slot by trying
+     * to re-add it to the inventory, if it fails, then
+     * we drop it on the ground.
+     */
+    public void moveDropSet(Player player, Inventory inv, int slot, ItemStack newItem) {
+
+        ItemStack stack = inv.getItem(slot);
+        inv.setItem(slot, newItem);
+
+        if (stack != null) {
+            if (stack.equals(newItem)) {
+                return;
+            }
+
+            HashMap<Integer, ItemStack> leftovers = inv.addItem(stack);
+
+            for (ItemStack s : leftovers.values()) {
+                player.getWorld().dropItem(player.getLocation(), s);
+            }
+        }
+
+    }
+
+    public Player getPlayer(InventoryClickEvent event) {
+        if (event.getWhoClicked() instanceof Player) {
+            return (Player) event.getWhoClicked();
+        }
+        return null;
+    }
+
+    public static ItemStack spawn(LoreMaterial material) {
+        return spawn(material, 1);
+    }
+
+    public static ItemStack spawn(LoreMaterial material, int quantity) {
+        ItemStack stack = ItemManager.createItemStack(material.getTypeID(), quantity, material.getDamage());
+        AttributeUtil attrs = new AttributeUtil(stack);
+        setMIDAndName(attrs, material.getId(), material.getName());
+        Boolean isShiny = false;
+        if (material instanceof LoreCraftableMaterial) {
+            LoreCraftableMaterial craftMat = (LoreCraftableMaterial) material;
+            attrs.addLore(CivColor.ITALIC + craftMat.getConfigMaterial().category);
+            if (craftMat.getConfigMaterial().tradeable) {
+                attrs.setCivCraftProperty("tradeable", "true");
+            }
+            if (craftMat.getConfigMaterial().tradeValue >= 0) {
+                attrs.setCivCraftProperty("tradeValue", "" + craftMat.getConfigMaterial().tradeValue);
+            }
+            isShiny = craftMat.getConfigMaterial().shiny;
+        }
+
+        material.applyAttributes(attrs);
+        ItemStack newStack = attrs.getStack();
+
+        if (isShiny) {
+            addGlow(newStack);
+        }
+
+        return newStack;
+    }
+
+    public static void addGlow(ItemStack stack) {
+        ItemMeta meta = stack.getItemMeta();
+        meta.addEnchant(Enchantment.LURE, 1, false);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        stack.setItemMeta(meta);
+    }
+
+    public int getTypeID() {
+        return typeID;
+    }
+
+    public void setTypeID(int typeID) {
+        this.typeID = typeID;
+    }
+
+    public short getDamage() {
+        return damage;
+    }
+
+    public void setDamage(short damage) {
+        this.damage = damage;
+    }
+
+    public void addLore(String lore) {
+        this.lore.add(lore);
+    }
+
+    public void setLore(String lore) {
+        this.lore.clear();
+        this.lore.add(lore);
+    }
+
+    public void setLore(String[] lore) {
+        this.lore.clear();
+        for (String str : lore) {
+            this.lore.add(str);
+        }
+    }
+
+    public LinkedList<String> getLore() {
+        return this.lore;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public static ItemStack addEnhancement(ItemStack stack, LoreEnhancement enhancement) {
+        AttributeUtil attrs = new AttributeUtil(stack);
+        attrs = enhancement.add(attrs);
+        return attrs.getStack();
+    }
+
+    public static boolean hasEnhancement(ItemStack stack, String enhName) {
+        AttributeUtil attrs = new AttributeUtil(stack);
+        return attrs.hasEnhancement(enhName);
+    }
+
+    public static boolean hasEnhancements(ItemStack stack) {
+        AttributeUtil attrs = new AttributeUtil(stack);
+        return attrs.hasEnhancements();
+    }
+
+    public static LinkedList<LoreEnhancement> getEnhancements(ItemStack stack) {
+        AttributeUtil attrs = new AttributeUtil(stack);
+        return attrs.getEnhancements();
+    }
+
+    public void applyAttributes(AttributeUtil attrs) {
+        /*
+         * This is called when the item is created via the LoreMaterial.spawn() command.
+         * Can optionally be overriden by classes.
+         */
+        return;
+    }
+
+    /* Events for this Material */
+    public abstract void onHit(EntityDamageByEntityEvent event); /* Called when this is the item in-hand */
+
+    public abstract void onInteract(PlayerInteractEvent event);
+
+    public abstract void onInteractEntity(PlayerInteractEntityEvent event);
+
+    public abstract void onBlockPlaced(BlockPlaceEvent event);
+
+    public abstract void onBlockBreak(BlockBreakEvent event);
+
+    public abstract void onBlockDamage(BlockDamageEvent event);
+
+    public abstract void onBlockInteract(PlayerInteractEvent event);
+
+    public abstract void onHold(PlayerItemHeldEvent event);
+
+    public abstract void onDrop(PlayerDropItemEvent event);
+
+    public abstract void onItemDrop(PlayerDropItemEvent event);
+
+    public abstract void onItemCraft(CraftItemEvent event);
+
+    public abstract void onItemPickup(PlayerPickupItemEvent event);
+
+    public abstract void onItemSpawn(ItemSpawnEvent event);
+
+    public abstract boolean onAttack(EntityDamageByEntityEvent event, ItemStack stack); /* Called when this item is in inventory. */
+
+    public abstract void onInvItemPickup(InventoryClickEvent event, Inventory fromInv, ItemStack stack);
+
+    public abstract void onInvItemDrop(InventoryClickEvent event, Inventory toInv, ItemStack stack);
+
+    public abstract void onInvShiftClick(InventoryClickEvent event, Inventory fromInv, Inventory toInv, ItemStack stack);
+
+    public abstract void onInvItemSwap(InventoryClickEvent event, Inventory toInv, ItemStack droppedStack, ItemStack pickedStack);
+
+    public abstract void onPlayerDeath(EntityDeathEvent event, ItemStack stack);
+
+    public abstract void onInventoryClose(InventoryCloseEvent event);
+
+    public void onDefense(EntityDamageByEntityEvent event, ItemStack stack) {
+    }
+
+    public int onStructureBlockBreak(BuildableDamageBlock dmgBlock, int damage) {
+        return damage;
+    }
+
+    public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {
+    }
+
 }

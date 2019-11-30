@@ -28,17 +28,16 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.TreeMap;
 
-public class TalentList implements GuiAction
-{
+public class TalentList implements GuiAction {
     Inventory inventory;
-    
+
     public TalentList() {
         this.inventory = null;
     }
-    
+
     @Override
     public void performAction(final InventoryClickEvent event, final ItemStack stack) {
-        final Player player = (Player)event.getWhoClicked();
+        final Player player = (Player) event.getWhoClicked();
         final Resident whoClicked = CivGlobal.getResident(player);
         final Civilization civ = whoClicked.getCiv();
         final Town capitol = civ.getCapitol();
@@ -46,7 +45,7 @@ public class TalentList implements GuiAction
         if (capitol == null) {
             return;
         }
-        this.inventory = Bukkit.getServer().createInventory((InventoryHolder)player, 18, CivSettings.localize.localizedString("talentGui_talentList"));
+        this.inventory = Bukkit.getServer().createInventory((InventoryHolder) player, 18, CivSettings.localize.localizedString("talentGui_talentList"));
         final TreeMap<Integer, ItemStack> talents = new TreeMap<Integer, ItemStack>();
         for (final Buff buff : capitol.getBuffManager().getAllBuffs()) {
             if (buff.getId().contains("level")) {
@@ -57,12 +56,10 @@ public class TalentList implements GuiAction
                 if (configLevelTalent.levelBuff1.equals(buff.getId())) {
                     id = ItemManager.getId(Material.REDSTONE_BLOCK);
                     description = "§c" + configLevelTalent.levelBuffDesc1;
-                }
-                else if (configLevelTalent.levelBuff2.equals(buff.getId())) {
+                } else if (configLevelTalent.levelBuff2.equals(buff.getId())) {
                     id = ItemManager.getId(Material.EMERALD_BLOCK);
                     description = "§a" + configLevelTalent.levelBuffDesc2;
-                }
-                else if (configLevelTalent.levelBuff3.equals(buff.getId())) {
+                } else if (configLevelTalent.levelBuff3.equals(buff.getId())) {
                     id = ItemManager.getId(Material.LAPIS_BLOCK);
                     description = "§b" + configLevelTalent.levelBuffDesc3;
                 }
@@ -75,7 +72,7 @@ public class TalentList implements GuiAction
             final ItemStack talent2 = LoreGuiItem.build("§c" + CivSettings.localize.localizedString("cmd_civ_talent_list_noOne"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, new String[0]);
             this.inventory.addItem(talent2);
         }
-        this.inventory.addItem((ItemStack[])talents.values().toArray(new ItemStack[talents.values().size()]));
+        this.inventory.addItem((ItemStack[]) talents.values().toArray(new ItemStack[talents.values().size()]));
         ItemStack backButton = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_back"), ItemManager.getId(Material.MAP), 0, CivSettings.localize.localizedString("bookReborn_backTo", BookTalentGui.inventory.getName()));
         backButton = LoreGuiItem.setAction(backButton, "OpenInventory");
         backButton = LoreGuiItem.setActionData(backButton, "invType", "showGuiInv");

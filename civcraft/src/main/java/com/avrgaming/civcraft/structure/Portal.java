@@ -27,7 +27,7 @@ import com.avrgaming.civcraft.util.SimpleBlock;
 import com.avrgaming.civcraft.war.War;
 
 public class Portal
-extends Structure {
+        extends Structure {
     public Location spawnLocation;
 
     protected Portal(Location center, String id, Town town) throws CivException {
@@ -71,8 +71,8 @@ extends Structure {
                     throw new CivException(CivSettings.localize.localizedString("var_portal_notFullSet"));
                 }
                 boolean right = CivCraft.civRandom.nextBoolean();
-                Location bossLocation = right ? new Location(Bukkit.getWorld((String)"world_nether"), 143.0, 147.0, -613.0) : new Location(Bukkit.getWorld((String)"world_nether"), 1.0, 148.0, -610.0);
-                CivMessage.sendSuccess((CommandSender)player, CivSettings.localize.localizedString("var_portal_teleporting", CivColor.Red));
+                Location bossLocation = right ? new Location(Bukkit.getWorld((String) "world_nether"), 143.0, 147.0, -613.0) : new Location(Bukkit.getWorld((String) "world_nether"), 1.0, 148.0, -610.0);
+                CivMessage.sendSuccess((CommandSender) player, CivSettings.localize.localizedString("var_portal_teleporting", CivColor.Red));
                 player.teleport(bossLocation);
             }
         }

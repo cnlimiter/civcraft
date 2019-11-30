@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -31,37 +31,37 @@ import com.avrgaming.civcraft.object.Resident;
 
 public class SyncUpdateTags implements Runnable {
 
-	Collection<Resident> residentsToSendUpdate;
-	String playerToUpdate;
-	
-	public SyncUpdateTags(String playerToUpdate, Collection<Resident> residentsToSendUpdate) {
-		this.residentsToSendUpdate = residentsToSendUpdate;
-		this.playerToUpdate = playerToUpdate;
-	}
+    Collection<Resident> residentsToSendUpdate;
+    String playerToUpdate;
 
-	@Override
-	public void run() {
-		if (CivSettings.hasITag) {
-			try {
-				Player player = CivGlobal.getPlayer(playerToUpdate);		
-				for (Resident resident : residentsToSendUpdate) {
-					try {
-						Player resPlayer = CivGlobal.getPlayer(resident);
-						if (player == resPlayer) {
-							continue;
-						}
-						iTag.getInstance().refreshPlayer(player, resPlayer);
-						iTag.getInstance().refreshPlayer(resPlayer, player);
-					} catch (CivException e) {
-						// one of these players is not online.
-					}
-				}
-				
-				
-			} catch (CivException e1) {
-				return;
-			}		
-		}
-	}
-	
+    public SyncUpdateTags(String playerToUpdate, Collection<Resident> residentsToSendUpdate) {
+        this.residentsToSendUpdate = residentsToSendUpdate;
+        this.playerToUpdate = playerToUpdate;
+    }
+
+    @Override
+    public void run() {
+        if (CivSettings.hasITag) {
+            try {
+                Player player = CivGlobal.getPlayer(playerToUpdate);
+                for (Resident resident : residentsToSendUpdate) {
+                    try {
+                        Player resPlayer = CivGlobal.getPlayer(resident);
+                        if (player == resPlayer) {
+                            continue;
+                        }
+                        iTag.getInstance().refreshPlayer(player, resPlayer);
+                        iTag.getInstance().refreshPlayer(resPlayer, player);
+                    } catch (CivException e) {
+                        // one of these players is not online.
+                    }
+                }
+
+
+            } catch (CivException e1) {
+                return;
+            }
+        }
+    }
+
 }

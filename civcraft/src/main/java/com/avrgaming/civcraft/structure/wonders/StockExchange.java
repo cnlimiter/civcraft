@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.structure.wonders;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.bukkit.Location;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -12,7 +13,7 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.SimpleBlock;
 
 public class StockExchange
-extends Wonder {
+        extends Wonder {
     private int level = 0;
 
     public StockExchange(ResultSet rs) throws SQLException, CivException {

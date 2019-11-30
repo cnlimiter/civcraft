@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -29,31 +29,31 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class JoinTownResponse implements QuestionResponseInterface {
 
-	public Town town;
-	public Resident resident;
-	public Player sender;
-	
-	@Override
-	public void processResponse(String param) {
-		if (param.equalsIgnoreCase("accept")) {
-			CivMessage.send(sender, CivColor.LightGray+CivSettings.localize.localizedString("var_joinTown_accepted",resident.getName()));
-			
-			try {
-				town.addResident(resident);
-			} catch (AlreadyRegisteredException e) {
-				CivMessage.sendError(sender, CivSettings.localize.localizedString("var_joinTown_errorInTown",resident.getName()));
-				return;
-			}
+    public Town town;
+    public Resident resident;
+    public Player sender;
 
-			CivMessage.sendTown(town, CivSettings.localize.localizedString("var_joinTown_alert",resident.getName()));
-			resident.save();
-		} else {
-			CivMessage.send(sender, CivColor.LightGray+CivSettings.localize.localizedString("var_joinTown_Declined",resident.getName()));
-		}
-	}
-	
-	@Override
-	public void processResponse(String response, Resident responder) {
-		processResponse(response);		
-	}
+    @Override
+    public void processResponse(String param) {
+        if (param.equalsIgnoreCase("accept")) {
+            CivMessage.send(sender, CivColor.LightGray + CivSettings.localize.localizedString("var_joinTown_accepted", resident.getName()));
+
+            try {
+                town.addResident(resident);
+            } catch (AlreadyRegisteredException e) {
+                CivMessage.sendError(sender, CivSettings.localize.localizedString("var_joinTown_errorInTown", resident.getName()));
+                return;
+            }
+
+            CivMessage.sendTown(town, CivSettings.localize.localizedString("var_joinTown_alert", resident.getName()));
+            resident.save();
+        } else {
+            CivMessage.send(sender, CivColor.LightGray + CivSettings.localize.localizedString("var_joinTown_Declined", resident.getName()));
+        }
+    }
+
+    @Override
+    public void processResponse(String response, Resident responder) {
+        processResponse(response);
+    }
 }

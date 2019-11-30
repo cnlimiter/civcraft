@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -32,60 +32,59 @@ import com.avrgaming.civcraft.util.ItemManager;
 
 public class GivePlayerStartingKit implements Runnable {
 
-	public String name;
-	
-	public GivePlayerStartingKit(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public void run() {
-		try {
-			Player player = CivGlobal.getPlayer(name);
-			
-			for (String kitItems : CivSettings.kitItems) {
-				String[] split = kitItems.split(":");
-				
-				ItemStack stack;
-				try {
-					Integer type = Integer.valueOf(split[0]);
-					Integer amount = Integer.valueOf(split[1]);
+    public String name;
 
-					stack = ItemManager.createItemStack(type, amount);
-					
+    public GivePlayerStartingKit(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Player player = CivGlobal.getPlayer(name);
+
+            for (String kitItems : CivSettings.kitItems) {
+                String[] split = kitItems.split(":");
+
+                ItemStack stack;
+                try {
+                    Integer type = Integer.valueOf(split[0]);
+                    Integer amount = Integer.valueOf(split[1]);
+
+                    stack = ItemManager.createItemStack(type, amount);
 
 
-				} catch (NumberFormatException e) {
-					String customMatID = split[0];
-					LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterialFromId(customMatID);
-					if (craftMat == null) {
-						CivLog.warning("Couldn't find custom material:"+customMatID+" to give to player on first join.");
-						continue;
-					}
-					
-					stack = LoreCraftableMaterial.spawn(craftMat);
-				}
+                } catch (NumberFormatException e) {
+                    String customMatID = split[0];
+                    LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterialFromId(customMatID);
+                    if (craftMat == null) {
+                        CivLog.warning("Couldn't find custom material:" + customMatID + " to give to player on first join.");
+                        continue;
+                    }
+
+                    stack = LoreCraftableMaterial.spawn(craftMat);
+                }
 //				if (split[0] == "mat_tutorial_book" || split[0] == "mat_found_camp")
 //				{
-					stack = LoreCraftableMaterial.addEnhancement(stack, LoreEnhancement.enhancements.get("LoreEnhancementSoulBound"));
+                stack = LoreCraftableMaterial.addEnhancement(stack, LoreEnhancement.enhancements.get("LoreEnhancementSoulBound"));
 //				}
-				
-				player.getInventory().addItem(stack);
-			}
-			
-			Resident resident = CivGlobal.getResident(name);
-			if (resident != null) {
-				resident.getTreasury().deposit(CivSettings.startingCoins);
-				resident.setGivenKit(true);
-			}
-			
-		
-		} catch (CivException e) {
-		//	e.printStackTrace();
-			CivLog.warning("Tried to give starting kit to offline player:"+name);
-			return;
-		}
-		
-	}
+
+                player.getInventory().addItem(stack);
+            }
+
+            Resident resident = CivGlobal.getResident(name);
+            if (resident != null) {
+                resident.getTreasury().deposit(CivSettings.startingCoins);
+                resident.setGivenKit(true);
+            }
+
+
+        } catch (CivException e) {
+            //	e.printStackTrace();
+            CivLog.warning("Tried to give starting kit to offline player:" + name);
+            return;
+        }
+
+    }
 
 }

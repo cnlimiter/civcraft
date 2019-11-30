@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -24,20 +24,19 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 
 public class NoVanillaDurability extends ItemComponent {
 
-	@Override
-	public void onPrepareCreate(AttributeUtil attrUtil) {
-	}
-	
-	
-	//private ConcurrentHashMap<String, String> playersToUpdateInventory = new ConcurrentHashMap<String, String>();
-	
-	@Override
-	public void onDurabilityChange(PlayerItemDamageEvent event) {
-		event.setDamage(0);
-		event.getPlayer().updateInventory();
-		
-		
-		
+    @Override
+    public void onPrepareCreate(AttributeUtil attrUtil) {
+    }
+
+
+    //private ConcurrentHashMap<String, String> playersToUpdateInventory = new ConcurrentHashMap<String, String>();
+
+    @Override
+    public void onDurabilityChange(PlayerItemDamageEvent event) {
+        event.setDamage(0);
+        event.getPlayer().updateInventory();
+
+
 //		LinkedList<ItemDurabilityEntry> entries = CustomItemManager.itemDuraMap.get(player.getName());
 //		
 //		if (entries == null) {
@@ -54,9 +53,7 @@ public class NoVanillaDurability extends ItemComponent {
 //		if (!CustomItemManager.duraTaskScheduled) {
 //			TaskMaster.syncTask(new ItemDuraSyncTask());
 //		}
-	}
-
-
+    }
 
 
 //	@SuppressWarnings("deprecation")
@@ -72,6 +69,6 @@ public class NoVanillaDurability extends ItemComponent {
 //		}
 //		
 //	}
-	
+
 
 }

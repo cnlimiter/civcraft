@@ -9,7 +9,7 @@ import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class LoreEnhancementDropAfterDeath
-extends LoreEnhancement {
+        extends LoreEnhancement {
     @Override
     public AttributeUtil add(AttributeUtil attrs) {
         attrs.addEnhancement("LoreEnhancementBuyItem", null, null);

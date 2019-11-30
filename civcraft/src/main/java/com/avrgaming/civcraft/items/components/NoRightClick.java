@@ -10,33 +10,30 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class NoRightClick extends ItemComponent {
 
-	@Override
-	public void onPrepareCreate(AttributeUtil attrUtil) {
-	}
+    @Override
+    public void onPrepareCreate(AttributeUtil attrUtil) {
+    }
 
-	
-	public void onInteract(PlayerInteractEvent event) {
-		if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
-			event.getPlayer().updateInventory();
-			event.setCancelled(true);
-			return;
-		}
-		else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
-		{
-			if (event.getClickedBlock().getType() != Material.CHEST)
-			{
-				event.getPlayer().updateInventory();
-				event.setCancelled(true);
-				return;
-			}
-		}
-	}
-	
-	public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
-		event.setCancelled(true);
-	}
-	
-	public void onPlayerLeashEvent(PlayerLeashEntityEvent event) {
-		
-	}
+
+    public void onInteract(PlayerInteractEvent event) {
+        if (event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
+            event.getPlayer().updateInventory();
+            event.setCancelled(true);
+            return;
+        } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            if (event.getClickedBlock().getType() != Material.CHEST) {
+                event.getPlayer().updateInventory();
+                event.setCancelled(true);
+                return;
+            }
+        }
+    }
+
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        event.setCancelled(true);
+    }
+
+    public void onPlayerLeashEvent(PlayerLeashEntityEvent event) {
+
+    }
 }

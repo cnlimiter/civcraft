@@ -22,25 +22,25 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 
 public class BookTechsGui
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident whoClicked = CivGlobal.getResident(player);
         if (whoClicked.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "§c"+CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         Civilization civ = whoClicked.getCiv();
         if (!civ.getLeaderGroup().hasMember(whoClicked) && !civ.getAdviserGroup().hasMember(whoClicked)) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object)player, "§c"+CivSettings.localize.localizedString("cmd_NeedHigherCivRank"));
+            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("cmd_NeedHigherCivRank"));
             return;
         }
         int type = ItemManager.getId(Material.EMERALD_BLOCK);
         ArrayList<ConfigTech> techs = ConfigTech.getAvailableTechs(civ);
-        Inventory inv = Bukkit.getServer().createInventory((InventoryHolder)player, 54, CivSettings.localize.localizedString("resident_techsGuiHeading"));
+        Inventory inv = Bukkit.getServer().createInventory((InventoryHolder) player, 54, CivSettings.localize.localizedString("resident_techsGuiHeading"));
         for (ConfigTech tech : techs) {
             String techh = tech.name;
             ItemStack itemStack = LoreGuiItem.build(tech.name, type, 0, "§6" + CivSettings.localize.localizedString("clicktoresearch"), "§b" + CivSettings.localize.localizedString("money_req", tech.getAdjustedTechCost(civ)), "§a" + CivSettings.localize.localizedString("bealers_req", tech.getAdjustedBeakerCost(civ)), "§d" + CivSettings.localize.localizedString("era_this", tech.era));

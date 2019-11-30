@@ -23,27 +23,27 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 public class CivSpaceFuture
-implements GuiAction {
+        implements GuiAction {
     public static Inventory guiInventory;
 
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident interactor = CivGlobal.getResident(player);
         Civilization civ = interactor.getCiv();
         if (civ.getCurrentMission() >= 8) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)7)).name));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) 7)).name));
             return;
         }
         int current = civ.getCurrentMission();
         if (current == 7 && civ.getMissionActive()) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)7)).name));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_spaceshuttle_end", CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) 7)).name));
             return;
         }
         if (civ.getMissionActive()) {
             ++current;
         }
-        guiInventory = Bukkit.getServer().createInventory((InventoryHolder)player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceFutureHeading"));
+        guiInventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, CivSettings.localize.localizedString("bookReborn_civSpaceFutureHeading"));
         for (int i = current; i <= 7; ++i) {
             ConfigSpaceMissions configSpaceMissions = CivSettings.spacemissions_levels.get(i);
             ItemStack itemStack = LoreGuiItem.build(CivColor.Red + configSpaceMissions.name, ItemManager.getId(Material.GLASS), CivCraft.civRandom.nextInt(15), "§6" + CivSettings.localize.localizedString("click_to_view"));

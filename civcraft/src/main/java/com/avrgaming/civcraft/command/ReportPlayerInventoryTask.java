@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -28,13 +28,13 @@ import com.avrgaming.civcraft.main.CivMessage;
 
 public class ReportPlayerInventoryTask implements Runnable {
 
-	Queue<OfflinePlayer> offplayers;
-	CommandSender sender;
-	
-	public ReportPlayerInventoryTask(CommandSender sender, Queue<OfflinePlayer> offplayers) {
-		this.sender = sender;
-		this.offplayers = offplayers;
-	}
+    Queue<OfflinePlayer> offplayers;
+    CommandSender sender;
+
+    public ReportPlayerInventoryTask(CommandSender sender, Queue<OfflinePlayer> offplayers) {
+        this.sender = sender;
+        this.offplayers = offplayers;
+    }
 
 //	private int countItem(ItemStack[] stacks, int id) {
 //		int total = 0;
@@ -50,10 +50,10 @@ public class ReportPlayerInventoryTask implements Runnable {
 //		
 //		return total;
 //	}
-	
-	@Override
-	public void run() {
-		CivMessage.sendError(sender, "Deprecated do not use anymore.. or fix it..");
+
+    @Override
+    public void run() {
+        CivMessage.sendError(sender, "Deprecated do not use anymore.. or fix it..");
 //		for (int i = 0; i < 20; i++) {
 //			OfflinePlayer off = offplayers.poll();
 //			if (off == null) {
@@ -106,7 +106,7 @@ public class ReportPlayerInventoryTask implements Runnable {
 //		}
 //		
 //		TaskMaster.syncTask(new ReportPlayerInventoryTask(sender, offplayers));
-		
-	}
+
+    }
 
 }

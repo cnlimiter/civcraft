@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -31,7 +32,7 @@ import com.avrgaming.civcraft.util.SimpleBlock;
 import com.avrgaming.civcraft.war.War;
 
 public class Stable2
-extends Structure {
+        extends Structure {
     private StructureSign respawnSign;
     private int index = 0;
 
@@ -56,12 +57,12 @@ extends Structure {
     private void changeIndex(int newIndex) {
         ArrayList<RespawnLocationHolder> respawnables = this.getTown().getCiv().getAvailableRespawnables();
         if (this.respawnSign != null) {
-            block4 : {
+            block4:
+            {
                 try {
                     this.respawnSign.setText(CivSettings.localize.localizedString("stable_sign_respawnAt") + "\n" + CivColor.GreenBold + respawnables.get(newIndex).getRespawnName());
                     this.index = newIndex;
-                }
-                catch (IndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e) {
                     if (respawnables.size() <= 0) break block4;
                     this.respawnSign.setText(CivSettings.localize.localizedString("stable_sign_respawnAt") + "\n" + CivColor.GreenBold + respawnables.get(0).getRespawnName());
                     this.index = 0;
@@ -120,7 +121,7 @@ extends Structure {
                     return;
                 }
                 long nextTeleport = resident.getNextTeleport();
-				SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+                SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
                 if (nextTeleport > (timeNow = Calendar.getInstance().getTimeInMillis())) {
                     CivMessage.sendError(resident, CivSettings.localize.localizedString("var_stable2_teleportNotAva", sdf.format(nextTeleport)));
                     return;
@@ -132,7 +133,7 @@ extends Structure {
                 for (Structure structure : toTeleport.getStructures()) {
                     if (!(structure instanceof Stable2)) continue;
                     hasStable = true;
-                    placeToTeleport = ((Stable2)structure).respawnSign.getCoord().getLocation();
+                    placeToTeleport = ((Stable2) structure).respawnSign.getCoord().getLocation();
                     break;
                 }
                 if (!hasStable) {
@@ -144,7 +145,7 @@ extends Structure {
                     return;
                 }
                 nextTeleport = timeNow + 120000L;
-                CivMessage.send((Object)player, CivColor.Green + CivSettings.localize.localizedString("stable_respawningAlert"));
+                CivMessage.send((Object) player, CivColor.Green + CivSettings.localize.localizedString("stable_respawningAlert"));
                 player.teleport(placeToTeleport);
                 resident.getTreasury().withdraw(2000.0);
                 resident.setNextTeleport(nextTeleport);
@@ -160,7 +161,7 @@ extends Structure {
                 ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
                 ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_nextLocation"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_nextLocation"));
                 structSign.setDirection(commandBlock.getData());
                 structSign.setAction("next");
                 structSign.update();
@@ -172,7 +173,7 @@ extends Structure {
                 ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
                 ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_previousLocation"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_previousLocation"));
                 structSign.setDirection(commandBlock.getData());
                 structSign.setAction("prev");
                 structSign.update();
@@ -201,8 +202,7 @@ extends Structure {
         int invalid_respawn_penalty;
         try {
             invalid_respawn_penalty = CivSettings.getInteger(CivSettings.warConfig, "war.invalid_respawn_penalty");
-        }
-        catch (InvalidConfiguration e) {
+        } catch (InvalidConfiguration e) {
             e.printStackTrace();
             return;
         }

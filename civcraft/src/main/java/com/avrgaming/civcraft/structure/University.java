@@ -17,57 +17,57 @@ import com.avrgaming.civcraft.util.CivColor;
 
 public class University extends Structure {
 
-	
-	protected University(Location center, String id, Town town) throws CivException {
-		super(center, id, town);
-	}
 
-	public University(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
+    protected University(Location center, String id, Town town) throws CivException {
+        super(center, id, town);
+    }
 
-	@Override
-	public void loadSettings() {
-		super.loadSettings();
+    public University(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
 
-	}
-	
-	@Override
-	public String getMarkerIconName() {
-		return "bronzestar";
-	}
-	
-	private StructureSign getSignFromSpecialId(int special_id) {
-		for (StructureSign sign : getSigns()) {
-			int id = Integer.valueOf(sign.getAction());
-			if (id == special_id) {
-				return sign;
-			}
-		}
-		return null;
-	}
-	
-	@Override
-	public void updateSignText() {
-		int count = 0;
-		for (; count < getSigns().size(); count++) {
-			StructureSign sign = getSignFromSpecialId(count);
-			if (sign == null) {
-				CivLog.error("University sign was null");
-				return;
-			}
-			
-			sign.setText("\n"+CivSettings.localize.localizedString("university_sign")+"\n"+
-					this.getTown().getName());
-			
-			sign.update();
-		}
-	}
-	
-	@Override
-	public void processSignAction(Player player, StructureSign sign, PlayerInteractEvent event) {
-		CivMessage.send(player, CivColor.Green+CivSettings.localize.localizedString("university_sign")+" "+this.getTown().getName());
-	}
+    @Override
+    public void loadSettings() {
+        super.loadSettings();
+
+    }
+
+    @Override
+    public String getMarkerIconName() {
+        return "bronzestar";
+    }
+
+    private StructureSign getSignFromSpecialId(int special_id) {
+        for (StructureSign sign : getSigns()) {
+            int id = Integer.valueOf(sign.getAction());
+            if (id == special_id) {
+                return sign;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void updateSignText() {
+        int count = 0;
+        for (; count < getSigns().size(); count++) {
+            StructureSign sign = getSignFromSpecialId(count);
+            if (sign == null) {
+                CivLog.error("University sign was null");
+                return;
+            }
+
+            sign.setText("\n" + CivSettings.localize.localizedString("university_sign") + "\n" +
+                    this.getTown().getName());
+
+            sign.update();
+        }
+    }
+
+    @Override
+    public void processSignAction(Player player, StructureSign sign, PlayerInteractEvent event) {
+        CivMessage.send(player, CivColor.Green + CivSettings.localize.localizedString("university_sign") + " " + this.getTown().getName());
+    }
 
 
 }

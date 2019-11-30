@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -28,26 +28,26 @@ import com.avrgaming.civcraft.main.CivGlobal;
 
 public class ItemDuraSyncTask implements Runnable {
 
-	@Override
-	public void run() {
-		
-		for (String playerName : CustomItemManager.itemDuraMap.keySet()) {
-			Player player;
-			try {
-				player = CivGlobal.getPlayer(playerName);
-			} catch (CivException e) {
-				continue;
-			}
-			
-			LinkedList<ItemDurabilityEntry> entries = CustomItemManager.itemDuraMap.get(playerName);
-			
-			for (ItemDurabilityEntry entry : entries) {
-				entry.stack.setDurability(entry.oldValue);
-			}
-			
-			player.updateInventory();
-		}
-		
-		CustomItemManager.duraTaskScheduled = false;
-	}
+    @Override
+    public void run() {
+
+        for (String playerName : CustomItemManager.itemDuraMap.keySet()) {
+            Player player;
+            try {
+                player = CivGlobal.getPlayer(playerName);
+            } catch (CivException e) {
+                continue;
+            }
+
+            LinkedList<ItemDurabilityEntry> entries = CustomItemManager.itemDuraMap.get(playerName);
+
+            for (ItemDurabilityEntry entry : entries) {
+                entry.stack.setDurability(entry.oldValue);
+            }
+
+            player.updateInventory();
+        }
+
+        CustomItemManager.duraTaskScheduled = false;
+    }
 }

@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -28,22 +28,22 @@ import com.avrgaming.civcraft.object.Town;
 
 public class Monument extends Structure {
 
-	protected Monument(Location center, String id, Town town)
-			throws CivException {
-		super(center, id, town);
-	}
+    protected Monument(Location center, String id, Town town)
+            throws CivException {
+        super(center, id, town);
+    }
 
-	public Monument(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
+    public Monument(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
 
-	@Override
-	public String getDynmapDescription() {
-		return null;
-	}
-	
-	@Override
-	public String getMarkerIconName() {
-		return "building";
-	}
+    @Override
+    public String getDynmapDescription() {
+        return null;
+    }
+
+    @Override
+    public String getMarkerIconName() {
+        return "building";
+    }
 }

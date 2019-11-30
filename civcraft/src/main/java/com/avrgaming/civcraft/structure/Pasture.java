@@ -30,192 +30,192 @@ import com.avrgaming.civcraft.util.ChunkCoord;
 
 public class Pasture extends Structure {
 
-	/* Global pasture chunks */
-	public static Map<ChunkCoord, Pasture> pastureChunks = new ConcurrentHashMap<ChunkCoord, Pasture>();
-	public static Map<UUID, Pasture> pastureEntities = new ConcurrentHashMap<UUID, Pasture>();
-	
-	/* Chunks bound to this pasture. */
-	public HashSet<ChunkCoord> chunks = new HashSet<ChunkCoord>();
-	public HashSet<UUID> entities = new HashSet<UUID>();
-	public ReentrantLock lock = new ReentrantLock(); 
-	
-	private int pendingBreeds = 0;
-	
-	protected Pasture(Location center, String id, Town town)
-			throws CivException {
-		super(center, id, town);
-	}
+    /* Global pasture chunks */
+    public static Map<ChunkCoord, Pasture> pastureChunks = new ConcurrentHashMap<ChunkCoord, Pasture>();
+    public static Map<UUID, Pasture> pastureEntities = new ConcurrentHashMap<UUID, Pasture>();
 
-	public Pasture(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
+    /* Chunks bound to this pasture. */
+    public HashSet<ChunkCoord> chunks = new HashSet<ChunkCoord>();
+    public HashSet<UUID> entities = new HashSet<UUID>();
+    public ReentrantLock lock = new ReentrantLock();
 
-	public int getMobCount() {
-		return entities.size();
-	}
+    private int pendingBreeds = 0;
 
-	public int getMobMax() {
-		int max;
-		try {
-			max = CivSettings.getInteger(CivSettings.structureConfig, "pasture.max_mobs");
-		} catch (InvalidConfiguration e) {
-			e.printStackTrace();
-			return 0;
-		}
-		return max;
-	}
+    protected Pasture(Location center, String id, Town town)
+            throws CivException {
+        super(center, id, town);
+    }
 
-	public boolean processMobBreed(Player player, EntityType type) {
-				
-		if (!this.isActive()) {
-			CivMessage.sendError(player, CivSettings.localize.localizedString("pasture_destroyed"));
-			return false;
-		}
-		
-		if (this.getMobCount() >= this.getMobMax()) {
-			CivMessage.sendError(player, CivSettings.localize.localizedString("pasture_isFull"));
-			return false;
-		}
-		
-		if ((getPendingBreeds() + this.getMobCount()) >= this.getMobMax()) {
-			CivMessage.sendError(player, CivSettings.localize.localizedString("pasture_TooMuchorIsFull",CivSettings.localize.localizedString("pasture_isFull")));
-			return false;
-		}
-		
-		return true;
-	}
-	
-	public void bindPastureChunks() {
-		for (BlockCoord bcoord : this.structureBlocks.keySet()) {
-			ChunkCoord coord = new ChunkCoord(bcoord);
-			this.chunks.add(coord);
-			pastureChunks.put(coord, this);
-		}
-	}
-	
-	public void unbindPastureChunks() {
-		for (ChunkCoord coord : this.chunks) {
-			pastureChunks.remove(coord);
-		}
-		
-		this.entities.clear();
-		this.chunks.clear();
-		
-		LinkedList<UUID> removeUs = new LinkedList<UUID>();
-		for (UUID id : pastureEntities.keySet()) {
-			Pasture pasture = pastureEntities.get(id);
-			if (pasture == this) {
-				removeUs.add(id);
-			}
-		}
-		
-		for (UUID id : removeUs) {
-			pastureEntities.remove(id);
-		}
-		
-	}
-	
-	@Override
-	public void onComplete() {
-		bindPastureChunks();
-	}
-	
-	@Override
-	public void onLoad() throws CivException {
-		bindPastureChunks();
-		loadEntities();
-	}
-	
-	@Override
-	public void delete() throws SQLException {
-		super.delete();
-		unbindPastureChunks();
-		clearEntities();
-	}
-	
-	public void clearEntities() {
-		// TODO Clear entities bound to us?
-	}
+    public Pasture(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
 
-	public void onBreed(LivingEntity entity) {
-		saveEntity(entity.getWorld().getName(), entity.getUniqueId());
-		setPendingBreeds(getPendingBreeds() - 1);
-	}
-	
-	public String getEntityKey() {
-		return "pasture:"+this.getId();
-	}
-	
-	public String getValue(String worldName, UUID id) {
-		return worldName+":"+id;
-	}
-	
-	public void saveEntity(String worldName, UUID id) {
-		class AsyncTask implements Runnable {
-			Pasture pasture;
-			UUID id;
-			String worldName;
-			
-			public AsyncTask(Pasture pasture, UUID id, String worldName) {
-				this.pasture = pasture;
-				this.id = id;
-				this.worldName = worldName;
-			}
-			
-			@Override
-			public void run() {
-				pasture.sessionAdd(getEntityKey(), getValue(worldName, id));
-				lock.lock();
-				try {
-					entities.add(id);
-					pastureEntities.put(id, pasture);
-				} finally {
-					lock.unlock();
-				}
-			}
-		}
-		
-		TaskMaster.asyncTask(new AsyncTask(this, id, worldName), 0);
-	}
-	
-	public void loadEntities() {
-		Queue<SessionEntry> entriesToLoad = new LinkedList<SessionEntry>();
-		ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(getEntityKey());
-		entriesToLoad.addAll(entries);
-		TaskMaster.syncTask(new LoadPastureEntityTask(entriesToLoad, this));
-	}
-	
-	public void onEntityDeath(LivingEntity entity) {
-		class AsyncTask implements Runnable {
-			LivingEntity entity;
-			
-			public AsyncTask(LivingEntity entity) {
-				this.entity = entity;
-			}
-			
-			
-			@Override
-			public void run() {
-				lock.lock();
-				try {
-					entities.remove(entity.getUniqueId());
-					pastureEntities.remove(entity.getUniqueId());
-				} finally {
-					lock.unlock();
-				}
-			}
-			
-		}
-		
-		TaskMaster.asyncTask(new AsyncTask(entity), 0);
-	}
+    public int getMobCount() {
+        return entities.size();
+    }
 
-	public int getPendingBreeds() {
-		return pendingBreeds;
-	}
+    public int getMobMax() {
+        int max;
+        try {
+            max = CivSettings.getInteger(CivSettings.structureConfig, "pasture.max_mobs");
+        } catch (InvalidConfiguration e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return max;
+    }
 
-	public void setPendingBreeds(int pendingBreeds) {
-		this.pendingBreeds = pendingBreeds;
-	}
-	
+    public boolean processMobBreed(Player player, EntityType type) {
+
+        if (!this.isActive()) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("pasture_destroyed"));
+            return false;
+        }
+
+        if (this.getMobCount() >= this.getMobMax()) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("pasture_isFull"));
+            return false;
+        }
+
+        if ((getPendingBreeds() + this.getMobCount()) >= this.getMobMax()) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("pasture_TooMuchorIsFull", CivSettings.localize.localizedString("pasture_isFull")));
+            return false;
+        }
+
+        return true;
+    }
+
+    public void bindPastureChunks() {
+        for (BlockCoord bcoord : this.structureBlocks.keySet()) {
+            ChunkCoord coord = new ChunkCoord(bcoord);
+            this.chunks.add(coord);
+            pastureChunks.put(coord, this);
+        }
+    }
+
+    public void unbindPastureChunks() {
+        for (ChunkCoord coord : this.chunks) {
+            pastureChunks.remove(coord);
+        }
+
+        this.entities.clear();
+        this.chunks.clear();
+
+        LinkedList<UUID> removeUs = new LinkedList<UUID>();
+        for (UUID id : pastureEntities.keySet()) {
+            Pasture pasture = pastureEntities.get(id);
+            if (pasture == this) {
+                removeUs.add(id);
+            }
+        }
+
+        for (UUID id : removeUs) {
+            pastureEntities.remove(id);
+        }
+
+    }
+
+    @Override
+    public void onComplete() {
+        bindPastureChunks();
+    }
+
+    @Override
+    public void onLoad() throws CivException {
+        bindPastureChunks();
+        loadEntities();
+    }
+
+    @Override
+    public void delete() throws SQLException {
+        super.delete();
+        unbindPastureChunks();
+        clearEntities();
+    }
+
+    public void clearEntities() {
+        // TODO Clear entities bound to us?
+    }
+
+    public void onBreed(LivingEntity entity) {
+        saveEntity(entity.getWorld().getName(), entity.getUniqueId());
+        setPendingBreeds(getPendingBreeds() - 1);
+    }
+
+    public String getEntityKey() {
+        return "pasture:" + this.getId();
+    }
+
+    public String getValue(String worldName, UUID id) {
+        return worldName + ":" + id;
+    }
+
+    public void saveEntity(String worldName, UUID id) {
+        class AsyncTask implements Runnable {
+            Pasture pasture;
+            UUID id;
+            String worldName;
+
+            public AsyncTask(Pasture pasture, UUID id, String worldName) {
+                this.pasture = pasture;
+                this.id = id;
+                this.worldName = worldName;
+            }
+
+            @Override
+            public void run() {
+                pasture.sessionAdd(getEntityKey(), getValue(worldName, id));
+                lock.lock();
+                try {
+                    entities.add(id);
+                    pastureEntities.put(id, pasture);
+                } finally {
+                    lock.unlock();
+                }
+            }
+        }
+
+        TaskMaster.asyncTask(new AsyncTask(this, id, worldName), 0);
+    }
+
+    public void loadEntities() {
+        Queue<SessionEntry> entriesToLoad = new LinkedList<SessionEntry>();
+        ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(getEntityKey());
+        entriesToLoad.addAll(entries);
+        TaskMaster.syncTask(new LoadPastureEntityTask(entriesToLoad, this));
+    }
+
+    public void onEntityDeath(LivingEntity entity) {
+        class AsyncTask implements Runnable {
+            LivingEntity entity;
+
+            public AsyncTask(LivingEntity entity) {
+                this.entity = entity;
+            }
+
+
+            @Override
+            public void run() {
+                lock.lock();
+                try {
+                    entities.remove(entity.getUniqueId());
+                    pastureEntities.remove(entity.getUniqueId());
+                } finally {
+                    lock.unlock();
+                }
+            }
+
+        }
+
+        TaskMaster.asyncTask(new AsyncTask(entity), 0);
+    }
+
+    public int getPendingBreeds() {
+        return pendingBreeds;
+    }
+
+    public void setPendingBreeds(int pendingBreeds) {
+        this.pendingBreeds = pendingBreeds;
+    }
+
 }

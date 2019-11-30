@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -29,29 +29,29 @@ import com.avrgaming.civcraft.config.CivSettings;
 
 
 public class SyncUpdateTagsBetweenCivs implements Runnable {
-	Set<Player> civList = new HashSet<Player>();
-	Set<Player> otherCivList = new HashSet<Player>();
-	
-	public SyncUpdateTagsBetweenCivs(Set<Player> civList, Set<Player> otherCivList) {
-		this.civList = civList;
-		this.otherCivList = otherCivList;
-	}
+    Set<Player> civList = new HashSet<Player>();
+    Set<Player> otherCivList = new HashSet<Player>();
 
-	@Override
-	public void run() {
-		if (CivSettings.hasITag) {
-			for (Player player : civList) {
-				if (!otherCivList.isEmpty()) {
-					iTag.getInstance().refreshPlayer(player, otherCivList);
-				}
-			}
-			
-			for (Player player : otherCivList) {
-				if (!civList.isEmpty()) {
-					iTag.getInstance().refreshPlayer(player, civList);
-				}
-			}
-		}
-	}
-	
+    public SyncUpdateTagsBetweenCivs(Set<Player> civList, Set<Player> otherCivList) {
+        this.civList = civList;
+        this.otherCivList = otherCivList;
+    }
+
+    @Override
+    public void run() {
+        if (CivSettings.hasITag) {
+            for (Player player : civList) {
+                if (!otherCivList.isEmpty()) {
+                    iTag.getInstance().refreshPlayer(player, otherCivList);
+                }
+            }
+
+            for (Player player : otherCivList) {
+                if (!civList.isEmpty()) {
+                    iTag.getInstance().refreshPlayer(player, civList);
+                }
+            }
+        }
+    }
+
 }

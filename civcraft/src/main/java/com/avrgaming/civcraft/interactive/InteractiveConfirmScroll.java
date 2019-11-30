@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import gpl.AttributeUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -23,18 +24,17 @@ import com.avrgaming.civcraft.structure.Barracks;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class InteractiveConfirmScroll
-implements InteractiveResponse {
+        implements InteractiveResponse {
     @Override
     public void respond(String message, Resident resident) {
         Player player;
         try {
             player = CivGlobal.getPlayer(resident);
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             return;
         }
         if (!message.equalsIgnoreCase("yes")) {
-            CivMessage.send((Object)player, CivSettings.localize.localizedString("interactive_scroll_cancel"));
+            CivMessage.send((Object) player, CivSettings.localize.localizedString("interactive_scroll_cancel"));
             resident.clearInteractiveMode();
             return;
         }
@@ -67,7 +67,7 @@ implements InteractiveResponse {
                 }
                 long time = 3600000 * Integer.parseInt(nd.replaceAll("[^\\d]", ""));
                 town.addScroll(time);
-				SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+                SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
                 CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_processScroll_addedHammers", player.getDisplayName(), CivColor.LightGreenBold + 500 + CivColor.RESET, CivColor.GoldBold + town.getName() + CivColor.RESET, CivColor.RoseBold + sdf.format(time + Calendar.getInstance().getTimeInMillis()) + CivColor.RESET));
             } else if (nd.contains("Settler")) {
                 if (town.hasStructure("s_barracks")) {
@@ -75,7 +75,7 @@ implements InteractiveResponse {
                     resident.clearInteractiveMode();
                     return;
                 }
-                Barracks barracks = (Barracks)town.getStructureByType("s_barracks");
+                Barracks barracks = (Barracks) town.getStructureByType("s_barracks");
                 if (barracks.getTrainingUnit() == null) {
                     CivMessage.sendError(resident, CivSettings.localize.localizedString("var_processScroll_noBarracksInProgress", CivColor.LightGreenBold + 500 + CivColor.RESET, CivColor.GoldBold + town.getName() + CivColor.RESET));
                     resident.clearInteractiveMode();
@@ -101,7 +101,7 @@ implements InteractiveResponse {
                     resident.clearInteractiveMode();
                     return;
                 }
-                double beakers = civ.getResearchTech().beaker_cost * ((double)percent / 100.0);
+                double beakers = civ.getResearchTech().beaker_cost * ((double) percent / 100.0);
                 civ.addBeakers(beakers);
                 CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_processScroll_addedTech", player.getDisplayName(), CivColor.LightGreenBold + new DecimalFormat("#.##").format(beakers) + CivColor.RESET, CivColor.YellowBold + techName + CivColor.RESET));
             }
@@ -127,12 +127,11 @@ implements InteractiveResponse {
                 }
                 try {
                     for (ConfigTownUpgrade upgrade1 : upgradeList) {
-                    	town.addUpgrade(upgrade1);
+                        town.addUpgrade(upgrade1);
                     }
                     town.saveNow();
                     CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_processScroll_proceedBank", player.getDisplayName(), CivColor.LightGreenBold + level + CivColor.RESET, CivColor.GoldBold + town.getName() + CivColor.RESET));
-                }
-                catch (SQLException e) {
+                } catch (SQLException e) {
                     e.printStackTrace();
                     resident.clearInteractiveMode();
                     return;
@@ -150,9 +149,9 @@ implements InteractiveResponse {
                     upgradeList.add(CivSettings.getUpgradeById("upgrade_town_level_3"));
                 }
                 for (ConfigTownUpgrade upgrade1 : upgradeList) {
-				    town.addUpgrade(upgrade1);
-				}
-				CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_processScroll_proceedTown", player.getDisplayName(), CivColor.LightGreenBold + level + CivColor.RESET, CivColor.GoldBold + town.getName() + CivColor.RESET));
+                    town.addUpgrade(upgrade1);
+                }
+                CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_processScroll_proceedTown", player.getDisplayName(), CivColor.LightGreenBold + level + CivColor.RESET, CivColor.GoldBold + town.getName() + CivColor.RESET));
             }
         }
         if (itemStack.getAmount() == 1) {

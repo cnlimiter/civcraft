@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -26,46 +26,45 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 
 public class ChunkGenerateTask implements Runnable {
 
-	int startX;
-	int startZ;
-	int stopX;
-	int stopZ;
-	
-	public ChunkGenerateTask(int startx, int startz, int stopx, int stopz) {
-		this.startX = startx;
-		this.startZ = startz;
-		this.stopX = stopx;
-		this.stopZ = stopz;
-	}
-	
-	@Override
-	public void run() {
-	
-		int maxgen = 10;
-		int i = 0;
+    int startX;
+    int startZ;
+    int stopX;
+    int stopZ;
 
-		for (int x = startX; x <= stopX; x++) {
-			for (int z = startZ; z <= stopZ; z++) {
-				i++;
-				
-				Chunk chunk = Bukkit.getWorld("world").getChunkAt(x, z);
-				if (!chunk.load(true)) {
-				}
-				
-				if (!chunk.unload(true)) {
-				}
-				
-				if (i > maxgen) {
-					TaskMaster.syncTask(new ChunkGenerateTask(x, z, stopX, stopZ));
-					return;
-				}
-				
-			}
-		}
-		
-		
-	}
+    public ChunkGenerateTask(int startx, int startz, int stopx, int stopz) {
+        this.startX = startx;
+        this.startZ = startz;
+        this.stopX = stopx;
+        this.stopZ = stopz;
+    }
 
-	
-	
+    @Override
+    public void run() {
+
+        int maxgen = 10;
+        int i = 0;
+
+        for (int x = startX; x <= stopX; x++) {
+            for (int z = startZ; z <= stopZ; z++) {
+                i++;
+
+                Chunk chunk = Bukkit.getWorld("world").getChunkAt(x, z);
+                if (!chunk.load(true)) {
+                }
+
+                if (!chunk.unload(true)) {
+                }
+
+                if (i > maxgen) {
+                    TaskMaster.syncTask(new ChunkGenerateTask(x, z, stopX, stopZ));
+                    return;
+                }
+
+            }
+        }
+
+
+    }
+
+
 }

@@ -15,7 +15,7 @@ import com.avrgaming.civcraft.structure.Buildable;
 import com.avrgaming.civcraft.util.BlockCoord;
 
 public class ProjectileMagicComponent
-extends ProjectileComponent {
+        extends ProjectileComponent {
     private int fireRate;
     private int halfSecondCount = 0;
 
@@ -32,15 +32,14 @@ extends ProjectileComponent {
         }
         this.halfSecondCount = 0;
         try {
-            target = (Player)targetEntity;
-        }
-        catch (Exception e) {
+            target = (Player) targetEntity;
+        } catch (Exception e) {
             e.printStackTrace();
             return;
         }
         target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 1200, 0));
         target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 600, 0));
-        CivMessage.sendTitle((Object)targetEntity, "", CivSettings.localize.localizedString("var_pmc_entityMessage", this.getTown().getName()));
+        CivMessage.sendTitle((Object) targetEntity, "", CivSettings.localize.localizedString("var_pmc_entityMessage", this.getTown().getName()));
     }
 
     @Override
@@ -59,8 +58,7 @@ extends ProjectileComponent {
             this.proximityComponent.setBuildable(this.buildable);
             this.proximityComponent.setCenter(new BlockCoord(this.getTurretCenter()));
             this.proximityComponent.setRadius(this.range);
-        }
-        catch (InvalidConfiguration e) {
+        } catch (InvalidConfiguration e) {
             e.printStackTrace();
         }
     }

@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -27,22 +27,22 @@ import com.avrgaming.civcraft.main.CivLog;
 
 public class ConfigTechItem {
 
-	public int id;
-	public String name;
-	public String require_tech;
-	
-	public static void loadConfig(FileConfiguration cfg, Map<Integer, ConfigTechItem> tech_maps) {
-		tech_maps.clear();
-		List<Map<?, ?>> techs = cfg.getMapList("items");
-		for (Map<?, ?> confTech : techs) {
-			ConfigTechItem tech = new ConfigTechItem();
-			
-			tech.id = (Integer)confTech.get("id");
-			tech.name = (String)confTech.get("name");
-			tech.require_tech = (String)confTech.get("require_tech");			
-			tech_maps.put(tech.id, tech);
-		}
-		CivLog.info("Loaded "+tech_maps.size()+" technologies.");		
-	}
-	
+    public int id;
+    public String name;
+    public String require_tech;
+
+    public static void loadConfig(FileConfiguration cfg, Map<Integer, ConfigTechItem> tech_maps) {
+        tech_maps.clear();
+        List<Map<?, ?>> techs = cfg.getMapList("items");
+        for (Map<?, ?> confTech : techs) {
+            ConfigTechItem tech = new ConfigTechItem();
+
+            tech.id = (Integer) confTech.get("id");
+            tech.name = (String) confTech.get("name");
+            tech.require_tech = (String) confTech.get("require_tech");
+            tech_maps.put(tech.id, tech);
+        }
+        CivLog.info("Loaded " + tech_maps.size() + " technologies.");
+    }
+
 }

@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -23,17 +23,17 @@ import org.bukkit.inventory.ItemStack;
 
 public class DelayItemDrop implements Runnable {
 
-	Location loc;
-	ItemStack stack;
-	
-	public DelayItemDrop(ItemStack stack, Location loc) {
-		this.loc = loc;
-		this.stack = stack;
-	}
-	
-	@Override
-	public void run() {
-		loc.getWorld().dropItem(loc, stack);
-	}
+    Location loc;
+    ItemStack stack;
+
+    public DelayItemDrop(ItemStack stack, Location loc) {
+        this.loc = loc;
+        this.stack = stack;
+    }
+
+    @Override
+    public void run() {
+        loc.getWorld().dropItem(loc, stack);
+    }
 
 }

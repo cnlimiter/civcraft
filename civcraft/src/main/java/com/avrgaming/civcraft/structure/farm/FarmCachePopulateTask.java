@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -25,26 +25,26 @@ import com.avrgaming.civcraft.main.CivGlobal;
 
 public class FarmCachePopulateTask implements Runnable {
 
-	LinkedList<FarmChunk> farms;
-	
-	public FarmCachePopulateTask(LinkedList<FarmChunk> farms) {
-		this.farms = farms;
-	}
-	
-	@Override
-	public void run() {
-		if (!CivGlobal.growthEnabled) {
-			return;
-		}
-		
-		for (FarmChunk fc : farms) {
-			try {
-				fc.populateCropLocationCache();
-			} catch (Exception e){
-				e.printStackTrace();
-			}
-		}
+    LinkedList<FarmChunk> farms;
 
-	}
+    public FarmCachePopulateTask(LinkedList<FarmChunk> farms) {
+        this.farms = farms;
+    }
+
+    @Override
+    public void run() {
+        if (!CivGlobal.growthEnabled) {
+            return;
+        }
+
+        for (FarmChunk fc : farms) {
+            try {
+                fc.populateCropLocationCache();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
 }

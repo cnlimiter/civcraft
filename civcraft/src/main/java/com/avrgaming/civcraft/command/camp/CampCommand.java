@@ -35,7 +35,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
-public class CampCommand extends CommandBase{
+public class CampCommand extends CommandBase {
     public static final long INVITE_TIMEOUT = 30000; //30 seconds
 
     @Override

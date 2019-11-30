@@ -7,5 +7,5 @@ import com.avrgaming.civcraft.exception.CivException;
 
 
 public interface GuiAction {
-	public void performAction(InventoryClickEvent event, ItemStack stack) throws CivException;
+    public void performAction(InventoryClickEvent event, ItemStack stack) throws CivException;
 }

@@ -22,7 +22,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class BookGoodsCiv  implements GuiAction {
+public class BookGoodsCiv implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         Player player = (Player) event.getWhoClicked();

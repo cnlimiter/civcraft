@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -40,53 +40,82 @@ import com.avrgaming.civcraft.object.BuildableDamageBlock;
 
 public abstract class ItemComponent {
 
-	//public static ConcurrentHashMap<String, ArrayList<ItemComponent>> componentsByType = new ConcurrentHashMap<String, ArrayList<ItemComponent>>();
-	public static ReentrantLock lock = new ReentrantLock();
-	
-	private HashMap<String, String> attributes = new HashMap<String, String>();
-	private String name;
-	
-	public void createComponent() {
-		
-	}
-	
-	public void destroyComponent() {
-		
-	}
+    //public static ConcurrentHashMap<String, ArrayList<ItemComponent>> componentsByType = new ConcurrentHashMap<String, ArrayList<ItemComponent>>();
+    public static ReentrantLock lock = new ReentrantLock();
 
-	public String getName() {
-		return name;
-	}
+    private HashMap<String, String> attributes = new HashMap<String, String>();
+    private String name;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void createComponent() {
 
-	public String getString(String key) {
-		return attributes.get(key);
-	}
-	
-	public double getDouble(String key) {
-		return Double.valueOf(attributes.get(key));
-	}
-	
-	public void setAttribute(String key, String value) {
-		attributes.put(key, value);
-	}
-	
-	public abstract void onPrepareCreate(AttributeUtil attrUtil);
-	public void onDurabilityChange(PlayerItemDamageEvent event) {}
-	public void onDefense(EntityDamageByEntityEvent event, ItemStack stack) {}
-	public void onInteract(PlayerInteractEvent event) {}
-	public int onStructureBlockBreak(BuildableDamageBlock sb, int damage) { return damage; }
-	public void onItemSpawn(ItemSpawnEvent event) {}
-	public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {}
-	public void onPlayerLeashEvent(PlayerLeashEntityEvent event) {}
-	public void onRangedAttack(EntityDamageByEntityEvent event, ItemStack inHand) {}
-	public ItemChangeResult onDurabilityDeath(PlayerDeathEvent event, ItemChangeResult result, ItemStack stack) { return result; }
-	public void onAttack(EntityDamageByEntityEvent event, ItemStack inHand) {}
-	public boolean onBlockPlaced(BlockPlaceEvent event) { return false;	}
-	public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {	}
-	public void onHold(PlayerItemHeldEvent event) {	}
+    }
+
+    public void destroyComponent() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getString(String key) {
+        return attributes.get(key);
+    }
+
+    public double getDouble(String key) {
+        return Double.valueOf(attributes.get(key));
+    }
+
+    public void setAttribute(String key, String value) {
+        attributes.put(key, value);
+    }
+
+    public abstract void onPrepareCreate(AttributeUtil attrUtil);
+
+    public void onDurabilityChange(PlayerItemDamageEvent event) {
+    }
+
+    public void onDefense(EntityDamageByEntityEvent event, ItemStack stack) {
+    }
+
+    public void onInteract(PlayerInteractEvent event) {
+    }
+
+    public int onStructureBlockBreak(BuildableDamageBlock sb, int damage) {
+        return damage;
+    }
+
+    public void onItemSpawn(ItemSpawnEvent event) {
+    }
+
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+    }
+
+    public void onPlayerLeashEvent(PlayerLeashEntityEvent event) {
+    }
+
+    public void onRangedAttack(EntityDamageByEntityEvent event, ItemStack inHand) {
+    }
+
+    public ItemChangeResult onDurabilityDeath(PlayerDeathEvent event, ItemChangeResult result, ItemStack stack) {
+        return result;
+    }
+
+    public void onAttack(EntityDamageByEntityEvent event, ItemStack inHand) {
+    }
+
+    public boolean onBlockPlaced(BlockPlaceEvent event) {
+        return false;
+    }
+
+    public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {
+    }
+
+    public void onHold(PlayerItemHeldEvent event) {
+    }
 
 }

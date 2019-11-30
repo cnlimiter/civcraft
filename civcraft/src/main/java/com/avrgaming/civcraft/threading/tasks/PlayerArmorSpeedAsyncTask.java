@@ -7,20 +7,20 @@ import com.avrgaming.civcraft.object.Resident;
 
 public class PlayerArmorSpeedAsyncTask implements Runnable {
 
-	Player player;
-	
-	public PlayerArmorSpeedAsyncTask(Player player) {
-		this.player = player;
-	}
+    Player player;
 
-	@Override
-	public void run() {		
-		doArmorSpeedCheck();
-	}
-	
-	public void doArmorSpeedCheck() {
-		Resident resident = CivGlobal.getResident(this.player);
-		resident.calculateWalkingModifier(this.player);
-	}
+    public PlayerArmorSpeedAsyncTask(Player player) {
+        this.player = player;
+    }
+
+    @Override
+    public void run() {
+        doArmorSpeedCheck();
+    }
+
+    public void doArmorSpeedCheck() {
+        Resident resident = CivGlobal.getResident(this.player);
+        resident.calculateWalkingModifier(this.player);
+    }
 
 }

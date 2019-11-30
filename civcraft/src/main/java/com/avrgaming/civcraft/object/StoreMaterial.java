@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -19,15 +19,15 @@
 package com.avrgaming.civcraft.object;
 
 public class StoreMaterial {
-	public int type;
-	public byte data;
-	public String name;
-	public double price;
-	
-	public StoreMaterial(String strtype, String strdata, String strname, String strprice) {		
-		type = Integer.valueOf(strtype);
-		data = Integer.valueOf(strdata).byteValue();
-		name = strname;
-		price = Double.valueOf(strprice);
-	}
+    public int type;
+    public byte data;
+    public String name;
+    public double price;
+
+    public StoreMaterial(String strtype, String strdata, String strname, String strprice) {
+        type = Integer.valueOf(strtype);
+        data = Integer.valueOf(strdata).byteValue();
+        name = strname;
+        price = Double.valueOf(strprice);
+    }
 }

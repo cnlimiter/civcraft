@@ -18,10 +18,10 @@ import org.bukkit.inventory.ItemStack;
 import java.sql.SQLException;
 
 public class ChooseTalent
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident whoClicked = CivGlobal.getResident(player);
         Civilization civ = whoClicked.getCiv();
         Town capitol = civ.getCapitol();
@@ -33,29 +33,27 @@ implements GuiAction {
         String description = LoreGuiItem.getActionData(stack, "description");
         Integer number = Integer.valueOf(LoreGuiItem.getActionData(stack, "number"));
         if (capitol.highestTalentLevel() >= level) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("cmd_civ_talent_choose_notNow", civ.getCapitol().getName(), civ.getCapitol().getCultureLevel() + 1));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_talent_choose_notNow", civ.getCapitol().getName(), civ.getCapitol().getCultureLevel() + 1));
             return;
         }
         Talent talent = new Talent(level, buff);
         try {
             capitol.addTalent(talent);
             capitol.saveNow();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (CivException e) {
-			e.printStackTrace();
-		}
+            e.printStackTrace();
+        }
         CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_talent_choose_sucusses", player.getDisplayName(), number, description, capitol.getCultureLevel()));
-        CivMessage.send((Object)player, "§a" + CivSettings.localize.localizedString("cmd_civ_talent_choose_sucussesSender"));
+        CivMessage.send((Object) player, "§a" + CivSettings.localize.localizedString("cmd_civ_talent_choose_sucussesSender"));
         player.closeInventory();
     }
 
     protected void addBuffToTown(Town town, String id) {
         try {
             town.getBuffManager().addBuff(id, id, "Capitol in " + town.getName());
-        }
-        catch (CivException e) {
+        } catch (CivException e) {
             e.printStackTrace();
         }
     }

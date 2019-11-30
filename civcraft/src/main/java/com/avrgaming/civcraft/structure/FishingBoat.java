@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -42,52 +42,52 @@ import com.avrgaming.civcraft.object.TradeGood;
 
 public class FishingBoat extends TradeOutpost {
 
-	/*
-	 * Fishing boats extend trade outposts, so we only need to
-	 * override methods that are relevant to the construction of the
-	 * goodie's tower.
-	 */
-	public static int WATER_LEVEL = 62;
-	public static int TOLERANCE = 20;
-	
-	protected FishingBoat(Location center, String id, Town town)
-			throws CivException {
-		super(center, id, town);
-	}
+    /*
+     * Fishing boats extend trade outposts, so we only need to
+     * override methods that are relevant to the construction of the
+     * goodie's tower.
+     */
+    public static int WATER_LEVEL = 62;
+    public static int TOLERANCE = 20;
 
-	protected FishingBoat(ResultSet rs) throws SQLException, CivException {
-		super(rs);
-	}
-	
-	@Override
-	public String getMarkerIconName() {
-		return "anchor";
-	}
-	
-	@Override
-	public void build_trade_outpost(Location centerLoc) throws CivException {
-		
-		/* Add trade good to town. */
-		TradeGood good = CivGlobal.getTradeGood(tradeGoodCoord);
-		if (good == null) {
-			throw new CivException(CivSettings.localize.localizedString("tradeOutpost_notFound")+good);
-		}
-		
-		if (!good.getInfo().water) {
-			throw new CivException(CivSettings.localize.localizedString("fishingBoat_notWater"));
-		}
-		
-		if (good.getTown() != null) {
-			throw new CivException(CivSettings.localize.localizedString("tradeOutpost_alreadyClaimed"));
-		}
-		
-		good.setStruct(this);
-		good.setTown(this.getTown());
-		good.setCiv(this.getTown().getCiv());
-		/* Save the good *afterwards* so the structure id is properly set. */
-		this.setGood(good);
-	}
-	
+    protected FishingBoat(Location center, String id, Town town)
+            throws CivException {
+        super(center, id, town);
+    }
+
+    protected FishingBoat(ResultSet rs) throws SQLException, CivException {
+        super(rs);
+    }
+
+    @Override
+    public String getMarkerIconName() {
+        return "anchor";
+    }
+
+    @Override
+    public void build_trade_outpost(Location centerLoc) throws CivException {
+
+        /* Add trade good to town. */
+        TradeGood good = CivGlobal.getTradeGood(tradeGoodCoord);
+        if (good == null) {
+            throw new CivException(CivSettings.localize.localizedString("tradeOutpost_notFound") + good);
+        }
+
+        if (!good.getInfo().water) {
+            throw new CivException(CivSettings.localize.localizedString("fishingBoat_notWater"));
+        }
+
+        if (good.getTown() != null) {
+            throw new CivException(CivSettings.localize.localizedString("tradeOutpost_alreadyClaimed"));
+        }
+
+        good.setStruct(this);
+        good.setTown(this.getTown());
+        good.setCiv(this.getTown().getCiv());
+        /* Save the good *afterwards* so the structure id is properly set. */
+        this.setGood(good);
+    }
+
 //	@Override
 //	public void build_trade_outpost_tower() throws CivException {
 //		/* Add trade good to town. */
@@ -141,61 +141,58 @@ public class FishingBoat extends TradeOutpost {
 //		
 //		this.frameStore.setBuildable(this);
 //	}
-	
-	
-	@Override
-	protected Location repositionCenter(Location center, String dir, double x_size, double z_size) {
-		Location loc = new Location(center.getWorld(), 
-				center.getX(), center.getY(), center.getZ(), 
-				center.getYaw(), center.getPitch());
-		
-		// Reposition tile improvements
-		if (this.isTileImprovement()) {
-			// just put the center at 0,0 of this chunk?
-			loc = center.getChunk().getBlock(0, center.getBlockY(), 0).getLocation();
-			//loc = center.getChunk().getBlock(arg0, arg1, arg2)
-		} else {
-			if (dir.equalsIgnoreCase("east")) {
-				loc.setZ(loc.getZ() - (z_size / 2));
-				loc.setX(loc.getX() + SHIFT_OUT);
-			}
-			else if (dir.equalsIgnoreCase("west")) {
-				loc.setZ(loc.getZ() - (z_size / 2));
-				loc.setX(loc.getX() - (SHIFT_OUT+x_size));
-	
-			}
-			else if (dir.equalsIgnoreCase("north")) {
-				loc.setX(loc.getX() - (x_size / 2));
-				loc.setZ(loc.getZ() - (SHIFT_OUT+z_size));
-			}
-			else if (dir.equalsIgnoreCase("south")) {
-				loc.setX(loc.getX() - (x_size / 2));
-				loc.setZ(loc.getZ() + SHIFT_OUT);
-	
-			}
-		}
-		
-		if (this.getTemplateYShift() != 0) {
-			// Y-Shift based on the config, this allows templates to be built underground.
-			loc.setY(WATER_LEVEL + this.getTemplateYShift());
-		}
-	
-		return loc;
-	}
 
-	@Override
-	public void onLoad() throws CivException {
-		super.createTradeGood();
-	}
-	
-	@Override
-	protected void checkBlockPermissionsAndRestrictions(Player player, Block centerBlock, int regionX, int regionY, int regionZ, Location savedLocation) throws CivException {
-		super.checkBlockPermissionsAndRestrictions(player, centerBlock, regionX, regionY, regionZ, savedLocation);
-		
-		if ((player.getLocation().getBlockY() - WATER_LEVEL) > TOLERANCE) {
-			throw new CivException(CivSettings.localize.localizedString("fishingBoat_tooDeep"));
-		}
-		
-	}
-	
+
+    @Override
+    protected Location repositionCenter(Location center, String dir, double x_size, double z_size) {
+        Location loc = new Location(center.getWorld(),
+                center.getX(), center.getY(), center.getZ(),
+                center.getYaw(), center.getPitch());
+
+        // Reposition tile improvements
+        if (this.isTileImprovement()) {
+            // just put the center at 0,0 of this chunk?
+            loc = center.getChunk().getBlock(0, center.getBlockY(), 0).getLocation();
+            //loc = center.getChunk().getBlock(arg0, arg1, arg2)
+        } else {
+            if (dir.equalsIgnoreCase("east")) {
+                loc.setZ(loc.getZ() - (z_size / 2));
+                loc.setX(loc.getX() + SHIFT_OUT);
+            } else if (dir.equalsIgnoreCase("west")) {
+                loc.setZ(loc.getZ() - (z_size / 2));
+                loc.setX(loc.getX() - (SHIFT_OUT + x_size));
+
+            } else if (dir.equalsIgnoreCase("north")) {
+                loc.setX(loc.getX() - (x_size / 2));
+                loc.setZ(loc.getZ() - (SHIFT_OUT + z_size));
+            } else if (dir.equalsIgnoreCase("south")) {
+                loc.setX(loc.getX() - (x_size / 2));
+                loc.setZ(loc.getZ() + SHIFT_OUT);
+
+            }
+        }
+
+        if (this.getTemplateYShift() != 0) {
+            // Y-Shift based on the config, this allows templates to be built underground.
+            loc.setY(WATER_LEVEL + this.getTemplateYShift());
+        }
+
+        return loc;
+    }
+
+    @Override
+    public void onLoad() throws CivException {
+        super.createTradeGood();
+    }
+
+    @Override
+    protected void checkBlockPermissionsAndRestrictions(Player player, Block centerBlock, int regionX, int regionY, int regionZ, Location savedLocation) throws CivException {
+        super.checkBlockPermissionsAndRestrictions(player, centerBlock, regionX, regionY, regionZ, savedLocation);
+
+        if ((player.getLocation().getBlockY() - WATER_LEVEL) > TOLERANCE) {
+            throw new CivException(CivSettings.localize.localizedString("fishingBoat_tooDeep"));
+        }
+
+    }
+
 }

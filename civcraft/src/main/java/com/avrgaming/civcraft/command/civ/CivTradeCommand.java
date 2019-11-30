@@ -21,7 +21,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 
 public class CivTradeCommand
-extends CommandBase {
+        extends CommandBase {
     @Override
     public void init() {
         this.command = "/civ trade";
@@ -37,7 +37,7 @@ extends CommandBase {
         this.validLeaderMayor();
         Town from = this.getSelectedTown();
         Civilization to = this.getSenderCiv();
-        if (StringUtils.isBlank((String)from.tradeGoods)) {
+        if (StringUtils.isBlank((String) from.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", CivColor.Gold + from.getName() + CivColor.Red));
         }
         Inventory withdrawInventory = this.genInventory(this.getPlayer(), 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_gift_giftInvName"), CivColor.RoseBold + from.getName());
@@ -64,7 +64,7 @@ extends CommandBase {
         this.validLeaderCiv();
         Civilization from = this.getSenderCiv();
         Town to = this.getSelectedTown();
-        if (StringUtils.isBlank((String)from.tradeGoods)) {
+        if (StringUtils.isBlank((String) from.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
         }
         Inventory gepositInventory = this.genInventory(this.getPlayer(), 54, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_gift_giftInvName"), CivColor.RoseBold + from.getName());
@@ -89,7 +89,7 @@ extends CommandBase {
     public void listtown_cmd() throws CivException {
         this.validLeaderMayor();
         Town town = this.getSelectedTown();
-        if (StringUtils.isBlank((String)town.tradeGoods)) {
+        if (StringUtils.isBlank((String) town.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", CivColor.Gold + town.getName() + CivColor.Red));
         }
         Inventory listInventory = this.genInventory(this.getPlayer(), 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listtown_listInvName"), CivColor.RoseBold + town.getName());
@@ -109,7 +109,7 @@ extends CommandBase {
     public void listciv_cmd() throws CivException {
         this.validLeaderCiv();
         Civilization civ = this.getSenderCiv();
-        if (StringUtils.isBlank((String)civ.tradeGoods)) {
+        if (StringUtils.isBlank((String) civ.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
         }
         Inventory listInventory = this.genInventory(this.getPlayer(), 54, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listciv_listInvName"), CivColor.RoseBold + civ.getName());
@@ -129,7 +129,7 @@ extends CommandBase {
     public void gift_cmd() throws CivException {
         this.validLeaderCiv();
         Civilization from = this.getSenderCiv();
-        if (StringUtils.isBlank((String)from.tradeGoods)) {
+        if (StringUtils.isBlank((String) from.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
         }
         Civilization to = this.getNamedCiv(1);
@@ -192,11 +192,11 @@ extends CommandBase {
     }
 
     private Inventory genInventory(Player player, int size, String text, String more) {
-        return Bukkit.getServer().createInventory((InventoryHolder)player, size, this.formatTextForGui(text + " " + more));
+        return Bukkit.getServer().createInventory((InventoryHolder) player, size, this.formatTextForGui(text + " " + more));
     }
 
     private String formatTextForGui(String text) {
-        return StringUtils.left((String)text, (int)32);
+        return StringUtils.left((String) text, (int) 32);
     }
 
     public String getBonusDisplayString(ConfigTradeGood configTradeGood, String addText) {
@@ -204,9 +204,9 @@ extends CommandBase {
         out.append(CivColor.PurpleItalic + CivSettings.localize.localizedString("var_tradeGood_heading"));
         out.append(";");
         for (ConfigBuff cBuff : configTradeGood.buffs.values()) {
-            out.append((Object)ChatColor.UNDERLINE).append(cBuff.name);
+            out.append((Object) ChatColor.UNDERLINE).append(cBuff.name);
             out.append(";");
-            out.append(CivColor.RESET + (Object)ChatColor.ITALIC).append(cBuff.description);
+            out.append(CivColor.RESET + (Object) ChatColor.ITALIC).append(cBuff.description);
             out.append(";");
         }
         if (configTradeGood.water) {
@@ -215,7 +215,7 @@ extends CommandBase {
             out.append(CivColor.Green + CivSettings.localize.localizedString("var_tradegood_earth"));
         }
         out.append(";");
-        if (!StringUtils.isBlank((String)addText)) {
+        if (!StringUtils.isBlank((String) addText)) {
             out.append(addText);
             out.append(";");
         }

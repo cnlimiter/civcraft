@@ -1,11 +1,11 @@
 /*************************************************************************
- * 
+ *
  * AVRGAMING LLC
  * __________________
- * 
+ *
  *  [2013] AVRGAMING LLC
  *  All Rights Reserved.
- * 
+ *
  * NOTICE:  All information contained herein is, and remains
  * the property of AVRGAMING LLC and its suppliers,
  * if any.  The intellectual and technical concepts contained
@@ -36,44 +36,44 @@ import java.util.Calendar;
 
 public class HourlyTickEvent implements EventInterface {
 
-	@Override
-	public void process() {
-		CivLog.info("TimerEvent: Hourly -------------------------------------");
-		TaskMaster.asyncTask("cultureProcess", new CultureProcessAsyncTask(), 0);
-		TaskMaster.asyncTask("EffectEventTimer", new EffectEventTimer(), 0);
-		TaskMaster.syncTask(new SyncTradeTimer(), 0);
-		TaskMaster.syncTask(new CampHourlyTick(), 0);
-		
-		for (Civilization civ : CivGlobal.getCivs()) {
+    @Override
+    public void process() {
+        CivLog.info("TimerEvent: Hourly -------------------------------------");
+        TaskMaster.asyncTask("cultureProcess", new CultureProcessAsyncTask(), 0);
+        TaskMaster.asyncTask("EffectEventTimer", new EffectEventTimer(), 0);
+        TaskMaster.syncTask(new SyncTradeTimer(), 0);
+        TaskMaster.syncTask(new CampHourlyTick(), 0);
+
+        for (Civilization civ : CivGlobal.getCivs()) {
             if (civ.getCapitol().highestTalentLevel() >= civ.getCapitol().getCultureLevel()) continue;
             CivMessage.sendCiv(civ, CivSettings.localize.localizedString("PlayerLoginAsync_civTalentNotUsed"));
         }
         for (Civilization civ : CivGlobal.getCivs()) {
             if (!civ.getMissionActive()) continue;
             Integer currentMission = civ.getCurrentMission();
-            String missionName = CivSettings.spacemissions_levels.get((Object)currentMission).name;
+            String missionName = CivSettings.spacemissions_levels.get((Object) currentMission).name;
             String[] split = civ.getMissionProgress().split(":");
             double completedBeakers = Math.round(Double.valueOf(split[0]));
             double completedHammers = Math.round(Double.valueOf(split[1]));
-            int percentageCompleteBeakers = (int)((double)Math.round(Double.parseDouble(split[0])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)civ.getCurrentMission())).require_beakers) * 100.0);
-            int percentageCompleteHammers = (int)((double)Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object)Integer.valueOf((int)civ.getCurrentMission())).require_hammers) * 100.0);
+            int percentageCompleteBeakers = (int) ((double) Math.round(Double.parseDouble(split[0])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).require_beakers) * 100.0);
+            int percentageCompleteHammers = (int) ((double) Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).require_hammers) * 100.0);
             CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_spaceshuttle_progress", CivColor.Red + missionName + CivColor.RESET, "§b" + completedBeakers + CivColor.Red + "(" + percentageCompleteBeakers + "%)" + CivColor.RESET, CivColor.LightGray + completedHammers + CivColor.Red + "(" + percentageCompleteHammers + "%)" + CivColor.RESET));
         }
-		
-		CivLog.info("TimerEvent: Hourly Finished -----------------------------");
-	}
 
-	@Override
-	public Calendar getNextDate() throws InvalidConfiguration {
-		SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
-		Calendar cal = EventTimer.getCalendarInServerTimeZone();
+        CivLog.info("TimerEvent: Hourly Finished -----------------------------");
+    }
 
-		int hourly_peroid = CivSettings.getInteger(CivSettings.civConfig, "global.hourly_tick");
-		cal.set(Calendar.SECOND, 0);
-		cal.set(Calendar.MINUTE, 0);
-		cal.add(Calendar.SECOND, hourly_peroid);
-		sdf.setTimeZone(cal.getTimeZone());
-		return cal;
-	}
+    @Override
+    public Calendar getNextDate() throws InvalidConfiguration {
+        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+        Calendar cal = EventTimer.getCalendarInServerTimeZone();
+
+        int hourly_peroid = CivSettings.getInteger(CivSettings.civConfig, "global.hourly_tick");
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.add(Calendar.SECOND, hourly_peroid);
+        sdf.setTimeZone(cal.getTimeZone());
+        return cal;
+    }
 
 }

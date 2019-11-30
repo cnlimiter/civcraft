@@ -9,11 +9,11 @@ import org.bukkit.inventory.ItemStack;
 import com.avrgaming.civcraft.loregui.GuiAction;
 
 public class BookGoodsListAll
-implements GuiAction {
+        implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
-        Bukkit.dispatchCommand((CommandSender)player, (String)"c trade");
+        Player player = (Player) event.getWhoClicked();
+        Bukkit.dispatchCommand((CommandSender) player, (String) "c trade");
         player.closeInventory();
     }
 }

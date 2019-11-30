@@ -36,7 +36,7 @@ import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.SimpleBlock;
 
 public class Ordinary
-extends Structure {
+        extends Structure {
     private int index = 0;
     private StructureSign artifactNameSign;
     private ConfigUnit trainingArtifact = null;
@@ -76,8 +76,7 @@ extends Structure {
             try {
                 this.artifactNameSign.setText(this.getArtifactSignText(newIndex));
                 this.index = newIndex;
-            }
-            catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+            } catch (IndexOutOfBoundsException indexOutOfBoundsException) {
                 // empty catch block
             }
             this.artifactNameSign.update();
@@ -143,9 +142,8 @@ extends Structure {
                     }
                     this.train();
                     break;
-                }
-                catch (CivException e) {
-                    CivMessage.send((Object)player, CivColor.Red + e.getMessage());
+                } catch (CivException e) {
+                    CivMessage.send((Object) player, CivColor.Red + e.getMessage());
                 }
             }
         }
@@ -154,7 +152,7 @@ extends Structure {
     @Override
     public void onTechUpdate() {
         class OrdinarySyncUpdate
-        implements Runnable {
+                implements Runnable {
             StructureSign artifactNameSign;
 
             public OrdinarySyncUpdate(StructureSign unitNameSign) {
@@ -177,7 +175,7 @@ extends Structure {
                 ItemManager.setTypeId(absCoord.getBlock(), sb.getType());
                 ItemManager.setData(absCoord.getBlock(), sb.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("ordinary_sign_previousArtifact"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("ordinary_sign_previousArtifact"));
                 structSign.setDirection(sb.getData());
                 structSign.setAction("prev");
                 structSign.update();
@@ -202,7 +200,7 @@ extends Structure {
                 ItemManager.setTypeId(absCoord.getBlock(), sb.getType());
                 ItemManager.setData(absCoord.getBlock(), sb.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("ordinary_sign_nextArtifact"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("ordinary_sign_nextArtifact"));
                 structSign.setDirection(sb.getData());
                 structSign.setAction("next");
                 structSign.update();
@@ -214,7 +212,7 @@ extends Structure {
                 ItemManager.setTypeId(absCoord.getBlock(), sb.getType());
                 ItemManager.setData(absCoord.getBlock(), sb.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object)ChatColor.BOLD + (Object)ChatColor.UNDERLINE + CivSettings.localize.localizedString("ordinary_sign_do"));
+                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("ordinary_sign_do"));
                 structSign.setDirection(sb.getData());
                 structSign.setAction("train");
                 structSign.update();
@@ -258,12 +256,13 @@ extends Structure {
     }
 
     public void createArtifact(ConfigUnit artifact) {
-        block4 : {
+        block4:
+        {
             ArrayList<StructureChest> chests = this.getAllChestsById(0);
             if (chests.size() == 0) {
                 return;
             }
-            Chest chest = (Chest)chests.get(0).getCoord().getBlock().getState();
+            Chest chest = (Chest) chests.get(0).getCoord().getBlock().getState();
             try {
                 Class<?> c = Class.forName("com.avrgaming.civcraft.items.units." + artifact.class_name);
                 Method m = c.getMethod("spawn", Inventory.class, Town.class);
@@ -272,13 +271,11 @@ extends Structure {
                 this.trainingArtifact = null;
                 this.currentHammers = 0.0;
                 CivGlobal.getSessionDB().delete_all(this.getSessionKey());
-            }
-            catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
+            } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
                 this.trainingArtifact = null;
                 this.currentHammers = 0.0;
                 CivMessage.sendTown(this.getTown(), "§4" + CivSettings.localize.localizedString("ordinary_errorUnknown") + e.getMessage());
-            }
-            catch (InvocationTargetException e) {
+            } catch (InvocationTargetException e) {
                 CivMessage.sendTown(this.getTown(), CivColor.Red + e.getCause().getMessage());
                 this.currentHammers -= 20.0;
                 if (this.currentHammers >= 0.0) break block4;
@@ -290,7 +287,7 @@ extends Structure {
     public void updateProgressBar() {
         double percentageDone = this.currentHammers / this.trainingArtifact.hammer_cost;
         int size = this.progresBar.size();
-        int textCount = (int)((double)(size * 16) * percentageDone);
+        int textCount = (int) ((double) (size * 16) * percentageDone);
         int textIndex = 0;
         for (int i = 0; i < size; ++i) {
             StructureSign structSign = this.progresBar.get(i);
