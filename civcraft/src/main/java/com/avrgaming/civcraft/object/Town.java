@@ -18,45 +18,8 @@
  */
 package com.avrgaming.civcraft.object;
 
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-
-import net.md_5.itag.iTag;
-
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
-import com.avrgaming.civcraft.components.AttributeBase;
-import com.avrgaming.civcraft.components.AttributeRate;
-import com.avrgaming.civcraft.components.AttributeWarUnhappiness;
-import com.avrgaming.civcraft.components.AttributeWarUnpkeep;
-import com.avrgaming.civcraft.components.Component;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigBuff;
-import com.avrgaming.civcraft.config.ConfigBuildableInfo;
-import com.avrgaming.civcraft.config.ConfigCultureLevel;
-import com.avrgaming.civcraft.config.ConfigGovernment;
-import com.avrgaming.civcraft.config.ConfigHappinessState;
-import com.avrgaming.civcraft.config.ConfigTownLevel;
-import com.avrgaming.civcraft.config.ConfigTownUpgrade;
-import com.avrgaming.civcraft.config.ConfigTradeGood;
-import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.components.*;
+import com.avrgaming.civcraft.config.*;
 import com.avrgaming.civcraft.database.SQL;
 import com.avrgaming.civcraft.database.SQLUpdate;
 import com.avrgaming.civcraft.exception.AlreadyRegisteredException;
@@ -73,39 +36,32 @@ import com.avrgaming.civcraft.permission.PermissionGroup;
 import com.avrgaming.civcraft.randomevents.RandomEvent;
 import com.avrgaming.civcraft.road.Road;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
-import com.avrgaming.civcraft.structure.Bank;
-import com.avrgaming.civcraft.structure.Buildable;
-import com.avrgaming.civcraft.structure.Capitol;
-import com.avrgaming.civcraft.structure.Cottage;
-import com.avrgaming.civcraft.structure.Factory;
-import com.avrgaming.civcraft.structure.FishingBoat;
-import com.avrgaming.civcraft.structure.Mine;
-import com.avrgaming.civcraft.structure.Quarry;
-import com.avrgaming.civcraft.structure.ResearchLab;
-import com.avrgaming.civcraft.structure.School;
-import com.avrgaming.civcraft.structure.SilkWorkFarm;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.Temple;
-import com.avrgaming.civcraft.structure.TownHall;
-import com.avrgaming.civcraft.structure.TradeOutpost;
-import com.avrgaming.civcraft.structure.TradeShip;
-import com.avrgaming.civcraft.structure.University;
-import com.avrgaming.civcraft.structure.Wall;
+import com.avrgaming.civcraft.structure.*;
 import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.template.Template;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.threading.sync.SyncUpdateTags;
 import com.avrgaming.civcraft.threading.tasks.BuildAsyncTask;
 import com.avrgaming.civcraft.threading.tasks.BuildUndoTask;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.ChunkCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.DateUtil;
-import com.avrgaming.civcraft.util.ItemFrameStorage;
-import com.avrgaming.civcraft.util.WorldCord;
+import com.avrgaming.civcraft.util.*;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.global.perks.Perk;
 import com.avrgaming.global.perks.components.CustomTemplate;
+import net.md_5.itag.iTag;
+import org.apache.commons.lang.StringUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Town extends SQLObject {
 
@@ -3660,7 +3616,7 @@ public class Town extends SQLObject {
             if (talentUnparsed == null) {
                 continue;
             }
-            String[] talentParsed = talentUnparsed.split(".");
+            String[] talentParsed = talentUnparsed.split("\\.");
             Talent talent = new Talent(Integer.valueOf(talentParsed[0]), talentParsed[1]);
             this.talents.add(talent);
             if (!this.getBuffManager().hasBuff(talent.buff) && talent.buff != null) {

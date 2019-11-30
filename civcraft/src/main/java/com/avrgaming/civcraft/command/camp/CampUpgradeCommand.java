@@ -116,7 +116,7 @@ public class CampUpgradeCommand extends CommandBase {
             } catch (CivException e) {
                 e.printStackTrace();
             }
-            return list.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
+            return list.stream().filter(s -> s.startsWith(args[1])).collect(Collectors.toList());
         }
         return super.onTabComplete(sender, command, alias, args);
     }

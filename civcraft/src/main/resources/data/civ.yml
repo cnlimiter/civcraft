@@ -80,8 +80,8 @@ global:
    #If true, disables EXP enchanting and repair.
    use_exp_as_currency: true
 
-   #Use Vault for player economy. Default: false
-   #Data will still be loaded from and saved to the database, but it will now be linked to Vault
+   # Use Vault for player economy. Default: false
+   # Data will still be loaded from and saved to the database, but it will now be linked to Vault
    use_vault: false
 
 newspaper:

@@ -659,7 +659,6 @@ public class Camp extends Buildable {
 
     public void processLonghouse() {
         MultiInventory mInv = new MultiInventory();
-
         for (BlockCoord bcoord : this.foodDepositPoints) {
             Block b = bcoord.getBlock();
             if (b.getState() instanceof Chest) {

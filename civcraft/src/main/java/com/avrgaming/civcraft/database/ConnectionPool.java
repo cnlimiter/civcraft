@@ -1,11 +1,11 @@
 package com.avrgaming.civcraft.database;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import com.jolbox.bonecp.BoneCP;
 import com.jolbox.bonecp.BoneCPConfig;
 import com.jolbox.bonecp.Statistics;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class ConnectionPool {
 
@@ -31,7 +31,7 @@ public class ConnectionPool {
 		 * 
 		 * We'll use a connection pool and reuse connections on a per-thread basis. 
 		 */
-				
+
 		/* setup the connection pool */
 		BoneCPConfig config = new BoneCPConfig();
 		config.setJdbcUrl(dbcUrl); 
@@ -42,7 +42,7 @@ public class ConnectionPool {
 		config.setPartitionCount(partCount);
 		// Enable only for debugging.
 		//config.setCloseConnectionWatch(true);
-		
+
 		pool = new BoneCP(config);
 	}
 	

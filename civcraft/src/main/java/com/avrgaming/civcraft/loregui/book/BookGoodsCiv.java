@@ -22,23 +22,22 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class BookGoodsCiv
-implements GuiAction {
+public class BookGoodsCiv  implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
-        Player player = (Player)event.getWhoClicked();
+        Player player = (Player) event.getWhoClicked();
         Resident resident = CivGlobal.getResident(player);
         Civilization civ = resident.getCiv();
         if (civ == null) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
             return;
         }
         if (!civ.getLeaderGroup().hasMember(resident)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("var_virtualTG_noPerm", "§6" + civ.getName() + CivColor.Red));
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noPerm", "§6" + civ.getName() + CivColor.Red));
             return;
         }
-        if (StringUtils.isBlank((String)civ.tradeGoods)) {
-            CivMessage.sendError((Object)player, CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
+        if (StringUtils.isBlank((String) civ.tradeGoods)) {
+            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_trade_gift_noGoods"));
             return;
         }
         Inventory listInventory = Bukkit.getServer().createInventory(player, 54, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listciv_listInvName", CivColor.RoseBold + civ.getName()));
