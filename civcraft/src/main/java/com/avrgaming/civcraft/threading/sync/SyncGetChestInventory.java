@@ -34,7 +34,7 @@ public class SyncGetChestInventory implements Runnable {
     public static final int TIMEOUT_SECONDS = 2;
     public static final int UPDATE_LIMIT = 250;
 
-    public static ReentrantLock lock;
+    public static ReentrantLock lock = new ReentrantLock();
     private Object synchronizer = new Object();
 
     public static ConcurrentLinkedQueue<GetChestRequest> requestQueue =
@@ -45,7 +45,6 @@ public class SyncGetChestInventory implements Runnable {
     }
 
     public SyncGetChestInventory() {
-        lock = new ReentrantLock();
     }
 
     @Override
@@ -69,6 +68,10 @@ public class SyncGetChestInventory implements Runnable {
                             chest = (Chest) b.getState();
                         }
                     }
+                    // 看看能不能解决
+//                    if (chest == null) {
+//                        continue;
+//                    }
                     request.result = chest.getBlockInventory();
                     request.finished = true;
                     request.condition.signalAll();

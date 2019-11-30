@@ -85,7 +85,7 @@ public class EffectEventTimer extends CivAsyncTask {
                     if (struct instanceof Mine) {
                         Mine mine = (Mine) struct;
                         try {
-                            mine.process_mine(this);
+                            mine. process_mine(this);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

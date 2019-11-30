@@ -42,7 +42,6 @@ public class SyncLoadChunk implements Runnable {
 
     @Override
     public void run() {
-
         if (lock.tryLock()) {
             try {
                 for (int i = 0; i < UPDATE_LIMIT; i++) {
