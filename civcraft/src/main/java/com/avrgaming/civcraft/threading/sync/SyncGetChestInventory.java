@@ -57,7 +57,8 @@ public class SyncGetChestInventory implements Runnable {
                         continue;
                     }
                     Chest chest = null;
-                    if ((Bukkit.getWorld(request.worldName)).isChunkLoaded(request.block_x >> 4, request.block_z >> 4)) {
+                    //Bukkit.getWorld(request.worldName).getChunkAt(request.block_x,request.block_y).isLoaded()
+                    if (Bukkit.getWorld(request.worldName).getChunkAt(request.block_x,request.block_y).isLoaded()) {
                         Block b = Bukkit.getWorld(request.worldName).getBlockAt(request.block_x, request.block_y, request.block_z);
                         try {
                             chest = (Chest) b.getState();
@@ -67,11 +68,9 @@ public class SyncGetChestInventory implements Runnable {
                             b.getState().update();
                             chest = (Chest) b.getState();
                         }
+                    }else {
+                        CivLog.info("chunk is unload");
                     }
-                    // 看看能不能解决
-//                    if (chest == null) {
-//                        continue;
-//                    }
                     request.result = chest.getBlockInventory();
                     request.finished = true;
                     request.condition.signalAll();

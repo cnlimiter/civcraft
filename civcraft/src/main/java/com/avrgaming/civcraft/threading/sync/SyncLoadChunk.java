@@ -66,7 +66,7 @@ public class SyncLoadChunk implements Runnable {
             }
 
         } else {
-            //CivLog.warning("SyncLoadChunk: lock was busy, try again next tick.");
+            CivLog.warning("SyncLoadChunk: lock was busy, try again next tick.");
         }
     }
 

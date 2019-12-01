@@ -93,7 +93,7 @@ public class LoreGuiItem {
             instance.performAction(event, stack);
         } catch (Exception e) {
             try {
-                Class<?> clazz = Class.forName("com.avrgaming.civcraft.loregui.book."+action);
+                Class<?> clazz = Class.forName("com.avrgaming.civcraft.loregui.book." + action);
                 Constructor<?> constructor = clazz.getConstructor();
                 GuiAction instance = (GuiAction) constructor.newInstance();
                 instance.performAction(event, stack);

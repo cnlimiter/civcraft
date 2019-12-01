@@ -65,7 +65,7 @@ public class SyncBuildUpdateTask implements Runnable {
                 for (int i = 0; i < UPDATE_LIMIT; i++) {
                     SimpleBlock next = updateBlocks.poll();
                     if (next == null) {
-                        continue;
+                        break;
                     }
 
                     Block block = Bukkit.getWorld(next.worldname).getBlockAt(next.x, next.y, next.z);
