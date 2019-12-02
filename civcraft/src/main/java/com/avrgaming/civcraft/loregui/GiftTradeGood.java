@@ -15,8 +15,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.sql.SQLException;
 
-public class GiftTradeGood
-        implements GuiAction {
+public class GiftTradeGood implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) throws CivException {
         Player player = (Player) event.getWhoClicked();

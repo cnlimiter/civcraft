@@ -1,18 +1,9 @@
 
 package com.avrgaming.civcraft.loregui.book;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuildableInfo;
 import com.avrgaming.civcraft.config.ConfigTownUpgrade;
-import com.avrgaming.civcraft.tutorial.Book;
 import com.avrgaming.civcraft.loregui.GuiAction;
 import com.avrgaming.civcraft.loregui.OpenInventoryTask;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
@@ -23,11 +14,18 @@ import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.tutorial.Book;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 
-public class BookUpgradesGui
-        implements GuiAction {
+public class BookUpgradesGui implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         Player player = (Player) event.getWhoClicked();

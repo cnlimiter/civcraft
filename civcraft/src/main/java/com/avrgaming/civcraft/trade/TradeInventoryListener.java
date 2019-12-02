@@ -1,8 +1,16 @@
 package com.avrgaming.civcraft.trade;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
+import com.avrgaming.civcraft.main.CivData;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivLog;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.util.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -16,17 +24,8 @@ import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.lorestorage.LoreGuiItem;
-import com.avrgaming.civcraft.main.CivData;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.ItemManager;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class TradeInventoryListener implements Listener {
 
@@ -69,10 +68,11 @@ public class TradeInventoryListener implements Listener {
         public void run() {
             try {
                 Player otherPlayer = CivGlobal.getPlayer(otherResident);
-                if (otherPlayer.getOpenInventory() != otherInventory) {
-                    return;
-                }
-
+                //如果对面关了 ，自己没关 拜访物品会刷在哪
+//                if (otherPlayer.getOpenInventory() != otherInventory) {
+//                    return;
+//                }
+                // inventory仍然存在，但是不显示！
                 if (otherInventory != null) {
                     otherInventory.setItem(destSlot, sourceInventory.getItem(sourceSlot));
                 }
@@ -193,6 +193,7 @@ public class TradeInventoryListener implements Listener {
 
         if (change > 0) {
             /* We're adding coins, so lets check that we have enough coins on our person. */
+            // 我们在加硬币，所以让我们检查一下我们的人身上是否有足够的硬币
             if (pair.resident.getTreasury().getBalance() < (pair.coins + change)) {
                 pair.coins = pair.resident.getTreasury().getBalance();
                 otherPair.otherCoins = pair.coins;
@@ -203,6 +204,7 @@ public class TradeInventoryListener implements Listener {
             }
         } else {
             /* We're removing coins. */
+            //我们在移除
             change *= -1; /* flip sign on change so we can make sense of things */
             if (change > pair.coins) {
                 /* Remove all the offered coins. */
@@ -216,6 +218,7 @@ public class TradeInventoryListener implements Listener {
         }
 
         /* Update our display item. */
+        //更新ui
         ItemStack guiStack;
         if (pair.coins == 0) {
             guiStack = LoreGuiItem.build("" + CivSettings.CURRENCY_NAME + " " + CivSettings.localize.localizedString("resident_tradeOffered"),
@@ -278,7 +281,6 @@ public class TradeInventoryListener implements Listener {
         if (otherPair == null) {
             return;
         }
-
         Inventory savedTradeInventory = pair.inv;
         if (savedTradeInventory == null) {
             return;
@@ -289,12 +291,14 @@ public class TradeInventoryListener implements Listener {
         }
 
         /* Check to see if we've clicked on a button. */
+        // 看看我们是否点击了一个确认按钮。
         if (event.getRawSlot() == MY_SLOT_BUTTON) {
             ItemStack button = event.getInventory().getItem(MY_SLOT_BUTTON);
+            //判断现在的确认状态
             if (ItemManager.getData(button) == CivData.DATA_WOOL_RED) {
-                /* Mark trade as valid. */
+                //确认交易，刷新ui视图
                 markTradeValid(pair);
-
+                // 如果两方都确认了
                 if (pair.valid && otherPair.valid) {
                     try {
                         completeTransaction(pair, otherPair);
@@ -315,7 +319,7 @@ public class TradeInventoryListener implements Listener {
                 }
 
             } else {
-                /* Mark trade as invalid. */
+                // 取消确认
                 markTradeInvalid(pair);
             }
             return;
@@ -339,6 +343,7 @@ public class TradeInventoryListener implements Listener {
 
         if (pair.valid || otherPair.valid) {
             /* We're changing the inventory. Cant be valid anymore. */
+            // 我们正在改变库存。不再有效。
             markTradeInvalid(pair);
             player.updateInventory();
             markTradeInvalid(otherPair);
@@ -380,13 +385,14 @@ public class TradeInventoryListener implements Listener {
             tradeInventories.remove(getTradeInventoryKey(pair.resident));
             tradeInventories.remove(getTradeInventoryKey(otherPair.resident));
 
-            LinkedList<ItemStack> myStuff = new LinkedList<ItemStack>();
-            LinkedList<ItemStack> theirStuff = new LinkedList<ItemStack>();
+            LinkedList<ItemStack> myStuff = new LinkedList<>();
+            LinkedList<ItemStack> theirStuff = new LinkedList<>();
 
             int k = OTHERS_SLOTS_START;
             for (int i = MY_SLOTS_START; i < MY_SLOTS_END; i++, k++) {
 
                 /* Verify that our "mine" inventory matches the other player's "theirs" inventory. */
+                // 就是把自己的 和对面显示自己的做个判断
                 ItemStack stack = pair.inv.getItem(i);
                 ItemStack stack2 = otherPair.inv.getItem(k);
 
@@ -504,15 +510,12 @@ public class TradeInventoryListener implements Listener {
                     them.getPlayer().getWorld().dropItem(them.getLocation(), stack);
                 }
             }
-
-
             CivMessage.sendSuccess(us, CivSettings.localize.localizedString("resident_trade_success"));
             CivMessage.sendSuccess(them, CivSettings.localize.localizedString("resident_trade_success"));
         } finally {
             us.closeInventory();
             them.closeInventory();
         }
-
     }
 
     @EventHandler(priority = EventPriority.LOW)
@@ -535,7 +538,11 @@ public class TradeInventoryListener implements Listener {
         if (!savedTradeInventory.getName().equals(event.getInventory().getName())) {
             return;
         }
-
+        //直接禁止拖动了
+        if (pair.valid){
+            event.setCancelled(true);
+            return;
+        }
         for (int slot : event.getRawSlots()) {
             if (!handleSlotChange(slot, pair)) {
                 event.setCancelled(true);
@@ -561,7 +568,6 @@ public class TradeInventoryListener implements Listener {
         if (pair == null) {
             return;
         }
-
         Inventory savedTradeInventory = pair.inv;
         if (savedTradeInventory == null) {
             return;
@@ -577,7 +583,7 @@ public class TradeInventoryListener implements Listener {
             if (stack == null) {
                 continue;
             }
-
+            // 存不下就丢弃
             HashMap<Integer, ItemStack> leftovers = player.getInventory().addItem(stack);
             for (ItemStack left : leftovers.values()) {
                 player.getWorld().dropItem(player.getLocation(), left);

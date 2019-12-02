@@ -17,8 +17,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.sql.SQLException;
 
-public class ChooseTalent
-        implements GuiAction {
+public class ChooseTalent implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         Player player = (Player) event.getWhoClicked();
