@@ -18,14 +18,6 @@
  */
 package com.avrgaming.civcraft.command.town;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigCultureLevel;
@@ -36,25 +28,18 @@ import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.items.BonusGoodie;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.AttrSource;
-import com.avrgaming.civcraft.object.Buff;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.CultureChunk;
-import com.avrgaming.civcraft.object.Relation;
+import com.avrgaming.civcraft.object.*;
 import com.avrgaming.civcraft.object.Relation.Status;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.object.TradeGood;
-import com.avrgaming.civcraft.structure.Bank;
-import com.avrgaming.civcraft.structure.Buildable;
-import com.avrgaming.civcraft.structure.Cottage;
-import com.avrgaming.civcraft.structure.Mine;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.Temple;
-import com.avrgaming.civcraft.structure.TownHall;
-import com.avrgaming.civcraft.structure.TradeShip;
+import com.avrgaming.civcraft.structure.*;
 import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class TownInfoCommand extends CommandBase {
 
@@ -228,7 +213,7 @@ public class TownInfoCommand extends CommandBase {
         Town town = getSelectedTown();
 
         CivMessage.sendHeading(sender, town.getName() + " " + CivSettings.localize.localizedString("cmd_town_info_buffsHeading"));
-        ArrayList<String> out = new ArrayList<String>();
+        ArrayList<String> out = new ArrayList<>();
 
         for (Buff buff : town.getBuffManager().getAllBuffs()) {
             out.add(CivColor.Green + CivSettings.localize.localizedString("var_BuffsFrom", (CivColor.LightGreen + buff.getDisplayName() + CivColor.Green), CivColor.LightGreen + buff.getSource()));
@@ -452,7 +437,7 @@ public class TownInfoCommand extends CommandBase {
         out.add(CivColor.Green + CivSettings.localize.localizedString("SubTotal") + " " + CivColor.Yellow + total);
         out.add(CivColor.Green + CivSettings.localize.localizedString("cmd_civ_gov_infoCottage") + " " + CivColor.Yellow + df.format(town.getCottageRate() * 100) + "%");
         if (town.getBuffManager().hasBuff("buff_pyramid_cottage_bonus")) {
-            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_pyramid", new StringBuilder().append("§a").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus") - 1.0) * 100.0)).toString()));
+            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_pyramid", "§a" + Math.round((town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus") - 1.0) * 100.0)));
         }
         if (town.getBuffManager().hasBuff("buff_hotel")) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", new StringBuilder().append("§a").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)).toString()));

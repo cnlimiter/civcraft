@@ -59,7 +59,6 @@ public class PlayerQuestionTask extends QuestionBaseTask implements Runnable {
         CivMessage.send(askedPlayer, CivColor.LightGray + CivSettings.localize.localizedString("civleaderQtast_prompt1") + " " + CivColor.LightBlue + questionPlayer.getName());
         CivMessage.send(askedPlayer, CivColor.LightPurple + CivColor.BOLD + question);
         CivMessage.send(askedPlayer, CivColor.LightGray + CivSettings.localize.localizedString("civleaderQtast_prompt2"));
-
         try {
             synchronized (this) {
                 this.wait(timeout);

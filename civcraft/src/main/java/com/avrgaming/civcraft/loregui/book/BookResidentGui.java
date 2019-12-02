@@ -53,7 +53,7 @@ public class BookResidentGui implements GuiAction {
         ItemStack playerInfo = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_infoMenu_name"), ItemManager.getId(Material.SKULL_ITEM), 3,
                 CivColor.LightGray + "Player: " + resident.getName(),
                 "§6" + CivSettings.CURRENCY_NAME + ": " + "§a" + resident.getTreasury().getBalance(),
-                "§2" + CivSettings.localize.localizedString("cmd_res_showRegistrationDate" + " §a" + sdf.format(resident.getRegistered())),
+                "§2" + CivSettings.localize.localizedString("cmd_res_showRegistrationDate", " §a" + sdf.format(resident.getRegistered())),
                 "§b" + CivSettings.localize.localizedString("Civilization") + " " + BookResidentGui.Civilization(resident),
                 "§d" + CivSettings.localize.localizedString("Town") + " " + BookResidentGui.Town(resident),
                 CivColor.Red + CivSettings.localize.localizedString("Camp") + " " + BookResidentGui.Camp(resident));
