@@ -1,12 +1,11 @@
 # 
-# Unit configuration
+# 单位配置
 #
 
-# Base rates and information for items 
-# without any units attached.
+# 未附加任何单位的物品的基本费率和信息。
 #
 base:
-    # T1 Leather speed bonus, greater than 1 is an increase
+    # T1皮革速度加成，大于1是增加
     T1_leather_speed: 1.05
 
     # T2 Leather speed bonus, greater than 1 is an increase
@@ -18,7 +17,7 @@ base:
     # T4 Leather speed bonus, greater than 1 is an increase
     T4_leather_speed: 1.2
 
-    # T1 'Metal' speed bonus
+    # T1'金属'速度加成
     T1_metal_speed: 0.95
 
     # T2 'Metal' speed bonus
@@ -30,18 +29,18 @@ base:
     # T4 'Metal' speed bonus
     T4_metal_speed: 0.8
 
-# Special information per unit
+# 每个单位的特殊信息
 unit_info:
-    # Percentage of damage increase for warrior unit.
+    # 战士单位伤害增加的百分比。
     warrior_damage: 1.00
 
-    # Percentage of damage increase for archer unit.
+    # 射手单位伤害增加的百分比。
     archer_damage: 1.5
 
 units:
 
   - id: 'u_spy'
-    name: "Spy"
+    name: "间谍"
     class_name: 'com.avrgaming.civcraft.items.units.Spy'
     require_tech: 'tech_nationalism'
     require_struct:
@@ -53,7 +52,7 @@ units:
     item_data: 0
     
   - id: 'u_settler'
-    name: "Settler"
+    name: "殖民者"
     class_name: 'com.avrgaming.civcraft.items.units.Settler'
     require_tech:
     require_struct:
@@ -65,7 +64,7 @@ units:
     item_data: 0
 
   - id: 'a_archer'
-    name: "Archer"
+    name: "弓箭手"
     class_name: 'Archer'
     require_tech: 'tech_republic'
     require_struct: 's_ordinary'
@@ -77,7 +76,7 @@ units:
     item_data: 0
 
   - id: 'a_warrior'
-    name: "Warrior"
+    name: "战士"
     class_name: 'Warrior'
     require_tech: 'tech_republic'
     require_struct: 's_ordinary'
@@ -89,7 +88,7 @@ units:
     item_data: 0
 
   - id: 'a_berserker'
-    name: "Berserker"
+    name: "狂战士"
     class_name: 'Berserker'
     require_tech: 'tech_republic'
     require_struct: 's_ordinary'
@@ -101,7 +100,7 @@ units:
     item_data: 0
 
   - id: 'a_swordsman'
-    name: "Swordsman"
+    name: "剑客"
     class_name: 'Swordsman'
     require_tech: 'tech_powerhouse'
     require_struct: 's_ordinary'
@@ -113,7 +112,7 @@ units:
     item_data: 0
 
   - id: 'a_crossbowman'
-    name: "Crossbowman"
+    name: "弩箭手"
     class_name: 'Crossbowman'
     require_tech: 'tech_powerhouse'
     require_struct: 's_ordinary'
@@ -125,7 +124,7 @@ units:
     item_data: 0
 
   - id: 'a_spearman'
-    name: "SpearMan"
+    name: "枪兵"
     class_name: 'SpearMan'
     require_tech: 'tech_powerhouse'
     require_struct: 's_ordinary'
@@ -137,7 +136,7 @@ units:
     item_data: 0
 
   - id: 'a_slinger'
-    name: "Slinger"
+    name: "投石兵"
     class_name: 'Slinger'
     require_tech: 'tech_refrigeration'
     require_struct: 's_ordinary'
@@ -149,7 +148,7 @@ units:
     item_data: 0
 
   - id: 'a_musketman'
-    name: "Musketman"
+    name: "火枪手"
     class_name: 'Musketman'
     require_tech: 'tech_refrigeration'
     require_struct: 's_ordinary'
@@ -161,7 +160,7 @@ units:
     item_data: 0
 
   - id: 'a_knight'
-    name: "Knight"
+    name: "骑士"
     class_name: 'Knight'
     require_tech: 'tech_refrigeration'
     require_struct: 's_ordinary'
@@ -173,7 +172,7 @@ units:
     item_data: 0
 
   - id: 'ax_bootsOfTravel'
-    name: "Boots Of Travel"
+    name: "旅行者之靴"
     class_name: 'BootsOfTravel'
     require_tech: 'tech_scientific_method'
     require_struct: 's_ordinary'
@@ -185,7 +184,7 @@ units:
     item_data: 0
 
   - id: 'ax_rabbitFeet'
-    name: "Rabbit Feet"
+    name: "兔子的后足"
     class_name: 'RabbitFeet'
     require_tech: 'tech_scientific_method'
     require_struct: 's_ordinary'
@@ -197,7 +196,7 @@ units:
     item_data: 0
 
   - id: 'a_heroesShield'
-    name: "Heroe's Shield"
+    name: "英雄盾牌"
     class_name: 'HeroesShield'
     require_tech:
     require_struct: 's_ordinary'
@@ -209,7 +208,7 @@ units:
     item_data: 1
 
   - id: 'a_assasinsStigma'
-    name: "Assassins Stigma"
+    name: "刺客的耻辱"
     class_name: 'AssasinsStigma'
     require_tech:
     require_struct: 's_ordinary'
@@ -221,7 +220,7 @@ units:
     item_data: 0
 
   - id: 'ax_minersAmulet'
-    name: "Miner's Amulet"
+    name: "矿工护身符"
     class_name: 'MinersAmulet'
     require_tech: 'tech_innovation'
     require_struct: 's_ordinary'
@@ -233,7 +232,7 @@ units:
     item_data: 0
 
   - id: 'ax_diver'
-    name: "Diver"
+    name: "潜水员"
     class_name: 'Diver'
     require_tech: 'tech_machinery'
     require_struct: 's_ordinary'
@@ -245,7 +244,7 @@ units:
     item_data: 12
 
   - id: 'ax_witchTrick'
-    name: "Witch Trick"
+    name: "女巫伎俩"
     class_name: 'WitchTrick'
     require_tech: 'tech_malting'
     require_struct: 's_ordinary'
@@ -257,7 +256,7 @@ units:
     item_data: 0
 
   - id: 'ax_cacheOfGluttons'
-    name: "Cache of Gluttons"
+    name: "贪食者的储藏室"
     class_name: 'CacheOfGluttons'
     require_tech: 'tech_advanced_efficiency'
     require_struct: 's_ordinary'
@@ -269,7 +268,7 @@ units:
     item_data: 0
 
   - id: 'ax_engineer'
-    name: "Engineer"
+    name: "工程师"
     class_name: 'Engineer'
     require_tech: 'tech_construction'
     require_struct: 's_ordinary'
@@ -281,7 +280,7 @@ units:
     item_data: 0
 
   - id: 'ax_invader'
-    name: "Invader"
+    name: "入侵者"
     class_name: 'Invader'
     require_tech: 'tech_innovation'
     require_struct: 's_ordinary'
@@ -293,7 +292,7 @@ units:
     item_data: 0
 
   - id: 'ax_advanced_tools'
-    name: "Advanced Tools"
+    name: "高级工具"
     class_name: 'AdvancedTools'
     require_tech: 'tech_machinery'
     require_struct: 's_ordinary'
@@ -305,7 +304,7 @@ units:
     item_data: 0
 
   - id: 'ax_archer2'
-    name: "Advanced Archer"
+    name: "高级射手"
     class_name: 'AdvArcher'
     require_tech: 'tech_tillering'
     require_struct: 's_ordinary'

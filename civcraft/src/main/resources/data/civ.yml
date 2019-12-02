@@ -1,20 +1,22 @@
 # 
-# This configuration file holds anything relevent to a civilization.
-# Also stores some global data.
+#此配置文件包含与文明相关的任何内容。
+#还存储一些全局数据。
 #
 
 global:
-   # Hour at which daily upkeep occurs.
+   # 什么时候维护
+   # 疑似GMT时间
    daily_upkeep_hour: 20
 
    # How often the 'hourly tick' should process in 'seconds'
-   # To speed up the game, you could cut this number in half
+   # 小时刻度'应该在'秒'处理的频率（多少秒一个时刻）
+   # 为了加快游戏速度，您可以将这个数字减半
    hourly_tick: 3600
    bossspawn_tick: 21600
 
-   # The Starting kit for all new players
-   # Feel free to customize as you see fit, such as removing the starting 'mat_found_camp' item.
-   # Every item in this list gets soulbound.
+   # 送给新手的kits
+   # 您可以根据需要随意自定义，例如删除起始'mat_found_camp'项。
+   # 此列表中的每个项目都会获得灵魂绑定。
    start_kit:
         - '270:1'
         - '271:1'
@@ -24,142 +26,154 @@ global:
         - '366:10'
         - '345:1'
         - 'mat_tutorial_book:1'
-        - 'mat_found_camp:1'
+      #  - 'mat_found_camp:1'
 
-   # Amount of mins PvP timer remains active after first login.
+   # 从注册后，新手保护将持续多长时间(mins)
    pvp_timer: 120
 
    # Regen spawn at midnight every day.
    regen_spawn_hour: 0
 
-   # Exchange rate you get using /resident exchange instead of using a bank.
+   # 您使用/resident exchange而非使用银行的汇率。
    exchange_rate: 0.3
 
    starting_coins: 250.0
 
-   # Number of hours that must pass before a resident can join a different civ
+   # 居民必须经过的多久才能加入不同的文明(hour)
    join_civ_cooldown: 12
 
    # Distance things must be built away from spawn.
+   # 距离事物必须远离主城？
    distance_from_spawn: 1000.0
 
    # max distance players can be apart for trading
+   # 最大距离玩家可以分开进行交易
    max_trade_distance: 10.0
 
    # catalyst free amount
+   # 免费的强化次数？
    free_catalyst_amount: 3
 
    # extra percentage amount
+   #额外百分百金额
    extra_catalyst_amount: 3
 
    # extra percentage given
+   # 额外的百分比
    extra_catalyst_percent: 0.0
 
    # Amount of extra attack each +1 gives to weapons
+   # 每+1给予武器的额外攻击量
    attack_catalyst_multiplier: 1.0
 
    # Amount of extra armor each +1 gives to armor
+   # 每+1给予护甲的额外护甲量
    defense_catalyst_multiplier: 1.0
 
-   # Casual mode, war disabled. Wonders for all. No spies.
+   # 休闲模式，战争禁用。所有人都能造奇迹。 没有间谍。
    casual_mode: 'false'
 
-   # Attempt to validate structures to make sure they're not floating.
+   # 尝试验证结构以确保它们不浮空。
    structure_validation: 'true'
 
-   # Have speed checks only on chunk changes. Default: true
-   # This means that players on roads need to move across a chunk to gain the movement bonus
+   # 仅对区块更改进行速度检查。 默认值：true
+   # 这意味着道路上的玩家需要移动一个区块以获得移动奖励
    # This used to be false, but the performance gain was too great to leave it as such.
-   # If this feature annoys your players, turn it off at your own risk of poor performance.
+   # 这曾经是错误的，但性能提升太大了，不能这样做。
+   # 如果此功能使您的玩家烦恼，请将其关闭，风险自负。
    speed_check_chunks: true
 
-   # Minimum Build Height for Structures, Walls, and Roads. Default: 1
+   # 结构，墙壁和道路的最小建筑高度。 默认值：1
    min_build_height: 1
 
-   #Use Experience as currency. Default: true
-   #If true, disables EXP enchanting and repair.
+   #使用经验作为货币。 默认值：true
+   #如果为true，则禁用EXP附魔和修复。
    use_exp_as_currency: true
 
-   # Use Vault for player economy. Default: false
-   # Data will still be loaded from and saved to the database, but it will now be linked to Vault
-   use_vault: false
+   #使用Vault实现玩家经济。 默认值：false
+   #数据仍将从数据库加载并保存到数据库，但现在将链接到Vault
+   use_vault: true
 
 newspaper:
-#
-# -  id: 'first'
-#    item: 7
-#    iData: 0
-#    guiData: 0
-#    headline: ''
-#    date: ''
-#    lineotd: ''
-#    line1: ''
-#    line2: ''
-#    line3: ''
-#    line4: ''
-#    line5: ''
-#    line6: ''
+
+  -  id: 'first'
+     item: 7
+     iData: 0
+     guiData: 0
+     headline: ''
+     date: ''
+     lineotd: ''
+     line1: '震惊！'
+     line2: 'newspaper正式启用'
+     line3: ''
+     line4: ''
+     line5: ''
+     line6: ''
 #    line7: ''
 #    line8: ''
 #    line9: ''
 #    line10: ''
 #    line11: ''
 #    line12: ''
-#    version: '0.1'
+     version: '0.1'
 #
 
 civ:
-    # Amount of coins required to start a civilization
+    # 启动文明所需的钱
     # Unused anyways
     # cost: 100000.0
     
     # Amount of static upkeep civ's pay for each new town(minus the capitol)
+    # 每个新城镇（减去国会大厦）的静态维护文明金额
     town_upkeep: 500.0
 
-    # Formula for distance upkeep is:
+    # 维护保养公式为：
+    # distance 距离
     # upkeep = town_distance_base_upkeep * ( distance ^ town_distance_multiplier )
     #
 
-    # Base amount of upkeep paid for town distance to Capitol
+    # 为城镇的距离支付的基本维持费用
     town_distance_base_upkeep: 100.0
 
     # Multiplier used to make distance upkeep expoential, greater = higher upkeep
     town_distance_multiplier: 0.3
 
-    # Multiplier used when a town's culture doesnt connect to the Capitols culture.
+    # 当城市的文化与主城文化没有联系时使用乘数。
     town_distance_multiplier_outside_culture: 0.9
 
     # Maximum amount of distance upkeep anybody can pay per town
     town_distance_upkeep_max: 50000.0
 
-    # Base beaker rate, usually set to 1, increase to make research faster.
+    # 通常设置为1的基本烧杯速率，增加以使研究更快
     base_beaker_rate: 1.0
     
-    # Number of coins each beaker costs. Beakers can only be 'bought' off of taxed coins from towns.
+    # 每个烧杯成本的硬币数量。 烧杯只能从城镇税中“买”。
     coins_per_beaker: 10
 
-    # must be this many chunks away from the nearest culture block to start a new civilization.
+    #必须远离最近的文化街区这么多块才能开始新的文明。
     min_distance: 15
 
-    # Number of days after a civilization is conquered that it must wait before declaring revolution
-    # This used to be longer. Reducing to help spur actual viability in starting a revolution!
+    # 文明被征服之后的天数，它必须在宣布革命之前等待
+    # 过去常常会更长。 减少以帮助激发开始革命的实际可行性！
     # Default: 3
     revolution_cooldown: 3
     
-    # Number of days after a civlization is conquered that it has to declare a revolution
-    # If this number of days has passed, the civ will auto-capitulate during the next daily upkeep.
+    # 文明被征服后必须宣布一场革命的天数.如果这个天数过去了，
+    # 那么civ将在下一次每日维持期间自动投降。
     auto_capitulate_days: 7
 
-    # Number of days a leader must be inactive before being able to be reclaimed
+    # 领导者在被回收之前必须处于非活动状态的天数
     leader_inactive_days: 7
 
-    # Number of days a civ must be around before it can merge or gift towns.
+    #文明在合并或赠送城镇之前必须经过的天数。
     min_gift_age: 14
 
     # Amount of coins to charge per town gifted.
+    # 每个城镇收取的硬币金额。
     gift_cost_per_town: 150000
 
     # Amount of hours civs have to wait until a town is gifted or merged.
+    # 文明小时必须等到城镇有天赋或合并。
     gift_cooldown_hours: 48
 
 ore_rates:
@@ -169,37 +183,38 @@ ore_rates:
     emerald: 500.0
 
 # These are end condition configurations...
+# 这些是最终条件配置......
 end_conditions:
     - id: 'end_culture'
       class: 'EndConditionCulture'
-      name: 'Cultural'
+      name: '文化'
       days_after_start: '28'
       days_held: '21'
     
     - id: 'end_science'
       class: 'EndConditionScience'
-      name: 'Scientific'
+      name: '科学'
       wonder: 'w_space_shuttle'
       days_after_start: '21'
       days_held: '14'
     
     - id: 'end_diplomacy'
       class: 'EndConditionDiplomacy'
-      name: 'Diplomatic'
+      name: '外交'
       vote_cooldown_hours: '24'
       days_after_start: '28'
       days_held: '21'
 
     - id: 'end_economic'
       class: 'EndConditionEconomic'
-      name: 'Economic'
+      name: '经济'
       stock_exchange_level: '6'
       days_after_start: '28'
       days_held: '21'
 
     - id: 'end_domination'
       class: 'EndDomination'
-      name: 'Domination'
+      name: '统治'
       timesMore: '9'
       days_after_start: '21'
       days_held: '14'

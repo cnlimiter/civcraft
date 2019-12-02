@@ -488,7 +488,7 @@ upgrades:
       category: 'Library'
   
     - id: 'research_looting_1'
-      name: 'Research Looting I'
+      name: '抢夺 I'
       action: 'enable_library_enchantment, Looting, 1, 50'
       cost: 125.0
       require_upgrade:
@@ -497,7 +497,7 @@ upgrades:
       category: 'Library'
   
     - id: 'research_looting_2'
-      name: 'Research Looting II'
+      name: '抢夺 II'
       action: 'enable_library_enchantment, Looting, 2, 250'
       cost: 375.0
       require_upgrade: 'upgrade_library_level_2'
@@ -506,7 +506,7 @@ upgrades:
       category: 'Library'
 
     - id: 'research_efficiency_1'
-      name: 'Research Efficiency I'
+      name: '效率 I'
       action: 'enable_library_enchantment, Efficiency, 1, 15'
       cost: 75.0
       require_upgrade:
@@ -515,7 +515,7 @@ upgrades:
       category: 'Library'
    
     - id: 'research_efficiency_2'
-      name: 'Research Efficiency II'
+      name: '效率 II'
       action: 'enable_library_enchantment, Efficiency, 2, 75'
       cost: 500.0
       require_upgrade: 'upgrade_library_level_2'
@@ -524,7 +524,7 @@ upgrades:
       category: 'Library'
    
     - id: 'research_efficiency_3'
-      name: 'Research Efficiency III'
+      name: '效率 III'
       action: 'enable_library_enchantment, Efficiency, 3, 200'
       cost: 875.0
       require_upgrade: 'upgrade_library_level_3'
@@ -533,7 +533,7 @@ upgrades:
       category: 'Library'
   
     - id: 'research_efficiency_4'
-      name: 'Research Efficiency IV'
+      name: '效率 IV'
       action: 'enable_library_enchantment, Efficiency, 4, 750'
       cost: 2500.0
       require_upgrade: 'upgrade_library_level_3'
@@ -542,7 +542,7 @@ upgrades:
       category: 'Library'
   
     - id: 'research_efficiency_5'
-      name: 'Research Efficiency V'
+      name: '效率 V'
       action: 'enable_library_enchantment, Efficiency, 5, 1500'
       cost: 3750.0
       require_upgrade: 'upgrade_library_level_4'
@@ -551,7 +551,7 @@ upgrades:
       category: 'Library'
 
     - id: 'research_fortune_1'
-      name: 'Research Fortune I'
+      name: '时运 I'
       action: 'enable_library_enchantment, Fortune, 1, 750'
       cost: 1500.0
       require_upgrade: 'upgrade_library_level_2'
@@ -560,7 +560,7 @@ upgrades:
       category: 'Library'
   
     - id: 'research_silk_touch_1'
-      name: 'Research Silk Touch I'
+      name: '精准采集 I'
       action: 'enable_library_enchantment, Silk_Touch, 1, 1000'
       cost: 2500.0
       require_upgrade: 'upgrade_library_level_2'
@@ -569,7 +569,7 @@ upgrades:
       category: 'Library'
     
     - id: 'research_soulbound'
-      name: 'Research SoulBound'
+      name: '灵魂绑定'
       action: 'enable_library_enchantment, LoreEnhancementSoulBound, 1, 30000'
       cost: 2500.0
       require_upgrade: 'upgrade_library_level_2'
@@ -578,7 +578,7 @@ upgrades:
       category: 'Library'
 
     - id: 'research_feather_falling_1'
-      name: 'Research Feather Falling I'
+      name: '摔落保护 I'
       action: 'enable_library_enchantment, Feather_Falling, 1, 1000'
       cost: 2500.0
       require_upgrade: 'upgrade_library_level_4'

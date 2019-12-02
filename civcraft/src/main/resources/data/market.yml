@@ -16,87 +16,87 @@ rate: 0.15
 # Shelf 1 left side, front 0-4
 items:
     - id: 0
-      name: 'Cobblestone'
+      name: '圆石'
       type_id: 4
       data: 0
       value: 1
     
     - id: 1
-      name: 'Clay'
+      name: '粘土'
       type_id: 337
       data: 0
       value: 1
     
     - id: 2
-      name: 'Coal'
+      name: '煤炭'
       type_id: 263
       data: 0
       value: 1
     
     - id: 3
-      name: 'Flint'
+      name: '燧石'
       type_id: 318
       data: 0
       value: 1
     
     - id: 4
-      name: 'CraftedReed'
+      name: 'T1 精制芦苇'
       custom_id: 'mat_crafted_reeds'
       type_id: 0
       data: 0
       value: 1
 # Shelf 1 right side, front 5-9
     - id: 5
-      name: 'String'
+      name: '线'
       type_id: 287
       data: 0
       value: 50
 
     - id: 6
-      name: 'Leather'
+      name: '皮革'
       type_id: 334
       data: 0
       value: 9
     
     - id: 7
-      name: 'Feather'
+      name: '羽毛'
       type_id: 288
       data: 0
       value: 1
     
     - id: 8
-      name: 'Nether Wart'
+      name: '地狱疣'
       type_id: 372
       data: 0
       value: 1
 
     - id: 9
-      name: 'Bones'
+      name: '骨头'
       type_id: 352
       data: 0
       value: 20
 
 # Shelf 1 right side, back 10-14
     - id: 10
-      name: 'Wood Oak'
+      name: '橡木'
       type_id: 17
       data: 0
       value: 1
 
     - id: 11
-      name: 'Wood Spruce'
+      name: '云杉木'
       type_id: 17
       data: 1
       value: 1
     
     - id: 12
-      name: 'Wood Birch'
+      name: '白桦木'
       type_id: 17 
       data: 2
       value: 1
 
     - id: 13
-      name: 'Wood Jungle'
+      name: '从林木'
       type_id: 17 
       data: 3
       value: 1
@@ -105,27 +105,27 @@ items:
 
 # Shelf 1 left side, back 15-19
     - id: 15
-      name: 'Tungsten Ore'
+      name: '钨矿'
       type_id: 0
       data: 0
       custom_id: 'mat_tungsten_ore'
       value: 1
     
     - id: 16
-      name: 'Chromium Ore'
+      name: '铬矿'
       type_id: 0
       data: 0
       custom_id: 'mat_chromium_ore'
       value: 1
 
     - id: 17
-      name: 'Gunpowder'
+      name: '火药'
       type_id: 289
       data: 0
       value: 50
 
     - id: 18
-      name: 'Gravel'
+      name: '沙砾'
       type_id: 13
       data: 0
       value: 1
@@ -168,69 +168,69 @@ items:
 
 # Shelf 2 right side, front 25-29
     - id: 25
-      name: 'Wood Acacia'
+      name: '金合欢木'
       type_id: 162
       data: 0
       value: 1
 
     - id: 26
-      name: 'Wood Dark Oak'
+      name: '深色橡木'
       type_id: 162
       data: 1
       value: 1
 
 # Shelf 2 right side, back 30-34
     - id: 30
-      name: 'Stone Brick'
+      name: '石砖'
       type_id: 98
       data: 0
       value: 1
 
     - id: 31
-      name: 'Mossy Brick'
+      name: '苔石砖'
       type_id: 98
       data: 1
       value: 1
 
     - id: 32
-      name: 'Cracked Brick'
+      name: '裂石砖'
       type_id: 98
       data: 2
       value: 1
 
     - id: 33
-      name: 'Chiseled Brick'
+      name: '錾制石砖'
       type_id: 98
       data: 3
       value: 1
     
 # Shelf 2 left side, back 35-39
     - id: 35
-      name: 'Sponge'
+      name: '海绵'
       type_id: 19
       data: 0
       value: 3
 
     - id: 36
-      name: 'Prismarine'
+      name: '海晶石'
       type_id: 168
       data: 0
       value: 1
 
     - id: 37
-      name: 'Prismarine Brick'
+      name: '海晶石砖'
       type_id: 168
       data: 1
       value: 1
 
     - id: 38
-      name: 'Dark Prismarine'
+      name: '暗海晶石'
       type_id: 168
       data: 2
       value: 1
 
     - id: 39
-      name: 'Sea Lantern'
+      name: '海晶灯'
       type_id: 169
       data: 0
       value: 50
@@ -238,25 +238,25 @@ items:
 # Shelf 3 left side, front 40-44
 # Shelf 3 right side, front 45-49
     - id: 45
-      name: 'Polished Granite'
+      name: '磨制花岗岩'
       type_id: 1
       data: 2
       value: 1
 
     - id: 46
-      name: 'Polished Diorite'
+      name: '磨制闪长岩'
       type_id: 1
       data: 4
       value: 1
 
     - id: 47
-      name: 'Polished Andersite'
+      name: '磨制安山岩'
       type_id: 1
       data: 6
       value: 1
 
     - id: 48
-      name: 'Lapis Block'
+      name: '青金石块'
       type_id: 22
       data: 0
       value: 1
@@ -269,100 +269,100 @@ items:
 
 # Shelf 3 right side, back 50-54
     - id: 50
-      name: 'White Wool'
+      name: '白色羊毛'
       type_id: 35
       data: 0
       value: 1
 
     - id: 51
-      name: 'Orange Wool'
+      name: '橙色羊毛'
       type_id: 35
       data: 1
       value: 1
 
     - id: 52
-      name: 'Magenta Wool'
+      name: '品红色羊毛'
       type_id: 35
       data: 2
       value: 1
 
     - id: 53
-      name: 'Light Blue Wool'
+      name: '淡蓝色羊毛'
       type_id: 35
       data: 3
       value: 1
 
     - id: 54
-      name: 'Yellow Wool'
+      name: '黄色羊毛'
       type_id: 35
       data: 4
       value: 1
 
 # Shelf 3 left side, back 55-59
     - id: 55
-      name: 'Lime Wool'
+      name: '黄绿色羊毛'
       type_id: 35
       data: 5
       value: 1
 
     - id: 56
-      name: 'Pink Wool'
+      name: '粉红色羊毛'
       type_id: 35
       data: 6
       value: 1
 
     - id: 57
-      name: 'Gray Wool'
+      name: '灰色羊毛'
       type_id: 35
       data: 7
       value: 1
 
     - id: 58
-      name: 'Light Gray Wool'
+      name: '淡灰色羊毛'
       type_id: 35
       data: 8
       value: 1
 
     - id: 59
-      name: 'Cyan Wool'
+      name: '青色羊毛'
       type_id: 35
       data: 9
       value: 1
 
 # Shelf 4 left side, front 60-64
     - id: 60
-      name: 'Purple Wool'
+      name: '紫色羊毛'
       type_id: 35
       data: 10
       value: 1
 
     - id: 61
-      name: 'Blue Wool'
+      name: '蓝色羊毛'
       type_id: 35
       data: 11
       value: 1
 
     - id: 62
-      name: 'Brown Wool'
+      name: '棕色羊毛'
       type_id: 35
       data: 12
       value: 1
 
     - id: 63
-      name: 'Green Wool'
+      name: '绿色羊毛'
       type_id: 35
       data: 13
       value: 1
 
     - id: 64
-      name: 'Red Wool'
+      name: '红色羊毛'
       type_id: 35
       data: 14
       value: 1
 
 # Shelf 4 right side, front 65-69
     - id: 65
-      name: 'Black Wool'
+      name: '黑色羊毛'
       type_id: 35
       data: 15
       value: 1
@@ -379,14 +379,14 @@ items:
 
 # Floor 1 Right side Side-Front Corner 94-97
     - id: 94
-      name: 'Crystal Fragment'
+      name: '普通金属水晶碎片'
       type_id: 0
       data: 0
       custom_id: 'mat_metallic_crystal_fragment_1'
       value: 10
     
     - id: 95
-      name: 'Ionic Fragment'
+      name: '普通离子水晶碎片'
       type_id: 0
       data: 0
       custom_id: 'mat_ionic_crystal_fragment_1'
@@ -394,28 +394,28 @@ items:
 
 # Floor 2 Right side Rear 102-105
     - id: 102
-      name: 'T1 Cow Egg'
+      name: '生成 牛'
       type_id: 0
       data: 0
       custom_id: 'mat_cow_egg'
       value: 10
 
     - id: 103
-      name: 'T1 Chicken Egg'
+      name: '生成 鸡'
       type_id: 0
       data: 0
       custom_id: 'mat_chicken_egg'
       value: 10
 
     - id: 104
-      name: 'T1 Pig Egg'
+      name: '生成 猪'
       type_id: 0
       data: 0
       custom_id: 'mat_pig_egg'
       value: 10
 
     - id: 105
-      name: 'T1 Sheep Egg'
+      name: '生成 羊'
       type_id: 0
       data: 0
       custom_id: 'mat_sheep_egg'
@@ -423,28 +423,28 @@ items:
 
 # Floor 2 Right side Middle 106-109
     - id: 106
-      name: 'T1 Rabbit Egg'
+      name: '生成 兔子'
       type_id: 0
       data: 0
       custom_id: 'mat_rabbit_egg'
       value: 10
 
     - id: 107
-      name: 'T1 Creeper Egg'
+      name: '生成 爬行者'
       type_id: 0
       data: 0
       custom_id: 'mat_creeper_egg'
       value: 10
 
     - id: 108
-      name: 'T1 Enderman Egg'
+      name: '生成 末影人'
       type_id: 0
       data: 0
       custom_id: 'mat_enderman_egg'
       value: 10
 
     - id: 109
-      name: 'T1 Zombie Egg'
+      name: '生成 僵尸'
       type_id: 0
       data: 0
       custom_id: 'mat_zombie_egg'
@@ -452,21 +452,21 @@ items:
 
 # Floor 2 Right side Forward 110-113
     - id: 110
-      name: 'T1 Skeleton Egg'
+      name: '生成 骷髅'
       type_id: 0
       data: 0
       custom_id: 'mat_skeleton_egg'
       value: 10
 
     - id: 111
-      name: 'T1 Spider Egg'
+      name: '生成 蜘蛛'
       type_id: 0
       data: 0
       custom_id: 'mat_spider_egg'
       value: 10
 
     - id: 112
-      name: 'T1 Slime Egg'
+      name: '生成 史莱姆'
       type_id: 0
       data: 0
       custom_id: 'mat_slime_egg'
@@ -480,38 +480,38 @@ items:
 
 # Floor 2 Right side Wall-Front Corner 114-117
     - id: 114
-      name: 'Oak Sapling'
+      name: '橡树树苗'
       type_id: 6
       data: 0
       value: 1
 
     - id: 115
-      name: 'Spruce Sapling'
+      name: '云杉树苗'
       type_id: 6
       data: 1
       value: 1
 
     - id: 116
-      name: 'Birch Sapling'
+      name: '白桦树苗'
       type_id: 6
       data: 2
       value: 1
 
     - id: 117
-      name: 'Jungle Sapling'
+      name: '丛林树苗'
       type_id: 6
       data: 3
       value: 1
 
 # Floor 2 Right side Front Corner 118-121
     - id: 118
-      name: 'Acacia Sapling'
+      name: '金合欢树苗'
       type_id: 6
       data: 4
       value: 1
 
     - id: 119
-      name: 'Dark Oak Sapling'
+      name: '深色橡树树苗'
       type_id: 6
       data: 5
       value: 1
@@ -519,74 +519,74 @@ items:
 
 # Floor 2 Left side Front Corner 122-125
     - id: 122
-      name: 'Bread'
+      name: '面包'
       type_id: 297
       data: 0
       value: 12
 
     - id: 123
-      name: 'Carrots'
+      name: '胡萝卜'
       type_id: 391
       data: 0
       value: 8
  
     - id: 124
-      name: 'Potato'
+      name: '马铃薯'
       type_id: 392
       data: 0
       value: 8
  
     - id: 125
-      name: 'Pumpkin'
+      name: '南瓜'
       type_id: 86
       data: 0
       value: 4
 # Floor 2 Left side Wall-Front Corner 126-129
     - id: 126
-      name: 'Melon'
+      name: '西瓜'
       type_id: 103
       data: 0
       value: 3
  
     - id: 127
-      name: 'Raw Mutton'
+      name: '生羊肉'
       type_id: 423
       data: 0
       value: 5
 
     - id: 128
-      name: 'Raw Fish'
+      name: '生鱼'
       type_id: 349
       data: 0
       value: 5
 
     - id: 129
-      name: 'Raw Salmon'
+      name: '生鲑鱼'
       type_id: 349
       data: 1
       value: 5
 
 # Floor 2 Left side Forward 130-133
     - id: 130
-      name: 'Raw Beef'
+      name: '生牛肉'
       type_id: 363
       data: 0
       value: 5
  
     - id: 131
-      name: 'Raw Porkchop'
+      name: '生猪排'
       type_id: 319
       data: 0
       value: 5
  
     - id: 132
-      name: 'Raw Chicken'
+      name: '生鸡肉'
       type_id: 365
       data: 0
       value: 5
  
     - id: 133
-      name: 'Raw Rabbit'
+      name: '生兔肉'
       type_id: 411
       data: 0
       value: 5

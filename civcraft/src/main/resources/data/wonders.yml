@@ -1,18 +1,18 @@
 #
-# This file contains the configuration information about
+# 此文件包含有关奇观的配置信息
 # wonders.
 
 
 
 # Wonders
 #
-#  This is a standard configuration for a structure. See structures.yml for details.
-#  Any option for structures is also available for wonders.
+#  这是结构的标准配置。 有关详细信息，请参阅structures.yml。
+#  结构的任何选项也可用于奇迹。
 wonders:
   - id: w_pyramid
     template: the_great_pyramid
     template_y_shift: 0
-    displayName: The Great Pyramid
+    displayName: 大金字塔
     require_tech: 'tech_great_pyramid'
     require_upgrade:
     check_event:
@@ -30,7 +30,7 @@ wonders:
   - id: w_greatlibrary
     template: the_great_library
     template_y_shift: 0
-    displayName: Great Library of Alexandria
+    displayName: 亚历山大图书馆
     require_tech: 'tech_great_library'
     require_upgrade:
     check_event:
@@ -48,7 +48,7 @@ wonders:
   - id: w_hanginggardens
     template: the_hanging_gardens
     template_y_shift: 0
-    displayName: The Hanging Gardens
+    displayName: 空中花园
     require_tech: 'tech_hanging_gardens'
     require_upgrade:
     check_event:
@@ -66,7 +66,7 @@ wonders:
   - id: w_colossus
     template: the_colossus
     template_y_shift: 0
-    displayName: Colossus of Rhodes
+    displayName: 罗德岛太阳神巨像
     require_tech: 'tech_colossus'
     require_upgrade:
     check_event:
@@ -84,7 +84,7 @@ wonders:
   - id: w_notre_dame
     template: notre_dame
     template_y_shift: 0
-    displayName: Notre Dame Cathedral
+    displayName: 巴黎圣母院
     require_tech: 'tech_notre_dame'
     require_upgrade:
     check_event:
@@ -102,7 +102,7 @@ wonders:
   - id: w_chichen_itza
     template: chichen_itza
     template_y_shift: 0
-    displayName: Chichen Itza Temple
+    displayName: 奇琴伊察
     require_tech: 'tech_chichen_itza'
     require_upgrade:
     check_event:
@@ -120,7 +120,7 @@ wonders:
   - id: w_council_of_eight
     template: council_of_eight
     template_y_shift: 0
-    displayName: Council of Eight
+    displayName: 八理事会
     require_tech: 'tech_council_of_eight'
     require_upgrade:
     check_event:
@@ -138,7 +138,7 @@ wonders:
   - id: w_colosseum
     template: colosseum
     template_y_shift: -1
-    displayName: Great Colosseum
+    displayName: 罗马斗兽场
     require_tech: 'tech_colosseum'
     require_upgrade:
     check_event:
@@ -156,7 +156,7 @@ wonders:
   - id: w_globe_theatre
     template: globe_theatre
     template_y_shift: -1
-    displayName: Globe Theatre
+    displayName: 环球剧院
     require_tech: 'tech_globe_theatre'
     require_upgrade:
     check_event:
@@ -174,7 +174,7 @@ wonders:
   - id: w_great_lighthouse
     template: great_lighthouse
     template_y_shift: 0
-    displayName: Great Lighthouse of Alexandria
+    displayName: 亚历山大灯塔
     require_tech: 'tech_great_lighthouse'
     require_upgrade:
     check_event:
@@ -192,7 +192,7 @@ wonders:
   - id: w_mother_tree
     template: mother_tree
     template_y_shift: 0
-    displayName: Mother Tree
+    displayName: 世界树
     require_tech: 'tech_mother_tree'
     require_upgrade:
     check_event:
@@ -210,7 +210,7 @@ wonders:
   - id: w_grand_ship_ingermanland
     template: grand_ship_ingermanland
     template_y_shift: -8
-    displayName: Grand Ship Ingermanland
+    displayName: 彼得大帝旗舰英格尔曼兰德号
     require_tech: 'tech_grand_ship_ingermanland'
     require_upgrade:
     check_event:
@@ -229,7 +229,7 @@ wonders:
   - id: w_grandcanyon
     template: grand
     template_y_shift: 0
-    displayName: The Grand Canyon
+    displayName: 科罗拉多大峡谷
     require_tech: 'tech_grand_canyon'
     require_upgrade:
     check_event:
@@ -247,7 +247,7 @@ wonders:
   - id: w_burj
     template: burj
     template_y_shift: 0
-    displayName: Burj Khalifa
+    displayName: 哈利法塔
     require_tech: 'tech_burj'
     require_upgrade:
     check_event:
@@ -265,7 +265,7 @@ wonders:
   - id: w_stock_exchange
     template: global_bank
     template_y_shift: 0
-    displayName: Global Stock Exchange
+    displayName: 全球证券交易所
     require_tech: 'tech_stock_exchange'
     require_upgrade: 'upgrade_bank_interest_level_4'
     check_event:
@@ -283,7 +283,7 @@ wonders:
   - id: w_statue_of_zeus
     template: statue_of_zeus
     template_y_shift: 0
-    displayName: Statue of Zeus
+    displayName: 宙斯神像
     require_tech: 'tech_statue_of_zeus'
     require_upgrade:
     check_event:
@@ -301,7 +301,7 @@ wonders:
   - id: w_moscow_state_uni
     template: mgu
     template_y_shift: -1
-    displayName: Moscow State Univeristy
+    displayName: 莫斯科国立大学
     require_tech: 'tech_moscow_state_university'
     require_upgrade:
     check_event:
@@ -320,7 +320,7 @@ wonders:
   - id: w_space_shuttle
     template: space_shuttle
     template_y_shift: 0
-    displayName: Soace Shuttle
+    displayName: 航天飞机
     require_tech: 'tech_space_shuttle'
     require_upgrade:
     require_structure: 'ti_factory'
@@ -340,7 +340,7 @@ wonders:
   - id: w_neuschwanstein
     template: neuschwanstein
     template_y_shift: 0
-    displayName: Neuschwanstein Castle
+    displayName: 新天鹅堡
     require_tech: 'tech_neuschwanstein'
     require_structure: 's_castle'
     require_upgrade:

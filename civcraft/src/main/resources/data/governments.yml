@@ -1,29 +1,27 @@
 
 # 
-# This file contains all of the different governments and related settings
+# 此文件包含所有不同的政体和相关设置
 #
 
-# Maximum Number of hours to remain in anarchy after switching governments.
+# 政府换届后无政府状态的最长时间。
 anarchy_duration: 24
 notre_dame_max_anarchy: 12
 
 ######################################################################
 #               CivCraft Governments
-#       This is a basic configuration of governments, for now this is
-#       pretty basic, and I'll have to come up with a way to make things
-#       as configurable as possible.
+#       这是政府的基本配置，现在这是非常基本的，我将不得不想出一种尽可能配置的方法。
 #
-#       id = unquie id for this government
-#       displayName = name shown to players
-#       good_rate = the amount at which each same-good type multiplies revenue
-#       trade_rate = total bonus percentage for all trade revenue
-#       beaker_rate = science rate, not used yet
-#       hammer_rate = production rate, not used yet
-#       upkeep multiplier = upkeep increases or decreases by this multiplier, not used yet.
+#       #id = 这个政府的unquie id
+#       displayName = 显示给玩家的名字
+#       good_rate = 每个相同类型贸易的收入增加的金额
+#       trade_rate = 所有贸易收入的百分比
+#       beaker_rate = 科学率，尚未使用
+#       hammer_rate = 生产率，尚未使用
+#       upkeep multiplier = upkeep通过此乘数增加或减少，尚未使用。
 ######################################################################
 governments:
         - id: gov_anarchy
-          displayName: Anarchy
+          displayName: 无政府状态
           require_tech:
           trade_rate: 0.0
           cottage_rate: 0.0
@@ -36,7 +34,7 @@ governments:
           power_type: mayor_all_power
 
         - id: gov_tribalism
-          displayName: Tribalism
+          displayName: 部落主义
           require_tech:
           trade_rate: 0.8
           cottage_rate: 0.8
@@ -50,8 +48,9 @@ governments:
 
 
           #focus: Stong Mining, Poor everything else.
+          # 重点：强大的采矿，其他一切都很差。
         - id: gov_despotism
-          displayName: Despotism
+          displayName: 专制主义
           require_tech: 'tech_productivity' 
           trade_rate: 0.8
           upkeep_rate: 1.0
@@ -65,7 +64,7 @@ governments:
 
           # focus: Strong  Taxs, Cottages, Farming
         - id: gov_monarchy
-          displayName: Monarchy
+          displayName: 君主制
           require_tech: 'tech_monarchy'
           trade_rate: 0.8
           upkeep_rate: 1.5
@@ -79,7 +78,7 @@ governments:
 
           # focus: Strong  Trade, Negative science, Weak Mining / Cottages
         - id: gov_theocracy
-          displayName: Theocracy
+          displayName: 神权制
           require_tech: 'tech_global_trade'
           trade_rate: 1.1
           upkeep_rate: 1.15
@@ -92,7 +91,7 @@ governments:
           power_type: mayor_all_power
 
         - id: gov_republic
-          displayName: Republic
+          displayName: 共和政体
           require_tech: 'tech_republic'
           trade_rate: 1.8
           upkeep_rate: 1.4
@@ -105,7 +104,7 @@ governments:
           power_type: mayor_all_power
 
         - id: gov_technocracy
-          displayName: Technocracy
+          displayName: 技术专制
           require_tech: 'tech_advanced_efficiency'
           trade_rate: 0.7
           upkeep_rate: 1.1
@@ -118,7 +117,7 @@ governments:
           power_type: mayor_all_power
 
         - id: gov_mercantilism
-          displayName: Mercantilism
+          displayName: 重商主义
           require_tech: 'tech_monopoly'
           trade_rate: 2.0
           upkeep_rate: 1.15

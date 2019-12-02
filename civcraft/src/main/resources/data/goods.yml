@@ -17,11 +17,11 @@ trade_good_multiplier_max: 3
 # repo'd they go back to the trade outpost that spawned them.
 # 1 = Sunday
 # 7 = Saturday
-trade_goodie_repo_day: 7
+trade_goodie_repo_day: 6
 # Time of day that the repo will occur
 # 0 = Midnight
 # 12 = Noon
-trade_goodie_repo_hour: 14
+trade_goodie_repo_hour: 20
 
 
 
@@ -125,7 +125,7 @@ hemispheres:
 
 land_goods:
     - id: 'good_pelts'
-      name: Pelts
+      name: 皮毛
       rarity: 2
       value: 250.0
       buffs: 'buff_monopoly, buff_fine_art'
@@ -133,7 +133,7 @@ land_goods:
       material_data: 0
      
     - id: 'good_horses'
-      name: Horses
+      name: 马
       rarity: 2
       value: 250.0
       buffs: 'buff_advanced_tooling, buff_year_of_plenty'
@@ -141,7 +141,7 @@ land_goods:
       material_data: 0 
 
     - id: 'good_oil'
-      name: Oil
+      name: 油
       rarity: 3
       value: 375.0
       buffs: 'buff_advanced_tooling, buff_extraction, buff_fire_bomb'
@@ -149,7 +149,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_papyrus'
-      name: Papyrus
+      name: 莎草纸
       rarity: 1
       value: 125.0
       buffs: 'buff_innovation'
@@ -157,7 +157,7 @@ land_goods:
       material_data: 2 # green
 
     - id: 'good_silver'
-      name: Silver
+      name: 银
       rarity: 1
       value: 125.0
       buffs: 'buff_barter, buff_hedonism'
@@ -165,7 +165,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_poison_ivy'
-      name: "Poison Ivy"
+      name: 毒葛
       rarity: 3
       value: 400.0
       buffs: 'buff_return, buff_farm'
@@ -173,7 +173,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_ivory'
-      name: Ivory
+      name: 象牙
       rarity: 2
       value: 250.0
       buffs: 'buff_fine_art, buff_monopoly'
@@ -181,7 +181,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_incense'
-      name: Incense
+      name: 熏香
       rarity: 2
       value: 250.0
       buffs: 'buff_fine_art, buff_innovation'
@@ -189,7 +189,7 @@ land_goods:
       material_data: 0
     
     - id: 'good_herbs'
-      name: Herbs
+      name: 草药
       rarity: 2
       value: 250.0
       buffs: 'buff_medicine, buff_year_of_plenty'
@@ -197,7 +197,7 @@ land_goods:
       material_data: 2 # fern
 
     - id: 'good_hemlock'
-      name: Hemlock
+      name: 毒药
       rarity: 3
       value: 375.0
       buffs: 'buff_espionage, buff_sabotage, buff_dirty_money'
@@ -205,7 +205,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_guarana'
-      name: Guarana
+      name: 瓜拿那
       rarity: 3
       value: 375.0
       buffs: 'buff_extraction, buff_rush, buff_medicine'
@@ -213,7 +213,7 @@ land_goods:
       material_data: 1 # red
 
     - id: 'good_grapes'
-      name: Grapes
+      name: 葡萄
       rarity: 1
       value: 125.0
       buffs: 'buff_year_of_plenty, buff_hedonism, buff_demand'
@@ -221,7 +221,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_gems'
-      name: Gems
+      name: 绿宝石
       rarity: 3
       value: 375.0
       buffs: 'buff_barter, buff_greed, buff_monopoly'
@@ -229,7 +229,7 @@ land_goods:
       material_data: 0
     
     - id: 'good_olives'
-      name: Olives
+      name: 橄榄
       rarity: 1
       value: 125.0
       buffs: 'buff_hedonism, buff_demand, buff_growth'
@@ -237,7 +237,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_cotton'
-      name: Cotton
+      name: 棉花
       rarity: 1
       value: 125.0
       buffs: 'buff_fine_art'
@@ -245,7 +245,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_corn'
-      name: Corn
+      name: 玉米
       rarity: 1
       value: 125.0
       buffs: 'buff_year_of_plenty'
@@ -253,7 +253,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_copper'
-      name: Copper
+      name: 铜
       rarity: 1
       value: 125.0
       buffs: 'buff_advanced_tooling'
@@ -261,7 +261,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_coffee'
-      name: Coffee
+      name: 咖啡
       rarity: 3
       value: 375.0
       buffs: 'buff_innovation, buff_extraction, buff_rush'
@@ -270,7 +270,7 @@ land_goods:
       hemispheres: 'hemi_northwest'
 
     - id: 'good_limestone'
-      name: Limestone
+      name: 石灰石
       rarity: 2
       value: 250.0
       buffs: 'buff_construction, buff_barricade'
@@ -278,7 +278,7 @@ land_goods:
       material_data: 7
     
     - id: 'good_tobacco'
-      name: Tobacco
+      name: 烟草
       rarity: 3
       value: 375.0
       buffs: 'buff_fine_art, buff_greed, buff_monopoly'
@@ -286,7 +286,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_spice'
-      name: Spice
+      name: 辣椒
       rarity: 1
       value: 125.0
       buffs: 'buff_preservative, buff_demand'
@@ -294,7 +294,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_Marble'
-      name: Marble
+      name: 大理石
       rarity: 2
       value: 250.0
       buffs: 'buff_fine_art, buff_construction'
@@ -302,7 +302,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_tea'
-      name: Tea
+      name: 茶叶
       value: 250.0
       rarity: 2
       buffs: 'buff_monopoly, buff_innovation'
@@ -310,7 +310,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_rice'
-      name: Rice
+      name: 稻子
       value: 250.0
       rarity: 2
       buffs: 'buff_innovation'
@@ -318,7 +318,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_niter'
-      name: Niter
+      name: 硝石
       rarity: 2
       value: 250.0
       buffs: 'buff_advanced_tooling, buff_advanced_mixing'
@@ -326,7 +326,7 @@ land_goods:
       material_data: 1
 
     - id: 'good_jade'
-      name: Jade
+      name: 玉石
       rarity: 2
       value: 250.0
       buffs: 'buff_advanced_touring, buff_fine_art'
@@ -334,7 +334,7 @@ land_goods:
       material_data: 0
 
     - id: 'good_cocoa'
-      name: Cocoa
+      name: 可可
       rarity: 4
       value: 500.0
       buffs: 'buff_advanced_touring, buff_year_of_plenty, buff_preservative'
@@ -342,7 +342,7 @@ land_goods:
       material_data: 3 # какао
 
     - id: 'good_orange'
-      name: Oranges
+      name: 橘子
       rarity: 1
       value: 100.0
       buffs: 'buff_year_of_plenty'
@@ -350,7 +350,7 @@ land_goods:
       material_data: 14 # краситель
 
     - id: 'good_titanium'
-      name: Titanium
+      name: 钛
       rarity: 4
       value: 500.0
       buffs: 'buff_titan, buff_return'
@@ -359,7 +359,7 @@ land_goods:
     
 water_goods: 
     - id: 'good_crabs'
-      name: Crabs
+      name: 螃蟹
       rarity: 1
       value: 100.0
       buffs: 'buff_year_of_plenty, buff_fishing'
@@ -367,7 +367,7 @@ water_goods:
       material_data: 0
 
     - id: 'good_salmon'
-      name: Salmon
+      name: 三文鱼
       rarity: 1
       value: 100.0
       buffs: 'buff_year_of_plenty, buff_fishing'
@@ -375,7 +375,7 @@ water_goods:
       material_data: 0
 
     - id: 'good_pearls'
-      name: Pearls
+      name: 珍珠
       rarity: 3
       value: 375.0
       buffs: 'buff_monopoly, buff_greed'
@@ -383,7 +383,7 @@ water_goods:
       material_data: 0
     
     - id: 'good_whale'
-      name: Whale
+      name: 鲸鱼
       rarity: 4
       value: 500.0
       buffs: 'buff_innovation, buff_advanced_tooling, buff_fine_art, buff_extraction'
@@ -391,7 +391,7 @@ water_goods:
       material_data: 0
 
     - id: 'good_shrimp'
-      name: Shrimp
+      name: 银鳕鱼
       rarity: 1
       value: 100.0
       buffs: 'buff_year_of_plenty, buff_fishing'
@@ -399,7 +399,7 @@ water_goods:
       material_data: 0 
 
     - id: 'good_tuna'
-      name: Tuna
+      name: 金枪鱼
       rarity: 2
       value: 250.0
       buffs: 'buff_year_of_plenty, buff_fishing'
@@ -407,11 +407,9 @@ water_goods:
       material_data: 0
 
     - id: 'good_sea_salt'
-      name: Sea Salt
+      name: 海盐
       rarity: 2
       value: 250.0
       buffs: 'buff_advanced_touring, buff_fine_art'
       material: 353
       material_data: 0
-      
-

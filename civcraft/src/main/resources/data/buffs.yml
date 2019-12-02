@@ -1,193 +1,222 @@
 #
-# This files contains defines for buffs which can be applied to bonus goodies.
-# Eventually these buffs may also apply to governments and/or wonders
+# 这个文件包含可以应用于奖励物品的buff的定义。.
+# 最终这些增益也可能适用于政府和/或奇迹
 #
 #
 
 buffs:
     - id: 'buff_construction'
-      name: 'Construction'
-      description: 'Increases hammer production by <lightgreen>100<r> hammers. <gold>Stackable<r>'
+      name: '建筑'
+      # description: 'Increases hammer production by <lightgreen>100<r> hammers. <gold>Stackable<r>'
+      description: '加快速度！增加 <lightgreen>100<r> 的生产值. <gold>可叠加<r>'
       value: '100'
+      # 可叠加
       stackable: true
    
     - id: 'buff_year_of_plenty'
-      name: 'Year Of Plenty'
-      description: 'Increases growth rate of farms by <lightgreen>15%<r>. <gold>Stackable<r>'
+      name: '丰收年'
+      # description: 'Increases growth rate of farms by <lightgreen>15%<r>. <gold>Stackable<r>'
+      description: '提高农场 <lightgreen>15%<r> 的生长速度. <gold>可叠加<r>'
       value: '0.15'
       stackable: true
 
     - id: 'buff_innovation'
-      name: 'Innovation'
-      description: 'Increases Science rate for town by <lightgreen>10%<r> <gold>Stackable<r>'
+      name: '创新'
+      # description: 'Increases Science rate for town by <lightgreen>10%<r> <gold>Stackable<r>'
+      description: '提高城镇 <lightgreen>10%<r> 的科研点  <gold>可叠加<r>'
       value: '0.1'
       stackable: true
 
     - id: 'buff_monopoly'
-      name: 'Monopoly'
-      description: 'Increases coin output from all trade goods in use by <lightgreen>15%<r> <gold>Stackable<r>'
+      name: '垄断'
+      # description: 'Increases coin output from all trade goods in use by <lightgreen>15%<r> <gold>Stackable<r>'
+      description: '增加 <lightgreen>15%<r> 正在使用的贸易品的金币产量  <gold>可叠加<r>'
       value: '0.15'
       stackable: true
     
     - id: 'buff_preservative'
-      name: 'Preservative'
-      description: 'Reduces consumption of cottages by <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '屯粮'
+      # description: 'Reduces consumption of cottages by <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '减少 <lightgreen>50%<r> 的别墅消耗 <lightgreen>50%<r> <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_advanced_tooling'
-      name: 'Advanced Tooling'
-      description: 'Increases the mine improvement production by a <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '高级工具'
+      # description: 'Increases the mine improvement production by a <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '提高 <lightgreen>50%<r> 的矿山增加的生产值 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_barricade'
-      name: 'Barricade'
-      description: 'Increases HP of defensive structures by <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '路障'
+      # description: 'Increases HP of defensive structures by <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '提高 <lightgreen>50%<r> 的防御结构的生命值  <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_barter'
-      name: 'Barter'
-      description: 'Increases the exchange rate of minerals exchanged at the bank by <lightgreen>5%<r> <gold>Stackable<r>'
+      name: '以物换物'
+      # description: 'Increases the exchange rate of minerals exchanged at the bank by <lightgreen>5%<r> <gold>Stackable<r>'
+      description: '提高 <lightgreen>5%<r> 在银行出售矿物的比例  <gold>可叠加<r>'
       value: '0.05'
       stackable: true
 
     - id: 'buff_fine_art'
-      name: 'Fine Art'
-      description: 'Increases culture output of a town by <lightgreen>25%<r> <red>Not Stackable<r>'
+      name: '美术'
+      # description: 'Increases culture output of a town by <lightgreen>25%<r> <red>Not Stackable<r>'
+      description: '增加一个城镇 <lightgreen>25%<r> 的文化产出  <red>不可叠加<r>'
       value: '0.25'
       stackable: false
 
     - id: 'buff_art_appreciation'
-      name: 'Art Appreciation'
-      description: 'Increases culture output of a town by <lightgreen>20%<r> <red>Not Stackable<r>'
+      name: '艺术鉴赏'
+      # description: 'Increases culture output of a town by <lightgreen>20%<r> <red>Not Stackable<r>'
+      description: '增加一个城镇 <lightgreen>20%<r> 的文化产出  <red>不可叠加<r>'
       value: '0.20'
       stackable: false
 
     - id: 'buff_extraction'
-      name: 'Extraction'
-      description: 'Increases the Trommel chance of producing precious minerals by <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '萃取工艺'
+      # description: 'Increases the Trommel chance of producing precious minerals by <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '增加精炼厂 <lightgreen>50%<r> 产出贵重矿物的几率 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_fire_bomb'
-      name: 'Fire Bomb'
-      description: 'Increases damage of arrow/cannon towers by <lightgreen>50%<r> Also makes arrow towers shoot flaming arrows <red>Not Stackable<r>'
+      name: '火焰弹'
+      # description: 'Increases damage of arrow/cannon towers by <lightgreen>50%<r> Also makes arrow towers shoot flaming arrows <red>Not Stackable<r>'
+      description: '增加箭/炮塔 <lightgreen>50%<r> 的伤害，也使箭塔射出燃烧的箭 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_fishing'
-      name: 'Fishing'
-      description: 'Allows uncooked fish to replace the need for bread. <lightgreen>1 fish = 2 bread<r> <red>Not Stackable<r>'
+      name: '渔业'
+      # description: 'Allows uncooked fish to replace the need for bread. <lightgreen>1 fish = 2 bread<r> <red>Not Stackable<r>'
+      description: '允许生鱼片代替面包 <lightgreen>1 fish = 2 bread<r> <red>不可叠加<r>'
       value: '2'
       stackable: false
     
     - id: 'buff_greed'
-      name: 'Greed'
-      description: 'Increases interest rates by <lightgreen>3%<r> <red>Not Stackable<r>'
+      name: '贪婪'
+      # description: 'Increases interest rates by <lightgreen>3%<r> <red>Not Stackable<r>'
+      description: '提高 <lightgreen>3%<r> 的利率 <red>不可叠加<r>'
       value: '0.03'
       stackable: false
 
     - id: 'buff_medicine'
-      name: 'Medicine'
-      description: 'Decreases friendly respawn time during war by <lightgreen>50<r> seconds.<r> <red>Not Stackable<r>'
+      name: '药物'
+      # description: 'Decreases friendly respawn time during war by <lightgreen>50<r> seconds.<r> <red>Not Stackable<r>'
+      description: '减少 <lightgreen>50<r> 秒<r> 战争期间的友军重生时间  <red>不可叠加<r>'
       value: '50'
       stackable: false
     
     - id: 'buff_dirty_money'
-      name: 'Dirty Money'
-      description: 'Increases the chances of Steal Treasury by <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '黑钱'
+      # description: 'Increases the chances of Steal Treasury by <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '增加 <lightgreen>50%<r> 盗取国库的几率  <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_espionage'
-      name: 'Espionage'
-      description: 'Increases the chances of poison granary and incite revolt by <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '间谍'
+      # description: 'Increases the chances of poison granary and incite revolt by <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '增加 <lightgreen>50%<r> 毒仓和煽动叛乱的几率 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
     
     - id: 'buff_rush'
-      name: 'Rush'
-      description: 'Reduces the hammer cost of all structures, wonders and improvements by <lightgreen>15%<r> <red>Not Stackable<r>'
+      name: '发展期'
+      # description: 'Reduces the hammer cost of all structures, wonders and improvements by <lightgreen>15%<r> <red>Not Stackable<r>'
+      description: '降低所有建筑物和奇迹建造和升级的费用 <lightgreen>15%<r>   <red>不可叠加<r>'
       value: '0.15'
       stackable: false
 
     - id: 'buff_titan'
-      name: 'Titan'
-      description: 'Reduces the chance to fail a catalyst by <lightgreen>10%<r> <gold>Stackable (max: 2x)<r> <green>Only useable in towns<r>'
+      name: '泰坦'
+      # description: 'Reduces the chance to fail a catalyst by <lightgreen>10%<r> <gold>Stackable (max: 2x)<r> <green>Only useable in towns<r>'
+      description: '减少 <lightgreen>10%<r> 强化失效的几率  <gold>可叠加 (max: 2x)<r> <green>只能在城镇中使用<r>'
       value: '123.123' # x
       stackable: true
       parent:
 
     - id: 'buff_return'
-      name: 'Return'
-      description: 'Adds a chance for Mob Grinder, Quarry, and Trommel to process and extra time. <r> <lightgreen>20%<r> <gold>Stackable (Max: 30%)<r>'
+      name: '返回'
+      # description: 'Adds a chance for Mob Grinder, Quarry, and Trommel to process and extra time. <r> <lightgreen>20%<r> <gold>Stackable (Max: 30%)<r>'
+      description: '增加 <r> <lightgreen>20%<r> 怪物磨床，采石场，精炼厂额外时间的几率 <gold>可叠加 (Max: 30%)<r>'
       value: '0.2'
       stackable: true
       parent:
 
     - id: 'buff_farm'
-      name: 'Stockpile'
-      description: 'Doubles the number of seeds placed by the windmill <lightgreen>2x<r> <red>Not Stackable<r>'
+      name: '储存'
+      # description: 'Doubles the number of seeds placed by the windmill <lightgreen>2x<r> <red>Not Stackable<r>'
+      description: '使风车播下的种子数翻倍 <lightgreen>2x<r> <red>不可叠加<r>'
       value: '2.0' # x
       stackable: false
       parent:
 
     - id: 'buff_profit_sharing'
-      name: 'Profit Sharing'
-      description: 'Reduces the coin cost of all technology researches by <lightgreen>5%<r> <red>Not Stackable<r>'
+      name: '利润分享'
+      # description: 'Reduces the coin cost of all technology researches by <lightgreen>5%<r> <red>Not Stackable<r>'
+      description: '降低 <lightgreen>5%<r> 所有科技研究的成本 <red>不可叠加<r>'
       value: '0.05'
       stackable: false
   
     - id: 'buff_sabotage'
-      name: 'Sabotage'
-      description: 'Greatly increases the effectivenes of sabotage missions by <lightgreen>50%<r> <red>Not Stackable<r>'
+      name: '破坏活动'
+      # description: 'Greatly increases the effectivenes of sabotage missions by <lightgreen>50%<r> <red>Not Stackable<r>'
+      description: '大大提高破坏任务的效果 <lightgreen>50%<r> <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_hedonism'
-      name: 'Hedonism'
-      description: 'Grants an extra <lightgreen>3<r> happiness<r> <gold>Stackable<r>'
+      name: '享乐主义'
+      # description: 'Grants an extra <lightgreen>3<r> happiness<r> <gold>Stackable<r>'
+      description: '提高<lightgreen>3<r> 幸福度<r> <gold>可叠加<r>'
       value: '3.0'
       stackable: true
 
     - id: 'buff_reduced_anarchy'
-      name: 'Reduced Anarchy'
-      description: 'Civilization spends 50% less time in anarchy per resident for this town.<r> <red>Not Stackable<r>'
+      name: '减少无政府状态'
+      # description: 'Civilization spends 50% less time in anarchy per resident for this town.<r> <red>Not Stackable<r>'
+      description: '每个居民在无政府状态下花费的时间减少了50%。<r> <red>不可叠加<r>'
       value: '0.5'
       stackable: false 
 
     - id: 'buff_advanced_touring'
-      name: 'Advanced Touring'
-      description: 'Increases the culture generated by the monument by <lightgreen>50%<r> - <red>Not Stackable<r>'
+      name: '高级旅游'
+      # description: 'Increases the culture generated by the monument by <lightgreen>50%<r> - <red>Not Stackable<r>'
+      description: '增加 <lightgreen>50%<r> 纪念碑产生的文化值  - <red>不可叠加<r>'
       value: '1.5'
       stackable: true
       parent:
 
     - id: 'buff_advanced_mixing'
-      name: 'Advanced Mixing'
-      description: 'Increases the beakers produced in the town by <lightgreen>50%<r> - <red>Not Stackable<r>'
+      name: '先进混合'
+      # description: 'Increases the beakers produced in the town by <lightgreen>50%<r> - <red>Not Stackable<r>'
+      description: '将镇上生产的科技点增加 <lightgreen>50%<r> - <red>不可叠加<r>'
       value: '1.5'
       stackable: true
       parent:
 
     - id: 'buff_hotel'
-      name: "HOTEL"
-      description: 'Placeholder Text'
+      name: "酒店"
+      # description: 'Placeholder Text'
+      description: '占位符文本 '
       value: '1.25'
       stackable: false
       parent:
 
     - id: 'buff_powerstation'
-      name: "POWERSTATION"
+      name: "发电站"
       description: 'Placeholder Text'
       value: '1.40'
       stackable: false
       parent:
 
     - id: 'buff_spoil'
-      name: "SPOIL"
+      name: "掠夺"
       description: 'Placeholder Text'
       value: '1.10'
       stackable: false
@@ -202,19 +231,22 @@ buffs:
 
     - id: 'buff_demand'
       name: 'Demand'
-      description: 'Adds <lightgreen>5%<r> Bonus to Cottages<r> <gold>Stackable<r>'
+      # description: 'Adds <lightgreen>5%<r> Bonus to Cottages<r> <gold>Stackable<r>'
+      description: '添加 <lightgreen>5%<r> 别墅奖励 <r> <gold>可叠加<r>'
       value: '0.05'
       stackable: true
       parent:
 
     - id: 'buff_growth'
       name: 'Growth'
-      description: 'Adds <lightgreen>150<r> growth<r> <gold>Stackable<r>'
+      # description: 'Adds <lightgreen>150<r> growth<r> <gold>Stackable<r>'
+      description: '添加 <lightgreen>150<r> 生长速度<r> <gold>可叠加<r>'
       value: '150.0'
       stackable: true
       parent:
 
 # Таланты
+# 天赋
 #
     - id: 'level1_hammerRateCap'
       name: "Placeholder Text"

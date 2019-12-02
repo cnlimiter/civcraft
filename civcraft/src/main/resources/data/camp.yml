@@ -1,38 +1,44 @@
 #
-# Contains configuration options for camps.
+# 包含营地的配置选项。
 # 
 camp:
-    # Number of hitpoints a camp has.
+    # 营地的HP。
     hitpoints: 100
   
-    # Number of hitpoints to regenerate per second
+    # 每秒恢复多少HP
     regen_rate: 2
 
-    # Number of hours a camp can survive without coal.
+    # 没有煤炭，营地可以存活多久
     firepoints: 24
 
-    # Number of coal it takes to revive one hour worth
-    # of camp life.
+    # 一个小时消耗多少煤炭
     coal_per_firepoint: 4
 
-    # Template path to the camp. Starting from the templates directory.
+    # 营地的模板路径，从templates目录开始
     template: 'camp'
 
     # cost of the camp in coins.
+    # 创建营地的花费? 貌似没实装
     cost: 2500.0
 
-    # Sifter Settings
+    # 筛选机的设置
+    # 金粒
     sifter_gold_nugget_chance: 0.10
+    # 铁锭
     sifter_iron_ingot_chance: 0.025
    
     # number of hours to let camp be raidable
+    # 每隔多少小时难民营突袭？
     raid_length: 2 
 
 longhouse_levels:
    - level: 1
+     # 消耗
      consumes:
          - 297,1
+     # 多久升级
      count: 5
+     # 奖励的金钱
      coins: 15.0
    
    - level: 2
@@ -55,17 +61,17 @@ longhouse_levels:
      
 upgrades:
     - id: 'camp_upgrade_sifter'
-      name: 'Enable Sifter'
+      name: '洗矿场'
       cost: 500.0
       action: 'enable_sifter'
       require_upgrade:
     - id: 'camp_upgrade_longhouse'
-      name: 'Enable Longhouse'
+      name: '面包房'
       cost: 500.0
       action: 'enable_longhouse'
       require_upgrade:
     - id: 'camp_upgrade_garden'
-      name: 'Enable Garden'
+      name: '农田'
       cost: 500.0
       action: 'enable_garden'
       require_upgrade:
