@@ -63,7 +63,7 @@ public class ChangeGovernmentTimer implements Runnable {
                 boolean noanarchy = false;
                 for (Town t : civ.getTowns()) {
                     //Get the Count of Residents in each town
-                    double residentHours = t.getResidentCount();
+                    double residentHours = t.getResidentCount() + 1;
                     double modifier = 1.0;
                     //If the town has a broadcast tower, reduce the modifer by the buff_reduced_anarchy value
                     //如果镇上有广播塔，则通过减少buff减少无政府状态值来减少修饰符
@@ -77,7 +77,7 @@ public class ChangeGovernmentTimer implements Runnable {
                         noanarchy = true;
                     }
                     //Reduce the number of resident hours by the modifier, then add it to the member hours
-                    memberHours += (residentHours * modifier*2);
+                    memberHours += (residentHours * modifier * 3);
                 }
                 //Get the maxAnarchy from the governments.yml (Dmefault 24 hours)
                 //从governments.yml获取maxAnarchy（默认24小时）
@@ -88,9 +88,10 @@ public class ChangeGovernmentTimer implements Runnable {
                     //如果文明完成了巴黎圣母院，则将maxAnarchy降低至governments.yml的较低罚款（默认2小时）(屁 明明是12
                     maxAnarchy = CivSettings.getIntegerGovernment("notre_dame_max_anarchy");
                 }
+                memberHours += CivSettings.getIntegerGovernment("notre_dame_max_anarchy");
                 //Finally, calculate the number of hours, taking the lower memberHours or maxAnarchy
                 // 最后，计算小时数，取较低的MemberHours或maxAnarc hy
-                double anarchyHours = Math.min(memberHours, maxAnarchy);
+                double anarchyHours = Math.max(memberHours, maxAnarchy);
 
                 //Check if enough time has elapsed in seconds since the anarchy started
                 //检查自无政府状态开始以来是否已经过去了足够的时间

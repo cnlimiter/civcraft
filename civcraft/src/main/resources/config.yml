@@ -43,27 +43,27 @@ localization_file: "default_lang.yml"
 
 # MySQL database to store game data in across reloads. 
 mysql:
-    useSSL: 'false'
-    hostname: localhost
-    port: '3306'
-    database: game
-    username: user
-    password: 'PasswordForDatabaseUser'
-    table_prefix: ''
-    min_conns: '5'
-    max_conns: '10'
-    parts: '3'
-   
+  useSSL: 'false'
+  hostname: localhost
+  port: '3306'
+  database: game
+  username: user
+  password: 'PasswordForDatabaseUser'
+  table_prefix: ''
+  min_conns: '5'
+  max_conns: '10'
+  parts: '3'
+
 global_database:
-    useSSL: 'false'
-    database: global
-    hostname: localhost
-    port: '3306'
-    username: user
-    password: 'PasswordForDatabaseUser'
-    min_conns: '5'
-    max_conns: '10'
-    parts: '3'
+  useSSL: 'false'
+  database: global
+  hostname: localhost
+  port: '3306'
+  username: user
+  password: 'PasswordForDatabaseUser'
+  min_conns: '5'
+  max_conns: '10'
+  parts: '3'
 
 server_phase: 'beta8'
 
