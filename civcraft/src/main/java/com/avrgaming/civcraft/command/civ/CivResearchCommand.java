@@ -18,6 +18,7 @@
  */
 package com.avrgaming.civcraft.command.civ;
 
+import cn.hutool.core.collection.CollUtil;
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTech;
@@ -50,7 +51,7 @@ public class CivResearchCommand extends CommandBase {
         commands.put("calc", CivSettings.localize.localizedString("cmd_civ_researchcalc_Desc"));
         commands.put("queuelist", CivSettings.localize.localizedString("cmd_civ_research_queueList"));
         commands.put("queueadd", CivSettings.localize.localizedString("cmd_civ_research_queueAdd"));
-        commands.put("queueremove", CivSettings.localize.localizedString("cmd_civ_research_queueRemove"));
+//        commands.put("queueremove", CivSettings.localize.localizedString("cmd_civ_research_queueRemove"));
     }
 
     public void queueadd_cmd() throws CivException {
@@ -68,51 +69,59 @@ public class CivResearchCommand extends CommandBase {
         }
         String techname = this.combineArgs(this.stripArgs(this.args, 1));
         ConfigTech tech = CivSettings.getTechByName(techname);
+        //科技要存在，
+        if (tech == null) {
+            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueUnknownTech", techname));
+        }
+        if (civ.hasTech(tech.id)) {
+            throw new CivException(CivSettings.localize.localizedString("civ_research_alreadyDone"));
+        }
         if (civ.getResearchTech() == tech) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleadyThis"));
         }
         if (civ.getResearchTech() == null) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueNoResearchingNow", tech.name));
         }
-        if (tech == null) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueUnknownTech", techname));
+        if (civ.getTechQueued().contains(tech)) {
+            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleayIn"));
         }
-        if (civ.getTechQueued() != null) {
-            if (civ.getTechQueued() == tech) {
-                throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleayIn"));
-            }
-            if (civ.getResearchTech() == null) {
-                throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueNoResearchingNow", tech.name));
-            }
-            ConfigTech oldQueue = civ.getTechQueued();
-            civ.setTechQueued(tech);
-            CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueSucussesAdded", tech.name));
-            CivMessage.send((Object) this.sender, CivColor.YellowBold + CivSettings.localize.localizedString("cmd_civ_research_queueSucussesWithWarning", oldQueue.name, tech.name));
-            civ.save();
-        } else {
-            civ.setTechQueued(tech);
-            CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueSucussesAdded", tech.name));
-            civ.save();
+        if (!tech.isAvailable(civ)) {
+            throw new CivException(CivSettings.localize.localizedString("civ_research_missingRequirements"));
         }
+
+        double cost = tech.getAdjustedTechCost(civ);
+        if (!civ.getTreasury().hasEnough(cost)) {
+            throw new CivException(CivSettings.localize.localizedString("var_civ_research_notEnoughMoney", cost, CivSettings.CURRENCY_NAME));
+        }
+        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueSucussesAdded", tech.name));
+        //现在不存在删除了
+//        CivMessage.send(this.sender, CivColor.YellowBold + CivSettings.localize.localizedString("cmd_civ_research_queueSucussesWithWarning", oldQueue.name, tech.name));
+        civ.getTechQueued().offer(tech);
+        civ.getTreasury().withdraw(cost);
+        civ.save();
     }
 
     public void queueremove_cmd() throws CivException {
-        Civilization civ = this.getSenderCiv();
-        if (civ.getTechQueued() == null) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueErrorListRemove"));
-        }
-        ConfigTech oldQueue = civ.getTechQueued();
-        civ.setTechQueued(null);
-        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueRemoveSucusses", oldQueue.name));
-        civ.save();
+//        Civilization civ = this.getSenderCiv();
+//        if (civ.getTechQueued() == null) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueErrorListRemove"));
+//        }
+//        ConfigTech oldQueue = civ.getTechQueued();
+//        civ.setTechQueued(null);
+//        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueRemoveSucusses", oldQueue.name));
+//        civ.save();
     }
 
     public void queuelist_cmd() throws CivException {
         Civilization civ = this.getSenderCiv();
-        if (civ.getTechQueued() == null) {
+        if (civ.getTechQueued().size() == 0) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueErrorListRemove"));
         }
-        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueListSucusses") + "§d" + civ.getTechQueued().name);
+        StringBuilder sb = new StringBuilder();
+        sb.append(CivSettings.localize.localizedString("cmd_civ_research_queueListSucusses"))
+                .append("§d")
+                .append(CollUtil.join(civ.getTechQueued(), ","));
+        CivMessage.sendCiv(civ, sb.toString());
     }
 
     public void calc_cmd() throws CivException {

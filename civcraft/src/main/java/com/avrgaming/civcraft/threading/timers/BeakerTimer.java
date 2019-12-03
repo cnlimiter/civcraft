@@ -25,6 +25,8 @@ import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
+import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.threading.tasks.UpdateTechBar;
 
 public class BeakerTimer extends CivAsyncTask {
 
@@ -64,6 +66,11 @@ public class BeakerTimer extends CivAsyncTask {
                  * This timer runs every min, so dividing my 60 will give us the number
                  * of beakers per min.
                  */
+                //研究完成后
+                if (civ.getTechQueued().size() != 0) {
+                    civ.setResearchTech(civ.getTechQueued().poll());
+                    TaskMaster.asyncTask(new UpdateTechBar(civ), 0);
+                }
                 if (civ.getResearchTech() != null) {
                     civ.addBeakers(civ.getBeakers() / BEAKER_PERIOD);
                 }

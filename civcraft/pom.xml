@@ -46,6 +46,7 @@
                                     <include>org.jnbt:jnbt</include>
                                     <include>org.slf4j:slf4j-api</include>
                                     <include>org.slf4j:slf4j-simple</include>
+                                    <inclued>cn.hutool:hutool-all</inclued>
                                 </includes>
                             </artifactSet>
                         </configuration>
@@ -86,6 +87,11 @@
     <dependencies>
         <!--需要打包的依赖-->
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.0.7</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.2</version>
@@ -107,6 +113,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!--other plugin-->
         <dependency>
             <groupId>net.md-5</groupId>

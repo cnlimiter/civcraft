@@ -27,6 +27,9 @@ import com.avrgaming.civcraft.sessiondb.SessionEntry;
 
 import java.util.ArrayList;
 
+/**
+ * 更改政体的timer
+ */
 public class ChangeGovernmentTimer implements Runnable {
 
     @Override

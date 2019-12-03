@@ -18,6 +18,8 @@
  */
 package com.avrgaming.civcraft.object;
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.StrUtil;
 import com.avrgaming.civcraft.camp.WarCamp;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigGovernment;
@@ -59,7 +61,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Civilization extends SQLObject {
 
-    private Map<String, ConfigTech> techs = new ConcurrentHashMap<String, ConfigTech>();
+    private Map<String, ConfigTech> techs = new ConcurrentHashMap<>();
 
     private int color;
     private int daysInDebt = 0;
@@ -110,7 +112,8 @@ public class Civilization extends SQLObject {
     public String messageOfTheDay = "";
 
     private LinkedList<WarCamp> warCamps = new LinkedList<WarCamp>();
-    private ConfigTech techQueue = null;
+    //    private ConfigTech techQueue = null;
+    private Queue<ConfigTech> techQueue = new LinkedList<>();
     private double settlerCost = 25000.0;
     int currentMission = 1;
     boolean missionActive = false;
@@ -260,6 +263,14 @@ public class Civilization extends SQLObject {
         } else {
             this.tradeGoods = "";
         }
+        //加载研究队列
+        String[] techQueueName = StrUtil.split(rs.getString("techQueue"), ",");
+        for (String techName : techQueueName) {
+            ConfigTech t = CivSettings.techs.get(techName);
+            if (t != null) {
+                techQueue.offer(t);
+            }
+        }
     }
 
     @Override
@@ -282,8 +293,8 @@ public class Civilization extends SQLObject {
         hashmap.put("income_tax_rate", this.getIncomeTaxRate());
         hashmap.put("science_percentage", this.getSciencePercentage());
         hashmap.put("color", this.getColor());
-        if (this.getTechQueued() != null) {
-            hashmap.put("techQueue", this.getTechQueued().id);
+        if (this.getTechQueued().size() != 0) {
+            hashmap.put("techQueue", CollUtil.join(techQueue, ","));
         } else {
             hashmap.put("techQueue", null);
         }
@@ -392,7 +403,7 @@ public class Civilization extends SQLObject {
         return true;
     }
 
-    private boolean hasTech(String configId) {
+    public boolean hasTech(String configId) {
         if (configId == null || configId.equals("")) {
             return true;
         }
@@ -1060,11 +1071,9 @@ public class Civilization extends SQLObject {
     }
 
     public void addBeakers(double beakers) {
-
         if (beakers == 0) {
             return;
         }
-
         TaskMaster.asyncTask(new UpdateTechBar(this), 0);
         setResearchProgress(getResearchProgress() + beakers);
 
@@ -1076,15 +1085,17 @@ public class Civilization extends SQLObject {
             this.addTech(this.getResearchTech());
             this.setResearchProgress(0);
             this.setResearchTech(null);
-
+            //完成后将队列的内容拉到当前要研究的科技上
+            if (getTechQueued().size() != 0) {
+                setResearchTech(techQueue.poll());
+                TaskMaster.asyncTask(new UpdateTechBar(this), 0);
+            }
             this.save();
-
             return;
         }
 
         int percentageComplete = (int) ((getResearchProgress() / this.getResearchTech().getAdjustedBeakerCost(this)) * 100);
         if ((percentageComplete % 10) == 0) {
-
             if (percentageComplete != lastTechPercentage) {
                 CivMessage.sendCiv(this, CivSettings.localize.localizedString("var_civ_research_currentProgress", getResearchTech().name, percentageComplete));
                 lastTechPercentage = percentageComplete;
@@ -1937,13 +1948,10 @@ public class Civilization extends SQLObject {
         return null;
     }
 
-    public ConfigTech getTechQueued() {
+    public Queue<ConfigTech> getTechQueued() {
         return this.techQueue;
     }
 
-    public void setTechQueued(final ConfigTech techQueue) {
-        this.techQueue = techQueue;
-    }
 
     public double getSettlerCost() {
         return this.settlerCost;

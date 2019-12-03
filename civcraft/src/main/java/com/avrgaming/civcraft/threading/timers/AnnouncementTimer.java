@@ -27,6 +27,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 提示的timer
+ */
 public class AnnouncementTimer implements Runnable {
 
     List<String> announcements;
