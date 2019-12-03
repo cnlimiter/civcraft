@@ -612,9 +612,9 @@ public class MissionBook extends UnitItemMaterial {
             throw new CivException(CivSettings.localize.localizedString("var_missionBook_subvert_errorTooFar", mission.range));
         }
 
-        if (civ.getGovernment().id == "gov_anarchy") {
+        if ("gov_anarchy".equals(civ.getGovernment().id)) {
             throw new CivException(CivSettings.localize.localizedString("var_missionBook_subvert_errorInAnarchy", civ.getName()));
-        } else if (civ.getGovernment().id == "gov_tribalism") {
+        } else if ("gov_tribalism".equals(civ.getGovernment().id)) {
             throw new CivException(CivSettings.localize.localizedString("var_missionBook_subvert_errorInTribalism", civ.getName()));
         }
 
