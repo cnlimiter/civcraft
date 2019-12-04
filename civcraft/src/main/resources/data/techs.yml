@@ -7,32 +7,32 @@
 # This is a list of items and which techs they are craftable at
 items:
     - id: 417
-      name: 'Iron Horse Armor'
+      name: '铁马铠'
       require_tech: 'tech_global_trade'
     - id: 418
-      name: 'Gold Horse Armor'
+      name: '金马铠'
       require_tech: 'tech_global_trade'
     - id: 419
-      name: 'Diamond Horse Armor'
+      name: '钻石马铠'
       require_tech: 'tech_global_trade'
 
 potions:
-   - name: 'Fire Resist'
+   - name: '防火'
      effect: 'FIRE_RESISTANCE'
      amp: 1
      require_tech: 'tech_alchemy'
 
-   - name: 'Swiftness'
+   - name: '速度'
      effect: 'SPEED'
      amp: 1
      require_tech: 'tech_malting' 
 
-   - name: 'Healing I'
+   - name: '生命恢复 I'
      effect: 'HEAL'
      amp: 1
      require_tech: 'tech_brewing'
 
-   - name: 'Healing II'
+   - name: '生命恢复 II'
      effect: 'HEAL'
      amp: 2
      require_tech: 'tech_fermentation'
@@ -118,7 +118,7 @@ techs:
       era: 1
 
     - id: 'tech_pottery'
-      name: '陶瓷烧制技术'
+      name: '制陶技艺'
       beaker_cost: 1000.0
       cost: 7500.0
       points: 250

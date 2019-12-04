@@ -61,35 +61,35 @@ town:
 # 
 town_levels:
     - level: 1
-      title: 'Settlement'
+      title: '开拓'
       upkeep: 500.0
       plots: 32
       plot_cost: 500.0
       tile_improvements: 4
 
     - level: 2
-      title: 'Hamlet'
+      title: '小村庄'
       upkeep: 750.0
       plots: 64
       plot_cost: 1000.0
       tile_improvements: 6
 
     - level: 3
-      title: 'Village'
+      title: '村庄'
       upkeep: 1250.0
       plots: 80
       plot_cost: 2000.0
       tile_improvements: 8
     
     - level: 4
-      title: 'Large Village'
+      title: '大村庄'
       upkeep: 2000.0
       plots: 128
       plot_cost: 3500.0
       tile_improvements: 12
 
     - level: 5
-      title: 'Town'
+      title: '城镇'
       upkeep: 3500.0
       plots: 256
       plot_cost: 5000.0
@@ -97,7 +97,7 @@ town_levels:
 
 
     - level: 6
-      title: 'Large Town'
+      title: '大城镇'
       upkeep: 5500.0
       plots: 512
       plot_cost: 7500.0
@@ -105,7 +105,7 @@ town_levels:
 
 
     - level: 7
-      title: 'City'
+      title: '都市'
       upkeep: 7000.0
       plots: 1024
       plot_cost: 15000.0
@@ -113,7 +113,7 @@ town_levels:
 
 
     - level: 8
-      title: 'Large City'
+      title: '大都市'
       upkeep: 8000.0
       plots: 2048
       plot_cost: 20000.0
@@ -121,7 +121,7 @@ town_levels:
 
 
     - level: 9
-      title: 'Metropolis'
+      title: '首都'
       upkeep: 25000.0
       plots: 4096
       plot_cost: 30000.0
@@ -644,7 +644,7 @@ upgrades:
 
 # Trommel upgrades
     - id: 'upgrade_trommel_material_granite'
-      name: 'Upgrade Trommel Level 2 (Granite)' 
+      name: 'Upgrade Trommel Level 2 (花岗岩)'
       action: 'set_trommel_level, 2'
       cost: 5000.0
       require_upgrade:
@@ -653,7 +653,7 @@ upgrades:
       category: 'trommel'
 
     - id: 'upgrade_trommel_material_diorite'
-      name: 'Upgrade Trommel Level 3 (Diorite)'
+      name: 'Upgrade Trommel Level 3 (闪长岩)'
       action: 'set_trommel_level, 3'
       cost: 10000.0
       require_upgrade: 'upgrade_trommel_material_granite'
@@ -662,7 +662,7 @@ upgrades:
       category: 'trommel'
 
     - id: 'upgrade_trommel_level_andesite'
-      name: 'Upgrade Trommel Level 4 (Andesite)'
+      name: 'Upgrade Trommel Level 4 (安山岩)'
       action: 'set_trommel_level, 4'
       cost: 20000.0
       require_upgrade: 'upgrade_trommel_material_diorite'
@@ -672,7 +672,7 @@ upgrades:
 
 # quarry upgrades
     - id: 'upgrade_quarry_material_granite'
-      name: 'Upgrade quarry Level 2 (Stone)' 
+      name: 'Upgrade quarry Level 2 (石头)'
       action: 'set_quarry_level, 2'
       cost: 5000.0
       require_upgrade:
@@ -681,7 +681,7 @@ upgrades:
       category: 'quarry'
 
     - id: 'upgrade_quarry_material_diorite'
-      name: 'Upgrade quarry Level 3 (Iron)'
+      name: 'Upgrade quarry Level 3 (铁)'
       action: 'set_quarry_level, 3'
       cost: 10000.0
       require_upgrade: 'upgrade_quarry_material_granite'
@@ -690,7 +690,7 @@ upgrades:
       category: 'quarry'
 
     - id: 'upgrade_quarry_level_andesite'
-      name: 'Upgrade quarry Level 4 (Diamond)'
+      name: 'Upgrade quarry Level 4 (钻石)'
       action: 'set_quarry_level, 4'
       cost: 20000.0
       require_upgrade: 'upgrade_quarry_material_diorite'

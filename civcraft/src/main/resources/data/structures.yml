@@ -118,28 +118,28 @@ mobGrinder:
 # 食品店
 grocer_levels:
     - level: 1
-      itemName: 'Fish'
+      itemName: '鱼'
       itemId: 350
       itemData: 0
       amount: 1
       price: 8.0 
 
     - level: 2
-      itemName: 'Roast Chicken'
+      itemName: '烤鸡'
       itemId: 366
       itemData: 0
       amount: 1
       price: 15.0
 
     - level: 3
-      itemName: 'Cooked Pork'
+      itemName: '熟猪肉'
       itemId: 320
       itemData: 0
       amount: 1
       price: 20.0
  
     - level: 4
-      itemName: 'Golden Carrot'
+      itemName: '金胡萝卜'
       itemId: 396
       itemData: 0
       amount: 1
@@ -148,28 +148,28 @@ grocer_levels:
 ################# Alch settings ###########################
 alch_levels:
     - level: 1
-      itemName: 'Скорость'
+      itemName: '速度'
       itemId: 373
       itemData: 8194
       amount: 1
       price: 450.0
 
     - level: 2
-      itemName: 'Исцеление I'
+      itemName: '生命恢复 I'
       itemId: 373
       itemData: 8197
       amount: 1
       price: 600.0
 
     - level: 3
-      itemName: 'Огнестойкость'
+      itemName: '防火'
       itemId: 373
       itemData: 8195
       amount: 1
       price: 750.0
 
     - level: 4
-      itemName: 'Исцеление II'
+      itemName: '生命恢复 II'
       itemId: 373
       itemData: 8229
       amount: 1

@@ -1,10 +1,12 @@
 #
 # This file contains any settings relevent to culture.
+# 此配置文件包含与文化相关的任何内容。
 # This includes culture levels for towns.
-#
+# 还有城镇文化等级
 #
 
 # culture to beaker conversion ratio.
+# 文化等级生成烧杯值的速度
 beakers_per_culture: 0.1
 
 # Culture levels for towns

@@ -132,35 +132,35 @@ items:
 
 # Shelf 2 left side, front 20-24
     - id: 20
-      name: 'Pond Scum'
+      name: '绿藻'
       type_id: 0
       data: 0
       custom_id: 'mat_fish_pond_scum'
       value: 1
 
     - id: 21
-      name: 'Tangled String'
+      name: '绳结'
       type_id: 0
       data: 0
       custom_id: 'mat_fish_tangled_string'
       value: 1
 
     - id: 22
-      name: 'Seaweed'
+      name: '海草'
       type_id: 0
       data: 0
       custom_id: 'mat_fish_seaweed'
       value: 1
 
     - id: 23
-      name: 'Minnows'
+      name: '小型鱼'
       type_id: 0
       data: 0
       custom_id: 'mat_fish_minnows'
       value: 1
 
     - id: 24
-      name: 'Tadpole'
+      name: '蝌蚪'
       type_id: 0
       data: 0
       custom_id: 'mat_fish_tadpole'

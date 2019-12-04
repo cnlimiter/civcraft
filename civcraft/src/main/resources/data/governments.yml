@@ -63,6 +63,7 @@ governments:
           power_type: mayor_all_power
 
           # focus: Strong  Taxs, Cottages, Farming
+          # focus: 强大的税收、农舍、农业
         - id: gov_monarchy
           displayName: 君主制
           require_tech: 'tech_monarchy'
@@ -77,6 +78,7 @@ governments:
           power_type: mayor_all_power
 
           # focus: Strong  Trade, Negative science, Weak Mining / Cottages
+          # focus: 强贸易、负科学、弱采矿/农舍
         - id: gov_theocracy
           displayName: 神权制
           require_tech: 'tech_global_trade'

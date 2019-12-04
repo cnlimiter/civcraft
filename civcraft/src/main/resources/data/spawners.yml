@@ -1,6 +1,6 @@
 #
 # This file contains information about the mob spawners.
-#
+# 刷怪笼
 # The mob spawners are divided into two lists, land spawners and water spawners.
 # Configuration for them is identical, however as you might expect... water 
 # spawners never spawn on land and land spawners never spawn on water.

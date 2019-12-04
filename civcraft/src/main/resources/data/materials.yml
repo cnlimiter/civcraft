@@ -7,7 +7,7 @@
 # Secondary Materials
 # Weapons
 # Armors
-# Special (camps, civs, etc)
+# 特殊 (camps, civs, etc)
 #
 # We will be able to attach components to these items which
 # will passed in-game events such as onItemPickup() and onItemUse()
@@ -80,7 +80,7 @@ materials:
           name: 'T1 精制皮革'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 334
                 data: 0
@@ -93,7 +93,7 @@ materials:
           name: 'T1 精制石头'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 4
                 data: 0
@@ -106,7 +106,7 @@ materials:
           name: 'T1 精制石头'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 1
                 data: 1
@@ -119,7 +119,7 @@ materials:
           name: 'T1 精制石头'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 1
                 data: 3
@@ -132,7 +132,7 @@ materials:
           name: 'T1 精制石头'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 1
                 data: 5
@@ -145,7 +145,7 @@ materials:
 #          name: 'Refined Gold'
 #          craftable: true
 #          shaped: false
-#          category: '<lightgreen>Tier 1 Materials'
+#          category: '<lightgreen>T1级材料'
 #          ingredients:
 #              - type_id: 266
 #                data: 0
@@ -158,7 +158,7 @@ materials:
           name: 'T1 紧密羽毛'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 288
                 data: 0
@@ -171,7 +171,7 @@ materials:
           name: 'T1 精制线绳'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 287
                 data: 0
@@ -184,7 +184,7 @@ materials:
           name: 'T1 精制粘液球'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 341 
                 custom_id: 'mat_vanilla_slime'
@@ -198,7 +198,7 @@ materials:
 #          name: 'Forged Iron Ingot'
 #          craftable: true
 #          shaped: false
-#          category: '<lightgreen>Tier 1 Materials'
+#          category: '<lightgreen>T1级材料'
 #          ingredients:
 #              - type_id: 265
 #                data: 0
@@ -213,7 +213,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 338
                 data: 0
@@ -226,7 +226,7 @@ materials:
 #          name: 'Refined Coal'
 #          craftable: true
 #          shaped: false
-#          category: '<lightgreen>Tier 1 Materials'
+#          category: '<lightgreen>T1级材料'
 #          ingredients:
 #              - type_id: 263
 #                data: 0
@@ -239,7 +239,7 @@ materials:
           name: 'T1 精制木棍'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 280
                 data: 0
@@ -252,7 +252,7 @@ materials:
           name: 'T1 精制硫磺'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 289
                 data: 0
@@ -264,7 +264,7 @@ materials:
           name: 'T1 精制沙子'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 12
                 data: -1
@@ -277,7 +277,7 @@ materials:
           name: 'T1 精制粘土'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 337
                 data: 0
@@ -290,7 +290,7 @@ materials:
           name: 'T1 精制糖'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 353
                 data: 0
@@ -303,7 +303,7 @@ materials:
           name: 'T1 精制地狱疣'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 372
                 data: 0
@@ -316,7 +316,7 @@ materials:
           name: 'T1 精制铬'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 0
                 data: 0
@@ -330,7 +330,7 @@ materials:
           name: 'T1 精制钨矿'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 0
                 data: 0
@@ -344,7 +344,7 @@ materials:
           name: 'T1 精致木头'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 17
                 data: -1
@@ -357,7 +357,7 @@ materials:
           name: 'T1 精致木头'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 162
                 data: -1
@@ -370,7 +370,7 @@ materials:
 #          name: 'Refined Diamonds'
 #          craftable: true
 #          shaped: false
-#          category: '<lightgreen>Tier 1 Materials'
+#          category: '<lightgreen>T1级材料'
 #          ingredients:
 #              - type_id: 264 
 #                data: 0
@@ -388,7 +388,7 @@ materials:
               - name: 'NoRightClick'
           craftable: false
           shaped: true
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
         
           # XXX Statically coded to drop from trommel 
         # Checked 10/8/13
@@ -400,7 +400,7 @@ materials:
           name: '铬矿'
           craftable: false
           shaped: true
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
 
 
 
@@ -416,7 +416,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_carved_leather'
@@ -436,7 +436,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 57
                 data: 0
@@ -451,7 +451,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_refined_stone'
@@ -468,7 +468,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 1400.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 41
                 data: 0
@@ -483,7 +483,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_refined_wood'
@@ -499,7 +499,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_crafted_string'
@@ -523,7 +523,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 400.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 42
                 data: 0
@@ -545,7 +545,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -571,7 +571,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -596,7 +596,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_clay'
@@ -621,7 +621,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 20.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_chromium'
@@ -648,7 +648,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_crafted_sticks'
@@ -672,7 +672,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -692,7 +692,7 @@ materials:
           name: 'T2 钢剑剑刃'
           craftable: true
           shaped: false
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_steel_ingot'
@@ -710,7 +710,7 @@ materials:
           name: 'T2 钢剑剑柄'
           craftable: true
           shaped: false
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_steel_ingot'
@@ -738,7 +738,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 400.0
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_steel_ingot'
@@ -755,7 +755,7 @@ materials:
 
 
 
-# <lightpurple>Tier 3 Materials =======================================================
+# <lightpurple>T3级材料 =======================================================
 
 
         # Checked 10/8/13
@@ -767,7 +767,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           shaped: false
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_crafted_leather'
@@ -787,7 +787,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 5.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -817,7 +817,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_woven_threading'
@@ -841,7 +841,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 800.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_steel_ingot'
@@ -863,7 +863,7 @@ materials:
           name: 'T3 长弓弓背'
           craftable: true
           shaped: false
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_aged_wood_stave'
@@ -883,7 +883,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_woven_mesh_patch'
@@ -907,7 +907,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -933,7 +933,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_sticky_resin'
@@ -956,7 +956,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -981,7 +981,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 10.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -1008,7 +1008,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 20.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_sticky_resin'
@@ -1026,7 +1026,7 @@ materials:
           name: 皇冠'
           craftable: true
           shaped: false
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'NoDurability'
           ingredients:
@@ -1051,7 +1051,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 1000.0
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'Tagged'
           ingredients:
@@ -1066,7 +1066,7 @@ materials:
           name: '领袖的微章'
           craftable: true
           shaped: false
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'Tagged'
           ingredients:
@@ -1081,7 +1081,7 @@ materials:
           name: '领袖的标志'
           craftable: false
           shaped: false
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'Tagged'
          
@@ -1092,7 +1092,7 @@ materials:
           name: '首领头冠'
           craftable: true
           shaped: false
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'NoDurability'
           ingredients:
@@ -1114,7 +1114,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 20.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_crushed_stone'
@@ -1128,7 +1128,7 @@ materials:
           name: 'T3 硬质合金钢剑柄'
           craftable: true
           shaped: false
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_clay_steel_cast'
@@ -1155,7 +1155,7 @@ materials:
           name: 'T3 硬质合金钢剑刃'
           craftable: true
           shaped: false
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_clay_steel_cast'
@@ -1179,7 +1179,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 800.0
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_sticky_resin'
@@ -1206,7 +1206,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 40.0
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_leather_straps'
@@ -1226,7 +1226,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 40.0
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_clay_tungsten_casting'
@@ -1248,7 +1248,7 @@ materials:
           name: 'T4 钨剑剑刃'
           craftable: true
           shaped: false
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_clay_tungsten_casting'
@@ -1270,7 +1270,7 @@ materials:
           name: 'T4 钨剑剑柄'
           craftable: true
           shaped: false
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_clay_tungsten_casting'
@@ -1296,7 +1296,7 @@ materials:
           name: 'T4 复合弓弓背'
           craftable: true
           shaped: false
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_longbow_stave'
@@ -1318,7 +1318,7 @@ materials:
           name: 'T4 复合弓弓弦'
           craftable: true
           shaped: false
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_smithy_resin'
@@ -1338,7 +1338,7 @@ materials:
           shaped: false
           tradeable: true
           tradeValue: 40.0
-          category: '<gold>Tier 3 Materials'
+          category: '<gold>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_milled_lumber'
@@ -1353,7 +1353,7 @@ materials:
           shaped: true
           tradeable: true
           tradeValue: 40.0
-          category: '<gold>Tier 3 Materials'
+          category: '<gold>T3级材料'
           ingredients:
               - type_id: 0
                 data: 0
@@ -1364,7 +1364,7 @@ materials:
               - "ppp"
               - " p "
 
-# Special Recipes  ===========================================            
+# 特殊 Recipes  ===========================================            
         # Checked 10/8/13
         - id: 'mat_found_civ'
           item_id: 369
@@ -1372,7 +1372,7 @@ materials:
           name: '建立文明旗帜'
           craftable: true
           shaped: true
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'FoundCivilization'
           ingredients:
@@ -1402,7 +1402,7 @@ materials:
           name: '营地'
           craftable: true
           shaped: true
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'FoundCamp'
           ingredients:
@@ -1428,7 +1428,7 @@ materials:
           name: '战争营地'
           craftable: true
           shaped: true
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'FoundWarCamp'
           ingredients:
@@ -1455,7 +1455,7 @@ materials:
           name: '战争大炮'
           craftable: true
           shaped: true
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'BuildCannon'
               - name: 'NoRightClick'
@@ -1482,7 +1482,7 @@ materials:
           name: '训练剑'
           craftable: true
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Attack'
                 value: '4'
@@ -1508,7 +1508,7 @@ materials:
           name: '皮革帽子'
           craftable: true
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'NoVanillaDurability'
               - name: 'DurabilityOnDeath'
@@ -1529,7 +1529,7 @@ materials:
           name: '皮革外套'
           craftable: true
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'NoVanillaDurability'
               - name: 'DurabilityOnDeath'
@@ -1550,7 +1550,7 @@ materials:
           name: '皮革裤子'
           craftable: true
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'NoVanillaDurability'
               - name: 'DurabilityOnDeath'
@@ -1571,7 +1571,7 @@ materials:
           name: '皮革靴子'
           craftable: true
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'NoVanillaDurability'
               - name: 'DurabilityOnDeath'
@@ -1595,7 +1595,7 @@ materials:
           craftable: true
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '0.5'
@@ -1623,7 +1623,7 @@ materials:
           craftable: true
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '2.0'
@@ -1651,7 +1651,7 @@ materials:
           craftable: true
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '1.0'
@@ -1679,7 +1679,7 @@ materials:
           craftable: true
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '0.5'
@@ -1709,7 +1709,7 @@ materials:
           craftable: true
           required_techs: 'tech_tanning'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '1.5'
@@ -1737,7 +1737,7 @@ materials:
           craftable: true
           required_techs: 'tech_tanning'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '4.0'
@@ -1765,7 +1765,7 @@ materials:
           craftable: true
           required_techs: 'tech_tanning'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '1.5'
@@ -1793,7 +1793,7 @@ materials:
           craftable: true
           required_techs: 'tech_tanning'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '2'
@@ -1823,7 +1823,7 @@ materials:
           craftable: true
           required_techs: 'tech_composites'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '3.0'
@@ -1851,7 +1851,7 @@ materials:
           craftable: true
           required_techs: 'tech_composites'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '6'
@@ -1879,7 +1879,7 @@ materials:
           craftable: true
           required_techs: 'tech_composites'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '3.5'
@@ -1907,7 +1907,7 @@ materials:
           craftable: true
           required_techs: 'tech_composites'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '2.5'
@@ -1937,7 +1937,7 @@ materials:
           craftable: true
           required_techs: 'tech_archery'
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'RangedAttack'
                 value: '18'
@@ -1964,7 +1964,7 @@ materials:
           craftable: true
           required_techs: 'tech_fletching'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'RangedAttack'
                 value: '24'
@@ -1993,7 +1993,7 @@ materials:
           craftable: true
           required_techs: 'tech_tillering'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'RangedAttack'
                 value: '30'
@@ -2022,7 +2022,7 @@ materials:
           craftable: true
           required_techs: 'tech_laminates'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'RangedAttack'
                 value: '36'
@@ -2052,7 +2052,7 @@ materials:
           name: '石柄'
           craftable: true
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Attack'
                 value: '5'
@@ -2081,7 +2081,7 @@ materials:
           craftable: true
           required_techs: 'tech_metal_casting'
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Attack'
                 value: '12'
@@ -2108,7 +2108,7 @@ materials:
           craftable: true
           required_techs: 'tech_blacksmithing'
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Defense'
                 value: '0.5'
@@ -2132,7 +2132,7 @@ materials:
           craftable: true
           required_techs: 'tech_blacksmithing'
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Defense'
                 value: '1.0'
@@ -2156,7 +2156,7 @@ materials:
           craftable: true
           required_techs: 'tech_blacksmithing'
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Defense'
                 value: '0.5'
@@ -2181,7 +2181,7 @@ materials:
           craftable: true
           required_techs: 'tech_blacksmithing'
           shaped: true
-          category: '<lightgreen>Gear Tier 1'
+          category: '<lightgreen>T1级装备'
           components:
               - name: 'Defense'
                 value: '0.5'
@@ -2208,7 +2208,7 @@ materials:
           craftable: true
           required_techs: 'tech_alloys'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '2.5'
@@ -2233,7 +2233,7 @@ materials:
           craftable: true
           required_techs: 'tech_alloys'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '2'
@@ -2258,7 +2258,7 @@ materials:
           craftable: true
           required_techs: 'tech_alloys'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '3.0'
@@ -2283,7 +2283,7 @@ materials:
           craftable: true
           required_techs: 'tech_alloys'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Defense'
                 value: '2.5' 
@@ -2308,7 +2308,7 @@ materials:
           craftable: true
           required_techs: 'tech_sword_smithing'
           shaped: true
-          category: '<lightblue>Gear Tier 2'
+          category: '<lightblue>T2级装备'
           components:
               - name: 'Attack'
                 value: '18'
@@ -2339,7 +2339,7 @@ materials:
           craftable: true
           required_techs: 'tech_folded_steel'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Attack'
                 value: '24'
@@ -2368,7 +2368,7 @@ materials:
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '4'
@@ -2393,7 +2393,7 @@ materials:
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '4.5'
@@ -2418,7 +2418,7 @@ materials:
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '4'
@@ -2443,7 +2443,7 @@ materials:
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
-          category: '<lightpurple>Gear Tier 3'
+          category: '<lightpurple>T3级装备'
           components:
               - name: 'Defense'
                 value: '4'
@@ -2471,7 +2471,7 @@ materials:
           craftable: true
           required_techs: 'tech_tempering'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Attack'
                 value: '30'
@@ -2500,7 +2500,7 @@ materials:
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '4.5'
@@ -2525,7 +2525,7 @@ materials:
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '5'
@@ -2550,7 +2550,7 @@ materials:
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '4.5'
@@ -2575,7 +2575,7 @@ materials:
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
-          category: '<gold>Gear Tier 4'
+          category: '<gold>T4级装备'
           components:
               - name: 'Defense'
                 value: '4'
@@ -2601,7 +2601,7 @@ materials:
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Hell Armor'
+          category: '<lightblue>地狱装备'
           components:
               - name: 'Defense'
                 value: '4'
@@ -2637,7 +2637,7 @@ materials:
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Hell Armor'
+          category: '<lightblue>地狱装备'
           components:
               - name: 'Defense'
                 value: '10'
@@ -2677,7 +2677,7 @@ materials:
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Hell Armor'
+          category: '<lightblue>地狱装备'
           components:
               - name: 'Defense'
                 value: '8'
@@ -2713,7 +2713,7 @@ materials:
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
-          category: '<lightblue>Hell Armor'
+          category: '<lightblue>地狱装备'
           components:
               - name: 'Defense'
                 value: '6'
@@ -2745,7 +2745,7 @@ materials:
           craftable: false
           required_techs: 'tech_fletching'
           shaped: true
-          category: '<lightblue>Hell Armor'
+          category: '<lightblue>地狱装备'
           components:
               - name: 'RangedAttack'
                 value: '32'
@@ -2778,7 +2778,7 @@ materials:
           craftable: false
           required_techs: 'tech_sword_smithing'
           shaped: true
-          category: '<lightblue>Hell Armor'
+          category: '<lightblue>地狱装备'
           components:
               - name: 'Attack'
                 value: '30'
@@ -2806,7 +2806,7 @@ materials:
           name: '普通金属水晶碎片'
           shaped: false
           craftable: true
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_chromium_ore'
@@ -2822,7 +2822,7 @@ materials:
           name: 'T1 普通金属水晶'
           shaped: false
           craftable: true
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -2837,7 +2837,7 @@ materials:
           name: '稀有金属水晶碎片'
           shaped: false
           craftable: true
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_chromium'
@@ -2853,7 +2853,7 @@ materials:
           name: 'T2 稀有金属水晶'
           shaped: false
           craftable: true
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -2868,7 +2868,7 @@ materials:
           name: '史诗金属水晶碎片'
           shaped: false
           craftable: true
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_chromium'
@@ -2884,7 +2884,7 @@ materials:
           name: 'T3 史诗金属水晶'
           shaped: false
           craftable: true
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -2899,7 +2899,7 @@ materials:
           name: '传说金属水晶碎片'
           shaped: false
           craftable: true
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_chromium'
@@ -2915,7 +2915,7 @@ materials:
           name: 'T4 传说金属水晶'
           shaped: false
           craftable: true
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -2932,7 +2932,7 @@ materials:
           craftable: true
           components:
               - name: 'NoRightClick'
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_tungsten_ore'
@@ -2948,7 +2948,7 @@ materials:
           name: 'T1 普通离子水晶'
           shaped: false
           craftable: true
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -2966,7 +2966,7 @@ materials:
           craftable: true
           components:
               - name: 'NoRightClick'
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_tungsten'
@@ -2982,7 +2982,7 @@ materials:
           name: 'T2 稀有离子水晶'
           shaped: false
           craftable: true
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -2999,7 +2999,7 @@ materials:
           craftable: true
           components:
               - name: 'NoRightClick'
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_tungsten'
@@ -3015,7 +3015,7 @@ materials:
           name: 'T3 史诗离子水晶'
           shaped: false
           craftable: true
-          category: '<lightpurple>Tier 3 Materials'
+          category: '<lightpurple>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -3032,7 +3032,7 @@ materials:
           craftable: true
           components:
               - name: 'NoRightClick'
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_forged_tungsten'
@@ -3048,7 +3048,7 @@ materials:
           name: 'T4 传说离子水晶'
           shaped: false
           craftable: true
-          category: '<gold>Tier 4 Materials'
+          category: '<gold>T4级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -3065,7 +3065,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 289
                 data: 0
@@ -3087,7 +3087,7 @@ materials:
           tradeable: true
           tradeValue: 500.0
           craftable: true
-          category: '<lightblue>Eggs Tier 2'
+          category: '<lightblue>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_creeper_egg'
@@ -3110,7 +3110,7 @@ materials:
           tradeable: true
           tradeValue: 2500.0
           craftable: true
-          category: '<lightpurple>Eggs Tier 3'
+          category: '<lightpurple>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_creeper_egg_2'
@@ -3133,7 +3133,7 @@ materials:
           tradeable: true
           tradeValue: 5000.0
           craftable: true
-          category: '<gold>Eggs Tier 4'
+          category: '<gold>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_creeper_egg_3'
@@ -3156,7 +3156,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 352
                 data: 0
@@ -3178,7 +3178,7 @@ materials:
           tradeable: true
           tradeValue: 500.0
           craftable: true
-          category: '<lightblue>Eggs Tier 2'
+          category: '<lightblue>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_skeleton_egg'
@@ -3201,7 +3201,7 @@ materials:
           tradeable: true
           tradeValue: 2500.0
           craftable: true
-          category: '<lightpurple>Eggs Tier 3'
+          category: '<lightpurple>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_skeleton_egg_2'
@@ -3224,7 +3224,7 @@ materials:
           tradeable: true
           tradeValue: 5000.0
           craftable: true
-          category: '<gold>Eggs Tier 4'
+          category: '<gold>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_skeleton_egg_3'
@@ -3247,7 +3247,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 375
                 data: 0
@@ -3269,7 +3269,7 @@ materials:
           tradeable: true
           tradeValue: 500.0
           craftable: true
-          category: '<lightblue>Eggs Tier 2'
+          category: '<lightblue>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_1'
@@ -3292,7 +3292,7 @@ materials:
           tradeable: true
           tradeValue: 2500.0
           craftable: true
-          category: '<lightpurple>Eggs Tier 3'
+          category: '<lightpurple>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_2'
@@ -3315,7 +3315,7 @@ materials:
           tradeable: true
           tradeValue: 5000.0
           craftable: true
-          category: '<gold>Eggs Tier 4'
+          category: '<gold>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_3'
@@ -3338,7 +3338,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 367
                 data: 0
@@ -3360,7 +3360,7 @@ materials:
           tradeable: true
           tradeValue: 500.0
           craftable: true
-          category: '<lightblue>Eggs Tier 2'
+          category: '<lightblue>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_1'
@@ -3383,7 +3383,7 @@ materials:
           tradeable: true
           tradeValue: 2500.0
           craftable: true
-          category: '<lightpurple>Eggs Tier 3'
+          category: '<lightpurple>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_2'
@@ -3406,7 +3406,7 @@ materials:
           tradeable: true
           tradeValue: 5000.0
           craftable: true
-          category: '<gold>Eggs Tier 4'
+          category: '<gold>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_3'
@@ -3429,7 +3429,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_vanilla_slime'
@@ -3452,7 +3452,7 @@ materials:
           tradeable: true
           tradeValue: 500.0
           craftable: true
-          category: '<lightblue>Eggs Tier 2'
+          category: '<lightblue>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_1'
@@ -3475,7 +3475,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<lightpurple>Eggs Tier 3'
+          category: '<lightpurple>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_2'
@@ -3498,7 +3498,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 5000.0
-          category: '<gold>Eggs Tier 4'
+          category: '<gold>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_3'
@@ -3521,7 +3521,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ender_pearl'
@@ -3544,7 +3544,7 @@ materials:
           tradeable: true
           tradeValue: 500.0
           craftable: true
-          category: '<lightblue>Eggs Tier 2'
+          category: '<lightblue>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_1'
@@ -3567,7 +3567,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<lightpurple>Eggs Tier 3'
+          category: '<lightpurple>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_2'
@@ -3590,7 +3590,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 5000.0
-          category: '<gold>Eggs Tier 4'
+          category: '<gold>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_3'
@@ -3615,7 +3615,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 320
                 data: 0
@@ -3637,7 +3637,7 @@ materials:
           tradeable: true
           tradeValue: 50.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 2'
+          category: '<lightgreen>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_1'
@@ -3660,7 +3660,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 500.0
-          category: '<lightgreen>Eggs Tier 3'
+          category: '<lightgreen>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_2'
@@ -3683,7 +3683,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 1000.0
-          category: '<lightgreen>Eggs Tier 4'
+          category: '<lightgreen>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_3'
@@ -3706,7 +3706,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 364
                 data: 0
@@ -3728,7 +3728,7 @@ materials:
           tradeable: true
           tradeValue: 50.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 2'
+          category: '<lightgreen>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_1'
@@ -3751,7 +3751,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 500.0
-          category: '<lightgreen>Eggs Tier 3'
+          category: '<lightgreen>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_2'
@@ -3774,7 +3774,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 1000.0
-          category: '<lightgreen>Eggs Tier 4'
+          category: '<lightgreen>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_ionic_crystal_3'
@@ -3797,7 +3797,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 424
                 data: 0
@@ -3819,7 +3819,7 @@ materials:
           tradeable: true
           tradeValue: 50.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 2'
+          category: '<lightgreen>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_1'
@@ -3842,7 +3842,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 500.0
-          category: '<lightgreen>Eggs Tier 3'
+          category: '<lightgreen>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_2'
@@ -3865,7 +3865,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 1000.0
-          category: '<lightgreen>Eggs Tier 4'
+          category: '<lightgreen>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_3'
@@ -3888,7 +3888,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 366
                 data: 0
@@ -3910,7 +3910,7 @@ materials:
           tradeable: true
           tradeValue: 50.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 2'
+          category: '<lightgreen>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_1'
@@ -3933,7 +3933,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 500.0
-          category: '<lightgreen>Eggs Tier 3'
+          category: '<lightgreen>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_2'
@@ -3956,7 +3956,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 1000.0
-          category: '<lightgreen>Eggs Tier 4'
+          category: '<lightgreen>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_3'
@@ -3979,7 +3979,7 @@ materials:
           tradeable: true
           tradeValue: 10.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 1'
+          category: '<lightgreen>T1级怪物蛋'
           ingredients:
               - type_id: 412
                 data: 0
@@ -4001,7 +4001,7 @@ materials:
           tradeable: true
           tradeValue: 50.0
           craftable: true
-          category: '<lightgreen>Eggs Tier 2'
+          category: '<lightgreen>T2级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_1'
@@ -4024,7 +4024,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 500.0
-          category: '<lightgreen>Eggs Tier 3'
+          category: '<lightgreen>T3级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_2'
@@ -4047,7 +4047,7 @@ materials:
           craftable: true
           tradeable: true
           tradeValue: 1000.0
-          category: '<lightgreen>Eggs Tier 4'
+          category: '<lightgreen>T4级怪物蛋'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_metallic_crystal_3'
@@ -4069,7 +4069,7 @@ materials:
 #          name: 'Clownfish'
 #          shaped: false
 #          craftable: false
-#          category: '<lightgreen>Tier 1 Materials'
+#          category: '<lightgreen>T1级材料'
 #          components:
 #              - name: 'RightClickForItem'
 #                custom_id: 'mat_mercury_bath'
@@ -4081,7 +4081,7 @@ materials:
 #          name: 'Pufferfish'
 #          shaped: false
 #          craftable: false
-#          category: '<lightgreen>Tier 1 Materials'
+#          category: '<lightgreen>T1级材料'
 #          components:
 #              - name: 'RightClickForItem'
 #                custom_id: 'mat_mercury'
@@ -4093,7 +4093,7 @@ materials:
           name: '水银'
           shaped: false
           craftable: true
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 41
                 data: 0
@@ -4108,7 +4108,7 @@ materials:
           name: 'T2 水银浴'
           shaped: false
           craftable: true
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -4123,7 +4123,7 @@ materials:
           name: 'T2 工业钻石'
           shaped: false
           craftable: true
-          category: '<lightblue>Tier 2 Materials'
+          category: '<lightblue>T2级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -4138,7 +4138,7 @@ materials:
           name: '普通攻击强化石'
           craftable: true
           shaped: true
-          category: '<lightgreen>Catalyst Tier 1'
+          category: '<lightgreen>T1级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4169,7 +4169,7 @@ materials:
           name: '普通防御强化石'
           craftable: true
           shaped: true
-          category: '<lightgreen>Catalyst Tier 1'
+          category: '<lightgreen>T1级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4202,7 +4202,7 @@ materials:
           name: '稀有攻击强化石'
           craftable: true
           shaped: true
-          category: '<lightblue>Catalyst Tier 2'
+          category: '<lightblue>T2级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4234,7 +4234,7 @@ materials:
           name: '稀有防御强化石'
           craftable: true
           shaped: true
-          category: '<lightblue>Catalyst Tier 2'
+          category: '<lightblue>T2级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4269,7 +4269,7 @@ materials:
           name: '史诗攻击强化石'
           craftable: true
           shaped: true
-          category: '<lightpurple>Catalyst Tier 3'
+          category: '<lightpurple>T3级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4301,7 +4301,7 @@ materials:
           name: '史诗防御强化石'
           craftable: true
           shaped: true
-          category: '<lightpurple>Catalyst Tier 3'
+          category: '<lightpurple>T3级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4335,7 +4335,7 @@ materials:
           name: '传说攻击强化石'
           craftable: true
           shaped: true
-          category: '<gold>Catalyst Tier 4'
+          category: '<gold>T4级强化石'
           components:
               - name: 'NoRightClick'              
               - name: 'Catalyst'
@@ -4367,7 +4367,7 @@ materials:
           name: '传说防御强化石'
           craftable: true
           shaped: true
-          category: '<gold>Catalyst Tier 4'
+          category: '<gold>T4级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4397,10 +4397,10 @@ materials:
         - id: 'mat_legendary_attack_super_catalyst'
           item_id: 370
           item_data: 0
-          name: 'Legendary Attack Super Catalyst'
+          name: '传说攻击超级强化石'
           craftable: true
           shaped: true
-          category: '<gold>Catalyst Tier 4'
+          category: '<gold>T4级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4430,10 +4430,10 @@ materials:
         - id: 'mat_legendary_defense_super_catalyst'
           item_id: 370
           item_data: 0
-          name: 'Legendary Defense Super Catalyst'
+          name: '传说防御超级强化石'
           craftable: true
           shaped: true
-          category: '<gold>Catalyst Tier 4'
+          category: '<gold>T4级强化石'
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
@@ -4463,10 +4463,10 @@ materials:
         - id: 'mat_mistical_mercury'
           item_id: 378
           item_data: 0
-          name: 'Т3 Mystical Mercury'
+          name: 'Т3 神秘水银'
           shaped: false
           craftable: true
-          category: '<lightblue>Tier 3 Materials'
+          category: '<lightblue>T3级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -4475,7 +4475,7 @@ materials:
                 data: 0
                 count: 9
 
-#  Special Item Recipes -------------------------------------------------
+#  特殊 Item Recipes -------------------------------------------------
         
         - id: 'mat_tutorial_book'
           item_id: 340
@@ -4515,7 +4515,7 @@ materials:
           name: '末影珍珠'
           craftable: false
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           components:
               - name: 'NoRightClick'
           ingredients:
@@ -4530,7 +4530,7 @@ materials:
           name: 'T1 粘液球'
           craftable: true
           shaped: false
-          category: '<lightgreen>Tier 1 Materials'
+          category: '<lightgreen>T1级材料'
           ingredients:
               - type_id: 0
                 custom_id: 'mat_refined_sugar'
@@ -4603,7 +4603,7 @@ materials:
           name: '石镐'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4627,7 +4627,7 @@ materials:
           name: '铁镐'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4651,7 +4651,7 @@ materials:
           name: '金镐'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4675,7 +4675,7 @@ materials:
           name: '钻石镐'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4699,7 +4699,7 @@ materials:
           name: '铁锹'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4723,7 +4723,7 @@ materials:
           name: '金锹'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4747,7 +4747,7 @@ materials:
           name: '钻石锹'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4770,7 +4770,7 @@ materials:
           name: '铁斧'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4794,7 +4794,7 @@ materials:
           name: '金斧'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4818,7 +4818,7 @@ materials:
           name: '钻石斧'
           craftable: true
           shaped: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4843,7 +4843,7 @@ materials:
           craftable: true
           shaped: true
           vanilla: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4868,7 +4868,7 @@ materials:
           craftable: true
           shaped: true
           vanilla: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4893,7 +4893,7 @@ materials:
           craftable: true
           shaped: true
           vanilla: true
-          category: '<blue>Tools'
+          category: '<blue>工具'
           components:
               - name: 'Attack'
                 value: '0.5'
@@ -4991,7 +4991,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.1
-          category: '<lightpurple>Fishing Junk'
+          category: '<lightpurple>打捞的落物'
           components:
               - name: 'NoRightClick'
 
@@ -5004,7 +5004,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.1
-          category: '<lightpurple>Fishing Junk'
+          category: '<lightpurple>打捞的落物'
           components:
               - name: 'NoRightClick'
 
@@ -5017,7 +5017,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.1
-          category: '<lightpurple>Fishing Junk'
+          category: '<lightpurple>打捞的落物'
           components:
               - name: 'NoRightClick'
 
@@ -5030,7 +5030,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.5
-          category: '<lightpurple>Fishing Junk'
+          category: '<lightpurple>打捞的落物'
           components:
               - name: 'NoRightClick'
 
@@ -5043,7 +5043,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.2
-          category: '<lightpurple>Fishing Junk'
+          category: '<lightpurple>打捞的落物'
           components:
               - name: 'NoRightClick'
 
@@ -5056,7 +5056,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5069,7 +5069,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Fish Tier 2'
+          category: '<lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5082,7 +5082,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>Fish Tier 3'
+          category: '<lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5095,7 +5095,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>Fish Tier 4'
+          category: '<gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5108,7 +5108,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5121,7 +5121,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Fish Tier 2'
+          category: '<lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5134,7 +5134,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>Fish Tier 3'
+          category: '<lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5147,7 +5147,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>Fish Tier 4'
+          category: '<gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5160,7 +5160,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5173,7 +5173,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Fish Tier 2'
+          category: '<lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5186,7 +5186,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>Fish Tier 3'
+          category: '<lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5199,7 +5199,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>Fish Tier 4'
+          category: '<gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5212,7 +5212,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5225,7 +5225,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Fish Tier 2'
+          category: '<lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5238,7 +5238,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>Fish Tier 3'
+          category: '<lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5251,7 +5251,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>Fish Tier 4'
+          category: '<gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5264,7 +5264,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5277,7 +5277,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Fish Tier 2'
+          category: '<lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5290,7 +5290,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>Fish Tier 3'
+          category: '<lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5303,7 +5303,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>Fish Tier 4'
+          category: '<gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5316,7 +5316,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5329,7 +5329,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>Fish Tier 2'
+          category: '<lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5342,7 +5342,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>Fish Tier 3'
+          category: '<lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5355,7 +5355,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>Fish Tier 4'
+          category: '<gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5368,7 +5368,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5381,7 +5381,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5394,7 +5394,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5407,7 +5407,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>Fish Tier 1'
+          category: '<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5417,10 +5417,10 @@ materials:
         - id: 'mat_electronic'
           item_id: 265
           item_data: 0
-          name: 'Electronics'
+          name: '电路板'
           craftable: true
           shaped: true
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5444,10 +5444,10 @@ materials:
         - id: 'mat_satellite'
           item_id: 402
           item_data: 0
-          name: 'Satellite'
+          name: '人造卫星'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5461,10 +5461,10 @@ materials:
         - id: 'mat_fuel_tanks'
           item_id: 342
           item_data: 0
-          name: 'Fuel Tanks'
+          name: '燃料罐'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5478,10 +5478,10 @@ materials:
         - id: 'mat_engines'
           item_id: 416
           item_data: 0
-          name: 'Engines'
+          name: '引擎'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5495,10 +5495,10 @@ materials:
         - id: 'mat_landing_module'
           item_id: 44
           item_data: 0
-          name: 'Landing Module'
+          name: '着陆舱'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5512,10 +5512,10 @@ materials:
         - id: 'mat_orbital_station'
           item_id: 138
           item_data: 0
-          name: 'Orbital Station'
+          name: '轨道站'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5529,10 +5529,10 @@ materials:
         - id: 'mat_residential_module'
           item_id: 324
           item_data: 0
-          name: 'Crew Module'
+          name: '乘员舱'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5546,10 +5546,10 @@ materials:
         - id: 'mat_solar_reflector'
           item_id: 151
           item_data: 0
-          name: 'Solar Reflector'
+          name: '太阳能反射板'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5566,7 +5566,7 @@ materials:
           name: 'Equipment'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5580,10 +5580,10 @@ materials:
         - id: 'mat_solar_sail'
           item_id: 425
           item_data: 11
-          name: 'Solar Sail'
+          name: '太阳能帆'
           craftable: false
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5597,10 +5597,10 @@ materials:
         - id: 'mat_provisions'
           item_id: 54
           item_data: 0
-          name: 'Astronaut Food'
+          name: '太空食品'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5614,10 +5614,10 @@ materials:
         - id: 'mat_warp_core'
           item_id: 7
           item_data: 0
-          name: 'Warp-Core'
+          name: '跃迁核心'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5631,10 +5631,10 @@ materials:
         - id: 'mat_warp_engine'
           item_id: 407
           item_data: 0
-          name: 'Warp-Engine'
+          name: '跃迁引擎'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5648,10 +5648,10 @@ materials:
         - id: 'mat_gondolas'
           item_id: 333
           item_data: 0
-          name: 'Гондолы'
+          name: '吊舱'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'Attack'
@@ -5665,10 +5665,10 @@ materials:
         - id: 'mat_found_space_shuttle'
           item_id: 330
           item_data: 0
-          name: 'Found Space Shuttle'
+          name: '发现号宇宙飞船'
           craftable: true
           shaped: false
-          category: '<gold>Spaceship Parts'
+          category: '<gold>宇宙飞船部件'
           components:
               - name: 'NoRightClick'
               - name: 'ResearchSpaceShuttle'
@@ -5683,10 +5683,10 @@ materials:
         - id: 'mat_crutches'
           item_id: 7
           item_data: 0
-          name: '<lightblue>Created in the Factory'
+          name: '脚手架'
           craftable: false
           shaped: false
-          category: '<rose>Crutches'
+          category: '<lightblue>在工厂制造'
           components:
               - name: 'NoRightClick'
 
@@ -5696,7 +5696,7 @@ materials:
           name: 'Scroll'
           craftable: true
           shaped: false
-          category: 'Special'
+          category: '特殊'
           components:
               - name: 'ProcessScroll'
               - name: 'Attack'
@@ -5710,13 +5710,13 @@ materials:
         - id: 'mat_crutches2'
           item_id: 7
           item_data: 0
-          name: '<gold>Found in Ruins'
+          name: 'crutches2'
           craftable: false
           shaped: false
-          category: '<rose>Crutches'
+          category: '<gold>可以在遗迹找到'
           components:
               - name: 'NoRightClick'
-#---- End Spaceship Parts----
+#---- End 宇宙飞船部件----
 
 #
 # This is a list of removed recpies based on the typeID and 

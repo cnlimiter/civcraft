@@ -1,32 +1,43 @@
 #
-# All you wanted to know about espionage. 
+# All you wanted to know about espionage.
+# 关于间谍
 # This file contains mission configuration and general espionage properties
-#
+# 这个文件是目标配置和常规间谍属性
 #
 
 espionage:
     # Default exposure per second.
+    # 默认每秒曝光量
     exposure_per_second: 1
 
     # Exposure per player nearby
+    # 附近每个玩家增加的曝光量
     exposure_per_player: 2
 
     # Exposure per scout tower nearby
+    # 附近侦察的城镇增加的曝光量
     exposure_per_scout: 5
 
     # Town Warning exposure limit (in percent)
+    # 城镇警报，所需曝光率（百分比）
     # When the exposure level of a spy exceeds this percent, the town is notified they are being spied on.
+    # 当间谍的曝光率超过这个百分比时，就会通知镇上的人他们正在被监视。
     town_exposure_warning: 0.4
 
     # Town location exposure limit
+    # 城镇报告方位，所需曝光率（百分比）
     # When the exposure level of a spy exceeds this percent, the town is notified of the position the spy is located at.
+    # 当间谍的曝光率超过这个百分比时，就会通知镇上的人间谍的位置。
     town_exposure_location: 0.8
 
     # Town name exposure limit
+    # 城镇获知入侵者姓名，所需曝光率（百分比）
     # When the exposure level of the spy exceeds this percent, the town knows who is spying on them.
+    # 当间谍的曝光率超过这个百分比时，就会获知入侵者姓名。
     town_exposure_name: 0.9
 
     # Mission failure limit
+    # 任务失败的曝光率
     # If the spy exposure level goves above this, the mission automatically fails.
     # XXX this is disabled for now by setting it at over 100% exposure. I think it's not needed.
     # I think we'd rather have players attempt the mission and _have_ to be hunted down.
@@ -54,7 +65,7 @@ espionage:
 missions:
     - id: 'spy_investigate_town'
       name: 'Investigate Town'
-      description: 
+      description:
           - 'Provides a report on the target town.'
           - 'Includes information of strategic value.'
       cost: 10000.0
@@ -68,7 +79,7 @@ missions:
 
     - id: 'spy_steal_treasury'
       name: 'Steal Treasury'
-      description: 
+      description:
           - 'Steals 20% of the target towns treasury.'
           - 'Must be within 50 blocks of town hall.'
       cost: 20000.0
@@ -82,7 +93,7 @@ missions:
 
     # - id: 'spy_subvert_government'
     #   name: 'Subvert Government'
-    #   description: 
+    #   description:
     #       - 'Plunges the target civiliztion into Anarchy.'
     #       - 'Must be within 100 blocks of the capitol town hall.'
     #   cost: 200000.0
@@ -95,7 +106,7 @@ missions:
 
     - id: 'spy_poison_granary'
       name: 'Poison Granary'
-      description: 
+      description:
           - 'Causes all cottages to starve for 3 to 50 hours. 5% chances to bring famine and down level all cottages.'
           - 'Must be within 50 blocks of a granary.'
       range: 50.0
@@ -110,7 +121,7 @@ missions:
 
     - id: 'spy_pirate'
       name: 'Pirate'
-      description: 
+      description:
           - 'Allows you to take a goodie from an enemy trade outpost.'
           - 'Must be within 10 blocks of the trade outpost.'
       range: 10.0
@@ -121,10 +132,10 @@ missions:
       intel: 0
       length: 60
       slot: 3
- 
+
     - id: 'spy_sabotage'
       name: 'Sabotage'
-      description: 
+      description:
           - 'Destroyes the nearest structure.'
           - 'Must be within 50 blocks.'
       cost: 250000.0
@@ -136,10 +147,10 @@ missions:
       length: 300
       slot: 2
       online_civ: 1
-    
+
     # - id: 'spy_sabotage_wonder'
     #   name: 'Sabotage'
-    #   description: 
+    #   description:
     #       - 'Destroyes the nearest wonder.'
     #       - 'Must be within 50 blocks.'
     #   cost: 500000.0

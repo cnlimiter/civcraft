@@ -33,14 +33,14 @@ perks:
 #         - name: 'RenameCivOrTown'
 
     - id: 'perk_sunny_weather'
-      display_name: 'Sunny Weather!'
+      display_name: '大晴天!'
       item_id: 347
       data: 0
       components:
          - name: 'ChangeWeather'
 
     - id: 'perk_haunted_camp'
-      display_name: 'Haunted Camp'
+      display_name: '惊悚风格营地'
       item_id: 91
       data: 0
       components:
@@ -50,7 +50,7 @@ perks:
             id: 'camp'
 
     - id: 'perk_viking_camp'
-      display_name: 'Viking Camp'
+      display_name: '维京风格营地'
       item_id: 170
       data: 0
       components:
@@ -61,7 +61,7 @@ perks:
 
 # ===== Lightz TEMPLATES
     - id: 'perk_lightz_monument'
-      display_name: 'Lightz Monument Template'
+      display_name: 'Lightz纪念碑模板'
       item_id: 35
       data: 3
       components:
@@ -71,7 +71,7 @@ perks:
 
 # ===== Canada TEMPLATES
     - id: 'perk_canada_monument'
-      display_name: 'Canada Monument Template'
+      display_name: 'Canada纪念碑模板'
       item_id: 32
       data: 0
       components:
@@ -81,7 +81,7 @@ perks:
 
 # ===== Holoska TEMPLATES
     - id: 'perk_holoska_monument'
-      display_name: 'Eureka Monument Template'
+      display_name: 'Holoska纪念碑模板'
       item_id: 35
       data: 7
       components:
@@ -91,7 +91,7 @@ perks:
 
 # ===== Eureka TEMPLATES
     - id: 'perk_ea_monument'
-      display_name: 'Eureka Monument Template'
+      display_name: 'Eureka纪念碑模板'
       item_id: 288
       data: 0
       components:
@@ -101,7 +101,7 @@ perks:
 
 # ===== CoreEmpire TEMPLATES
     - id: 'perk_ce_monument'
-      display_name: 'CoreEmpire Monument Template'
+      display_name: 'CoreEmpire纪念碑模板'
       item_id: 314
       data: 0
       components:
@@ -111,88 +111,88 @@ perks:
 
 # ===== Template Sets
     - id: 'template_arctic'
-      display_name: 'Arctic Templates'
-      simple_name: "arctic"
+      display_name: '北极模板'
+      simple_name: "北极"
       item_id: 79
       data: 0
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_aztec'
-      display_name: 'Aztec Templates'
-      simple_name: "aztec"
+      display_name: '印第安模板'
+      simple_name: "印第安"
       item_id: 98
       data: 2
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_egyptian'
-      display_name: 'Egyptian Templates'
-      simple_name: "egyptian"
+      display_name: '埃及模板'
+      simple_name: "埃及"
       item_id: 24
       data: 2
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_roman'
-      display_name: 'Roman Templates'
-      simple_name: "roman"
+      display_name: '罗马模板'
+      simple_name: "罗马"
       item_id: 155
       data: 2
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_hell'
-      display_name: 'Hell Templates'
-      simple_name: "hell"
+      display_name: '地狱模板'
+      simple_name: "地狱"
       item_id: 87
       data: 0
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_atlantean'
-      display_name: 'Atlantean Templates'
-      simple_name: "atlantean"
+      display_name: '亚特兰蒂斯模板'
+      simple_name: "亚特兰蒂斯"
       item_id: 169
       data: 0
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_elven'
-      display_name: 'Elven Templates'
-      simple_name: "elven"
+      display_name: '精灵模板'
+      simple_name: "精灵"
       item_id: 18
       data: 3
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_cultist'
-      display_name: 'Cultist Templates'
-      simple_name: "cultist"
+      display_name: '异教徒模板'
+      simple_name: "异教徒"
       item_id: 397
       data: 1
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_medieval'
-      display_name: 'Medieval Templates'
-      simple_name: "medieval"
+      display_name: '中世纪模板'
+      simple_name: "中世纪"
       item_id: 267
       data: 0
       components:
           - name: 'CustomTemplate'
 
     - id: 'template_slavic'
-      display_name: 'Slavic Templates'
-      simple_name: "slavic"
+      display_name: '斯拉夫模板'
+      simple_name: "斯拉夫"
       item_id: 322
       data: 1
       components:
           - name: 'CustomTemplate'
           
     - id: 'template_turkish'
-      display_name: 'Turkish Templates'
-      simple_name: "turkish"
+      display_name: '土耳其模板'
+      simple_name: "土耳其"
       item_id: 179
       data: 2
       components:
@@ -208,7 +208,7 @@ perks:
     #        template: 'arrow_tower'
 
     - id: 'tpl_turkish_bank'
-      display_name: 'Turkish Bank Template'
+      display_name: '土耳其银行模板'
       item_id: 179
       data: 1
       components:
@@ -217,7 +217,7 @@ perks:
             template: 'bank'
 
     - id: 'tpl_turkish_barracks'
-      display_name: 'Turkish Barracks Template'
+      display_name: '土耳其马厩模板'
       item_id: 179
       data: 1
       components:
@@ -226,7 +226,7 @@ perks:
             template: 'barracks'
 
     - id: 'tpl_turkish_capitol'
-      display_name: 'Turkish Capitol Template'
+      display_name: '土耳其国会大厦模板'
       item_id: 179
       data: 1
       components:

@@ -223,8 +223,9 @@ buffs:
       parent:
 
     - id: 'buff_shopingcenter'
-      name: "SHOPINGCENTER"
-      description: 'Reduces the cost of library enchantments by <lightgreen>50%<r> - <red>Not Stackable<r>'
+      name: "购物中心"
+      # description: 'Reduces the cost of library enchantments by <lightgreen>50%<r> - <red>Not Stackable<r>'
+      description: '降低图书馆附魔成本 <lightgreen>50%<r> - <red>不可叠加<r>'
       value: '2.0'
       stackable: false
       parent:
@@ -238,7 +239,7 @@ buffs:
       parent:
 
     - id: 'buff_growth'
-      name: 'Growth'
+      name: '万物生长'
       # description: 'Adds <lightgreen>150<r> growth<r> <gold>Stackable<r>'
       description: '添加 <lightgreen>150<r> 生长速度<r> <gold>可叠加<r>'
       value: '150.0'

@@ -29,25 +29,25 @@ enchants:
      enchant_id: 'LoreEnhancementPunchout'
 
    - id: 'ench_infinity'
-     name: 'Infinity'
+     name: '无限'
      # 无限
      cost: 45000.0
      enchant_id: 'ARROW_INFINITE'
 
    - id: 'ench_fall_protection'
-     name: 'Feather Fall'
+     name: '摔落保护'
      # 摔落保护
      cost: 75000.0
      enchant_id: 'PROTECTION_FALL'  
  
    - id: 'ench_oxygen'
-     name: 'Oxygen'
+     name: '水下呼吸'
      # 水下呼吸
      cost: 25000.0
      enchant_id: 'OXYGEN'
 
    - id: 'ench_lightningstrike'
-     name: 'Lightning Strike'
+     name: '雷击'
      # 雷击
      cost: 100000.0
      enchant_id: 'LoreEnhancementLightningStrike'
