@@ -48,7 +48,7 @@ public class NonMemberFeeComponent extends Component {
             return;
         }
 
-        feeRate = Double.valueOf(entries.get(0).value);
+        feeRate = Double.parseDouble(entries.get(0).value);
 
     }
 

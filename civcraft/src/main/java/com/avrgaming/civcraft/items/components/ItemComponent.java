@@ -18,11 +18,9 @@
  */
 package com.avrgaming.civcraft.items.components;
 
+import com.avrgaming.civcraft.lorestorage.ItemChangeResult;
+import com.avrgaming.civcraft.object.BuildableDamageBlock;
 import gpl.AttributeUtil;
-
-import java.util.HashMap;
-import java.util.concurrent.locks.ReentrantLock;
-
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
@@ -35,8 +33,8 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.avrgaming.civcraft.lorestorage.ItemChangeResult;
-import com.avrgaming.civcraft.object.BuildableDamageBlock;
+import java.util.HashMap;
+import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class ItemComponent {
 
@@ -67,7 +65,7 @@ public abstract class ItemComponent {
     }
 
     public double getDouble(String key) {
-        return Double.valueOf(attributes.get(key));
+        return Double.parseDouble(attributes.get(key));
     }
 
     public void setAttribute(String key, String value) {

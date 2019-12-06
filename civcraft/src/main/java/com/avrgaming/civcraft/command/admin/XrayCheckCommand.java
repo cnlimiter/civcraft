@@ -10,8 +10,7 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.exception.CivException;
 
-public class XrayCheckCommand
-        extends CommandBase {
+public class XrayCheckCommand extends CommandBase {
     @Override
     public void init() {
         this.command = "/xraycheck";

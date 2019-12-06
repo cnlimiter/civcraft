@@ -1,12 +1,5 @@
 package com.avrgaming.civcraft.items.components;
 
-import gpl.AttributeUtil;
-
-import java.util.Random;
-
-import org.bukkit.ChatColor;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
@@ -16,6 +9,11 @@ import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
+import gpl.AttributeUtil;
+import org.bukkit.ChatColor;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Random;
 
 public class Catalyst extends ItemComponent {
 
@@ -31,7 +29,7 @@ public class Catalyst extends ItemComponent {
             return null;
         }
 
-        String materials[] = this.getString("allowed_materials").split(",");
+        String[] materials = this.getString("allowed_materials").split(",");
         boolean found = false;
         for (String mat : materials) {
             mat = mat.replaceAll(" ", "");
@@ -53,13 +51,13 @@ public class Catalyst extends ItemComponent {
             return null;
         }
 
-        if (enhance != null) {
-            if (enhance.canEnchantItem(stack)) {
-                AttributeUtil attrs = new AttributeUtil(stack);
-                enhance.variables.put("amount", getString("amount"));
-                attrs = enhance.add(attrs);
-                return attrs.getStack();
-            }
+
+        if (enhance.canEnchantItem(stack)) {
+            AttributeUtil attrs = new AttributeUtil(stack);
+            enhance.variables.put("amount", getString("amount"));
+            attrs = enhance.add(attrs);
+            return attrs.getStack();
+
         }
 
         return null;
@@ -89,7 +87,7 @@ public class Catalyst extends ItemComponent {
                 return true;
             }
 
-            int chance = Integer.valueOf(getString("chance"));
+            int chance = Integer.parseInt(getString("chance"));
             Random rand = new Random();
             int extra = 0;
             int n = rand.nextInt(100);

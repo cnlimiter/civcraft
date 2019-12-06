@@ -18,23 +18,6 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import gpl.AttributeUtil;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.components.NonMemberFeeComponent;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -52,12 +35,22 @@ import com.avrgaming.civcraft.object.StructureSign;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.threading.tasks.NotificationTask;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.BukkitObjects;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
-import com.avrgaming.civcraft.util.TimeTools;
+import com.avrgaming.civcraft.util.*;
+import gpl.AttributeUtil;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 
 public class Blacksmith extends Structure {
 
@@ -109,7 +102,7 @@ public class Blacksmith extends Structure {
 
     @Override
     public void processSignAction(Player player, StructureSign sign, PlayerInteractEvent event) throws CivException {
-        int special_id = Integer.valueOf(sign.getAction());
+        int special_id = Integer.parseInt(sign.getAction());
 
         Date now = new Date();
 
@@ -145,8 +138,7 @@ public class Blacksmith extends Structure {
         double cost = CivSettings.getDoubleStructure("blacksmith.forge_cost");
 
         for (StructureSign sign : getSigns()) {
-            int special_id = Integer.valueOf(sign.getAction());
-
+            int special_id = Integer.parseInt(sign.getAction());
             switch (special_id) {
                 case 0:
                     sign.setText(CivSettings.localize.localizedString("blacksmith_sign_catalyst"));
@@ -311,9 +303,10 @@ public class Blacksmith extends Structure {
             }
 
             /* reduce level and reset item. */
+            //降低级别并重置项目。
             level--;
 
-            String lore[] = attrs.getLore();
+            String[] lore = attrs.getLore();
             for (int i = 0; i < lore.length; i++) {
                 String str = lore[i];
                 if (str.contains("free enhancements")) {
@@ -334,8 +327,8 @@ public class Blacksmith extends Structure {
             }
 
             player.getInventory().setItemInMainHand(attrs.getStack());
-
         }
+
         double bonusDefense = 0.0;
         int bonusAttack = 0;
         for (final LoreEnhancement enh : attrs.getEnhancements()) {
@@ -367,11 +360,9 @@ public class Blacksmith extends Structure {
              */
             player.getInventory().setItemInMainHand(ItemManager.createItemStack(CivData.AIR, 1));
             CivMessage.sendError(player, CivSettings.localize.localizedString("blacksmith_forge_failed"));
-            return;
         } else {
             player.getInventory().setItemInMainHand(enhancedItem);
             CivMessage.sendSuccess(player, CivSettings.localize.localizedString("blacksmith_forge_success"));
-            return;
         }
     }
 

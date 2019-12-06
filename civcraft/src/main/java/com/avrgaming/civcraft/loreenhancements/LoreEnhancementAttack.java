@@ -35,12 +35,12 @@ public class LoreEnhancementAttack extends LoreEnhancement {
          * new one.
          */
 
-        double amount = Double.valueOf(this.variables.get("amount"));
+        double amount = Double.parseDouble(this.variables.get("amount"));
         double baseLevel = amount;
         if (attrs.hasEnhancement("LoreEnhancementAttack")) {
 
             /* Get base Level. */
-            baseLevel = Double.valueOf(attrs.getEnhancementData("LoreEnhancementAttack", "level"));
+            baseLevel = Double.parseDouble(attrs.getEnhancementData("LoreEnhancementAttack", "level"));
 
             /* Reset the lore. */
             String[] lore = attrs.getLore();

@@ -18,31 +18,10 @@
  */
 package com.avrgaming.civcraft.command.admin;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.command.ReportChestsTask;
 import com.avrgaming.civcraft.command.ReportPlayerInventoryTask;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigGovernment;
-import com.avrgaming.civcraft.config.ConfigMaterial;
-import com.avrgaming.civcraft.config.ConfigMaterialCategory;
-import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.config.*;
 import com.avrgaming.civcraft.endgame.EndGameCondition;
 import com.avrgaming.civcraft.event.GoodieRepoEvent;
 import com.avrgaming.civcraft.exception.CivException;
@@ -57,11 +36,7 @@ import com.avrgaming.civcraft.main.CivCraft;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Buff;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.object.Relation;
+import com.avrgaming.civcraft.object.*;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.ChunkCoord;
@@ -69,8 +44,22 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.Schematic;
 import com.avrgaming.sls.SLSManager;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
-import com.avrgaming.civcraft.config.ConfigLevelTalent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class AdminCommand extends CommandBase {
 
@@ -568,7 +557,7 @@ public class AdminCommand extends CommandBase {
         }
 
 
-        if (sender.isOp() == false) {
+        if (!sender.isOp()) {
             throw new CivException(CivSettings.localize.localizedString("adcmd_NotAdmin"));
         }
     }

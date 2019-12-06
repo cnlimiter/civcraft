@@ -128,7 +128,7 @@ public class BonusGoodie extends LoreItem {
             ps.setString(1, outpost_location);
             rs = ps.executeQuery();
 
-            if (rs.first() == false) {
+            if (!rs.first()) {
                 /* Nothing found in the database, create at trade outpost. */
                 this.outpost = outpost;
                 createGoodieAtOutpost();

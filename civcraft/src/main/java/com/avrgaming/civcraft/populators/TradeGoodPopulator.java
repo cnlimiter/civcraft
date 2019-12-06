@@ -18,18 +18,6 @@
  */
 package com.avrgaming.civcraft.populators;
 
-import java.sql.SQLException;
-import java.util.Random;
-
-import org.bukkit.Chunk;
-import org.bukkit.Material;
-import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.BlockState;
-import org.bukkit.block.Sign;
-import org.bukkit.generator.BlockPopulator;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTradeGood;
 import com.avrgaming.civcraft.main.CivData;
@@ -41,6 +29,17 @@ import com.avrgaming.civcraft.object.TradeGood;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Chunk;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.Sign;
+import org.bukkit.generator.BlockPopulator;
+
+import java.sql.SQLException;
+import java.util.Random;
 
 public class TradeGoodPopulator extends BlockPopulator {
 
@@ -148,7 +147,8 @@ public class TradeGoodPopulator extends BlockPopulator {
         /*
          * Search downward to bedrock for any trade goodies here. If we find one, don't generate.
          */
-
+        //在此处向下搜索基岩，查找任何贸易优惠。 如果找到一个，不要生成。
+        // ?貌似失败了
         BlockCoord coord = new BlockCoord(worldName, centerX, centerY, centerZ);
         for (int y = centerY; y > 0; y--) {
             coord.setY(y);
