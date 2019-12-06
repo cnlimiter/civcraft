@@ -2,8 +2,10 @@
 #
 # 1 beaker = 1 min worth of research with no extra perks.
 # For beta phase 2, starting off the first technologies at 3 hours. (180 mins)
-# 
+# 1个烧杯= 1分钟的研究时间，无需额外补贴。
+#＃对于Beta阶段2，第一个技术在3个小时后启动。 （180分钟）
 # ---- Tech restricted items
+# 技术限制项目
 # This is a list of items and which techs they are craftable at
 items:
     - id: 417

@@ -69,12 +69,12 @@ public class Alch extends Structure {
     }
 
     private String getNonResidentFeeString() {
-        return "Fee: " + new StringBuilder().append((int) (this.getNonResidentFee() * 100.0)).append("%").toString().toString();
+        return "Fee: " + this.getNonResidentFee() * 100.0 + "%";
     }
 
     private StructureSign getSignFromSpecialId(int special_id) {
         for (StructureSign sign : this.getSigns()) {
-            int id = Integer.valueOf(sign.getAction());
+            int id = Integer.parseInt(sign.getAction());
             if (id != special_id) continue;
             return sign;
         }
@@ -88,7 +88,7 @@ public class Alch extends Structure {
             Civilization c = resident.getCiv();
             if (c == this.getCiv()) {
                 resident.buyItem(itemName, id, data, price, amount);
-                CivMessage.send( player, CivColor.Green + CivSettings.localize.localizedString("var_alch_msgBought", amount, itemName, new StringBuilder().append(price).append(" ").append(CivSettings.CURRENCY_NAME).toString()));
+                CivMessage.send(player, CivColor.Green + CivSettings.localize.localizedString("var_alch_msgBought", amount, itemName, new StringBuilder().append(price).append(" ").append(CivSettings.CURRENCY_NAME).toString()));
                 return;
             }
             resident.buyItem(itemName, id, data, price + (double) payToTown, amount);
@@ -133,7 +133,7 @@ public class Alch extends Structure {
             ConfigAlchLevel alchlevel = CivSettings.alchLevels.get(special_id + 1);
             this.sign_buy_material(player, alchlevel.itemName, alchlevel.itemId, (byte) alchlevel.itemData, alchlevel.amount, alchlevel.price);
         } else {
-            CivMessage.send((Object) player, CivColor.Red + CivSettings.localize.localizedString("alch_sign_needUpgrade"));
+            CivMessage.send( player, CivColor.Red + CivSettings.localize.localizedString("alch_sign_needUpgrade"));
         }
     }
 }

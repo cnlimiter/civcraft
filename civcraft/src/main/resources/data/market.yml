@@ -2,8 +2,11 @@
 # Stores information used by the global marketplace. 
 # Maps sign id's to in-game id's and gives a starting price
 # for each item.
-
+## 存储全球市场使用的信息。
+#  将ID号映射到游戏中ID并给出起始价
+#对于每个项目。
 # The amount of coins to increase each market 'tick'
+# 增加每个市场“刻度”的硬币数量
 step: 1
 
 # The number of items that need to be sold to initialize a market 'tick'
@@ -135,25 +138,25 @@ items:
       name: '绿藻'
       type_id: 0
       data: 0
-      custom_id: 'mat_fish_pond_scum'
+      custom_id: 'mat_pond_scum'
       value: 1
 
     - id: 21
       name: '绳结'
       type_id: 0
       data: 0
-      custom_id: 'mat_fish_tangled_string'
+      custom_id: 'mat_tangled_string'
       value: 1
 
     - id: 22
       name: '海草'
       type_id: 0
       data: 0
-      custom_id: 'mat_fish_seaweed'
+      custom_id: 'mat_seaweed'
       value: 1
 
     - id: 23
-      name: '小型鱼'
+      name: '鱼苗'
       type_id: 0
       data: 0
       custom_id: 'mat_fish_minnows'
@@ -163,7 +166,7 @@ items:
       name: '蝌蚪'
       type_id: 0
       data: 0
-      custom_id: 'mat_fish_tadpole'
+      custom_id: 'mat_tadpole'
       value: 1
 
 # Shelf 2 right side, front 25-29

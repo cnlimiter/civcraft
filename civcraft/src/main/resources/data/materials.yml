@@ -4990,7 +4990,7 @@ materials:
         - id: 'mat_pond_scum'
           item_id: 351
           item_data: 2
-          name: '浮萍'
+          name: '绿藻'
           shaped: true
           craftable: false
           shiny: false
@@ -5003,7 +5003,7 @@ materials:
         - id: 'mat_tangled_string'
           item_id: 30
           item_data: 0
-          name: '线团'
+          name: '绳结'
           shaped: true
           craftable: false
           shiny: false

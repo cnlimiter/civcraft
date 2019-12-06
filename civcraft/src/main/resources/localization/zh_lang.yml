@@ -2470,7 +2470,7 @@ playerListen_repawnInWarRoom: "You've respawned in the War Room since it's WarTi
 playerListen_endDisabled: "The End portal is disabled on this server."
 playerListen_netherDisabled: "The Nether is disabled on this server."
 playerListen_placeLavaDenied: "You cannot place lava inside another civ's culture."
-var_playerListen_potionNoTech: "[%0] potions cannot be used as you do not have the technology yet."
+var_playerListen_potionNoTech: " 无法使用药水，因为您还没有 [%0] 科技."
 playerListen_denyUse: "You cannot use this type of potion."
 playerListen_combatHeading: "[Combat]"
 var_playerListen_combatDefend: "[%0] damaged you by [%1]"
