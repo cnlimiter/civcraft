@@ -3456,10 +3456,10 @@ public class Town extends SQLObject {
         String oldName = this.getName();
 
         CivGlobal.removeTown(this);
-
+        this.getCiv().removeTown(this);
         this.setName(name);
         this.save();
-
+        this.getCiv().addTown(this);
         CivGlobal.addTown(this);
 
         CivMessage.global(CivSettings.localize.localizedString("var_town_rename_success1", oldName, this.getName()));

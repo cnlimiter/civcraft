@@ -1,22 +1,18 @@
 
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
 import com.avrgaming.civcraft.components.ProjectileMagicComponent;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.MagicTower;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.WaterStructure;
 import com.avrgaming.civcraft.util.BlockCoord;
+import org.bukkit.Location;
 
-public class MagicShip
-        extends WaterStructure {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class MagicShip extends WaterStructure {
     ProjectileMagicComponent magicComponent;
 
     protected MagicShip(Location center, String id, Town town) throws CivException {

@@ -1,17 +1,15 @@
 
 package com.avrgaming.civcraft.structure;
 
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.object.Town;
+import org.bukkit.Location;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.bukkit.Location;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Structure;
-
-public class SilkWorkFarm
-        extends Structure {
+public class SilkWorkFarm extends Structure {
     public int virtualPotatoCount = 0;
     public ReentrantLock lock = new ReentrantLock();
 

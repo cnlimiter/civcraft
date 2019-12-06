@@ -48,7 +48,7 @@ global:
 
    # max distance players can be apart for trading
    # 最大距离玩家可以分开进行交易
-   max_trade_distance: 10.0
+   max_trade_distance: 3000.0
 
    # catalyst free amount
    # 免费的强化次数？

@@ -1,38 +1,33 @@
 
 package com.avrgaming.civcraft.structure;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.exception.InvalidConfiguration;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivLog;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Civilization;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.StructureSign;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.BlockCoord;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.util.ItemManager;
+import com.avrgaming.civcraft.util.SimpleBlock;
+import com.avrgaming.civcraft.war.War;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.main.CivMessage;
-
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.exception.InvalidConfiguration;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.StructureSign;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.RespawnLocationHolder;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.TownHall;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
-import com.avrgaming.civcraft.war.War;
-
-public class Stable2
-        extends Structure {
+public class Stable2 extends Structure {
     private StructureSign respawnSign;
     private int index = 0;
 
@@ -89,22 +84,20 @@ public class Stable2
         if (civ.hasResident(resident)) {
             hasPermission = true;
         }
+        if (!hasPermission) {
+            CivMessage.sendError(resident, CivSettings.localize.localizedString("stable_Sign_noPermission"));
+            return;
+        }
         switch (sign.getAction()) {
             case "prev": {
-                if (hasPermission.booleanValue()) {
-                    this.changeIndex(this.index - 1);
-                    break;
-                }
-                CivMessage.sendError(resident, CivSettings.localize.localizedString("stable_Sign_noPermission"));
+                this.changeIndex(this.index - 1);
                 break;
+
             }
             case "next": {
-                if (hasPermission.booleanValue()) {
                     this.changeIndex(this.index + 1);
                     break;
-                }
-                CivMessage.sendError(resident, CivSettings.localize.localizedString("stable_Sign_noPermission"));
-                break;
+
             }
             case "respawn": {
                 long timeNow;
@@ -116,10 +109,6 @@ public class Stable2
                     return;
                 }
                 respawnables.get(this.index).getRandomRevivePoint();
-                if (!hasPermission.booleanValue()) {
-                    CivMessage.sendError(resident, CivSettings.localize.localizedString("stable_Sign_noPermission"));
-                    return;
-                }
                 long nextTeleport = resident.getNextTeleport();
                 SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
                 if (nextTeleport > (timeNow = Calendar.getInstance().getTimeInMillis())) {
@@ -161,7 +150,7 @@ public class Stable2
                 ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
                 ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_nextLocation"));
+                structSign.setText("\n" + ChatColor.BOLD + ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_nextLocation"));
                 structSign.setDirection(commandBlock.getData());
                 structSign.setAction("next");
                 structSign.update();
@@ -173,7 +162,7 @@ public class Stable2
                 ItemManager.setTypeId(absCoord.getBlock(), commandBlock.getType());
                 ItemManager.setData(absCoord.getBlock(), commandBlock.getData());
                 StructureSign structSign = new StructureSign(absCoord, this);
-                structSign.setText("\n" + (Object) ChatColor.BOLD + (Object) ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_previousLocation"));
+                structSign.setText("\n" + ChatColor.BOLD + ChatColor.UNDERLINE + CivSettings.localize.localizedString("stable_sign_previousLocation"));
                 structSign.setDirection(commandBlock.getData());
                 structSign.setAction("prev");
                 structSign.update();

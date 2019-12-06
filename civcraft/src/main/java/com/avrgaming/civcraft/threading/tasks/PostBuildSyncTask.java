@@ -66,7 +66,9 @@ public class PostBuildSyncTask implements Runnable {
          * to find their real positions. Then perform any special building we may want to do
          * at those locations.
          */
+        // 使用模板中命令块的位置和可构建对象的角来查找其实际位置。 然后执行我们可能想在这些位置做的任何特殊建筑。
         /* These block coords do not point to a location in the world, just a location in the template. */
+        //这些块坐标并不指向世界上的某个位置，而只是指向模板中的一个位置。
         for (BlockCoord relativeCoord : tpl.commandBlockRelativeLocations) {
             SimpleBlock sb = tpl.blocks[relativeCoord.getX()][relativeCoord.getY()][relativeCoord.getZ()];
             StructureSign structSign;
@@ -328,7 +330,6 @@ public class PostBuildSyncTask implements Runnable {
                 case "/respawn":
                     if (buildable instanceof TownHall) {
                         TownHall townhall = (TownHall) buildable;
-
                         townhall.setRespawnPoint(absCoord);
                     }
                     break;

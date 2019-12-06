@@ -1,29 +1,26 @@
 
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import org.bukkit.Location;
-import org.bukkit.inventory.Inventory;
-
 import com.avrgaming.civcraft.components.AttributeBiomeRadiusPerLevel;
 import com.avrgaming.civcraft.components.ConsumeLevelComponent;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigLabLevel;
-import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.exception.CivTaskAbortException;
+import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.StructureChest;
 import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.MultiInventory;
+import org.bukkit.Location;
+import org.bukkit.inventory.Inventory;
 
-public class Lab
-        extends Structure {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class Lab extends Structure {
     private ConsumeLevelComponent consumeComp = null;
 
     protected Lab(Location center, String id, Town town) throws CivException {

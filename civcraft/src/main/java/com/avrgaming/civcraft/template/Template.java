@@ -18,26 +18,7 @@
  */
 package com.avrgaming.civcraft.template;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.Sign;
-import org.bukkit.entity.Player;
-
+import cn.hutool.core.util.StrUtil;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuildableInfo;
 import com.avrgaming.civcraft.exception.CivException;
@@ -54,6 +35,17 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.PlayerBlockChangeUtil;
 import com.avrgaming.civcraft.util.SimpleBlock;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
+import org.bukkit.entity.Player;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.*;
 
 public class Template {
     /* Handles the processing of CivTemplates which store cubiods of blocks for later use. */
@@ -74,6 +66,7 @@ public class Template {
     private Queue<SimpleBlock> sbs; //Blocks to add to main sync task queue;
 
     /* Save the command block locations when we init the template, so we dont have to search for them later. */
+    //初始化模板时，请保存命令块的位置，因此我们以后不必搜索它们。
     public ArrayList<BlockCoord> commandBlockRelativeLocations = new ArrayList<BlockCoord>();
     public LinkedList<BlockCoord> doorRelativeLocations = new LinkedList<BlockCoord>();
     public LinkedList<BlockCoord> attachableLocations = new LinkedList<BlockCoord>();
@@ -443,10 +436,10 @@ public class Template {
             throw new CivException(CivSettings.localize.localizedString("template_invalidFile") + " " + filepath);
         }
 
-        String split[] = line.split(";");
-        size_x = Integer.valueOf(split[0]);
-        size_y = Integer.valueOf(split[1]);
-        size_z = Integer.valueOf(split[2]);
+        String[] split = line.split(";");
+        size_x = Integer.parseInt(split[0]);
+        size_y = Integer.parseInt(split[1]);
+        size_z = Integer.parseInt(split[2]);
         getTemplateBlocks(reader, size_x, size_y, size_z);
         reader.close();
     }
@@ -563,10 +556,10 @@ public class Template {
             throw new CivException(CivSettings.localize.localizedString("template_invalidFile") + " " + filepath);
         }
 
-        String split[] = line.split(";");
-        size_x = Integer.valueOf(split[0]);
-        size_y = Integer.valueOf(split[1]);
-        size_z = Integer.valueOf(split[2]);
+        String[] split = line.split(";");
+        size_x = Integer.parseInt(split[0]);
+        size_y = Integer.parseInt(split[1]);
+        size_z = Integer.parseInt(split[2]);
         getTemplateBlocks(reader, size_x, size_y, size_z);
         this.filepath = filepath;
         reader.close();
@@ -575,29 +568,29 @@ public class Template {
     private void getTemplateBlocks(BufferedReader reader, int regionX, int regionY, int regionZ) throws NumberFormatException, IOException {
 
         String line;
-        SimpleBlock blocks[][][] = new SimpleBlock[regionX][regionY][regionZ];
+        SimpleBlock[][][] blocks = new SimpleBlock[regionX][regionY][regionZ];
 
         // Read blocks from file.
         while ((line = reader.readLine()) != null) {
-            String locTypeSplit[] = line.split(",");
+            String[] locTypeSplit = line.split(",");
             String location = locTypeSplit[0];
             String type = locTypeSplit[1];
 
             //Parse location
-            String locationSplit[] = location.split(":");
+            String[] locationSplit = location.split(":");
             int blockX, blockY, blockZ;
-            blockX = Integer.valueOf(locationSplit[0]);
-            blockY = Integer.valueOf(locationSplit[1]);
-            blockZ = Integer.valueOf(locationSplit[2]);
+            blockX = Integer.parseInt(locationSplit[0]);
+            blockY = Integer.parseInt(locationSplit[1]);
+            blockZ = Integer.parseInt(locationSplit[2]);
 
             // Parse type
-            String typeSplit[] = type.split(":");
+            String[] typeSplit = type.split(":");
             int blockId, blockData;
-            blockId = Integer.valueOf(typeSplit[0]);
-            blockData = Integer.valueOf(typeSplit[1]);
+            blockId = Integer.parseInt(typeSplit[0]);
+            blockData = Integer.parseInt(typeSplit[1]);
 
             SimpleBlock block = new SimpleBlock(blockId, blockData);
-
+            //一堆的门设置为特殊的？
             if (blockId == CivData.WOOD_DOOR ||
                     blockId == CivData.IRON_DOOR ||
                     blockId == CivData.SPRUCE_DOOR ||
@@ -609,21 +602,24 @@ public class Template {
             }
 
             // look for signs.
+            //如果是墙上的木牌或者木牌？
             if (blockId == CivData.WALL_SIGN || blockId == CivData.SIGN) {
 
                 if (locTypeSplit.length > 2) {
 
-                    // The first character on special signs needs to be a /.
-                    if (locTypeSplit[2] != null && !locTypeSplit[2].equals("") && locTypeSplit[2].charAt(0) == '/') {
+                   // 特殊符号上的第一个字符必须为/。
+                    String specialSign = locTypeSplit[2];
+                    if (StrUtil.isNotBlank(specialSign) && specialSign.startsWith("/")) {
                         block.specialType = SimpleBlock.Type.COMMAND;
 
                         // Got a command, save it.
-                        block.command = locTypeSplit[2];
+                        // 把命令存进去
+                        block.command = specialSign;
 
                         // Save any key values we find.
                         if (locTypeSplit.length > 3) {
                             for (int i = 3; i < locTypeSplit.length; i++) {
-                                if (locTypeSplit[i] == null || locTypeSplit[i].equals("")) {
+                                if (StrUtil.isBlank(locTypeSplit[i])) {
                                     continue;
                                 }
 

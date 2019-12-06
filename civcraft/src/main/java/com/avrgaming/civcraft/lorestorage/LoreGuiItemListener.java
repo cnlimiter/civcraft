@@ -18,14 +18,14 @@
  */
 package com.avrgaming.civcraft.lorestorage;
 
-import java.util.HashMap;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
+
+import java.util.HashMap;
 
 public class LoreGuiItemListener implements Listener {
 
@@ -38,8 +38,8 @@ public class LoreGuiItemListener implements Listener {
      */
     @EventHandler(priority = EventPriority.LOWEST)
     public void OnInventoryClick(InventoryClickEvent event) {
-        if (LoreGuiItem.isGUIItem(event.getCurrentItem()) ||
-                LoreGuiItem.isGUIItem(event.getCursor())) {
+        if (LoreGuiItem.isGUIItem(event.getCurrentItem())
+                || LoreGuiItem.isGUIItem(event.getCursor())) {
             event.setCancelled(true);
 
             if (event.getCurrentItem() != null) {

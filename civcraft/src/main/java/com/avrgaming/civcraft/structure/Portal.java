@@ -1,33 +1,29 @@
 
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-
 import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.items.units.Unit;
 import com.avrgaming.civcraft.main.CivCraft;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.StructureSign;
 import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.SimpleBlock;
 import com.avrgaming.civcraft.war.War;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
 
-public class Portal
-        extends Structure {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Portal extends Structure {
     public Location spawnLocation;
 
     protected Portal(Location center, String id, Town town) throws CivException {
@@ -72,7 +68,7 @@ public class Portal
                 }
                 boolean right = CivCraft.civRandom.nextBoolean();
                 Location bossLocation = right ? new Location(Bukkit.getWorld((String) "world_nether"), 143.0, 147.0, -613.0) : new Location(Bukkit.getWorld((String) "world_nether"), 1.0, 148.0, -610.0);
-                CivMessage.sendSuccess((CommandSender) player, CivSettings.localize.localizedString("var_portal_teleporting", CivColor.Red));
+                CivMessage.sendSuccess( player, CivSettings.localize.localizedString("var_portal_teleporting", CivColor.Red));
                 player.teleport(bossLocation);
             }
         }

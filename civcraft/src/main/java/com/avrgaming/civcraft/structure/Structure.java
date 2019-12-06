@@ -490,7 +490,7 @@ public class Structure extends Buildable {
                     struct = (Pasture) new Pasture(rs);
                 }
                 break;
-            case "ti_lighthouse":
+            case "s_lighthouse":
                 if (rs == null) {
                     struct = (Lighthouse) new Lighthouse(center, id, town);
                 } else {
@@ -657,7 +657,7 @@ public class Structure extends Buildable {
         this.getTown().addStructure(this);
         bindStructureBlocks();
 
-        if (this.isComplete() == false) {
+        if (!this.isComplete()) {
             try {
                 this.resumeBuildFromTemplate();
             } catch (Exception e) {

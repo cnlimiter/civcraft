@@ -181,7 +181,7 @@ buffs:
       name: '减少无政府状态'
       # description: 'Civilization spends 50% less time in anarchy per resident for this town.<r> <red>Not Stackable<r>'
       description: '每个居民在无政府状态下花费的时间减少了50%。<r> <red>不可叠加<r>'
-      value: '0.5'
+      value: '0.25'
       stackable: false 
 
     - id: 'buff_advanced_touring'
