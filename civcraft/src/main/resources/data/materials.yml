@@ -4206,6 +4206,7 @@ materials:
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
+                id: 'mat_uncommon_attack_catalyst'
                 enhancement: 'LoreEnhancementAttack'
                 allowed_materials: 'mat_steel_sword, mat_recurve_bow'
                 chance: '50'
@@ -4238,6 +4239,7 @@ materials:
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
+                id: 'mat_uncommon_defense_catalyst'
                 enhancement: 'LoreEnhancementDefense'
                 allowed_materials: 'mat_steel_chestplate, mat_steel_leggings, mat_steel_helmet, mat_steel_boots, mat_refined_leather_helmet, mat_refined_leather_chestplate, mat_refined_leather_leggings, mat_refined_leather_boots'
                 chance: '66'
@@ -4273,6 +4275,7 @@ materials:
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
+                id: 'mat_rare_attack_catalyst'
                 enhancement: 'LoreEnhancementAttack'
                 allowed_materials: 'mat_carbide_steel_sword, mat_longbow'
                 chance: '50'
@@ -4305,6 +4308,7 @@ materials:
           components:
               - name: 'NoRightClick'
               - name: 'Catalyst'
+                id: 'mat_rare_defense_catalyst'
                 enhancement: 'LoreEnhancementDefense'
                 allowed_materials: 'mat_carbide_steel_chestplate, mat_carbide_steel_leggings, mat_carbide_steel_helmet, mat_carbide_steel_boots, mat_hardened_leather_helmet, mat_hardened_leather_chestplate, mat_hardened_leather_leggings, mat_hardened_leather_boots'
                 chance: '66'
@@ -4339,6 +4343,7 @@ materials:
           components:
               - name: 'NoRightClick'              
               - name: 'Catalyst'
+                id: 'mat_legendary_attack_catalyst'
                 enhancement: 'LoreEnhancementAttack'
                 allowed_materials: 'mat_tungsten_sword, mat_marksmen_bow'
                 chance: '50'
