@@ -2044,7 +2044,10 @@ public class Town extends SQLObject {
         double additionalGrapes = this.getBuffManager().getEffectiveDouble("buff_hanging_gardens_additional_growth");
         int grapeCount = 0;
         for (BonusGoodie goodie : this.getBonusGoodies()) {
-            if (goodie.getDisplayName().equalsIgnoreCase("grapes")) {
+//            if (goodie.getDisplayName().equalsIgnoreCase("grapes")) {
+//                grapeCount++;
+//            }
+            if (goodie.getSimpleId().equalsIgnoreCase("good_grapes")) {
                 grapeCount++;
             }
         }
@@ -3933,6 +3936,6 @@ public class Town extends SQLObject {
                 }
             }
         }
-        return (total < 1.0) ? 1.0 : total;
+        return Math.max(total, 1.0);
     }
 }

@@ -107,7 +107,7 @@ public class BuffManager {
         synchronized (this) {
             for (Buff buff : effectiveBuffs.values()) {
                 if (buff.getId().equals(buff_id)) {
-                    ret += Double.valueOf(buff.getValue());
+                    ret += Double.parseDouble(buff.getValue());
                 }
             }
         }
