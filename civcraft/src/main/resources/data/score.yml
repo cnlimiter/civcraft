@@ -2,14 +2,16 @@
 # This file contains information how how to calculate civ scores and town scores.
 # Each object that a town or civilization owns can contribute to its score. The 
 # weight of each of these objects is set here. Scores are integers.
-#
+# 此文件包含有关如何计算文明得分和城镇得分的信息。城镇或文明拥有的每个对象都可以为其得分做出贡献。 在此设置每个物体的重量。 分数是整数。
 # Structures and wonders are worth points as well, but are configured in the structure.yml
+# 结构和奇观也是值得的，但可以在structure.yml中进行配置
 # The technologies are also worth points, but are configured in techs.yml
 
 # The Civ score is the sum of all of the towns scores underneath them,
 # plus this extra stuff.
+# Civ分数是其下所有城镇分数的总和，再加上额外的费用。
 town_scores:
-    # How many points is each town chunk worth
+    # How many points is each town chunk worth 每个城镇块价值多少分
     town_chunk: 200
 
     # How many points is each culture chunk this town owns is worth
@@ -18,10 +20,10 @@ town_scores:
     # Points per resident in town
     resident: 5000
 
-    # Points per coin in town treasury
+    # Points per coin in town treasury 镇库中每个硬币的积分
     coins: 25
 
 
 # Amount of coins each score point is worth, which determines the town's
-# worth during selling.
+# worth during selling. 每个得分点的硬币数量，这决定了该镇在销售过程中的价值。
 coins_per_point: 5.0  

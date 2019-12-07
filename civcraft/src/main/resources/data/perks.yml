@@ -1,26 +1,30 @@
 # This controls all of the available perks 
-# 
+#  这可以控制所有可用特权
 # Each perk has an ID which is correlated with the website.
 # 
 # When the user logs in, we async fetch the list of perks from the cake database
 # Then display them in a list to the user. (icon list?)
 # The user then selects a perk to use, and "activates" it, once it is activated
 # the perk is marked "used" in the cake DB and cannot be activated again.
-#
+#  当用户登录时，我们从蛋糕数据库异步获取特权列表，然后将其显示在列表中给用户。
+#  （图标列表？）然后，用户选择要使用的特权，并“激活”该特权，一旦激活，该特权将在蛋糕DB中标记为“已使用”，并且无法再次激活。
 # Each perk has a component that runs on it's activation. For now the only
 # component will be the CustomTemplate component which will confirm the town
 # they want to bind the perk to. 
-#
+#   每个特权都有一个在其激活时运行的组件。 现在，唯一的组件将是CustomTemplate组件，该组件将确认要绑定特权的城镇。
 # We will use the SessionDB which will have a key-value entry with the perk id
 # so that the same perk isnt bound twice, and so we can lookup the perks when we build.
-#
+# 我们将使用SessionDB，该数据库将具有带有特权ID的键-值条目，以便同一特权不会绑定两次，因此我们可以在构建时查找特权。
 
 system:
     # Enables free perks for all users. Even if the system is disabled above, setting this
     # to true will give all users perks of each type. (Weather, camps, mostly)
+    #   为所有用户启用免费特权。 即使上面禁用了系统，也请设置
+    #  如果为true，则将为每种类型的所有用户提供津贴。 （主要是天气，营地）
     free_perks: 'true'
 
     # For each perk, give this many copies.
+    # 对于每个特权，请提供许多副本。
     free_perk_count: 100
 
 perks:

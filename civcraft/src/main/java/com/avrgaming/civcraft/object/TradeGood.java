@@ -18,10 +18,6 @@
  */
 package com.avrgaming.civcraft.object;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTradeGood;
 import com.avrgaming.civcraft.database.SQL;
@@ -34,6 +30,10 @@ import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.structure.TradeOutpost;
 import com.avrgaming.civcraft.util.BlockCoord;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
 
 public class TradeGood extends SQLObject {
 
@@ -254,7 +254,7 @@ public class TradeGood extends SQLObject {
         double value = getBaseValue(good);
         int goodMax;
         try {
-            goodMax = (Integer) CivSettings.getInteger(CivSettings.goodsConfig, "trade_good_multiplier_max");
+            goodMax = CivSettings.getInteger(CivSettings.goodsConfig, "trade_good_multiplier_max");
         } catch (InvalidConfiguration e) {
             e.printStackTrace();
             return 0;

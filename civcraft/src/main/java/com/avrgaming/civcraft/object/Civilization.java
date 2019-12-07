@@ -1792,7 +1792,7 @@ public class Civilization extends SQLObject {
     }
 
     public ArrayList<RespawnLocationHolder> getAvailableRespawnables() {
-        ArrayList<RespawnLocationHolder> respawns = new ArrayList<RespawnLocationHolder>();
+        ArrayList<RespawnLocationHolder> respawns = new ArrayList<>();
 
         for (Town town : this.getTowns()) {
             TownHall townhall = town.getTownHall();

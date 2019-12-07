@@ -27,7 +27,7 @@ enchants:
      name: '钻孔'
      cost: 20000.0
      enchant_id: 'LoreEnhancementPunchout'
-
+##莫斯科国立大学
    - id: 'ench_infinity'
      name: '无限'
      # 无限

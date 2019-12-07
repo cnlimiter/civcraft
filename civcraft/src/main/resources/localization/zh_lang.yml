@@ -2371,7 +2371,7 @@ missionBook_steal_goodie: "Your goodie buff 'Dirty Money' will come in handy her
 missionBook_steal_success: "Success! Stole"
 missionBook_investigate_addLore: "Mission Report"
 missionBook_investigate_setAuthor: "Mission Reports"
-missionBook_investigate_setTitle: "Investigate Town"
+missionBook_investigate_setTitle: "调查城镇"
 missionBook_investigate_success: "Mission Accomplished"
 missionBook_Invalid: "Not implemented."
 

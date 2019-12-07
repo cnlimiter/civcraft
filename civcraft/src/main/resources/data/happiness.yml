@@ -1,10 +1,11 @@
 #
 # This YAML contains data relevent to happiness, use this to configure its bonuses and stuff.
-#
+# 该YAML包含与幸福有关的数据，可使用它来配置其奖金和东西。
 # Negative happiness means unhappiness.
-#
+# 负快乐意味着不快乐。
 happiness:
     # Amount of unhappiness per resident in the town.
+    # 每个城镇居民的不幸程度。
     per_resident: 1.0
     per_group: 0.25
 
@@ -13,19 +14,24 @@ happiness:
     per_town: 1.0
 
     # Captured Town Unhappiness. Amount of unhappiness to add to each non-captured town
+    # 捕获了城镇的不幸。 增加到每个未占领城镇的不满情绪
     # for each captured town in the civ.
     per_captured_town: 2.0
 
     # Base distance Unhappiness
+    # 基本距离不快乐
     distance_base: 0.01
 
     # Distance Multiplier to use when town's culture is touching
+    # 城镇文化触及时使用的距离倍数
     distance_multiplier: 0.75
 
     # Dstaince Multiplier to use when town's culture is NOT touching
+    # 城镇文化不动时使用的Dstaince乘数城镇文化不动时使用的Dstaince乘数
     distance_multiplier_outside_culture: 1.05
 
     # Maximum amount of distance unhappiness
+    # 最大距离不适
     distance_max: 15.0
 
     # Amount of happiness generated per war, as the aggressor
@@ -33,10 +39,13 @@ happiness:
 
     # Amount of extra happiness generated per score difference between aggressor and victim civ.
     # Rounded to the nearest whole number (-1, -2, etc)
+    # 侵略者与受害人之间的每个分数差异产生了额外的幸福感。
+    # 四舍五入到最接近的整数（-1，-2等）
     per_war_score: 0.0001
     per_war_score_max: 3.0
     
     # Static Happiness Levels per town
+    # 每个城镇的静态幸福水平
     town_levels:
         - level: 1
           happiness: 12.0

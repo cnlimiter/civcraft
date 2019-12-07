@@ -233,7 +233,7 @@ cottage_levels:
 ################# Temple Settings #################
 # 寺庙
 temple:
-  # rate which temple modifies total culture output
+  # rate which temple modifies total culture output 寺庙改变文化总产出的比率
   culture_bonus: 0.15
 
   # range at which temple checks for sacrifies
@@ -417,7 +417,7 @@ pasture:
   max_mobs: 30
 
 ################### Barracks Settings #######################
-# 马厩
+# 军政处
 barracks:
   # Barracks repair cost uses the following formula.
   #
@@ -427,9 +427,12 @@ barracks:
   # Then that amount is modified by how damaged the weap is. The more damaged it is,
   # then the more the repair will cost. The extra multiplier caused by damage is then dampened
   # by multipliying it by the damage dampen.
-  #
+  # 因此，基本维修成本乘以层的值，+ 1表示层0，然后根据武器的损坏程度修改该金额。
+  # 损坏程度越大，则维修费用就越高。 然后，通过将损坏造成的额外乘数乘以损坏衰减器来进行衰减。
   # If you want the Tier to be more important, increase the tier damp.
+  # 如果您希望层更加重要，请增加tier damp.
   # If you want the item durability to be more important increase the damage damp
+  # 如果您希望物品的耐久性更重要，请增加损伤阻尼damage damp
 
 
   # Base repair cost of all items
@@ -440,7 +443,7 @@ barracks:
   damage_damp: 1.0
 
   # tier dampen
-  tier_damp: 0.175
+  tier_damp: 0.25  #0.175
 
 
 #################### Stable Settings ########################

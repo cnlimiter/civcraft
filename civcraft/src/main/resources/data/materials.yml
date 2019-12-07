@@ -20,8 +20,8 @@
 # item_data: - This is the datavalue for the in-game item.
 # name: - Used as a display name for the item.
 # ----- The following are Optional ------
-# lore: - Multi-line string that should be displayed as item lore.
-# craftable: - True if the item can be crafted, default is false
+# lore: - Multi-line string that should be displayed as item lore. 多行字符串，应显示为项目知识。
+# craftable: - True if the item can be crafted, default is false 如果可以制作商品，则为true，默认为false
 # shaped: - True if the item recipie requires a shape, default is false
 # required_tech: - Technology required to craft this item.
 # ingredients: - List of incredients..

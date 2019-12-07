@@ -125,7 +125,7 @@ public class WarCamp extends Buildable implements RespawnLocationHolder {
         if (entries.size() == 0) {
             return 0;
         } else {
-            Date then = new Date(Long.valueOf(entries.get(0).value));
+            Date then = new Date(Long.parseLong(entries.get(0).value));
             int rebuild_timeout;
             try {
                 rebuild_timeout = CivSettings.getInteger(CivSettings.warConfig, "warcamp.rebuild_timeout");

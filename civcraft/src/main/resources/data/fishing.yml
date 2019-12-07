@@ -1,10 +1,13 @@
 # This controls the drops from fishing
-#
+# 这可以控制钓鱼掉落的水滴
 #Here is an explaination of the options
 #craftMatId - Custom item_id
 #type_id - Vanilla item_id
 #drop_chance - Probability to drop.
-#
+# 这里是选项的解释
+##craftMatId-自定义item_id
+##type_id-香草item_id
+##drop_chance-掉落的可能性。
 
 fishing_drops:
     - craftMatId: 'mat_mercury'

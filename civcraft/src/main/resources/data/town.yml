@@ -8,19 +8,19 @@ town:
     # Cost to claim a plot
     plot_cost: 1000.0
 
-    # Min distance from another town
+    # Min distance from another town 距另一镇的最小距离
     min_town_distance: 150.0
     
-    # Min distance from another town that is your enemy
+    # Min distance from another town that is your enemy 距您的敌人另一个城镇的最小距离
     min_town_distance_enemy: 300.0
 
-    # Cost to claim an outpost.
+    # Cost to claim an outpost. 索要前哨站的费用。
     outpost_cost: 5000.0
 
     # upkeep per outpost plot per day.
     outpost_upkeep: 1000.0
     
-    # Grace distance that town will not calculate upkeep from.
+    # Grace distance that town will not calculate upkeep from. 城镇不会计算出的宽限距离。
     upkeep_town_block_grace_distance: 8.0
 
     # Amount of base upkeep to charge via 'square' of the distance

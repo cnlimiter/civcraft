@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class ConfigMaterialCategory {
 
-    private static TreeMap<String, ConfigMaterialCategory> categories = new TreeMap<String, ConfigMaterialCategory>();
+    private static TreeMap<String, ConfigMaterialCategory> categories = new TreeMap<>();
 
     public String name;
     public HashMap<String, ConfigMaterial> materials = new HashMap<String, ConfigMaterial>();

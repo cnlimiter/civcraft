@@ -1,15 +1,15 @@
 #
 # This file contains information about the trade goods.
-#
+# 该文件包含有关贸易商品的信息。
 # The trade goods are divided into two lists, land goods and water goods.
 # Configuration for them is identical, however as you might expect... water 
 # goods never spawn on land and land goods never spawn on water.
-#
+# 贸易货物分为两类，陆上货物和水上货物。 它们的配置是相同的，但是正如您可能期望的那样……水产品永远不会在陆地上产卵，而陆地产品永远不会在水上产生。
 #
 #
 
 ######## Global Trade Good Options #######
-
+# 您可以从同类型商品获得的最大奖励。
 # maximum bonus from same-type goods you can get.
 trade_good_multiplier_max: 3
 

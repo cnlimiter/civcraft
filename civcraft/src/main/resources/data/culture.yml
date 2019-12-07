@@ -15,583 +15,613 @@ beakers_per_culture: 0.1
 # chunks - number of chunks(radius from each edge town block) of culture granted for this level
 
 culture_levels:
-    - level: 0
-      amount: 0
-      chunks: 6
+  - level: 0
+    amount: 0
+    chunks: 6
 
-    - level: 1
-      amount: 500
-      chunks: 8
+  - level: 1
+    amount: 500
+    chunks: 8
 
-    - level: 2
-      amount: 10000
-      chunks: 10
+  - level: 2
+    amount: 10000
+    chunks: 10
 
-    - level: 3
-      amount: 20000
-      chunks: 13
+  - level: 3
+    amount: 20000
+    chunks: 13
 
-    - level: 4
-      amount: 100000
-      chunks: 15
+  - level: 4
+    amount: 100000
+    chunks: 15
 
-    - level: 5
-      amount: 250000
-      chunks: 17
+  - level: 5
+    amount: 250000
+    chunks: 17
 
-    - level: 6
-      amount: 500000
-      chunks: 19
+  - level: 6
+    amount: 500000
+    chunks: 19
 
-    - level: 7
-      amount: 1000000
-      chunks: 22
+  - level: 7
+    amount: 1000000
+    chunks: 22
 
-    - level: 8
-      amount: 2000000
-      chunks: 26
+  - level: 8
+    amount: 2000000
+    chunks: 26
 
-    - level: 9
-      amount: 4000000
-      chunks: 32
+  - level: 9
+    amount: 4000000
+    chunks: 32
 
-    - level: 10
-      amount: 5000000
-      chunks: 40
+  - level: 10
+    amount: 5000000
+    chunks: 40
 
 talent_levels:
-    - level: 1
-      levelName: 'Capitol'
-      levelBuff1: 'level1_hammerRateCap'
-      levelBuff2: 'level1_beakerRateCap'
-      levelBuff3: 'level1_growthCultureCap'
-      levelBuffDesc1: 'The hammers of the Capitol are increased by 10%.'
-      levelBuffDesc2: 'The beakers of the Capitol are increased by 10%.'
-      levelBuffDesc3: 'Growth and culture of the city is increased by 5%.'
-    
-    - level: 2
-      levelName: 'Happiness'
-      levelBuff1: 'level2_capitolHappinessCap'
-      levelBuff2: 'level2_civHappinessTown'
-      levelBuff3: 'level2_wonderCivHappinessTown'
-      levelBuffDesc1: 'Gives 5 happiness to the Capitol.'
-      levelBuffDesc2: 'Gives 2 happiness to the whole civilization.'
-      levelBuffDesc3: 'For every wonder built in the world, your civilization gets 1 happiness.'
-    
-    - level: 3
-      levelName: 'Strengthen chunks'
-      levelBuff1: 'level3_extraHammerTown'
-      levelBuff2: 'level3_extraRiverTown'
-      levelBuff3: 'level3_extraBeakerTown'
-      levelBuffDesc1: 'For every culture chunk giving less than 0.75 hammers, gives 0.25 additional hammers.'
-      levelBuffDesc2: 'For every culture chunk giving less than 0.02 happiness, gives 0.01 additional happiness.'
-      levelBuffDesc3: 'For every culture chunk giving less than 1 beakers, gives 0.25 additional tubes.'
-    
-    - level: 4
-      levelName: 'Income'
-      levelBuff1: 'level4_extraCottageTown'
-      levelBuff2: 'level4_extraBankTown'
-      levelBuff3: 'level4_extraTradeTown'
-      levelBuffDesc1: 'Your cottages produce 10% more coins.'
-      levelBuffDesc2: 'Your bank is getting more efficient by 10%, doubling the daily interest percentage.'
-      levelBuffDesc3: 'Trade resources give 15% more coins.'
-    
-    - level: 5
-      levelName: 'Protection'
-      levelBuff1: 'level5_extraTowerHPTown'
-      levelBuff2: 'level5_extraRangeTown'
-      levelBuff3: 'level5_extraHPcpTown'
-      levelBuffDesc1: 'Increases the strength of defense structures by 10% and adds 1 block per second to regeneration.'
-      levelBuffDesc2: 'Increases the radius of all towers by 25 blocks.'
-      levelBuffDesc3: 'Increases the strength of the control blocks by 20%'
-    
-    - level: 6
-      levelName: 'Conflict'
-      levelBuff1: 'level6_extraCPdmgTown'
-      levelBuff2: 'level6_extraStrucutreDmgTown'
-      levelBuff3: 'level6_wcHPTown'
-      levelBuffDesc1: 'You have a chance to inflict 1 additional damage on the control blocks of cities.'
-      levelBuffDesc2: 'You have a chance to inflict 1 additional damage on the buildings.'
-      levelBuffDesc3: 'Doubles the HP of the War camps and allows it to regenerate 1 hp per minute.'
-    
-    - level: 7
-      levelName: 'Scienctific'
-      levelBuff1: 'level7_cheaperCostCap'
-      levelBuff2: 'level7_higherIncomeTown'
-      levelBuff3: 'level7_extraInBestTown'
-      levelBuffDesc1: 'Studies cost 5% more Beakers, but 5% less coins.'
-      levelBuffDesc2: 'Reduces the cost of 1 beaker (with taxes) from 10 to 9.'
-      levelBuffDesc3: 'Gives 25% to the test tubes of the Capitol of civilization'
-    
-    - level: 8
-      levelName: 'Misfortune'
-      levelBuff1: 'level8_unhappyConquerorTown'
-      levelBuff2: 'level8_unhappyLargeEmpireTown'
-      levelBuff3: 'level8_noWarUpkeep'
-      levelBuffDesc1: 'You get 2 Unhappiness for each of your city, but do not get unhappy for the captured cities.'
-      levelBuffDesc2: 'Removes 2 Unhappiness in every city for every 5 cities in the civilization.'
-      levelBuffDesc3: 'Completely removes the tax from war.'
-    
-    - level: 9
-      levelName: 'Culture'
-      levelBuff1: 'level9_capitolCultureCap'
-      levelBuff2: 'level9_civCultureTown'
-      levelBuff3: 'level9_equalizerCultureTown'
-      levelBuffDesc1: 'Gives 50% to culture the Capitol of civilization.'
-      levelBuffDesc2: 'Gives 20% to the culture of civilization.'
-      levelBuffDesc3: 'It gives 150 culture to every cultural resource in the city of civilization.'
-    
-    - level: 10
-      levelName: 'Victory'
-      levelBuff1: 'level10_scientificFocusTown'
-      levelBuff2: 'level10_dominatorTown'
-      levelBuff3: 'level10_architectorTown'
-      levelBuffDesc1: 'Increasing the Beakers of civilization by 15%'
-      levelBuffDesc2: 'The HP of the control blocks of civilization is doubled (including military camps), a captured civilization can not start a revolution.'
-      levelBuffDesc3: 'Increases the culture of all cities of civilization by 15% and reduces the cost of wonders by 10%.'
+  - level: 1
+    levelName: 'Capitol'
+    levelBuff1: 'level1_hammerRateCap'
+    levelBuff2: 'level1_beakerRateCap'
+    levelBuff3: 'level1_growthCultureCap'
+    levelBuffDesc1: '国会大厦的生产值增加了10%。'
+    levelBuffDesc2: '国会大厦的科研点增加了 10%.'
+    levelBuffDesc3: '城镇的文化和生长值增加了 5%.'
+    #      levelBuffDesc1: 'The hammers of the Capitol are increased by 10%.'
+    #      levelBuffDesc2: 'The beakers of the Capitol are increased by 10%.'
+    #      levelBuffDesc3: 'Growth and culture of the city is increased by 5%.'
 
-      
+  - level: 2
+    levelName: 'Happiness'
+    levelBuff1: 'level2_capitolHappinessCap'
+    levelBuff2: 'level2_civHappinessTown'
+    levelBuff3: 'level2_wonderCivHappinessTown'
+    levelBuffDesc1: '给国会大厦带来5点幸福度'
+    levelBuffDesc2: '给整个文明带来2点幸福度'
+    levelBuffDesc3: '世界上每建造出一个奇迹，就给你的文明带来1点幸福的'
+    #      levelBuffDesc1: 'Gives 5 happiness to the Capitol.'
+    #      levelBuffDesc2: 'Gives 2 happiness to the whole civilization.'
+    #      levelBuffDesc3: 'For every wonder built in the world, your civilization gets 1 happiness.'
+
+  - level: 3
+    levelName: 'Strengthen chunks'
+    levelBuff1: 'level3_extraHammerTown'
+    levelBuff2: 'level3_extraRiverTown'
+    levelBuff3: 'level3_extraBeakerTown'
+    levelBuffDesc1: '对于每个文化块，如果生产值少于0.75，则额外增加0.25。'
+    levelBuffDesc2: '对于每个文化块，如果其带来的幸福度少于0.02，便会额外带来0.01。'
+    levelBuffDesc3: '对于每个文化块，如果其带来的科研点少于1，额外提供0.25。'
+    #      levelBuffDesc1: 'For every culture chunk giving less than 0.75 hammers, gives 0.25 additional hammers.'
+    #      levelBuffDesc2: 'For every culture chunk giving less than 0.02 happiness, gives 0.01 additional happiness.'
+    #      levelBuffDesc3: 'For every culture chunk giving less than 1 beakers, gives 0.25 additional tubes.'
+
+  - level: 4
+    levelName: 'Income'
+    levelBuff1: 'level4_extraCottageTown'
+    levelBuff2: 'level4_extraBankTown'
+    levelBuff3: 'level4_extraTradeTown'
+    levelBuffDesc1: '你的别墅额外获得10％的收入。'
+    levelBuffDesc2: '您的银行的效率提高了10％，并且使日利率提高了一倍。'
+    levelBuffDesc3: '贸易资源额外获得15％的收入。'
+    #      levelBuffDesc1: 'Your cottages produce 10% more coins.'
+    #      levelBuffDesc2: 'Your bank is getting more efficient by 10%, doubling the daily interest percentage.'
+    #      levelBuffDesc3: 'Trade resources give 15% more coins.'
+
+  - level: 5
+    levelName: 'Protection'
+    levelBuff1: 'level5_extraTowerHPTown'
+    levelBuff2: 'level5_extraRangeTown'
+    levelBuff3: 'level5_extraHPcpTown'
+    levelBuffDesc1: '防御结构的强度提高10％，并且每秒恢复一点。'
+    levelBuffDesc2: '将所有塔的半径增加25个方块。'
+    levelBuffDesc3: '控制块的强度提高20％'
+    #    levelBuffDesc2: 'Increases the radius of all towers by 25 blocks.'
+    #    levelBuffDesc1: 'Increases the strength of defense structures by 10% and adds 1 block per second to regeneration.'
+    #    levelBuffDesc3: 'Increases the strength of the control blocks by 20%'
+
+  - level: 6
+    levelName: 'Conflict'
+    levelBuff1: 'level6_extraCPdmgTown'
+    levelBuff2: 'level6_extraStrucutreDmgTown'
+    levelBuff3: 'level6_wcHPTown'
+    levelBuffDesc1: '你有机会对城市的控制区域造成1点额外伤害。'
+    levelBuffDesc2: '你有机会对建筑物造成1点额外伤害。'
+    levelBuffDesc3: '战争营地的HP翻倍，并使其每分钟恢复1点 hp。'
+    #    levelBuffDesc1: 'You have a chance to inflict 1 additional damage on the control blocks of cities.'
+    #    levelBuffDesc2: 'You have a chance to inflict 1 additional damage on the buildings.'
+    #    levelBuffDesc3: 'Doubles the HP of the War camps and allows it to regenerate 1 hp per minute.'
+
+  - level: 7
+    levelName: 'Scienctific'
+    levelBuff1: 'level7_cheaperCostCap'
+    levelBuff2: 'level7_higherIncomeTown'
+    levelBuff3: 'level7_extraInBestTown'
+    levelBuffDesc1: '研究费用增加了5％的科研点需求，但减少了5％的花费。'
+    levelBuffDesc2: '将一点科研点（含税）的价格从10降低到9。'
+    levelBuffDesc3: '给予文明的国会大厦额外25%的科研点'
+    #    levelBuffDesc1: 'Studies cost 5% more Beakers, but 5% less coins.'
+    #    levelBuffDesc2: 'Reduces the cost of 1 beaker (with taxes) from 10 to 9.'
+    #    levelBuffDesc3: 'Gives 25% to the test tubes of the Capitol of civilization'
+
+  - level: 8
+    levelName: 'Misfortune'
+    levelBuff1: 'level8_unhappyConquerorTown'
+    levelBuff2: 'level8_unhappyLargeEmpireTown'
+    levelBuff3: 'level8_noWarUpkeep'
+    levelBuffDesc1: '每个城市都会给您带来2点不满，但对于被占领的城市，您不会感到不满。'
+    levelBuffDesc2: '每拥有5个城市，会给所有城市消除2点不幸福值'
+    levelBuffDesc3: '战争时，维护费不会额外收取'
+    #    levelBuffDesc1: 'You get 2 Unhappiness for each of your city, but do not get unhappy for the captured cities.'
+    #    levelBuffDesc2: 'Removes 2 Unhappiness in every city for every 5 cities in the civilization.'
+    #    levelBuffDesc3: 'Completely removes the tax from war.'
+
+  - level: 9
+    levelName: 'Culture'
+    levelBuff1: 'level9_capitolCultureCap'
+    levelBuff2: 'level9_civCultureTown'
+    levelBuff3: 'level9_equalizerCultureTown'
+    levelBuffDesc1: '给予文明的国会大厦额外50%的文化。'
+    levelBuffDesc2: '给予整个文明20％的文化。'
+    levelBuffDesc3: '它为文明的所有城市的每种贸易资源额外提供了150点文化。'
+    #    levelBuffDesc1: 'Gives 50% to culture the Capitol of civilization.'
+    #    levelBuffDesc2: 'Gives 20% to the culture of civilization.'
+    #    levelBuffDesc3: 'It gives 150 culture to every cultural resource in the city of civilization.'
+
+  - level: 10
+    levelName: 'Victory'
+    levelBuff1: 'level10_scientificFocusTown'
+    levelBuff2: 'level10_dominatorTown'
+    levelBuff3: 'level10_architectorTown'
+    levelBuffDesc1: '文明的科研点增加15％'
+    levelBuffDesc2: '文明的控制块的生命值提高了一倍（包括战争营地），被俘的文明无法发动革命.'
+    levelBuffDesc3: '使文明的所有城市的文化提高15％，奇迹成本降低10％。'
+    #    levelBuffDesc1: 'Increasing the Beakers of civilization by 15%'
+    #    levelBuffDesc2: 'The HP of the control blocks of civilization is doubled (including military camps), a captured civilization can not start a revolution.'
+    #    levelBuffDesc3: 'Increases the culture of all cities of civilization by 15% and reduces the cost of wonders by 10%.'
+
+
 culture_biomes:
-    - name: OCEAN
-      coins: 0.0
-      hammers: 0.5
-      growth: 0.25
-      happiness: 0.02
-      beakers: 1.0
+  - name: OCEAN
+    coins: 0.0
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1.0
 
-    - name: DEEP_OCEAN
-      coins: 0.0
-      hammers: 0.5
-      growth: 0.25
-      happiness: 0.0
-      beakers: 1.5
+  - name: DEEP_OCEAN
+    coins: 0.0
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0.0
+    beakers: 1.5
 
-    - name: SMALLER_EXTREME_HILLS
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.5
-      happiness: 0.015
-      beakers: 0.5
+  - name: SMALLER_EXTREME_HILLS
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.5
+    happiness: 0.015
+    beakers: 0.5
 
-    - name: PLAINS
-      coins: 0.0
-      hammers: 0.25
-      growth: 2.0
-      happiness: 0.025
-      beakers: 0.5
+  - name: PLAINS
+    coins: 0.0
+    hammers: 0.25
+    growth: 2.0
+    happiness: 0.025
+    beakers: 0.5
 
-    - name: MUTATED_PLAINS
-      coins: 0.0
-      hammers: 1.0
-      growth: 1.5
-      happiness: 0.04
-      beakers: 1.0
+  - name: MUTATED_PLAINS
+    coins: 0.0
+    hammers: 1.0
+    growth: 1.5
+    happiness: 0.04
+    beakers: 1.0
 
-    - name: SAVANNA
-      coins: 0.0
-      hammers: 1.0
-      growth: 1.5
-      happiness: 0.03
-      beakers: 1.0
+  - name: SAVANNA
+    coins: 0.0
+    hammers: 1.0
+    growth: 1.5
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: MUTATED_SAVANNA
-      coins: 0.0
-      hammers: 1.25
-      growth: 1.25
-      happiness: 0.025
-      beakers: 1.0
+  - name: MUTATED_SAVANNA
+    coins: 0.0
+    hammers: 1.25
+    growth: 1.25
+    happiness: 0.025
+    beakers: 1.0
 
-    - name: MESA
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.0
-      happiness: 0.03
-      beakers: 1.5
+  - name: MESA
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.0
+    happiness: 0.03
+    beakers: 1.5
 
-    - name: MESA_CLEAR_ROCK
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.5
-      happiness: 0.01
-      beakers: 0.25
+  - name: MESA_CLEAR_ROCK
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.5
+    happiness: 0.01
+    beakers: 0.25
 
-    - name: MESA_ROCK
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.0
-      happiness: 0.01
-      beakers: 0.25
+  - name: MESA_ROCK
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.0
+    happiness: 0.01
+    beakers: 0.25
 
-    - name: MUTATED_MESA_ROCK
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.0
-      happiness: 0.0
-      beakers: 0.25
+  - name: MUTATED_MESA_ROCK
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.0
+    happiness: 0.0
+    beakers: 0.25
 
-    - name: MUTATED_MESA
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.0
-      happiness: 0.0
-      beakers: 0.25
+  - name: MUTATED_MESA
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.0
+    happiness: 0.0
+    beakers: 0.25
 
-    - name: MUTATED_MESA_CLEAR_ROCK
-      coins: 0.0
-      hammers: 1.5
-      growth: 1.0
-      happiness: 0.02
-      beakers: 0.5
+  - name: MUTATED_MESA_CLEAR_ROCK
+    coins: 0.0
+    hammers: 1.5
+    growth: 1.0
+    happiness: 0.02
+    beakers: 0.5
 
-    - name: DESERT
-      coins: 0.0
-      hammers: 0.25
-      growth: 1.0
-      happiness: 0.03
-      beakers: 1.0
+  - name: DESERT
+    coins: 0.0
+    hammers: 0.25
+    growth: 1.0
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: FOREST
-      coins: 0.0
-      hammers: 1.0
-      growth: 1.25
-      happiness: 0.025
-      beakers: 0.5
+  - name: FOREST
+    coins: 0.0
+    hammers: 1.0
+    growth: 1.25
+    happiness: 0.025
+    beakers: 0.5
 
-    - name: MUTATED_FOREST
-      coins: 0.0
-      hammers: 1.0
-      growth: 1.0
-      happiness: 0.05
-      beakers: 0.75
+  - name: MUTATED_FOREST
+    coins: 0.0
+    hammers: 1.0
+    growth: 1.0
+    happiness: 0.05
+    beakers: 0.75
 
-    - name: BIRCH_FOREST
-      coins: 0.0
-      hammers: 1.5
-      growth: 0.75
-      happiness: 0.025
-      beakers: 0.5
+  - name: BIRCH_FOREST
+    coins: 0.0
+    hammers: 1.5
+    growth: 0.75
+    happiness: 0.025
+    beakers: 0.5
 
-    - name: MUTATED_BIRCH_FOREST
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.5
-      happiness: 0.01
-      beakers: 1.0
+  - name: MUTATED_BIRCH_FOREST
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.5
+    happiness: 0.01
+    beakers: 1.0
 
-    - name: MUTATED_BIRCH_FOREST_HILLS
-      coins: 0.0
-      hammers: 1.5
-      growth: 1.0
-      happiness: 0.02
-      beakers: 1.0
+  - name: MUTATED_BIRCH_FOREST_HILLS
+    coins: 0.0
+    hammers: 1.5
+    growth: 1.0
+    happiness: 0.02
+    beakers: 1.0
 
-    - name: ROOFED_FOREST
-      coins: 0.0
-      hammers: 1.0
-      growth: 0.50
-      happiness: 0.025
-      beakers: 0.75
+  - name: ROOFED_FOREST
+    coins: 0.0
+    hammers: 1.0
+    growth: 0.50
+    happiness: 0.025
+    beakers: 0.75
 
-    - name: MUTATED_ROOFED_FOREST
-      coins: 0.0
-      hammers: 2.0
-      growth: 2.0
-      happiness: 0.0
-      beakers: 0.5
+  - name: MUTATED_ROOFED_FOREST
+    coins: 0.0
+    hammers: 2.0
+    growth: 2.0
+    happiness: 0.0
+    beakers: 0.5
 
-    - name: TAIGA
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.5
-      happiness: 0.02
-      beakers: 0.5
+  - name: TAIGA
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.5
+    happiness: 0.02
+    beakers: 0.5
 
-    - name: MUTATED_REDWOOD_TAIGA
-      coins: 0.0
-      hammers: 1.5
-      growth: 0.25
-      happiness: 0.02
-      beakers: 1.5
+  - name: MUTATED_REDWOOD_TAIGA
+    coins: 0.0
+    hammers: 1.5
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1.5
 
-    - name: REDWOOD_TAIGA
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.25
-      happiness: 0.01
-      beakers: 0.25
+  - name: REDWOOD_TAIGA
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.25
+    happiness: 0.01
+    beakers: 0.25
 
-    - name: REDWOOD_TAIGA_HILLS
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.0
-      happiness: 0.03
-      beakers: 0.5
+  - name: REDWOOD_TAIGA_HILLS
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.0
+    happiness: 0.03
+    beakers: 0.5
 
-    - name: TAIGA_COLD
-      coins: 0.0
-      hammers: 1.0
-      growth: 0.25
-      happiness: 0.02
-      beakers: 1.5
+  - name: TAIGA_COLD
+    coins: 0.0
+    hammers: 1.0
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1.5
 
-    - name: SWAMPLAND
-      coins: 0.0
-      hammers: 0.25
-      growth: 1.0
-      happiness: 0.02
-      beakers: 1.5
+  - name: SWAMPLAND
+    coins: 0.0
+    hammers: 0.25
+    growth: 1.0
+    happiness: 0.02
+    beakers: 1.5
 
-    - name: RIVER
-      coins: 0.0
-      hammers: 1.5
-      growth: 3.0
-      happiness: 0.025
-      beakers: 0.5
+  - name: RIVER
+    coins: 0.0
+    hammers: 1.5
+    growth: 3.0
+    happiness: 0.025
+    beakers: 0.5
 
-    - name: FROZEN_OCEAN
-      coins: 0.0
-      hammers: 0.25
-      growth: 0.0
-      happiness: 0.0
-      beakers: 3.0
+  - name: FROZEN_OCEAN
+    coins: 0.0
+    hammers: 0.25
+    growth: 0.0
+    happiness: 0.0
+    beakers: 3.0
 
-    - name: FROZEN_RIVER
-      coins: 0.0
-      hammers: 2.0
-      growth: 2.5
-      happiness: 0.015
-      beakers: 1.0
+  - name: FROZEN_RIVER
+    coins: 0.0
+    hammers: 2.0
+    growth: 2.5
+    happiness: 0.015
+    beakers: 1.0
 
-    - name: ICE_FLATS
-      coins: 0.0
-      hammers: 1.0
-      growth: 0.5
-      happiness: 0.02
-      beakers: 0.5
+  - name: ICE_FLATS
+    coins: 0.0
+    hammers: 1.0
+    growth: 0.5
+    happiness: 0.02
+    beakers: 0.5
 
-    - name: MUTATED_ICE_FLATS
-      coins: 0.5
-      hammers: 0.25
-      growth: 0.25
-      happiness: 0.05
-      beakers: 1.5
+  - name: MUTATED_ICE_FLATS
+    coins: 0.5
+    hammers: 0.25
+    growth: 0.25
+    happiness: 0.05
+    beakers: 1.5
 
-    - name: MUTATED_JUNGLE
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.5
-      happiness: 0.0
-      beakers: 0.25
+  - name: MUTATED_JUNGLE
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.5
+    happiness: 0.0
+    beakers: 0.25
 
-    - name: MUTATED_JUNGLE_EDGE
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.25
-      happiness: 0.01
-      beakers: 0.5
+  - name: MUTATED_JUNGLE_EDGE
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.25
+    happiness: 0.01
+    beakers: 0.5
 
-    - name: ICE_MOUNTAINS
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.25
-      happiness: 0.02
-      beakers: 1.0
+  - name: ICE_MOUNTAINS
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1.0
 
-    - name: SAVANNA_ROCK
-      coins: 0.0
-      hammers: 4.0
-      growth: 0.25
-      happiness: 0.0
-      beakers: 0.25
+  - name: SAVANNA_ROCK
+    coins: 0.0
+    hammers: 4.0
+    growth: 0.25
+    happiness: 0.0
+    beakers: 0.25
 
-    - name: MUTATED_SAVANNA_ROCK
-      coins: 0.0
-      hammers: 3.25
-      growth: 0.5
-      happiness: 0.0
-      beakers: 0.0
+  - name: MUTATED_SAVANNA_ROCK
+    coins: 0.0
+    hammers: 3.25
+    growth: 0.5
+    happiness: 0.0
+    beakers: 0.0
 
-    - name: TAIGA_HILLS
-      coins: 0.0
-      hammers: 1.5
-      growth: 0.5
-      happiness: 0.03
-      beakers: 1.0
+  - name: TAIGA_HILLS
+    coins: 0.0
+    hammers: 1.5
+    growth: 0.5
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: TAIGA_COLD_HILLS
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.0
-      happiness: 0.0
-      beakers: 1.0
+  - name: TAIGA_COLD_HILLS
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.0
+    happiness: 0.0
+    beakers: 1.0
 
-    - name: MUTATED_SWAMPLAND
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.10
-      happiness: 0.02
-      beakers: 0.5
+  - name: MUTATED_SWAMPLAND
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.10
+    happiness: 0.02
+    beakers: 0.5
 
-    - name: SMALL_MOUNTAINS
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.5
-      happiness: 0.015
-      beakers: 0.5
+  - name: SMALL_MOUNTAINS
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.5
+    happiness: 0.015
+    beakers: 0.5
 
-    - name: MUSHROOM_ISLAND
-      coins: 0.0
-      hammers: 1.0
-      growth: 0.5
-      happiness: 0.03
-      beakers: 0.5
+  - name: MUSHROOM_ISLAND
+    coins: 0.0
+    hammers: 1.0
+    growth: 0.5
+    happiness: 0.03
+    beakers: 0.5
 
-    - name: MUSHROOM_SHORE
-      coins: 0.0
-      hammers: 0.5
-      growth: 0.25
-      happiness: 0.05
-      beakers: 0.5
+  - name: MUSHROOM_SHORE
+    coins: 0.0
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0.05
+    beakers: 0.5
 
-    - name: BEACHES
-      coins: 0.0
-      hammers: 0.25
-      growth: 0.5
-      happiness: 0.06
-      beakers: 1.5
+  - name: BEACHES
+    coins: 0.0
+    hammers: 0.25
+    growth: 0.5
+    happiness: 0.06
+    beakers: 1.5
 
-    - name: STONE_BEACH
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.0
-      happiness: 0.015
-      beakers: 0.15
+  - name: STONE_BEACH
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.0
+    happiness: 0.015
+    beakers: 0.15
 
-    - name: COLD_BEACH
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.0
-      happiness: 0.01
-      beakers: 1.0
+  - name: COLD_BEACH
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.0
+    happiness: 0.01
+    beakers: 1.0
 
-    - name: DESERT_HILLS
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.25
-      happiness: 0.03
-      beakers: 1.0
+  - name: DESERT_HILLS
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: MUTATED_DESERT
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.25
-      happiness: 0.03
-      beakers: 1.0
+  - name: MUTATED_DESERT
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: FOREST_HILLS
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.25
-      happiness: 0.03
-      beakers: 1.0
+  - name: FOREST_HILLS
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: BIRCH_FOREST_HILLS
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.15
-      happiness: 0.02
-      beakers: 0.5
+  - name: BIRCH_FOREST_HILLS
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.15
+    happiness: 0.02
+    beakers: 0.5
 
-    - name: TAIGA_HILLS
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.25
-      happiness: 0.02
-      beakers: 0.15
+  - name: TAIGA_HILLS
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.25
+    happiness: 0.02
+    beakers: 0.15
 
-    - name: MUTATED_TAIGA
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.25
-      happiness: 0.04
-      beakers: 0.75
+  - name: MUTATED_TAIGA
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.25
+    happiness: 0.04
+    beakers: 0.75
 
-    - name: MUTATED_TAIGA_COLD
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.1
-      happiness: 0.01
-      beakers: 0.5
+  - name: MUTATED_TAIGA_COLD
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.1
+    happiness: 0.01
+    beakers: 0.5
 
-    - name: MUTATED_REDWOOD_TAIGA_HILLS
-      coins: 0.0
-      hammers: 3.0
-      growth: 0.1
-      happiness: 0.0
-      beakers: 0.1
+  - name: MUTATED_REDWOOD_TAIGA_HILLS
+    coins: 0.0
+    hammers: 3.0
+    growth: 0.1
+    happiness: 0.0
+    beakers: 0.1
 
-    - name: TAIGA_HILLS_COLD
-      coins: 0.0
-      hammers: 2.5
-      growth: 0.15
-      happiness: 0.02
-      beakers: 0.25
+  - name: TAIGA_HILLS_COLD
+    coins: 0.0
+    hammers: 2.5
+    growth: 0.15
+    happiness: 0.02
+    beakers: 0.25
 
-    - name: EXTREME_HILLS
-      coins: 0.0
-      hammers: 4.0
-      growth: 0.0
-      happiness: 0.0
-      beakers: 0.15
+  - name: EXTREME_HILLS
+    coins: 0.0
+    hammers: 4.0
+    growth: 0.0
+    happiness: 0.0
+    beakers: 0.15
 
-    - name: EXTREME_HILLS_WITH_TREES
-      coins: 0.0
-      hammers: 4.0
-      growth: 0.0
-      happiness: 0.0
-      beakers: 0.5
+  - name: EXTREME_HILLS_WITH_TREES
+    coins: 0.0
+    hammers: 4.0
+    growth: 0.0
+    happiness: 0.0
+    beakers: 0.5
 
-    - name: MUTATED_EXTREME_HILLS
-      coins: 0.0
-      hammers: 4.5
-      growth: 0.0
-      happiness: 0.0
-      beakers: 0.0
+  - name: MUTATED_EXTREME_HILLS
+    coins: 0.0
+    hammers: 4.5
+    growth: 0.0
+    happiness: 0.0
+    beakers: 0.0
 
-    - name: MUTATED_EXTREME_HILLS_WITH_TREES
-      coins: 0.0
-      hammers: 4.5
-      growth: 0.0
-      happiness: 0.0
-      beakers: 0.5
+  - name: MUTATED_EXTREME_HILLS_WITH_TREES
+    coins: 0.0
+    hammers: 4.5
+    growth: 0.0
+    happiness: 0.0
+    beakers: 0.5
 
-    - name: JUNGLE
-      coins: 0.0
-      hammers: 0.5
-      growth: 1.0
-      happiness: 0.02
-      beakers: 1.0
+  - name: JUNGLE
+    coins: 0.0
+    hammers: 0.5
+    growth: 1.0
+    happiness: 0.02
+    beakers: 1.0
 
-    - name: JUNGLE_HILLS
-      coins: 0.0
-      hammers: 2.0
-      growth: 0.25
-      happiness: 0.03
-      beakers: 1.0
+  - name: JUNGLE_HILLS
+    coins: 0.0
+    hammers: 2.0
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: JUNGLE_EDGE
-      coins: 0.0
-      hammers: 1.0
-      growth: 0.5
-      happiness: 0.03
-      beakers: 1.0
+  - name: JUNGLE_EDGE
+    coins: 0.0
+    hammers: 1.0
+    growth: 0.5
+    happiness: 0.03
+    beakers: 1.0
 
-    - name: UNKNOWN
-      coins: 0.2
-      hammers: 0.2
-      growth: 0.2
-      happiness: 0.01
-      beakers: 0.2
+  - name: UNKNOWN
+    coins: 0.2
+    hammers: 0.2
+    growth: 0.2
+    happiness: 0.01
+    beakers: 0.2
 
 
 
