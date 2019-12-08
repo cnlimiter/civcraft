@@ -18,14 +18,6 @@
  */
 package com.avrgaming.civcraft.war;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
 import com.avrgaming.civcraft.camp.WarCamp;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.endgame.EndGameCondition;
@@ -42,6 +34,10 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.siege.Cannon;
 import com.avrgaming.civcraft.util.CivColor;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 public class War {
 
@@ -102,7 +98,7 @@ public class War {
 
         for (SessionEntry entry : entries) {
             String[] split = entry.value.split(":");
-            defeatedTowns.put(split[0], CivGlobal.getCivFromId(Integer.valueOf(split[1])));
+            defeatedTowns.put(split[0], CivGlobal.getCivFromId(Integer.parseInt(split[1])));
         }
     }
 
@@ -111,7 +107,7 @@ public class War {
 
         for (SessionEntry entry : entries) {
             String[] split = entry.value.split(":");
-            defeatedCivs.put(split[0], CivGlobal.getCivFromId(Integer.valueOf(split[1])));
+            defeatedCivs.put(split[0], CivGlobal.getCivFromId(Integer.parseInt(split[1])));
         }
     }
 
@@ -157,7 +153,7 @@ public class War {
      */
     public static void setWarTime(boolean warTime) {
 
-        if (warTime == true && !War.hasWars()) {
+        if (warTime && !War.hasWars()) {
 
             CivMessage.globalHeading(CivColor.BOLD + CivSettings.localize.localizedString("war_wartimeSkippedHeading"));
             try {
@@ -166,11 +162,8 @@ public class War {
                 e.printStackTrace();
             }
             return;
-        } else if (warTime == false && !War.isWarTime()) {
-
         }
-
-        if (warTime == false) {
+        if (!warTime) {
             try {
                 DisableTeleportEvent.enableTeleport();
             } catch (IOException e) {
@@ -260,11 +253,12 @@ public class War {
      * the town that it just conquered needs to go to the new owner.
      * If the new owner was the town's old owner, then that town is no longer
      * defeated.
+     * 当公民征服城镇时，便征服了国会大厦，刚刚征服的城镇需要交给新主人。 如果新所有者是该镇的旧所有者，则该镇不再被击败。
      */
     public static void transferDefeated(Civilization loser, Civilization winner) {
 
         /* Transfer any defeated towns */
-        ArrayList<String> removeUs = new ArrayList<String>();
+        ArrayList<String> removeUs = new ArrayList<>();
 
         for (String townName : defeatedTowns.keySet()) {
             Civilization civ = defeatedTowns.get(townName);
@@ -369,6 +363,7 @@ public class War {
     /*
      * The 'claimed' flag is used to tag towns that had illegal town hall placements, and have already been claimed.
      * When war time starts, we should reset the claim flag so it can be claimed by someone else.
+     * “claimed”标志用于标记拥有非法市政厅位置且已经被声明的城镇。 战时开始时，我们应该重置索赔标志，以便其他人可以索赔。
      */
     private static void resetTownClaimFlags() {
         for (Town t : CivGlobal.getTowns()) {

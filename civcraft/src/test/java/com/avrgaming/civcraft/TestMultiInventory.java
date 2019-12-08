@@ -1,5 +1,6 @@
 package com.avrgaming.civcraft;
 
+import cn.hutool.core.io.FileUtil;
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.MultiInventory;
@@ -8,6 +9,8 @@ import org.bukkit.inventory.ItemStack;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -66,7 +69,12 @@ public class TestMultiInventory {
         //assertEquals("Inventory Has One Item", 1, getItemCount(multiInv.getContents()));
 
     }
-
+    @Test
+    public void testFileUtil(){
+        String filepath = "templates/war/" + "special:TNT";
+        File touch = FileUtil.touch(FileUtil.newFile(filepath));
+        System.out.println(touch.getAbsolutePath());
+    }
 
 //@Test
 //@Ignore

@@ -18,28 +18,6 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-
-import org.bukkit.ChatColor;
-import org.bukkit.Color;
-import org.bukkit.Effect;
-import org.bukkit.FireworkEffect;
-import org.bukkit.FireworkEffect.Type;
-import org.bukkit.Location;
-import org.bukkit.Sound;
-import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.ItemFrame;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigCultureLevel;
 import com.avrgaming.civcraft.config.ConfigTech;
@@ -50,23 +28,26 @@ import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Buff;
-import com.avrgaming.civcraft.object.BuildableDamageBlock;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.ControlPoint;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.StructureBlock;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.object.TownChunk;
+import com.avrgaming.civcraft.object.*;
 import com.avrgaming.civcraft.siege.CannonProjectile;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.ChunkCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.FireworkEffectPlayer;
-import com.avrgaming.civcraft.util.ItemFrameStorage;
-import com.avrgaming.civcraft.util.ItemManager;
+import com.avrgaming.civcraft.util.*;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.civcraft.war.WarStats;
+import org.bukkit.*;
+import org.bukkit.FireworkEffect.Type;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 public class TownHall extends Structure implements RespawnLocationHolder {
 
@@ -375,7 +356,7 @@ public class TownHall extends Structure implements RespawnLocationHolder {
 
         boolean allDestroyed = true;
         for (ControlPoint c : this.controlPoints.values()) {
-            if (c.isDestroyed() == false) {
+            if (!c.isDestroyed()) {
                 allDestroyed = false;
                 break;
             }
@@ -384,7 +365,7 @@ public class TownHall extends Structure implements RespawnLocationHolder {
 
         if (allDestroyed) {
             Civilization civ = getTown().getCiv();
-
+            //r如果是主城被打了
             if (civ.getCapitolName().equals(this.getTown().getName())) {
                 CivMessage.globalTitle(CivColor.LightBlue + CivSettings.localize.localizedString("var_townHall_destroyed_isCap", this.getTown().getCiv().getName()), CivSettings.localize.localizedString("var_townHall_destroyed_isCap2", attacker.getCiv().getName()));
                 for (Town town : civ.getTowns()) {
@@ -394,12 +375,14 @@ public class TownHall extends Structure implements RespawnLocationHolder {
                 if (this instanceof Capitol) {
                     civ.updateReviveSigns();
                 }
+                //q启蒙时代归属权以交
                 if (civ.hasTechnology("tech_enlightenment")) {
                     civ.removeTech("tech_enlightenment");
                     final ConfigTech tech = CivSettings.techs.get("tech_enlightenment");
                     attacker.getCiv().addTech(tech);
                     CivMessage.global(CivSettings.localize.localizedString("war_defeat_loseEnlightenment", this.getTown().getCiv().getName(), attacker.getCiv().getName()));
                 }
+                // 当前任务？ 所处的era（我猜的  -----其实感觉是飞机的哪个
                 if (civ.getCurrentMission() >= 2) {
                     try {
                         civ.setCurrentMission(this.getCiv().getCurrentMission() - 1);
@@ -647,7 +630,8 @@ public class TownHall extends Structure implements RespawnLocationHolder {
         }
         if (hitpoints >= damage + 1) {
             this.hitpoints -= damage;
-            CivMessage.sendCiv(getCiv(), CivSettings.localize.localizedString("var_townHall_tntHit", this.getDisplayName(), ("(" + this.hitpoints + "/" + this.getMaxHitPoints() + ")")));
+            CivMessage.sendCiv(getCiv(), CivSettings.localize.localizedString("var_townHall_tntHit",
+                    this.getDisplayName(), ("(" + this.hitpoints + "/" + this.getMaxHitPoints() + ")")));
         }
 
     }

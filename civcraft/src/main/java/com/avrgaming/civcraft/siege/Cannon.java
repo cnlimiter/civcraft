@@ -1,26 +1,5 @@
 package com.avrgaming.civcraft.siege;
 
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-//import java.util.Random;
-
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.Sign;
-import org.bukkit.entity.Player;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.Vector;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
@@ -36,14 +15,31 @@ import com.avrgaming.civcraft.template.Template;
 import com.avrgaming.civcraft.template.Template.TemplateType;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.threading.tasks.FireWorkTask;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
+import com.avrgaming.civcraft.util.*;
 import com.avrgaming.civcraft.util.SimpleBlock.Type;
-import com.avrgaming.civcraft.util.TimeTools;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.civcraft.war.WarRegen;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
+import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.Vector;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+//import java.util.Random;
 
 public class Cannon extends Buildable {
 
@@ -663,6 +659,9 @@ public class Cannon extends Buildable {
         updatePowerSign(this.powerSignLocation.getBlock());
     }
 
+    /**
+     * 发射？
+     */
     public void onHit(BlockBreakEvent event) {
         Resident resident = CivGlobal.getResident(event.getPlayer());
 

@@ -18,35 +18,27 @@
  */
 package com.avrgaming.civcraft.war;
 
-import gpl.InventorySerializer;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.bukkit.block.Block;
-import org.bukkit.block.Chest;
-import org.bukkit.block.Dispenser;
-import org.bukkit.block.Dropper;
-import org.bukkit.block.Furnace;
-import org.bukkit.block.Hopper;
-import org.bukkit.block.Sign;
-import org.bukkit.inventory.Inventory;
-
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.file.FileReader;
+import cn.hutool.core.io.file.FileWriter;
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.BukkitObjects;
 import com.avrgaming.civcraft.util.ItemManager;
+import gpl.InventorySerializer;
+import org.bukkit.block.*;
+import org.bukkit.inventory.Inventory;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class WarRegen {
 
     /*
      * Saves an regenerates blocks during a war.
+     * 在战争期间保存一个再生方块。
      */
     private static Map<Block, Boolean> blockCache = new HashMap<Block, Boolean>();
 
@@ -56,7 +48,8 @@ public class WarRegen {
     }
 
     private static String blockBasicString(Block blk) {
-        return ItemManager.getId(blk) + ":" + ItemManager.getData(blk) + ":" + blk.getX() + ":" + blk.getY() + ":" + blk.getZ() + ":" + blk.getWorld().getName();
+        return ItemManager.getId(blk) + ":" + ItemManager.getData(blk) + ":"
+                + blk.getX() + ":" + blk.getY() + ":" + blk.getZ() + ":" + blk.getWorld().getName();
     }
 
     public static String blockInventoryString(Inventory inv) {
@@ -68,13 +61,13 @@ public class WarRegen {
     }
 
     public static String blockSignString(Sign sign) {
-        String out = ":";
+        StringBuilder out = new StringBuilder(":");
 
         for (String str : sign.getLines()) {
-            out += str + ",";
+            out.append(str).append(",");
         }
 
-        return out;
+        return out.toString();
     }
 
     private static String blockToString(Block blk, boolean save_as_air) {
@@ -121,14 +114,17 @@ public class WarRegen {
         }
     }
 
+    /**
+     * 解析文件的每一行 还原为方块
+     */
     private static void restoreBlockFromString(String line) {
         String[] split = line.split(":");
 
-        int type = Integer.valueOf(split[0]);
-        byte data = Byte.valueOf(split[1]);
-        int x = Integer.valueOf(split[2]);
-        int y = Integer.valueOf(split[3]);
-        int z = Integer.valueOf(split[4]);
+        int type = Integer.parseInt(split[0]);
+        byte data = Byte.parseByte(split[1]);
+        int x = Integer.parseInt(split[2]);
+        int y = Integer.parseInt(split[3]);
+        int z = Integer.parseInt(split[4]);
         String world = split[5];
 
         Block block = BukkitObjects.getWorld(world).getBlockAt(x, y, z);
@@ -184,7 +180,7 @@ public class WarRegen {
     }
 
     public static void explodeThisBlock(Block blk, String file) {
-
+        // TNT和大炮的爆炸块
         switch (blk.getType()) {
             case SIGN_POST:
                 return;
@@ -274,58 +270,58 @@ public class WarRegen {
     public static void saveBlock(Block blk, String name, boolean save_as_air) {
         // Open this town's war log file.
         // append this block to the war log file.
+        // 打开该镇的战争日志文件。 将此块追加到战争日志文件。
         Boolean saved = blockCache.get(blk);
         if (saved == Boolean.TRUE) {
             //Block has already been saved, dont save it again.
             //This should prevent enemies from being able to overwrite
             //legit blocks.
+            ///块已保存，请勿再次保存。
+            //             //这应该防止敌人覆盖
+            //             //合法块。
             return;
         }
 
-        try {
-            String filepath = "templates/war/" + name;
-            FileWriter fstream = new FileWriter(filepath, true);
-            BufferedWriter out = new BufferedWriter(fstream);
-            out.append(blockToString(blk, save_as_air) + "\n");
-            blockCache.put(blk, Boolean.TRUE);
-            out.close();
-            fstream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //会报IO错误
+        String filepath = "templates/war/" + name;
+        File file = FileUtil.touch(FileUtil.newFile(filepath));
+        FileWriter writer = new FileWriter(file);
+        writer.append(blockToString(blk, save_as_air) + "\n");
+//            FileWriter fstream = new FileWriter(filepath, true);
+//            BufferedWriter out = new BufferedWriter(fstream);
+        //out.append(blockToString(blk, save_as_air) + "\n");
+        blockCache.put(blk, Boolean.TRUE);
+
     }
 
-
+    /**
+     * 读取缓存文件
+     */
     public static void restoreBlocksFor(String name) {
         // Open the town's war log file and restore all the blocks
         // Call this function when we start up.
         // Delete the war log file to save space.
-        try {
-            int count = 0;
-            String filepath = "templates/war/" + name;
-            File warLog = new File(filepath);
+        File warLog = null;
 
-            if (!warLog.exists())
-                return;
+        int count = 0;
+        String filepath = "templates/war/" + name;
+        warLog = new File(filepath);
 
-            BufferedReader reader = new BufferedReader(new FileReader(warLog));
+        if (!warLog.exists())
+            return;
 
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                try {
-                    restoreBlockFromString(line);
-                    count++;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        FileReader reader = new FileReader(warLog);
+        List<String> lines = reader.readLines();
+        for (String line : lines) {
+            try {
+                restoreBlockFromString(line);
+                count++;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            reader.close();
-            warLog.delete();
-            System.out.println("[CivCraft] Restored " + count + " blocks for town " + name);
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        FileUtil.del(warLog);
+        System.out.println("[CivCraft] Restored " + count + " blocks for town " + name);
     }
 
 

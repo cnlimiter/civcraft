@@ -1306,9 +1306,10 @@ public class Civilization extends SQLObject {
          * The entire civilization has been defeated. We need to give our towns to the attacker.
          * Meanwhile our civilization will become dormant. We will NOT remember who the attacker
          * was, if we revolt we will declare war on anyone who owns our remaining towns.
-         *
+         * *整个文明已被击败。 我们需要把城镇交给攻击者。 同时，我们的文明将进入休眠状态。 我们不会记得攻击者是谁，如果我们起义，我们将对拥有我们其余城镇的任何人宣战。
          * We will hand over all of our native towns, as well as any conquered towns we might have.
          * Those towns when they revolt will revolt against whomever owns them.
+         * 我们将移交我们所有的乡镇以及我们可能拥有的所有被征服的城镇。 当他们起义的那些城镇将反抗拥有它们的人。
          */
 
         for (Town town : this.getTowns()) {
@@ -1316,10 +1317,8 @@ public class Civilization extends SQLObject {
         }
 
         /* Remove any old relationships this civ may have had. */
-        LinkedList<Relation> deletedRelations = new LinkedList<Relation>();
-        for (Relation relation : this.getDiplomacyManager().getRelations()) {
-            deletedRelations.add(relation);
-        }
+        // 删除此公民可能拥有的任何旧关系。
+        LinkedList<Relation> deletedRelations = new LinkedList<>(this.getDiplomacyManager().getRelations());
         for (Relation relation : deletedRelations) {
             try {
                 if (relation.getStatus() == Relation.Status.WAR) {
@@ -1333,6 +1332,7 @@ public class Civilization extends SQLObject {
 
 
         /* Remove ourselves from the main global civ list and into a special conquered list. */
+        // 从主要的全球Civ列表中删除自己，并进入一个特殊的征服列表
         CivGlobal.removeCiv(this);
         CivGlobal.addConqueredCiv(this);
         this.conquered = true;

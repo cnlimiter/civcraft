@@ -266,7 +266,7 @@ cannon:
 
     # 大炮射击的最大射程。
     max_range: 256.0
-
+    # 控制块的伤害
     control_block_hp: 1
 
 tnt:

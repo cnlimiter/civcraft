@@ -2670,7 +2670,7 @@ public class Town extends SQLObject {
         newCiv.save();
 
         /* Remove any outlaws which are in our new civ. */
-        LinkedList<String> removeUs = new LinkedList<String>();
+        LinkedList<String> removeUs = new LinkedList<>();
         for (String outlaw : this.outlaws) {
             if (outlaw.length() >= 2) {
                 Resident resident = CivGlobal.getResidentViaUUID(UUID.fromString(outlaw));

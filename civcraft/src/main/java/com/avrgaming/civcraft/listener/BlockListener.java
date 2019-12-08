@@ -617,7 +617,7 @@ public class BlockListener implements Listener {
             return;
         }
 
-        if (tc.perms.isFire() == false) {
+        if (!tc.perms.isFire()) {
             if (event.getNewState().getType() == Material.FIRE) {
                 event.setCancelled(true);
             }
@@ -1394,7 +1394,7 @@ public class BlockListener implements Listener {
     @EventHandler(priority = EventPriority.HIGH)
     public void onChunkUnloadEvent(ChunkUnloadEvent event) {
         Boolean persist = CivGlobal.isPersistChunk(event.getChunk());
-        if (persist != null && persist == true) {
+        if (persist != null && persist) {
             event.setCancelled(true);
         }
     }

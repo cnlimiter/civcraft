@@ -22,7 +22,6 @@ public class CannonListener implements Listener {
         if (cannon != null) {
             cannon.onHit(event);
             event.setCancelled(true);
-            return;
         }
 
     }

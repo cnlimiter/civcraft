@@ -74,7 +74,7 @@ public class WarListener implements Listener {
         if (!cc.getCiv().getDiplomacyManager().isAtWar()) {
             return;
         }
-
+        //土，草，沙子，砾石，火把，红石火把 红石 TNT,阶梯，藤曼,矿物快
         if (event.getBlock().getType().equals(Material.DIRT) ||
                 event.getBlock().getType().equals(Material.GRASS) ||
                 event.getBlock().getType().equals(Material.SAND) ||
@@ -169,17 +169,24 @@ public class WarListener implements Listener {
         int rand1 = rand.nextInt(100);
 
         if (rand1 > 90) {
-            FireworkEffect fe = FireworkEffect.builder().withColor(Color.ORANGE).withColor(Color.YELLOW).flicker(true).with(Type.BURST).build();
+            FireworkEffect fe = FireworkEffect.builder()
+                    .withColor(Color.ORANGE)
+                    .withColor(Color.YELLOW)
+                    .flicker(true)
+                    .with(Type.BURST)
+                    .build();
             TaskMaster.syncTask(new FireWorkTask(fe, loc.getWorld(), loc, 3), 0);
         }
     }
 
+    // 爆炸事件
     @EventHandler(priority = EventPriority.HIGH)
     public void onEntityExplode(EntityExplodeEvent event) {
 
         if (War.isWarTime()) {
             event.setCancelled(false);
         } else {
+            //非战时候 只能在自己的文明使用？
             if (event.getEntity() instanceof TNTPrimed) {
                 TNTPrimed tnt = (TNTPrimed) event.getEntity();
                 if (tnt.getSource() instanceof Player) {
@@ -204,15 +211,16 @@ public class WarListener implements Listener {
         if (event.getEntity() == null) {
             return;
         }
-
+        //炸空了？
         if (event.getEntityType().equals(EntityType.UNKNOWN)) {
             return;
         }
 
-        if (event.getEntityType().equals(EntityType.PRIMED_TNT) ||
-                event.getEntityType().equals(EntityType.MINECART_TNT) || event.getEntityType().equals(EntityType.CREEPER)) {
+        if (event.getEntityType().equals(EntityType.PRIMED_TNT)
+                || event.getEntityType().equals(EntityType.MINECART_TNT)
+                || event.getEntityType().equals(EntityType.CREEPER)) {
 
-            HashSet<Buildable> structuresHit = new HashSet<Buildable>();
+            HashSet<Buildable> structuresHit = new HashSet<>();
 
             for (int y = -yield; y <= yield; y++) {
                 for (int x = -yield; x <= yield; x++) {
@@ -235,14 +243,14 @@ public class WarListener implements Listener {
 
                             StructureBlock sb = CivGlobal.getStructureBlock(bcoord);
                             CampBlock cb = CivGlobal.getCampBlock(bcoord);
-
+                            //没有炸到文明的东西
                             if (sb == null && cb == null) {
                                 explodeBlock(b);
                                 continue;
                             }
 
                             if (sb != null) {
-
+                                //建筑需要可被破坏
                                 if (!sb.isDamageable()) {
                                     continue;
                                 }
@@ -256,7 +264,7 @@ public class WarListener implements Listener {
 
                                 if (!sb.getOwner().isDestroyed()) {
                                     if (!structuresHit.contains(sb.getOwner())) {
-
+                                        //一次伤害就扣一次
                                         structuresHit.add(sb.getOwner());
 
                                         if (sb.getOwner() instanceof TownHall) {
@@ -269,17 +277,16 @@ public class WarListener implements Listener {
                                             }
                                         } else {
                                             sb.getOwner().onDamage(structureDamage, b.getWorld(), null, sb.getCoord(), sb);
-                                            CivMessage.sendCiv(sb.getCiv(), CivColor.Yellow + CivSettings.localize.localizedString("var_war_tntMsg", sb.getOwner().getDisplayName(), (
-                                                            sb.getOwner().getCenterLocation().getX() + "," +
-                                                                    sb.getOwner().getCenterLocation().getY() + "," +
-                                                                    sb.getOwner().getCenterLocation().getZ() + ")"),
+                                            CivMessage.sendCiv(sb.getCiv(), CivColor.Yellow + CivSettings.localize.localizedString("var_war_tntMsg", sb.getOwner().getDisplayName(),
+                                                    ("(" + sb.getOwner().getCenterLocation().getX() + "," +
+                                                            sb.getOwner().getCenterLocation().getY() + "," +
+                                                            sb.getOwner().getCenterLocation().getZ() + ")"),
                                                     (sb.getOwner().getHitpoints() + "/" + sb.getOwner().getMaxHitPoints())));
                                         }
                                     }
                                 } else {
                                     explodeBlock(b);
                                 }
-                                continue;
                             }
                         }
                     }
