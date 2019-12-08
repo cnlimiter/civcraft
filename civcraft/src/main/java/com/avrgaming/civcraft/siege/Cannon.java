@@ -173,7 +173,7 @@ public class Cannon extends Buildable {
 
     }
 
-    protected void checkBlockPermissionsAndRestrictions(Player player, Block centerBlock, int regionX, int regionY, int regionZ) throws CivException {
+    protected void  checkBlockPermissionsAndRestrictions(Player player, Block centerBlock, int regionX, int regionY, int regionZ) throws CivException {
 
         if (!War.isWarTime()) {
             throw new CivException(CivSettings.localize.localizedString("buildCannon_NotWar"));
@@ -660,7 +660,7 @@ public class Cannon extends Buildable {
     }
 
     /**
-     * 发射？
+     * 应该是破坏敌对的大炮
      */
     public void onHit(BlockBreakEvent event) {
         Resident resident = CivGlobal.getResident(event.getPlayer());

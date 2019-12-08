@@ -591,6 +591,9 @@ public class TownHall extends Structure implements RespawnLocationHolder {
         return this.controlPoints;
     }
 
+    /**
+     * da大炮对建筑伤害 然后核心扣血
+     */
     public void onCannonDamage(int damage, CannonProjectile projectile) throws CivException {
         if (!this.getCiv().getDiplomacyManager().isAtWar()) {
             return;
@@ -610,13 +613,9 @@ public class TownHall extends Structure implements RespawnLocationHolder {
                         CivMessage.sendCiv(getCiv(), CivSettings.localize.localizedString("var_townHall_cannonHit_destroyCB", this.getDisplayName(), CannonProjectile.controlBlockHP));
                         CivMessage.sendCiv(getCiv(), CivSettings.localize.localizedString("var_townHall_cannonHit_regen", this.getDisplayName(), this.getMaxHitPoints() / 2));
                         return;
-
                     }
-
                 }
             }
-
-
             CivMessage.sendCiv(getCiv(), CivSettings.localize.localizedString("var_townHall_cannonHit_destroyed", this.getDisplayName()));
             hitpoints = 0;
         }

@@ -270,7 +270,7 @@ public class WarListener implements Listener {
                                         if (sb.getOwner() instanceof TownHall) {
                                             TownHall th = (TownHall) sb.getOwner();
 
-                                            if (th.getHitpoints() == 0) {
+                                            if (th.getHitpoints() <= 0) {
                                                 explodeBlock(b);
                                             } else {
                                                 th.onTNTDamage(structureDamage);

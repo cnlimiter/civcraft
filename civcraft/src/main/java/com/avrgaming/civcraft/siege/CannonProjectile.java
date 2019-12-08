@@ -1,20 +1,5 @@
 package com.avrgaming.civcraft.siege;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Random;
-
-import net.minecraft.server.v1_11_R1.EntityPlayer;
-
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
-import org.bukkit.FireworkEffect.Type;
-import org.bukkit.Location;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
-
 import com.avrgaming.civcraft.camp.CampBlock;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -33,6 +18,19 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.EntityProximity;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.war.WarRegen;
+import net.minecraft.server.v1_11_R1.EntityPlayer;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
+import org.bukkit.FireworkEffect.Type;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Random;
 
 public class CannonProjectile {
     public Cannon cannon;
@@ -85,7 +83,7 @@ public class CannonProjectile {
                     if (ItemManager.getId(b) == CivData.BEDROCK) {
                         continue;
                     }
-
+                    // 球
                     if (loc.distance(b.getLocation()) <= yield) {
                         bcoord.setFromLocation(b.getLocation());
                         StructureBlock sb = CivGlobal.getStructureBlock(bcoord);
@@ -153,12 +151,10 @@ public class CannonProjectile {
                                             " (" + sb.getOwner().getHitpoints() + "/" + sb.getOwner().getMaxHitPoints() + ")");
                                 }
                             } else {
-
                                 if (!Cannon.cannonBlocks.containsKey(bcoord)) {
                                     explodeBlock(b);
                                 }
                             }
-                            continue;
                         }
                     }
                 }

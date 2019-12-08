@@ -14,6 +14,9 @@ public class CannonListener implements Listener {
 
     BlockCoord bcoord = new BlockCoord();
 
+    /**
+     * 破坏大炮的监听
+     */
     @EventHandler(priority = EventPriority.NORMAL)
     public void onBlockBreak(BlockBreakEvent event) {
 
@@ -26,6 +29,10 @@ public class CannonListener implements Listener {
 
     }
 
+    /**
+     * 点击牌子?
+     * @param event
+     */
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerInteract(PlayerInteractEvent event) {
 
