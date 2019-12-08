@@ -1,17 +1,16 @@
 package com.avrgaming.civcraft.config;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class ConfigMaterial {
 
@@ -57,14 +56,15 @@ public class ConfigMaterial {
             if (category != null) {
                 mat.category = CivColor.colorize(category);
                 mat.categoryCivColortripped = CivColor.stripTags(category);
-
-                if (mat.category.toLowerCase().contains("tier 1")) {
+                // 这个categoryCivColortripped 就是分类map的key，给他解析回去
+                // TODO:先凑活着吧 tier 1
+                if (mat.category.toLowerCase().contains("T1")) {
                     mat.tier = 1;
-                } else if (mat.category.toLowerCase().contains("tier 2")) {
+                } else if (mat.category.toLowerCase().contains("T2")) {
                     mat.tier = 2;
-                } else if (mat.category.toLowerCase().contains("tier 3")) {
+                } else if (mat.category.toLowerCase().contains("T3")) {
                     mat.tier = 3;
-                } else if (mat.category.toLowerCase().contains("tier 4")) {
+                } else if (mat.category.toLowerCase().contains("T4")) {
                     mat.tier = 4;
                 } else {
                     mat.tier = 0;

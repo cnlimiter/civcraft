@@ -192,17 +192,17 @@ public class Book {
                 }
 
                 int identifier;
-                if (cat.name.contains("Fish")) {
+                if (cat.name.contains("鱼")) {
                     identifier = ItemManager.getId(Material.RAW_FISH);
-                } else if (cat.name.contains("Catalyst")) {
+                } else if (cat.name.contains("强化石")) {
                     identifier = ItemManager.getId(Material.BOOK);
-                } else if (cat.name.contains("Gear")) {
+                } else if (cat.name.contains("装备")) {
                     identifier = ItemManager.getId(Material.IRON_SWORD);
-                } else if (cat.name.contains("Materials")) {
+                } else if (cat.name.contains("材料")) {
                     identifier = ItemManager.getId(Material.WOOD_STEP);
-                } else if (cat.name.contains("Tools")) {
+                } else if (cat.name.contains("工具")) {
                     identifier = ItemManager.getId(Material.IRON_SPADE);
-                } else if (cat.name.contains("Eggs")) {
+                } else if (cat.name.contains("蛋")) {
                     identifier = ItemManager.getId(Material.MONSTER_EGG);
                 } else {
                     identifier = ItemManager.getId(Material.WRITTEN_BOOK);

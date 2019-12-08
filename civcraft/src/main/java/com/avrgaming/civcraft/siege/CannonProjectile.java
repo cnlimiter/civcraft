@@ -170,6 +170,7 @@ public class CannonProjectile {
                 CivMessage.global(CivColor.LightGray + CivSettings.localize.localizedString("var_cannonProjectile_userKilled", player.getName(), whoFired.getName()));
             }
         }
+
     }
 
     private void launchExplodeFirework(Location loc) {
