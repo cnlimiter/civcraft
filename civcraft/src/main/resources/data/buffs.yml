@@ -8,7 +8,7 @@ buffs:
     - id: 'buff_construction'
       name: '建筑'
       # description: 'Increases hammer production by <lightgreen>100<r> hammers. <gold>Stackable<r>'
-      description: '加快速度！增加 <lightgreen>100<r> 的生产值. <gold>可叠加<r>'
+      description: '加快速度！增加 <lightgreen>100<r> 的生产力. <gold>可叠加<r>'
       value: '100'
       # 可叠加
       stackable: true
@@ -44,7 +44,7 @@ buffs:
     - id: 'buff_advanced_tooling'
       name: '高级工具'
       # description: 'Increases the mine improvement production by a <lightgreen>50%<r> <red>Not Stackable<r>'
-      description: '提高 <lightgreen>50%<r> 的矿山增加的生产值 <red>不可叠加<r>'
+      description: '提高 <lightgreen>50%<r> 的矿山增加的生产力 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 

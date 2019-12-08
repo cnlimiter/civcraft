@@ -340,7 +340,7 @@ perks:
             template: 'fortified_wall'
 ############ DEVELOPMENT THEME
     - id: 'tpl_slavic_bank'
-      display_name: 'Slavic Bank Template'
+      display_name: 'Slavic 银行模板'
       item_id: 322
       data: 1
       components:
@@ -441,7 +441,7 @@ perks:
             template: 'arrow_tower'
     
     - id: 'tpl_arctic_bank'
-      display_name: 'Arctic Bank Template'
+      display_name: 'Arctic 银行模板'
       item_id: 79
       data: 0
       components:
@@ -654,7 +654,7 @@ perks:
             template: 'blacksmith'
     
     - id: 'tpl_aztec_bank'
-      display_name: 'Aztec Bank Template'
+      display_name: 'Aztec 银行模板'
       item_id: 98
       data: 2
       components:
@@ -849,7 +849,7 @@ perks:
             template: 'arrow_tower'
     
     - id: 'tpl_egyptian_bank'
-      display_name: 'Egyptian Bank Template'
+      display_name: 'Egyptian 银行模板'
       item_id: 24
       data: 2
       components:
@@ -1052,7 +1052,7 @@ perks:
             template: 'arrow_tower'
     
     - id: 'tpl_roman_bank'
-      display_name: 'Roman Bank Template'
+      display_name: 'Roman 银行模板'
       item_id: 155
       data: 2
       components:
@@ -1233,9 +1233,9 @@ perks:
             theme: 'roman'
             template: 'fortified_wall'
 
-# ===== HELL TEMPLATES
+# ===== 地狱TEMPLATES
     - id: 'tpl_hell_camp'
-      display_name: 'Hell Camp'
+      display_name: '地狱Camp'
       item_id: 87
       data: 0
       components:
@@ -1245,7 +1245,7 @@ perks:
             id: 'camp'
 
     - id: 'tpl_hell_fish_hatchery'
-      display_name: 'Hell Fish Hatchery'
+      display_name: '地狱Fish Hatchery'
       item_id: 87
       data: 0
       components:
@@ -1254,7 +1254,7 @@ perks:
             template: 'fish_hatchery'
 
     - id: 'tpl_hell_arrow_tower'
-      display_name: 'Hell Arrow Tower Template'
+      display_name: '地狱Arrow Tower Template'
       item_id: 87
       data: 0
       components:
@@ -1263,7 +1263,7 @@ perks:
             template: 'arrow_tower'
     
     - id: 'tpl_hell_bank'
-      display_name: 'Hell Bank Template'
+      display_name: '地狱银行模板'
       item_id: 87
       data: 0
       components:
@@ -1272,7 +1272,7 @@ perks:
             template: 'bank'
 
     - id: 'tpl_hell_barracks'
-      display_name: 'Hell Barracks Template'
+      display_name: '地狱Barracks Template'
       item_id: 87
       data: 0
       components:
@@ -1281,7 +1281,7 @@ perks:
             template: 'barracks'
 
     - id: 'tpl_hell_cannon_tower'
-      display_name: 'Hell Cannon Tower Template'
+      display_name: '地狱Cannon Tower Template'
       item_id: 87
       data: 0
       components:
@@ -1290,7 +1290,7 @@ perks:
             template: 'cannon_tower'
    
     - id: 'tpl_hell_capitol'
-      display_name: 'Hell Capitol Template'
+      display_name: '地狱Capitol Template'
       item_id: 87
       data: 0
       components:
@@ -1300,7 +1300,7 @@ perks:
             id: 's_capitol'
     
     - id: 'tpl_hell_cottage'
-      display_name: 'Hell Cottage Template'
+      display_name: '地狱Cottage Template'
       item_id: 87
       data: 0
       components:
@@ -1309,7 +1309,7 @@ perks:
             template: 'cottage'
     
     - id: 'tpl_hell_granary'
-      display_name: 'Hell Granary Template'
+      display_name: '地狱Granary Template'
       item_id: 87
       data: 0
       components:
@@ -1318,7 +1318,7 @@ perks:
             template: 'granary'
 
     - id: 'tpl_hell_grocer'
-      display_name: 'Hell Grocer Template'
+      display_name: '地狱Grocer Template'
       item_id: 87
       data: 0
       components:
@@ -1327,7 +1327,7 @@ perks:
             template: 'grocer'
 
     - id: 'tpl_hell_library'
-      display_name: 'Hell Library Template'
+      display_name: '地狱Library Template'
       item_id: 87
       data: 0
       components:
@@ -1336,7 +1336,7 @@ perks:
             template: 'library'
 
     - id: 'tpl_hell_lighthouse'
-      display_name: 'Hell Lighthouse Template'
+      display_name: '地狱Lighthouse Template'
       item_id: 87
       data: 0
       components:
@@ -1345,7 +1345,7 @@ perks:
             template: 'lighthouse'
     
     - id: 'tpl_hell_market'
-      display_name: 'Hell Market Template'
+      display_name: '地狱Market Template'
       item_id: 87
       data: 0
       components:
@@ -1354,7 +1354,7 @@ perks:
             template: 'market'
     
     - id: 'tpl_hell_mine'
-      display_name: 'Hell Mine Template'
+      display_name: '地狱Mine Template'
       item_id: 87
       data: 0
       components:
@@ -1363,7 +1363,7 @@ perks:
             template: 'mine'
 
     - id: 'tpl_hell_monument'
-      display_name: 'Hell Monument Template'
+      display_name: '地狱Monument Template'
       item_id: 87
       data: 0
       components:
@@ -1372,7 +1372,7 @@ perks:
             template: 'monument'
 
     - id: 'tpl_hell_scout_tower'
-      display_name: 'Hell Scout Tower Template'
+      display_name: '地狱Scout Tower Template'
       item_id: 87
       data: 0
       components:
@@ -1381,7 +1381,7 @@ perks:
             template: 'scout_tower'
     
     - id: 'tpl_hell_shipyard'
-      display_name: 'Hell Shipyard Template'
+      display_name: '地狱Shipyard Template'
       item_id: 87
       data: 0
       components:
@@ -1390,7 +1390,7 @@ perks:
             template: 'shipyard'
     
     - id: 'tpl_hell_temple'
-      display_name: 'Hell Temple Template'
+      display_name: '地狱Temple Template'
       item_id: 87
       data: 0
       components:
@@ -1399,7 +1399,7 @@ perks:
             template: 'temple'
 
     - id: 'tpl_hell_trommel'
-      display_name: 'Hell Trommel Template'
+      display_name: '地狱Trommel Template'
       item_id: 87
       data: 0
       components:
@@ -1408,7 +1408,7 @@ perks:
             template: 'trommel'
     
     - id: 'tpl_hell_town_hall'
-      display_name: 'Hell Town Hall Template'
+      display_name: '地狱Town Hall Template'
       item_id: 87
       data: 0
       components:
@@ -1418,7 +1418,7 @@ perks:
             id: 's_townhall'
     
     - id: 'tpl_hell_quarry'
-      display_name: 'Hell Quarry Template'
+      display_name: '地狱Quarry Template'
       item_id: 87
       data: 0
       components:
@@ -1427,7 +1427,7 @@ perks:
             template: 'quarry'
     
     - id: 'tpl_hell_windmill'
-      display_name: 'Hell Windmill Template'
+      display_name: '地狱Windmill Template'
       item_id: 87
       data: 0
       components:
@@ -1436,7 +1436,7 @@ perks:
             template: 'windmill'
 
     - id: 'tpl_hell_blacksmith'
-      display_name: 'Hell Blacksmith Template'
+      display_name: '地狱Blacksmith Template'
       item_id: 87
       data: 0
       components:
@@ -1445,7 +1445,7 @@ perks:
             template: 'blacksmith'
 
     - id: 'tpl_hell_store'
-      display_name: 'Hell Store Template'
+      display_name: '地狱Store Template'
       item_id: 87
       data: 0
       components:
@@ -1454,7 +1454,7 @@ perks:
             template: 'store'
 
     - id: 'tpl_hell_fortified_wall'
-      display_name: 'Hell Fortified Wall Template'
+      display_name: '地狱Fortified Wall Template'
       item_id: 87
       data: 0
       components:
@@ -1484,7 +1484,7 @@ perks:
             template: 'arrow_tower'
 
     - id: 'tpl_elven_bank'
-      display_name: 'Elven Bank Template'
+      display_name: 'Elven 银行模板'
       item_id: 18
       data: 3
       components:
@@ -1695,7 +1695,7 @@ perks:
             template: 'arrow_tower'
 
     - id: 'tpl_cultist_bank'
-      display_name: 'Cultist Bank Template'
+      display_name: 'Cultist 银行模板'
       item_id: 397
       data: 1
       components:
@@ -1906,7 +1906,7 @@ perks:
             template: 'arrow_tower'
 
     - id: 'tpl_atlantean_bank'
-      display_name: 'Atlantean Bank Template'
+      display_name: 'Atlantean 银行模板'
       item_id: 169
       data: 0
       components:
@@ -2128,7 +2128,7 @@ perks:
             template: 'arrow_tower'
 
     - id: 'tpl_medieval_bank'
-      display_name: 'Medieval Bank Template'
+      display_name: 'Medieval 银行模板'
       item_id: 267
       data: 0
       components:
