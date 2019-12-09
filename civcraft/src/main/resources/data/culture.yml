@@ -61,7 +61,7 @@ culture_levels:
 
 talent_levels:
   - level: 1
-    levelName: 'Capitol'
+    levelName: '国会大厦'
     levelBuff1: 'level1_hammerRateCap'
     levelBuff2: 'level1_beakerRateCap'
     levelBuff3: 'level1_growthCultureCap'
@@ -73,7 +73,7 @@ talent_levels:
     #      levelBuffDesc3: 'Growth and culture of the city is increased by 5%.'
 
   - level: 2
-    levelName: 'Happiness'
+    levelName: '幸福'
     levelBuff1: 'level2_capitolHappinessCap'
     levelBuff2: 'level2_civHappinessTown'
     levelBuff3: 'level2_wonderCivHappinessTown'
@@ -85,7 +85,7 @@ talent_levels:
     #      levelBuffDesc3: 'For every wonder built in the world, your civilization gets 1 happiness.'
 
   - level: 3
-    levelName: 'Strengthen chunks'
+    levelName: '区块加强'
     levelBuff1: 'level3_extraHammerTown'
     levelBuff2: 'level3_extraRiverTown'
     levelBuff3: 'level3_extraBeakerTown'
@@ -97,7 +97,7 @@ talent_levels:
     #      levelBuffDesc3: 'For every culture chunk giving less than 1 beakers, gives 0.25 additional tubes.'
 
   - level: 4
-    levelName: 'Income'
+    levelName: '收入'
     levelBuff1: 'level4_extraCottageTown'
     levelBuff2: 'level4_extraBankTown'
     levelBuff3: 'level4_extraTradeTown'
@@ -109,7 +109,7 @@ talent_levels:
     #      levelBuffDesc3: 'Trade resources give 15% more coins.'
 
   - level: 5
-    levelName: 'Protection'
+    levelName: '防卫'
     levelBuff1: 'level5_extraTowerHPTown'
     levelBuff2: 'level5_extraRangeTown'
     levelBuff3: 'level5_extraHPcpTown'
@@ -121,7 +121,7 @@ talent_levels:
     #    levelBuffDesc3: 'Increases the strength of the control blocks by 20%'
 
   - level: 6
-    levelName: 'Conflict'
+    levelName: '冲突'
     levelBuff1: 'level6_extraCPdmgTown'
     levelBuff2: 'level6_extraStrucutreDmgTown'
     levelBuff3: 'level6_wcHPTown'
@@ -133,7 +133,7 @@ talent_levels:
     #    levelBuffDesc3: 'Doubles the HP of the War camps and allows it to regenerate 1 hp per minute.'
 
   - level: 7
-    levelName: 'Scienctific'
+    levelName: '科技'
     levelBuff1: 'level7_cheaperCostCap'
     levelBuff2: 'level7_higherIncomeTown'
     levelBuff3: 'level7_extraInBestTown'
@@ -145,7 +145,7 @@ talent_levels:
     #    levelBuffDesc3: 'Gives 25% to the test tubes of the Capitol of civilization'
 
   - level: 8
-    levelName: 'Misfortune'
+    levelName: '厄运'
     levelBuff1: 'level8_unhappyConquerorTown'
     levelBuff2: 'level8_unhappyLargeEmpireTown'
     levelBuff3: 'level8_noWarUpkeep'
@@ -157,7 +157,7 @@ talent_levels:
     #    levelBuffDesc3: 'Completely removes the tax from war.'
 
   - level: 9
-    levelName: 'Culture'
+    levelName: '文化'
     levelBuff1: 'level9_capitolCultureCap'
     levelBuff2: 'level9_civCultureTown'
     levelBuff3: 'level9_equalizerCultureTown'
@@ -169,7 +169,7 @@ talent_levels:
     #    levelBuffDesc3: 'It gives 150 culture to every cultural resource in the city of civilization.'
 
   - level: 10
-    levelName: 'Victory'
+    levelName: '胜利'
     levelBuff1: 'level10_scientificFocusTown'
     levelBuff2: 'level10_dominatorTown'
     levelBuff3: 'level10_architectorTown'

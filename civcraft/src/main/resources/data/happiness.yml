@@ -149,7 +149,7 @@ happiness:
           hammer_rate: 1.5
 
         - level: 7
-          name:  '开明'
+          name:  '乐不可支'
           color: 'White'
           amount: 1.0
           beaker_rate: 1.5
