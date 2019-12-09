@@ -38,7 +38,7 @@ public class TalentChoose implements GuiAction {
         int talentLevel = capitol.highestTalentLevel();
         int cultureLevel = capitol.getCultureLevel();
         if (talentLevel == cultureLevel && talentLevel < 10) {
-            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_talent_choose_notNow", civ.getCapitol().getName(), civ.getCapitol().getCultureLevel() + 1));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("cmd_civ_talent_choose_notNow", civ.getCapitol().getName(), civ.getCapitol().getCultureLevel() + 1));
             return;
         }
 
@@ -54,7 +54,7 @@ public class TalentChoose implements GuiAction {
         this.inventory = Bukkit.getServer().createInventory((InventoryHolder) player, 9, configLevelTalent.levelName + " (" + configLevelTalent.level + ")");
         ItemStack firstTalent = LoreGuiItem.build("", ItemManager.getId(Material.REDSTONE_BLOCK), 0, configLevelTalent.levelBuffDesc1);
         firstTalent = LoreGuiItem.setAction(firstTalent, "Confirmation");
-        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", "" + configLevelTalent.level);
+        firstTalent = LoreGuiItem.setActionData(firstTalent, "level", String.valueOf(configLevelTalent.level));
         firstTalent = LoreGuiItem.setActionData(firstTalent, "buff", configLevelTalent.levelBuff1);
         firstTalent = LoreGuiItem.setActionData(firstTalent, "number", "1");
         firstTalent = LoreGuiItem.setActionData(firstTalent, "description", configLevelTalent.levelBuffDesc1);
@@ -82,9 +82,9 @@ public class TalentChoose implements GuiAction {
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "passFields", "buff,number,description");
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "passAction", "ChooseTalent");
         thirdTalent = LoreGuiItem.setActionData(thirdTalent, "confirmText", CivSettings.localize.localizedString("cmd_civ_talent_choose_confirmText", CivColor.GreenBold + cultureLevel + "§a", CivColor.GoldBold + "3" + "§a"));
-        this.inventory.addItem(new ItemStack[]{firstTalent});
-        this.inventory.addItem(new ItemStack[]{secondTalent});
-        this.inventory.addItem(new ItemStack[]{thirdTalent});
+        this.inventory.addItem(firstTalent);
+        this.inventory.addItem(secondTalent);
+        this.inventory.addItem(thirdTalent);
         ItemStack backButton = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_back"), ItemManager.getId(Material.MAP), 0, CivSettings.localize.localizedString("bookReborn_backTo", BookTalentGui.inventory.getName()));
         backButton = LoreGuiItem.setAction(backButton, "OpenInventory");
         backButton = LoreGuiItem.setActionData(backButton, "invType", "showGuiInv");

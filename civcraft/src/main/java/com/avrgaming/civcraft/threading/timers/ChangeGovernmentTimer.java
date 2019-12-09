@@ -59,7 +59,7 @@ public class ChangeGovernmentTimer implements Runnable {
                 }
 
                 double memberHours = 0;
-
+                //有没有巴黎圣母院
                 boolean noanarchy = false;
                 for (Town t : civ.getTowns()) {
                     //Get the Count of Residents in each town

@@ -1,24 +1,22 @@
 
 package com.avrgaming.civcraft.command.civ;
 
-import java.util.Iterator;
-import java.util.TreeSet;
-
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigLevelTalent;
+import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.interactive.InteractiveTalentConfirmation;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Buff;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Talent;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.entity.Player;
+
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class CivTalentCommand extends CommandBase {
     protected void addBuffToTown(Town town, String id) {
@@ -172,7 +170,9 @@ public class CivTalentCommand extends CommandBase {
             }
 
             talent = new Talent(configLevelTalent.level, buff);
-            confirmation = new InteractiveTalentConfirmation(civ, this.getPlayer(), talent, CivSettings.localize.localizedString("cmd_civ_talent_choose_sucusses", player.getDisplayName(), talentChoosen, configLevelTalent.levelBuffDesc3, configLevelTalent.level));
+            confirmation = new InteractiveTalentConfirmation(civ, this.getPlayer(), talent,
+                    CivSettings.localize.localizedString("cmd_civ_talent_choose_sucusses", player.getDisplayName(),
+                            talentChoosen, buffDescription, configLevelTalent.level));
             message = CivColor.Green + CivSettings.localize.localizedString("cmd_civ_talent_choose_interactiveConfirmationText",
                     CivColor.GreenBold + configLevelTalent.level + CivColor.Green,
                     CivColor.GoldBold + buffDescription + CivColor.Green,

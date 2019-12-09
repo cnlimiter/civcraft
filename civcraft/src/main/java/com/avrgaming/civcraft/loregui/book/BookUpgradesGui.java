@@ -36,7 +36,7 @@ public class BookUpgradesGui implements GuiAction {
             return;
         }
         Civilization civ = whoClicked.getCiv();
-        Town town = whoClicked.getSelectedTown() == null? whoClicked.getTown() : whoClicked.getSelectedTown();
+        Town town = whoClicked.getSelectedTown();
         if (!(town.getMayorGroup().hasMember(whoClicked) || town.getAssistantGroup().hasMember(whoClicked) || civ.getLeaderGroup().hasMember(whoClicked))) {
             Book.spawnGuiBook(player);
             CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("cmd_NeedHigherTownOrCivRank"));

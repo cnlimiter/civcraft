@@ -46,7 +46,7 @@ public class TalentList implements GuiAction {
             return;
         }
         this.inventory = Bukkit.getServer().createInventory((InventoryHolder) player, 18, CivSettings.localize.localizedString("talentGui_talentList"));
-        final TreeMap<Integer, ItemStack> talents = new TreeMap<Integer, ItemStack>();
+        final TreeMap<Integer, ItemStack> talents = new TreeMap<>();
         for (final Buff buff : capitol.getBuffManager().getAllBuffs()) {
             if (buff.getId().contains("level")) {
                 final int talentLevel = Integer.parseInt(buff.getId().replaceAll("[^\\d]", ""));
@@ -72,7 +72,7 @@ public class TalentList implements GuiAction {
             final ItemStack talent2 = LoreGuiItem.build("§c" + CivSettings.localize.localizedString("cmd_civ_talent_list_noOne"), ItemManager.getId(Material.REDSTONE_BLOCK), 0, new String[0]);
             this.inventory.addItem(talent2);
         }
-        this.inventory.addItem((ItemStack[]) talents.values().toArray(new ItemStack[talents.values().size()]));
+        this.inventory.addItem(talents.values().toArray(new ItemStack[talents.values().size()]));
         ItemStack backButton = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_back"), ItemManager.getId(Material.MAP), 0, CivSettings.localize.localizedString("bookReborn_backTo", BookTalentGui.inventory.getName()));
         backButton = LoreGuiItem.setAction(backButton, "OpenInventory");
         backButton = LoreGuiItem.setActionData(backButton, "invType", "showGuiInv");

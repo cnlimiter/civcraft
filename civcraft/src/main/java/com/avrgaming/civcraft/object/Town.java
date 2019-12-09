@@ -3643,10 +3643,10 @@ public class Town extends SQLObject {
 
     public int highestTalentLevel() {
         int level = 0;
-        CivLog.debug("level 0");
+        CivLog.debug("Talent level 0");
         for (Talent talent : this.talents) {
             level = Math.max(level, talent.level);
-            CivLog.debug("level " + level);
+            CivLog.debug("Talent level " + level);
         }
         return level;
     }

@@ -22,8 +22,7 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.tutorial.Book;
 import com.avrgaming.civcraft.util.ItemManager;
 
-public class BookTalentGui
-        implements GuiAction {
+public class BookTalentGui implements GuiAction {
     public static Inventory inventory = null;
 
     @Override

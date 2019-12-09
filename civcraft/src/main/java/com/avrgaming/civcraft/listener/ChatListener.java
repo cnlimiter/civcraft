@@ -38,7 +38,12 @@ public class ChatListener implements Listener {
             /* resident not found, I guess just let the chat through. */
             return;
         }
-
+        //yes部分优先拦截掉
+        if (resident.isInteractiveMode()) {
+            resident.getInteractiveResponse().respond(event.getMessage(), resident);
+            event.setCancelled(true);
+            return;
+        }
         if (resident.isTownChat()) {
             event.setCancelled(true);
             if (resident.getTownChatOverride() == null) {
@@ -46,6 +51,7 @@ public class ChatListener implements Listener {
             } else {
                 CivMessage.sendTownChat(resident.getTownChatOverride(), resident, event.getFormat(), event.getMessage());
             }
+            return;
         }
 
         if (resident.isCivChat()) {
@@ -64,10 +70,7 @@ public class ChatListener implements Listener {
             }
         }
 
-        if (resident.isInteractiveMode()) {
-            resident.getInteractiveResponse().respond(event.getMessage(), resident);
-            event.setCancelled(true);
-        }
+
 
         //	CivLog.debug("Got message:"+event.getMessage());
         //event.setFormat("[[[%s %s]]]");

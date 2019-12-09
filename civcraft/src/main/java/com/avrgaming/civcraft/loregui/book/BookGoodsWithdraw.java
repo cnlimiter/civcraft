@@ -32,14 +32,14 @@ public class BookGoodsWithdraw
         Town from = resident.getSelectedTown();
         Civilization to = resident.getCiv();
         if (to == null) {
-            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
             return;
         }
         if (!to.getLeaderGroup().hasMember(resident) && !resident.getSelectedTown().getMayorGroup().hasMember(resident)) {
-            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "§6" + to.getName() + CivColor.Red, "§6" + from.getName() + CivColor.Red));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "§6" + to.getName() + CivColor.Red, "§6" + from.getName() + CivColor.Red));
             return;
         }
-        if (StringUtils.isBlank((String) from.tradeGoods)) {
+        if (StringUtils.isBlank(from.tradeGoods)) {
             CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", "§6" + from.getName() + CivColor.Red));
             return;
         }

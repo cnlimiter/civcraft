@@ -14,15 +14,14 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-public class Confirmation
-        implements GuiAction {
+public class Confirmation implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         Inventory inv = Bukkit.createInventory((InventoryHolder) event.getWhoClicked(), (int) 27, (String) "§a" + CivSettings.localize.localizedString("resident_tradeNotconfirmed"));
         String fields = LoreGuiItem.getActionData(stack, "passFields");
         String action = LoreGuiItem.getActionData(stack, "passAction");
         String confirmText = LoreGuiItem.getActionData(stack, "confirmText");
-        ItemStack confirm = LoreGuiItem.build("§a" + confirmText, ItemManager.getId(Material.EMERALD_BLOCK), 0, new String[0]);
+        ItemStack confirm = LoreGuiItem.build("§a" + confirmText, ItemManager.getId(Material.EMERALD_BLOCK), 0);
         confirm = LoreGuiItem.setAction(confirm, action);
         for (String field : fields.split(",")) {
             confirm = LoreGuiItem.setActionData(confirm, field, LoreGuiItem.getActionData(stack, field));

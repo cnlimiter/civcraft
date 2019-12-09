@@ -23,8 +23,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class BookGoodsTown
-        implements GuiAction {
+public class BookGoodsTown implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         Player player = (Player) event.getWhoClicked();
@@ -32,15 +31,15 @@ public class BookGoodsTown
         Civilization civ = resident.getCiv();
         Town town = resident.getSelectedTown();
         if (civ == null) {
-            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("var_virtualTG_noCiv"));
             return;
         }
         if (!civ.getLeaderGroup().hasMember(resident) && !resident.getSelectedTown().getMayorGroup().hasMember(resident)) {
-            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "§6" + civ.getName() + CivColor.Red, "§6" + town.getName() + CivColor.Red));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "§6" + civ.getName() + CivColor.Red, "§6" + town.getName() + CivColor.Red));
             return;
         }
         if (StringUtils.isBlank((String) town.tradeGoods)) {
-            CivMessage.sendError((Object) player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", "§6" + town.getName() + CivColor.Red));
+            CivMessage.sendError(player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", "§6" + town.getName() + CivColor.Red));
             return;
         }
         Inventory listInventory = Bukkit.getServer().createInventory(player, 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listtown_listInvName", CivColor.RoseBold + town.getName()));
