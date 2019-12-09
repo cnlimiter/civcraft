@@ -57,49 +57,33 @@ public class ChangeGovernmentTimer implements Runnable {
                 if (CivGlobal.testFileFlag("debug")) {
                     duration = 1;
                 }
-
-                double memberHours = 0;
-                //有没有巴黎圣母院
+                double townHours = 0;
                 boolean noanarchy = false;
+                double notreDameValue = 0.0;
                 for (Town t : civ.getTowns()) {
-                    //Get the Count of Residents in each town
-                    double residentHours = t.getResidentCount() + 1;
                     double modifier = 1.0;
-                    //If the town has a broadcast tower, reduce the modifer by the buff_reduced_anarchy value
-                    //如果镇上有广播塔，则通过减少buff减少无政府状态值来减少修饰符
                     if (t.getBuffManager().hasBuff("buff_reduced_anarchy")) {
                         modifier -= t.getBuffManager().getEffectiveDouble("buff_reduced_anarchy");
                     }
 
-                    //If the civ has a Notre Dame, reduce the modifer by the buff_notre_dame_no_anarchy value
                     if (t.getBuffManager().hasBuff("buff_notre_dame_no_anarchy")) {
-                        modifier -= t.getBuffManager().getEffectiveDouble("buff_notre_dame_no_anarchy");
+                        notreDameValue = t.getBuffManager().getEffectiveDouble("buff_notre_dame_no_anarchy");
                         noanarchy = true;
                     }
-                    //Reduce the number of resident hours by the modifier, then add it to the member hours
-                    memberHours += (residentHours * modifier * 3);
+                    townHours += modifier * 4;
                 }
-                //Get the maxAnarchy from the governments.yml (Dmefault 24 hours)
-                //从governments.yml获取maxAnarchy（默认24小时）
-                double maxAnarchy = CivSettings.getIntegerGovernment("anarchy_duration");
-
+                double baseAnarchy = CivSettings.getIntegerGovernment("base_anarchy_duration");
+                double anarchyHours = baseAnarchy + townHours;
                 if (noanarchy) {
-                    //If the civ has completed Notre Dame, reduce the maxAnarchy to the lower penalty from the governments.yml (Default 2 hours)
-                    //如果文明完成了巴黎圣母院，则将maxAnarchy降低至governments.yml的较低罚款（默认2小时）(屁 明明是12
-                    maxAnarchy = CivSettings.getIntegerGovernment("notre_dame_max_anarchy");
+                    anarchyHours *= 1 - notreDameValue;
                 }
-                memberHours += CivSettings.getIntegerGovernment("notre_dame_max_anarchy");
-                //Finally, calculate the number of hours, taking the lower memberHours or maxAnarchy
-                // 最后，计算小时数，取较低的MemberHours或maxAnarc hy
-                double anarchyHours = Math.max(memberHours, maxAnarchy);
-
+                double maxAnarchy = CivSettings.getIntegerGovernment("max_anarchy");
+                anarchyHours = Math.min(anarchyHours, maxAnarchy);
                 //Check if enough time has elapsed in seconds since the anarchy started
                 //检查自无政府状态开始以来是否已经过去了足够的时间
                 if (CivGlobal.hasTimeElapsed(se, anarchyHours * duration)) {
-
                     civ.setGovernment(se.value);
                     CivMessage.global(CivSettings.localize.localizedString("var_gov_emergeFromAnarchy", civ.getName(), CivSettings.governments.get(se.value).displayName));
-
                     CivGlobal.getSessionDB().delete_all(key);
                     civ.save();
                 }
