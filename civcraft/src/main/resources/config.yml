@@ -37,7 +37,7 @@ debug_heartbeat: 'false'
 # If you wish to localize CivilizationCraft, run the server once to generate a default_lang.yml file
 # Then rename the file. For example "ru_lang.yml" and then translate the strings to Russian.
 # Update this config line below to match the name of your translated file.
-localization_file: "default_lang.yml"
+localization_file: "zh_lang.yml"
 
 # ============================== Database Configuration ====================================
 

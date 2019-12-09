@@ -10,7 +10,7 @@ spacemissions_levels:
       require_beakers: '100000.0'
 
     - level: 3
-      name: '月球探测'
+      name: '火星探测'
       require_hammers: '150000.0'
       require_beakers: '150000.0'
 
@@ -36,11 +36,11 @@ spacemissions_levels:
 
 spacerocket_names:
     - level: 1
-      name: 'V2火箭(德国)'
+      name: 'V2短程弹道火箭(德国)'
       components: 'mat_satellite1:mat_fuel_tanks1:mat_engines1'
 
     - level: 2
-      name: '土星5号运载火箭(美国)'
+      name: '土星5号重型运载火箭(美国)'
       components: 'mat_landing_module1:mat_orbital_station1:mat_fuel_tanks1:mat_engines1'
 
     - level: 3
@@ -48,7 +48,7 @@ spacerocket_names:
       components: 'mat_residential_module1:mat_landing_module1:mat_orbital_station1:mat_fuel_tanks1:mat_engines1'
 
     - level: 4
-      name: 'R-7液体燃料洲际弹道导弹(苏联)'
+      name: 'R-7洲际弹道导弹(苏联)'
       components: 'mat_solar_reflector1:mat_satellite1:mat_equipment1:mat_fuel_tanks2:mat_engines1'
 
     - level: 5
@@ -60,7 +60,7 @@ spacerocket_names:
       components: 'mat_solar_reflector1:mat_orbital_station1:mat_provisions1:mat_residential_module1:mat_equipment1:mat_warp_core1:mat_warp_engine1:mat_gondolas1'
 
     - level: 7
-      name: '三叉戟II型潜射弹道导弹'
+      name: '三叉戟II型潜地弹道导弹(美国)'
       components: 'mat_landing_module1:mat_orbital_station1:mat_provisions1:mat_residential_module2:mat_equipment1:mat_warp_core1:mat_warp_engine1:mat_gondolas1'
 
 space_crafts:

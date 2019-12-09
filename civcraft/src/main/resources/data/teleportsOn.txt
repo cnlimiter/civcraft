@@ -1,5 +1,5 @@
-luckperms group default permission set essentials.back true
-luckperms group default permission set essentials.tpa true
-luckperms group default permission set essentials.tpahere true
-luckperms group default permission set essentials.home true
-broadcast 战争结束，传送已开启
+#luckperms group default permission set essentials.back true
+#luckperms group default permission set essentials.tpa true
+#luckperms group default permission set essentials.tpahere true
+#luckperms group default permission set essentials.home true
+广播 战争结束，传送已开启

@@ -458,61 +458,69 @@ barracks:
 # 如果item_id为零，我们会尝试通过horse_id找到一匹马
 # Horses然后在'stable_horses'中配置
 stable_items:
-  - name: 'Horse'
+  #Horse
+  - name: '野马'
     cost: 5000.0
     store_id: 0
     item_id: 0
     horse_id: 1
 
-  - name: 'Trusty Steed'
+  #Trusty Steed
+  - name: '改良马'
     cost: 10000.0
     store_id: 0
     item_id: 0
     horse_id: 2
 
-  - name: 'Thoroughbred'
+  #Thoroughbred
+  - name: '纯种马'
     cost: 50000.0
     store_id: 0
     item_id: 0
     horse_id: 3
 
-  - name: 'Mule'
+  #Mule
+  - name: '骡子'
     cost: 2500.0
     store_id: 1
     item_id: 0
     horse_id: 4
 
-  - name: 'War Horse'
+  #War Horse
+  - name: '战马'
     cost: 100000.0
     store_id: 0
     item_id: 0
     horse_id: 5
 
-  - name: 'Saddle'
+  #Saddle
+  - name: '鞍'
     cost: 2000.0
     store_id: 2
     item_id: 329
     horse_id: 0
 
-  - name: 'Name Tag'
+  #Name Tag
+  - name: '命名牌'
     cost: 10000.0
     store_id: 2
     item_id: 421
     horse_id: 0
 
-  - name: 'Iron Horse Armor'
+  #Iron Horse Armor
+  - name: '铁马凯'
     cost: 20000.0
     store_id: 2
     item_id: 417
     horse_id: 0
 
-  - name: 'Gold Horse Armor'
+  - name: '金马凯'
     cost: 50000.0
     store_id: 2
     item_id: 418
     horse_id: 0
 
-  - name: 'Diamond Horse Armor'
+  - name: '钻石马凯'
     cost: 100000.0
     store_id: 2
     item_id: 419
@@ -525,7 +533,7 @@ stable_horses:
     jump: 0.8
     health: 20.0
     variant: 'BROWN'
-    name: 'Horse'
+    name: '野马'
 
     # Trusty Steed
   - id: 2
@@ -533,7 +541,7 @@ stable_horses:
     jump: 0.8
     health: 20.0
     variant: 'BLACK'
-    name: "Trusty Steed"
+    name: "改良马"
 
     # Thoroughbred
   - id: 3
@@ -541,7 +549,7 @@ stable_horses:
     jump: 0.8
     health: 20.0
     variant: 'WHITE'
-    name: "Thoroughbred"
+    name: "纯种马"
 
   # mule
   - id: 4
@@ -550,7 +558,7 @@ stable_horses:
     health: 20.0
     mule: true
     variant: 'BLACK'
-    name: "Mule"
+    name: "骡子"
 
     # War Horse
   - id: 5
@@ -558,7 +566,7 @@ stable_horses:
     jump: 1.0
     health: 22.0
     variant: 'CHESTNUT'
-    name: "War Horse"
+    name: "战马"
 
 ################# Road Settings ######################
 road:

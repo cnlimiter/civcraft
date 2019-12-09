@@ -73,7 +73,7 @@ random_events:
            amount: '4'
       success:
          - name: 'MessageTown'
-           message: "我们清理了足够的史莱姆. 避免了幸福度下降."
+           message: "我们清理了足够的史莱姆. 避免了幸福度下降 "
            #message: "We've cleared enough slime. We've averted the happiness penalty."
       failure:
          - name: 'MessageTown'
