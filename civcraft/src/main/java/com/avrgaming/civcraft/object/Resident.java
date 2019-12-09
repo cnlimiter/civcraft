@@ -323,6 +323,7 @@ public class Resident extends SQLObject {
 
         if (this.townID != 0) {
             this.setTown(CivGlobal.getTownFromId(this.townID));
+            setSelectedTown(town);
             if (this.town == null) {
                 CivLog.error("COULD NOT FIND TOWN(" + this.townID + ") FOR RESIDENT(" + this.getId() + ") Name:" + this.getName());
                 /*

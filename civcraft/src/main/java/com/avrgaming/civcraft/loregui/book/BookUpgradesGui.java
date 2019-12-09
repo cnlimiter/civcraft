@@ -32,11 +32,11 @@ public class BookUpgradesGui implements GuiAction {
         Resident whoClicked = CivGlobal.getResident(player);
         if (whoClicked.getTown() == null) {
             Book.spawnGuiBook(player);
-            CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("res_gui_noTown"));
+            CivMessage.send(player, "§c" + CivSettings.localize.localizedString("res_gui_noTown"));
             return;
         }
         Civilization civ = whoClicked.getCiv();
-        Town town = whoClicked.getSelectedTown();
+        Town town = whoClicked.getSelectedTown() == null? whoClicked.getTown() : whoClicked.getSelectedTown();
         if (!(town.getMayorGroup().hasMember(whoClicked) || town.getAssistantGroup().hasMember(whoClicked) || civ.getLeaderGroup().hasMember(whoClicked))) {
             Book.spawnGuiBook(player);
             CivMessage.send((Object) player, "§c" + CivSettings.localize.localizedString("cmd_NeedHigherTownOrCivRank"));
