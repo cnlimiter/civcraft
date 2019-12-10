@@ -133,6 +133,7 @@ public class CivSettings {
     public static Map<String, ConfigGovernment> governments = new HashMap<String, ConfigGovernment>();
 
     public static HashSet<Material> switchItems = new HashSet<Material>();
+    // 限制物品
     public static Map<Material, Integer> restrictedItems = new HashMap<Material, Integer>();
     public static Map<Material, Integer> blockPlaceExceptions = new HashMap<Material, Integer>();
     public static Map<EntityType, Integer> restrictedSpawns = new HashMap<EntityType, Integer>();

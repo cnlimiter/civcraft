@@ -147,23 +147,27 @@ public abstract class EndGameCondition {
     }
 
     public int getDaysToHold() {
-        return Integer.valueOf(this.getString("days_held"));
+        return Integer.parseInt(this.getString("days_held"));
     }
 
     public void checkForWin(Civilization civ) {
         /* All win conditions are met, now check for time left. */
+        // 满足所有获胜条件，现在检查剩余时间
         ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(getSessionKey());
 
         int daysToHold = getDaysToHold();
 
         if (entries.size() == 0) {
             /* No entry yet, first time we hit the win condition, save entry. */
+            // 尚无条目，我们第一次达到获胜条件时，保存条目
             civ.sessionAdd(getSessionKey(), getSessionData(civ, 0));
             civ.winConditionWarning(this, daysToHold);
         } else {
             /* Entries exists, check if enough days have passed. */
+            // 条目存在，请检查是否已经过去了足够的时间。
             for (SessionEntry entry : entries) {
                 /* this function only checks non-conquered civs. should be good enough for vic cond. */
+                // 他的功能仅检查未征服的文明。 对于vic cond应该足够好
                 if (EndGameCondition.getCivFromSessionData(entry.value) != civ) {
                     continue;
                 }

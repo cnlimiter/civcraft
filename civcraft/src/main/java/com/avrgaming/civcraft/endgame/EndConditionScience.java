@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * 科技胜利
+ */
 public class EndConditionScience extends EndGameCondition {
     public static boolean check = false;
     String wonderId;
@@ -36,7 +39,7 @@ public class EndConditionScience extends EndGameCondition {
     @Override
     public void onLoad() {
         this.wonderId = this.getString("wonder");
-        this.daysAfterStart = Integer.valueOf(this.getString("days_after_start"));
+        this.daysAfterStart = Integer.parseInt(this.getString("days_after_start"));
         this.getStartDate();
     }
 
@@ -47,7 +50,7 @@ public class EndConditionScience extends EndGameCondition {
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int) 0).value);
+            long time = Long.parseLong(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }

@@ -41,7 +41,7 @@ units:
 
   - id: 'u_spy'
     name: "间谍"
-    class_name: 'com.avrgaming.civcraft.items.units.Spy'
+    class_name: 'Spy'
     require_tech: 'tech_nationalism'
     require_struct:
     require_upgrade:
@@ -53,7 +53,7 @@ units:
     
   - id: 'u_settler'
     name: "殖民者"
-    class_name: 'com.avrgaming.civcraft.items.units.Settler'
+    class_name: 'Settler'
     require_tech:
     require_struct:
     require_upgrade:
@@ -69,8 +69,8 @@ units:
     require_tech: 'tech_republic'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 100000.0
-    hammer_cost: 4000.0
+    cost: 200000.0
+    hammer_cost: 6000.0
     limit: 0
     item_id: 261
     item_data: 0
@@ -81,8 +81,8 @@ units:
     require_tech: 'tech_republic'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 100000.0
-    hammer_cost: 4000.0
+    cost: 200000.0
+    hammer_cost: 6000.0
     limit: 0
     item_id: 267
     item_data: 0
@@ -93,8 +93,8 @@ units:
     require_tech: 'tech_republic'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 150000.0
-    hammer_cost: 6000.0
+    cost: 300000.0
+    hammer_cost: 9000.0
     limit: 0
     item_id: 258
     item_data: 0
@@ -105,8 +105,8 @@ units:
     require_tech: 'tech_powerhouse'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 200000.0
-    hammer_cost: 8000.0
+    cost: 400000.0
+    hammer_cost: 12000.0
     limit: 0
     item_id: 131
     item_data: 0
@@ -117,8 +117,8 @@ units:
     require_tech: 'tech_powerhouse'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 200000.0
-    hammer_cost: 8000.0
+    cost: 400000.0
+    hammer_cost: 12000.0
     limit: 0
     item_id: 416
     item_data: 0
@@ -129,8 +129,8 @@ units:
     require_tech: 'tech_powerhouse'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 300000.0
-    hammer_cost: 12000.0
+    cost: 600000.0
+    hammer_cost: 18000.0
     limit: 0
     item_id: 282
     item_data: 0
@@ -141,8 +141,8 @@ units:
     require_tech: 'tech_refrigeration'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 400000.0
-    hammer_cost: 15000.0
+    cost: 800000.0
+    hammer_cost: 22500.0
     limit: 0
     item_id: 198
     item_data: 0
@@ -153,8 +153,8 @@ units:
     require_tech: 'tech_refrigeration'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 400000.0
-    hammer_cost: 15000.0
+    cost: 800000.0
+    hammer_cost: 22500.0
     limit: 0
     item_id: 359
     item_data: 0
@@ -165,8 +165,8 @@ units:
     require_tech: 'tech_refrigeration'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 500000.0
-    hammer_cost: 20000.0
+    cost: 1000000.0
+    hammer_cost: 30000.0
     limit: 0
     item_id: 276
     item_data: 0
@@ -177,8 +177,8 @@ units:
     require_tech: 'tech_scientific_method'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 150000.0
-    hammer_cost: 1500.0
+    cost: 300000.0
+    hammer_cost: 2250.0
     limit: 0
     item_id: 345 # компас
     item_data: 0
@@ -189,8 +189,8 @@ units:
     require_tech: 'tech_scientific_method'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 100000.0
-    hammer_cost: 1500.0
+    cost: 200000.0
+    hammer_cost: 2250.0
     limit: 0
     item_id: 414 # лапка кролика
     item_data: 0
@@ -201,8 +201,8 @@ units:
     require_tech:
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 40000.0
-    hammer_cost: 1500.0
+    cost: 80000.0
+    hammer_cost: 2250.0
     limit: 0
     item_id: 322 # зач. яблоко
     item_data: 1
@@ -213,8 +213,8 @@ units:
     require_tech:
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 60000.0
-    hammer_cost: 2000.0
+    cost: 120000.0
+    hammer_cost: 3000.0
     limit: 0
     item_id: 331 # Редстоун
     item_data: 0
@@ -225,8 +225,8 @@ units:
     require_tech: 'tech_innovation'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 250000.0
-    hammer_cost: 3000.0
+    cost: 500000.0
+    hammer_cost: 4500.0
     limit: 0
     item_id: 264 # алмаз
     item_data: 0
@@ -237,8 +237,8 @@ units:
     require_tech: 'tech_machinery'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 50000.0
-    hammer_cost: 3000.0
+    cost: 100000.0
+    hammer_cost: 4500.0
     limit: 0
     item_id: 351 # хз
     item_data: 12
@@ -249,8 +249,8 @@ units:
     require_tech: 'tech_malting'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 30000.0
-    hammer_cost: 1500.0
+    cost: 60000.0
+    hammer_cost: 2250.0
     limit: 0
     item_id: 372 # нарост
     item_data: 0
@@ -261,8 +261,8 @@ units:
     require_tech: 'tech_advanced_efficiency'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 125000.0
-    hammer_cost: 3500.0
+    cost: 250000.0
+    hammer_cost: 5250.0
     limit: 0
     item_id: 410 # кристалл призмарина
     item_data: 0
@@ -273,8 +273,8 @@ units:
     require_tech: 'tech_construction'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 100000.0
-    hammer_cost: 2500.0
+    cost: 200000.0
+    hammer_cost: 5250.0
     limit: 0
     item_id: 76 # ред торч
     item_data: 0
@@ -285,8 +285,8 @@ units:
     require_tech: 'tech_innovation'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 175000.0
-    hammer_cost: 3500.0
+    cost: 250000.0
+    hammer_cost: 5250.0
     limit: 0
     item_id: 369 # ифрит палка
     item_data: 0
@@ -297,20 +297,20 @@ units:
     require_tech: 'tech_machinery'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 75000.0
-    hammer_cost: 3000.0
+    cost: 150000.0
+    hammer_cost: 4500.0
     limit: 0
     item_id: 145 # наковальня
     item_data: 0
 
   - id: 'ax_archer2'
     name: "高级射手"
-    class_name: 'AdvArcher'
+    class_name: 'Archer2' # 功能 为对方增加3s着火 减速 减挖掘速度
     require_tech: 'tech_tillering'
     require_struct: 's_ordinary'
     require_upgrade:
-    cost: 150000.0
-    hammer_cost: 3500.0
+    cost: 300000.0
+    hammer_cost: 6000.0
     limit: 0
     item_id: 287 # нить
     item_data: 0

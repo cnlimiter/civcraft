@@ -1,11 +1,16 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
-
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
@@ -13,20 +18,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-public class Archer2
-        extends UnitMaterial {
+public class Archer2 extends UnitMaterial {
     public Archer2(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -62,7 +57,8 @@ public class Archer2
         if (nextUse < timeNow) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1200, 100));
             CivGlobal.setUnitCooldown(this.getClass(), 1, event.getPlayer());
-            CivMessage.sendSuccess(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusess", sdf.format(timeNow + 60000L), Unit.ARCHER2_ARTIFACT.getUnit().name));
+            CivMessage.sendSuccess(interacter, CivSettings.localize.localizedString("var_artifact_useSuccusess",
+                    sdf.format(timeNow + 60000L*1), Unit.ARCHER2_ARTIFACT.getUnit().name));
         } else {
             CivMessage.sendError(interacter, CivSettings.localize.localizedString("var_artifact_useFailure", sdf.format(nextUse), Unit.ARCHER2_ARTIFACT.getUnit().name));
         }

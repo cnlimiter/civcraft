@@ -18,49 +18,6 @@
  */
 package com.avrgaming.civcraft.listener;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.block.Chest;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.ThrownPotion;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.entity.PotionSplashEvent;
-import org.bukkit.event.inventory.BrewEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
-import org.bukkit.event.player.PlayerBucketEmptyEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.event.player.PlayerPortalEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.event.player.PlayerTeleportEvent;
-import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
-import org.bukkit.event.world.PortalCreateEvent;
-import org.bukkit.inventory.DoubleChestInventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.Vector;
-
 import com.avrgaming.civcraft.camp.Camp;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTechPotion;
@@ -88,6 +45,33 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.civcraft.war.WarStats;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.block.Chest;
+import org.bukkit.entity.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.PotionSplashEvent;
+import org.bukkit.event.inventory.BrewEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.*;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
+import org.bukkit.event.world.PortalCreateEvent;
+import org.bukkit.inventory.DoubleChestInventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
@@ -125,8 +109,8 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerTeleportEvent(PlayerTeleportEvent event) {
         //Handle Teleportation Things here!
-        if (event.getCause().equals(TeleportCause.COMMAND) ||
-                event.getCause().equals(TeleportCause.PLUGIN)) {
+        if (event.getCause().equals(TeleportCause.COMMAND)
+                || event.getCause().equals(TeleportCause.PLUGIN)) {
             CivLog.info("[TELEPORT]" + " " + event.getPlayer().getName() + " " + "to:" + event.getTo().getBlockX() + "," + event.getTo().getBlockY() + "," + event.getTo().getBlockZ() +
                     " " + "from:" + event.getFrom().getBlockX() + "," + event.getFrom().getBlockY() + "," + event.getFrom().getBlockZ());
             Player player = event.getPlayer();
@@ -319,7 +303,7 @@ public class PlayerListener implements Listener {
             //Unit.removeUnit(((Player)event.getEntity()));
             Boolean keepInventory = Boolean.valueOf(Bukkit.getWorld("world").getGameRuleValue("keepInventory"));
             if (!keepInventory) {
-                ArrayList<ItemStack> stacksToRemove = new ArrayList<ItemStack>();
+                ArrayList<ItemStack> stacksToRemove = new ArrayList<>();
                 for (ItemStack stack : event.getDrops()) {
                     if (stack != null) {
                         //CustomItemStack is = new CustomItemStack(stack);
@@ -502,7 +486,7 @@ public class PlayerListener implements Listener {
             PotionMeta meta = (PotionMeta) event.getItem().getItemMeta();
             for (PotionEffect effect : meta.getCustomEffects()) {
                 String name = effect.getType().getName();
-                Integer amp = effect.getAmplifier();
+                int amp = effect.getAmplifier();
                 ConfigTechPotion pot = CivSettings.techPotions.get("" + name + amp);
                 if (pot != null) {
                     if (!pot.hasTechnology(event.getPlayer())) {
@@ -551,6 +535,9 @@ public class PlayerListener implements Listener {
         }
     }
 
+    /**
+     * 受到攻击
+     */
     @EventHandler(priority = EventPriority.MONITOR)
     public void onEntityDamageByEntityMonitor(EntityDamageByEntityEvent event) {
         if (event.isCancelled()) {
@@ -578,7 +565,7 @@ public class PlayerListener implements Listener {
         if (attacker == null && defender == null) {
             return;
         }
-
+        // TODO:这部分貌似有问题
         if (attacker != null && attacker.hasPotionEffect(PotionEffectType.WEAKNESS)) {
             event.setCancelled(true);
             CivMessage.sendError(attacker, CivSettings.localize.localizedString("var_artifact_archer_attackForbidden"));

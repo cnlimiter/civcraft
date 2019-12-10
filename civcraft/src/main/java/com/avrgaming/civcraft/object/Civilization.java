@@ -1709,6 +1709,11 @@ public class Civilization extends SQLObject {
         CivGlobal.getSessionDB().add("endgame:winningCiv", out, 0, 0, 0);
         CivMessage.global(out);
     }
+    public void declareAsWinner() {
+        String out = CivSettings.localize.localizedString("var_civ_victory_end3", this.getName());
+        CivGlobal.getSessionDB().add("endgame:winningCiv", out, 0, 0, 0);
+        CivMessage.global(out);
+    }
 
     public void winConditionWarning(EndGameCondition end, int daysLeft) {
         CivMessage.global(CivSettings.localize.localizedString("var_civ_victory_end2", this.getName(), end.getVictoryName(), daysLeft));

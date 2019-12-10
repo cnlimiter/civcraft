@@ -18,18 +18,6 @@
  */
 package com.avrgaming.civcraft.items.units;
 
-import gpl.AttributeUtil;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.BookMeta;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigUnit;
 import com.avrgaming.civcraft.exception.CivException;
@@ -39,6 +27,16 @@ import com.avrgaming.civcraft.object.MissionLogger;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.BookUtil;
+import gpl.AttributeUtil;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BookMeta;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Spy extends UnitMaterial {
 
@@ -61,7 +59,6 @@ public class Spy extends UnitMaterial {
 
     public static void spawn(Inventory inv) throws CivException {
         ItemStack is = LoreMaterial.spawn(Unit.SPY_UNIT);
-
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_settler_errorBarracksFull", Unit.SPY_UNIT.getUnit().name));
         }

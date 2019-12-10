@@ -13,15 +13,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class EndConditionEconomic
-        extends EndGameCondition {
+/**
+ * 经济胜利
+ */
+public class EndConditionEconomic extends EndGameCondition {
     public static boolean check = false;
     int daysAfterStart;
     Date startDate = null;
 
     @Override
     public void onLoad() {
-        this.daysAfterStart = Integer.valueOf(this.getString("days_after_start"));
+        this.daysAfterStart = Integer.parseInt(this.getString("days_after_start"));
         this.getStartDate();
     }
 

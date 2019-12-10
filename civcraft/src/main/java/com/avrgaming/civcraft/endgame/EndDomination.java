@@ -13,17 +13,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TreeMap;
 
-public class EndDomination
-        extends EndGameCondition {
+/**
+ * 统战胜利
+ */
+public class EndDomination extends EndGameCondition {
     public static boolean check = false;
-    int daysAfterStart;
-    int timesMore;
-    Date startDate = null;
+    private int daysAfterStart;
+    private int timesMore;
+    private Date startDate = null;
 
     @Override
     public void onLoad() {
-        this.daysAfterStart = Integer.valueOf(this.getString("days_after_start"));
-        this.timesMore = Integer.valueOf(this.getString("timesMore"));
+        this.daysAfterStart = Integer.parseInt(this.getString("days_after_start"));
+        this.timesMore = Integer.parseInt(this.getString("timesMore"));
         this.getStartDate();
     }
 
@@ -34,7 +36,7 @@ public class EndDomination
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int) 0).value);
+            long time = Long.parseLong(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }
@@ -54,6 +56,7 @@ public class EndDomination
 
     /*
      * WARNING - Removed try catching itself - possible behaviour change.
+     * 删除尝试自行捕获-可能的行为更改。
      */
     @Override
     public boolean check(Civilization civ) {
@@ -74,7 +77,9 @@ public class EndDomination
         int wonderCount = 0;
         for (Town town : top1.getTowns()) {
             for (Wonder wonder : town.getWonders()) {
-                if (wonder.getConfigId().equalsIgnoreCase("w_space_shuttle") || wonder.getConfigId().equalsIgnoreCase("w_colosseum") || wonder.getConfigId().equalsIgnoreCase(""))
+                if (wonder.getConfigId().equalsIgnoreCase("w_space_shuttle")
+                        || wonder.getConfigId().equalsIgnoreCase("w_colosseum")
+                        || wonder.getConfigId().equalsIgnoreCase(""))
                     continue;
                 ++wonderCount;
             }

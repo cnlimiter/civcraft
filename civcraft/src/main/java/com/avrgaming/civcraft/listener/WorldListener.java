@@ -17,8 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class WorldListener
-        implements Listener {
+public class WorldListener implements Listener {
     public static List<Schematic> schematics = new ArrayList<Schematic>();
     int skipCount = 0;
 

@@ -460,7 +460,8 @@ public class Barracks extends Structure {
         Chest chest = (Chest) chests.get(0).getCoord().getBlock().getState();
 
         try {
-            Class<?> c = Class.forName(unit.class_name);
+            String className = "com.avrgaming.civcraft.items.units." + unit.class_name;
+            Class<?> c = Class.forName(className);
             Method m = c.getMethod("spawn", Inventory.class, Town.class);
             m.invoke(null, chest.getInventory(), this.getTown());
 

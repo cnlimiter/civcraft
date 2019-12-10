@@ -1,25 +1,26 @@
 
 package com.avrgaming.civcraft.endgame;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Civilization;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.sessiondb.SessionEntry;
+import com.avrgaming.civcraft.structure.wonders.Wonder;
+import com.avrgaming.civcraft.war.War;
+import org.bukkit.Bukkit;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.bukkit.Bukkit;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.endgame.EndGameCondition;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.sessiondb.SessionEntry;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.wonders.Wonder;
-import com.avrgaming.civcraft.war.War;
-
-public class EndConditionDiplomacy
-        extends EndGameCondition {
+/**
+ * 外交胜利
+ */
+public class EndConditionDiplomacy extends EndGameCondition {
     public static boolean check = false;
     public static int vote_cooldown_hours;
     int daysAfterStart;
@@ -27,8 +28,8 @@ public class EndConditionDiplomacy
 
     @Override
     public void onLoad() {
-        vote_cooldown_hours = Integer.valueOf(this.getString("vote_cooldown_hours"));
-        this.daysAfterStart = Integer.valueOf(this.getString("days_after_start"));
+        vote_cooldown_hours = Integer.parseInt(this.getString("vote_cooldown_hours"));
+        this.daysAfterStart = Integer.parseInt(this.getString("days_after_start"));
         this.getStartDate();
     }
 
@@ -39,7 +40,7 @@ public class EndConditionDiplomacy
             this.startDate = new Date();
             CivGlobal.getSessionDB().add(key, "" + this.startDate.getTime(), 0, 0, 0);
         } else {
-            long time = Long.valueOf(entries.get((int) 0).value);
+            long time = Long.parseLong(entries.get((int) 0).value);
             this.startDate = new Date(time);
         }
     }
@@ -184,7 +185,7 @@ public class EndConditionDiplomacy
             CivGlobal.getSessionDB().add(key, "" + new Date().getTime() + "", 0, 0, 0);
             return true;
         }
-        Date then = new Date(Long.valueOf(entries.get((int) 0).value));
+        Date then = new Date(Long.parseLong(entries.get((int) 0).value));
         Date now = new Date();
         if (now.getTime() > then.getTime() + (long) (vote_cooldown_hours * 60 * 60 * 1000)) {
             CivGlobal.getSessionDB().update(entries.get((int) 0).request_id, entries.get((int) 0).key, "" + now.getTime() + "");
