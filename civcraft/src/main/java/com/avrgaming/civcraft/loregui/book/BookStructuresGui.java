@@ -26,8 +26,7 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 
-public class BookStructuresGui
-        implements GuiAction {
+public class BookStructuresGui implements GuiAction {
     public static Inventory inv = null;
 
     @Override
@@ -60,22 +59,44 @@ public class BookStructuresGui
             int type = ItemManager.getId(Material.EMERALD_BLOCK);
             double hammerCost = Math.round(info.hammer_cost * rate);
             if (town.getMayorGroup() == null || town.getAssistantGroup() == null || civ.getLeaderGroup() == null) {
-                itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.REDSTONE_BLOCK), 0, "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))), "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost), "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep), CivColor.Red + CivSettings.localize.localizedString("belongtown"));
+                itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.REDSTONE_BLOCK), 0,
+                        "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))),
+                        "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost),
+                        "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep),
+                        CivColor.Red + CivSettings.localize.localizedString("belongtown"));
             } else if (!whoClicked.getCiv().hasTechnology(info.require_tech)) {
                 ConfigTech tech = CivSettings.techs.get(info.require_tech);
                 String techh = tech.name;
-                itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.REDSTONE), 0, "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))), "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost), "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep), CivColor.Red + CivSettings.localize.localizedString("req") + tech.name, "§3" + CivSettings.localize.localizedString("clicktoresearch"), "§d" + CivSettings.localize.localizedString("era_this", tech.era));
+                itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.REDSTONE), 0,
+                        "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))),
+                        "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost),
+                        "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep),
+                        CivColor.Red + CivSettings.localize.localizedString("reqe") + tech.name,
+                        "§3" + CivSettings.localize.localizedString("clicktoresearch"),
+                        "§d" + CivSettings.localize.localizedString("era_this", tech.era));
                 itemStack = LoreGuiItem.setAction(itemStack, "ResearchGui");
                 itemStack = LoreGuiItem.setActionData(itemStack, "info", techh);
             } else if (!(town.getMayorGroup().hasMember(whoClicked) || town.getAssistantGroup().hasMember(whoClicked) || civ.getLeaderGroup().hasMember(whoClicked))) {
-                itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.REDSTONE_BLOCK), 0, "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))), "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost), "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep), CivColor.Red + CivSettings.localize.localizedString("belongtown"));
+                itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.REDSTONE_BLOCK), 0,
+                        "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))),
+                        "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost),
+                        "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep),
+                        CivColor.Red + CivSettings.localize.localizedString("belongtown"));
             } else if (info.isAvailable(town)) {
                 if (!info.id.contains("road") && !info.id.contains("wall")) {
-                    itemStack = LoreGuiItem.build(info.displayName, type, 0, "§6" + CivSettings.localize.localizedString("clicktobuild"), "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))), "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost), "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep));
+                    itemStack = LoreGuiItem.build(info.displayName, type, 0,
+                            "§6" + CivSettings.localize.localizedString("clicktobuild"),
+                            "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))),
+                            "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost),
+                            "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep));
                     itemStack = LoreGuiItem.setAction(itemStack, "BuildChooseTemplate");
                     itemStack = LoreGuiItem.setActionData(itemStack, "info", info.id);
                 } else {
-                    itemStack = LoreGuiItem.build(info.displayName, type, 0, "§6" + CivSettings.localize.localizedString("clicktobuild"), "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))), "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost), "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep));
+                    itemStack = LoreGuiItem.build(info.displayName, type, 0,
+                            "§6" + CivSettings.localize.localizedString("clicktobuild"),
+                            "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))),
+                            "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost),
+                            "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep));
                     itemStack = LoreGuiItem.setAction(itemStack, "BuildFromIdCr");
                     itemStack = LoreGuiItem.setActionData(itemStack, "buildableName", info.displayName);
                 }
@@ -83,7 +104,12 @@ public class BookStructuresGui
                 ConfigBuildableInfo str = CivSettings.structures.get(info.require_structure);
                 if (str != null) {
                     String req_build = str.displayName;
-                    itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.BEDROCK), 0, "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))), "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost), "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep), CivColor.Red + CivSettings.localize.localizedString("requ") + str.displayName, "§3" + CivSettings.localize.localizedString("clicktobuild"));
+                    itemStack = LoreGuiItem.build(info.displayName, ItemManager.getId(Material.BEDROCK), 0,
+                            "§b" + CivSettings.localize.localizedString("money_requ", Double.parseDouble(String.valueOf(info.cost))),
+                            "§a" + CivSettings.localize.localizedString("hammers_requ", hammerCost),
+                            "§d" + CivSettings.localize.localizedString("upkeep_day", info.upkeep),
+                            CivColor.Red + CivSettings.localize.localizedString("requ") + str.displayName,
+                            "§3" + CivSettings.localize.localizedString("clicktobuild"));
                     itemStack = LoreGuiItem.setAction(itemStack, "WonderGuiBuild");
                     itemStack = LoreGuiItem.setActionData(itemStack, "info", req_build);
                 } else {
@@ -98,6 +124,7 @@ public class BookStructuresGui
         backButton = LoreGuiItem.setActionData(backButton, "invType", "showGuiInv");
         backButton = LoreGuiItem.setActionData(backButton, "invName", Book.guiInventory.getName());
         inv.setItem(53, backButton);
+
         ItemStack wonderButton = LoreGuiItem.build(CivSettings.localize.localizedString("4udesa"), ItemManager.getId(Material.DIAMOND_BLOCK), 0, "§6" + CivSettings.localize.localizedString("click_to_view"));
         wonderButton = LoreGuiItem.setAction(wonderButton, "BookWondersGui");
         inv.setItem(52, wonderButton);

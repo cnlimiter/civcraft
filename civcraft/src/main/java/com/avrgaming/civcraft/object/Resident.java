@@ -1619,7 +1619,11 @@ public class Resident extends SQLObject {
         final Inventory inv = Bukkit.getServer().createInventory((InventoryHolder) player, 54, CivSettings.localize.localizedString("resident_techsGuiHeading"));
         for (final ConfigTech tech : techs) {
             final String techh = tech.name;
-            ItemStack itemStack = LoreGuiItem.build(tech.name, type, 0, "§6" + CivSettings.localize.localizedString("clicktoresearch"), "§b" + CivSettings.localize.localizedString("money_req", tech.getAdjustedTechCost(civ)), "§a" + CivSettings.localize.localizedString("bealers_req", tech.getAdjustedBeakerCost(civ)), "§d" + CivSettings.localize.localizedString("era_this", tech.era));
+            ItemStack itemStack = LoreGuiItem.build(tech.name, type, 0,
+                    "§6" + CivSettings.localize.localizedString("clicktoresearch"),
+                    "§b" + CivSettings.localize.localizedString("money_requ", tech.getAdjustedTechCost(civ)),
+                    "§a" + CivSettings.localize.localizedString("bealers_req", tech.getAdjustedBeakerCost(civ)),
+                    "§d" + CivSettings.localize.localizedString("era_this", tech.era));
             itemStack = LoreGuiItem.setAction(itemStack, "ResearchGui");
             itemStack = LoreGuiItem.setActionData(itemStack, "info", techh);
             inv.addItem(itemStack);

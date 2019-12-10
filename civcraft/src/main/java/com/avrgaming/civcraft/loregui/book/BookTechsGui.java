@@ -21,8 +21,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 
-public class BookTechsGui
-        implements GuiAction {
+public class BookTechsGui implements GuiAction {
     @Override
     public void performAction(InventoryClickEvent event, ItemStack stack) {
         Player player = (Player) event.getWhoClicked();
@@ -43,7 +42,11 @@ public class BookTechsGui
         Inventory inv = Bukkit.getServer().createInventory((InventoryHolder) player, 54, CivSettings.localize.localizedString("resident_techsGuiHeading"));
         for (ConfigTech tech : techs) {
             String techh = tech.name;
-            ItemStack itemStack = LoreGuiItem.build(tech.name, type, 0, "§6" + CivSettings.localize.localizedString("clicktoresearch"), "§b" + CivSettings.localize.localizedString("money_req", tech.getAdjustedTechCost(civ)), "§a" + CivSettings.localize.localizedString("bealers_req", tech.getAdjustedBeakerCost(civ)), "§d" + CivSettings.localize.localizedString("era_this", tech.era));
+            ItemStack itemStack = LoreGuiItem.build(tech.name, type, 0,
+                    "§6" + CivSettings.localize.localizedString("clicktoresearch"),
+                    "§b" + CivSettings.localize.localizedString("money_requ", tech.getAdjustedTechCost(civ)),
+                    "§a" + CivSettings.localize.localizedString("beakers_req", tech.getAdjustedBeakerCost(civ)),
+                    "§d" + CivSettings.localize.localizedString("era_this", tech.era));
             itemStack = LoreGuiItem.setAction(itemStack, "ResearchGui");
             itemStack = LoreGuiItem.setActionData(itemStack, "info", techh);
             inv.addItem(itemStack);

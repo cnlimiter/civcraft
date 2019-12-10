@@ -16,7 +16,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.LinkedList;
@@ -252,7 +251,7 @@ public class Book {
 
     public static void spawnGuiBook(final Player player) {
         if (guiInventory == null) {
-            guiInventory = Bukkit.getServer().createInventory((InventoryHolder) player, 27, "§a" + CivSettings.localize.localizedString("bookReborn_heading"));
+            guiInventory = Bukkit.getServer().createInventory( player, 27, "§a" + CivSettings.localize.localizedString("bookReborn_heading"));
             ItemStack playerInfo = LoreGuiItem.build(CivSettings.localize.localizedString("bookReborn_infoMenu"), ItemManager.getId(Material.SKULL_ITEM), 3, "§6" + CivSettings.localize.localizedString("bookReborn_clickToView"));
             playerInfo = LoreGuiItem.setAction(playerInfo, "BookResidentGui");
             guiInventory.setItem(0, playerInfo);

@@ -164,7 +164,7 @@ public class ShowRecipe implements GuiAction {
                 ItemStack backButton = LoreGuiItem.build(CivSettings.localize.localizedString("loreGui_recipes_back"), ItemManager.getId(Material.MAP), 0, CivSettings.localize.localizedString("loreGui_recipes_backMsg") + " " + cat.name);
                 backButton = LoreGuiItem.setAction(backButton, "OpenInventory");
                 backButton = LoreGuiItem.setActionData(backButton, "invType", "showGuiInv");
-                backButton = LoreGuiItem.setActionData(backButton, "invName", cat.name + " Recipes");
+                backButton = LoreGuiItem.setActionData(backButton, "invName", cat.name + " 合成");
                 recInv.setItem(LoreGuiItem.MAX_INV_SIZE - 1, backButton);
             }
         }
