@@ -18,20 +18,15 @@
  */
 package com.avrgaming.civcraft.populators;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.TreeSet;
-
-import org.bukkit.Bukkit;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigHemisphere;
 import com.avrgaming.civcraft.config.ConfigTradeGood;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.util.ChunkCoord;
+import org.bukkit.Bukkit;
+
+import java.util.*;
 
 public class TradeGoodPreGenerate {
 
@@ -174,7 +169,7 @@ public class TradeGoodPreGenerate {
         pick.chunkCoord = cCoord;
 
         Random random = new Random();
-        int randRange = 3;
+        int randRange = 4;
         int rand = random.nextInt(randRange);
 
         pick.landPick = pickFromSet(validLandGoods, rand);

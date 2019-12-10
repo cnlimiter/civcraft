@@ -1,30 +1,28 @@
 
 package com.avrgaming.civcraft.interactive;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigTownUpgrade;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Civilization;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.structure.Barracks;
+import com.avrgaming.civcraft.util.CivColor;
+import gpl.AttributeUtil;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import gpl.AttributeUtil;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigTownUpgrade;
-import com.avrgaming.civcraft.interactive.InteractiveResponse;
-import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Barracks;
-import com.avrgaming.civcraft.util.CivColor;
-
-public class InteractiveConfirmScroll
-        implements InteractiveResponse {
+public class InteractiveConfirmScroll implements InteractiveResponse {
     @Override
     public void respond(String message, Resident resident) {
         Player player;
