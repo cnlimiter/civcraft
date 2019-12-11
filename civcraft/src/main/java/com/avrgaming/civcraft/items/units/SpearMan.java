@@ -1,28 +1,24 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import java.util.Random;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.main.CivCraft;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.war.War;
 import gpl.AttributeUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.main.CivCraft;
-import com.avrgaming.civcraft.main.CivMessage;
 
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.war.War;
+import java.util.Random;
 
-public class SpearMan
-        extends UnitMaterial {
+public class SpearMan extends UnitMaterial {
     public SpearMan(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }

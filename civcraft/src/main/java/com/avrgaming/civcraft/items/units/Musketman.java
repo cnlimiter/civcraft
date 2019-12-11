@@ -18,8 +18,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Random;
 
-public class Musketman
-        extends UnitMaterial {
+public class Musketman extends UnitMaterial {
     public Musketman(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }

@@ -1,44 +1,35 @@
 package com.avrgaming.civcraft.structure;
 
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.threading.sync.ValidateFactoryCraft;
-import org.bukkit.event.player.PlayerInteractEvent;
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.util.CivColor;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Inventory;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.threading.sync.request.UpdateInventoryRequest;
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigSpaceCraftMat;
 import com.avrgaming.civcraft.config.ConfigSpaceCraftMat2;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.exception.CivTaskAbortException;
-import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
 import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-
-import java.util.HashMap;
-import java.util.Collection;
-
-import com.avrgaming.civcraft.config.ConfigSpaceCraftMat;
-
-import java.util.ArrayList;
-
-import com.avrgaming.civcraft.object.StructureChest;
-import com.avrgaming.civcraft.util.MultiInventory;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.config.CivSettings;
-import org.bukkit.entity.Player;
-import com.avrgaming.civcraft.threading.CivAsyncTask;
-
-import java.sql.SQLException;
-import java.sql.ResultSet;
-
-import com.avrgaming.civcraft.object.Town;
-import org.bukkit.Location;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.StructureChest;
 import com.avrgaming.civcraft.object.StructureSign;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.threading.CivAsyncTask;
+import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.threading.sync.ValidateFactoryCraft;
+import com.avrgaming.civcraft.threading.sync.request.UpdateInventoryRequest;
+import com.avrgaming.civcraft.util.*;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class Factory extends Structure {
     private StructureSign trainSign;
@@ -99,8 +90,7 @@ public class Factory extends Structure {
             }
             target.addInventory(tmp);
         }
-        final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<ConfigSpaceCraftMat>();
-        crafts.addAll(CivSettings.space_crafts.values());
+        final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<>(CivSettings.space_crafts.values());
         final ConfigSpaceCraftMat configSpaceCraftMat = crafts.get(this.index);
         final HashMap<String, Integer> craftMatComponents = new HashMap<String, Integer>();
         final String[] split = configSpaceCraftMat.civcraftComponents.split(":");
@@ -230,12 +220,12 @@ public class Factory extends Structure {
     }
 
     private void changeIndex(final int newIndex) {
-        final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<ConfigSpaceCraftMat>();
-        crafts.addAll(CivSettings.space_crafts.values());
+        final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<>(CivSettings.space_crafts.values());
         if (this.trainSign != null) {
             try {
                 final LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterialFromId(crafts.get(newIndex).originalCraftMat);
-                this.trainSign.setText(CivSettings.localize.localizedString("structure_factory_sign_construct") + "\n" + CivColor.GreenBold + craftMat.getName());
+                this.trainSign.setText(CivSettings.localize.localizedString("structure_factory_sign_construct") +
+                        "\n" + CivColor.GreenBold + craftMat.getName());
                 this.index = newIndex;
             } catch (IndexOutOfBoundsException e) {
                 if (crafts.size() > 0) {
@@ -310,7 +300,7 @@ public class Factory extends Structure {
                 break;
             }
             case "/craft": {
-                final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<ConfigSpaceCraftMat>();
+                final ArrayList<ConfigSpaceCraftMat> crafts = new ArrayList<>();
                 for (final ConfigSpaceCraftMat configSpaceCraftMat : CivSettings.space_crafts.values()) {
                     crafts.add(configSpaceCraftMat);
                 }

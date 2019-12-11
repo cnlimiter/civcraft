@@ -18,8 +18,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Random;
 
-public class Slinger
-        extends UnitMaterial {
+public class Slinger extends UnitMaterial {
     public Slinger(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }

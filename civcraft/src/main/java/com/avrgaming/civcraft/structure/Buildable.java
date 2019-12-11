@@ -18,39 +18,6 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.ConcurrentHashMap;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Chunk;
-import org.bukkit.ChunkSnapshot;
-import org.bukkit.Color;
-import org.bukkit.Effect;
-import org.bukkit.FireworkEffect;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.World;
-import org.bukkit.block.Biome;
-import org.bukkit.block.Block;
-import org.bukkit.block.Sign;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.components.Component;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuildableInfo;
@@ -63,19 +30,7 @@ import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Buff;
-import com.avrgaming.civcraft.object.BuildableDamageBlock;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.ControlPoint;
-import com.avrgaming.civcraft.object.CultureChunk;
-import com.avrgaming.civcraft.object.MobSpawner;
-import com.avrgaming.civcraft.object.ProtectedBlock;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.SQLObject;
-import com.avrgaming.civcraft.object.StructureChest;
-import com.avrgaming.civcraft.object.StructureSign;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.object.TownChunk;
+import com.avrgaming.civcraft.object.*;
 import com.avrgaming.civcraft.permission.PlotPermissions;
 import com.avrgaming.civcraft.road.RoadBlock;
 import com.avrgaming.civcraft.structure.wonders.Neuschwanstein;
@@ -88,20 +43,27 @@ import com.avrgaming.civcraft.threading.tasks.BuildAsyncTask;
 import com.avrgaming.civcraft.threading.tasks.BuildUndoTask;
 import com.avrgaming.civcraft.threading.tasks.PostBuildSyncTask;
 import com.avrgaming.civcraft.tutorial.Book;
-import com.avrgaming.civcraft.util.AABB;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.BukkitObjects;
-import com.avrgaming.civcraft.util.CallbackInterface;
-import com.avrgaming.civcraft.util.ChunkCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.FireworkEffectPlayer;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
+import com.avrgaming.civcraft.util.*;
 import com.avrgaming.civcraft.util.SimpleBlock.Type;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.global.perks.Perk;
 import com.wimbli.WorldBorder.BorderData;
 import com.wimbli.WorldBorder.Config;
+import org.bukkit.*;
+import org.bukkit.block.Biome;
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class Buildable extends SQLObject {
 
@@ -1209,7 +1171,7 @@ public abstract class Buildable extends SQLObject {
     }
 
     public ArrayList<StructureChest> getAllChestsById(final int start, final int end) {
-        final ArrayList<StructureChest> chests = new ArrayList<StructureChest>();
+        final ArrayList<StructureChest> chests = new ArrayList<>();
         for (final StructureChest chest : this.structureChests.values()) {
             for (int i = start; i <= end; ++i) {
                 if (chest.getChestId() == i && chest != null) {

@@ -415,7 +415,7 @@ public class PostBuildSyncTask implements Runnable {
                     if (structChest == null) {
                         structChest = new StructureChest(absCoord, buildable);
                     }
-                    structChest.setChestId(Integer.valueOf(sb.keyvalues.get("id")));
+                    structChest.setChestId(Integer.parseInt(sb.keyvalues.get("id")));
                     buildable.addStructureChest(structChest);
                     CivGlobal.addStructureChest(structChest);
 

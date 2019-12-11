@@ -114,12 +114,12 @@ public class CustomItemManager implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onBlockPlace(BlockPlaceEvent event) {
 
-        ItemStack stack = null;
-        if (event.getHand() == EquipmentSlot.OFF_HAND) {
-            stack = event.getPlayer().getInventory().getItemInOffHand();
-        } else {
-            stack = event.getPlayer().getInventory().getItemInMainHand();
-        }
+        ItemStack stack = event.getItemInHand();
+//        if (event.getHand() == EquipmentSlot.OFF_HAND) {
+//            stack = event.getPlayer().getInventory().getItemInOffHand();
+//        } else {
+//            stack = event.getPlayer().getInventory().getItemInMainHand();
+//        }
         if (stack == null || stack.getType().equals(Material.AIR)) {
             return;
         }

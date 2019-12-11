@@ -1,11 +1,16 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
-
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -14,21 +19,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
-
-public class BootsOfTravel
-        extends UnitMaterial {
+public class BootsOfTravel extends UnitMaterial {
     public BootsOfTravel(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }

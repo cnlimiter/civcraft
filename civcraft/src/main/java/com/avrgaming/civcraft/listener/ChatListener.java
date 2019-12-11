@@ -30,7 +30,7 @@ import com.avrgaming.civcraft.object.Resident;
 
 public class ChatListener implements Listener {
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.LOW)
     void OnPlayerAsyncChatEvent(AsyncPlayerChatEvent event) {
 
         Resident resident = CivGlobal.getResident(event.getPlayer());

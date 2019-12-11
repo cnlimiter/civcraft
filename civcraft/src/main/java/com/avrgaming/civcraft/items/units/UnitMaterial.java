@@ -295,8 +295,7 @@ public class UnitMaterial extends LoreMaterial {
     }
 
     @Override
-    public void onInvItemDrop(InventoryClickEvent event,
-                              Inventory toInv, ItemStack stack) {
+    public void onInvItemDrop(InventoryClickEvent event, Inventory toInv, ItemStack stack) {
 
         if (toInv.getHolder() instanceof Player) {
             //A hack to make sure we are always moving the item to the player's inv.

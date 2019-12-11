@@ -18,14 +18,6 @@
  */
 package com.avrgaming.civcraft.command.admin;
 
-import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.command.ReportChestsTask;
 import com.avrgaming.civcraft.command.town.TownInfoCommand;
@@ -48,6 +40,13 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class AdminTownCommand extends CommandBase {
 
@@ -461,7 +460,7 @@ public class AdminTownCommand extends CommandBase {
         Town town = getNamedTown(1);
 
         try {
-            town.setHammerRate(Double.valueOf(args[2]));
+            town.setHammerRate(Double.parseDouble(args[2]));
             CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("var_adcmd_town_hammerrateSuccess", args[1], args[2]));
         } catch (NumberFormatException e) {
             throw new CivException(args[2] + " " + CivSettings.localize.localizedString("cmd_enterNumerError"));

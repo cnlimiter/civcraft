@@ -18,11 +18,6 @@
  */
 package com.avrgaming.civcraft.interactive;
 
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.command.town.TownCommand;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -31,6 +26,9 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 public class InteractiveTownName implements InteractiveResponse {
 
@@ -52,7 +50,7 @@ public class InteractiveTownName implements InteractiveResponse {
 
         //|| !StringUtils.isAsciiPrintable(message)
         // 检查是否只包含unicode字母
-        if (!StringUtils.isAlpha(message)) {
+        if (!valid(message)) {
             CivMessage.send(player, CivColor.Rose + ChatColor.BOLD + CivSettings.localize.localizedString("interactive_town_nameInvalid"));
             return;
         }

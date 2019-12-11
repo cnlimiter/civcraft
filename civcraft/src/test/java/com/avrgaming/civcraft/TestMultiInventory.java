@@ -69,16 +69,20 @@ public class TestMultiInventory {
         //assertEquals("Inventory Has One Item", 1, getItemCount(multiInv.getContents()));
 
     }
+
     @Test
-    public void testFileUtil(){
+    public void testFileUtil() {
         String filepath = "templates/war/" + "special:TNT";
         File touch = FileUtil.touch(FileUtil.newFile(filepath));
         System.out.println(touch.getAbsolutePath());
     }
 
-//@Test
-//@Ignore
-//public void thisIsIgnored() {
-//}
+//    @Test
+//    public void thisIsIgnored() {
+//        while (true) {
+//            int i = new Random().nextInt(3);
+//            System.out.println(i);
+//        }
+//    }
 
 }
