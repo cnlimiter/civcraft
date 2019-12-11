@@ -40,7 +40,9 @@ public class CivTradeCommand
         if (StringUtils.isBlank((String) from.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", CivColor.Gold + from.getName() + CivColor.Red));
         }
-        Inventory withdrawInventory = this.genInventory(this.getPlayer(), 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_gift_giftInvName"), CivColor.RoseBold + from.getName());
+        Inventory withdrawInventory = this.genInventory(this.getPlayer(), 9,
+                CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_gift_giftInvName"),
+                CivColor.RoseBold + from.getName());
         int i = 0;
         for (String goodID : from.tradeGoods.split(", ")) {
             ConfigTradeGood configTradeGood = CivSettings.goods.get(goodID);
@@ -92,7 +94,9 @@ public class CivTradeCommand
         if (StringUtils.isBlank((String) town.tradeGoods)) {
             throw new CivException(CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", CivColor.Gold + town.getName() + CivColor.Red));
         }
-        Inventory listInventory = this.genInventory(this.getPlayer(), 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listtown_listInvName"), CivColor.RoseBold + town.getName());
+        Inventory listInventory = this.genInventory(this.getPlayer(), 9,
+                CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listtown_listInvName"),
+                CivColor.RoseBold + town.getName());
         int i = 0;
         for (String goodID : town.tradeGoods.split(", ")) {
             ConfigTradeGood configTradeGood = CivSettings.goods.get(goodID);
@@ -201,18 +205,24 @@ public class CivTradeCommand
 
     public String getBonusDisplayString(ConfigTradeGood configTradeGood, String addText) {
         StringBuilder out = new StringBuilder();
-        out.append(CivColor.PurpleItalic + CivSettings.localize.localizedString("var_tradeGood_heading"));
-        out.append(";");
+        out.append(CivColor.PurpleItalic)
+                .append(CivSettings.localize.localizedString("var_tradeGood_heading"))
+                .append(";");
         for (ConfigBuff cBuff : configTradeGood.buffs.values()) {
-            out.append((Object) ChatColor.UNDERLINE).append(cBuff.name);
-            out.append(";");
-            out.append(CivColor.RESET + (Object) ChatColor.ITALIC).append(cBuff.description);
-            out.append(";");
+            out.append(ChatColor.UNDERLINE)
+                    .append(cBuff.name)
+                    .append(";")
+                    .append(CivColor.RESET)
+                    .append(ChatColor.ITALIC)
+                    .append(cBuff.description)
+                    .append(";");
         }
         if (configTradeGood.water) {
-            out.append(CivColor.LightBlue + CivSettings.localize.localizedString("var_tradegood_water"));
+            out.append(CivColor.LightBlue)
+                    .append(CivSettings.localize.localizedString("var_tradegood_water"));
         } else {
-            out.append(CivColor.Green + CivSettings.localize.localizedString("var_tradegood_earth"));
+            out.append(CivColor.Green)
+                    .append(CivSettings.localize.localizedString("var_tradegood_earth"));
         }
         out.append(";");
         if (!StringUtils.isBlank((String) addText)) {

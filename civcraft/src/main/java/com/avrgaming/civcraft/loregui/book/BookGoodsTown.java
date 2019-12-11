@@ -38,11 +38,14 @@ public class BookGoodsTown implements GuiAction {
             CivMessage.sendError(player, CivSettings.localize.localizedString("var_virtualTG_noPermM", "§6" + civ.getName() + CivColor.Red, "§6" + town.getName() + CivColor.Red));
             return;
         }
-        if (StringUtils.isBlank((String) town.tradeGoods)) {
-            CivMessage.sendError(player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods", "§6" + town.getName() + CivColor.Red));
+        if (StringUtils.isBlank(town.tradeGoods)) {
+            CivMessage.sendError(player, CivSettings.localize.localizedString("cmd_civ_trade_listtown_noGoods",
+                    "§6" + town.getName() + CivColor.Red));
             return;
         }
-        Inventory listInventory = Bukkit.getServer().createInventory(player, 9, CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listtown_listInvName", CivColor.RoseBold + town.getName()));
+        Inventory listInventory = Bukkit.getServer().createInventory(player, 9,
+                CivColor.GoldBold + CivSettings.localize.localizedString("cmd_civ_trade_listtown_listInvName",
+                        CivColor.RoseBold + town.getName()));
         int i = 0;
         for (String goodID : town.tradeGoods.split(", ")) {
             ConfigTradeGood configTradeGood = CivSettings.goods.get(goodID);

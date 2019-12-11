@@ -1,6 +1,30 @@
 
 package com.avrgaming.civcraft.structure;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivLog;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.StructureChest;
+import com.avrgaming.civcraft.object.StructureSign;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.sessiondb.SessionEntry;
+import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.threading.tasks.ArtifactSaveAsyncTask;
+import com.avrgaming.civcraft.util.BlockCoord;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.util.ItemManager;
+import com.avrgaming.civcraft.util.SimpleBlock;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.block.Chest;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
@@ -9,34 +33,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeMap;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.block.Chest;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
-
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.sessiondb.SessionEntry;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.StructureChest;
-import com.avrgaming.civcraft.object.StructureSign;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.threading.tasks.ArtifactSaveAsyncTask;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
-
-public class Ordinary
-        extends Structure {
+public class Ordinary extends Structure {
     private int index = 0;
     private StructureSign artifactNameSign;
     private ConfigUnit trainingArtifact = null;
@@ -151,8 +148,7 @@ public class Ordinary
 
     @Override
     public void onTechUpdate() {
-        class OrdinarySyncUpdate
-                implements Runnable {
+        class OrdinarySyncUpdate implements Runnable {
             StructureSign artifactNameSign;
 
             public OrdinarySyncUpdate(StructureSign unitNameSign) {
@@ -266,7 +262,7 @@ public class Ordinary
             try {
                 Class<?> c = Class.forName("com.avrgaming.civcraft.items.units." + artifact.class_name);
                 Method m = c.getMethod("spawn", Inventory.class, Town.class);
-                m.invoke(null, new Object[]{chest.getInventory(), this.getTown()});
+                m.invoke(null, chest.getInventory(), this.getTown());
                 CivMessage.sendTown(this.getTown(), CivSettings.localize.localizedString("var_ordinary_completedTraining", artifact.name));
                 this.trainingArtifact = null;
                 this.currentHammers = 0.0;
@@ -356,7 +352,7 @@ public class Ordinary
                 CivLog.error("Couldn't find in-progress artifact id:" + values[0] + " for town " + this.getTown().getName());
                 return;
             }
-            this.currentHammers = Double.valueOf(values[1]);
+            this.currentHammers = Double.parseDouble(values[1]);
             for (int i = 1; i < entries.size(); ++i) {
                 SessionEntry bad_entry = entries.get(i);
                 CivGlobal.getSessionDB().delete(bad_entry.request_id, key);
