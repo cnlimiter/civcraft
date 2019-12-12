@@ -184,7 +184,7 @@ units:
     item_data: 0
 
   - id: 'ax_rabbitFeet'
-    name: "兔子的后足"
+    name: "幸运护符"
     class_name: 'RabbitFeet'
     require_tech: 'tech_scientific_method'
     require_struct: 's_ordinary'

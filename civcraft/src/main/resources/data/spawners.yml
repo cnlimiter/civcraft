@@ -186,6 +186,7 @@ land_spawners:
 
 water_spawners:
 #Leviathan 利维坦 圣经中怪兽
+#Kraken 北海巨妖 章鱼或乌贼的模样
     - id: 'kraken_lesser'
       name: '绿海怪'
       rarity: 1.0
