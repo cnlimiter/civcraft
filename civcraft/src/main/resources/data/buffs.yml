@@ -12,7 +12,7 @@ buffs:
       value: '100'
       # 可叠加
       stackable: true
-   
+
     - id: 'buff_year_of_plenty'
       name: '丰收年'
       # description: 'Increases growth rate of farms by <lightgreen>15%<r>. <gold>Stackable<r>'
@@ -33,7 +33,7 @@ buffs:
       description: '增加 <lightgreen>15%<r> 正在使用的贸易品的金币产量  <gold>可叠加<r>'
       value: '0.15'
       stackable: true
-    
+
     - id: 'buff_preservative'
       name: '屯粮'
       # description: 'Reduces consumption of cottages by <lightgreen>50%<r> <red>Not Stackable<r>'
@@ -96,7 +96,7 @@ buffs:
       description: '允许生鱼片代替面包 <lightgreen>1 fish = 2 bread<r> <red>不可叠加<r>'
       value: '2'
       stackable: false
-    
+
     - id: 'buff_greed'
       name: '贪婪'
       # description: 'Increases interest rates by <lightgreen>3%<r> <red>Not Stackable<r>'
@@ -110,7 +110,7 @@ buffs:
       description: '减少 <lightgreen>50<r> 秒<r> 战争期间的友军重生时间  <red>不可叠加<r>'
       value: '50'
       stackable: false
-    
+
     - id: 'buff_dirty_money'
       name: '黑钱'
       # description: 'Increases the chances of Steal Treasury by <lightgreen>50%<r> <red>Not Stackable<r>'
@@ -124,7 +124,7 @@ buffs:
       description: '增加 <lightgreen>50%<r> 毒仓和煽动叛乱的几率 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
-    
+
     - id: 'buff_rush'
       name: '发展期'
       # description: 'Reduces the hammer cost of all structures, wonders and improvements by <lightgreen>15%<r> <red>Not Stackable<r>'
@@ -149,7 +149,7 @@ buffs:
       parent:
 
     - id: 'buff_farm'
-      name: '储存'
+      name: '贮备'
       # description: 'Doubles the number of seeds placed by the windmill <lightgreen>2x<r> <red>Not Stackable<r>'
       description: '使风车播下的种子数翻倍 <lightgreen>2x<r> <red>不可叠加<r>'
       value: '2.0' # x
@@ -157,16 +157,16 @@ buffs:
       parent:
 
     - id: 'buff_profit_sharing'
-      name: '利润分享'
+      name: '分红制'
       # description: 'Reduces the coin cost of all technology researches by <lightgreen>5%<r> <red>Not Stackable<r>'
       description: '降低 <lightgreen>5%<r> 所有科技研究的成本 <red>不可叠加<r>'
       value: '0.05'
       stackable: false
-  
+
     - id: 'buff_sabotage'
       name: '破坏活动'
       # description: 'Greatly increases the effectivenes of sabotage missions by <lightgreen>50%<r> <red>Not Stackable<r>'
-      description: '大大提高破坏任务的效果 <lightgreen>50%<r> <red>不可叠加<r>'
+      description: '大大提高 <lightgreen>50%<r>破坏任务的效果<r> <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
@@ -180,9 +180,9 @@ buffs:
     - id: 'buff_reduced_anarchy'
       name: '减少无政府状态'
       # description: 'Civilization spends 50% less time in anarchy per resident for this town.<r> <red>Not Stackable<r>'
-      description: '每个居民在无政府状态下花费的时间减少了50%。<r> <red>不可叠加<r>'
+      description: '每个居民在无政府状态下花费的时间减少了25%。<r> <red>不可叠加<r>'
       value: '0.25'
-      stackable: false 
+      stackable: false
 
     - id: 'buff_advanced_touring'
       name: '高级旅游'
@@ -231,7 +231,7 @@ buffs:
       parent:
 
     - id: 'buff_demand'
-      name: 'Demand'
+      name: '食物需求'
       # description: 'Adds <lightgreen>5%<r> Bonus to Cottages<r> <gold>Stackable<r>'
       description: '添加 <lightgreen>5%<r> 别墅奖励 <r> <gold>可叠加<r>'
       value: '0.05'
@@ -462,195 +462,226 @@ buffs:
 # PYRAMID BUFFS
     - id: 'buff_pyramid_cottage_consume'
       name: 'Pyramid Reduced Bread Consumption'
-      description: 'Reduces cottage bread consumption by 1/4'
+      #description: 'Reduces cottage bread consumption by 1/4'
+      description: '别墅的面包消耗量减少1/4.'
       value: '0.25'
       stackable: false
 
     - id: 'buff_pyramid_cottage_bonus'
+      #name: 'Pyramid Increased Cottage Output'
       name: 'Pyramid Increased Cottage Output'
-      description: 'Increases cottage income by 10%'
+      description: '别墅收入增加10%.'
       value: '1.1'
       stackable: false
 
     - id: 'buff_pyramid_culture'
-      name: 'Pyramid Culture Bonus' 
-      description: 'Increases culture output from civilization by 50%'
+      name: 'Pyramid Culture Bonus'
+      #description: 'Increases culture output from civilization by 50%'
+      description: '文明文化产出提高50%.'
       value: '0.5'
       stackable: false
 
     - id: 'buff_pyramid_leech'
       name: 'Pyramid Leech Culture'
-      description: 'Leeches 1% of the culture output from the nearest civilization.'
+      #description: 'Leeches 1% of the culture output from the nearest civilization.'
+      description: '吸取最近的文明的1%文化值.'
       value: '0.01'
       stackable: false
 
     - id: 'debuff_pyramid_leech'
       name: 'Pyramid Leech Culture'
-      description: 'Leeches 1% of your culture. Gives it to the town with the pyramid.'
+      #description: 'Leeches 1% of your culture. Gives it to the town with the pyramid.'
+      description: '你被吸取1%文化值，给与拥有金字塔奇观的城镇.'
       value: '0.01'
       stackable: false
 # Great library buffs
     - id: 'buff_greatlibrary_extra_beakers'
       name: 'Great Library Extra Beakers'
-      description: 'Grants 10% extra beakers for the civ.'
+      #description: 'Grants 10% extra beakers for the civ.'
+      description: '给与你的文明10%额外的科研点.'
       value: '0.1'
       stackable: false
 
     - id: 'buff_greatlibrary_double_tax_beakers'
       name: 'Great Library Double Tax Beakers'
-      description: 'Doubles the effectiveness of tax coins spent on beakers'
+      #description: 'Doubles the effectiveness of tax coins spent on beakers'
+      description: '硬币购买的所获科研点翻倍.'
       value: '2'
       stackable: false
 
 # Hanging Gardens buffs
     - id: 'buff_hanging_gardens_growth'
       name: 'Hanging Gardens Growth Bonus'
-      description: 'Grants a 25% bonus to growth rates across the civilization.'
+      #description: 'Grants a 25% bonus to growth rates across the civilization.'
+      description: '整个文明的生长速度提高25%.'
       value: '0.25'
       stackable: false
 
     - id: 'buff_hanging_gardens_regen'
       name: 'Hanging Gardens Regen Bonus'
-      description: 'Grants a health regen rate of 1/2 heart per second in town.'
+      #description: 'Grants a health regen rate of 1/2 heart per second in town.'
+      description: '使城镇的HP恢复速度至少为每秒1/2心.'
       value: '0.5'
       stackable: false
-    
+
     - id: 'buff_hanging_gardens_additional_growth'
       name: 'Hanging Gardens Additional Growth'
-      description: 'Grants an additional 10% growth rate for each Grapes good being used by the Civilization'
+      #description: 'Grants an additional 10% growth rate for each Grapes good being used by the Civilization'
+      description: '额外为文明拥有的葡萄(贸易品)增加10%生长速度.'
       value: '0.1'
       stackable: false
 
 # Colossus buffs
     - id: 'buff_colossus_reduce_upkeep'
       name: 'Colossus Reduce Upkeep'
-      description: 'Reduces upkeep of your town by 25%'
+      #description: 'Reduces upkeep of your town by 25%'
+      description: '减少25%的城镇维护费'
       value: '0.25'
       stackable: false
 
     - id: 'buff_colossus_coins_from_culture'
       name: 'Colossus Coins From Culture'
-      description: 'Grants 10 coins per day to the civilization for every culture chunk owned by it.'
+      #description: 'Grants 10 coins per day to the civilization for every culture chunk owned by it.'
+      description: '每天为文明所拥有的每个文化块给予10个硬币.'
       value: '10'
       stackable: false
 # Notre Dame buffs
     - id: 'buff_notre_dame_no_anarchy'
       name: 'Notre Dame Reduced Anarchy'
-      description: 'Civilization suffers 1/2 anarchy time during government changes.'
+      #description: 'Civilization suffers 1/2 anarchy time during government changes.'
+      description: '当文明进行政体变更，减少其1/2无政府状态时间.'
       value: '0.5'
       stackable: false
 
     - id: 'buff_notre_dame_coins_from_peace'
       name: 'Notre Dame Peace Coins'
-      description: 'Civilization collects coins from each town in each civilization not currently at war.'
+      #description: 'Civilization collects coins from each town in each civilization not currently at war.'
+      description: '奇观所在文明从各个未在战争状态的文明中下属每个城镇征收100硬币.'
       value: '100'
       stackable: false
 
     - id: 'buff_notre_dame_extra_war_penalty'
       name: 'Notre Dame Extra War Penalty'
-      description: 'Aggressors pay 2x war penalties when declaring war on this civilization or its allies.'
+      #description: 'Aggressors pay 2x war penalties when declaring war on this civilization or its allies.'
+      description: '在对这个文明或其盟友宣战时，侵略者支付2倍的战争惩罚.'
       value: '2'
       stackable: false
 
 # Chichen Itza buffs
     - id: 'buff_chichen_itza_tower_hp'
       name: 'Chichen Itza Tower HP'
-      description: 'Increases HP of towers by 15%'
+      #description: 'Increases HP of towers by 15%'
+      description: '提升塔的15％HP.'
       value: '0.15'
       stackable: false
 
     - id: 'buff_chichen_itza_regen_rate'
       name: 'Chichen Itza Regen Rate'
-      description: 'Increases regen rate of all structures by 2 HP per second.'
+      #description: 'Increases regen rate of all structures by 2 HP per second.'
+      description: '所有建筑物的提高2HP的每秒回复速度.'
       value: '2'
       stackable: false
 
     - id: 'buff_chichen_itza_cp_bonus_hp'
       name: 'Chichen Itza Control Point Bonus HP'
-      description: 'Increase the hitpoints of all Control Points of a town by 10 HP.'
+      #description: 'Increase the hitpoints of all Control Points of a town by 10 HP.'
+      description: '将此城镇的所有控制点的生命值提高10 HP.'
       value: '10'
       stackable: false
 
 #Colosseum Buffs
     - id: 'buff_colosseum_coins_from_towns'
       name: 'Colosseum Coins From Towns'
-      description: 'Grants 250 coins per day to the civilization for every town in the world.'
+      #description: 'Grants 250 coins per day to the civilization for every town in the world.'
+      description: '每天为世界上每个城镇的提供250枚硬币.'
       value: '250'
       stackable: false
 
     - id: 'buff_colosseum_happiness_to_towns'
       name: 'Colosseum Coins For Towns'
-      description: 'Grants 2 happiness to all towns in the Civilization.'
+      #description: 'Grants 2 happiness to all towns in the Civilization.'
+      description: '赋予文明所有城镇2点幸福.'
       value: '2'
       stackable: false
 
     - id: 'buff_colosseum_happiness_for_town'
       name: 'Colosseum Happines For Town'
-      description: 'Grants an additional 4 happiness to the town it is built in.'
+      #description: 'Grants an additional 4 happiness to the town it is built in.'
+      description: '为奇观所在的城镇增加4点幸福感.'
       value: '4'
       stackable: false
 
 #Globe Theatre Buffs
     - id: 'buff_globe_theatre_culture_from_towns'
       name: 'Globe Theatre Culture From Towns'
-      description: 'Increase culture by 0.5% for every town in the world.'
+      #description: 'Increase culture by 0.5% for every town in the world.'
+      description: '为世界上每个城镇增加0.5％的文化.'
       value: '0.005'
       stackable: false
 
     - id: 'buff_globe_theatre_happiness_to_towns'
       name: 'Globe Theatre Happiness to Towns'
-      description: 'Grants 2 happiness to all towns in the Civilization.'
+      #description: 'Grants 2 happiness to all towns in the Civilization.'
+      description: '赋予文明所有城镇2点幸福.'
       value: '2'
       stackable: false
 
 #Great Lighthouse Buffs
     - id: 'buff_great_lighthouse_tower_range'
       name: 'Great Lighthouse Increse Tower Range'
-      description: 'Increase Tower Firing range in this town by 50%'
+      #description: 'Increase Tower Firing range in this town by 50%'
+      description: '将城镇的箭塔的射击距离提高50％.'
       value: '1.5'
       stackable: false
 
     - id: 'buff_great_lighthouse_trade_ship_income'
       name: 'Lighthouse Trade Ship Income'
-      description: 'Trade Ships earn 20% more for selling items'
+      #description: 'Trade Ships earn 20% more for selling items'
+      description: '贸易船出售物品可额外获得20％的收益.'
       value: '1.2'
       stackable: false
 
 # Mother Tree buffs
     - id: 'buff_mother_tree_growth'
       name: 'Mother Tree Growth Bonus'
-      description: 'Grants a 50% bonus to farm growth rates across the civilization.'
+      #description: 'Grants a 50% bonus to farm growth rates across the civilization.'
+      description: '为文明的农场生长速度提高50%.'
       value: '0.50'
       stackable: false
 
     - id: 'buff_mother_tree_tile_improvement_cost'
       name: 'Mother Tree Tile Improvment Cost'
-      description: 'Tile Improvements cost 20% less across the civilization.'
+      #description: 'Tile Improvements cost 20% less across the civilization.'
+      description: '文明的瓷砖改进成本降低了20%.'
       value: '0.20'
       stackable: false
 
     - id: 'buff_mother_tree_tile_improvement_bonus'
       name: 'Mother Tree Tile Improvment Bonus'
-      description: 'Can build twice as many tile improvments in this town.'
+      #description: 'Can build twice as many tile improvments in this town.'
+      description: '在这个镇上能建两倍的瓦房.'
       value: '0.20'
       stackable: false
 
 # Grand Ship Ingermanland Buffs
     - id: 'buff_ingermanland_fishing_boat_immunity'
       name: 'Ingermanland Fishing Boat Immunity'
-      description: 'Fishing Boats are immune to Espionage missions.'
+      #description: 'Fishing Boats are immune to Espionage missions.'
+      description: '渔船不受间谍活动的影响.'
       value: '1.0'
       stackable: false
 
     - id: 'buff_ingermanland_trade_ship_income'
       name: 'Ingermanland Trade Ship Income'
-      description: 'Trade Ships earn 30% more for selling items'
+      #description: 'Trade Ships earn 30% more for selling items'
+      description: '贸易船每次可多卖30%的东西.'
       value: '1.3'
       stackable: false
 
     - id: 'buff_ingermanland_water_range'
       name: 'Ingermanland Navy Range'
-      description: 'Navy Vessels have 50% greater attack range'
+      #description: 'Navy Vessels have 50% greater attack range'
+      description: '海军军舰艇攻击范围扩大50%.'
       value: '1.5'
       stackable: false
 
@@ -674,7 +705,7 @@ buffs:
       description: 'Placeholder Text'
       value: '1.0'
       stackable: true
-      parent: 
+      parent:
 # Burj buffs
     - id: 'buff_burj_growth'
       name: 'Burj Growth'

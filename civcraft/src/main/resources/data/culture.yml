@@ -61,7 +61,7 @@ culture_levels:
 
 talent_levels:
   - level: 1
-    levelName: '国会大厦'
+    levelName: '草创'
     levelBuff1: 'level1_hammerRateCap'
     levelBuff2: 'level1_beakerRateCap'
     levelBuff3: 'level1_growthCultureCap'
@@ -73,7 +73,7 @@ talent_levels:
     #      levelBuffDesc3: 'Growth and culture of the city is increased by 5%.'
 
   - level: 2
-    levelName: '幸福'
+    levelName: '小确幸'
     levelBuff1: 'level2_capitolHappinessCap'
     levelBuff2: 'level2_civHappinessTown'
     levelBuff3: 'level2_wonderCivHappinessTown'
@@ -85,7 +85,7 @@ talent_levels:
     #      levelBuffDesc3: 'For every wonder built in the world, your civilization gets 1 happiness.'
 
   - level: 3
-    levelName: '区块加强'
+    levelName: '弥补短板'
     levelBuff1: 'level3_extraHammerTown'
     levelBuff2: 'level3_extraRiverTown'
     levelBuff3: 'level3_extraBeakerTown'
@@ -97,7 +97,7 @@ talent_levels:
     #      levelBuffDesc3: 'For every culture chunk giving less than 1 beakers, gives 0.25 additional tubes.'
 
   - level: 4
-    levelName: '收入'
+    levelName: '创收'
     levelBuff1: 'level4_extraCottageTown'
     levelBuff2: 'level4_extraBankTown'
     levelBuff3: 'level4_extraTradeTown'
@@ -121,7 +121,7 @@ talent_levels:
     #    levelBuffDesc3: 'Increases the strength of the control blocks by 20%'
 
   - level: 6
-    levelName: '冲突'
+    levelName: '军备'
     levelBuff1: 'level6_extraCPdmgTown'
     levelBuff2: 'level6_extraStrucutreDmgTown'
     levelBuff3: 'level6_wcHPTown'
@@ -145,7 +145,7 @@ talent_levels:
     #    levelBuffDesc3: 'Gives 25% to the test tubes of the Capitol of civilization'
 
   - level: 8
-    levelName: '厄运'
+    levelName: '帝国主义'
     levelBuff1: 'level8_unhappyConquerorTown'
     levelBuff2: 'level8_unhappyLargeEmpireTown'
     levelBuff3: 'level8_noWarUpkeep'
