@@ -67,7 +67,7 @@ public class BeakerTimer extends CivAsyncTask {
                  * of beakers per min.
                  */
                 //研究完成后
-                if (civ.getTechQueued().size() != 0) {
+                if (civ.getResearchTech() == null && civ.getTechQueued().size() != 0) {
                     civ.setResearchTech(civ.getTechQueued().poll());
                     TaskMaster.asyncTask(new UpdateTechBar(civ), 0);
                 }
