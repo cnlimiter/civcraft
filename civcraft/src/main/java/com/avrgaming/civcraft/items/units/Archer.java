@@ -32,7 +32,7 @@ public class Archer extends UnitMaterial {
         attrs.addLore("Level 1");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "-10% Sword Defense");
+        attrs.addLore(CivColor.LightGray + "-10% Sword Defense"); // 剑伤害-10% get
         attrs.addLore(CivColor.LightGray + "+25% to Bow Attack");
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {

@@ -76,8 +76,7 @@ public class LoreEnhancementAttack extends LoreEnhancement {
     public double getLevel(AttributeUtil attrs) {
         if (attrs.hasEnhancement("LoreEnhancementAttack")) {
             /* Get base Level. */
-            Double baseLevel = Double.valueOf(attrs.getEnhancementData("LoreEnhancementAttack", "level"));
-            return baseLevel;
+            return Double.parseDouble(attrs.getEnhancementData("LoreEnhancementAttack", "level"));
         }
         return 0;
     }

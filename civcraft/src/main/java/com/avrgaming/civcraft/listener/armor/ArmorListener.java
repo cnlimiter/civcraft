@@ -1,7 +1,6 @@
 package com.avrgaming.civcraft.listener.armor;
 
-import java.util.List;
-
+import com.avrgaming.civcraft.listener.armor.ArmorEquipEvent.EquipMethod;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -21,7 +20,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.avrgaming.civcraft.listener.armor.ArmorEquipEvent.EquipMethod;
+import java.util.List;
 
 /**
  * @Author Borlea
@@ -135,6 +134,9 @@ public class ArmorListener implements Listener {
         }
     }
 
+    /**
+     * 装甲射出
+     */
     @EventHandler
     public void dispenserFireEvent(BlockDispenseEvent e) {
         ArmorType type = ArmorType.matchType(e.getItem());
@@ -142,12 +144,29 @@ public class ArmorListener implements Listener {
             Location loc = e.getBlock().getLocation();
             for (Player p : loc.getWorld().getPlayers()) {
                 if (loc.getBlockY() - p.getLocation().getBlockY() >= -1 && loc.getBlockY() - p.getLocation().getBlockY() <= 1) {
-                    if (p.getInventory().getHelmet() == null && type.equals(ArmorType.HELMET) || p.getInventory().getChestplate() == null && type.equals(ArmorType.CHESTPLATE) || p.getInventory().getLeggings() == null && type.equals(ArmorType.LEGGINGS) || p.getInventory().getBoots() == null && type.equals(ArmorType.BOOTS)) {
+                    if (p.getInventory().getHelmet() == null && type.equals(ArmorType.HELMET)
+                            || p.getInventory().getChestplate() == null && type.equals(ArmorType.CHESTPLATE)
+                            || p.getInventory().getLeggings() == null && type.equals(ArmorType.LEGGINGS)
+                            || p.getInventory().getBoots() == null && type.equals(ArmorType.BOOTS)) {
                         org.bukkit.block.Dispenser dispenser = (org.bukkit.block.Dispenser) e.getBlock().getState();
                         org.bukkit.material.Dispenser dis = (org.bukkit.material.Dispenser) dispenser.getData();
                         BlockFace directionFacing = dis.getFacing();
                         // Someone told me not to do big if checks because it's hard to read, look at me doing it -_-
-                        if (directionFacing == BlockFace.EAST && p.getLocation().getBlockX() != loc.getBlockX() && p.getLocation().getX() <= loc.getX() + 2.3 && p.getLocation().getX() >= loc.getX() || directionFacing == BlockFace.WEST && p.getLocation().getX() >= loc.getX() - 1.3 && p.getLocation().getX() <= loc.getX() || directionFacing == BlockFace.SOUTH && p.getLocation().getBlockZ() != loc.getBlockZ() && p.getLocation().getZ() <= loc.getZ() + 2.3 && p.getLocation().getZ() >= loc.getZ() || directionFacing == BlockFace.NORTH && p.getLocation().getZ() >= loc.getZ() - 1.3 && p.getLocation().getZ() <= loc.getZ()) {
+                        // 有人告诉我不要做大检查，因为它很难读，看着我做-_-
+                        if (directionFacing == BlockFace.EAST
+                                && p.getLocation().getBlockX() != loc.getBlockX()
+                                && p.getLocation().getX() <= loc.getX() + 2.3
+                                && p.getLocation().getX() >= loc.getX()
+                                || directionFacing == BlockFace.WEST
+                                && p.getLocation().getX() >= loc.getX() - 1.3
+                                && p.getLocation().getX() <= loc.getX()
+                                || directionFacing == BlockFace.SOUTH
+                                && p.getLocation().getBlockZ() != loc.getBlockZ()
+                                && p.getLocation().getZ() <= loc.getZ() + 2.3
+                                && p.getLocation().getZ() >= loc.getZ()
+                                || directionFacing == BlockFace.NORTH
+                                && p.getLocation().getZ() >= loc.getZ() - 1.3
+                                && p.getLocation().getZ() <= loc.getZ()) {
                             ArmorEquipEvent armorEquipEvent = new ArmorEquipEvent(p, EquipMethod.DISPENSER, ArmorType.matchType(e.getItem()), null, e.getItem());
                             Bukkit.getServer().getPluginManager().callEvent(armorEquipEvent);
                             if (armorEquipEvent.isCancelled()) {

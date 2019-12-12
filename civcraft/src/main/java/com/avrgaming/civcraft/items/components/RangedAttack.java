@@ -70,7 +70,7 @@ public class RangedAttack extends ItemComponent {
             }
         }
         dmg += extraAtt;
-
+        // TODO: 弓的增伤
 
         Vector vel = event.getDamager().getVelocity();
         double magnitudeSquared = Math.pow(vel.getX(), 2) + Math.pow(vel.getY(), 2) + Math.pow(vel.getZ(), 2);

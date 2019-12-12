@@ -171,7 +171,7 @@ units:
     item_id: 276
     item_data: 0
 
-  - id: 'ax_bootsOfTravel'
+  - id: 'ax_bootsOfTravel' #有效
     name: "旅行者之靴"
     class_name: 'BootsOfTravel'
     require_tech: 'tech_scientific_method'
@@ -183,7 +183,7 @@ units:
     item_id: 345 # компас
     item_data: 0
 
-  - id: 'ax_rabbitFeet'
+  - id: 'ax_rabbitFeet' #有效
     name: "兔子的后足"
     class_name: 'RabbitFeet'
     require_tech: 'tech_scientific_method'
@@ -195,7 +195,7 @@ units:
     item_id: 414 # лапка кролика
     item_data: 0
 
-  - id: 'a_heroesShield'
+  - id: 'a_heroesShield' #有效 描述？
     name: "英雄盾牌"
     class_name: 'HeroesShield'
     require_tech:
@@ -207,7 +207,7 @@ units:
     item_id: 322 # зач. яблоко
     item_data: 1
 
-  - id: 'a_assasinsStigma'
+  - id: 'a_assasinsStigma' #有效 描述？
     name: "刺客的耻辱"
     class_name: 'AssasinsStigma'
     require_tech:
@@ -219,7 +219,7 @@ units:
     item_id: 331 # Редстоун
     item_data: 0
 
-  - id: 'ax_minersAmulet'
+  - id: 'ax_minersAmulet' #有效，时间貌似不对
     name: "矿工护身符"
     class_name: 'MinersAmulet'
     require_tech: 'tech_innovation'
@@ -231,7 +231,7 @@ units:
     item_id: 264 # алмаз
     item_data: 0
 
-  - id: 'ax_diver'
+  - id: 'ax_diver' #有效
     name: "潜水员"
     class_name: 'Diver'
     require_tech: 'tech_machinery'
@@ -243,7 +243,7 @@ units:
     item_id: 351 # хз
     item_data: 12
 
-  - id: 'ax_witchTrick'
+  - id: 'ax_witchTrick' #有效
     name: "女巫伎俩"
     class_name: 'WitchTrick'
     require_tech: 'tech_malting'
@@ -255,7 +255,7 @@ units:
     item_id: 372 # нарост
     item_data: 0
 
-  - id: 'ax_cacheOfGluttons'
+  - id: 'ax_cacheOfGluttons' #未完成
     name: "贪食者的储藏室"
     class_name: 'CacheOfGluttons'
     require_tech: 'tech_advanced_efficiency'
@@ -267,7 +267,7 @@ units:
     item_id: 410 # кристалл призмарина
     item_data: 0
 
-  - id: 'ax_engineer'
+  - id: 'ax_engineer' #未完成 建筑物伤害+1
     name: "工程师"
     class_name: 'Engineer'
     require_tech: 'tech_construction'
@@ -279,7 +279,7 @@ units:
     item_id: 76 # ред торч
     item_data: 0
 
-  - id: 'ax_invader'
+  - id: 'ax_invader' # 未完成 伤害+1，与上面的互相制约减为50%
     name: "入侵者"
     class_name: 'Invader'
     require_tech: 'tech_innovation'
@@ -291,7 +291,7 @@ units:
     item_id: 369 # ифрит палка
     item_data: 0
 
-  - id: 'ax_advanced_tools'
+  - id: 'ax_advanced_tools'# 未完成 Miner's Amulet 制约
     name: "高级工具"
     class_name: 'AdvancedTools'
     require_tech: 'tech_machinery'
@@ -303,9 +303,9 @@ units:
     item_id: 145 # наковальня
     item_data: 0
 
-  - id: 'ax_archer2'
+  - id: 'ax_archer2' #貌似有bug
     name: "高级射手"
-    class_name: 'Archer2' # 功能 为对方增加3s着火 减速 减挖掘速度
+    class_name: 'Archer2'
     require_tech: 'tech_tillering'
     require_struct: 's_ordinary'
     require_upgrade:

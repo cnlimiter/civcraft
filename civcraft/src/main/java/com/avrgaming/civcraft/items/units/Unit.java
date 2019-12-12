@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.items.units;
 
-import java.util.ArrayList;
-
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigMission;
 import com.avrgaming.civcraft.config.ConfigUnit;
@@ -33,6 +26,12 @@ import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
 import com.avrgaming.civcraft.lorestorage.LoreMaterial;
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
 
 public abstract class Unit {
 
@@ -143,8 +142,6 @@ public abstract class Unit {
                 if (!UnitMaterial.validateUnitUse(player, stack)) {
                     return null;
                 }
-
-
                 return ((UnitMaterial) material).getUnit();
             }
         }

@@ -32,7 +32,7 @@ public class Slinger extends UnitMaterial {
         attrs.addLore("§bLevel 3");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "-25% Sword Damage");
+        attrs.addLore(CivColor.LightGray + "-25% Sword Damage");  //剑
         attrs.addLore(CivColor.LightGray + "+50% Bow Attack Bonus");
         attrs.addLore(CivColor.LightGray + "+15% Armor Bonus");
         is = attrs.getStack();

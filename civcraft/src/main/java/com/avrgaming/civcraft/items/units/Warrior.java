@@ -32,7 +32,7 @@ public class Warrior extends UnitMaterial {
         attrs.addLore(CivColor.Yellow + "Single Use");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "+25% Sword Attack Bonus");
+        attrs.addLore(CivColor.LightGray + "+25% Sword Attack Bonus"); //剑伤害 25%
         attrs.addLore(CivColor.LightGray + "-10% Bow Damage");
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {

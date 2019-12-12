@@ -1,25 +1,22 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import java.util.Random;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.main.CivCraft;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.war.War;
 import gpl.AttributeUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.main.CivCraft;
-import com.avrgaming.civcraft.main.CivMessage;
 
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.war.War;
+import java.util.Random;
 
 public class Crossbowman
         extends UnitMaterial {
@@ -36,7 +33,7 @@ public class Crossbowman
         attrs.addLore(CivColor.Yellow + "Level 2");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "-20% to Sword Defense");
+        attrs.addLore(CivColor.LightGray + "-20% to Sword Defense"); //剑伤害
         attrs.addLore(CivColor.LightGray + "+40% to Bow Attack Damage");
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {

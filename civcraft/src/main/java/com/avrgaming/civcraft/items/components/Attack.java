@@ -83,7 +83,12 @@ public class Attack extends ItemComponent {
             if (loreEnhancement instanceof LoreEnhancementAttack) {
                 extraAtt += ((LoreEnhancementAttack) loreEnhancement).getExtraAttack(attrs);
             }
-            if (loreEnhancement instanceof LoreEnhancementPoison && !event.isCancelled() && event.getEntity() instanceof LivingEntity && !(event.getEntity() instanceof ArmorStand) && !(event.getEntity() instanceof Slime)) {
+            //中毒？
+            if (loreEnhancement instanceof LoreEnhancementPoison
+                    && !event.isCancelled()
+                    && event.getEntity() instanceof LivingEntity
+                    && !(event.getEntity() instanceof ArmorStand)
+                    && !(event.getEntity() instanceof Slime)) {
                 if (!(event.getEntity() instanceof Player)) {
                     ((LivingEntity) event.getEntity()).addPotionEffect(new PotionEffect(PotionEffectType.POISON, 50, 1));
                 } else {
@@ -95,14 +100,26 @@ public class Attack extends ItemComponent {
                     }
                 }
             }
-            if (loreEnhancement instanceof LoreEnhancementLevitate && !event.isCancelled() && event.getEntity() instanceof LivingEntity && !(event.getEntity() instanceof ArmorStand) && !(event.getEntity() instanceof Slime) && event.getEntity() instanceof Player && !(resident = CivGlobal.getResident(player = (Player) event.getEntity())).isLevitateImmune()) {
+            //击飞？
+            if (loreEnhancement instanceof LoreEnhancementLevitate
+                    && !event.isCancelled()
+                    && event.getEntity() instanceof LivingEntity
+                    && !(event.getEntity() instanceof ArmorStand)
+                    && !(event.getEntity() instanceof Slime)
+                    && event.getEntity() instanceof Player
+                    && !(resident = CivGlobal.getResident(player = (Player) event.getEntity())).isLevitateImmune()) {
                 resident.addLevitateImmune();
                 new Levitate(player, 3000L).start();
             }
             int lightning_chance = CivCraft.civRandom.nextInt(1000000);
-            if (!(loreEnhancement instanceof LoreEnhancementLightningStrike) || event.isCancelled() || lightning_chance > 55000)
+            //雷击
+            if (!(loreEnhancement instanceof LoreEnhancementLightningStrike)
+                    || event.isCancelled()
+                    || lightning_chance > 55000)
                 continue;
-            if (event.getEntity() instanceof LivingEntity && !(event.getEntity() instanceof ArmorStand) && !(event.getEntity() instanceof Slime)) {
+            if (event.getEntity() instanceof LivingEntity
+                    && !(event.getEntity() instanceof ArmorStand)
+                    && !(event.getEntity() instanceof Slime)) {
                 LivingEntity toDamage = (LivingEntity) event.getEntity();
                 toDamage.getWorld().strikeLightningEffect(toDamage.getLocation());
                 if (toDamage.getHealth() - 6.0 > 0.0) {

@@ -19,7 +19,7 @@ public enum ArmorType {
 
     /**
      * Attempts to match the ArmorType for the specified ItemStack.
-     *
+     * 尝试匹配指定ItemStack的ArmorType。
      * @param itemStack The ItemStack to parse the type of.
      * @return The parsed ArmorType. (null if none were found.)
      */

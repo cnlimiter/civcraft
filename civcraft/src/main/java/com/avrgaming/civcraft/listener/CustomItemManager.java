@@ -279,6 +279,7 @@ public class CustomItemManager implements Listener {
 
         if (event.getDamager() instanceof LightningStrike) {
             /* Return after Tesla tower does damage, do not apply armor defense. */
+            // 特斯拉塔楼损坏后返回，不进行装甲防御
             try {
                 event.setDamage(CivSettings.getInteger(CivSettings.warConfig, "tesla_tower.damage"));
                 return;
@@ -305,8 +306,9 @@ public class CustomItemManager implements Listener {
                     afc.destroy(event.getDamager());
                     if (defendingPlayer != null) {
                         Resident defenderResident = CivGlobal.getResident(defendingPlayer);
-                        if (defenderResident != null && defenderResident.hasTown() &&
-                                defenderResident.getTown().getCiv() == afc.getFromTower().getTown().getCiv()) {
+                        if (defenderResident != null
+                                && defenderResident.hasTown()
+                                && defenderResident.getTown().getCiv() == afc.getFromTower().getTown().getCiv()) {
                             /* Prevent friendly fire from arrow towers. */
                             event.setCancelled(true);
                             return;

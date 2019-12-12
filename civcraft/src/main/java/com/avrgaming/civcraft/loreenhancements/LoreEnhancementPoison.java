@@ -1,14 +1,12 @@
 
 package com.avrgaming.civcraft.loreenhancements;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
 import org.bukkit.inventory.ItemStack;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
-import com.avrgaming.civcraft.util.CivColor;
 
-public class LoreEnhancementPoison
-        extends LoreEnhancement {
+public class LoreEnhancementPoison extends LoreEnhancement {
     @Override
     public String getDisplayName() {
         return CivColor.LightGreenBold + CivSettings.localize.localizedString("itemLore_poision");

@@ -32,7 +32,7 @@ public class Musketman extends UnitMaterial {
         attrs.addLore("§bLevel 3");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "+50% Sword Attack Bonus");
+        attrs.addLore(CivColor.LightGray + "+50% Sword Attack Bonus"); //剑
         attrs.addLore(CivColor.LightGray + "-25% Bow Damage");
         attrs.addLore(CivColor.LightGray + "+15% Armor Bonus");
         is = attrs.getStack();

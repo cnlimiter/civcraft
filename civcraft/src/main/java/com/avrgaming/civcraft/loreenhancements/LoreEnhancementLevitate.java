@@ -1,14 +1,12 @@
 
 package com.avrgaming.civcraft.loreenhancements;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
 import org.bukkit.inventory.ItemStack;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
-import com.avrgaming.civcraft.util.CivColor;
 
-public class LoreEnhancementLevitate
-        extends LoreEnhancement {
+public class LoreEnhancementLevitate extends LoreEnhancement {
     @Override
     public String getDisplayName() {
         return CivColor.LightGrayBold + CivSettings.localize.localizedString("itemLore_levitate");

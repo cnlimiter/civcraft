@@ -278,7 +278,6 @@ public class BlockListener implements Listener {
         if (event.getDamager() instanceof Fireball) {
             CannonFiredCache cfc = CivCache.cannonBallsFired.get(event.getDamager().getUniqueId());
             if (cfc != null) {
-
                 cfc.setHit(true);
                 cfc.destroy(event.getDamager());
                 Buildable whoFired = cfc.getWhoFired();

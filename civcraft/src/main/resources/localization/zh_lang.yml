@@ -4092,7 +4092,8 @@ ordinary_settlerOnlyInBarracks: "You can train units only in Barracks!"
 
 PlayerLoginAsync_loginNotAllies: "You were teleported home, because you were not in allied land"
 loreEnh_LightStrike: "Lightning strike"
-loreEnh_LightStrike_Sucusses2: "[%0] sent you a charge of lightning and inflicted 3 pure damage!"
+#loreEnh_LightStrike_Sucusses2: "[%0] sent you a charge of lightning and inflicted 3 pure damage!"
+loreEnh_LightStrike_Sucusses2: "[%0]向你发送了闪电，并造成了3点纯净伤害！"
 
 var_plc_entityMessage: "Tesla from [%0] Damaged you!"
 
@@ -4442,8 +4443,10 @@ cmd_town_info_tradeship_stagnateDebuff: "For every hour spent in a SIMPLE Commer
 
 var_buildable_cannotSabotaged: "[%0] can not be destroyed by sabotage, because it contains the Trade Resource"
 
-loreEnh_LightStrike_warning: "You could not send a bolt of lightning to this creature, for this is a LIQUID creature!"
-loreEnh_LightStrike_Sucusses: "You sent a lightning bolt to [%1] [%0] and inflicted 3 pure damage!"
+#loreEnh_LightStrike_warning: "You could not send a bolt of lightning to this creature, for this is a LIQUID creature!"
+loreEnh_LightStrike_warning: "你无法向该生物发送闪电，因为这是液体生物！"
+#loreEnh_LightStrike_Sucusses: "You sent a lightning bolt to [%1] [%0] and inflicted 3 pure damage!"
+loreEnh_LightStrike_Sucusses: "你向[%1] [%0]发射了闪电，并造成了3点纯净伤害！"
 
 #tutorial_lore_clicktoView: "<Click to Upgrade>"
 #tutorial_lore_clicktoView: "<点击以升级>"
@@ -4485,6 +4488,7 @@ itemLore_levitate: "Force the enemy to levitate"
 itemLore_techOnly: "Tech Required"
 #itemLore_evrei: "Increases Mob money drops"
 itemLore_evrei: "提高怪物金钱掉落"
+itemLore_Souldbound: "灵魂绑定"
 
 requ: "需要: "
 clicktoresearch: "<点击研究>"

@@ -189,7 +189,7 @@ public class UnitMaterial extends LoreMaterial {
 
         try {
             String[] split = loreLine.split(CivColor.Black);
-            int townId = Integer.valueOf(split[1]);
+            int townId = Integer.parseInt(split[1]);
 
             return CivGlobal.getTownFromId(townId);
         } catch (Exception e) {

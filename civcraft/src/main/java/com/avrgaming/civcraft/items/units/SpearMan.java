@@ -32,7 +32,7 @@ public class SpearMan extends UnitMaterial {
         attrs.addLore(CivColor.Yellow + "Level 2");
         attrs.addLore(CivColor.LightGray + "Effect:");
         attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "+5% Sword Attack Bonus");
+        attrs.addLore(CivColor.LightGray + "+5% Sword Attack Bonus"); //剑
         attrs.addLore(CivColor.LightGray + "+10% Bow Attack Bonus");
         attrs.addLore(CivColor.LightGray + "+30% Armor Bonus");
         is = attrs.getStack();

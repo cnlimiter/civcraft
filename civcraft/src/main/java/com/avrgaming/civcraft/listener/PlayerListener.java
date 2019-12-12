@@ -76,7 +76,6 @@ import java.util.Date;
 public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerPickup(PlayerPickupItemEvent event) {
-
         String name;
         boolean rare = false;
         ItemStack item = event.getItem().getItemStack();
@@ -632,7 +631,9 @@ public class PlayerListener implements Listener {
         }
 
         double dmg = event.getDamage();
-        if (event.getDamager() instanceof Player && attacker != null && Civilization.civHasBuiltColossus(CivGlobal.getResident(attacker))) {
+        if (event.getDamager() instanceof Player
+                && attacker != null
+                && Civilization.civHasBuiltColossus(CivGlobal.getResident(attacker))) {
             dmg += 1.0;
         }
         if (!event.isCancelled() && event.getEntity() instanceof LivingEntity) {

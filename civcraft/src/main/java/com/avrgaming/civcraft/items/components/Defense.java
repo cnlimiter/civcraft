@@ -70,6 +70,7 @@ public class Defense extends ItemComponent {
         }
 
         defValue += extraDef;
+        // TODO :护甲额外增伤
         double damage = event.getDamage();
 
         if (event.getEntity() instanceof Player) {
