@@ -63,7 +63,7 @@ units:
     item_id: 330
     item_data: 0
 
-  - id: 'a_archer'
+  - id: 'a_archer' # 完成
     name: "弓箭手"
     class_name: 'Archer'
     require_tech: 'tech_republic'

@@ -18,14 +18,9 @@
  */
 package com.avrgaming.civcraft.items.components;
 
-import gpl.AttributeUtil;
-
-import org.bukkit.entity.Player;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.items.units.Unit;
 import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
 import com.avrgaming.civcraft.loreenhancements.LoreEnhancementDefense;
 import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
@@ -33,6 +28,11 @@ import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.util.CivColor;
+import gpl.AttributeUtil;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class Defense extends ItemComponent {
 
@@ -53,7 +53,7 @@ public class Defense extends ItemComponent {
     @Override
     public void onDefense(EntityDamageByEntityEvent event, ItemStack stack) {
         double defValue = this.getDouble("value");
-
+        ConfigUnit artifact = Unit.getPlayerUnit((Player) event.getEntity());
         /* Try to get any extra defense enhancements from this item. */
         LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(stack);
         if (craftMat == null) {
@@ -71,6 +71,30 @@ public class Defense extends ItemComponent {
 
         defValue += extraDef;
         // TODO :护甲额外增伤
+        if (artifact != null) {
+            switch (artifact.id) {
+                case "a_berserker": {
+                    defValue *= 1.15;
+                    break;
+                }
+                case "a_spearman": {
+                    defValue *= 1.3;
+                    break;
+                }
+                case "a_slinger": {
+                    defValue *= 1.15;
+                    break;
+                }
+                case "a_musketman": {
+                    defValue *= 1.15;
+                    break;
+                }
+                case "a_knight": {
+                    defValue *= 1.45;
+                    break;
+                }
+            }
+        }
         double damage = event.getDamage();
 
         if (event.getEntity() instanceof Player) {

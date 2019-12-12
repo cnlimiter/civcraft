@@ -1,25 +1,22 @@
 
 package com.avrgaming.civcraft.items.components;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.interactive.InteractiveConfirmScroll;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Civilization;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
-
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerLeashEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.interactive.InteractiveConfirmScroll;
-import com.avrgaming.civcraft.items.components.ItemComponent;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.util.CivColor;
 
-public class ProcessScroll
-        extends ItemComponent {
+public class ProcessScroll extends ItemComponent {
     @Override
     public void onPrepareCreate(AttributeUtil attrUtil) {
     }

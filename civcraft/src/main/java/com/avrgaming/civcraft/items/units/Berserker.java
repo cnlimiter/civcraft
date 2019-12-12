@@ -18,8 +18,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Random;
 
-public class Berserker
-        extends UnitMaterial {
+public class Berserker extends UnitMaterial {
     public Berserker(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
