@@ -778,7 +778,9 @@ public class BlockListener implements Listener {
                 return;
             } else {
                 event.setCancelled(true);
-                CivMessage.sendError(event.getPlayer(), CivSettings.localize.localizedString("blockBreak_errorCamp1") + " " + cb.getCamp().getName() + " " + CivSettings.localize.localizedString("blockBreak_errorOwnedBy") + " " + cb.getCamp().getOwner().getName());
+                CivMessage.sendError(event.getPlayer(), CivSettings.localize.localizedString("blockBreak_errorCamp1") + " " +
+                        cb.getCamp().getName() + " " + CivSettings.localize.localizedString("blockBreak_errorOwnedBy") + " " +
+                        cb.getCamp().getOwner().getName());
                 return;
             }
         }

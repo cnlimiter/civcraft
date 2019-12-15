@@ -145,7 +145,9 @@ public class Factory extends Structure {
             }
         }
         final LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterialFromId(configSpaceCraftMat.originalCraftMat);
-        final StringBuilder notMatchComponents = new StringBuilder(CivColor.Red + CivSettings.localize.localizedString("var_structure_factory_create_failed", craftMat.getName()) + CivColor.Gold);
+            final StringBuilder notMatchComponents = new StringBuilder(CivColor.Red
+                + CivSettings.localize.localizedString("var_structure_factory_create_failed", craftMat.getName())
+                + CivColor.Gold);
         final String crutches = CivColor.Red + CivSettings.localize.localizedString("var_structure_factory_create_failed_crutches", craftMat.getName()) + CivColor.Gold;
         if (!configSpaceCraftMat.civcraftComponents.equals("")) {
             for (final String component2 : split) {

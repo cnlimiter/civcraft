@@ -49,8 +49,9 @@ public class RangedAttack extends ItemComponent {
     public void onRangedAttack(EntityDamageByEntityEvent event, ItemStack inHand) {
         AttributeUtil attrs = new AttributeUtil(inHand);
         double dmg = this.getDouble("value");
-        ConfigUnit artifact = Unit.getPlayerUnit((Player) event.getDamager());
+        ConfigUnit artifact = null;
         if (event.getDamager() instanceof Arrow) {
+            artifact = Unit.getPlayerUnit((Player) ((Arrow) event.getDamager()).getShooter());
             Arrow arrow = (Arrow) event.getDamager();
             if (arrow.getShooter() instanceof Player) {
                 Player attacker = (Player) arrow.getShooter();
@@ -103,8 +104,9 @@ public class RangedAttack extends ItemComponent {
                 case "a_musketman": {
                     dmg -= dmg * 0.25;
                     break;
-                } case "a_knight":{
-                    dmg *=1.2;
+                }
+                case "a_knight": {
+                    dmg *= 1.2;
                     break;
                 }
             }
