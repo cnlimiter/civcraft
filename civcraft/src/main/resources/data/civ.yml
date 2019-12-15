@@ -26,10 +26,10 @@ global:
         - '366:10'
         - '345:1'
         - 'mat_tutorial_book:1'
-      #  - 'mat_found_camp:1'
+        - 'mat_found_camp:1'
 
    # 从注册后，新手保护将持续多长时间(mins)
-   pvp_timer: 120
+   pvp_timer: 360
 
    # Regen spawn at midnight every day.
    regen_spawn_hour: 0

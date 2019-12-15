@@ -2514,9 +2514,9 @@ var_playerListen_potionNoTech: " 无法使用药水，因为你还没有 [%0] �
 playerListen_denyUse: "你不能使用这种药水."
 playerListen_combatHeading: "[战斗]"
 #var_playerListen_combatDefend: "[%0] damaged you by [%1]"
-var_playerListen_combatDefend: "[%0] 用 [%1] 伤害了你"
+var_playerListen_combatDefend: "[%0] 对你造成了 [%1] 点伤害"
 #var_playerListen_attack: "[%0] was damaged by [%1]"
-var_playerListen_attack: "[%0] 被 [%1] 伤害了"
+var_playerListen_attack: "你对 [%0] 造成了 [%1] 点伤害"
 
 # =========================== Lore Enhancement Messages =========================
 #loreEnhancement_arenaRemoved: "Some items were removed since they were arena items."
@@ -3956,7 +3956,8 @@ cmd_space_future: "Future Missions"
 cmd_space_completed: "Completed Missions"
 
 structure_portal_sign: "Teleport to\nHell"
-var_structure_factory_create_failed: "Failed to create a '[%0],' Not enough Componenets: "
+#var_structure_factory_create_failed: "Failed to create a '[%0],' Not enough Componenets: "
+var_structure_factory_create_failed: "无法制造'[%0]'，没有足够的组件："
 var_structure_factory_create_failed_crutches: "Failed to create a '[%0],' Not enough Componenets. Still need: "
 structure_factory_pieces: "pieces"
 factory_sign_craft: "Construct"
@@ -4333,7 +4334,8 @@ var_townHall_didDestroyNeus: "[%0]镇有新天鹅堡。想要捕获它，你需�
 var_buildable_cannotAttackNeu: "You cannot break the Neushwanstein Castle until the town of [%0] is captured!"
 var_neuschwanstein_generatedCoins: "Neuschwanstein Castle, built in the town [%3], brought [%0] [%1] for [%2] [%4] in the world!"
 
-var_science_w8: "Count...."
+#var_science_w8: "Count...."
+var_science_w8: "统计中...."
 
 cmd_civ_talent_choose_numberformat: "[%0] is not a number"
 
@@ -4494,6 +4496,7 @@ cmd_pasteruin: "Paste any ruin"
 cmd_pasteruin_list: "Enter the name of the ruins from the following list: [%0]"
 cmd_pasteruin_success: "Successfully inserted ..."
 
+structure_factory_sign_construct: "制作"
 barracks_repair_noRepairEnch: "This item can not be repaired, because it was bought or dropped from the ruins."
 itemLore_noRepair: "Unrepairable"
 itemLore_noTech: "Tech not Required"

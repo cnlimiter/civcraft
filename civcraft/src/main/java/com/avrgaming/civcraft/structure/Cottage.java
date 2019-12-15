@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import org.bukkit.Location;
-import org.bukkit.inventory.Inventory;
-
 import com.avrgaming.civcraft.components.ConsumeLevelComponent;
 import com.avrgaming.civcraft.components.ConsumeLevelComponent.Result;
 import com.avrgaming.civcraft.config.CivSettings;
@@ -44,6 +37,12 @@ import com.avrgaming.civcraft.threading.CivAsyncTask;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.MultiInventory;
+import org.bukkit.Location;
+import org.bukkit.inventory.Inventory;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Cottage extends Structure {
 
@@ -266,7 +265,6 @@ public class Cottage extends Structure {
         } else {
             CivMessage.sendTown(this.getTown(), CivColor.LightGreen + CivSettings.localize.localizedString("var_cottage_grew_base", getConsumeComponent().getLevel(), stateMessage, total_coins, CivSettings.CURRENCY_NAME, ""));
         }
-
         this.getTown().getTreasury().deposit(total_coins - taxesPaid);
         this.getTown().getDepositCiv().taxPayment(this.getTown(), taxesPaid);
     }

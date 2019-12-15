@@ -564,15 +564,13 @@ public class PlayerListener implements Listener {
         if (attacker == null && defender == null) {
             return;
         }
-        // TODO:这部分貌似有问题
-        if (attacker != null && attacker.hasPotionEffect(PotionEffectType.WEAKNESS)) {
-            event.setCancelled(true);
-            CivMessage.sendError(attacker, CivSettings.localize.localizedString("var_artifact_archer_attackForbidden"));
-            return;
-        }
 
-        if (attacker != null && arrow != null) {
-            if (attacker.hasPotionEffect(PotionEffectType.WEAKNESS)) {
+        if (attacker != null && attacker.hasPotionEffect(PotionEffectType.WEAKNESS)) {
+            if (arrow == null) {
+                event.setCancelled(true);
+                CivMessage.sendError(attacker, CivSettings.localize.localizedString("var_artifact_archer_attackForbidden"));
+                return;
+            }else {
                 event.getEntity().setFireTicks(60);
                 if (defender != null) {
                     defender.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 60, 1));
@@ -580,7 +578,6 @@ public class PlayerListener implements Listener {
                 }
             }
         }
-
 
         damage = new DecimalFormat("#.#").format(event.getDamage());
 
@@ -608,7 +605,12 @@ public class PlayerListener implements Listener {
                 }
             }
         }
-
+        double dmg = event.getDamage();
+        if (event.getDamager() instanceof Player
+                && attacker != null
+                && Civilization.civHasBuiltColossus(CivGlobal.getResident(attacker))) {
+            dmg += 1.0;
+        }
         if (attacker != null) {
             Resident attackerResident = CivGlobal.getResident(attacker);
             if (attackerResident.isCombatInfo()) {
@@ -630,12 +632,7 @@ public class PlayerListener implements Listener {
             }
         }
 
-        double dmg = event.getDamage();
-        if (event.getDamager() instanceof Player
-                && attacker != null
-                && Civilization.civHasBuiltColossus(CivGlobal.getResident(attacker))) {
-            dmg += 1.0;
-        }
+
         if (!event.isCancelled() && event.getEntity() instanceof LivingEntity) {
             LivingEntity def = (LivingEntity) event.getEntity();
             if (def.getHealth() - dmg > 0.0) {
