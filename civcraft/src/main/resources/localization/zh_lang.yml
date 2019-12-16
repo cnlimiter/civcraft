@@ -4497,6 +4497,7 @@ cmd_pasteruin: "Paste any ruin"
 cmd_pasteruin_list: "Enter the name of the ruins from the following list: [%0]"
 cmd_pasteruin_success: "Successfully inserted ..."
 
+structure_factory_sign_construct: "制作"
 barracks_repair_noRepairEnch: "This item can not be repaired, because it was bought or dropped from the ruins."
 itemLore_noRepair: "Unrepairable"
 itemLore_noTech: "Tech not Required"

@@ -599,7 +599,7 @@ road:
     #   signs: <list of signs attached to structure>
     #      id: <unique numerical identifier for sign>
     #      action: <name of function with params>
-    #      (... can contain as many signs as needed)
+  #      (... can contain as many signs as needed)
 
 structures:
   - id: s_townhall
@@ -1685,7 +1685,7 @@ structures:
         attribute: 'TRADE'
         value: '0.1'
 
-  - id: s_stable2
+  - id: s_stable
     template: stable
     template_y_shift: -2
     displayName: 马厩
@@ -1878,28 +1878,28 @@ structures:
     ignore_floating: true
 
   ##没模板
-  #- id: ti_lab
-  #  template: lab
-  #  template_y_shift: 0
-  # # displayName: Обсерватория
-  #  displayName: 天文台
-  #  require_upgrade:
-  #  require_tech: 'tech_innovation'
-  #  effect_event: process_lab
-  #  check_event:
-  #  update_event:
-  #  onBuild_event:
-  #  limit: 3
-  #  cost: 100000.0
-  # upkeep: 4500.0
-  #  tile_improvement: true
-  #  hammer_cost: 3600.0
-  #  points: 6200
-  #  max_hitpoints: 1200
-  #  allow_outside_town: false
-  #  components:
-  #      - name: 'AttributeBiomeRadiusPerLevel'
-  #        attribute: 'BEAKERS'
-  #        biomes: 'OCEAN:3,TAGIA:3,DESERT_HILLS:3,DEEP_OCEAN:3,DESERT:1'
-  #        base_value: '7.0'
-  #      - name: 'ConsumeLevelComponent'
+  - id: ti_lab
+    template: lab
+    template_y_shift: 0
+    # displayName: Обсерватория
+    displayName: 天文台
+    require_upgrade:
+    require_tech: 'tech_innovation'
+    effect_event: process_lab
+    check_event:
+    update_event:
+    onBuild_event:
+    limit: 3
+    cost: 100000.0
+    upkeep: 4500.0
+    tile_improvement: true
+    hammer_cost: 3600.0
+    points: 6200
+    max_hitpoints: 1200
+    allow_outside_town: false
+    components:
+      - name: 'AttributeBiomeRadiusPerLevel'
+        attribute: 'BEAKERS'
+        biomes: 'OCEAN:3,TAGIA:3,DESERT_HILLS:3,DEEP_OCEAN:3,DESERT:1'
+        base_value: '7.0'
+      - name: 'ConsumeLevelComponent'

@@ -360,13 +360,16 @@ public class BlockListener implements Listener {
         return;
     }
 
+    /**
+     * 繁殖
+     */
     @EventHandler(priority = EventPriority.NORMAL)
     public void OnCreateSpawnEvent(CreatureSpawnEvent event) {
 
-        if (event.getSpawnReason().equals(SpawnReason.BREEDING)) {
+        if (event.getSpawnReason().equals(SpawnReason.BREEDING)
+                || event.getSpawnReason().equals(SpawnReason.SPAWNER_EGG)) {
             ChunkCoord coord = new ChunkCoord(event.getEntity().getLocation());
             Pasture pasture = Pasture.pastureChunks.get(coord);
-
             if (pasture != null) {
                 pasture.onBreed(event.getEntity());
             }
@@ -601,7 +604,8 @@ public class BlockListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void OnBlockFormEvent(BlockFormEvent event) {
         /* Disable cobblestone generators. */
-        if (ItemManager.getId(event.getNewState()) == CivData.COBBLESTONE || ItemManager.getId(event.getNewState()) == CivData.OBSIDIAN) {
+        if (ItemManager.getId(event.getNewState()) == CivData.COBBLESTONE
+                || ItemManager.getId(event.getNewState()) == CivData.OBSIDIAN) {
             ItemManager.setTypeId(event.getNewState(), CivData.NETHERRACK);
             return;
         }

@@ -111,6 +111,17 @@ public class EffectEventTimer extends CivAsyncTask {
                         }
                     }
                     break;
+                case "process_lab":{
+                    if (struct instanceof Lab){
+                        Lab lab = (Lab) struct;
+                        try {
+                            lab.process_lab(this);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    break;
+                }
             }
 
         }

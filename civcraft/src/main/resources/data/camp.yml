@@ -9,7 +9,7 @@ camp:
     regen_rate: 2
 
     # 没有煤炭，营地可以存活多久
-    firepoints: 24
+    firepoints: 72
 
     # 一个小时消耗多少煤炭
     coal_per_firepoint: 4
