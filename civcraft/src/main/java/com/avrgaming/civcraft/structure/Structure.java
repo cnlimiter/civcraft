@@ -176,7 +176,6 @@ public class Structure extends Buildable {
                 }
                 struct = new Stable2(rs);
                 break;
-
             case "s_stadium":
                 if (rs == null) {
                     struct = (Structure) new Stadium(center, id, town);

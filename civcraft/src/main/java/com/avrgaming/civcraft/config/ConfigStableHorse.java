@@ -18,12 +18,11 @@
  */
 package com.avrgaming.civcraft.config;
 
-import java.util.List;
-import java.util.Map;
-
+import com.avrgaming.civcraft.main.CivLog;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import com.avrgaming.civcraft.main.CivLog;
+import java.util.List;
+import java.util.Map;
 
 public class ConfigStableHorse {
     public int id;
@@ -47,7 +46,7 @@ public class ConfigStableHorse {
             horse.name = (String) level.get("name");
 
             Boolean mule = (Boolean) level.get("mule");
-            if (mule == null || mule == false) {
+            if (mule == null || !mule) {
                 horse.mule = false;
             } else {
                 horse.mule = true;
