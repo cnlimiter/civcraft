@@ -1201,7 +1201,7 @@ materials:
         - id: 'mat_artisan_leather'
           item_id: 31
           item_data: 0
-          name: 'T4 工匠级皮革'
+          name: 'T4 手工皮革'
           craftable: true
           shaped: false
           tradeable: true
@@ -1369,7 +1369,7 @@ materials:
         - id: 'mat_found_civ'
           item_id: 369
           item_data: 0
-          name: '建立文明旗帜'
+          name: '文明建立旗帜'
           craftable: true
           shaped: true
           category: '特殊'
@@ -2077,7 +2077,7 @@ materials:
         - id: 'mat_iron_sword'
           item_id: 267
           item_data: 0
-          name: '铁短剑'
+          name: '铁制短剑'
           craftable: true
           required_techs: 'tech_metal_casting'
           shaped: true
@@ -2335,7 +2335,7 @@ materials:
         - id: 'mat_carbide_steel_sword'
           item_id: 283
           item_data: 0
-          name: '硬质合金剑'
+          name: '硬质合金钢剑'
           craftable: true
           required_techs: 'tech_folded_steel'
           shaped: true
@@ -2364,7 +2364,7 @@ materials:
         - id: 'mat_carbide_steel_helmet'
           item_id: 314
           item_data: 0
-          name: '硬质合金头盔'
+          name: '硬质合金钢头盔'
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
@@ -2414,7 +2414,7 @@ materials:
         - id: 'mat_carbide_steel_leggings'
           item_id: 316
           item_data: 0
-          name: '硬质合金护腿'
+          name: '硬质合金钢护腿'
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
@@ -2439,7 +2439,7 @@ materials:
         - id: 'mat_carbide_steel_boots'
           item_id: 317
           item_data: 0
-          name: '硬质合金靴子'
+          name: '硬质合金钢靴子'
           craftable: true
           required_techs: 'tech_chemical_bonding'
           shaped: true
@@ -2467,7 +2467,7 @@ materials:
         - id: 'mat_tungsten_sword'
           item_id: 276
           item_data: 0
-          name: '钨制剑'
+          name: '钨钢剑'
           craftable: true
           required_techs: 'tech_tempering'
           shaped: true
@@ -2496,7 +2496,7 @@ materials:
         - id: 'mat_tungsten_boots'
           item_id: 313
           item_data: 0
-          name: '钨制靴子'
+          name: '钨钢靴子'
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
@@ -2521,7 +2521,7 @@ materials:
         - id: 'mat_tungsten_chestplate'
           item_id: 311 
           item_data: 0
-          name: '钨制胸甲'
+          name: '钨钢胸甲'
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
@@ -2546,7 +2546,7 @@ materials:
         - id: 'mat_tungsten_leggings'
           item_id: 312
           item_data: 0
-          name: '钨制护腿'
+          name: '钨钢护腿'
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
@@ -2571,7 +2571,7 @@ materials:
         - id: 'mat_tungsten_helmet'
           item_id: 310
           item_data: 0
-          name: '钨制头盔'
+          name: '钨钢头盔'
           craftable: true
           required_techs: 'tech_forging'
           shaped: true
@@ -2597,7 +2597,7 @@ materials:
         - id: 'mat_hell_leather_helmet'
           item_id: 298
           item_data: 0
-          name: 'Hell Helmet'
+          name: '地狱头盔'
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
@@ -2633,7 +2633,7 @@ materials:
         - id: 'mat_hell_leather_chestplate'
           item_id: 299
           item_data: 0
-          name: 'Hell Chestplate'
+          name: '地狱胸甲'
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
@@ -2673,7 +2673,7 @@ materials:
         - id: 'mat_hell_leather_leggings'
           item_id: 300
           item_data: 0
-          name: 'Hell Pants'
+          name: '地狱护腿'
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
@@ -2709,7 +2709,7 @@ materials:
         - id: 'mat_hell_leather_boots'
           item_id: 301
           item_data: 0
-          name: 'Hell Boots'
+          name: '地狱靴子'
           craftable: false
           required_techs: 'tech_leather_refinement'
           shaped: true
@@ -2741,7 +2741,7 @@ materials:
         - id: 'mat_hell_bow'
           item_id: 261
           item_data: 0
-          name: 'Hell Bow'
+          name: '地狱弓'
           craftable: false
           required_techs: 'tech_fletching'
           shaped: true
@@ -2774,7 +2774,7 @@ materials:
         - id: 'mat_hell_sword'
           item_id: 267
           item_data: 0
-          name: 'Hell Sword'
+          name: '地狱剑'
           craftable: false
           required_techs: 'tech_sword_smithing'
           shaped: true
@@ -4996,7 +4996,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.1
-          category: '<lightpurple>打捞的落物'
+          category: '<lightpurple>打捞的残余'
           components:
               - name: 'NoRightClick'
 
@@ -5009,7 +5009,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.1
-          category: '<lightpurple>打捞的落物'
+          category: '<lightpurple>打捞的残余'
           components:
               - name: 'NoRightClick'
 
@@ -5022,7 +5022,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.1
-          category: '<lightpurple>打捞的落物'
+          category: '<lightpurple>打捞的残余'
           components:
               - name: 'NoRightClick'
 
@@ -5035,7 +5035,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.5
-          category: '<lightpurple>打捞的落物'
+          category: '<lightpurple>打捞的残余'
           components:
               - name: 'NoRightClick'
 
@@ -5048,7 +5048,7 @@ materials:
           shiny: false
           tradeable: true
           tradeValue: 0.2
-          category: '<lightpurple>打捞的落物'
+          category: '<lightpurple>打捞的残余'
           components:
               - name: 'NoRightClick'
 
@@ -5081,13 +5081,13 @@ materials:
         - id: 'mat_fish_cutthroat_trout'
           item_id: 349
           item_data: 1
-          name: '美洲鲑'
+          name: '割喉鳟'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>T3级鱼'
+          category: '克拉克大麻哈鱼 <lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5100,20 +5100,20 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>T4级鱼'
+          category: '虹鲑 <gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_atlantic_striped_bass'
           item_id: 350
           item_data: 0
-          name: '条纹鲈鱼'
+          name: '大西洋条纹鲈'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>T1级鱼'
+          category: '银花鲈鱼<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5126,7 +5126,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>T2级鱼'
+          category: '革平鲉 <lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5139,7 +5139,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>T3级鱼'
+          category: '条纹平鲉 <lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5152,33 +5152,33 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>T4级鱼'
+          category: '寡平鲉 <gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_atlantic_surfclam'
           item_id: 353
           item_data: 0
-          name: '大西洋蛤'
+          name: '大西洋海蛤'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>T1级鱼'
+          category: '大西洋冲浪马珂蛤 <lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_ocean_quahog'
           item_id: 289
           item_data: 0
-          name: '美人蛤'
+          name: '冰岛鸟蛤'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>T2级鱼'
+          category: '北极蛤 <lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5191,20 +5191,20 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>T3级鱼'
+          category: '蚌蛎 <lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_geoduck'
           item_id: 414
           item_data: 0
-          name: '陆蛤'
+          name: '象拔蚌'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>T4级鱼'
+          category: '太平洋潜泥蛤 <gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5217,20 +5217,20 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>T1级鱼'
+          category: '常见鳕鱼<lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_pacific_cod'
           item_id: 349
           item_data: 1
-          name: '太平洋狭鳕'
+          name: '太平洋鳕'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>T2级鱼'
+          category: '大头鳕 <lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5243,7 +5243,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>T3级鱼'
+          category: '长蛇齿单线鱼 <lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5256,59 +5256,59 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>T4级鱼'
+          category: '裸盖鱼 <gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_arrowtooth_flounder'
           item_id: 349
           item_data: 3
-          name: '冻箭齿鲽鱼'
+          name: '箭齿比目鱼'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>T1级鱼'
+          category: '美洲箭齿鲽 <lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_summer_flounder'
           item_id: 349
           item_data: 3
-          name: '夏鲽鱼'
+          name: '夏季比目鱼'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>T2级鱼'
+          category: '大西洋牙鲆 <lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_winter_flounder'
           item_id: 349
           item_data: 3
-          name: '美洲拟鲽'
+          name: '冬季比目鱼'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>T3级鱼'
+          category: '美洲拟鲽/黑背 <lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_yellowtail_flounder'
           item_id: 349
           item_data: 3
-          name: '美洲黄盖鲽'
+          name: '黄尾比目鱼'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>T4级鱼'
+          category: '大西洋黄盖鲽 <gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5321,7 +5321,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '<lightgreen>T1级鱼'
+          category: '小鳞喙鲈 <lightgreen>T1级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5334,7 +5334,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '<lightblue>T2级鱼'
+          category: '黑缘石斑鱼 <lightblue>T2级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5347,20 +5347,20 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '<lightpurple>T3级鱼'
+          category: '海洋石斑鱼 条纹锯鮨 <lightpurple>T3级鱼'
           components:
               - name: 'NoRightClick'
 
         - id: 'mat_fish_wreckfish'
           item_id: 350
           item_data: 0
-          name: '多锯鲷'
+          name: '沉船鱼'
           shaped: true
           craftable: false
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '<gold>T4级鱼'
+          category: '辐鳍鱼纲鲈形目多锯鲈科 <gold>T4级鱼'
           components:
               - name: 'NoRightClick'
 
@@ -5406,7 +5406,7 @@ materials:
         - id: 'mat_fish_pufferfish'
           item_id: 349
           item_data: 3
-          name: '河豚鱼'
+          name: '河豚'
           shaped: true
           craftable: false
           shiny: false
@@ -5585,7 +5585,7 @@ materials:
         - id: 'mat_solar_sail'
           item_id: 425
           item_data: 11
-          name: '太阳能帆'
+          name: '太阳帆'
           craftable: false
           shaped: false
           category: '<gold>宇宙飞船部件'
@@ -5670,7 +5670,7 @@ materials:
         - id: 'mat_found_space_shuttle'
           item_id: 330
           item_data: 0
-          name: '发现号宇宙飞船'
+          name: '发现号航天飞机'
           craftable: true
           shaped: false
           category: '<gold>宇宙飞船部件'
@@ -5698,7 +5698,7 @@ materials:
         - id: 'mat_scroll'
           item_id: 358
           item_data: 0
-          name: 'Scroll'
+          name: '卷轴'
           craftable: true
           shaped: false
           category: '特殊'
@@ -5715,7 +5715,7 @@ materials:
         - id: 'mat_crutches2'
           item_id: 7
           item_data: 0
-          name: 'crutches2'
+          name: '破旧脚手架'
           craftable: false
           shaped: false
           category: '<gold>可以在遗迹找到'
