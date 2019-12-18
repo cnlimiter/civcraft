@@ -185,8 +185,8 @@ blacksmith:
 cottage_levels:
   - level: 1
     consumes:
-      - 297,1
-      - 391,1
+      - 297,1 #面包
+      - 391,1 #萝卜
     count: 24
     coins: 75.0
 
@@ -1889,7 +1889,7 @@ structures:
     check_event:
     update_event:
     onBuild_event:
-    limit: 3
+    limit: 1
     cost: 100000.0
     upkeep: 4500.0
     tile_improvement: true

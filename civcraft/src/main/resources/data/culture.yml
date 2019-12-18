@@ -275,8 +275,8 @@ culture_biomes:
 
   - name: DESERT
     coins: 0.0
-    hammers: 0.25
-    growth: 1.0
+    hammers: 0.3125
+    growth: 0.1875
     happiness: 0.03
     beakers: 1.0
 

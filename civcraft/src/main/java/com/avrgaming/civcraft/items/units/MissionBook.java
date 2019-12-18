@@ -221,6 +221,10 @@ public class MissionBook extends UnitItemMaterial {
                 case "spy_subvert_government":
                     performSubertGov(player, mission);
                     break;
+
+                case "spy_ravage_technology":
+                    performRavageTechnology(player, mission);
+                    break;
             }
 
         } catch (CivException e) {
@@ -232,8 +236,7 @@ public class MissionBook extends UnitItemMaterial {
         return processMissionResult(player, target, mission, 1.0, 1.0);
     }
 
-    private static boolean processMissionResult(Player player, Town target, ConfigMission mission, double failModifier,
-                                                double compromiseModifier) {
+    private static boolean processMissionResult(Player player, Town target, ConfigMission mission, double failModifier, double compromiseModifier) {
 
         int fail_rate = (int) ((MissionBook.getMissionFailChance(mission, target) * failModifier) * 100);
         int compromise_rate = (int) ((MissionBook.getMissionCompromiseChance(mission, target) * compromiseModifier) * 100);
@@ -621,7 +624,6 @@ public class MissionBook extends UnitItemMaterial {
         if (processMissionResult(player, tc.getTown(), mission)) {
             civ.changeGovernment(civ, civ.getGovernment(), true);
             CivMessage.global(CivColor.Yellow + CivSettings.localize.localizedString("missionBook_sabatoge_alert1") + CivColor.White + " " + CivSettings.localize.localizedString("var_missionBook_subvert_alert1", civ.getName()));
-
             CivMessage.sendSuccess(player, CivSettings.localize.localizedString("var_missionBook_subvert_success1", civ.getName()));
         }
 
@@ -629,6 +631,42 @@ public class MissionBook extends UnitItemMaterial {
 
     private static void performInciteRiots(Player player, ConfigMission mission) throws CivException {
         throw new CivException(CivSettings.localize.localizedString("missionBook_Invalid"));
+    }
+
+    public static void performRavageTechnology(Player player, ConfigMission mission) throws CivException {
+        Resident resident = CivGlobal.getResident(player);
+        if (resident == null || !resident.hasTown()) {
+            throw new CivException(CivSettings.localize.localizedString("missionBook_errorNotResident"));
+        }
+
+        // Must be within enemy town borders.
+        ChunkCoord coord = new ChunkCoord(player.getLocation());
+        TownChunk tc = CivGlobal.getTownChunk(coord);
+        if (tc == null || tc.getTown().getCiv() == resident.getTown().getCiv()) {
+            throw new CivException(CivSettings.localize.localizedString("missionBook_errorBorder"));
+        }
+
+        if (!tc.getTown().isCapitol()) {
+            throw new CivException(CivSettings.localize.localizedString("missionBook_errorCapitol", tc.getTown().getCiv().getCapitolName()));
+        }
+
+        Civilization civ = tc.getTown().getCiv();
+        if (civ.getResearchTech() == null) {
+            throw new CivException(CivSettings.localize.localizedString("missionBook_errorTech"));
+        }
+
+        if (civ.getResearchProgress() >= (civ.getResearchTech().beaker_cost / 4)) {
+            throw new CivException(CivSettings.localize.localizedString("missionBook_errorTechProgress"));
+        }
+
+        if (processMissionResult(player, tc.getTown(), mission)) {
+            civ.setResearchTech(null);
+            civ.setResearchProgress(0);
+            civ.save();
+            CivMessage.global(CivColor.Yellow + CivSettings.localize.localizedString("missionBook_caughtHeading") +
+                    CivColor.White + CivSettings.localize.localizedString("var_missionBook_tech", civ.getName()));
+            CivMessage.sendSuccess(player, CivSettings.localize.localizedString("missionBook_investigate_success"));
+        }
     }
 
 

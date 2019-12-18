@@ -18,14 +18,6 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import org.bukkit.Chunk;
-import org.bukkit.Location;
-import org.bukkit.block.Block;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivData;
@@ -37,6 +29,13 @@ import com.avrgaming.civcraft.threading.CivAsyncTask;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Farm extends Structure {
 
@@ -99,10 +98,7 @@ public class Farm extends Structure {
     }
 
     public static boolean isBlockControlled(Block b) {
-
         switch (ItemManager.getId(b)) {
-            //case CivData.BROWNMUSHROOM:
-            //case CivData.REDMUSHROOM:
             case CivData.COCOAPOD:
             case CivData.MELON:
             case CivData.MELON_STEM:
@@ -112,7 +108,7 @@ public class Farm extends Structure {
             case CivData.CARROTS:
             case CivData.POTATOES:
             case CivData.NETHERWART:
-                //	case CivData.SUGARCANE:
+            case CivData.BEETROOT_CROP:
                 return true;
         }
 

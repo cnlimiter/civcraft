@@ -18,15 +18,14 @@
  */
 package com.avrgaming.civcraft.main;
 
-import java.util.Random;
-
+import com.avrgaming.civcraft.exception.InvalidBlockLocation;
+import com.avrgaming.civcraft.util.BlockSnapshot;
+import com.avrgaming.civcraft.util.ItemManager;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 
-import com.avrgaming.civcraft.exception.InvalidBlockLocation;
-import com.avrgaming.civcraft.util.BlockSnapshot;
-import com.avrgaming.civcraft.util.ItemManager;
+import java.util.Random;
 
 public class CivData {
     //TODO make this an enum
@@ -93,6 +92,7 @@ public class CivData {
     public static final int ENDER_PEARL = 368;
     public static final int ENDER_CHEST = 130;
     public static final int BEACON = 138;
+    public static final int BEETROOT_CROP = 207;
     public static final int GUNPOWDER = 289;
 
     public static final int MONSTER_EGG = 383;

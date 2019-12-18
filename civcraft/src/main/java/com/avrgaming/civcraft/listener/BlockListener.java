@@ -1205,6 +1205,7 @@ public class BlockListener implements Listener {
 
     /*
      * Handles rotating of itemframes
+     * 点击实体调用
      */
     @EventHandler(priority = EventPriority.HIGHEST)
     public void OnPlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
@@ -1217,10 +1218,14 @@ public class BlockListener implements Listener {
                 return;
             }
         }
+        // 禁用村民交互
+        if (event.getRightClicked().getType().equals(EntityType.VILLAGER)){
+            event.setCancelled(true);
+            return;
+        }
 
         ItemStack inHand = event.getPlayer().getInventory().getItemInMainHand();
         if (inHand != null) {
-
             boolean denyBreeding = false;
             switch (event.getRightClicked().getType()) {
                 case COW:

@@ -10,9 +10,13 @@ espionage:
   # 默认每秒曝光量
   exposure_per_second: 1
 
+
   # Exposure per player nearby
   # 附近每个玩家增加的曝光量
   exposure_per_player: 2
+
+  # radius to search for exposure of players
+  player_search_radius: 625
 
   # Exposure per scout tower nearby
   # 附近侦察的城镇增加的曝光量
@@ -105,19 +109,36 @@ missions:
     length: 140
     slot: 7
 
-  # - id: 'spy_subvert_government'
-  #   name: 'Subvert Government'
-  # - 颠覆政府
-  #   description:
-  #       - 'Plunges the target civiliztion into Anarchy.'
-  #       - 'Must be within 100 blocks of the capitol town hall.'
-  #   cost: 200000.0
-  #   range: 100.0
-  #   cooldown: 2.0
-  #   fail_chance: 0.40
-  #   compromise_chance: 0.4
-  #   slot: 5
-  #   online_civ: 2
+  #  - id: 'spy_subvert_government'
+  #    name: '颠覆政府'
+  #    # - 颠覆政府
+  #    description:
+  #      - '使目标文明陷入无政府状态。'
+  #      - '必须在国会大厦市政厅100个方块之内。'
+  #    cost: 200000.0
+  #    range: 100.0
+  #    cooldown: 2.0
+  #    fail_chance: 0.40
+  #    compromise_chance: 0.4
+  #    slot: 5
+  #    online_civ: 2
+
+  - id: 'spy_ravage_technology'
+    itemId: 377
+    itemData: 0
+    position: 10
+    name: 'Ravage Technology'
+    description:
+      - '移除目标文明中正在研究的技术.'
+      - '这个文明将会失去一切进展.'
+      - '必须少于75％完成。'
+    cost: 225000.0
+    range: 100.0
+    cooldown: 2.0
+    fail_chance: 0.65
+    compromise_chance: 1.0
+    intel: 3
+    length: 180
 
   - id: 'spy_poison_granary'
     #    name: 'Poison Granary'
