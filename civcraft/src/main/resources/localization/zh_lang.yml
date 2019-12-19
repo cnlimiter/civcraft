@@ -3325,7 +3325,7 @@ var_cultureProcess_townGrow: "The Town of [%0] expanded [%1] chunks."
 espionage_missionStarted: "任务开始."
 var_espionage_missionFailedAlert: "INTERNATIONAL INCIDENT! [%0] was caught trying to perform a [%1] mission in [%2]!"
 espionage_missionFailed: "You've been compromised! (Exposure got too high) Spy unit was destroyed!"
-var_espionage_secondsRemain: "[%0] seconds remain."
+var_espionage_secondsRemain: "剩余秒数: [%0]"
 #espionage_missionAborted: "You've left the civ borders. Mission Aborted."
 espionage_missionAborted: "你已经离开了文明边界。任务中止。"
 

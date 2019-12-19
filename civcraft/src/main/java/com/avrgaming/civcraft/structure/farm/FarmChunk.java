@@ -18,17 +18,6 @@
  */
 package com.avrgaming.civcraft.structure.farm;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Random;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.bukkit.Chunk;
-import org.bukkit.ChunkSnapshot;
-import org.bukkit.block.Block;
-
 import com.avrgaming.civcraft.components.ActivateOnBiome;
 import com.avrgaming.civcraft.components.Component;
 import com.avrgaming.civcraft.config.CivSettings;
@@ -43,6 +32,12 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.BlockSnapshot;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Chunk;
+import org.bukkit.ChunkSnapshot;
+import org.bukkit.block.Block;
+
+import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class FarmChunk {
     private Town town;
@@ -189,7 +184,9 @@ public class FarmChunk {
     public void growBlock(BlockSnapshot bs, BlockCoord growMe, CivAsyncTask task) throws InterruptedException {
 
         //XXX we are skipping hydration as I guess we dont seem to care.
+        // 我们正在跳过补水，因为我想我们似乎并不在乎。
         //XXX we also skip light level checks, as we dont really care about that either.
+        // 我们也跳过了光照强度检查，因为我们也不在乎。
         switch (bs.getTypeId()) {
             case CivData.WHEAT:
             case CivData.CARROTS:
@@ -221,7 +218,7 @@ public class FarmChunk {
 
     public void processGrowth(CivAsyncTask task) throws InterruptedException {
 
-        if (this.getStruct().isActive() == false) {
+        if (!this.getStruct().isActive()) {
             return;
         }
 

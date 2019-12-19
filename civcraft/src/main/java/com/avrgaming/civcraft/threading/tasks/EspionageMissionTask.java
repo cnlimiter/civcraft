@@ -81,7 +81,7 @@ public class EspionageMissionTask implements Runnable {
         CivMessage.send(player, CivColor.LightGreen + CivColor.BOLD + CivSettings.localize.localizedString("espionage_missionStarted"));
 
         while (secondsLeft > 0) {
-
+            // TODO :时间计算还得改
             if (secondsLeft > 0) {
                 secondsLeft--;
 
@@ -91,8 +91,16 @@ public class EspionageMissionTask implements Runnable {
 
                 /* Add players nearby exposure */
                 //PlayerLocationCache.lock.lock();
+                double searchRadius;
                 try {
-                    int playerCount = PlayerLocationCache.getNearbyPlayers(new BlockCoord(player.getLocation()), 600).size();
+                    searchRadius = CivSettings.getDouble(CivSettings.espionageConfig, "espionage.player_search_radius");
+                } catch (InvalidConfiguration e) {
+                    e.printStackTrace();
+                    searchRadius = 600;
+//					resident.setPerformingMission(false);
+                }
+                try {
+                    int playerCount = PlayerLocationCache.getNearbyPlayers(new BlockCoord(player.getLocation()), searchRadius).size();
                     playerCount--;
                     resident.setSpyExposure(resident.getSpyExposure() + (playerCount * exposePerPlayer));
                 } finally {
@@ -106,8 +114,9 @@ public class EspionageMissionTask implements Runnable {
                     range = CivSettings.getDouble(CivSettings.warConfig, "scout_tower.range");
                 } catch (InvalidConfiguration e) {
                     e.printStackTrace();
-                    resident.setPerformingMission(false);
-                    return;
+                    range = 400;
+//                    resident.setPerformingMission(false);
+//                    return;
                 }
 
                 BlockCoord bcoord = new BlockCoord(player.getLocation());
@@ -136,7 +145,7 @@ public class EspionageMissionTask implements Runnable {
 
                 if ((secondsLeft % 15) == 0) {
                     CivMessage.send(player, CivColor.Yellow + CivColor.BOLD + CivSettings.localize.localizedString("var_espionage_secondsRemain", secondsLeft));
-                } else if (secondsLeft < 15) {
+                } else if (secondsLeft < 10) {
                     CivMessage.send(player, CivColor.Yellow + CivColor.BOLD + CivSettings.localize.localizedString("var_espionage_secondsRemain", secondsLeft));
                 }
 

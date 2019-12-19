@@ -1066,7 +1066,8 @@ public class Resident extends SQLObject {
         try {
             Player player = CivGlobal.getPlayer(this);
             double percentage = spyExposure / MAX_SPY_EXPOSURE;
-            player.setExp((float) percentage);
+            if (percentage > 1.0) player.setExp((float)1.0);
+            else player.setExp((float)percentage);
         } catch (CivException e) {
         }
 

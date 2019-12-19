@@ -63,17 +63,17 @@ war:
 
     # Default Respawn Time (all control blocks active) in seconds
     # 默认重新生成时间（所有控制块处于活动状态），以秒为单位
-    respawn_time: 30
+    respawn_time: 20
   
     # Respawn time per control block, destroying control blocks add this much time to respawn in seconds.
     # 每个控制块的重新生成时间，破坏控制块会花费这么多时间在几秒钟内重新生成。
-    control_block_respawn_time: 30
+    control_block_respawn_time: 20
 
     # Control block hitpoints.
     # 控制块生命值。
     control_block_hitpoints_capitol: 100
     control_block_hitpoints_camp: 100
-    control_block_hitpoints_townhall: 20
+    control_block_hitpoints_townhall: 25
 
     # Penalty of income and hammers taken and given to server when captured.
     # 捕获时收取的收入和hammer的罚款。
@@ -102,7 +102,7 @@ revolution:
 
     # number of extra coins paid per town in your old civ
     # 在您的旧文明中每个城镇支付的额外硬币数量
-    coins_per_town: 10000.0
+    coins_per_town: 15000.0
 
     # Number of coins paid per point of all of your civ and town scores
     # 所有civ和城镇得分每点支付的硬币数量
@@ -129,7 +129,7 @@ arrow_tower:
 
     # Range of the arrow tower
     # 箭塔的范围
-    range: 100.0
+    range: 112.0
 
     # Min-range watch tower will target players at
     # 最小攻击距离
@@ -141,7 +141,7 @@ arrow_tower:
 
     # how fast each arrow is fired in seconds.
     # 每秒箭头射击的速度有多快。（？？那上面是啥）
-    fire_rate: 1.0
+    fire_rate: 2.0
 
     # Distance before homing stops.
     # 归位前的距离停止。？？？
@@ -152,7 +152,7 @@ cannon_tower:
     damage: 8
 
     # Cannon tower 范围
-    range: 130.0
+    range: 144.0
 
     # Distance cannon towers must be built apart
     # 分开的距离
@@ -168,12 +168,12 @@ cannon_tower:
 
     # Splash radius that damages players
     # 飞溅的半径
-    splash: 30
+    splash: 24
 
     # Cannon tower fire rate
     # Defined in number of half-seconds to delay. Higher numbers is lower fire rate.
     # 炮塔火速定义为延迟半秒的数量。 数字越大，火灾率越低。
-    fire_rate: 4
+    fire_rate: 7
 
 tesla_tower:
     # 雷电爆炸造成的伤害
@@ -244,17 +244,17 @@ cannon:
 
     # amount of blocks to destroy per shot
     # 每次射击可以摧毁的块数量
-    yield: 7.0
+    yield: 8.0
 
     # TNT cost, number of TNT blocks it costs per shot.
     # 每次发射消耗的TNT的数量。
-    tnt_cost: 3
+    tnt_cost: 5
 
     # 发射之间的秒数。冷却时间
-    cooldown: 30
+    cooldown: 15
 
     # 每个大炮的HP
-    hitpoints: 50
+    hitpoints: 25
 
     # Amount of damage done to PLAYERS when hit by a blast
     # 爆炸击中对玩家造成的伤害量

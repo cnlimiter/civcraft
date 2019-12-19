@@ -15,8 +15,8 @@ espionage:
   # 附近每个玩家增加的曝光量
   exposure_per_player: 2
 
-  # radius to search for exposure of players
-  player_search_radius: 625
+  # 搜索玩家曝光度的半径
+  player_search_radius: 400
 
   # Exposure per scout tower nearby
   # 附近侦察的城镇增加的曝光量
@@ -131,7 +131,7 @@ missions:
     description:
       - '移除目标文明中正在研究的技术.'
       - '这个文明将会失去一切进展.'
-      - '必须少于75％完成。'
+      - '必须少于75％的进度。'
     cost: 225000.0
     range: 100.0
     cooldown: 2.0

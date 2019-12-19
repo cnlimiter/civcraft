@@ -437,7 +437,7 @@ barracks:
 
   # Base repair cost of all items
   base_damage_repair: 500.0
-  base_tier_repair: 2000.0
+  base_tier_repair: 2500.0
 
   # damage dampen.
   damage_damp: 1.0

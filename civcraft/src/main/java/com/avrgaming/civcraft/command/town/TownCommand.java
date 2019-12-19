@@ -19,20 +19,6 @@
 package com.avrgaming.civcraft.command.town;
 
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.block.Biome;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuildableInfo;
@@ -50,10 +36,8 @@ import com.avrgaming.civcraft.object.TownChunk;
 import com.avrgaming.civcraft.permission.PermissionGroup;
 import com.avrgaming.civcraft.questions.ChangeTownRequest;
 import com.avrgaming.civcraft.questions.JoinTownResponse;
-//import com.avrgaming.civcraft.structure.Capitol;
 import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.structure.TownHall;
-//import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.tutorial.Book;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ChunkCoord;
@@ -61,6 +45,22 @@ import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.global.perks.Perk;
 import com.avrgaming.global.perks.components.CustomTemplate;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.block.Biome;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
+//import com.avrgaming.civcraft.structure.Capitol;
+//import com.avrgaming.civcraft.structure.TownHall;
 
 public class TownCommand extends CommandBase {
 
@@ -757,12 +757,12 @@ public class TownCommand extends CommandBase {
             throw new CivException(CivSettings.localize.localizedString("var_cmd_town_addhasTown", newResident.getName(), newResident.getTown().getName()));
         }
 
+        newResident.validateJoinTown(town);
         JoinTownResponse join = new JoinTownResponse();
         join.town = town;
         join.resident = newResident;
         join.sender = player;
 
-        newResident.validateJoinTown(town);
 
         CivGlobal.questionPlayer(player, CivGlobal.getPlayer(newResident),
                 CivSettings.localize.localizedString("var_cmd_town_addInvite", town.getName()),
