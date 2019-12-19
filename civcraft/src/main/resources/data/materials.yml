@@ -5087,7 +5087,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '克拉克大麻哈鱼 <lightpurple>T3级鱼'
+          category: '<lightpurple>T3级鱼' # 克拉克大麻哈鱼
           components:
               - name: 'NoRightClick'
 
@@ -5100,7 +5100,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '虹鲑 <gold>T4级鱼'
+          category: '<gold>T4级鱼' # 虹鲑
           components:
               - name: 'NoRightClick'
 
@@ -5113,7 +5113,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '银花鲈鱼<lightgreen>T1级鱼'
+          category: '<lightgreen>T1级鱼' # 银花鲈鱼
           components:
               - name: 'NoRightClick'
 
@@ -5126,7 +5126,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '革平鲉 <lightblue>T2级鱼'
+          category: '<lightblue>T2级鱼' # 革平鲉
           components:
               - name: 'NoRightClick'
 
@@ -5139,7 +5139,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '条纹平鲉 <lightpurple>T3级鱼'
+          category: '<lightpurple>T3级鱼' # 条纹平鲉
           components:
               - name: 'NoRightClick'
 
@@ -5152,7 +5152,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '寡平鲉 <gold>T4级鱼'
+          category: '<gold>T4级鱼' # 寡平鲉
           components:
               - name: 'NoRightClick'
 
@@ -5165,7 +5165,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '大西洋冲浪马珂蛤 <lightgreen>T1级鱼'
+          category: '<lightgreen>T1级鱼' #大西洋冲浪马珂蛤
           components:
               - name: 'NoRightClick'
 
@@ -5178,7 +5178,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '北极蛤 <lightblue>T2级鱼'
+          category: '<lightblue>T2级鱼' # 北极蛤
           components:
               - name: 'NoRightClick'
 
@@ -5191,7 +5191,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '蚌蛎 <lightpurple>T3级鱼'
+          category: '<lightpurple>T3级鱼' # 蚌蛎
           components:
               - name: 'NoRightClick'
 
@@ -5204,7 +5204,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '太平洋潜泥蛤 <gold>T4级鱼'
+          category: '<gold>T4级鱼' #太平洋潜泥蛤
           components:
               - name: 'NoRightClick'
 
@@ -5217,7 +5217,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '常见鳕鱼<lightgreen>T1级鱼'
+          category: '<lightgreen>T1级鱼' #常见鳕鱼
           components:
               - name: 'NoRightClick'
 
@@ -5230,7 +5230,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '大头鳕 <lightblue>T2级鱼'
+          category: '<lightblue>T2级鱼' #大头鳕
           components:
               - name: 'NoRightClick'
 
@@ -5243,7 +5243,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '长蛇齿单线鱼 <lightpurple>T3级鱼'
+          category: '<lightpurple>T3级鱼' #长蛇齿单线鱼
           components:
               - name: 'NoRightClick'
 
@@ -5256,7 +5256,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '裸盖鱼 <gold>T4级鱼'
+          category: '<gold>T4级鱼' #裸盖鱼
           components:
               - name: 'NoRightClick'
 
@@ -5269,7 +5269,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '美洲箭齿鲽 <lightgreen>T1级鱼'
+          category: '<lightgreen>T1级鱼' #美洲箭齿鲽
           components:
               - name: 'NoRightClick'
 
@@ -5282,7 +5282,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '大西洋牙鲆 <lightblue>T2级鱼'
+          category: '<lightblue>T2级鱼' # 大西洋牙鲆
           components:
               - name: 'NoRightClick'
 
@@ -5295,7 +5295,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '美洲拟鲽/黑背 <lightpurple>T3级鱼'
+          category: '<lightpurple>T3级鱼' #美洲拟鲽/黑背
           components:
               - name: 'NoRightClick'
 
@@ -5308,7 +5308,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '大西洋黄盖鲽 <gold>T4级鱼'
+          category: '<gold>T4级鱼' # 大西洋黄盖鲽
           components:
               - name: 'NoRightClick'
 
@@ -5321,7 +5321,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 5.0
-          category: '小鳞喙鲈 <lightgreen>T1级鱼'
+          category: '<lightgreen>T1级鱼' # 小鳞喙鲈
           components:
               - name: 'NoRightClick'
 
@@ -5334,7 +5334,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 10.0
-          category: '黑缘石斑鱼 <lightblue>T2级鱼'
+          category: '<lightblue>T2级鱼' # 黑缘石斑鱼
           components:
               - name: 'NoRightClick'
 
@@ -5347,7 +5347,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 250.0
-          category: '海洋石斑鱼 条纹锯鮨 <lightpurple>T3级鱼'
+          category: '<lightpurple>T3级鱼' # 海洋石斑鱼 条纹锯鮨
           components:
               - name: 'NoRightClick'
 
@@ -5360,7 +5360,7 @@ materials:
           shiny: true
           tradeable: true
           tradeValue: 2500.0
-          category: '辐鳍鱼纲鲈形目多锯鲈科 <gold>T4级鱼'
+          category: '<gold>T4级鱼' #辐鳍鱼纲鲈形目多锯鲈科
           components:
               - name: 'NoRightClick'
 

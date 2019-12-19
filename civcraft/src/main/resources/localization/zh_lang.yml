@@ -488,7 +488,7 @@ cmd_gc_enabled: "启用全局聊天模式。"
 
 #Leave sections between '[' and ']' "message" can be translated
 #cmd_gc_disabled: "Global chat command [/gc <message>] disabled, using HeroChat [/ch global] instead. use [/gc] to exit civ or town chat."
-cmd_gc_disabled: "全局聊天命令[/gc<message>]已禁用，请改用herochat[/ch global]。使用[/gc]退出civ或town chat。"
+cmd_gc_disabled: "全局聊天命令[/gc <message>]已禁用，请改用herochat[/ch global]。使用[/gc]退出civ或town chat。"
 
 #---- Here Command -----
 #var_cmd_here_inCivAndTown: "You're currently inside the culture of Civ: [%0] for town [%1]."
