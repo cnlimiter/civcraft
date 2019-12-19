@@ -31,7 +31,6 @@ import com.avrgaming.civcraft.items.BonusGoodie;
 import com.avrgaming.civcraft.object.*;
 import com.avrgaming.civcraft.object.Relation.Status;
 import com.avrgaming.civcraft.permission.PermissionGroup;
-import com.avrgaming.civcraft.populators.MobSpawnerPreGenerate;
 import com.avrgaming.civcraft.populators.TradeGoodPreGenerate;
 import com.avrgaming.civcraft.questions.QuestionBaseTask;
 import com.avrgaming.civcraft.questions.QuestionResponseInterface;

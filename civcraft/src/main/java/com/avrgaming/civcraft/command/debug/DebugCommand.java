@@ -84,7 +84,6 @@ import com.avrgaming.civcraft.object.StructureSign;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.object.TownChunk;
 import com.avrgaming.civcraft.permission.PermissionGroup;
-import com.avrgaming.civcraft.populators.MobSpawnerPopulator;
 import com.avrgaming.civcraft.populators.TradeGoodPopulator;
 import com.avrgaming.civcraft.road.Road;
 import com.avrgaming.civcraft.siege.Cannon;

@@ -18,8 +18,6 @@ import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.object.MobSpawner;
-import com.avrgaming.civcraft.populators.MobSpawnerPick;
-import com.avrgaming.civcraft.populators.MobSpawnerPopulator;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ChunkCoord;
