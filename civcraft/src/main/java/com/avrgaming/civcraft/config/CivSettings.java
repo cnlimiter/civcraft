@@ -95,6 +95,7 @@ public class CivSettings {
     public static Map<String, ConfigBuildableInfo> structures = new HashMap<String, ConfigBuildableInfo>();
     public static Map<Integer, ConfigGrocerLevel> grocerLevels = new HashMap<Integer, ConfigGrocerLevel>();
     public static Map<Integer, ConfigAlchLevel> alchLevels = new HashMap<Integer, ConfigAlchLevel>();
+    public static Map<Integer, ConfigBankLevel> bankLevels = new HashMap<>();
     public static Map<Integer, ConfigCottageLevel> cottageLevels = new HashMap<Integer, ConfigCottageLevel>();
     public static Map<Integer, ConfigMineLevel> mineLevels = new HashMap<Integer, ConfigMineLevel>();
     public static Map<Integer, ConfigTempleLevel> templeLevels = new HashMap<Integer, ConfigTempleLevel>();
@@ -490,6 +491,7 @@ public class CivSettings {
         ConfigTradeGood.loadConfig(goodsConfig, goods, landGoods, waterGoods);
         ConfigGrocerLevel.loadConfig(structureConfig, grocerLevels);
         ConfigAlchLevel.loadConfig(structureConfig, alchLevels);
+        ConfigBankLevel.loadConfig(structureConfig, bankLevels);
         ConfigCottageLevel.loadConfig(structureConfig, cottageLevels);
         ConfigTempleLevel.loadConfig(structureConfig, templeLevels);
         ConfigMineLevel.loadConfig(structureConfig, mineLevels);

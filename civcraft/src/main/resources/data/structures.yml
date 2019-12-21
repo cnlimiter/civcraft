@@ -179,7 +179,30 @@ alch_levels:
 # 铁匠铺
 blacksmith:
   forge_cost: 2500.0
-
+#======================================#
+#========= > Bank  Settings < =========#
+#======================================#
+bank_levels:
+  - level: 1
+    exchange_rate: 0.4
+  - level: 2
+    exchange_rate: 0.5
+  - level: 3
+    exchange_rate: 0.6
+  - level: 4
+    exchange_rate: 0.7
+  - level: 5
+    exchange_rate: 0.85
+  - level: 6
+    exchange_rate: 1.00
+  - level: 7
+    exchange_rate: 1.20
+  - level: 8
+    exchange_rate: 1.40
+  - level: 9
+    exchange_rate: 1.70
+  - level: 10
+    exchange_rate: 2.00
 ################# Cottage Settings #################
 # 别墅
 cottage_levels:
@@ -598,7 +621,7 @@ road:
     #   onBuild: <function called when structure is built>
     #   signs: <list of signs attached to structure>
     #      id: <unique numerical identifier for sign>
-    #      action: <name of function with params>
+  #      action: <name of function with params>
   #      (... can contain as many signs as needed)
 
 structures:

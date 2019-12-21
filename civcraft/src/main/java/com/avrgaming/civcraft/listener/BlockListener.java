@@ -66,7 +66,6 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.event.world.ChunkLoadEvent;
-import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -1401,13 +1400,6 @@ public class BlockListener implements Listener {
 
     }
 
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onChunkUnloadEvent(ChunkUnloadEvent event) {
-        Boolean persist = CivGlobal.isPersistChunk(event.getChunk());
-        if (persist != null && persist) {
-            event.setCancelled(true);
-        }
-    }
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onChunkLoadEvent(ChunkLoadEvent event) {

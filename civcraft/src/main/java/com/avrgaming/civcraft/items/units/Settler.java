@@ -18,16 +18,6 @@
  */
 package com.avrgaming.civcraft.items.units;
 
-import gpl.AttributeUtil;
-
-import java.text.DecimalFormat;
-
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuildableInfo;
 import com.avrgaming.civcraft.config.ConfigUnit;
@@ -44,6 +34,14 @@ import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CallbackInterface;
 import com.avrgaming.civcraft.util.CivColor;
+import gpl.AttributeUtil;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.text.DecimalFormat;
 
 public class Settler extends UnitMaterial implements CallbackInterface {
 
@@ -92,7 +90,7 @@ public class Settler extends UnitMaterial implements CallbackInterface {
             return;
         }
 
-        int civ_id = Integer.valueOf(ownerIdString);
+        int civ_id = Integer.parseInt(ownerIdString);
         if (civ_id != resident.getCiv().getId()) {
             CivMessage.sendError(player, CivSettings.localize.localizedString("settler_errorNotOwner"));
             return;

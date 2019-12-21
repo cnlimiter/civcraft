@@ -1357,11 +1357,6 @@ public class Civilization extends SQLObject {
 
     public void setAdminCiv(boolean bool) {
         adminCiv = bool;
-        if (adminCiv) {
-            CivGlobal.addAdminCiv(this);
-        } else {
-            CivGlobal.removeAdminCiv(this);
-        }
         this.save();
     }
 

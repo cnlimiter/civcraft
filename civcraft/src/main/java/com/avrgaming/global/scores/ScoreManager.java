@@ -29,7 +29,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ScoreManager {
-
+    //TODO 没必要
     public static String TOWN_TABLE_NAME = "SCORES_TOWNS";
     public static String CIV_TABLE_NAME = "SCORES_CIVS";
 

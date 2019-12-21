@@ -18,18 +18,18 @@
  */
 package com.avrgaming.civcraft.event;
 
+import com.avrgaming.civcraft.database.SQL;
+import com.avrgaming.civcraft.exception.InvalidConfiguration;
+import com.avrgaming.civcraft.main.CivLog;
+import com.avrgaming.civcraft.randomevents.RandomEventTimer;
+import com.avrgaming.civcraft.threading.TaskMaster;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.HashMap;
-
-import com.avrgaming.civcraft.database.SQL;
-import com.avrgaming.civcraft.exception.InvalidConfiguration;
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.randomevents.RandomEventTimer;
-import com.avrgaming.civcraft.threading.TaskMaster;
 
 public class EventTimer {
 
@@ -79,6 +79,14 @@ public class EventTimer {
         try {
             HourlyTickEvent hourlyTickEvent = new HourlyTickEvent();
             new EventTimer("hourly", hourlyTickEvent, hourlyTickEvent.getNextDate());
+        } catch (InvalidConfiguration e) {
+            e.printStackTrace();
+        }
+
+        // Spawn regen event
+        try {
+            SpawnRegenEvent spawnRegenEvent = new SpawnRegenEvent();
+            new EventTimer("spawn-regen", spawnRegenEvent, spawnRegenEvent.getNextDate());
         } catch (InvalidConfiguration e) {
             e.printStackTrace();
         }

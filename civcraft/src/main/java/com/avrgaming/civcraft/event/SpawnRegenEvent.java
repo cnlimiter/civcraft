@@ -18,10 +18,6 @@
  */
 package com.avrgaming.civcraft.event;
 
-import java.util.Calendar;
-
-import org.bukkit.Bukkit;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.main.CivGlobal;
@@ -31,6 +27,9 @@ import com.avrgaming.civcraft.object.CultureChunk;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.object.TownChunk;
 import com.avrgaming.civcraft.threading.TaskMaster;
+import org.bukkit.Bukkit;
+
+import java.util.Calendar;
 
 public class SpawnRegenEvent implements EventInterface {
 
@@ -53,7 +52,7 @@ public class SpawnRegenEvent implements EventInterface {
         }
 
         int tickDelay = 0;
-        for (Civilization civ : CivGlobal.getAdminCivs()) {
+        for (Civilization civ : CivGlobal.getCivs()) {
             if (civ.isAdminCiv()) {
                 for (Town town : civ.getTowns()) {
                     for (CultureChunk cc : town.getCultureChunks()) {

@@ -215,7 +215,6 @@ public final class CivCraft extends JavaPlugin {
 
         //Load World Populators
         BukkitObjects.getWorlds().get(0).getPopulators().add(new TradeGoodPopulator());
-        BukkitObjects.getWorlds().get(0).getPopulators().add(new MobSpawnerPopulator());
 
         try {
             CivSettings.init(this);

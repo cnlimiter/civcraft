@@ -90,11 +90,11 @@ public class ConfigTownUpgrade {
                 break;
 
             case "set_bank_level":
-                if (town.saved_bank_level < Integer.valueOf(args[1].trim())) {
-                    town.saved_bank_level = Integer.valueOf(args[1].trim());
+                if (town.saved_bank_level < Integer.parseInt(args[1].trim())) {
+                    town.saved_bank_level = Integer.parseInt(args[1].trim());
                 }
                 struct = town.getStructureByType("s_bank");
-                if (struct != null && (struct instanceof Bank)) {
+                if ((struct instanceof Bank)) {
                     Bank bank = (Bank) struct;
                     if (bank.getLevel() < town.saved_bank_level) {
                         bank.setLevel(town.saved_bank_level);

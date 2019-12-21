@@ -34,9 +34,11 @@ public class BuffManager {
      */
 
     /* Contains _all_ of the buffs attached to us. */
+    // 全部的？
     private HashMap<String, Buff> buffs = new HashMap<String, Buff>();
 
     /* Contains the _effective_ buffs attached to us, taking stacking into account. */
+    // 唯一
     private HashMap<String, Buff> effectiveBuffs = new HashMap<String, Buff>();
 
 

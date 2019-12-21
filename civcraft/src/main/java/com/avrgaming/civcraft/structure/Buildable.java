@@ -733,15 +733,17 @@ public abstract class Buildable extends SQLObject {
             return;
         }
 
-        for (Civilization civ : CivGlobal.getAdminCivs()) {
-            Location townHallLoc = civ.getCapitolTownHallLocation();
-            if (townHallLoc == null) {
-                continue;
-            }
+        for (Civilization civ : CivGlobal.getCivs()) {
+            if (civ.isAdminCiv()) {
+                Location townHallLoc = civ.getCapitolTownHallLocation();
+                if (townHallLoc == null) {
+                    continue;
+                }
 
-            double distance = townHallLoc.distance(loc);
-            if (distance < requiredDistance) {
-                throw new CivException(CivSettings.localize.localizedString("var_buildable_toocloseToSpawn1", requiredDistance));
+                double distance = townHallLoc.distance(loc);
+                if (distance < requiredDistance) {
+                    throw new CivException(CivSettings.localize.localizedString("var_buildable_toocloseToSpawn1", requiredDistance));
+                }
             }
 
         }
