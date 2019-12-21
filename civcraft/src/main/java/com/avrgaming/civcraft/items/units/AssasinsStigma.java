@@ -1,11 +1,16 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
-
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
@@ -13,18 +18,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
-
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class AssasinsStigma
         extends UnitMaterial {
@@ -38,13 +33,10 @@ public class AssasinsStigma
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore("One Time Use");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Active");
-        attrs.addLore(CivColor.LightGray + "Gives a 20% chance to crit");
-        attrs.addLore(CivColor.LightGray + "Damage Multiplier: 1.5");
-        attrs.addLore(CivColor.LightGray + "(18 seconds)");
-        attrs.addLore(CivColor.LightGray + "Cooldown: 20 minutes");
+        ConfigUnit u = CivSettings.units.get(Unit.ASSASINSSTIGMA_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.ASSASINSSTIGMA_ARTIFACT.getUnit().name));

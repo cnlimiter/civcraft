@@ -29,12 +29,10 @@ public class Musketman extends UnitMaterial {
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore("§bLevel 3");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "+50% Sword Attack Bonus"); //剑
-        attrs.addLore(CivColor.LightGray + "-25% Bow Damage");
-        attrs.addLore(CivColor.LightGray + "+15% Armor Bonus");
+        ConfigUnit u = CivSettings.units.get(Unit.MUSKETMAN_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.MUSKETMAN_ARTIFACT.getUnit().name));

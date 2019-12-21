@@ -1,20 +1,15 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import gpl.AttributeUtil;
-
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-
 import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
+import gpl.AttributeUtil;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class CacheOfGluttons
         extends UnitMaterial {
@@ -28,10 +23,10 @@ public class CacheOfGluttons
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "Removes Hunger");
-        attrs.addLore(CivColor.LightGray + "Reusable: No");
+        ConfigUnit u = CivSettings.units.get(Unit.CACHEOFGLUTTONS_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.CACHEOFGLUTTONS_ARTIFACT.getUnit().name));

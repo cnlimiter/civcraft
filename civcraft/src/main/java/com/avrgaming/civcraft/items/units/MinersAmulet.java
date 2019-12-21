@@ -1,11 +1,17 @@
 
 package com.avrgaming.civcraft.items.units;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.main.CivGlobal;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Resident;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.war.War;
 import gpl.AttributeUtil;
-
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -14,22 +20,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivMessage;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.war.War;
-
-public class MinersAmulet
-        extends UnitMaterial {
+public class MinersAmulet extends UnitMaterial {
     public MinersAmulet(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -40,13 +34,10 @@ public class MinersAmulet
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow + "Single Use");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Active");
-        attrs.addLore(CivColor.LightGray + "Increases your dig speed");
-        attrs.addLore(CivColor.LightGray + "(10 minutes)");
-        attrs.addLore(CivColor.LightGray + "Cooldown: 20 minutes");
-        attrs.addLore(CivColor.Red + "Cannot be used during War Time");
+        ConfigUnit u = CivSettings.units.get(Unit.MINERSAMULET_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.MINERSAMULET_ARTIFACT.getUnit().name));

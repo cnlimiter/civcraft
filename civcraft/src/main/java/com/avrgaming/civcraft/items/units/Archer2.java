@@ -32,14 +32,10 @@ public class Archer2 extends UnitMaterial {
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow + "Single Use");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Active");
-        attrs.addLore(CivColor.LightGray + "Prevents Hand-to-hand combat");
-        attrs.addLore(CivColor.LightGray + "Arrows ignite for ~3 seconds");
-        attrs.addLore(CivColor.LightGray + "Slows players for ~3 seconds");
-        attrs.addLore(CivColor.LightGray + "1 minute");
-        attrs.addLore(CivColor.LightGray + "Cooldown: 1 minute");
+        ConfigUnit u = CivSettings.units.get(Unit.ARCHER2_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.ARCHER2_ARTIFACT.getUnit().name));

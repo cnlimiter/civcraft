@@ -30,11 +30,10 @@ public class Crossbowman
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow + "Level 2");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "-20% to Sword Defense"); //剑伤害
-        attrs.addLore(CivColor.LightGray + "+40% to Bow Attack Damage");
+        ConfigUnit u = CivSettings.units.get(Unit.CROSSBOWMAN_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.CROSSBOWMAN_ARTIFACT.getUnit().name));

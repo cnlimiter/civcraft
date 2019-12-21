@@ -29,12 +29,10 @@ public class SpearMan extends UnitMaterial {
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow + "Level 2");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "+5% Sword Attack Bonus"); //剑
-        attrs.addLore(CivColor.LightGray + "+10% Bow Attack Bonus");
-        attrs.addLore(CivColor.LightGray + "+30% Armor Bonus");
+        ConfigUnit u = CivSettings.units.get(Unit.SPEAR_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.SPEAR_ARTIFACT.getUnit().name));

@@ -5,37 +5,37 @@
 # 未附加任何单位的物品的基本费率和信息。
 #
 base:
-    # T1皮革速度加成，大于1是增加
-    T1_leather_speed: 1.05
+  # T1皮革速度加成，大于1是增加
+  T1_leather_speed: 1.05
 
-    # T2 Leather speed bonus, greater than 1 is an increase
-    T2_leather_speed: 1.1
+  # T2 Leather speed bonus, greater than 1 is an increase
+  T2_leather_speed: 1.1
 
-    # T3 Leather speed bonus, greater than 1 is an increase
-    T3_leather_speed: 1.15
+  # T3 Leather speed bonus, greater than 1 is an increase
+  T3_leather_speed: 1.15
 
-    # T4 Leather speed bonus, greater than 1 is an increase
-    T4_leather_speed: 1.2
+  # T4 Leather speed bonus, greater than 1 is an increase
+  T4_leather_speed: 1.2
 
-    # T1'金属'速度加成
-    T1_metal_speed: 0.95
+  # T1'金属'速度加成
+  T1_metal_speed: 0.95
 
-    # T2 'Metal' speed bonus
-    T2_metal_speed: 0.9
+  # T2 'Metal' speed bonus
+  T2_metal_speed: 0.9
 
-    # T3 'Metal' speed bonus
-    T3_metal_speed: 0.85
+  # T3 'Metal' speed bonus
+  T3_metal_speed: 0.85
 
-    # T4 'Metal' speed bonus
-    T4_metal_speed: 0.8
+  # T4 'Metal' speed bonus
+  T4_metal_speed: 0.8
 
 # 每个单位的特殊信息
 unit_info:
-    # 战士单位伤害增加的百分比。
-    warrior_damage: 1.00
+  # 战士单位伤害增加的百分比。
+  warrior_damage: 1.00
 
-    # 射手单位伤害增加的百分比。
-    archer_damage: 1.5
+  # 射手单位伤害增加的百分比。
+  archer_damage: 1.5
 
 units:
 
@@ -50,7 +50,9 @@ units:
     limit: 1
     item_id: 381
     item_data: 0
-    
+    description:
+      - ''
+
   - id: 'u_settler'
     name: "殖民者"
     class_name: 'Settler'
@@ -62,6 +64,8 @@ units:
     limit: 0
     item_id: 330
     item_data: 0
+    description:
+      - ''
 
   - id: 'a_archer' # 完成
     name: "弓箭手"
@@ -74,6 +78,12 @@ units:
     limit: 0
     item_id: 261
     item_data: 0
+    description:
+      - 'Level 1'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>-10% Sword Defense'
+      - '<LightGray>+25% to Bow Attack'
 
   - id: 'a_warrior'
     name: "战士"
@@ -86,6 +96,12 @@ units:
     limit: 0
     item_id: 267
     item_data: 0
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Passive'
+      - '<LightGray>Active'
+      - '<LightGray>+25% Sword Attack Bonus'
+      - '<LightGray>-10% Bow Damage'
 
   - id: 'a_berserker'
     name: "狂战士"
@@ -98,6 +114,14 @@ units:
     limit: 0
     item_id: 258
     item_data: 0
+    description:
+      - 'Level 1'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>+5% Sword Attack Bonus'
+      - '<LightGray>If you have a 矿工护身符,'
+      - '<LightGray>+10% Bow Attack Bonus'
+      - '<LightGray>+15% Armor Bonus'
 
   - id: 'a_swordsman'
     name: "剑客"
@@ -110,6 +134,12 @@ units:
     limit: 0
     item_id: 131
     item_data: 0
+    description:
+      - '<Yellow>Level 2'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>+40% Sword Attack Bonus'
+      - '<LightGray>-20% Bow Damage'
 
   - id: 'a_crossbowman'
     name: "弩箭手"
@@ -122,6 +152,12 @@ units:
     limit: 0
     item_id: 416
     item_data: 0
+    description:
+      - '<Yellow>Level 2'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>-20% to Sword Defense'
+      - '<LightGray>+40% to Bow Attack Damage'
 
   - id: 'a_spearman'
     name: "枪兵"
@@ -134,6 +170,13 @@ units:
     limit: 0
     item_id: 282
     item_data: 0
+    description:
+      - '<Yellow>Level 2'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>+5% to Sword Attack Bonus'
+      - '<LightGray>+10% to Bow Attack Bonus'
+      - '<LightGray>+30% Armor Bonus'
 
   - id: 'a_slinger'
     name: "投石兵"
@@ -146,6 +189,13 @@ units:
     limit: 0
     item_id: 198
     item_data: 0
+    description:
+      - '<LightBlue>Level 3'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>-25% Sword Attack Bonus'
+      - '<LightGray>+50% Bow Attack Bonus'
+      - '<LightGray>+15% Armor Bonus'
 
   - id: 'a_musketman'
     name: "火枪手"
@@ -158,6 +208,13 @@ units:
     limit: 0
     item_id: 359
     item_data: 0
+    description:
+      - '<LightBlue>Level 3'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>+50% Sword Attack Bonus'
+      - '<LightGray>-25% Bow Attack Bonus'
+      - '<LightGray>+15% Armor Bonus'
 
   - id: 'a_knight'
     name: "骑士"
@@ -170,6 +227,13 @@ units:
     limit: 0
     item_id: 276
     item_data: 0
+    description:
+      - '<LightBlue>Level 3'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>+10% Sword Attack Bonus'
+      - '<LightGray>+20% Bow Attack Bonus'
+      - '<LightGray>+45% Armor Bonus'
 
   - id: 'ax_bootsOfTravel' #有效
     name: "旅行者之靴"
@@ -182,6 +246,13 @@ units:
     limit: 0
     item_id: 345 # компас
     item_data: 0
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Passive'
+      - '<LightGray>Active'
+      - '<LightGray>Increases Run Speed'
+      - '<LightGray>40% (5 minutes)'
+      - '<LightGray>Cooldown: 15 minutes'
 
   - id: 'ax_rabbitFeet' #有效
     name: "幸运护符"
@@ -194,6 +265,13 @@ units:
     limit: 0
     item_id: 414 # лапка кролика
     item_data: 0
+    description:
+    - '<Yellow>Single Use'
+    - '<LightGray>Effect:'
+    - '<LightGray>Passive'
+    - '<LightGray>Gives increased jump height'
+    - '<LightGray>(5 minutes)'
+    - '<LightGray>Cooldown: 15 minutes'
 
   - id: 'a_heroesShield' #有效 描述？
     name: "英雄盾牌"
@@ -206,6 +284,13 @@ units:
     limit: 0
     item_id: 322 # зач. яблоко
     item_data: 1
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>Adds 20% Damage Resistance'
+      - '<LightGray>(31 seconds)'
+      - '<LightGray>Cooldown: 20 minutes'
 
   - id: 'a_assasinsStigma' #有效 描述？
     name: "刺客的耻辱"
@@ -218,6 +303,14 @@ units:
     limit: 0
     item_id: 331 # Редстоун
     item_data: 0
+    description:
+      - 'One Time Use'
+      - '<LightGray>Passive'
+      - '<LightGray>Active'
+      - '<LightGray>Gives a 20% chance to crit'
+      - '<LightGray>Damage Multiplier: 1.5'
+      - '<LightGray>(18 seconds)'
+      - '<LightGray>Cooldown: 20 minutes'
 
   - id: 'ax_minersAmulet' #有效，时间貌似不对
     name: "矿工护身符"
@@ -230,6 +323,14 @@ units:
     limit: 0
     item_id: 264 # алмаз
     item_data: 0
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>Increases your dig speed'
+      - '<LightGray>(10 minutes)'
+      - '<LightGray>Cooldown: 20 minutes'
+      - '<Red>Cannot be used during War Time'
 
   - id: 'ax_diver' #有效
     name: "潜水员"
@@ -242,6 +343,13 @@ units:
     limit: 0
     item_id: 351 # хз
     item_data: 12
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>Respiration III'
+      - '<LightGray>5 minutes'
+      - '<LightGray>Cooldown: 25 minutes'
 
   - id: 'ax_witchTrick' #有效
     name: "女巫伎俩"
@@ -254,6 +362,13 @@ units:
     limit: 0
     item_id: 372 # нарост
     item_data: 0
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Passive'
+      - '<LightGray>Active'
+      - '<LightGray>Gives Regeneration II'
+      - '<LightGray>30 seconds'
+      - '<LightGray>Cooldown: 4 minutes'
 
   - id: 'ax_cacheOfGluttons' #未完成
     name: "贪食者的储藏室"
@@ -266,6 +381,11 @@ units:
     limit: 0
     item_id: 410 # кристалл призмарина
     item_data: 0
+    description:
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>Removes Hunger'
+      - '<LightGray>Reusable: No'
 
   - id: 'ax_engineer' #未完成 建筑物伤害+1
     name: "工程师"
@@ -278,6 +398,13 @@ units:
     limit: 0
     item_id: 76 # ред торч
     item_data: 0
+    description:
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>Increase damage to buildings by 1 (100%)'
+      - '<LightGray>If there is an Invader, then'
+      - '<LightGray>The bonus decreases to 50%'
+      - '<LightGray>Reusable: No'
 
   - id: 'ax_invader' # 未完成 伤害+1，与上面的互相制约减为50%
     name: "入侵者"
@@ -290,6 +417,13 @@ units:
     limit: 0
     item_id: 369 # ифрит палка
     item_data: 0
+    description:
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>Increase damage by 1 (100%)'
+      - '<LightGray>If there is an Engineer, then'
+      - '<LightGray>The bonus decreases to 50%'
+      - '<LightGray>Reusable: No'
 
   - id: 'ax_advanced_tools'# 未完成 Miner's Amulet 制约
     name: "高级工具"
@@ -302,6 +436,14 @@ units:
     limit: 0
     item_id: 145 # наковальня
     item_data: 0
+    description:
+      - 'Level 1'
+      - '<LightGray>Effect:'
+      - '<LightGray>Passive'
+      - '<LightGray>40% Chance'
+      - '<LightGray>If you have a 矿工护身符,'
+      - '<LightGray>Chance decreases to 20%'
+      - '<LightGray>Reusable: No'
 
   - id: 'ax_archer2' #貌似有bug
     name: "高级射手"
@@ -314,5 +456,13 @@ units:
     limit: 0
     item_id: 287 # нить
     item_data: 0
-    
+    description:
+      - '<Yellow>Single Use'
+      - '<LightGray>Passive'
+      - '<LightGray>Active'
+      - '<LightGray>Prevents Hand-to-hand combat'
+      - '<LightGray>Arrows ignite for ~3 seconds'
+      - '<LightGray>Slows players for ~3 seconds'
+      - '<LightGray>1 minute'
+      - '<LightGray>Cooldown: 1 minute'
 

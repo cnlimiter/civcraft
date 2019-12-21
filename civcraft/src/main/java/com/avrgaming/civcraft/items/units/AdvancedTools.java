@@ -24,12 +24,10 @@ public class AdvancedTools extends UnitMaterial {
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "40% Chance");
-        attrs.addLore(CivColor.LightGray + "If you have a Miner's Amulet,");
-        attrs.addLore(CivColor.LightGray + "Chance decreases to 20%");
-        attrs.addLore(CivColor.LightGray + "Reusable: No");
+        ConfigUnit u = CivSettings.units.get(Unit.ADVANCED_TOOLS_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.ADVANCED_TOOLS_ARTIFACT.getUnit().name));

@@ -1,25 +1,19 @@
 
 package com.avrgaming.civcraft.items.units;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.config.ConfigUnit;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
-
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigUnit;
-import com.avrgaming.civcraft.items.units.Unit;
-import com.avrgaming.civcraft.items.units.UnitMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.util.CivColor;
-
-public class Invader
-        extends UnitMaterial {
+public class Invader extends UnitMaterial {
     public Invader(String id, ConfigUnit configUnit) {
         super(id, configUnit);
     }
@@ -30,12 +24,10 @@ public class Invader
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Passive");
-        attrs.addLore(CivColor.LightGray + "Increase damage by 1 (100%)");
-        attrs.addLore(CivColor.LightGray + "If there is an Engineer, then");
-        attrs.addLore(CivColor.LightGray + "The bonus decreases to 50%");
-        attrs.addLore(CivColor.LightGray + "Reusable: No");
+        ConfigUnit u = CivSettings.units.get(Unit.Invader_ARTIFACT.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.Invader_ARTIFACT.getUnit().name));

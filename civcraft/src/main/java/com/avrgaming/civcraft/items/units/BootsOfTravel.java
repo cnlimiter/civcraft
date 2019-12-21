@@ -33,12 +33,10 @@ public class BootsOfTravel extends UnitMaterial {
         AttributeUtil attrs = new AttributeUtil(is);
         attrs.addEnhancement("LoreEnhancementSoulBound", null, null);
         attrs.addLore(CivColor.Gold + CivSettings.localize.localizedString("itemLore_Souldbound"));
-        attrs.addLore(CivColor.Yellow + "Single Use");
-        attrs.addLore(CivColor.LightGray + "Effect:");
-        attrs.addLore(CivColor.LightGray + "Active");
-        attrs.addLore(CivColor.LightGray + "Increases Run Speed");
-        attrs.addLore(CivColor.LightGray + "40% (5 minutes)");
-        attrs.addLore(CivColor.LightGray + "Cooldown: 15 minutes");
+        ConfigUnit u = CivSettings.units.get(Unit.BOOTSOFTRAVEL.getUnit().id);
+        for (String d : u.description) {
+            attrs.addLore(CivColor.colorize(d));
+        }
         is = attrs.getStack();
         if (!Unit.addItemNoStack(inv, is)) {
             throw new CivException(CivSettings.localize.localizedString("var_arrtifacts_errorBarracksFull", Unit.BOOTSOFTRAVEL.getUnit().name));
