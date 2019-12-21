@@ -25,7 +25,6 @@ import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.lorestorage.LoreMaterial;
 import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.Buff;
 import com.avrgaming.civcraft.object.Resident;
@@ -35,8 +34,10 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.SimpleBlock;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.sql.ResultSet;
@@ -79,9 +80,6 @@ public class Bank extends Structure {
         ConfigBankLevel cbl = CivSettings.bankLevels.get(this.level);
         if (cbl != null) {
             exchange_rate = cbl.exchange_rate;
-        } else {
-            CivLog.warning("null exchange rate .:. cannot find level: " + this.level + " for town " + this.getTown().getName());
-            CivMessage.sendTown(this.getTown(), "null exchange rate .:. cannot find level: " + this.level + " for your bank. Contact an admin.");
         }
         double rate = 1;
         double addtional = rate * this.getTown().getBuffManager().getEffectiveDouble(Buff.BARTER);
@@ -139,23 +137,43 @@ public class Bank extends Structure {
     }
 
     public void exchange_for_coins(Resident resident, int itemId, double coins) throws CivException {
-        double exchange_rate = 0.0;
+        double exchange_rate;
         String itemName;
         Player player = CivGlobal.getPlayer(resident);
 
-        if (itemId == CivData.IRON_INGOT)
-            itemName = CivSettings.localize.localizedString("bank_itemName_iron");
-        else if (itemId == CivData.GOLD_INGOT)
-            itemName = CivSettings.localize.localizedString("bank_itemName_gold");
-        else if (itemId == CivData.DIAMOND)
-            itemName = CivSettings.localize.localizedString("bank_itemName_diamond");
-        else if (itemId == CivData.EMERALD)
-            itemName = CivSettings.localize.localizedString("bank_itemName_emerald");
-        else
-            itemName = CivSettings.localize.localizedString("bank_itemName_stuff");
+        Inventory inv = player.getInventory();
 
+        ItemStack stack = player.getInventory().getItemInMainHand();
+        int count = 0;
+
+        if (itemId == CivData.IRON_INGOT) {
+            itemName = CivSettings.localize.localizedString("bank_itemName_iron");
+            if (stack.getType().equals(Material.IRON_INGOT) || stack.getType().equals(Material.IRON_BLOCK)) {
+                count = stack.getAmount();
+                inv.removeItem(stack);
+            }
+        } else if (itemId == CivData.GOLD_INGOT) {
+            itemName = CivSettings.localize.localizedString("bank_itemName_gold");
+            if (stack.getType().equals(Material.GOLD_INGOT) || stack.getType().equals(Material.GOLD_BLOCK)) {
+                count = stack.getAmount();
+                inv.removeItem(stack);
+            }
+        } else if (itemId == CivData.DIAMOND) {
+            itemName = CivSettings.localize.localizedString("bank_itemName_diamond");
+            if (stack.getType().equals(Material.DIAMOND) || stack.getType().equals(Material.DIAMOND_BLOCK)) {
+                count = stack.getAmount();
+                inv.removeItem(stack);
+            }
+        } else if (itemId == CivData.EMERALD) {
+            itemName = CivSettings.localize.localizedString("bank_itemName_emerald");
+            if (stack.getType().equals(Material.EMERALD) || stack.getType().equals(Material.EMERALD_BLOCK)) {
+                count = stack.getAmount();
+                inv.removeItem(stack);
+            }
+        } else {
+            itemName = CivSettings.localize.localizedString("bank_itemName_stuff");
+        }
         exchange_rate = getBankExchangeRate();
-        int count = resident.takeItemsInHand(itemId, 0);
         if (count == 0) {
             throw new CivException(CivSettings.localize.localizedString("var_bank_notEnoughInHand", itemName));
         }
@@ -165,15 +183,15 @@ public class Bank extends Structure {
         // Resident is in his own town.
         if (usersTown == this.getTown()) {
             DecimalFormat df = new DecimalFormat();
-            resident.getTreasury().deposit((double) ((int) ((coins * count) * exchange_rate)));
-            CivMessage.send(player,
-                    CivColor.LightGreen + CivSettings.localize.localizedString("var_bank_exchanged", count, itemName, (df.format((coins * count) * exchange_rate)), CivSettings.CURRENCY_NAME));
+            resident.getTreasury().deposit(((int) ((coins * count) * exchange_rate)));
+            CivMessage.send(player, CivColor.LightGreen +
+                    CivSettings.localize.localizedString("var_bank_exchanged", count, itemName, (df.format((coins * count) * exchange_rate)), CivSettings.CURRENCY_NAME));
             return;
         }
 
         // non-resident must pay the town's non-resident tax
-        double giveToPlayer = (double) ((int) ((coins * count) * exchange_rate));
-        double giveToTown = (double) ((int) giveToPlayer * this.getNonResidentFee());
+        double giveToPlayer = (int) ((coins * count) * exchange_rate);
+        double giveToTown = (int) giveToPlayer * this.getNonResidentFee();
         giveToPlayer -= giveToTown;
 
         giveToTown = Math.round(giveToTown);
@@ -184,7 +202,6 @@ public class Bank extends Structure {
 
         CivMessage.send(player, CivColor.LightGreen + CivSettings.localize.localizedString("var_bank_exchanged", count, itemName, giveToPlayer, CivSettings.CURRENCY_NAME));
         CivMessage.send(player, CivColor.Yellow + " " + CivSettings.localize.localizedString("var_taxes_paid", giveToTown, CivSettings.CURRENCY_NAME));
-        return;
 
     }
 

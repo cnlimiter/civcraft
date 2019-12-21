@@ -18,29 +18,41 @@
  */
 package com.avrgaming.civcraft.command.debug;
 
+import com.avrgaming.civcraft.command.CommandBase;
+import com.avrgaming.civcraft.command.admin.AdminTownCommand;
+import com.avrgaming.civcraft.config.*;
+import com.avrgaming.civcraft.database.SQL;
+import com.avrgaming.civcraft.database.SQLUpdate;
+import com.avrgaming.civcraft.event.EventTimer;
+import com.avrgaming.civcraft.event.GoodieRepoEvent;
+import com.avrgaming.civcraft.exception.AlreadyRegisteredException;
+import com.avrgaming.civcraft.exception.CivException;
+import com.avrgaming.civcraft.exception.InvalidNameException;
+import com.avrgaming.civcraft.items.BonusGoodie;
+import com.avrgaming.civcraft.loreenhancements.LoreEnhancementSoulBound;
+import com.avrgaming.civcraft.lorestorage.LoreMaterial;
+import com.avrgaming.civcraft.lorestorage.LoreStoreage;
+import com.avrgaming.civcraft.main.*;
+import com.avrgaming.civcraft.object.*;
+import com.avrgaming.civcraft.permission.PermissionGroup;
+import com.avrgaming.civcraft.populators.TradeGoodPopulator;
+import com.avrgaming.civcraft.road.Road;
+import com.avrgaming.civcraft.siege.Cannon;
+import com.avrgaming.civcraft.structure.*;
+import com.avrgaming.civcraft.structure.wonders.GrandShipIngermanland;
+import com.avrgaming.civcraft.structure.wonders.Wonder;
+import com.avrgaming.civcraft.tasks.TradeGoodSignCleanupTask;
+import com.avrgaming.civcraft.template.Template;
+import com.avrgaming.civcraft.template.TemplateStream;
+import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.threading.tasks.*;
+import com.avrgaming.civcraft.threading.timers.DailyTimer;
+import com.avrgaming.civcraft.tutorial.Book;
+import com.avrgaming.civcraft.util.*;
+import com.avrgaming.global.perks.Perk;
 import gpl.AttributeUtil;
-
-import java.io.IOException;
-import java.math.BigInteger;
-import java.security.SecureRandom;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
-import org.bukkit.Color;
-import org.bukkit.Effect;
-import org.bukkit.FireworkEffect;
+import org.bukkit.*;
 import org.bukkit.FireworkEffect.Type;
-import org.bukkit.Location;
-import org.bukkit.Sound;
-import org.bukkit.World;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
@@ -53,72 +65,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.avrgaming.civcraft.command.CommandBase;
-import com.avrgaming.civcraft.command.admin.AdminTownCommand;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.config.ConfigBuff;
-import com.avrgaming.civcraft.config.ConfigBuildableInfo;
-import com.avrgaming.civcraft.config.ConfigMobSpawner;
-import com.avrgaming.civcraft.config.ConfigPerk;
-import com.avrgaming.civcraft.config.ConfigTradeGood;
-import com.avrgaming.civcraft.database.SQL;
-import com.avrgaming.civcraft.database.SQLUpdate;
-import com.avrgaming.civcraft.event.EventTimer;
-import com.avrgaming.civcraft.event.GoodieRepoEvent;
-import com.avrgaming.civcraft.exception.AlreadyRegisteredException;
-import com.avrgaming.civcraft.exception.CivException;
-import com.avrgaming.civcraft.exception.InvalidNameException;
-import com.avrgaming.civcraft.items.BonusGoodie;
-import com.avrgaming.civcraft.loreenhancements.LoreEnhancementSoulBound;
-import com.avrgaming.civcraft.lorestorage.LoreMaterial;
-import com.avrgaming.civcraft.lorestorage.LoreStoreage;
-import com.avrgaming.civcraft.main.CivCraft;
-import com.avrgaming.civcraft.main.CivData;
-import com.avrgaming.civcraft.main.CivGlobal;
-import com.avrgaming.civcraft.main.CivLog;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.CultureChunk;
-import com.avrgaming.civcraft.object.Resident;
-import com.avrgaming.civcraft.object.StructureSign;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.object.TownChunk;
-import com.avrgaming.civcraft.permission.PermissionGroup;
-import com.avrgaming.civcraft.populators.TradeGoodPopulator;
-import com.avrgaming.civcraft.road.Road;
-import com.avrgaming.civcraft.siege.Cannon;
-import com.avrgaming.civcraft.structure.ArrowTower;
-import com.avrgaming.civcraft.structure.Buildable;
-import com.avrgaming.civcraft.structure.Capitol;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.TownHall;
-import com.avrgaming.civcraft.structure.Wall;
-import com.avrgaming.civcraft.structure.wonders.GrandShipIngermanland;
-import com.avrgaming.civcraft.structure.wonders.Wonder;
-import com.avrgaming.civcraft.tasks.TradeGoodSignCleanupTask;
-import com.avrgaming.civcraft.template.Template;
-import com.avrgaming.civcraft.template.TemplateStream;
-import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.threading.tasks.ChunkGenerateTask;
-import com.avrgaming.civcraft.threading.tasks.CultureProcessAsyncTask;
-import com.avrgaming.civcraft.threading.tasks.FisheryAsyncTask;
-import com.avrgaming.civcraft.threading.tasks.MobSpawnerPostGenTask;
-import com.avrgaming.civcraft.threading.tasks.PostBuildSyncTask;
-import com.avrgaming.civcraft.threading.tasks.QuarryAsyncTask;
-import com.avrgaming.civcraft.threading.tasks.TradeGoodPostGenTask;
-import com.avrgaming.civcraft.threading.tasks.TrommelAsyncTask;
-import com.avrgaming.civcraft.threading.tasks.MobGrinderAsyncTask;
-import com.avrgaming.civcraft.threading.timers.DailyTimer;
-import com.avrgaming.civcraft.tutorial.Book;
-import com.avrgaming.civcraft.util.AsciiMap;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.ChunkCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.FireworkEffectPlayer;
-import com.avrgaming.civcraft.util.ItemFrameStorage;
-import com.avrgaming.civcraft.util.ItemManager;
-import com.avrgaming.civcraft.util.SimpleBlock;
-import com.avrgaming.global.perks.Perk;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class DebugCommand extends CommandBase {
 
@@ -153,9 +105,7 @@ public class DebugCommand extends CommandBase {
         commands.put("unloadchunk", "[x] [z] - unloads this chunk.");
         commands.put("setspeed", "[speed] - set your speed to this");
         commands.put("tradegenerate", "generates trade goods at picked locations");
-        commands.put("mobspawnergenerate", "generates mob spawners at picked locations");
         commands.put("createtradegood", "[good_id] - creates a trade goodie here.");
-        commands.put("createmobspawner", "[spawner_id] - creates a mob spawner here.");
         commands.put("cleartradesigns", "clears extra trade signs above trade outpots");
         commands.put("restoresigns", "restores all structure signs");
         commands.put("regentradegoodchunk", "regens every chunk that has a trade good in it");
@@ -1053,17 +1003,6 @@ public class DebugCommand extends CommandBase {
         }
     }
 
-    public void regenmobspawnerchunk_cmd() {
-
-        World world = Bukkit.getWorld("world");
-
-        for (ChunkCoord coord : CivGlobal.mobSpawnerPreGenerator.spawnerPicks.keySet()) {
-
-            world.regenerateChunk(coord.getX(), coord.getZ());
-            CivMessage.send(sender, "Regened:" + coord);
-
-        }
-    }
 
     public void restoresigns_cmd() {
 
@@ -1118,24 +1057,6 @@ public class DebugCommand extends CommandBase {
 
     }
 
-    public void mobspawnergenerate_cmd() throws CivException {
-        if (CivSettings.hasCustomMobs) {
-            String playerName;
-
-            if (sender instanceof Player) {
-                playerName = sender.getName();
-            } else {
-                playerName = null;
-            }
-
-            CivMessage.send(sender, "Starting Mob Spawner Generation task...");
-            TaskMaster.asyncTask(new MobSpawnerPostGenTask(playerName, 0), 0);
-        } else {
-            CivMessage.send(sender, "Unable to generate CustomMob spawners, CustomMobs is not enabled.");
-        }
-    }
-
-
     public void tradegenerate_cmd() throws CivException {
         String playerName;
 
@@ -1165,24 +1086,7 @@ public class DebugCommand extends CommandBase {
         CivMessage.sendSuccess(sender, "Created a " + good.name + " here.");
     }
 
-    public void createmobspawner_cmd() throws CivException {
-        if (CivSettings.hasCustomMobs) {
-            if (args.length < 2) {
-                throw new CivException("Enter mob spawner id");
-            }
 
-            ConfigMobSpawner spawner = CivSettings.spawners.get(args[1]);
-            if (spawner == null) {
-                throw new CivException("Unknown mob spawner id:" + args[1]);
-            }
-
-            BlockCoord coord = new BlockCoord(getPlayer().getLocation());
-            MobSpawnerPopulator.buildMobSpawner(spawner, coord, getPlayer().getLocation().getWorld(), false);
-            CivMessage.sendSuccess(sender, "Created a " + spawner.name + " Mob Spawner here.");
-        } else {
-            CivMessage.send(sender, "Unable to generate CustomMob spawners, CustomMobs is not enabled.");
-        }
-    }
 
     public void generate_cmd() throws CivException {
         if (args.length < 5) {
