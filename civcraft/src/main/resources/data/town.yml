@@ -298,7 +298,7 @@ upgrades:
     - id: 'upgrade_bank_interest_level_2'
       name: 'Bank Interest II'
       cost: 4000.0
-      action: 'set_bank_interest,0.0100'
+      action: 'set_bank_interest,0.0125'
       require_upgrade: 'upgrade_bank_interest_level_1'
       require_tech: 'tech_currency'
       require_structure: 's_bank'
@@ -307,7 +307,7 @@ upgrades:
     - id: 'upgrade_bank_interest_level_3'
       name: 'Bank Interest III'
       cost: 8000.0
-      action: 'set_bank_interest,0.0150'
+      action: 'set_bank_interest,0.0250'
       require_upgrade: 'upgrade_bank_interest_level_2'
       require_tech: 'tech_nationalism'
       require_structure: 's_bank'
@@ -316,7 +316,7 @@ upgrades:
     - id: 'upgrade_bank_interest_level_4'
       name: 'Bank Interest IV'
       cost: 16000.0
-      action: 'set_bank_interest,0.0250'
+      action: 'set_bank_interest,0.040'
       require_upgrade: 'upgrade_bank_interest_level_3'
       require_tech: 'tech_innovation'
       require_structure: 's_bank'

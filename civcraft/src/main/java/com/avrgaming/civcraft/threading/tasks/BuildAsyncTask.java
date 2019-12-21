@@ -132,7 +132,7 @@ public class BuildAsyncTask extends CivAsyncTask {
                 }
             }
 
-            if (build() == true) {
+            if (build()) {
                 //skip to next run.
                 continue;
             }

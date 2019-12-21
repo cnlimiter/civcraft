@@ -18,17 +18,6 @@
  */
 package com.avrgaming.civcraft.command.civ;
 
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.TimeZone;
-
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.endgame.EndConditionDiplomacy;
@@ -45,6 +34,12 @@ import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.war.War;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class CivCommand extends CommandBase {
 
@@ -328,6 +323,17 @@ public class CivCommand extends CommandBase {
 
     public void top5_cmd() {
         CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_civ_top5Heading"));
+        ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup("endgame:winningCiv");
+        if (entries.size() != 0) {
+            CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_civ_VictoriesHeading"));
+            int i = 1;
+            for (SessionEntry se : entries) {
+                Civilization civ = EndGameCondition.getCivFromSessionData(se.value);
+                CivMessage.send(sender, i + ") " + CivColor.Gold + civ.getName() + CivColor.White + " - " + civ.getScore() + " points  --  " + CivColor.BOLD + " VICTORY");
+                i++;
+            }
+            return;
+        }
 //		TreeMap<Integer, Civilization> scores = new TreeMap<Integer, Civilization>();
 //		
 //		for (Civilization civ : CivGlobal.getCivs()) {

@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.object;
 
-import java.util.ArrayList;
-
-import org.bukkit.Location;
-import org.bukkit.block.Biome;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.components.Attribute;
 import com.avrgaming.civcraft.components.AttributeBiomeBase;
 import com.avrgaming.civcraft.components.AttributeBiomeRadiusPerLevel;
@@ -37,6 +30,12 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.util.BiomeCache;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.Location;
+import org.bukkit.block.Biome;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
 
 public class CultureChunk {
 
@@ -133,10 +132,6 @@ public class CultureChunk {
         }
     }
 
-    public double getCoins() {
-        return getCultureBiomeInfo().coins + getAdditionalAttributes(Attribute.TypeKeys.COINS.name());
-    }
-
     public double getHappiness() {
         return getCultureBiomeInfo().happiness + getAdditionalAttributes(Attribute.TypeKeys.HAPPINESS.name());
     }
@@ -195,14 +190,12 @@ public class CultureChunk {
 
         if (cc == null) {
             CivMessage.send(player, CivColor.LightPurple + biome.name() +
-                    CivColor.Green + " " + CivSettings.localize.localizedString("Coins") + " " + CivColor.LightGreen + info.coins +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Happiness") + " " + CivColor.LightGreen + info.happiness +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Hammers") + " " + CivColor.LightGreen + info.hammers +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Growth") + " " + CivColor.LightGreen + info.growth +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Beakers") + " " + CivColor.LightGreen + info.beakers);
         } else {
             CivMessage.send(player, CivColor.LightPurple + biome.name() +
-                    CivColor.Green + " " + CivSettings.localize.localizedString("Coins") + " " + CivColor.LightGreen + cc.getCoins() +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Happiness") + " " + CivColor.LightGreen + info.happiness +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Hammers") + " " + CivColor.LightGreen + info.hammers +
                     CivColor.Green + " " + CivSettings.localize.localizedString("Growth") + " " + CivColor.LightGreen + info.growth +

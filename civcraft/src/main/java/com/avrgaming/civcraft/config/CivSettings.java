@@ -520,7 +520,6 @@ public class CivSettings {
         ConfigSpaceCraftMat.loadConfig(missionsConfig, space_crafts);
         ConfigRemovedRecipes.removeRecipes(materialsConfig, removedRecipies);
         CivGlobal.tradeGoodPreGenerator.preGenerate();
-        CivGlobal.mobSpawnerPreGenerator.preGenerate();
         Wall.init_settings();
         FortifiedWall.init_settings();
     }

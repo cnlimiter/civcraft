@@ -1044,6 +1044,7 @@ public abstract class Buildable extends SQLObject {
     public int getBuildSpeed() {
         // buildTime is in hours, we need to return milliseconds.
         // We should return the number of milliseconds to wait between each block placement.
+        // 我们应该返回每个块放置之间要等待的毫秒数。
         double hoursPerBlock = (this.getHammerCost() / this.town.getHammers().total) / this.totalBlockCount;
         double millisecondsPerBlock = hoursPerBlock * 60 * 60 * 1000;
         // Clip millisecondsPerBlock to 500 milliseconds.

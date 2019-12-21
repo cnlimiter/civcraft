@@ -86,7 +86,7 @@ public class CultureProcessAsyncTask extends CivAsyncTask {
             starting.getTown().addCultureChunk(starting);
         }
 
-        while (openList.isEmpty() == false) {
+        while (!openList.isEmpty()) {
             //Dequeue a node.
             CultureChunk node = openList.poll();
 

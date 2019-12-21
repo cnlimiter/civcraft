@@ -199,6 +199,7 @@ Upkeep: "维护费:"
 Remaining: "剩余:"
 #Hammers: "Hammers:"
 Hammers: "生产力:"
+Growth: "生长值"
 #BeakersCiv: "Beakers(civ):"
 BeakersCiv: "科研点(文明):"
 #Researching: "Researching:"
@@ -1733,7 +1734,7 @@ cmd_plot_showMobs: "怪物:"
 #cmd_plot_showFire: "Fire:"
 cmd_plot_showFire: "火焰:"
 #var_cmd_plot_showPrice: "[For Sale at [%0] [%1]]"
-var_cmd_plot_showPrice: "[出售在： [%0] [%1]]"                       
+var_cmd_plot_showPrice: "[出售在： [%0] [%1]]"
 
 #---- Plot Perm Command ---- 
 cmd_plot_perm_name: "Plot Perm"
@@ -4471,7 +4472,6 @@ loreEnh_LightStrike_warning: "你无法向该生物发送闪电，因为这是�
 #loreEnh_LightStrike_Sucusses: "You sent a lightning bolt to [%1] [%0] and inflicted 3 pure damage!"
 loreEnh_LightStrike_Sucusses: "你向[%1] [%0]发射了闪电，并造成了3点纯净伤害！"
 
-structure_factory_sign_construct: "制作"
 #tutorial_lore_clicktoView: "<Click to Upgrade>"
 #tutorial_lore_clicktoView: "<点击以升级>"
 # cmd_civ_culture_name: "Counts and displays to you the requirements left for a cultural victory"
@@ -4526,3 +4526,7 @@ upkeep_day: "{维护费: [%0]}"
 ppoints: "{分数: [%0]}"
 loregui_backto: "返回到"
 loregui_cancel: "取消"
+###############
+#1.9
+#######
+cmd_civ_VictoriesHeading: "文明胜利者"

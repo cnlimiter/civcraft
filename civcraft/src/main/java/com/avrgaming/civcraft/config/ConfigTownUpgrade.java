@@ -18,15 +18,6 @@
  */
 package com.avrgaming.civcraft.config;
 
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.bukkit.configuration.file.FileConfiguration;
-
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
@@ -34,18 +25,13 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.LibraryEnchantment;
 import com.avrgaming.civcraft.object.StoreMaterial;
 import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Alch;
-import com.avrgaming.civcraft.structure.Bank;
-import com.avrgaming.civcraft.structure.FishHatchery;
-import com.avrgaming.civcraft.structure.Grocer;
-import com.avrgaming.civcraft.structure.Library;
-import com.avrgaming.civcraft.structure.Quarry;
-import com.avrgaming.civcraft.structure.Store;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.TradeShip;
-import com.avrgaming.civcraft.structure.Trommel;
+import com.avrgaming.civcraft.structure.*;
 import com.avrgaming.civcraft.structure.wonders.StockExchange;
 import com.avrgaming.civcraft.structure.wonders.Wonder;
+import org.bukkit.configuration.file.FileConfiguration;
+
+import java.text.DecimalFormat;
+import java.util.*;
 
 public class ConfigTownUpgrade {
     public String id;
@@ -118,11 +104,11 @@ public class ConfigTownUpgrade {
                 }
                 break;
             case "set_bank_interest":
-                if (town.saved_bank_interest_amount < Double.valueOf(args[1].trim())) {
-                    town.saved_bank_interest_amount = Double.valueOf(args[1].trim());
+                if (town.saved_bank_interest_amount < Double.parseDouble(args[1].trim())) {
+                    town.saved_bank_interest_amount = Double.parseDouble(args[1].trim());
                 }
                 struct = town.getStructureByType("s_bank");
-                if (struct != null && (struct instanceof Bank)) {
+                if ((struct instanceof Bank)) {
                     Bank bank = (Bank) struct;
                     if (bank.getInterestRate() < town.saved_bank_interest_amount) {
                         bank.setInterestRate(town.saved_bank_interest_amount);
@@ -276,13 +262,13 @@ public class ConfigTownUpgrade {
                 break;
             case "set_trommel_level":
                 boolean didUpgrade = false;
-                if (town.saved_trommel_level < Integer.valueOf(args[1].trim())) {
-                    town.saved_trommel_level = Integer.valueOf(args[1].trim());
+                if (town.saved_trommel_level < Integer.parseInt(args[1].trim())) {
+                    town.saved_trommel_level = Integer.parseInt(args[1].trim());
                 }
                 for (Structure structure : town.getStructures()) {
                     if (structure.getConfigId().equalsIgnoreCase("s_trommel")) {
 
-                        if (structure != null && (structure instanceof Trommel)) {
+                        if ((structure instanceof Trommel)) {
                             Trommel trommel = (Trommel) structure;
                             if (trommel.getLevel() < town.saved_trommel_level) {
                                 didUpgrade = true;
@@ -296,7 +282,7 @@ public class ConfigTownUpgrade {
                 }
                 break;
             case "set_quarry_level":
-                if (town.saved_quarry_level < Integer.valueOf(args[1].trim())) {
+                if (Integer.valueOf(args[1].trim()) > town.saved_quarry_level) {
                     town.saved_quarry_level = Integer.valueOf(args[1].trim());
                 }
                 boolean didUpgradeQuarry = false;

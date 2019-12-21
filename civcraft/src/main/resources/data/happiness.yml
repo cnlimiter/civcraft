@@ -16,7 +16,7 @@ happiness:
     # Captured Town Unhappiness. Amount of unhappiness to add to each non-captured town
     # 捕获了城镇的不幸。 增加到每个未占领城镇的不满情绪
     # for each captured town in the civ.
-    per_captured_town: 2.0
+    per_captured_town: 1.0
 
     # Base distance Unhappiness
     # 基本距离不快乐

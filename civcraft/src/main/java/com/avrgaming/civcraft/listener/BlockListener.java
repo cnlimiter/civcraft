@@ -364,7 +364,7 @@ public class BlockListener implements Listener {
      * 繁殖
      */
     @EventHandler(priority = EventPriority.NORMAL)
-    public void OnCreateSpawnEvent(CreatureSpawnEvent event) {
+    public void OnCreateSpawnEvent( CreatureSpawnEvent event) {
 
         if (event.getSpawnReason().equals(SpawnReason.BREEDING)
                 || event.getSpawnReason().equals(SpawnReason.SPAWNER_EGG)) {
@@ -1486,6 +1486,7 @@ public class BlockListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onCreatureSpawnEvent(CreatureSpawnEvent event) {
+        // war，不是马 不是繁殖， 就取消生成
         if (War.isWarTime() && !event.getEntity().getType().equals(EntityType.HORSE)) {
             if (!event.getSpawnReason().equals(SpawnReason.BREEDING)) {
                 event.setCancelled(true);
@@ -1498,6 +1499,7 @@ public class BlockListener implements Listener {
                 event.setCancelled(true);
                 return;
             }
+
             NBTTagCompound compound = new NBTTagCompound();
             if (compound.getBoolean("IsChickenJockey")) {
                 event.setCancelled(true);
