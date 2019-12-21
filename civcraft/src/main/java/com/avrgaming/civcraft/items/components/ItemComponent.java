@@ -116,4 +116,7 @@ public abstract class ItemComponent {
     public void onHold(PlayerItemHeldEvent event) {
     }
 
+    public  void onBulletAttack(EntityDamageByEntityEvent event, ItemStack stack){
+
+    }
 }

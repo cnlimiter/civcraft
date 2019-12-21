@@ -47,8 +47,8 @@ trommel_gravel:
   redstone_chance: 0.04
   gold_chance: 0.02
   diamond_chance: 0.0050
-  emerald_chance: 0.0020
-  chromium_chance: 0.0008
+  emerald_chance: 0.0020 # 绿宝石
+  chromium_chance: 0.0008 # 铬
 
 trommel_granite:
   max: 100000
@@ -61,7 +61,7 @@ trommel_granite:
   tungsten_chance: 0.0075
   diamond_chance: 0.0050
   emerald_chance: 0.0020
-  chromium_chance: 0.0008
+  chromium_chance: 0.0008 #铬
   crystal_fragment_chance: 0.0002
   refined_chromium_chance: 0.00008
   refined_tungsten_chance: 0.00004

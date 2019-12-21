@@ -1,37 +1,5 @@
 package com.avrgaming.civcraft.lorestorage;
 
-import gpl.AttributeUtil;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockDamageEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.ItemSpawnEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.entity.PlayerLeashEntityEvent;
-import org.bukkit.event.inventory.CraftItemEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemDamageEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.ShapelessRecipe;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigIngredient;
 import com.avrgaming.civcraft.config.ConfigMaterial;
@@ -42,6 +10,27 @@ import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.object.BuildableDamageBlock;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.mysql.jdbc.StringUtils;
+import gpl.AttributeUtil;
+import org.bukkit.Bukkit;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.*;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.*;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
+import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class LoreCraftableMaterial extends LoreMaterial {
 
@@ -54,6 +43,13 @@ public class LoreCraftableMaterial extends LoreMaterial {
 
     public static HashMap<String, LoreCraftableMaterial> materials = new HashMap<String, LoreCraftableMaterial>();
 
+    @Override
+    public void onBulletAttack(EntityDamageByEntityEvent event, ItemStack stack) {
+        /* Search components for bullet attack value. */
+        for (ItemComponent comp : this.components.values()) {
+            comp.onBulletAttack(event, stack);
+        }
+    }
     /*
      * We will allow duplicate recipes with MC/materials by checking this map based
      * on the results. The key is the material's ID as a string, so we can are only checking

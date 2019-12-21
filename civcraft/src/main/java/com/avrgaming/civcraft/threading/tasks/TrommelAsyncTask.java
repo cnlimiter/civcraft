@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.threading.tasks;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivTaskAbortException;
 import com.avrgaming.civcraft.lorestorage.LoreMaterial;
@@ -38,10 +31,16 @@ import com.avrgaming.civcraft.threading.CivAsyncTask;
 import com.avrgaming.civcraft.threading.sync.request.UpdateInventoryRequest.Action;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.MultiInventory;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
 
 public class TrommelAsyncTask extends CivAsyncTask {
 
-    Trommel trommel;
+    private Trommel trommel;
     private static final int GRAVEL_RATE = 1; //0.10%
 
     public static HashSet<String> debugTowns = new HashSet<String>();
@@ -56,7 +55,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
         this.trommel = (Trommel) trommel;
     }
 
-    public void processTrommelUpdate() {
+    private void processTrommelUpdate() {
         if (!trommel.isActive()) {
             debug(trommel, "trommel inactive...");
             return;
@@ -145,6 +144,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
                     }
 
                     // Attempt to get special resources
+                    // 尝试获得特殊资源
                     Random rand = new Random();
                     int randMax = Trommel.GRAVEL_MAX_CHANCE;
                     int rand1 = rand.nextInt(randMax);
@@ -156,22 +156,19 @@ public class TrommelAsyncTask extends CivAsyncTask {
                         newItem = ItemManager.createItemStack(CivData.EMERALD, 1);
                     } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.DIAMOND)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.DIAMOND, 1);
-
                     } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.GOLD)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.GOLD_INGOT, 1);
-
                     } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.REDSTONE)) * randMax))) {
                         int itemRand = rand.nextInt(5) + 1;
                         newItem = ItemManager.createItemStack(CivData.REDSTONE_DUST, itemRand);
-
                     } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.IRON)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.IRON_INGOT, 1);
-
                     } else {
-                        newItem = ItemManager.createItemStack(CivData.GRAVEL, (Integer) GRAVEL_RATE);
+                        newItem = ItemManager.createItemStack(CivData.GRAVEL, GRAVEL_RATE);
                     }
 
                     //Try to add the new item to the dest chest, if we cant, oh well.
+                    // 如果不能的话，请尝试将新商品添加到最好的箱子中，好吧。
                     try {
                         debug(trommel, "Updating inventory:" + newItem);
                         this.updateInventory(Action.ADD, dest_inv, newItem);
@@ -182,7 +179,8 @@ public class TrommelAsyncTask extends CivAsyncTask {
                 }
                 if (ItemManager.getId(stack) == CivData.STONE) {
 
-                    if (this.trommel.getLevel() >= 2 && ItemManager.getData(stack) ==
+                    if (this.trommel.getLevel() >= 2
+                            && ItemManager.getData(stack) ==
                             ItemManager.getData(ItemManager.getMaterialData(CivData.STONE, CivData.GRANITE))) {
                         try {
                             this.updateInventory(Action.REMOVE, source_inv, ItemManager.createItemStack(CivData.STONE, 1, (short) CivData.GRANITE));
@@ -248,7 +246,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
                         } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.DIRT)) * randMax))) {
                             newItem = ItemManager.createItemStack(CivData.DIRT, 1);
                         } else {
-                            newItem = ItemManager.createItemStack(CivData.GRAVEL, (Integer) GRAVEL_RATE);
+                            newItem = ItemManager.createItemStack(CivData.GRAVEL, GRAVEL_RATE);
                         }
 
                         //Try to add the new item to the dest chest, if we cant, oh well.
@@ -426,7 +424,8 @@ public class TrommelAsyncTask extends CivAsyncTask {
         if (this.trommel.lock.tryLock()) {
             try {
                 try {
-                    if (this.trommel.getTown().getGovernment().id.equals("gov_theocracy") || this.trommel.getTown().getGovernment().id.equals("gov_monarchy")) {
+                    if (this.trommel.getTown().getGovernment().id.equals("gov_theocracy")
+                            || this.trommel.getTown().getGovernment().id.equals("gov_monarchy")) {
                         Random rand = new Random();
                         int randMax = 100;
                         int rand1 = rand.nextInt(randMax);
@@ -435,7 +434,6 @@ public class TrommelAsyncTask extends CivAsyncTask {
                             processTrommelUpdate();
                             debug(this.trommel, "Not penalized");
                         } else {
-
                             debug(this.trommel, "Skip Due to Penalty");
                         }
                     } else {

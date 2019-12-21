@@ -18,12 +18,11 @@
  */
 package com.avrgaming.civcraft.lorestorage;
 
+import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
+import com.avrgaming.civcraft.object.BuildableDamageBlock;
+import com.avrgaming.civcraft.util.CivColor;
+import com.avrgaming.civcraft.util.ItemManager;
 import gpl.AttributeUtil;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -36,20 +35,15 @@ import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.avrgaming.civcraft.loreenhancements.LoreEnhancement;
-import com.avrgaming.civcraft.object.BuildableDamageBlock;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.ItemManager;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public abstract class LoreMaterial {
 
@@ -330,4 +324,6 @@ public abstract class LoreMaterial {
     public void onInventoryOpen(InventoryOpenEvent event, ItemStack stack) {
     }
 
+    public void onBulletAttack(EntityDamageByEntityEvent event, ItemStack inHand){
+    }
 }

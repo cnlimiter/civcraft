@@ -288,7 +288,15 @@ public class CustomItemManager implements Listener {
                 e.printStackTrace();
             }
         }
-
+        if (event.getDamager() instanceof Snowball) {
+            LivingEntity shooter = (LivingEntity) ((Snowball)event.getDamager()).getShooter();
+            if (shooter instanceof Player) {
+                ItemStack inHand = ((Player)shooter).getInventory().getItemInMainHand();
+                if (LoreMaterial.isCustom(inHand)) {
+                    LoreMaterial.getMaterial(inHand).onBulletAttack(event, inHand);
+                }
+            }
+        }
         if (event.getDamager() instanceof Arrow) {
             LivingEntity shooter = (LivingEntity) ((Arrow) event.getDamager()).getShooter();
 
