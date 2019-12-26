@@ -416,7 +416,7 @@ public class LoreCraftableMaterial extends LoreMaterial {
     }
 
     @Override
-    public void onItemPickup(PlayerPickupItemEvent event) {
+    public void onItemPickup(EntityPickupItemEvent event) {
         // TODO Auto-generated method stub
 
     }

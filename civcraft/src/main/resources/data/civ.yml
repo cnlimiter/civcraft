@@ -37,18 +37,18 @@ global:
    # 您使用/resident exchange而非使用银行的汇率。
    exchange_rate: 0.3
 
-   starting_coins: 250.0
+   starting_coins: 375.0
 
    # 居民必须经过的多久才能加入不同的文明(hour)
    join_civ_cooldown: 12
 
    # Distance things must be built away from spawn.
    # 距离事物必须远离主城？
-   distance_from_spawn: 1000.0
+   distance_from_spawn: 640.0
 
    # max distance players can be apart for trading
    # 最大距离玩家可以分开进行交易
-   max_trade_distance: 3000.0
+   max_trade_distance: 20000.0
 
    # catalyst free amount
    # 免费的强化次数？

@@ -231,7 +231,7 @@ public class CustomItemManager implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void OnPlayerItemPickup(PlayerPickupItemEvent event) {
+    public void OnPlayerItemPickup(EntityPickupItemEvent event) {
         ItemStack stack = event.getItem().getItemStack();
 
         if (LoreMaterial.isCustom(stack)) {
@@ -599,8 +599,11 @@ public class CustomItemManager implements Listener {
     }
 
     @EventHandler(priority = EventPriority.LOW)
-    public void onItemPickup(PlayerPickupItemEvent event) {
-
+    public void onItemPickup(EntityPickupItemEvent event) {
+        if (!(event.getEntity() instanceof Player)) {
+            return;
+        }
+        Player player = (Player) event.getEntity();
         if (ItemManager.getId(event.getItem().getItemStack()) == ItemManager.getId(Material.SLIME_BALL)) {
             LoreCraftableMaterial craftMat = LoreCraftableMaterial.getCraftMaterial(event.getItem().getItemStack());
             if (craftMat == null) {
@@ -608,8 +611,8 @@ public class CustomItemManager implements Listener {
                 LoreCraftableMaterial slime = LoreCraftableMaterial.getCraftMaterialFromId("mat_vanilla_slime");
                 ItemStack newStack = LoreCraftableMaterial.spawn(slime);
                 newStack.setAmount(event.getItem().getItemStack().getAmount());
-                event.getPlayer().getInventory().addItem(newStack);
-                event.getPlayer().updateInventory();
+                player.getInventory().addItem(newStack);
+                player.updateInventory();
                 event.getItem().remove();
                 event.setCancelled(true);
             }
@@ -620,8 +623,8 @@ public class CustomItemManager implements Listener {
                 LoreCraftableMaterial slime = LoreCraftableMaterial.getCraftMaterialFromId("mat_ender_pearl");
                 ItemStack newStack = LoreCraftableMaterial.spawn(slime);
                 newStack.setAmount(event.getItem().getItemStack().getAmount());
-                event.getPlayer().getInventory().addItem(newStack);
-                event.getPlayer().updateInventory();
+                player.getInventory().addItem(newStack);
+                player.updateInventory();
                 event.getItem().remove();
                 event.setCancelled(true);
             }
@@ -632,8 +635,8 @@ public class CustomItemManager implements Listener {
                 LoreCraftableMaterial slime = LoreCraftableMaterial.getCraftMaterialFromId("mat_vanilla_tnt");
                 ItemStack newStack = LoreCraftableMaterial.spawn(slime);
                 newStack.setAmount(event.getItem().getItemStack().getAmount());
-                event.getPlayer().getInventory().addItem(newStack);
-                event.getPlayer().updateInventory();
+                player.getInventory().addItem(newStack);
+                player.updateInventory();
                 event.getItem().remove();
                 event.setCancelled(true);
             }
@@ -646,8 +649,8 @@ public class CustomItemManager implements Listener {
                 LoreCraftableMaterial clown = LoreCraftableMaterial.getCraftMaterialFromId("mat_vanilla_clownfish");
                 ItemStack newStack = LoreCraftableMaterial.spawn(clown);
                 newStack.setAmount(event.getItem().getItemStack().getAmount());
-                event.getPlayer().getInventory().addItem(newStack);
-                event.getPlayer().updateInventory();
+                player.getInventory().addItem(newStack);
+                player.updateInventory();
                 event.getItem().remove();
                 event.setCancelled(true);
             }
@@ -660,8 +663,8 @@ public class CustomItemManager implements Listener {
                 LoreCraftableMaterial clown = LoreCraftableMaterial.getCraftMaterialFromId("mat_vanilla_pufferfish");
                 ItemStack newStack = LoreCraftableMaterial.spawn(clown);
                 newStack.setAmount(event.getItem().getItemStack().getAmount());
-                event.getPlayer().getInventory().addItem(newStack);
-                event.getPlayer().updateInventory();
+                player.getInventory().addItem(newStack);
+                player.updateInventory();
                 event.getItem().remove();
                 event.setCancelled(true);
             }

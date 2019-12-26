@@ -1,9 +1,9 @@
 package com.avrgaming.civcraft.util;
 
-import net.minecraft.server.v1_11_R1.AxisAlignedBB;
+import net.minecraft.server.v1_12_R1.AxisAlignedBB;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 
 import java.util.LinkedList;
@@ -29,14 +29,14 @@ public class EntityProximity {
         CraftWorld craftWorld = (CraftWorld) loc.getWorld();
         AxisAlignedBB bb = new AxisAlignedBB(x - r, y - r, z - r, x + r, y + r, z + r);
 
-        List<net.minecraft.server.v1_11_R1.Entity> eList;
+        List<net.minecraft.server.v1_12_R1.Entity> eList;
         if (exempt != null) {
             eList = craftWorld.getHandle().getEntities(((CraftEntity) exempt).getHandle(), bb);
         } else {
             eList = craftWorld.getHandle().getEntities(null, bb);
         }
 
-        for (net.minecraft.server.v1_11_R1.Entity e : eList) {
+        for (net.minecraft.server.v1_12_R1.Entity e : eList) {
 
 
             if (filter == null || (filter.isInstance(e))) {

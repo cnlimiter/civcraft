@@ -25,10 +25,10 @@ package gpl;
  */
 
 import com.avrgaming.civcraft.util.NBTStaticHelper;
-import net.minecraft.server.v1_11_R1.*;
+import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.World;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftInventoryPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftInventoryPlayer;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.util.Vector;
 

@@ -2426,7 +2426,7 @@ unitItem_cannotCraft: "Cannot craft with a unit item."
 
 unitMaterial_cannotPlace: "Cannot place this item"
 unitMaterial_cannotUse: "Cannot use this item."
-unitMaterial_errorWrongCiv: "You cannot use this unit because it does not belong to your civilization."
+unitMaterial_errorWrongCiv: "你不能使用此单位，因为它不属于你的文明。"
 var_unitMaterial_errorHave1: "You already have a [%0], you cannot pickup another."
 
 # =========================== Event Listener Messages =========================

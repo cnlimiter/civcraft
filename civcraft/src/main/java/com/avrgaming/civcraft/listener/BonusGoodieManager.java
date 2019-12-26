@@ -43,6 +43,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityCombustEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.ItemDespawnEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
@@ -278,9 +279,14 @@ public class BonusGoodieManager implements Listener {
 
     /*
      * Track the location of the goodie if a player picks it up.
+     * 如果玩家捡起贸易品，则跟踪其位置。
      */
     @EventHandler(priority = EventPriority.MONITOR)
-    public void OnPlayerPickupItem(PlayerPickupItemEvent event) {
+    public void OnPlayerPickupItem(EntityPickupItemEvent event) {
+        if (!(event.getEntity() instanceof Player)){
+            return;
+        }
+        Player player = (Player) event.getEntity();
         BonusGoodie goodie = CivGlobal.getBonusGoodie(event.getItem().getItemStack());
 
         if (goodie == null) {
@@ -288,7 +294,7 @@ public class BonusGoodieManager implements Listener {
         }
 
         try {
-            goodie.setHolder(event.getPlayer());
+            goodie.setHolder(player);
             goodie.update(false);
             goodie.updateLore(event.getItem().getItemStack());
         } catch (CivException e) {

@@ -34,7 +34,7 @@ import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 import gpl.AttributeUtil;
-import net.minecraft.server.v1_11_R1.Material;
+import net.minecraft.server.v1_12_R1.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 

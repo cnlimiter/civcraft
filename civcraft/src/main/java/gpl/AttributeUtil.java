@@ -9,9 +9,9 @@ import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Maps;
-import net.minecraft.server.v1_11_R1.*;
+import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -226,7 +226,7 @@ public class AttributeUtil {
     }
 
     // This may be modified
-    public net.minecraft.server.v1_11_R1.ItemStack nmsStack;
+    public net.minecraft.server.v1_12_R1.ItemStack nmsStack;
 
     private NBTTagCompound parent;
     private NBTTagList attributes;

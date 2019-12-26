@@ -30,6 +30,7 @@ import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -296,11 +297,11 @@ public abstract class LoreMaterial {
 
     public abstract void onItemCraft(CraftItemEvent event);
 
-    public abstract void onItemPickup(PlayerPickupItemEvent event);
-
     public abstract void onItemSpawn(ItemSpawnEvent event);
 
     public abstract boolean onAttack(EntityDamageByEntityEvent event, ItemStack stack); /* Called when this item is in inventory. */
+
+    public abstract void onItemPickup(EntityPickupItemEvent event);
 
     public abstract void onInvItemPickup(InventoryClickEvent event, Inventory fromInv, ItemStack stack);
 

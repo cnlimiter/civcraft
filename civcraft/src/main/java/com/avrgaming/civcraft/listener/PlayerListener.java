@@ -53,10 +53,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.entity.PotionSplashEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.*;
@@ -75,7 +72,11 @@ import java.util.Date;
 
 public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onPlayerPickup(PlayerPickupItemEvent event) {
+    public void onPlayerPickup(EntityPickupItemEvent event) {
+        if (!(event.getEntity() instanceof  Player)){
+            return;
+        }
+        Player player = (Player)event.getEntity();
         String name;
         boolean rare = false;
         ItemStack item = event.getItem().getItemStack();
@@ -85,12 +86,11 @@ public class PlayerListener implements Listener {
         } else {
             name = item.getType().name().replace("_", " ").toLowerCase();
         }
-
-        Resident resident = CivGlobal.getResident(event.getPlayer());
+        Resident resident = CivGlobal.getResident(player);
         if (resident.getItemMode().equals("all")) {
-            CivMessage.send(event.getPlayer(), CivColor.LightGreen + CivSettings.localize.localizedString("var_customItem_Pickup", CivColor.LightPurple + event.getItem().getItemStack().getAmount(), name), item);
+            CivMessage.send(player, CivColor.LightGreen + CivSettings.localize.localizedString("var_customItem_Pickup", CivColor.LightPurple + event.getItem().getItemStack().getAmount(), name), item);
         } else if (resident.getItemMode().equals("rare") && rare) {
-            CivMessage.send(event.getPlayer(), CivColor.LightGreen + CivSettings.localize.localizedString("var_customItem_Pickup", CivColor.LightPurple + event.getItem().getItemStack().getAmount(), name), item);
+            CivMessage.send(player, CivColor.LightGreen + CivSettings.localize.localizedString("var_customItem_Pickup", CivColor.LightPurple + event.getItem().getItemStack().getAmount(), name), item);
         }
     }
 

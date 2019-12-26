@@ -36,6 +36,7 @@ import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -210,37 +211,41 @@ public class UnitMaterial extends LoreMaterial {
     }
 
     @Override
-    public void onItemPickup(PlayerPickupItemEvent event) {
-
-        if (!validateUnitUse(event.getPlayer(), event.getItem().getItemStack())) {
-            CivMessage.sendErrorNoRepeat(event.getPlayer(), CivSettings.localize.localizedString("unitMaterial_errorWrongCiv"));
-            event.setCancelled(true);
-            return;
-        }
-
-        ConfigUnit unit = Unit.getPlayerUnit(event.getPlayer());
-        if (unit != null) {
-            CivMessage.sendErrorNoRepeat(event.getPlayer(), CivSettings.localize.localizedString("var_unitMaterial_errorHave1", unit.name));
-            event.setCancelled(true);
-        } else {
-            // Reposition item to the last quickbar slot
-
-            // Check that the inventory is not full, clear out the
-            // the required slot, and then re-add what was in there.
-            Inventory inv = event.getPlayer().getInventory();
-
-            ItemStack lastSlot = inv.getItem(LAST_SLOT);
-            if (lastSlot != null) {
-                inv.setItem(LAST_SLOT, event.getItem().getItemStack());
-                inv.addItem(lastSlot);
-                event.getPlayer().updateInventory();
-            } else {
-                inv.setItem(LAST_SLOT, event.getItem().getItemStack());
+    public void onItemPickup(EntityPickupItemEvent event) {
+        if (event.getEntity() instanceof Player) {
+            Player player = (Player) event.getEntity();
+            if (!validateUnitUse(player, event.getItem().getItemStack())) {
+                CivMessage.sendErrorNoRepeat(player, CivSettings.localize.localizedString("unitMaterial_errorWrongCiv"));
+                event.setCancelled(true);
+                return;
             }
 
+            ConfigUnit unit = Unit.getPlayerUnit(player);
+            if (unit != null) {
+                CivMessage.sendErrorNoRepeat(player, CivSettings.localize.localizedString("var_unitMaterial_errorHave1", unit.name));
+                event.setCancelled(true);
+            } else {
+                // Reposition item to the last quickbar slot
 
-            this.onItemToPlayer(event.getPlayer(), event.getItem().getItemStack());
-            event.getItem().remove();
+                // Check that the inventory is not full, clear out the
+                // the required slot, and then re-add what was in there.
+                Inventory inv = player.getInventory();
+
+                ItemStack lastSlot = inv.getItem(LAST_SLOT);
+                if (lastSlot != null) {
+                    inv.setItem(LAST_SLOT, event.getItem().getItemStack());
+                    inv.addItem(lastSlot);
+                    player.updateInventory();
+                } else {
+                    inv.setItem(LAST_SLOT, event.getItem().getItemStack());
+                }
+
+
+                this.onItemToPlayer(player, event.getItem().getItemStack());
+                event.getItem().remove();
+                event.setCancelled(true);
+            }
+        } else {
             event.setCancelled(true);
         }
     }
