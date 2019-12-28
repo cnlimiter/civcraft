@@ -46,9 +46,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.*;
 import java.net.URL;
-import java.util.*;
 
 public class CivSettings {
 
