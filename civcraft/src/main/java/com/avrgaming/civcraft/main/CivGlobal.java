@@ -130,7 +130,6 @@ public class CivGlobal {
     public static TreeMap<Integer, Civilization> civilizationScores = new TreeMap<Integer, Civilization>();
     public static TreeMap<Integer, Town> townScores = new TreeMap<Integer, Town>();
 
-    public static HashMap<String, Date> playerFirstLoginMap = new HashMap<String, Date>();
     public static HashSet<String> banWords = new HashSet<String>();
 
     //public static Scoreboard globalBoard;

@@ -324,13 +324,14 @@ public class CivCommand extends CommandBase {
     public void top5_cmd() {
         CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_civ_top5Heading"));
         ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup("endgame:winningCiv");
+        int i = 1,v = 0;
         if (entries.size() != 0) {
             CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_civ_VictoriesHeading"));
-            int i = 1;
             for (SessionEntry se : entries) {
                 Civilization civ = EndGameCondition.getCivFromSessionData(se.value);
                 CivMessage.send(sender, i + ") " + CivColor.Gold + civ.getName() + CivColor.White + " - " + civ.getScore() + " points  --  " + CivColor.BOLD + " VICTORY");
                 i++;
+                v++;
             }
             return;
         }
@@ -344,13 +345,10 @@ public class CivCommand extends CommandBase {
 //		}
 
         synchronized (CivGlobal.civilizationScores) {
-            int i = 1;
             for (Integer score : CivGlobal.civilizationScores.descendingKeySet()) {
                 CivMessage.send(sender, i + ") " + CivColor.Gold + CivGlobal.civilizationScores.get(score).getName() + CivColor.White + " - " + score);
                 i++;
-                if (i > 5) {
-                    break;
-                }
+                if (i > 10+v) break;
             }
         }
 

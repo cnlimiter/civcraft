@@ -100,8 +100,8 @@ public class PlayerListener implements Listener {
         CivLog.info("Scheduling on player login task for player:" + event.getPlayer().getName());
         TaskMaster.asyncTask("onPlayerLogin-" + event.getPlayer().getName(), new PlayerLoginAsyncTask(event.getPlayer().getUniqueId()), 0);
 
-        CivGlobal.playerFirstLoginMap.put(event.getPlayer().getName(), new Date());
         PlayerLocationCacheUpdate.playerQueue.add(event.getPlayer().getName());
+
 //		MobSpawnerTimer.playerQueue.add((event.getPlayer().getName()));
     }
 

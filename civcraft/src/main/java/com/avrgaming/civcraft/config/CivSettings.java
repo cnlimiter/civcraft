@@ -548,6 +548,7 @@ public class CivSettings {
         restrictedSpawns.put(EntityType.HUSK, 0);
         restrictedSpawns.put(EntityType.STRAY, 0);
         restrictedSpawns.put(EntityType.ZOMBIE_VILLAGER, 0);
+        restrictedSpawns.put(EntityType.ILLUSIONER, 0);
     }
 
     private static void initRestrictedItems() {

@@ -283,20 +283,17 @@ public class TradeGood extends SQLObject {
         double total_payment = 0.0;
 
         for (BonusGoodie goodie : town.getBonusGoodies()) {
-            TradeOutpost outpost = (TradeOutpost) goodie.getOutpost();
+            TradeOutpost outpost = goodie.getOutpost();
             if (outpost == null) {
                 continue;
             }
-
             CultureChunk cc = CivGlobal.getCultureChunk(outpost.getCorner().getLocation());
             if (cc == null) {
                 continue;
             }
-
             if (!outpost.isActive()) {
                 continue;
             }
-
             double payment = getTradeGoodValue(goodie, town);
             total_payment += payment;
         }

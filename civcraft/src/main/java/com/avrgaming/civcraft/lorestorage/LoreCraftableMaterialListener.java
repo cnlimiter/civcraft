@@ -1,20 +1,5 @@
 package com.avrgaming.civcraft.lorestorage;
 
-import gpl.AttributeUtil;
-
-import java.util.ArrayList;
-
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.CraftItemEvent;
-import org.bukkit.event.inventory.PrepareItemCraftEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.ShapelessRecipe;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigTech;
 import com.avrgaming.civcraft.config.ConfigTechItem;
@@ -28,6 +13,19 @@ import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import gpl.AttributeUtil;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
+
+import java.util.ArrayList;
 
 public class LoreCraftableMaterialListener implements Listener {
 
@@ -45,11 +43,11 @@ public class LoreCraftableMaterialListener implements Listener {
                     return;
                 }
                 if (resultStack.getType().equals(Material.GOLDEN_APPLE)) {
-                    CivMessage.sendError((Player) event.getWhoClicked(), CivSettings.localize.localizedString("loreCraft_goldenApples"));
+                    CivMessage.sendError(event.getWhoClicked(), CivSettings.localize.localizedString("loreCraft_goldenApples"));
                     event.setCancelled(true);
                     return;
                 }
-
+                // TODO: 感觉这两很奇怪
                 ConfigTechItem restrictedTechItem = CivSettings.techItems.get(ItemManager.getId(resultStack));
                 if (restrictedTechItem != null) {
                     ConfigTech tech = CivSettings.techs.get(restrictedTechItem.require_tech);
