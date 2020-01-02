@@ -60,8 +60,8 @@ espionage:
   # Chance that the poison will cause an entire
   # cottage level to be lost.
   # Nerfed from 0.2 to 0.05 was way too op, would bring ALL cottages down a level
-  # 毒药可能会导致整个小屋的水平丢失。
-  #  从0.2到0.05的折磨过高，会使所有小屋降低一个水平
+  # 毒药可能会导致整个别墅的等级丢失。
+  #  从0.2到0.05的折磨过高，会使所有别墅降低一个等级
   poison_granary_famine_chance: 0.05
 
   # Number of mins a resident must have registered
@@ -144,7 +144,7 @@ missions:
     #    name: 'Poison Granary'
     name: '投毒'
     description:
-      - '使所有的别墅挨饿3至50个小时。有5％的机会带来饥荒并使所有小屋等级降低。'
+      - '使所有的别墅挨饿3至50个小时。有5％的机会带来饥荒并使所有别墅等级降低。'
       - '必须在粮仓的50个方块之内'
     #      - 'Causes all cottages to starve for 3 to 50 hours. 5% chances to bring famine and down level all cottages.'
     #      - 'Must be within 50 blocks of a granary.'
@@ -177,7 +177,7 @@ missions:
     #    name: 'Sabotage'
     name: '破坏'
     description:
-      - '破坏最近的结构'
+      - '破坏最近建筑的结构'
       - '必须在50个方块之内.'
     #      - 'Destroyes the nearest structure.'
     cost: 250000.0
@@ -207,7 +207,7 @@ missions:
   - id: 'spy_investigate_talents'
     name: '调查天赋'
     description:
-      - '提供了文明天赋的记录。'
+      - '提供了此文明天赋的记录'
       - '必须在敌人的国会大厦内。'
     #      - 'Provides a record of the talents of civilization.'
     #      - 'Must be within the enemy Capitol.'

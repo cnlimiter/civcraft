@@ -93,7 +93,7 @@ buffs:
     - id: 'buff_fishing'
       name: '渔业'
       # description: 'Allows uncooked fish to replace the need for bread. <lightgreen>1 fish = 2 bread<r> <red>Not Stackable<r>'
-      description: '允许生鱼片代替面包 <lightgreen>1 fish = 2 bread<r> <red>不可叠加<r>'
+      description: '允许鱼代替面包 <lightgreen>1 fish = 2 bread<r> <red>不可叠加<r>'
       value: '2'
       stackable: false
 

@@ -1,6 +1,6 @@
 spacemissions_levels:
     - level: 1
-      name: '发射轨道卫星'
+      name: '发射地球轨道卫星'
       require_hammers: '50000.0'
       require_beakers: '50000.0'
 

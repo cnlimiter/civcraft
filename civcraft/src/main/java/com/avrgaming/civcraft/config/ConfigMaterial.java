@@ -58,13 +58,13 @@ public class ConfigMaterial {
                 mat.categoryCivColortripped = CivColor.stripTags(category);
                 // 这个categoryCivColortripped 就是分类map的key，给他解析回去
                 // TODO:先凑活着吧 tier 1
-                if (mat.category.toLowerCase().contains("T1")) {
+                if (mat.category.contains("T1")) {
                     mat.tier = 1;
-                } else if (mat.category.toLowerCase().contains("T2")) {
+                } else if (mat.category.contains("T2")) {
                     mat.tier = 2;
-                } else if (mat.category.toLowerCase().contains("T3")) {
+                } else if (mat.category.contains("T3")) {
                     mat.tier = 3;
-                } else if (mat.category.toLowerCase().contains("T4")) {
+                } else if (mat.category.contains("T4")) {
                     mat.tier = 4;
                 } else {
                     mat.tier = 0;

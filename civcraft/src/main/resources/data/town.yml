@@ -61,7 +61,7 @@ town:
 # 
 town_levels:
     - level: 1
-      title: '开拓'
+      title: '移民点'
       upkeep: 500.0
       plots: 32
       plot_cost: 500.0
