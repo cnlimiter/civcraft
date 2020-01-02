@@ -39,6 +39,7 @@ import org.bukkit.entity.Player;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class CivCommand extends CommandBase {
 

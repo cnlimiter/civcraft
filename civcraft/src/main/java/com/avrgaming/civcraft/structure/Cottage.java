@@ -160,12 +160,13 @@ public class Cottage extends Structure {
         getConsumeComponent().setSource(multiInv);
 
         double cottage_consume_mod = 1.0; //allows buildings and govs to change the totals for cottage consumption.
+        // 允许建筑物和政府更改平房消费的总额。
 
         if (this.getTown().getBuffManager().hasBuff(Buff.REDUCE_CONSUME)) {
-            cottage_consume_mod *= this.getTown().getBuffManager().getEffectiveDouble(Buff.REDUCE_CONSUME);
+            cottage_consume_mod -= this.getTown().getBuffManager().getEffectiveDouble(Buff.REDUCE_CONSUME);
         }
         if (this.getTown().getBuffManager().hasBuff("buff_pyramid_cottage_consume")) {
-            cottage_consume_mod *= this.getTown().getBuffManager().getEffectiveDouble("buff_pyramid_cottage_consume");
+            cottage_consume_mod -= this.getTown().getBuffManager().getEffectiveDouble("buff_pyramid_cottage_consume");
         }
 
         if (this.getTown().getBuffManager().hasBuff(Buff.FISHING)) {

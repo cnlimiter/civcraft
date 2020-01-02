@@ -37,14 +37,14 @@ buffs:
     - id: 'buff_preservative'
       name: '屯粮'
       # description: 'Reduces consumption of cottages by <lightgreen>50%<r> <red>Not Stackable<r>'
-      description: '减少 <lightgreen>50%<r> 的别墅消耗 <lightgreen>50%<r> <red>不可叠加<r>'
+      description: '减少 <lightgreen>50%<r> 别墅的消耗 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_advanced_tooling'
       name: '高级工具'
       # description: 'Increases the mine improvement production by a <lightgreen>50%<r> <red>Not Stackable<r>'
-      description: '提高 <lightgreen>50%<r> 的矿山增加的生产力 <red>不可叠加<r>'
+      description: '提高 <lightgreen>50%<r> 的矿井增加的生产力 <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
@@ -65,7 +65,7 @@ buffs:
     - id: 'buff_fine_art'
       name: '美术'
       # description: 'Increases culture output of a town by <lightgreen>25%<r> <red>Not Stackable<r>'
-      description: '增加一个城镇 <lightgreen>25%<r> 的文化产出  <red>不可叠加<r>'
+      description: '增加城镇 <lightgreen>25%<r> 的文化产出  <red>不可叠加<r>'
       value: '0.25'
       stackable: false
 
@@ -100,14 +100,14 @@ buffs:
     - id: 'buff_greed'
       name: '贪婪'
       # description: 'Increases interest rates by <lightgreen>3%<r> <red>Not Stackable<r>'
-      description: '提高 <lightgreen>3%<r> 的利率 <red>不可叠加<r>'
+      description: '提高 <lightgreen>3%<r> 的日利率 <red>不可叠加<r>'
       value: '0.03'
       stackable: false
 
     - id: 'buff_medicine'
       name: '药物'
       # description: 'Decreases friendly respawn time during war by <lightgreen>50<r> seconds.<r> <red>Not Stackable<r>'
-      description: '减少 <lightgreen>50<r> 秒<r> 战争期间的友军重生时间  <red>不可叠加<r>'
+      description: '减少 <lightgreen>50<r> 秒<r> 战争期间文明内所有友军的重生时间  <red>不可叠加<r>'
       value: '50'
       stackable: false
 
@@ -121,14 +121,14 @@ buffs:
     - id: 'buff_espionage'
       name: '间谍'
       # description: 'Increases the chances of poison granary and incite revolt by <lightgreen>50%<r> <red>Not Stackable<r>'
-      description: '增加 <lightgreen>50%<r> 毒仓和煽动叛乱的几率 <red>不可叠加<r>'
+      description: '增加 <lightgreen>50%<r> 毒仓和煽动叛乱的几率  <red>不可叠加<r>'
       value: '0.5'
       stackable: false
 
     - id: 'buff_rush'
       name: '发展期'
       # description: 'Reduces the hammer cost of all structures, wonders and improvements by <lightgreen>15%<r> <red>Not Stackable<r>'
-      description: '降低所有建筑物和奇迹建造和升级的费用 <lightgreen>15%<r>   <red>不可叠加<r>'
+      description: '降低<lightgreen>15%<r>所有建筑物和奇迹建造和升级生产力需求  <red>不可叠加<r>'
       value: '0.15'
       stackable: false
 
@@ -151,7 +151,7 @@ buffs:
     - id: 'buff_farm'
       name: '贮备'
       # description: 'Doubles the number of seeds placed by the windmill <lightgreen>2x<r> <red>Not Stackable<r>'
-      description: '使风车播下的种子数翻倍 <lightgreen>2x<r> <red>不可叠加<r>'
+      description: '提升风车播种的速度 <lightgreen>2x<r> <red>不可叠加<r>'
       value: '2.0' # x
       stackable: false
       parent:
@@ -159,7 +159,7 @@ buffs:
     - id: 'buff_profit_sharing'
       name: '分红制'
       # description: 'Reduces the coin cost of all technology researches by <lightgreen>5%<r> <red>Not Stackable<r>'
-      description: '降低 <lightgreen>5%<r> 所有科技研究的成本 <red>不可叠加<r>'
+      description: '降低 <lightgreen>5%<r> 所有科技研究的花费 <red>不可叠加<r>'
       value: '0.05'
       stackable: false
 
@@ -180,7 +180,7 @@ buffs:
     - id: 'buff_reduced_anarchy'
       name: '减少无政府状态'
       # description: 'Civilization spends 50% less time in anarchy per resident for this town.<r> <red>Not Stackable<r>'
-      description: '每个居民在无政府状态下花费的时间减少了25%。<r> <red>不可叠加<r>'
+      description: '每个城镇在无政府状态下花费的时间减少了25%。<r> <red>不可叠加<r>'
       value: '0.25'
       stackable: false
 
@@ -233,7 +233,7 @@ buffs:
     - id: 'buff_demand'
       name: '食物需求'
       # description: 'Adds <lightgreen>5%<r> Bonus to Cottages<r> <gold>Stackable<r>'
-      description: '添加 <lightgreen>5%<r> 别墅奖励 <r> <gold>可叠加<r>'
+      description: '添加 <lightgreen>5%<r> 别墅收入 <r> <gold>可叠加<r>'
       value: '0.05'
       stackable: true
       parent:

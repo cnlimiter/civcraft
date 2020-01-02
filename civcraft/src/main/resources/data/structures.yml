@@ -1209,7 +1209,7 @@ structures:
 
   - id: s_monument
     template: monument
-    template_y_shift: -2
+    template_y_shift: -1
     displayName: 纪念碑
     require_upgrade:
     require_tech: 'tech_religion'
@@ -1748,7 +1748,7 @@ structures:
 
   - id: ti_factory
     template: factory
-    template_y_shift: 0
+    template_y_shift: -1
     displayName: 工厂
     require_upgrade:
     require_tech: 'tech_advanced_efficiency'

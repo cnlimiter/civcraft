@@ -1,19 +1,16 @@
 
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
 import com.avrgaming.civcraft.components.ProjectileLightningComponent;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.TeslaTower;
-import com.avrgaming.civcraft.structure.WaterStructure;
 import com.avrgaming.civcraft.util.BlockCoord;
+import org.bukkit.Location;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TeslaShip
         extends WaterStructure {
@@ -37,7 +34,7 @@ public class TeslaShip
 
     public int getDamage() {
         double rate = 1.0;
-        return (int) ((double) this.teslaComponent.getDamage() * (rate += this.getTown().getBuffManager().getEffectiveDouble("buff_fire_bomb")));
+        return (int) ((double) this.teslaComponent.getDamage() * (rate + this.getTown().getBuffManager().getEffectiveDouble("buff_fire_bomb")));
     }
 
     @Override

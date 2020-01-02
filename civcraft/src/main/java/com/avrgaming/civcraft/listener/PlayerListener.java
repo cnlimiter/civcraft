@@ -48,12 +48,15 @@ import com.avrgaming.civcraft.war.WarStats;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.event.world.PortalCreateEvent;
 import org.bukkit.inventory.DoubleChestInventory;
@@ -70,7 +73,7 @@ import java.util.Date;
 public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerPickup(EntityPickupItemEvent event) {
-        if (!(event.getEntity() instanceof  Player)){
+        if (!(event.getEntity() instanceof Player)){
             return;
         }
         Player player = (Player)event.getEntity();

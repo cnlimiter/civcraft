@@ -123,7 +123,7 @@ public class BuffManager {
         synchronized (this) {
             for (Buff buff : effectiveBuffs.values()) {
                 if (buff.getId().equals(buff_id)) {
-                    ret += Integer.valueOf(buff.getValue());
+                    ret += Integer.parseInt(buff.getValue());
                 }
             }
         }

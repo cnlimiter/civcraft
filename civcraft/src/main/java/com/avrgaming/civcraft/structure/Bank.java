@@ -75,7 +75,7 @@ public class Bank extends Structure {
         nonMemberFeeComponent.onLoad();
     }
 
-    public double getBankExchangeRate() {
+    private double getBankExchangeRate() {
         double exchange_rate = 0.4;
         ConfigBankLevel cbl = CivSettings.bankLevels.get(this.level);
         if (cbl != null) {

@@ -45,20 +45,26 @@ import com.avrgaming.civcraft.util.*;
 import com.avrgaming.civcraft.war.War;
 import com.avrgaming.civcraft.war.WarRegen;
 import gpl.HorseModifier;
+import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Chunk;
-import org.bukkit.FireworkEffect.Type;
+import org.bukkit.*;
 import org.bukkit.Material;
+import org.bukkit.FireworkEffect.Type;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftLivingEntity;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.*;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -357,10 +363,76 @@ public class BlockListener implements Listener {
      * 繁殖
      */
     @EventHandler(priority = EventPriority.NORMAL)
-    public void OnCreateSpawnEvent( CreatureSpawnEvent event) {
+    public void OnCreateSpawnEvent(CreatureSpawnEvent event) {
+        LivingEntity entity = event.getEntity();
+        EntityType type = event.getEntityType();
+        SpawnReason reason = event.getSpawnReason();
+        if (reason.equals(SpawnReason.CUSTOM)) {
+            // 插件生成
+            if (event.isCancelled()) {
+                return;
+            }
+            // TODO：设置小僵尸
+            if (type.equals(EntityType.ZOMBIE)) {
+                if (entity.getCustomName() != null) {
+                    ((Zombie) entity).setBaby(true);
+                }
+            } else if (type.equals(EntityType.ZOMBIE_VILLAGER)) {
+                if (entity.getCustomName() != null) {
+                    ((ZombieVillager) entity).setBaby(true);
+                }
+            } else if (type == EntityType.SLIME) {
+                ((Slime) entity).setSize(3);
+            }
+            return;
+        }
+        // 禁止生成禁止的怪
+        if (CivSettings.restrictedSpawns.contains(type)) {
+            event.setCancelled(true);
+            return;
+        }
+        // 城镇区块不刷
+        TownChunk tc = CivGlobal.getTownChunk(event.getLocation());
+        if (tc != null) {
+            if (CivSettings.vanillaHostileMobs.contains(type)) {
+                event.setCancelled(true);
+                return;
+            }
+        }
+        // 禁止马系列的自然生成
+        if ((type.equals(EntityType.HORSE)
+                || type.equals(EntityType.DONKEY)
+                || type.equals(EntityType.MULE)
+                || type.equals(EntityType.SKELETON_HORSE)
+                || type.equals(EntityType.ZOMBIE_HORSE)
+                || type.equals(EntityType.LLAMA))
+                && (reason.equals(SpawnReason.DEFAULT) || reason.equals(SpawnReason.NATURAL))) {
+            class SyncTask implements Runnable {
 
-        if (event.getSpawnReason().equals(SpawnReason.BREEDING)
-                || event.getSpawnReason().equals(SpawnReason.SPAWNER_EGG)) {
+                private LivingEntity ent;
+
+                private SyncTask(LivingEntity ent) {
+                    this.ent = ent;
+                }
+
+                @Override
+                public void run() {
+                    if (ent != null) {
+                        if (!HorseModifier.isCivCraftHorse(ent)) {
+                            CivLog.warning("Removing a normally spawned horse.");
+                            ent.remove();
+                        }
+                    }
+                }
+            }
+            TaskMaster.syncTask(new SyncTask(entity));
+
+            CivLog.warning("Canceling horse spawn reason: " + reason);
+            event.setCancelled(true);
+            return;
+        }
+
+        if (event.getSpawnReason().equals(SpawnReason.BREEDING)) {
             ChunkCoord coord = new ChunkCoord(event.getEntity().getLocation());
             Pasture pasture = Pasture.pastureChunks.get(coord);
             if (pasture != null) {
@@ -369,9 +441,9 @@ public class BlockListener implements Listener {
         }
 
         class SyncTask implements Runnable {
-            LivingEntity entity;
+            private LivingEntity entity;
 
-            public SyncTask(LivingEntity entity) {
+            private SyncTask(LivingEntity entity) {
                 this.entity = entity;
             }
 
@@ -1212,7 +1284,7 @@ public class BlockListener implements Listener {
             }
         }
         // 禁用村民交互
-        if (event.getRightClicked().getType().equals(EntityType.VILLAGER)){
+        if (event.getRightClicked().getType().equals(EntityType.VILLAGER)) {
             event.setCancelled(true);
             return;
         }

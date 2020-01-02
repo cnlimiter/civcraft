@@ -440,10 +440,10 @@ public class TownInfoCommand extends CommandBase {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_pyramid", "§a" + Math.round((town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus") - 1.0) * 100.0)));
         }
         if (town.getBuffManager().hasBuff("buff_hotel")) {
-            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", new StringBuilder().append("§a").append(Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)).toString()));
+            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", "§a" + Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)));
         }
         if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraCottageTown")) {
-            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", new StringBuilder().append("§a").append(Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraCottageTown") - 1.0) * 100.0)).toString()));
+            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", "§a" + Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraCottageTown") - 1.0) * 100.0)));
         }
         if (town.getCiv().getStockExchangeLevel() >= 1) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_stockExchange", "§a30%", String.valueOf(town.getCiv().getStockExchangeLevel())));

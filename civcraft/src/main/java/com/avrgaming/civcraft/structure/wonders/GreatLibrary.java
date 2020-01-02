@@ -18,15 +18,6 @@
  */
 package com.avrgaming.civcraft.structure.wonders;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigEnchant;
 import com.avrgaming.civcraft.exception.CivException;
@@ -40,6 +31,14 @@ import com.avrgaming.civcraft.object.StructureSign;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.util.ItemManager;
+import org.bukkit.Location;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class GreatLibrary extends Wonder {
 
@@ -157,7 +156,7 @@ public class GreatLibrary extends Wonder {
                 }
 
                 resident.getTreasury().withdraw(configEnchant.cost);
-                hand.addEnchantment(Enchantment.PROTECTION_FIRE, 3);
+                hand.addEnchantment(Enchantment.PROTECTION_FIRE, 2);
                 break;
             case "2": /* flame */
                 if (!Enchantment.ARROW_FIRE.canEnchantItem(hand)) {

@@ -46,7 +46,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.*;
 import java.net.URL;
+import java.util.*;
 
 public class CivSettings {
 
@@ -135,7 +137,11 @@ public class CivSettings {
     // 限制物品
     public static Map<Material, Integer> restrictedItems = new HashMap<Material, Integer>();
     public static Map<Material, Integer> blockPlaceExceptions = new HashMap<Material, Integer>();
-    public static Map<EntityType, Integer> restrictedSpawns = new HashMap<EntityType, Integer>();
+    // 禁止生成的生物
+    public static List<EntityType> restrictedSpawns = new ArrayList<>();
+    // 限制生成的敌对生物
+    public static List<EntityType> vanillaHostileMobs = new ArrayList<>();
+
     public static HashSet<EntityType> playerEntityWeapons = new HashSet<EntityType>();
     public static HashSet<Integer> alwaysCrumble = new HashSet<Integer>();
 
@@ -177,6 +183,10 @@ public class CivSettings {
 
     public static FileConfiguration fishingConfig; /* fishing.yml */
     public static ArrayList<ConfigFishing> fishingDrops = new ArrayList<ConfigFishing>();
+
+    // mobs.yml
+    public static FileConfiguration mobsConfig;
+    public static Map<String,ConfigMobs> customMobs = new HashMap<>();
 
     public static double iron_rate;
     public static double gold_rate;
@@ -242,6 +252,7 @@ public class CivSettings {
         initRestrictedUndoBlocks();
         initSwitchItems();
         initRestrictedSpawns();
+        initVanillaHostileMobs();
         initBlockPlaceExceptions();
         initPlayerEntityWeapons();
 
@@ -338,6 +349,8 @@ public class CivSettings {
         }
 
     }
+
+
 
     public static void reloadNewspaperConfigFiles() throws IOException, InvalidConfigurationException {
         CivSettings.newspapers.clear();
@@ -465,6 +478,7 @@ public class CivSettings {
         randomEventsConfig = loadCivConfig("randomevents.yml");
         fishingConfig = loadCivConfig("fishing.yml");
         missionsConfig = loadCivConfig("missions.yml");
+        mobsConfig = loadCivConfig("mobs.yml");
     }
 
     public static void reloadPerks() throws FileNotFoundException, IOException, InvalidConfigurationException, InvalidConfiguration {
@@ -474,6 +488,7 @@ public class CivSettings {
     }
 
     private static void loadConfigObjects() throws InvalidConfiguration {
+        ConfigMobs.loadConfig(mobsConfig,customMobs);
         ConfigTownLevel.loadConfig(townConfig, townLevels);
         ConfigTownUpgrade.loadConfig(townConfig, townUpgrades);
         ConfigCultureLevel.loadConfig(cultureConfig, cultureLevels);
@@ -525,28 +540,39 @@ public class CivSettings {
     }
 
     private static void initRestrictedSpawns() {
-        restrictedSpawns.put(EntityType.BLAZE, 0);
-        restrictedSpawns.put(EntityType.CAVE_SPIDER, 0);
-        restrictedSpawns.put(EntityType.CREEPER, 0);
-        restrictedSpawns.put(EntityType.ENDER_DRAGON, 0);
-        restrictedSpawns.put(EntityType.ENDERMAN, 0);
-        restrictedSpawns.put(EntityType.GHAST, 0);
-        restrictedSpawns.put(EntityType.GIANT, 0);
-        restrictedSpawns.put(EntityType.PIG_ZOMBIE, 0);
-        restrictedSpawns.put(EntityType.SILVERFISH, 0);
-        restrictedSpawns.put(EntityType.SKELETON, 0);
-        restrictedSpawns.put(EntityType.SLIME, 0);
-        restrictedSpawns.put(EntityType.SPIDER, 0);
-        restrictedSpawns.put(EntityType.WITCH, 0);
-        restrictedSpawns.put(EntityType.WITHER, 0);
-        restrictedSpawns.put(EntityType.ZOMBIE, 0);
-        restrictedSpawns.put(EntityType.BAT, 0);
-        restrictedSpawns.put(EntityType.ENDERMITE, 0);
-        restrictedSpawns.put(EntityType.GUARDIAN, 0);
-        restrictedSpawns.put(EntityType.HUSK, 0);
-        restrictedSpawns.put(EntityType.STRAY, 0);
-        restrictedSpawns.put(EntityType.ZOMBIE_VILLAGER, 0);
-        restrictedSpawns.put(EntityType.ILLUSIONER, 0);
+        restrictedSpawns.add(EntityType.BAT);
+        restrictedSpawns.add(EntityType.BLAZE);
+        restrictedSpawns.add(EntityType.CAVE_SPIDER);
+       // restrictedSpawns.add(EntityType.CREEPER);
+        restrictedSpawns.add(EntityType.ELDER_GUARDIAN); // 渊古守护者
+        restrictedSpawns.add(EntityType.ENDER_DRAGON);
+        restrictedSpawns.add(EntityType.ENDERMAN);
+        restrictedSpawns.add(EntityType.ENDERMITE);
+        restrictedSpawns.add(EntityType.EVOKER); // 幻魔这
+        restrictedSpawns.add(EntityType.EVOKER_FANGS);
+        restrictedSpawns.add(EntityType.GHAST);
+        // restrictedSpawns.add(EntityType.GIANT); //巨人
+        restrictedSpawns.add(EntityType.ILLUSIONER); // 幻术师
+        restrictedSpawns.add(EntityType.MAGMA_CUBE);
+        restrictedSpawns.add(EntityType.PIG_ZOMBIE);
+        restrictedSpawns.add(EntityType.SHULKER);
+        restrictedSpawns.add(EntityType.SILVERFISH);
+        // restrictedSpawns.add(EntityType.SLIME);
+        restrictedSpawns.add(EntityType.VEX);
+        restrictedSpawns.add(EntityType.WITHER);
+        restrictedSpawns.add(EntityType.VINDICATOR);
+        restrictedSpawns.add(EntityType.WITHER_SKELETON);
+    }
+    private static void initVanillaHostileMobs() {
+        vanillaHostileMobs.add(EntityType.CREEPER);  //JJ
+        vanillaHostileMobs.add(EntityType.GUARDIAN); //守卫者
+        vanillaHostileMobs.add(EntityType.HUSK);  // 尸壳
+        vanillaHostileMobs.add(EntityType.SKELETON); // 骷髅
+        vanillaHostileMobs.add(EntityType.SPIDER); //蜘蛛
+        vanillaHostileMobs.add(EntityType.STRAY); // 流浪者
+        vanillaHostileMobs.add(EntityType.WITCH); // 女巫
+        vanillaHostileMobs.add(EntityType.ZOMBIE);
+        vanillaHostileMobs.add(EntityType.ZOMBIE_VILLAGER);
     }
 
     private static void initRestrictedItems() {

@@ -18,17 +18,16 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.bukkit.Location;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.SimpleBlock;
+import org.bukkit.Location;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Trommel extends Structure {
     public static final int GRAVEL_MAX_CHANCE = CivSettings.getIntegerStructure("trommel_gravel.max"); //100%
@@ -293,7 +292,7 @@ public class Trommel extends Structure {
     private double modifyChance(Double chance) {
         double increase = chance * (this.getTown().getBuffManager().getEffectiveDouble("buff_extraction") + this.getTown().getBuffManager().getEffectiveDouble("buff_grandcanyon_quarry_and_trommel"));
         chance += increase;
-
+        // TODO 恢复这部分
 //		try {
 //			if (this.getTown().getGovernment().id.equals("gov_despotism")) {
 //				chance *= CivSettings.getDouble(CivSettings.structureConfig, "trommel.despotism_rate");

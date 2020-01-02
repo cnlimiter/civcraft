@@ -247,8 +247,11 @@ public class DebugCommand extends CommandBase {
         CivMessage.send(sender, "Date bypass is now:" + CivGlobal.debugDateBypass);
     }
 
-    public void ping_cmd() {
-        CivMessage.send(sender, "test....");
+    public void ping_cmd() throws Exception {
+        Player player = getPlayer();
+        Object entityPlayer = player.getClass().getMethod("getHandle").invoke(player);
+        int ping = (int) entityPlayer.getClass().getField("ping").get(entityPlayer);
+        CivMessage.sendSuccess(player, "Your ping is: "+ping);
     }
 
     public void matmap_cmd() throws CivException {

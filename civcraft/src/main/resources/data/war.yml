@@ -67,6 +67,7 @@ war:
   
     # Respawn time per control block, destroying control blocks add this much time to respawn in seconds.
     # 每个控制块的重新生成时间，破坏控制块会花费这么多时间在几秒钟内重新生成。
+    # 看代码是 每个控制块被破坏增加多少s的重生时间
     control_block_respawn_time: 20
 
     # Control block hitpoints.

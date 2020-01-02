@@ -72,17 +72,10 @@ public class DailyEvent implements EventInterface {
         Calendar cal = EventTimer.getCalendarInServerTimeZone();
         int daily_upkeep_hour;
         daily_upkeep_hour = CivSettings.getInteger(CivSettings.civConfig, "global.daily_upkeep_hour");
+        cal.add(Calendar.DATE, 1);
+        cal.set(Calendar.HOUR_OF_DAY, daily_upkeep_hour);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.HOUR_OF_DAY, daily_upkeep_hour);
-
-        Calendar now = Calendar.getInstance();
-        if (now.after(cal)) {
-            cal.add(Calendar.DATE, 1);
-            cal.set(Calendar.HOUR_OF_DAY, daily_upkeep_hour);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-        }
         SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
         CivLog.info("Setting Next Daily Event:" + sdf.format(cal.getTime()));
 

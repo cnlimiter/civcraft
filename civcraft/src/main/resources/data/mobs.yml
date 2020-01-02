@@ -1,0 +1,189 @@
+custom_mobs_enabled: true
+
+# New custom mobs, should be able to take place of the original CivCraft mobs.
+
+#   drops:
+#     - '(Material Number [Bukkit Material.java]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+#     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
+custom_mobs:
+ - id: LESSER_YOBO
+   name: '<lightgreen>Lesser Yobo'
+   visible: true
+   entity: Zombie
+   max_health: 17.5
+   move_speed: 1.05
+   attack_dmg: 8.0
+   defense_dmg: 4.5
+   follow_range: 24.0
+   kb_resistance: 0.5
+   exp_min: 5
+   exp_max: 15
+   res_exp: 0.5
+   rxp_mod: 1.05
+   mod_type: 'Weapondry'
+   biomes:
+     - 'PLAINS'
+     - 'FOREST'
+     - 'BIRCH_FOREST'
+     - 'BIRCH_FOREST_HILLS'
+   drops:
+     - '367,0,0,2,1.0,0.0,1,0'
+     - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
+     - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
+     - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
+#
+ - id: GREATER_YOBO
+   name: '<yellow>Greater Yobo'
+   visible: true
+   entity: Zombie
+   max_health: 23.5
+   move_speed: 1.05
+   attack_dmg: 10.0
+   defense_dmg: 5.5
+   follow_range: 24.0
+   kb_resistance: 0.5
+   exp_min: 15
+   exp_max: 40
+   res_exp: 1.1
+   rxp_mod: 1.1
+   mod_type: 'Weapondry'
+   biomes:
+     - 'MUTATED_PLAINS'
+     - 'FOREST_HILLS'
+     - 'MUTATED_FOREST'
+     - 'MUTATED_BIRCH_FOREST'
+     - 'MUTATED_BIRCH_FOREST_HILLS'
+   drops:
+     - '367,0,1,2,0.75,0.0,1,0'
+#
+ - id: ELITE_YOBO
+   name: '<lightpurple>Elite Yobo'
+   visible: true
+   entity: Zombie
+   max_health: 29.5
+   move_speed: 1.05
+   attack_dmg: 12.0
+   defense_dmg: 7.5
+   follow_range: 24.0
+   kb_resistance: 0.5
+   exp_min: 30
+   exp_max: 75
+   res_exp: 1.5
+   rxp_mod: 1.1
+   mod_type: 'Weapondry'
+   biomes:
+     - 'EXTREME_HILLS'
+     - 'EXTREME_HILLS_WITH_TREES'
+     - 'ROOFED_FOREST'
+     - 'MUTATED_ROOFED_FOREST'
+   drops:
+     - '367,0,1,2,0.75,0.0,1,0'
+#
+ - id: BRUTAL_YOBO
+   name: '<rose>Brutal Yobo'
+   visible: true
+   entity: Zombie
+   max_health: 35.5
+   move_speed: 1.05
+   attack_dmg: 14.0
+   defense_dmg: 9.5
+   follow_range: 24.0
+   kb_resistance: 0.5
+   exp_min: 50
+   exp_max: 115
+   res_exp: 1.9
+   rxp_mod: 1.1
+   mod_type: 'Weapondry'
+   biomes:
+     - 'MUTATED_REDWOOD_TAIGA_HILLS'
+     - 'MUTATED_EXTREME_HILLS'
+     - 'MUTATED_EXTREME_HILLS_WITH_TREES'
+   drops:
+     - '367,0,1,2,0.75,0.0,1,0'
+#
+ - id: LEGENDARY_YOBO
+   name: '<lightblue>Legendary Yobo'
+   visible: true
+   entity: Zombie
+   max_health: 41.5
+   move_speed: 1.05
+   attack_dmg: 16.0
+   defense_dmg: 11.5
+   follow_range: 24.0
+   kb_resistance: 0.5
+   exp_min: 85
+   exp_max: 200
+   res_exp: 2.3
+   rxp_mod: 1.1
+   mod_type: 'Weapondry'
+   biomes:
+     - 'HELL'
+   drops:
+     - '367,0,1,2,0.75,0.0,1,0'
+#
+#
+#
+#
+#
+vanilla_mobs:
+ - id: ZOMBIE
+   max_health: 20.0
+   move_speed: 1.0
+   attack_dmg: 3.5
+   defense_dmg: 2.0
+   follow_range: 40.0
+   kb_resistance: 0.2
+   exp_min: 5
+   exp_max: 10
+   res_exp: 0.05
+   rxp_mod: 1.05
+   mod_type: 'Weapondry'
+   drops:
+     - '367,0,0,2,1.0,0.0,1,0'
+     - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
+     - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
+     - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
+#
+ - id: SKELETON
+   max_health: 20.0
+   move_speed: 1.0
+   attack_dmg: 4.0
+   defense_dmg: 2.0
+   follow_range: 40.0
+   kb_resistance: 0.2
+   exp_min: 5
+   exp_max: 10
+   res_exp: 0.05
+   rxp_mod: 1.05
+   mod_type: 'Weapondry'
+   drops:
+#     - '(Material Number [Bukkit Material.java]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+     - '262,0,0,2,1.0,0.0,1,0'
+     - '352,0,0,2,1.0,0.0,1,0'
+     - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
+     - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
+     - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
+#
+
+
+
+
+
+# OLD CUSTOM MOBS, REMOVING FOR NEW ONES
+
+# Example
+#
+# - id: Entity Name for Bukkit to Track Mob (EntityType)
+#   exp_min: min EXP to drop
+#   exp_max: max EXP to drop
+#   exp_mod: EXP modifier for skill levels
+#   type: '(name)' skill level used for modifications
+#   drops:
+#     - '(Material [Bukkit Material.java]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+#     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
+#    ## Note: the 'lootingRate' changes +(add) drop percent. if 0,looting will not work.
+#    ## 'lootingDrops' will increase drops on items. If 0,looting will not work.
+#    ## dropMod will require the 'type' to be this lvl before it drops
+#
+
+common_drops: '287,0,1,1,0.1,0.02,1,-0.01;289,0,1,1,0.1,0.015,1,-0.005;334,0,1,1,0.1,0.02,1,-0.01;341,0,1,1,0.04,0.01,1,0.01;391,0,1,1,0.075,0.025,1,-0.005;392,0,1,1,0.075,0.025,1,-0.005;434,0,1,1,0.075,0.025,1,-0.005'
