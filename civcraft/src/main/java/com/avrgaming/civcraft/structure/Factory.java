@@ -156,11 +156,15 @@ public class Factory extends Structure {
                 final LoreCraftableMaterial itemToGetName = LoreCraftableMaterial.getCraftMaterialFromId(craftMatID2);
                 if (multiInvContentsCraftMat.get(craftMatID2) == null) {
                     allMatchCraftMat = false;
-                    notMatchComponents.append(itemToGetName.getName()).append(" ").append(count2).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
+                    notMatchComponents.append(itemToGetName.getName()).append(" ")
+                            .append(count2).append(" ")
+                            .append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
                 } else if (multiInvContentsCraftMat.get(craftMatID2) < count2) {
                     allMatchCraftMat = false;
                     final int reaming = count2 - multiInvContentsCraftMat.get(craftMatID2);
-                    notMatchComponents.append(itemToGetName.getName()).append(" ").append(reaming).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
+                    notMatchComponents.append(itemToGetName.getName())
+                            .append(" ").append(reaming).append(" ")
+                            .append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
                 }
             }
         }
@@ -169,23 +173,28 @@ public class Factory extends Structure {
                 final int count3 = configSpaceCraftMat2.count;
                 final Integer id2 = configSpaceCraftMat2.typeID;
                 if (multiInvContentsMinecraft.get(id2) == null) {
-                    allMatchCraftMat = false;
+                    allMatchMinecraft = false;
                     final boolean succusess = true;
                     if (succusess) {
                         notMatchComponents.append("§a");
                     }
-                    notMatchComponents.append(configSpaceCraftMat2.name).append(" ").append(count3).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
+                    notMatchComponents.append(configSpaceCraftMat2.name)
+                            .append(" ").append(count3).append(" ")
+                            .append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
                 } else {
                     if (multiInvContentsMinecraft.get(id2) >= count3) {
+                        allMatchMinecraft = true;
                         continue;
                     }
-                    allMatchCraftMat = false;
+                    allMatchMinecraft = false;
                     final boolean succusess = true;
                     if (succusess) {
                         notMatchComponents.append("§a");
                     }
                     final int reaming2 = count3 - multiInvContentsMinecraft.get(id2);
-                    notMatchComponents.append(configSpaceCraftMat2.name).append(" ").append(reaming2).append(" ").append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
+                    notMatchComponents.append(configSpaceCraftMat2.name)
+                            .append(" ").append(reaming2).append(" ")
+                            .append(CivSettings.localize.localizedString("structure_factory_pieces")).append("\n");
                 }
             }
         }
@@ -196,6 +205,7 @@ public class Factory extends Structure {
             allAllMatch = true;
         }
         if (allAllMatch) {
+            // TODO 这边是更新缓存才对
             for (final ItemStack itemStack2 : source.getContents()) {
                 if (itemStack2 != null) {
                     task.updateInventory(UpdateInventoryRequest.Action.REMOVE, source, itemStack2);
