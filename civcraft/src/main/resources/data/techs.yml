@@ -54,7 +54,7 @@ techs:
       require_techs:
       era: 0
       info:
-        - '解锁建筑：农场'
+        - '解锁建筑：农场（种植农作物）'
         - '解锁科技：制陶工艺，狩猎'
 
     - id: 'tech_armory'
@@ -64,6 +64,9 @@ techs:
       points: 125
       require_techs:
       era: 0
+      info:
+        - '解锁建筑：军政处（训练间谍，开拓者等）'
+        - '解锁科技：弓术，铁器锻造，金属冶炼'
 
     - id: 'tech_mining'
       name: '矿石开采学'
@@ -72,6 +75,10 @@ techs:
       points: 125
       require_techs:
       era: 0
+      info:
+        - '解锁建筑：精炼厂'
+        - '解锁科技：生产学，建筑学'
+
 
     - id: 'tech_religion'
       name: '宗教'
@@ -80,6 +87,9 @@ techs:
       points: 125
       require_techs:
       era: 0
+      info:
+        - '解锁建筑：银行，纪念碑'
+        - '解锁科技：文字，祭祀'
 
 #Classical era
     - id: 'tech_archery'
