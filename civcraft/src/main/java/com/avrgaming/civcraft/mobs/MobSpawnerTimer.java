@@ -64,7 +64,6 @@ public class MobSpawnerTimer implements Runnable {
                 int y = world.getHighestBlockYAt(((Double) player.getLocation().getX()).intValue() + x, ((Double) player.getLocation().getZ()).intValue() + z);
                 Location loc = new Location(world, player.getLocation().getX() + x, y + Y_SHIFT, player.getLocation().getZ() + z);
                 if (!loc.getChunk().isLoaded()) continue;
-                // 返回这附近有多少怪？
                 ChunkCoord chunk = new ChunkCoord(loc);
                 TownChunk tc = CivGlobal.getTownChunk(chunk);
                 // 城镇

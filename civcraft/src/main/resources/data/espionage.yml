@@ -139,6 +139,7 @@ missions:
     compromise_chance: 1.0
     intel: 3
     length: 180
+    slot: 5
 
   - id: 'spy_poison_granary'
     #    name: 'Poison Granary'

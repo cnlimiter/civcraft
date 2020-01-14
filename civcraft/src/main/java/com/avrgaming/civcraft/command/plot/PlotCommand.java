@@ -18,10 +18,6 @@
  */
 package com.avrgaming.civcraft.command.plot;
 
-import java.text.SimpleDateFormat;
-
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.command.CommandBase;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -34,6 +30,9 @@ import com.avrgaming.civcraft.structure.farm.FarmChunk;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.entity.Player;
+
+import java.text.SimpleDateFormat;
 
 public class PlotCommand extends CommandBase {
 
@@ -252,13 +251,13 @@ public class PlotCommand extends CommandBase {
         }
 
         if (args[1].equalsIgnoreCase("mobs")) {
-            if (tc.perms.isMobs()) {
-                tc.perms.setMobs(false);
-            } else {
-                tc.perms.setMobs(true);
-            }
-
-            CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("var_cmd_plot_toggleMobs", tc.perms.isMobs()));
+//            if (tc.perms.isMobs()) {
+//                tc.perms.setMobs(false);
+//            } else {
+//                tc.perms.setMobs(true);
+//            }
+//
+//            CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("var_cmd_plot_toggleMobs", tc.perms.isMobs()));
 
         } else if (args[1].equalsIgnoreCase("fire")) {
             if (tc.perms.isFire()) {
@@ -327,8 +326,8 @@ public class PlotCommand extends CommandBase {
     }
 
     private void showToggles(TownChunk tc) {
-        CivMessage.send(sender, CivColor.Green + CivSettings.localize.localizedString("cmd_plot_showMobs") + " " + CivColor.LightGreen + tc.perms.isMobs() + " " +
-                CivColor.Green + CivSettings.localize.localizedString("cmd_plot_showFire") + " " + CivColor.LightGreen + tc.perms.isFire());
+//        CivMessage.send(sender, CivColor.Green + CivSettings.localize.localizedString("cmd_plot_showMobs") + " " + CivColor.LightGreen + tc.perms.isMobs() + " " +
+//                CivColor.Green + CivSettings.localize.localizedString("cmd_plot_showFire") + " " + CivColor.LightGreen + tc.perms.isFire());
     }
 
     private void showPriceInfo(TownChunk tc) {

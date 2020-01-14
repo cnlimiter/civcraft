@@ -37,7 +37,7 @@ public abstract class Unit {
 
     public static Spy SPY_UNIT;
     public static Settler SETTLER_UNIT;
-    public static ArrayList<MissionBook> SPY_MISSIONS = new ArrayList<MissionBook>();
+    public static ArrayList<MissionBook> SPY_MISSIONS = new ArrayList<>();
     public static MissionBook SPY_INVESTIGATE_TOWN;
     public static MissionBook SPY_STEAL_TREASURY;
     public static MissionBook SPY_SUBVERT_GOVERNMENT;

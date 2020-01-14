@@ -41,6 +41,7 @@ import com.avrgaming.civcraft.listener.*;
 import com.avrgaming.civcraft.listener.armor.ArmorListener;
 import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterialListener;
 import com.avrgaming.civcraft.lorestorage.LoreGuiItemListener;
+import com.avrgaming.civcraft.mobs.MobSpawnerTimer;
 import com.avrgaming.civcraft.populators.TradeGoodPopulator;
 import com.avrgaming.civcraft.randomevents.RandomEventSweeper;
 import com.avrgaming.civcraft.sessiondb.SessionDBAsyncTimer;
@@ -153,6 +154,7 @@ public final class CivCraft extends JavaPlugin {
         TaskMaster.asyncTask(new StructureValidationChecker(), TimeTools.toTicks(120));
         TaskMaster.asyncTimer("StructureValidationPunisher", new StructureValidationPunisher(), TimeTools.toTicks(3600));
         TaskMaster.asyncTimer("SessionDBAsyncTimer", new SessionDBAsyncTimer(), 10);
+        TaskMaster.syncTimer("MobSpawner", new MobSpawnerTimer(), TimeTools.toTicks(30));
         TaskMaster.asyncTimer("pvptimer", new PvPTimer(), TimeTools.toTicks(30));
     }
 

@@ -9,7 +9,7 @@ custom_mobs:
  - id: LESSER_YOBO
    name: '<lightgreen>Lesser Yobo'
    visible: true
-   entity: Zombie
+   entity: ZOMBIE
    max_health: 17.5
    move_speed: 1.05
    attack_dmg: 8.0
@@ -35,7 +35,7 @@ custom_mobs:
  - id: GREATER_YOBO
    name: '<yellow>Greater Yobo'
    visible: true
-   entity: Zombie
+   entity: ZOMBIE
    max_health: 23.5
    move_speed: 1.05
    attack_dmg: 10.0
@@ -59,7 +59,7 @@ custom_mobs:
  - id: ELITE_YOBO
    name: '<lightpurple>Elite Yobo'
    visible: true
-   entity: Zombie
+   entity: ZOMBIE
    max_health: 29.5
    move_speed: 1.05
    attack_dmg: 12.0
@@ -82,7 +82,7 @@ custom_mobs:
  - id: BRUTAL_YOBO
    name: '<rose>Brutal Yobo'
    visible: true
-   entity: Zombie
+   entity: ZOMBIE
    max_health: 35.5
    move_speed: 1.05
    attack_dmg: 14.0
@@ -104,7 +104,7 @@ custom_mobs:
  - id: LEGENDARY_YOBO
    name: '<lightblue>Legendary Yobo'
    visible: true
-   entity: Zombie
+   entity: ZOMBIE
    max_health: 41.5
    move_speed: 1.05
    attack_dmg: 16.0

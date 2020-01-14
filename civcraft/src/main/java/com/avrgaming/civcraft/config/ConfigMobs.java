@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.entity.Damageable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -59,13 +60,13 @@ public class ConfigMobs {
 
             @SuppressWarnings("unchecked")
             List<String> biomes = (List<String>) cl.get("biomes");
-            if (biomes !=null){
-                mob.biomes.addAll(biomes);
+            if (biomes != null) {
+                mob.biomes = new ArrayList<>(biomes);
             }
             @SuppressWarnings("unchecked")
             List<String> drops = (List<String>) cl.get("drops");
-            if (drops != null){
-                mob.drops.addAll(drops);
+            if (drops != null) {
+                mob.drops = new ArrayList<>(drops);
             }
             mobs.put(mob.id, mob);
         }
