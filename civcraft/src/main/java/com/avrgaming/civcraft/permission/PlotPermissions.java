@@ -18,12 +18,12 @@
  */
 package com.avrgaming.civcraft.permission;
 
-import java.util.ArrayList;
-
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
+
+import java.util.ArrayList;
 
 public class PlotPermissions {
 
@@ -38,7 +38,7 @@ public class PlotPermissions {
     public PermissionNode destroy = new PermissionNode("destroy");
     public PermissionNode interact = new PermissionNode("interact");
     public PermissionNode itemUse = new PermissionNode("itemUse");
-    private boolean fire, mobs;
+    private boolean fire, spawner_mobs, custom_spawn_mobs;
 
     /*
      * Owner of this permission node.
@@ -64,8 +64,8 @@ public class PlotPermissions {
                 groupString += grp.getId() + ":";
             }
         }
-
-        return build.getSaveString() + "," + destroy.getSaveString() + "," + interact.getSaveString() + "," + itemUse.getSaveString() + "," + ownerString + "," + groupString + "," + fire + "," + mobs;
+        return build.getSaveString() + "," + destroy.getSaveString() + "," + interact.getSaveString() + "," + itemUse.getSaveString() + ","
+                + ownerString + "," + groupString + "," + fire + "," + spawner_mobs + "," + custom_spawn_mobs;
     }
 
     public void loadFromSaveString(Town town, String src) throws CivException {
@@ -77,7 +77,7 @@ public class PlotPermissions {
         itemUse.loadFromString(split[3]);
 
         setOwner(CivGlobal.getResident(split[4]));
-        String grpString[] = split[5].split(":");
+        String[] grpString = split[5].split(":");
 
         for (String gstr : grpString) {
             gstr = gstr.trim();
@@ -89,8 +89,9 @@ public class PlotPermissions {
         }
 
         if (split.length > 7) {
-            fire = Boolean.valueOf(split[6]);
-            mobs = Boolean.valueOf(split[7]);
+            fire = Boolean.parseBoolean(split[6]);
+            spawner_mobs = Boolean.parseBoolean(split[7]);
+            custom_spawn_mobs = Boolean.parseBoolean(split[8]);
         }
 
         //	group = CivGlobal.getPermissionGroup(town, Integer.valueOf(split[5]));
@@ -105,12 +106,20 @@ public class PlotPermissions {
         this.fire = fire;
     }
 
-    public boolean isMobs() {
-        return mobs;
+    public boolean isSpawnerMobs() {
+        return spawner_mobs;
     }
 
-    public void setMobs(boolean mobs) {
-        this.mobs = mobs;
+    public void setSpawnerMobs(boolean spawner_mobs) {
+        this.spawner_mobs = spawner_mobs;
+    }
+
+    public boolean isCustomSpawnMobs() {
+        return custom_spawn_mobs;
+    }
+
+    public void setCustomSpawnMobs(boolean custom_spawn_mobs) {
+        this.custom_spawn_mobs = custom_spawn_mobs;
     }
 
     public String getBuildString() {

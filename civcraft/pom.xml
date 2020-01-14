@@ -136,13 +136,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/libs/Herochat.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>de.hellfirepvp</groupId>
-            <artifactId>CustomMobs</artifactId>
-            <version>4.17</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/libs/CustomMobs-4.17.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>de.hellfirepvp</groupId>-->
+<!--            <artifactId>CustomMobs</artifactId>-->
+<!--            <version>4.17</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/libs/CustomMobs-4.17.jar</systemPath>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.wimbli.WorldBorder</groupId>
             <artifactId>WorldBorder</artifactId>

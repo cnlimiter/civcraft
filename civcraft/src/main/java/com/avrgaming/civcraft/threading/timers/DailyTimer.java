@@ -49,7 +49,6 @@ public class DailyTimer implements Runnable {
 
     @Override
     public void run() {
-
         if (lock.tryLock()) {
             try {
                 try {

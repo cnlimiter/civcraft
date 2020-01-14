@@ -115,7 +115,7 @@ public class PlayerListener implements Listener {
             Player player = event.getPlayer();
             if (!player.isOp() && !(player.hasPermission("civ.admin") || player.hasPermission(CivSettings.TPALL))) {
                 CultureChunk cc = CivGlobal.getCultureChunk(new ChunkCoord(event.getTo()));
-                Camp toCamp = CivGlobal.getCampFromChunk(new ChunkCoord(event.getTo()));
+                Camp toCamp = CivGlobal.getCampChunk(new ChunkCoord(event.getTo()));
                 Resident resident = CivGlobal.getResident(player);
                 if (cc != null && cc.getCiv() != resident.getCiv() && !cc.getCiv().isAdminCiv()) {
                     Relation.Status status = cc.getCiv().getDiplomacyManager().getRelationStatus(player);

@@ -50,20 +50,20 @@ public class HourlyTickEvent implements EventInterface {
         }
         for (Civilization civ : CivGlobal.getCivs()) {
             if (!civ.getMissionActive()) continue;
-            Integer currentMission = civ.getCurrentMission();
-            String missionName = CivSettings.spacemissions_levels.get((Object) currentMission).name;
+            int currentMission = civ.getCurrentMission();
+            String missionName = CivSettings.spacemissions_levels.get(currentMission).name;
             String[] split = civ.getMissionProgress().split(":");
-            double completedBeakers = Math.round(Double.valueOf(split[0]));
-            double completedHammers = Math.round(Double.valueOf(split[1]));
+            double completedBeakers = Math.round(Double.parseDouble(split[0]));
+            double completedHammers = Math.round(Double.parseDouble(split[1]));
             int percentageCompleteBeakers = (int) ((double) Math.round(Double.parseDouble(split[0])) /
-                    Double.parseDouble(CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).require_beakers)
+                    Double.parseDouble(CivSettings.spacemissions_levels.get(currentMission).require_beakers)
                     * 100.0);
-            int percentageCompleteHammers = (int) ((double) Math.round(Double.parseDouble(split[1])) / Double.parseDouble(CivSettings.spacemissions_levels.get((Object) Integer.valueOf((int) civ.getCurrentMission())).require_hammers) * 100.0);
+            int percentageCompleteHammers = (int) ((double) Math.round(Double.parseDouble(split[1])) /
+                    Double.parseDouble(CivSettings.spacemissions_levels.get(currentMission).require_hammers) * 100.0);
             CivMessage.sendCiv(civ, CivSettings.localize.localizedString("var_spaceshuttle_progress",
-                    CivColor.Red + missionName + CivColor.RESET, "§b" +
-                            completedBeakers + CivColor.Red + "(" + percentageCompleteBeakers + "%)"
-                            + CivColor.RESET, CivColor.LightGray + completedHammers
-                            + CivColor.Red + "(" + percentageCompleteHammers + "%)" + CivColor.RESET));
+                    CivColor.Red + missionName + CivColor.RESET,
+                    "§b" + completedBeakers + CivColor.Red + "(" + percentageCompleteBeakers + "%)" + CivColor.RESET,
+                    CivColor.LightGray + completedHammers + CivColor.Red + "(" + percentageCompleteHammers + "%)" + CivColor.RESET));
         }
 
         CivLog.info("TimerEvent: Hourly Finished -----------------------------");

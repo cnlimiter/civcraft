@@ -96,7 +96,6 @@ public class CivGlobal {
     private static Map<BlockCoord, CampBlock> campBlocks = new ConcurrentHashMap<BlockCoord, CampBlock>();
     private static Map<BlockCoord, StructureSign> structureSigns = new ConcurrentHashMap<BlockCoord, StructureSign>();
     private static Map<BlockCoord, StructureChest> structureChests = new ConcurrentHashMap<BlockCoord, StructureChest>();
-    private static Map<BlockCoord, MobSpawner> mobSpawners = new ConcurrentHashMap<BlockCoord, MobSpawner>();
     private static Map<BlockCoord, TradeGood> tradeGoods = new ConcurrentHashMap<BlockCoord, TradeGood>();
     private static Map<BlockCoord, ProtectedBlock> protectedBlocks = new ConcurrentHashMap<BlockCoord, ProtectedBlock>();
     private static Map<ChunkCoord, FarmChunk> farmChunks = new ConcurrentHashMap<ChunkCoord, FarmChunk>();
@@ -189,9 +188,6 @@ public class CivGlobal {
         loadPermissionGroups();
         loadTownChunks();
         loadWonders();
-        if (CivSettings.hasCustomMobs) {
-            loadMobSpawners();
-        }
         loadStructures();
         loadWallBlocks();
         loadRoadBlocks();
@@ -287,32 +283,6 @@ public class CivGlobal {
                 }
             }
             CivLog.info("Loaded " + CivGlobal.towns.size() + " Reports");
-        } finally {
-            SQL.close(rs, ps, context);
-        }
-    }
-
-    private static void loadMobSpawners() throws SQLException {
-        Connection context = null;
-        ResultSet rs = null;
-        PreparedStatement ps = null;
-
-        try {
-            context = SQL.getGameConnection();
-            ps = context.prepareStatement("SELECT * FROM " + SQL.tb_prefix + MobSpawner.TABLE_NAME);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                MobSpawner spawner;
-                try {
-                    spawner = new MobSpawner(rs);
-                    mobSpawners.put(spawner.getCoord(), spawner);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            CivLog.info("Loaded " + mobSpawners.size() + " Mob Spawners");
         } finally {
             SQL.close(rs, ps, context);
         }
@@ -1101,18 +1071,6 @@ public class CivGlobal {
         return structures.entrySet().iterator();
     }
 
-    public static void addMobSpawner(MobSpawner spawner) {
-        mobSpawners.put(spawner.getCoord(), spawner);
-    }
-
-    public static MobSpawner getMobSpawner(BlockCoord coord) {
-        return mobSpawners.get(coord);
-    }
-
-    public static Collection<MobSpawner> getMobSpawners() {
-        return mobSpawners.values();
-    }
-
     public static void addTradeGood(TradeGood good) {
         tradeGoods.put(good.getCoord(), good);
     }
@@ -1691,18 +1649,6 @@ public class CivGlobal {
         return color + namedPlayer.getName();
     }
 
-    public static boolean mobSpawnerTooCloseToAnother(Location spawnerLoc, double radius) {
-        for (MobSpawner ms : mobSpawners.values()) {
-            Location msLoc = ms.getCoord().getLocation();
-
-            if (msLoc.distance(spawnerLoc) < radius) {
-                return true;
-            }
-
-        }
-        return false;
-    }
-
     public static boolean tradeGoodTooCloseToAnother(Location goodLoc, double radius) {
         for (TradeGood tg : tradeGoods.values()) {
             Location tgLoc = tg.getCoord().getLocation();
@@ -1968,8 +1914,13 @@ public class CivGlobal {
         return camps.values();
     }
 
-    public static Camp getCampFromChunk(ChunkCoord coord) {
+    public static Camp getCampChunk(ChunkCoord coord) {
         return campChunks.get(coord);
+    }
+    public static Camp getCampChunk(Location location) {
+        if (location == null) return null;
+        ChunkCoord coord = new ChunkCoord(location);
+        return CivGlobal.campChunks.get(coord);
     }
 
     public static void removeCampChunk(ChunkCoord coord) {
@@ -2141,5 +2092,17 @@ public class CivGlobal {
             }
         }
         return count;
+    }
+
+
+    /**
+     * 确定我们正在搜索的玩家是否有效。这是用于各种事情，如暴徒产卵，塔等。
+     * @param pl
+     * @return
+     */
+    public static boolean isValidPlayer(Player pl) {
+        return  !(!pl.isOnline() || pl.isDead() ||
+                (pl.getGameMode() != GameMode.SURVIVAL && pl.getGameMode() != GameMode.ADVENTURE));
+
     }
 }

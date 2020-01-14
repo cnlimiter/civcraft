@@ -311,7 +311,7 @@ public class TownChunk extends SQLObject {
             }
         }
 
-        Camp camp = CivGlobal.getCampFromChunk(coord);
+        Camp camp = CivGlobal.getCampChunk(coord);
         if (camp != null) {
             CivMessage.sendCamp(camp, CivColor.Yellow + ChatColor.BOLD + CivSettings.localize.localizedString("var_town_chunk_dibandCamp", town.getName()));
             camp.disband();
@@ -405,7 +405,7 @@ public class TownChunk extends SQLObject {
 
         }
 
-        Camp camp = CivGlobal.getCampFromChunk(coord);
+        Camp camp = CivGlobal.getCampChunk(coord);
         if (camp != null) {
             CivMessage.sendCamp(camp, CivColor.Yellow + ChatColor.BOLD + CivSettings.localize.localizedString("var_town_chunk_dibandCamp", town.getName()));
             camp.disband();

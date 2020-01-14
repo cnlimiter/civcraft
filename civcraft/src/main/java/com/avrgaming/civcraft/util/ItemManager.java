@@ -34,6 +34,10 @@ public class ItemManager {
     public static ItemStack createItemStack(int typeId, int amount) {
         return createItemStack(typeId, amount, (short) 0);
     }
+    public static ItemStack newStack(Material type, int amt, short data) {
+        return new ItemStack(type, amt, data);
+    }
+
 
     @SuppressWarnings("deprecation")
     public static MaterialData getMaterialData(int type_id, int data) {

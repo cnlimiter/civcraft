@@ -3,7 +3,7 @@ custom_mobs_enabled: true
 # New custom mobs, should be able to take place of the original CivCraft mobs.
 
 #   drops:
-#     - '(Material Number [Bukkit Material.java]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+#     - '物品id 看[Material.java],物品子id,最小掉落数量,最大掉落数量,掉落概率,lootingRate,lootingDrops,dropMod' ## Minecraft Item
 #     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
 custom_mobs:
  - id: LESSER_YOBO
@@ -28,9 +28,9 @@ custom_mobs:
      - 'BIRCH_FOREST_HILLS'
    drops:
      - '367,0,0,2,1.0,0.0,1,0'
-     - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
-     - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
-     - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
+#     - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
+#     - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
+#     - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
 #
  - id: GREATER_YOBO
    name: '<yellow>Greater Yobo'

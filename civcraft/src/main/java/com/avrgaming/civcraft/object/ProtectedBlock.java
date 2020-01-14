@@ -18,15 +18,15 @@
  */
 package com.avrgaming.civcraft.object;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-
 import com.avrgaming.civcraft.database.SQL;
 import com.avrgaming.civcraft.database.SQLUpdate;
 import com.avrgaming.civcraft.exception.InvalidNameException;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.util.BlockCoord;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
 
 public class ProtectedBlock extends SQLObject {
 
@@ -50,7 +50,6 @@ public class ProtectedBlock extends SQLObject {
         NONE,
         TRADE_MARKER,
         PROTECTED_RAILWAY,
-        MOB_SPAWNER_MARKER,
     }
 
     public static final String TABLE_NAME = "PROTECTED_BLOCKS";

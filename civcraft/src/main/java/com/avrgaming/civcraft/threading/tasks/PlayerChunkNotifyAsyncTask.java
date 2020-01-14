@@ -109,8 +109,8 @@ public class PlayerChunkNotifyAsyncTask implements Runnable {
         TownChunk toTc = CivGlobal.getTownChunk(to);
         CultureChunk fromCc = CivGlobal.getCultureChunk(from);
         CultureChunk toCc = CivGlobal.getCultureChunk(to);
-        Camp toCamp = CivGlobal.getCampFromChunk(new ChunkCoord(to));
-        Camp fromCamp = CivGlobal.getCampFromChunk(new ChunkCoord(from));
+        Camp toCamp = CivGlobal.getCampChunk(new ChunkCoord(to));
+        Camp fromCamp = CivGlobal.getCampChunk(new ChunkCoord(from));
 
         Player player;
         Resident resident;

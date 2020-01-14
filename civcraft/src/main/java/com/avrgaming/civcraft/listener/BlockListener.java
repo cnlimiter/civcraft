@@ -367,6 +367,11 @@ public class BlockListener implements Listener {
         LivingEntity entity = event.getEntity();
         EntityType type = event.getEntityType();
         SpawnReason reason = event.getSpawnReason();
+        // 禁止刷怪蛋生成
+        if (reason.equals(SpawnReason.SPAWNER_EGG)) {
+            event.setCancelled(true);
+            return;
+        }
         if (reason.equals(SpawnReason.CUSTOM)) {
             // 插件生成
             if (event.isCancelled()) {
@@ -391,7 +396,7 @@ public class BlockListener implements Listener {
             event.setCancelled(true);
             return;
         }
-        // 城镇区块不刷
+        // 城镇区块不刷怪
         TownChunk tc = CivGlobal.getTownChunk(event.getLocation());
         if (tc != null) {
             if (CivSettings.vanillaHostileMobs.contains(type)) {
@@ -431,54 +436,41 @@ public class BlockListener implements Listener {
             event.setCancelled(true);
             return;
         }
-
-        if (event.getSpawnReason().equals(SpawnReason.BREEDING)) {
-            ChunkCoord coord = new ChunkCoord(event.getEntity().getLocation());
+        // 牧场繁殖
+        if (reason.equals(SpawnReason.BREEDING)) {
+            ChunkCoord coord = new ChunkCoord(entity.getLocation());
             Pasture pasture = Pasture.pastureChunks.get(coord);
             if (pasture != null) {
                 pasture.onBreed(event.getEntity());
+            } else {
+                // 自热情况下？
+                event.setCancelled(true);
+                return;
+            }
+        }
+        if (type.equals(EntityType.ZOMBIE) || type.equals(EntityType.ZOMBIE_VILLAGER)
+                || type.equals(EntityType.HUSK)) {
+            if (reason.equals(SpawnReason.JOCKEY)) {
+                event.setCancelled(true);
+                return;
             }
         }
 
-        class SyncTask implements Runnable {
-            private LivingEntity entity;
-
-            private SyncTask(LivingEntity entity) {
-                this.entity = entity;
-            }
-
-            @Override
-            public void run() {
-                if (entity != null) {
-                    if (!HorseModifier.isCivCraftHorse(entity)) {
-                        CivLog.warning("Removing a normally spawned horse.");
-                        entity.remove();
-                    }
-                }
+        if (type.equals(EntityType.CHICKEN)) {
+            if (reason.equals(SpawnReason.EGG) || reason.equals(SpawnReason.MOUNT)) {
+                event.setCancelled(true);
+                return;
             }
         }
 
-        if (event.getEntityType() == EntityType.HORSE) {
-            ChunkCoord coord = new ChunkCoord(event.getEntity().getLocation());
-            Stable stable = Stable.stableChunks.get(coord);
-            if (stable != null) {
-                return;
-            }
-
-            if (event.getSpawnReason().equals(SpawnReason.DEFAULT)) {
-                TaskMaster.syncTask(new SyncTask(event.getEntity()));
-                return;
-            }
-
-            CivLog.warning("Canceling horse spawn reason:" + event.getSpawnReason().name());
+        if (type.equals(EntityType.IRON_GOLEM) && reason.equals(SpawnReason.BUILD_IRONGOLEM)) {
             event.setCancelled(true);
-        }
-
-        coord.setFromLocation(event.getLocation());
-        TownChunk tc = CivGlobal.getTownChunk(coord);
-        if (tc == null) {
             return;
         }
+
+
+        coord.setFromLocation(event.getLocation());
+
 
     }
 
@@ -1150,7 +1142,7 @@ public class BlockListener implements Listener {
         }
 
         coord.setFromLocation(event.getPlayer().getLocation());
-        Camp camp = CivGlobal.getCampFromChunk(coord);
+        Camp camp = CivGlobal.getCampChunk(coord);
         if (camp != null) {
             if (!camp.hasMember(event.getPlayer().getName())) {
                 CivMessage.sendError(event.getPlayer(), CivSettings.localize.localizedString("bedUse_errorNotInCamp"));
@@ -1240,7 +1232,7 @@ public class BlockListener implements Listener {
         ItemStack stack = event.getItem();
 
         coord.setFromLocation(event.getPlayer().getLocation());
-        Camp camp = CivGlobal.getCampFromChunk(coord);
+        Camp camp = CivGlobal.getCampChunk(coord);
         if (camp != null) {
             if (!camp.hasMember(event.getPlayer().getName())) {
                 CivMessage.sendError(event.getPlayer(), CivSettings.localize.localizedString("itemUse_errorCamp") + " " + stack.getType().toString());

@@ -348,7 +348,7 @@ public class Road extends Structure {
                 throw new CivException(CivSettings.localize.localizedString("var_road_validate_protectedBlock", bcoord.toString()));
             }
 
-            if (CivGlobal.getCampFromChunk(coord) != null) {
+            if (CivGlobal.getCampChunk(coord) != null) {
                 throw new CivException(CivSettings.localize.localizedString("road_validate_camp"));
             }
 
