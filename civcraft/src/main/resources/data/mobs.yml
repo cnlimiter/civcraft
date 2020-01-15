@@ -4,7 +4,7 @@ custom_mobs_enabled: true
 
 #   drops:
 #     - '物品id 看[Material.java],物品子id,最小掉落数量,最大掉落数量,掉落概率,lootingRate,lootingDrops,dropMod' ## Minecraft Item
-#     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
+#     - '自定义物品名子，看[materials.yml]),物品子id,最小掉落数量,最大掉落数量,掉落概率,lootingRate,lootingDrops,dropMod' ## Custom Item
 custom_mobs:
  - id: LESSER_YOBO
    name: '<lightgreen>Lesser Yobo'

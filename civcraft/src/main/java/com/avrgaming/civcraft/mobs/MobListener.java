@@ -114,6 +114,9 @@ public class MobListener implements Listener {
         event.setDamage(damage);
     }
 
+    /**
+     * 挺op了 基本上非
+     */
     @EventHandler(priority = EventPriority.NORMAL)
     public void onEntityDamage(EntityDamageEvent event) {
         if (event.isCancelled()) return;
@@ -126,18 +129,18 @@ public class MobListener implements Listener {
                 int y = loc.getWorld().getHighestBlockAt(loc.getBlockX(), loc.getBlockZ()).getY() + 4;
                 loc.setY(y);
                 event.getEntity().teleport(loc);
-            case CONTACT:
-            case FALL:
-            case FIRE:
+            case CONTACT: // 仙人掌
+            case FALL: //坠落
+            case FIRE: //火
             case FIRE_TICK:
             case LAVA:
-            case MELTING:
-            case DROWNING:
-            case FALLING_BLOCK:
-            case BLOCK_EXPLOSION:
-            case ENTITY_EXPLOSION:
-            case LIGHTNING:
-            case MAGIC:
+            case MELTING: // 融雪？
+            case DROWNING: // 窒息
+            case FALLING_BLOCK: //掉落的方块
+            case BLOCK_EXPLOSION: //方块爆炸
+            case ENTITY_EXPLOSION: //生物爆炸
+            case LIGHTNING: //雷击
+            case MAGIC:   // 伤害药剂或法术伤害造成的伤害
                 event.setCancelled(true);
                 break;
             default:
@@ -145,6 +148,9 @@ public class MobListener implements Listener {
         }
     }
 
+    /**
+     * 主要是控制掉落啥的
+     */
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onEntityDeath(EntityDeathEvent event) {
         ConfigMobs cmob = CustomMobListener.mobList.get(event.getEntity().getUniqueId());

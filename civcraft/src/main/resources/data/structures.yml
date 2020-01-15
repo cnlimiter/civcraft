@@ -799,22 +799,22 @@ structures:
         type: 'direct'
         attribute: 'UNHAPPINESS'
         value: '-2.0'
-
-  - id: s_shopingcenter
-    template: tc
-    template_y_shift: 0
-    displayName: 购物中心
-    require_tech: 'tech_monopoly'
-    require_structure:
-    allow_outside_town: false
-    effect_event:
-    limit: 1
-    cost: 125000.0
-    upkeep: 3000.0
-    hammer_cost: 3000.0
-    points: 4000
-    max_hitpoints: 2000
-    ignore_floating: false
+# 没模板
+#  - id: s_shopingcenter
+#    template: tc
+#    template_y_shift: 0
+#    displayName: 购物中心
+#    require_tech: 'tech_monopoly'
+#    require_structure:
+#    allow_outside_town: false
+#    effect_event:
+#    limit: 1
+#    cost: 125000.0
+#    upkeep: 3000.0
+#    hammer_cost: 3000.0
+#    points: 4000
+#    max_hitpoints: 2000
+#    ignore_floating: false
 
   - id: s_stadium
     template: stadium

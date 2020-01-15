@@ -99,6 +99,9 @@ techs:
       points: 250
       require_techs: 'tech_armory'
       era: 1
+      info:
+        - '解锁武器：狩猎弓(T1)'
+        - '解锁科技：弓箭制造学，精制皮革制造学'
 
     - id: 'tech_blacksmithing'
       name: '铁器锻造'
@@ -107,6 +110,10 @@ techs:
       points: 250
       require_techs: 'tech_armory'
       era: 1
+      info:
+        - '解锁防具: 铁制(T1)防具'
+        - '解锁建筑：铁匠铺'
+        - '解锁科技：铁器锻造'
 
     - id: 'tech_metal_casting'
       name: '金属冶炼'
@@ -115,6 +122,10 @@ techs:
       points: 250
       require_techs: 'tech_armory'
       era: 1
+      info:
+        - '解锁武器：铁短剑(T1)'
+#        - '解锁建筑：伐木场'
+        - '解锁科技：高级狩猎技巧，铁剑锻造学'
 
     - id: 'tech_productivity'
       name: '生产学'
@@ -123,6 +134,10 @@ techs:
       points: 250
       require_techs: 'tech_mining'
       era: 1
+      info:
+        - '解锁建筑：矿井，图书馆'
+        - '解锁科技：航海学'
+        - '解锁政体：专制主义'
 
     - id: 'tech_masonry'
       name: '建筑学'
@@ -131,6 +146,10 @@ techs:
       points: 250
       require_techs: 'tech_mining'
       era: 1
+      info:
+        - '解锁建筑：道路，瞭望塔，传送门'
+        - '解锁科技：高级建筑学'
+        - '解锁升级：精炼厂-花岗岩，采石场-石镐'
 
     - id: 'tech_pottery'
       name: '制陶技艺'
@@ -139,6 +158,9 @@ techs:
       points: 250
       require_techs: 'tech_agriculture'
       era: 1
+      info:
+        - '解锁建筑：粮仓，仓库'
+        - '解锁科技：自动化技术'
 
     - id: 'tech_hunting'
       name: '狩猎'
@@ -147,6 +169,9 @@ techs:
       points: 250
       require_techs: 'tech_agriculture'
       era: 1
+      info:
+        - '解锁建筑：牧场，食品店'
+        - '解锁科技：初级贸易学，高级狩猎技巧'
 
     - id: 'tech_code_of_laws'
       name: '法典'
@@ -155,6 +180,9 @@ techs:
       points: 250
       require_techs: 'tech_religion'
       era: 1
+      info:
+        - '解锁科技：造字学'
+        - '解锁升级：银行2级，小村庄(城镇2级)'
 
     - id: 'tech_brewing'
       name: '酿造工艺'
@@ -163,6 +191,9 @@ techs:
       points: 250
       require_techs: 'tech_religion'
       era: 1
+      info:
+        - '解锁科技：祭祀'
+        - '解锁药剂：生命恢复 I'
 
     - id: 'tech_sailing'
       name: '航海学'
@@ -171,6 +202,9 @@ techs:
       points: 500
       require_techs: 'tech_productivity'
       era: 1
+      info:
+        - '解锁建筑：船坞，侦察船'
+        - '解锁科技：税收学，勘探学'
 
     - id: 'tech_advanced_masonry'
       name: '高级建筑学'
@@ -179,6 +213,10 @@ techs:
       points: 500
       require_techs: 'tech_masonry'
       era: 1
+      info:
+        - '解锁建筑：别墅，墙'
+        - '解锁科技：弓箭制造学，精制皮革制造学，射击火炮学，铁剑锻造学，合金冶炼学'
+        - '解锁升级：精炼厂-闪长岩，采石场-铁镐'
 
     - id: 'tech_automation'
       name: '自动化技术'
@@ -187,6 +225,10 @@ techs:
       points: 500
       require_techs: 'tech_pottery'
       era: 1
+      info:
+        - '解锁建筑：养鱼池，采石场，风车'
+        - '解锁科技：弓箭制造学，精制皮革制造学，铁剑锻造学，合金冶炼学'
+        - '解锁升级：精炼厂-闪长岩，采石场-铁镐'
 
     - id: 'tech_trade'
       name: '初级贸易学'
@@ -195,6 +237,10 @@ techs:
       points: 500
       require_techs: 'tech_hunting'
       era: 1
+      info:
+        - '解锁建筑：贸易站，渔船'
+        - '解锁科技：金融经贸学'
+        - '解锁升级：食品店2级，养鱼池2级'
 
     - id: 'tech_advanced_hunting'
       name: '高级狩猎技巧'
@@ -203,6 +249,9 @@ techs:
       points: 500
       require_techs: 'tech_hunting:tech_metal_casting'
       era: 1
+      info:
+        - '解锁建筑：怪物磨床'
+        - '解锁科技：教育学'
 
     - id: 'tech_writing'
       name: '造字学'
@@ -211,6 +260,10 @@ techs:
       points: 500
       require_techs: 'tech_code_of_laws'
       era: 1
+      info:
+        - '解锁建筑：怪物磨床'
+        - '解锁科技：君主专制制度'
+        - '解锁升级：银行3级，银行利率1级'
 
     - id: 'tech_priesthood'
       name: '祭祀'
@@ -219,6 +272,10 @@ techs:
       points: 500
       require_techs: 'tech_brewing'
       era: 1
+      info:
+        - '解锁建筑：寺庙'
+        - '解锁科技：发酵工艺'
+        - '解锁升级：村庄(3级城镇)'
 
 #Medieval era
     - id: 'tech_fletching'
@@ -228,6 +285,9 @@ techs:
       points: 625
       require_techs: 'tech_archery:tech_advanced_masonry:tech_automation'
       era: 2
+      info:
+        - '解锁武器：反曲弓(T2)'
+        - '解锁科技：船舶工程学'
 
     - id: 'tech_leather_refinement'
       name: '精制皮革制造学'
@@ -236,6 +296,9 @@ techs:
       points: 625
       require_techs: 'tech_archery:tech_advanced_masonry:tech_automation'
       era: 2
+      info:
+        - '解锁防具：精制皮甲(T2)'
+        - '解锁科技：高级皮革制造学'
 
     - id: 'tech_alloys'
       name: '合金冶炼学'
@@ -244,6 +307,10 @@ techs:
       points: 625
       require_techs: 'tech_blacksmithing:tech_advanced_masonry:tech_automation'
       era: 2
+      info:
+        - '解锁防具：钢甲(T2)'
+        - '解锁科技：化学冶金学'
+        - '解锁升级：精炼厂-安山岩，采石场-钻镐'
 
     - id: 'tech_sword_smithing'
       name: '铁剑锻造学'
@@ -252,6 +319,9 @@ techs:
       points: 625
       require_techs: 'tech_metal_casting:tech_advanced_masonry:tech_automation'
       era: 2
+      info:
+        - '解锁防具：钢剑(T2)'
+        - '解锁科技：锻钢学'
 
     - id: 'tech_taxation'
       name: '税收学'
@@ -260,6 +330,9 @@ techs:
       points: 2500
       require_techs: 'tech_sailing'
       era: 2
+      info:
+        - '解锁效果：别墅收入翻倍'
+        - '解锁科技：高级生产学'
 
     - id: 'tech_exploration'
       name: '勘探学'
@@ -268,6 +341,10 @@ techs:
       points: 625
       require_techs: 'tech_sailing'
       era: 2
+      info:
+        - '解锁建筑：灯塔，贸易船'
+        - '解锁科技：全球贸易学'
+#        - '解锁升级：精炼厂-安山岩，采石场-钻石镐'
 
     - id: 'tech_artillery'
       name: '射击火炮学'
@@ -276,6 +353,10 @@ techs:
       points: 625
       require_techs: 'tech_advanced_masonry'
       era: 2
+      info:
+        - '解锁建筑：箭船，箭塔'
+        - '解锁科技：高级射击火炮学'
+        - '解锁升级：图书馆2级'
 
     - id: 'tech_commerce'
       name: '金融经贸学'
@@ -284,6 +365,10 @@ techs:
       points: 625
       require_techs: 'tech_trade'
       era: 2
+      info:
+        - '解锁建筑：旅馆(给别墅提供额外收入)，商店，市场'
+        - '解锁科技：全球贸易学'
+        - '解锁升级：食品店3级，养鱼池3级，贸易船2级'
 
     - id: 'tech_education'
       name: '教育学'
@@ -292,6 +377,9 @@ techs:
       points: 625
       require_techs: 'tech_advanced_hunting'
       era: 2
+      info:
+        - '解锁建筑：大学'
+        - '解锁科技：科学方法论'
 
     - id: 'tech_monarchy'
       name: '君主专制制度'
@@ -300,6 +388,10 @@ techs:
       points: 625
       require_techs: 'tech_writing'
       era: 2
+      info:
+        - '解锁政体：君主制'
+        - '解锁科技：货币流通学'
+        - '解锁升级：大村庄(4级城镇)，银行4级'
 
     - id: 'tech_fermentation'
       name: '发酵工艺'
@@ -308,6 +400,10 @@ techs:
       points: 625
       require_techs: 'tech_priesthood'
       era: 2
+      info:
+        - '解锁药剂：生命恢复 II'
+        - '解锁科技：高级发酵学'
+        - '解锁升级：'
 
     - id: 'tech_efficiency'
       name: '高级生产学'
@@ -316,6 +412,9 @@ techs:
       points: 2500
       require_techs: 'tech_taxation'
       era: 2
+      info:
+        - '解锁科技：船舶工程学，高级皮革制造学，化学冶金学，机械制造学，锻钢学'
+        - '解锁升级：图书馆3级'
 
     - id: 'tech_advanced_artillery'
       name: '高级射击火炮学'
@@ -324,6 +423,10 @@ techs:
       points: 2500
       require_techs: 'tech_artillery'
       era: 2
+      info:
+        - '解锁建筑：炮舰，炮塔'
+        - '解锁科技：炼金术'
+        - '解锁合成：TNT'
 
     - id: 'tech_global_trade'
       name: '全球贸易学'
@@ -332,14 +435,23 @@ techs:
       points: 2500
       require_techs: 'tech_commerce:tech_exploration'
       era: 2
-      
+      info:
+        - '解锁建筑：马厩'
+        - '解锁科技：垄断，经济学'
+        - '解锁升级：食品店4级，养鱼池4级，贸易船3级'
+        - '解锁政体：神权制'
+        - '解锁合成：马铠'
+
     - id: 'tech_monopoly'
       name: '垄断'
       beaker_cost: 10000.0
       cost: 100000.0
       points: 2500
       require_techs: 'tech_global_trade'
-      era: 2      
+      era: 2
+      info:
+        - '解锁建筑：酒馆，蚕场'
+        - '解锁政体：重商主义'
 
     - id: 'tech_currency'
       name: '货币流通学'
@@ -348,6 +460,9 @@ techs:
       points: 2500
       require_techs: 'tech_monarchy'
       era: 2
+      info:
+        - '解锁科技：经济学'
+        - '解锁升级：城镇(5级城镇)，银行5级，银行利率2级'
 
     - id: 'tech_malting'
       name: '高级发酵学'
@@ -356,6 +471,11 @@ techs:
       points: 2500
       require_techs: 'tech_fermentation'
       era: 2
+      info:
+        - '解锁药剂：速度'
+        - '解锁科技：炼金术，锻钢学，化学冶金学，高级皮革制造学，船舶工程学'
+        - '解锁特殊物品：女巫伎俩'
+
 
 #Renaissance era
     - id: 'tech_tillering'
@@ -365,6 +485,10 @@ techs:
       points: 4375
       require_techs: 'tech_efficiency:tech_malting:tech_fletching'
       era: 3
+      info:
+        - '解锁武器：长弓(T3)'
+        - '解锁科技：层压材料学'
+        - '解锁特殊物品：高级射手'
 
     - id: 'tech_tanning'
       name: '高级皮革制造学'
@@ -373,6 +497,9 @@ techs:
       points: 4375
       require_techs: 'tech_efficiency:tech_malting:tech_leather_refinement'
       era: 3
+      info:
+        - '解锁防具：硬化皮甲(T3)'
+        - '解锁科技：复合材料学'
 
     - id: 'tech_chemical_bonding'
       name: '化学冶金学'
@@ -381,6 +508,9 @@ techs:
       points: 4375
       require_techs: 'tech_efficiency:tech_malting:tech_alloys'
       era: 3
+      info:
+        - '解锁防具：硬质合金套(T3)'
+        - '解锁科技：钨钢甲锻造'
 
     - id: 'tech_folded_steel'
       name: '锻钢学'
@@ -389,6 +519,9 @@ techs:
       points: 4375
       require_techs: 'tech_efficiency:tech_malting:tech_sword_smithing'
       era: 3
+      info:
+        - '解锁武器：硬质合金剑(T3)'
+        - '解锁科技：回火冶金学'
 
     - id: 'tech_machinery'
       name: '机械制造学'
@@ -397,6 +530,12 @@ techs:
       points: 4375
       require_techs: 'tech_efficiency'
       era: 3
+      info:
+        - '解锁效果：风车速度翻倍'
+        - '解锁建筑：加固墙'
+        - '解锁科技：现代生产力技术，科学方法论，高级建设学'
+        - '解锁合成：漏斗'
+        - '解锁特殊物品：潜水员，高级工具'
 
     - id: 'tech_alchemy'
       name: '炼金术'
@@ -405,6 +544,11 @@ techs:
       points: 8750
       require_techs: 'tech_malting:tech_advanced_artillery'
       era: 3
+      info:
+        - '解锁药剂：防火'
+        - '解锁建筑：炼金术士之家'
+        - '解锁科技：电力学'
+        - '解锁升级：大城镇(6级城镇)'
 
     - id: 'tech_economics'
       name: '经济学'
@@ -413,6 +557,9 @@ techs:
       points: 4375
       require_techs: 'tech_currency:tech_global_trade'
       era: 3
+      info:
+        - '解锁科技：科学方法论，民主主义制度，高级建设学'
+        - '解锁升级：银行6级'
 
     - id: 'tech_advanced_efficiency'
       name: '现代生产力技术'
@@ -421,6 +568,12 @@ techs:
       points: 8750
       require_techs: 'tech_machinery'
       era: 3
+      info:
+        - '解锁建筑：工厂'
+        - '解锁科技：电力学，高级锻造学，层压材料学，复合材料学，回火冶金学，'
+        - '解锁升级：图书馆4级'
+        - '解锁政体：技术专制'
+        - '解锁特殊物品：贪食者的储藏室'
 
     - id: 'tech_scientific_method'
       name: '科学方法论'
@@ -429,6 +582,11 @@ techs:
       points: 8750
       require_techs: 'tech_economics:tech_education:tech_machinery'
       era: 3
+      info:
+        - '解锁建筑：中学'
+        - '解锁科技：化肥制造技术，电力学'
+        - '解锁升级：大都市(8级城镇)，银行9级，炼金术士之家2级，贸易船5级'
+        - '解锁特殊物品：旅行者之靴，幸运护符'
 
     - id: 'tech_nationalism'
       name: '民主主义制度'
@@ -437,6 +595,12 @@ techs:
       points: 8750
       require_techs: 'tech_economics'
       era: 3
+      info:
+        - '解锁建筑：奥术船，奥术塔'
+        - '解锁科技：考古学，改革创新方法论'
+        - '解锁升级：银行7级，银行利率3级，贸易船4级'
+        - '解锁特殊物品：间谍'
+
 
     - id: 'tech_construction'
       name: '高级建设学'
@@ -445,6 +609,12 @@ techs:
       points: 8750
       require_techs: 'tech_economics:tech_machinery'
       era: 3
+      info:
+        - '解锁建筑：挖掘现场，大型洗矿厂'
+        - '解锁科技：共和政体，改革创新方法论，考古学'
+        - '解锁升级：都市(7级城镇)，银行8级'
+        - '解锁特殊物品：工程师'
+
 
     - id: 'tech_republic'
       name: '共和政体'
@@ -453,6 +623,11 @@ techs:
       points: 8750
       require_techs: 'tech_construction'
       era: 3
+      info:
+        - '解锁建筑：城堡'
+        - '解锁政体：共和政体'
+        - '解锁特殊物品：弓箭手，狂战士，战士'
+
 
 #Industrial era
     - id: 'tech_electricity'
@@ -462,6 +637,10 @@ techs:
       points: 17500
       require_techs: 'tech_alchemy:tech_scientific_method:tech_advanced_efficiency'
       era: 4
+      info:
+        - '解锁建筑：特斯拉船，特斯拉塔'
+        - '解锁科技：考古学，改革创新方法论'
+        - '解锁升级：炼金术士之家3级'
 
     - id: 'tech_fertilizer'
       name: '化肥制造技术'
@@ -470,6 +649,9 @@ techs:
       points: 50000
       require_techs: 'tech_scientific_method'
       era: 4
+      info:
+        - '解锁效果：提高30%的生长值'
+        - '解锁科技：生物技术'
 
     - id: 'tech_innovation'
       name: '改革创新方法论'
@@ -478,6 +660,11 @@ techs:
       points: 50000
       require_techs: 'tech_construction:tech_nationalism:tech_electricity'
       era: 4
+      info:
+        - '解锁科技：电动力学，艺术，无线电广播技术，层压材料学，复合材料学，回火冶金学，高级锻造学'
+        - '解锁升级：首都(9级城镇)，银行10级，银行利率4级，贸易船6级'
+        - '解锁特殊物品：入侵者，矿工护身符'
+
 
     - id: 'tech_powerhouse'
       name: '电动力学'
@@ -486,14 +673,20 @@ techs:
       points: 60000
       require_techs: 'tech_innovation'
       era: 4
-      
+      info:
+        - '解锁建筑：发电厂'
+        - '解锁升级：贸易船5级'
+        - '解锁特殊物品：剑客，驽箭手，枪兵'
+
     - id: 'tech_art'
       name: '艺术'
       beaker_cost: 75000.0
       cost: 500000.0
       points: 60000
       require_techs: 'tech_innovation'
-      era: 4          
+      era: 4
+      info:
+        - '解锁建筑：剧院'
 
     - id: 'tech_archaeology'
       name: '考古学'
@@ -502,6 +695,8 @@ techs:
       points: 50000
       require_techs: 'tech_construction:tech_nationalism:tech_electricity'
       era: 4
+      info:
+        - '解锁建筑：博物馆'
 
 #Modern era
     - id: 'tech_laminates'
@@ -511,6 +706,9 @@ techs:
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_tillering'
       era: 5
+      info:
+        - '解锁武器：复合弓(T4)'
+        - '解锁科技：军事科学'
 
     - id: 'tech_composites'
       name: '复合材料学'
@@ -519,6 +717,9 @@ techs:
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_tanning'
       era: 5
+      info:
+        - '解锁防具：复合皮甲(T4)'
+        - '解锁科技：军事科学'
 
     - id: 'tech_forging'
       name: '高级锻造学'
@@ -527,6 +728,9 @@ techs:
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_chemical_bonding'
       era: 5
+      info:
+        - '解锁防具：钨钢甲(T4)'
+        - '解锁科技：军事科学'
 
     - id: 'tech_tempering'
       name: '回火冶金学'
@@ -535,6 +739,9 @@ techs:
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_folded_steel'
       era: 5
+      info:
+        - '解锁武器：钨钢剑(T4)'
+        - '解锁科技：军事科学'
 
     - id: 'tech_radio'
       name: '无线电广播技术'
@@ -543,6 +750,10 @@ techs:
       points: 43750
       require_techs: 'tech_innovation'
       era: 5
+      info:
+        - '解锁建筑：广播塔'
+        - '解锁科技：军事科学，塑料提炼技术'
+
 
     - id: 'tech_biology'
       name: '生物技术'
@@ -551,6 +762,10 @@ techs:
       points: 43750
       require_techs: 'tech_fertilizer'
       era: 5
+      info:
+        - '解锁建筑：医院'
+        - '解锁科技：冷藏技术'
+        - '解锁升级：炼金术士之家4级'
 
     - id: 'tech_refrigeration'
       name: '冷藏技术'
@@ -559,6 +774,11 @@ techs:
       points: 60000
       require_techs: 'tech_advanced_efficiency:tech_biology'
       era: 5
+      info:
+        - '解锁建筑：体育馆'
+        - '解锁科技：启蒙时代'
+        - '解锁特殊物品：投石兵，火枪手，骑兵'
+
 
     - id: 'tech_plastics'
       name: '塑料提炼技术'
@@ -567,6 +787,9 @@ techs:
       points: 60000
       require_techs: 'tech_radio'
       era: 5
+      info:
+        - '解锁建筑：科研实验室'
+        - '解锁科技：启蒙时代'
 
     - id: 'tech_military_science'
       name: '军事科学'
@@ -575,6 +798,8 @@ techs:
       points: 60000
       require_techs: 'tech_laminates:tech_composites:tech_forging:tech_tempering:tech_radio'
       era: 5
+      info:
+        - '解锁科技：启蒙时代'
 
 #Atomic era
 

@@ -18,17 +18,16 @@
  */
 package com.avrgaming.civcraft.config;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.bukkit.configuration.file.FileConfiguration;
-
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.object.Town;
+import org.bukkit.configuration.file.FileConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ConfigTech {
     public String id;
@@ -38,6 +37,7 @@ public class ConfigTech {
     public String require_techs;
     public int era;
     public Integer points;
+    public List<String> info;
 
     public static void loadConfig(FileConfiguration cfg, Map<String, ConfigTech> tech_maps) {
         tech_maps.clear();
@@ -52,6 +52,11 @@ public class ConfigTech {
             tech.era = (Integer) confTech.get("era");
             tech.require_techs = (String) confTech.get("require_techs");
             tech.points = (Integer) confTech.get("points");
+            List<String> info = (List<String>) confTech.get("info");
+
+            if (info != null) {
+                tech.info = new ArrayList<>(info);
+            }
 
             tech_maps.put(tech.id, tech);
         }

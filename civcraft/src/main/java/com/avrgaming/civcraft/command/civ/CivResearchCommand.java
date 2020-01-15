@@ -51,6 +51,7 @@ public class CivResearchCommand extends CommandBase {
         commands.put("calc", CivSettings.localize.localizedString("cmd_civ_researchcalc_Desc"));
         commands.put("queuelist", CivSettings.localize.localizedString("cmd_civ_research_queueList"));
         commands.put("queueadd", CivSettings.localize.localizedString("cmd_civ_research_queueAdd"));
+        commands.put("info", CivSettings.localize.localizedString("cmd_civ_research_infoDesc"));
 //        commands.put("queueremove", CivSettings.localize.localizedString("cmd_civ_research_queueRemove"));
     }
 
@@ -256,6 +257,22 @@ public class CivResearchCommand extends CommandBase {
         } else {
             CivMessage.send(sender, CivColor.Green + CivSettings.localize.localizedString("var_cmd_civ_research_eraDiscount", (eraRate * 100), CivSettings.CURRENCY_NAME));
 
+        }
+    }
+
+    public void info_cmd() throws CivException {
+        if (args.length < 2) {
+            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_infoPrompt"));
+        }
+
+        String techname = combineArgs(stripArgs(args, 1));
+        ConfigTech tech = CivSettings.getTechByName(techname);
+        if (tech == null) {
+            throw new CivException(CivSettings.localize.localizedString("var_cmd_civ_research_NotFound", techname));
+        }
+        CivMessage.sendHeading(sender, tech.name);
+        for (String item : tech.info) {
+            CivMessage.send(sender, CivColor.Gold + item);
         }
     }
 

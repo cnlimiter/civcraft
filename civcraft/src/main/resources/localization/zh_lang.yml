@@ -4558,3 +4558,5 @@ loregui_cancel: "取消"
 #1.9
 #######
 cmd_civ_VictoriesHeading: "文明胜利者"
+cmd_civ_research_infoDesc: "查看该科技解锁的能力"
+cmd_civ_research_infoPrompt: "输入你想查看的科技的名称。"
