@@ -18,6 +18,7 @@
  */
 package com.avrgaming.civcraft.threading.timers;
 
+import cn.hutool.core.util.StrUtil;
 import com.avrgaming.civcraft.camp.Camp;
 import com.avrgaming.civcraft.camp.CampUpdateTick;
 import com.avrgaming.civcraft.main.CivGlobal;
@@ -56,18 +57,17 @@ public class UpdateEventTimer extends CivAsyncTask {
                     continue;
 
                 try {
-                    if (struct.getUpdateEvent() != null && !struct.getUpdateEvent().equals("")) {
-                        if (struct.getUpdateEvent().equals("trommel_process")) {
+                    if (StrUtil.isNotBlank(struct.getUpdateEvent())) {
+                        if ("trommel_process".equals(struct.getUpdateEvent())) {
                             if (!CivGlobal.trommelsEnabled) {
                                 continue;
                             }
 
                             TaskMaster.asyncTask("trommel-" + struct.getCorner().toString(), new TrommelAsyncTask(struct), 0);
-                        } else if (struct.getUpdateEvent().equals("quarry_process")) {
+                        } else if ("quarry_process".equals(struct.getUpdateEvent())) {
                             if (!CivGlobal.quarriesEnabled) {
                                 continue;
                             }
-
                             TaskMaster.asyncTask("quarry-" + struct.getCorner().toString(), new QuarryAsyncTask(struct), 0);
                         }
                     }

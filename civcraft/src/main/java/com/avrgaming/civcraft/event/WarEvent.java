@@ -22,7 +22,7 @@ import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.threading.timers.WarEndCheckTask;
+import com.avrgaming.civcraft.threading.tasks.WarEndCheckTask;
 import com.avrgaming.civcraft.util.TimeTools;
 import com.avrgaming.civcraft.war.War;
 

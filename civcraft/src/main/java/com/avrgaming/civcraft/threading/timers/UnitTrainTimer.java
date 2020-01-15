@@ -26,6 +26,10 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+/**
+ * 1s一次
+ * 军政处研究物品?
+ */
 public class UnitTrainTimer implements Runnable {
 
     @Override

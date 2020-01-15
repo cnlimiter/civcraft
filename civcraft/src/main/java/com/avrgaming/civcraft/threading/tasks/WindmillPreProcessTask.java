@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.threading.tasks;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.ChunkSnapshot;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivTaskAbortException;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
@@ -36,6 +29,12 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.ItemManager;
 import com.avrgaming.civcraft.util.MultiInventory;
+import org.bukkit.ChunkSnapshot;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class WindmillPreProcessTask extends CivAsyncTask {
 
@@ -116,7 +115,7 @@ public class WindmillPreProcessTask extends CivAsyncTask {
         /* Only try to plant as many crops as we have (or the max) */
         plant_max = Math.min((breadCount + carrotCount + potatoCount), plant_max);
 
-        /* Read snapshots and find blocks that can be planted. */
+        // 读取快照并找到可以放置的块。
         ArrayList<BlockCoord> blocks = new ArrayList<BlockCoord>();
         for (ChunkSnapshot snapshot : this.snapshots) {
             for (int x = 0; x < 16; x++) {
@@ -138,15 +137,14 @@ public class WindmillPreProcessTask extends CivAsyncTask {
                 }
             }
         }
-
+        if (blocks.isEmpty()) {
+            return;
+        }
         ArrayList<BlockCoord> plantBlocks = new ArrayList<BlockCoord>();
         /* Select up to plant_max of these blocks to be planted. */
+
         Random rand = new Random();
         for (int i = 0; i < plant_max; i++) {
-            if (blocks.isEmpty()) {
-                break;
-            }
-
             BlockCoord coord = blocks.get(rand.nextInt(blocks.size()));
             blocks.remove(coord);
             plantBlocks.add(coord);

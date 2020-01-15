@@ -8,6 +8,10 @@ import com.avrgaming.civcraft.util.BlockCoord;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+/**
+ * 5s一次
+ * 大概是建筑回血的亚子
+ */
 public class RegenTimer implements Runnable {
 
     @Override

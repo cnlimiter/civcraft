@@ -28,6 +28,10 @@ import com.avrgaming.civcraft.threading.CivAsyncTask;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.threading.tasks.UpdateTechBar;
 
+/**
+ * 1分钟执行一次
+ *  增加科研进度
+ */
 public class BeakerTimer extends CivAsyncTask {
 
     //private double beakersPerRun;

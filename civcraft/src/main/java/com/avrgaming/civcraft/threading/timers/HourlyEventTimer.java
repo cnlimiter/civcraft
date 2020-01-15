@@ -36,13 +36,13 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class EffectEventTimer extends CivAsyncTask {
+public class HourlyEventTimer extends CivAsyncTask {
 
     //public static Boolean running = false;
 
     public static ReentrantLock runningLock = new ReentrantLock();
 
-    public EffectEventTimer() {
+    public HourlyEventTimer() {
     }
 
     private void processTick() {

@@ -24,6 +24,10 @@ import com.avrgaming.civcraft.components.PlayerProximityComponent;
 
 import java.util.ArrayList;
 
+/**
+ * 1s一次
+ * 修复组件什么的？ 新版本没有
+ */
 public class PlayerProximityComponentTimer implements Runnable {
 
     @Override

@@ -174,7 +174,6 @@ public class MobSpawner {
                     }
                 }
             }
-
         }
 
         if (msg) {

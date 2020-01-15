@@ -9,6 +9,9 @@ import com.avrgaming.civcraft.war.War;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+/**
+ * 风车的定时任务
+ */
 public class WindmillTimer implements Runnable {
 
     @Override

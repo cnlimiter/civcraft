@@ -681,7 +681,7 @@ techs:
 
     - id: 'tech_art'
       name: '艺术'
-      beaker_cost: 75000.0
+      beaker_cost: 115000.0
       cost: 500000.0
       points: 60000
       require_techs: 'tech_innovation'
@@ -691,7 +691,7 @@ techs:
 
     - id: 'tech_archaeology'
       name: '考古学'
-      beaker_cost: 100000.0
+      beaker_cost: 150000.0
       cost: 1500000.0
       points: 50000
       require_techs: 'tech_construction:tech_nationalism:tech_electricity'
@@ -702,7 +702,7 @@ techs:
 #Modern era
     - id: 'tech_laminates'
       name: '层压材料学'
-      beaker_cost: 175000.0
+      beaker_cost: 255000.0
       cost: 2500000.0
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_tillering'
@@ -713,7 +713,7 @@ techs:
 
     - id: 'tech_composites'
       name: '复合材料学'
-      beaker_cost: 175000.0
+      beaker_cost: 255000.0
       cost: 2500000.0
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_tanning'
@@ -724,7 +724,7 @@ techs:
 
     - id: 'tech_forging'
       name: '高级锻造学'
-      beaker_cost: 175000.0
+      beaker_cost: 255000.0
       cost: 2500000.0
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_chemical_bonding'
@@ -735,7 +735,7 @@ techs:
 
     - id: 'tech_tempering'
       name: '回火冶金学'
-      beaker_cost: 175000.0
+      beaker_cost: 255000.0
       cost: 2500000.0
       points: 43750
       require_techs: 'tech_advanced_efficiency:tech_innovation:tech_folded_steel'
@@ -746,7 +746,7 @@ techs:
 
     - id: 'tech_radio'
       name: '无线电广播技术'
-      beaker_cost: 175000.0
+      beaker_cost: 255000.0
       cost: 2500000.0
       points: 43750
       require_techs: 'tech_innovation'
@@ -758,7 +758,7 @@ techs:
 
     - id: 'tech_biology'
       name: '生物技术'
-      beaker_cost: 175000.0
+      beaker_cost: 255000.0
       cost: 2500000.0
       points: 43750
       require_techs: 'tech_fertilizer'
@@ -770,7 +770,7 @@ techs:
 
     - id: 'tech_refrigeration'
       name: '冷藏技术'
-      beaker_cost: 250000.0
+      beaker_cost: 350000.0
       cost: 3000000.0
       points: 60000
       require_techs: 'tech_advanced_efficiency:tech_biology'
@@ -783,7 +783,7 @@ techs:
 
     - id: 'tech_plastics'
       name: '塑料提炼技术'
-      beaker_cost: 250000.0
+      beaker_cost: 350000.0
       cost: 3000000.0
       points: 60000
       require_techs: 'tech_radio'
@@ -794,7 +794,7 @@ techs:
 
     - id: 'tech_military_science'
       name: '军事科学'
-      beaker_cost: 250000.0
+      beaker_cost: 350000.0
       cost: 3000000.0
       points: 60000
       require_techs: 'tech_laminates:tech_composites:tech_forging:tech_tempering:tech_radio'
@@ -849,7 +849,7 @@ techs:
 
     - id: 'tech_chichen_itza'
       name: '奇观-奇琴伊察'
-      beaker_cost: 430000.0
+      beaker_cost: 370000.0
       cost: 540000.0
       points: 40000
       require_techs: 'tech_tanning:tech_tillering:tech_chemical_bonding:tech_folded_steel'
@@ -865,7 +865,7 @@ techs:
 
     - id: 'tech_notre_dame'
       name: '奇观-巴黎圣母院'
-      beaker_cost: 1120000.0
+      beaker_cost: 1020000.0
       cost: 1370000.0
       points: 43750
       require_techs: 'tech_republic:tech_construction:tech_global_trade:tech_productivity'
@@ -873,7 +873,7 @@ techs:
 
     - id: 'tech_council_of_eight'
       name: '奇观-八理事会'
-      beaker_cost: 1120000.0
+      beaker_cost: 1020000.0
       cost: 1400000.0
       points: 43750
       require_techs: 'tech_electricity:tech_global_trade:tech_scientific_method:tech_advanced_efficiency' 
@@ -889,7 +889,7 @@ techs:
 
     - id: 'tech_globe_theatre'
       name: '奇观-环球剧院'
-      beaker_cost: 600000.0
+      beaker_cost: 490000.0
       cost: 700000.0
       points: 40000
       require_techs: 'tech_machinery:tech_global_trade:tech_economics:tech_nationalism'
@@ -897,7 +897,7 @@ techs:
 
     - id: 'tech_great_lighthouse'
       name: '奇观-亚历山大灯塔'
-      beaker_cost: 450000.0
+      beaker_cost: 390000.0
       cost: 520000.0
       points: 18750
       require_techs: 'tech_machinery:tech_economics'
@@ -905,7 +905,7 @@ techs:
 
     - id: 'tech_mother_tree'
       name: '奇观-世界树'
-      beaker_cost: 450000.0
+      beaker_cost: 390000.0
       cost: 520000.0
       points: 18750
       require_techs: 'tech_advanced_hunting:tech_productivity:tech_agriculture'
@@ -913,56 +913,56 @@ techs:
 
     - id: 'tech_grand_ship_ingermanland'
       name: '奇观-彼得大帝旗舰“英格尔曼兰德”号'
-      beaker_cost: 1300000.0
-      cost: 1550000.0
+      beaker_cost: 810000.0
+      cost: 1290000.0
       points: 80000
       require_techs: 'tech_exploration:tech_economics:tech_nationalism'
       era: 0
 
     - id: 'tech_grand_canyon'
       name: '奇观-科罗拉多大峡谷'
-      beaker_cost: 620000.0
-      cost: 740000.0
+      beaker_cost: 480000.0
+      cost: 590000.0
       points: 12500
       require_techs: 'tech_exploration:tech_education:tech_artillery'
       era: 3
 
     - id: 'tech_burj'
       name: '奇观-哈利法塔'
-      beaker_cost: 670000.0
-      cost: 790000.0
+      beaker_cost: 430000.0
+      cost: 640000.0
       points: 12500
       require_techs: 'tech_global_trade:tech_automation:tech_currency'
       era: 3
 
     - id: 'tech_stock_exchange'
       name: '奇观-全球证券交易所'
-      beaker_cost: 620000.0
-      cost: 520000.0
+      beaker_cost: 390000.0
+      cost: 470000.0
       points: 25000
       require_techs: 'tech_global_trade:tech_innovation:tech_advanced_efficiency'
       era: 4
 
     - id: 'tech_moscow_state_university'
       name: '奇观-莫斯科国立大学'
-      beaker_cost: 790000.0
-      cost: 890000.0
+      beaker_cost: 470000.0
+      cost: 720000.0
       points: 12500
       require_techs: 'tech_biology:tech_republic'
       era: 5
 
     - id: 'tech_space_shuttle'
       name: '奇观-航天飞机'
-      beaker_cost: 1600000.0
-      cost: 2600000.0
+      beaker_cost: 800000.0
+      cost: 1900000.0
       points: 25000
       require_techs: 'tech_military_science:tech_refrigeration:tech_plastics'
       era: 3
 
     - id: 'tech_neuschwanstein'
       name: '奇观-新天鹅堡'
-      beaker_cost: 690000.0
-      cost: 1450000.0
+      beaker_cost: 390000.0
+      cost: 1050000.0
       points: 25000
       require_techs: 'tech_archaeology'
       era: 4

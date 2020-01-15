@@ -27,6 +27,9 @@ import com.avrgaming.civcraft.util.CivColor;
 
 import java.text.DecimalFormat;
 
+/**
+ * 贸易品结算(不应该是task？
+ */
 public class SyncTradeTimer implements Runnable {
 
     public SyncTradeTimer() {

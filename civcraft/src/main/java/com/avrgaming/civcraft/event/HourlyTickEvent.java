@@ -27,7 +27,7 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.Civilization;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.threading.tasks.CultureProcessAsyncTask;
-import com.avrgaming.civcraft.threading.timers.EffectEventTimer;
+import com.avrgaming.civcraft.threading.timers.HourlyEventTimer;
 import com.avrgaming.civcraft.threading.timers.SyncTradeTimer;
 import com.avrgaming.civcraft.util.CivColor;
 
@@ -40,7 +40,7 @@ public class HourlyTickEvent implements EventInterface {
     public void process() {
         CivLog.info("TimerEvent: Hourly -------------------------------------");
         TaskMaster.asyncTask("cultureProcess", new CultureProcessAsyncTask(), 0);
-        TaskMaster.asyncTask("EffectEventTimer", new EffectEventTimer(), 0);
+        TaskMaster.asyncTask("EffectEventTimer", new HourlyEventTimer(), 0);
         TaskMaster.syncTask(new SyncTradeTimer(), 0);
         TaskMaster.syncTask(new CampHourlyTick(), 0);
 

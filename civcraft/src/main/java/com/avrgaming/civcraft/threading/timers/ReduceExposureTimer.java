@@ -6,6 +6,10 @@ import com.avrgaming.civcraft.threading.TaskMaster;
 
 import java.util.LinkedList;
 
+/**
+ * 5s一次
+ * 没5s降低间谍曝光率？
+ */
 public class ReduceExposureTimer implements Runnable {
 
     @Override
@@ -13,7 +17,7 @@ public class ReduceExposureTimer implements Runnable {
 
         LinkedList<String> playersToReduce = new LinkedList<String>();
         for (Resident resident : CivGlobal.getResidents()) {
-            if (!resident.isPerformingMission() && resident.getSpyExposure() > 0) {
+            if (resident.isPerformingMission() && resident.getSpyExposure() > 0) {
                 playersToReduce.add(resident.getName());
             }
         }

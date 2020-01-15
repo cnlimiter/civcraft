@@ -1901,28 +1901,28 @@ structures:
     ignore_floating: true
 
   ##没模板
-  - id: ti_lab
-    template: lab
-    template_y_shift: 0
-    # displayName: Обсерватория
-    displayName: 天文台
-    require_upgrade:
-    require_tech: 'tech_innovation'
-    effect_event: process_lab
-    check_event:
-    update_event:
-    onBuild_event:
-    limit: 1
-    cost: 100000.0
-    upkeep: 4500.0
-    tile_improvement: true
-    hammer_cost: 3600.0
-    points: 6200
-    max_hitpoints: 1200
-    allow_outside_town: false
-    components:
-      - name: 'AttributeBiomeRadiusPerLevel'
-        attribute: 'BEAKERS'
-        biomes: 'OCEAN:3,TAGIA:3,DESERT_HILLS:3,DEEP_OCEAN:3,DESERT:1'
-        base_value: '7.0'
-      - name: 'ConsumeLevelComponent'
+#  - id: ti_lab
+#    template: lab
+#    template_y_shift: 0
+#    # displayName: Обсерватория
+#    displayName: 天文台
+#    require_upgrade:
+#    require_tech: 'tech_innovation'
+#    effect_event: process_lab
+#    check_event:
+#    update_event:
+#    onBuild_event:
+#    limit: 1
+#    cost: 100000.0
+#    upkeep: 4500.0
+#    tile_improvement: true
+#    hammer_cost: 3600.0
+#    points: 6200
+#    max_hitpoints: 1200
+#    allow_outside_town: false
+#    components:
+#      - name: 'AttributeBiomeRadiusPerLevel'
+#        attribute: 'BEAKERS'
+#        biomes: 'OCEAN:3,TAGIA:3,DESERT_HILLS:3,DEEP_OCEAN:3,DESERT:1'
+#        base_value: '7.0'
+#      - name: 'ConsumeLevelComponent'

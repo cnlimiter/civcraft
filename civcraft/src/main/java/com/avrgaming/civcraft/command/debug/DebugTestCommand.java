@@ -23,7 +23,6 @@ import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.test.TestGetChestThread;
 import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.threading.timers.LagSimulationTimer;
 
 public class DebugTestCommand extends CommandBase {
 
@@ -43,9 +42,9 @@ public class DebugTestCommand extends CommandBase {
     }
 
     public void setlag_cmd() throws CivException {
-        Integer tps = getNamedInteger(1);
-        TaskMaster.syncTimer("lagtimer", new LagSimulationTimer(tps), 0);
-        CivMessage.sendSuccess(sender, "Let the lagging begin.");
+//        Integer tps = getNamedInteger(1);
+//        TaskMaster.syncTimer("lagtimer", new LagSimulationTimer(tps), 0);
+//        CivMessage.sendSuccess(sender, "Let the lagging begin.");
     }
 
     public void getsyncchesttest_cmd() throws CivException {

@@ -1358,8 +1358,8 @@ public abstract class Buildable extends SQLObject {
             ++regenRate;
         }
         if (regenRate != 0) {
-            if ((this.getHitpoints() != this.getMaxHitPoints()) &&
-                    (this.getHitpoints() != 0)) {
+            if (this.getHitpoints() != this.getMaxHitPoints()
+                    && this.getHitpoints() != 0) {
                 this.setHitpoints(this.getHitpoints() + regenRate);
 
                 if (this.getHitpoints() > this.getMaxHitPoints()) {

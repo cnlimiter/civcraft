@@ -18,11 +18,9 @@
  */
 package com.avrgaming.civcraft.threading.timers;
 
-import com.avrgaming.civcraft.camp.Camp;
-import com.avrgaming.civcraft.camp.CampUpdateTick;
+import cn.hutool.core.util.StrUtil;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.structure.Structure;
-import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.threading.tasks.FisheryAsyncTask;
@@ -34,6 +32,10 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 20s执行
+ * 有关钓鱼和怪物磨床
+ */
 public class UpdateMinuteEventTimer extends CivAsyncTask {
 
     public static ReentrantLock lock = new ReentrantLock();
@@ -57,14 +59,13 @@ public class UpdateMinuteEventTimer extends CivAsyncTask {
                     continue;
 
                 try {
-                    if (struct.getUpdateEvent() != null && !struct.getUpdateEvent().equals("")) {
-                        if (struct.getUpdateEvent().equals("mobGrinder_process")) {
+                    if (StrUtil.isNotBlank(struct.getUpdateEvent())) {
+                        if ("mobGrinder_process".equals(struct.getUpdateEvent())) {
                             if (!CivGlobal.mobGrinderEnabled) {
                                 continue;
                             }
-
                             TaskMaster.asyncTask("mobGrinder-" + struct.getCorner().toString(), new MobGrinderAsyncTask(struct), 0);
-                        } else if (struct.getUpdateEvent().equals("fish_hatchery_process")) {
+                        } else if ("fish_hatchery_process".equals(struct.getUpdateEvent())) {
                             if (!CivGlobal.fisheryEnabled) {
                                 continue;
                             }
@@ -75,7 +76,7 @@ public class UpdateMinuteEventTimer extends CivAsyncTask {
                         }
                     }
 
-                    struct.onUpdate();
+//                    struct.onUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
                     //We need to catch any exception so that an error in one town/structure/good does not
@@ -89,16 +90,16 @@ public class UpdateMinuteEventTimer extends CivAsyncTask {
                 }
             }
 
-            for (Wonder wonder : CivGlobal.getWonders()) {
-                wonder.onUpdate();
-            }
+//            for (Wonder wonder : CivGlobal.getWonders()) {
+//                wonder.onUpdate();
+//            }
 
 
-            for (Camp camp : CivGlobal.getCamps()) {
-                if (!camp.sifterLock.isLocked()) {
-                    TaskMaster.asyncTask(new CampUpdateTick(camp), 0);
-                }
-            }
+//            for (Camp camp : CivGlobal.getCamps()) {
+//                if (!camp.sifterLock.isLocked()) {
+//                    TaskMaster.asyncTask(new CampUpdateTick(camp), 0);
+//                }
+//            }
 
         } finally {
             lock.unlock();

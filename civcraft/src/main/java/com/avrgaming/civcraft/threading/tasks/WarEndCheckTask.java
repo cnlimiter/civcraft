@@ -16,7 +16,7 @@
  * is strictly forbidden unless prior written permission is obtained
  * from AVRGAMING LLC.
  */
-package com.avrgaming.civcraft.threading.timers;
+package com.avrgaming.civcraft.threading.tasks;
 
 import com.avrgaming.civcraft.threading.TaskMaster;
 import com.avrgaming.civcraft.util.TimeTools;

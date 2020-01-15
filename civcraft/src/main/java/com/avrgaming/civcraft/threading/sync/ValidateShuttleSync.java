@@ -1,15 +1,14 @@
 
 package com.avrgaming.civcraft.threading.sync;
 
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.bukkit.entity.Player;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.wonders.SpaceShuttle;
 import com.avrgaming.civcraft.threading.CivAsyncTask;
+import org.bukkit.entity.Player;
 
-public class ValidateShuttleSync
-        extends CivAsyncTask {
+import java.util.concurrent.locks.ReentrantLock;
+
+public class ValidateShuttleSync extends CivAsyncTask {
     public static ReentrantLock runningLock = new ReentrantLock();
     public static Town town;
     public static Player player;
