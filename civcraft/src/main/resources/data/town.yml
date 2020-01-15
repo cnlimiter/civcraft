@@ -140,7 +140,7 @@ town_levels:
 
 upgrades:
     - id: 'upgrade_town_level_2'
-      name: 'Hamlet'
+      name: '小村庄'
       cost: 10000.0
       action: 'set_town_level,2'
       require_upgrade:
@@ -148,7 +148,7 @@ upgrades:
       category: 'Town'
       
     - id: 'upgrade_town_level_3'
-      name: 'Village'
+      name: '村庄'
       cost: 20000.0
       action: 'set_town_level,3'
       require_upgrade: 'upgrade_town_level_2'
@@ -156,7 +156,7 @@ upgrades:
       category: 'Town'
 
     - id: 'upgrade_town_level_4'
-      name: 'Large Village'
+      name: '大村庄'
       cost: 30000.0
       action: 'set_town_level,4'
       require_upgrade: 'upgrade_town_level_3'
@@ -164,7 +164,7 @@ upgrades:
       category: 'Town'
 
     - id: 'upgrade_town_level_5'
-      name: 'Town'
+      name: '城镇'
       cost: 50000.0
       action: 'set_town_level,5'
       require_upgrade: 'upgrade_town_level_4'
@@ -172,7 +172,7 @@ upgrades:
       category: 'Town'
 
     - id: 'upgrade_town_level_6'
-      name: 'Large Town'
+      name: '大城镇'
       cost: 125000.0
       action: 'set_town_level,6'
       require_upgrade: 'upgrade_town_level_5'
@@ -180,7 +180,7 @@ upgrades:
       category: 'Town'
 
     - id: 'upgrade_town_level_7'
-      name: 'City'
+      name: '都市'
       cost: 250000.0
       action: 'set_town_level,7'
       require_upgrade: 'upgrade_town_level_6'
@@ -188,7 +188,7 @@ upgrades:
       category: 'Town'
 
     - id: 'upgrade_town_level_8'
-      name: 'Large City'
+      name: '大都市'
       cost: 500000.0
       action: 'set_town_level,8'
       require_upgrade: 'upgrade_town_level_7'
@@ -196,7 +196,7 @@ upgrades:
       category: 'Town'
 
     - id: 'upgrade_town_level_9'
-      name: 'Metropolis'
+      name: '首都'
       cost: 1000000.0
       action: 'set_town_level,9'
       require_upgrade: 'upgrade_town_level_8'
@@ -210,7 +210,7 @@ upgrades:
       cost: 4000.0
       action: 'set_bank_level,2'
       require_upgrade:
-      require_tech: 'tech_code_of_laws'
+      require_tech: 'tech_priesthood'
       require_structure: 's_bank'
       category: 'Bank'
     
@@ -219,7 +219,7 @@ upgrades:
       cost: 6000.0
       action: 'set_bank_level,3'
       require_upgrade: 'upgrade_bank_level_2'
-      require_tech: 'tech_writing'
+      require_tech: 'tech_code_of_laws'
       require_structure: 's_bank'
       category: 'Bank'
     

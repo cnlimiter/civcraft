@@ -970,7 +970,7 @@ structures:
     template_y_shift: 0
     displayName: 图书馆
     require_upgrade:
-    require_tech: 'tech_productivity'
+    require_tech: 'tech_writing'
     effect_event:
     check_event:
     update_event:
