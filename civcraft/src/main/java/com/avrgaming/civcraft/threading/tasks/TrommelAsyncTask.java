@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 
+import static com.avrgaming.civcraft.structure.Trommel.*;
+
 public class TrommelAsyncTask extends CivAsyncTask {
 
     private Trommel trommel;
@@ -145,22 +147,22 @@ public class TrommelAsyncTask extends CivAsyncTask {
                     // Attempt to get special resources
                     // 尝试获得特殊资源
                     Random rand = new Random();
-                    int randMax = Trommel.GRAVEL_MAX_CHANCE;
+                    int randMax = GRAVEL_MAX_CHANCE;
                     int rand1 = rand.nextInt(randMax);
                     ItemStack newItem;
 
-                    if (rand1 < ((int) ((trommel.getGravelChance(Trommel.Mineral.CHROMIUM)) * randMax))) {
+                    if (rand1 < ((int) ((trommel.getGravelChance(Mineral.CHROMIUM)) * randMax))) {
                         newItem = LoreMaterial.spawn(LoreMaterial.materialMap.get("mat_chromium_ore"));
-                    } else if (rand1 < ((int) ((trommel.getGravelChance(Trommel.Mineral.EMERALD)) * randMax))) {
+                    } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.EMERALD)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.EMERALD, 1);
-                    } else if (rand1 < ((int) ((trommel.getGravelChance(Trommel.Mineral.DIAMOND)) * randMax))) {
+                    } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.DIAMOND)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.DIAMOND, 1);
-                    } else if (rand1 < ((int) ((trommel.getGravelChance(Trommel.Mineral.GOLD)) * randMax))) {
+                    } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.GOLD)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.GOLD_INGOT, 1);
-                    } else if (rand1 < ((int) ((trommel.getGravelChance(Trommel.Mineral.REDSTONE)) * randMax))) {
+                    } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.REDSTONE)) * randMax))) {
                         int itemRand = rand.nextInt(5) + 1;
                         newItem = ItemManager.createItemStack(CivData.REDSTONE_DUST, itemRand);
-                    } else if (rand1 < ((int) ((trommel.getGravelChance(Trommel.Mineral.IRON)) * randMax))) {
+                    } else if (rand1 < ((int) ((trommel.getGravelChance(Mineral.IRON)) * randMax))) {
                         newItem = ItemManager.createItemStack(CivData.IRON_INGOT, 1);
                     } else {
                         newItem = ItemManager.createItemStack(CivData.GRAVEL, GRAVEL_RATE);
@@ -189,7 +191,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
 
                         // Attempt to get special resources
                         Random rand = new Random();
-                        int randMax = Trommel.GRANITE_MAX_CHANCE;
+                        int randMax = GRANITE_MAX_CHANCE;
                         int rand1 = rand.nextInt(randMax);
                         ItemStack newItem;
 
@@ -211,7 +213,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
                             newItem = LoreMaterial.spawn(LoreMaterial.materialMap.get("mat_forged_chromium"));
                         } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.REFINED_TUNGSTEN)) * randMax))) {
                             newItem = LoreMaterial.spawn(LoreMaterial.materialMap.get("mat_forged_tungsten"));
-                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Trommel.Mineral.CRYSTAL_FRAGMENT)) * randMax))) {
+                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.CRYSTAL_FRAGMENT)) * randMax))) {
                             int rand2 = rand.nextInt(randMax);
                             if (rand2 < (randMax / 10)) {
                                 int rand3 = rand.nextInt(randMax);
@@ -225,11 +227,11 @@ public class TrommelAsyncTask extends CivAsyncTask {
                             } else {
                                 newItem = LoreMaterial.spawn(LoreMaterial.materialMap.get("mat_metallic_crystal_fragment_1"));
                             }
-                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Trommel.Mineral.CHROMIUM)) * randMax))) {
+                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.CHROMIUM)) * randMax))) {
                             newItem = LoreMaterial.spawn(LoreMaterial.materialMap.get("mat_chromium_ore"));
-                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Trommel.Mineral.EMERALD)) * randMax))) {
+                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.EMERALD)) * randMax))) {
                             newItem = ItemManager.createItemStack(CivData.EMERALD, 1);
-                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Trommel.Mineral.DIAMOND)) * randMax))) {
+                        } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.DIAMOND)) * randMax))) {
                             newItem = ItemManager.createItemStack(CivData.DIAMOND, 1);
                         } else if (rand1 < ((int) ((trommel.getGraniteChance(Mineral.TUNGSTEN)) * randMax))) {
                             newItem = LoreMaterial.spawn(LoreMaterial.materialMap.get("mat_tungsten_ore"));
@@ -266,7 +268,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
                         }
                         // Attempt to get special resources
                         Random rand = new Random();
-                        int randMax = Trommel.DIORITE_MAX_CHANCE;
+                        int randMax = DIORITE_MAX_CHANCE;
                         int rand1 = rand.nextInt(randMax);
                         ItemStack newItem;
 
@@ -343,7 +345,7 @@ public class TrommelAsyncTask extends CivAsyncTask {
                         }
                         // Attempt to get special resources
                         Random rand = new Random();
-                        int randMax = Trommel.ANDESITE_MAX_CHANCE;
+                        int randMax = ANDESITE_MAX_CHANCE;
                         int rand1 = rand.nextInt(randMax);
                         ItemStack newItem;
 

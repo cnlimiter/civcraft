@@ -380,11 +380,11 @@ public class BlockListener implements Listener {
             // TODO：设置小僵尸
             if (type.equals(EntityType.ZOMBIE)) {
                 if (entity.getCustomName() != null) {
-                    ((Zombie) entity).setBaby(true);
+//                    ((Zombie) entity).setBaby(true);
                 }
             } else if (type.equals(EntityType.ZOMBIE_VILLAGER)) {
                 if (entity.getCustomName() != null) {
-                    ((ZombieVillager) entity).setBaby(true);
+//                    ((ZombieVillager) entity).setBaby(true);
                 }
             } else if (type == EntityType.SLIME) {
                 ((Slime) entity).setSize(3);
