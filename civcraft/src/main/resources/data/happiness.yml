@@ -6,7 +6,7 @@
 happiness:
   # Amount of unhappiness per resident in the town.
   # 每个城镇居民的不幸程度。
-  per_resident: 1.0
+  per_resident: 1.5
   per_group: 0.25
 
   # Empire Unhappiness, how much unhappiness to add, per town, to the entire
@@ -20,7 +20,7 @@ happiness:
 
   # Base distance Unhappiness
   # 基本距离不快乐
-  distance_base: 0.01
+  distance_base: 0.02
 
   # Distance Multiplier to use when town's culture is touching
   # 城镇文化触及时使用的距离倍数
