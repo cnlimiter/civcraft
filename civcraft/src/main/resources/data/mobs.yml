@@ -6,7 +6,7 @@ custom_mobs_enabled: true
 #     - '物品id 看[Material.java],物品子id,最小掉落数量,最大掉落数量,掉落概率,lootingRate,lootingDrops,dropMod' ## Minecraft Item
 #     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
 custom_mobs:
-  - id: LESSER_YOBO
+  - id: 绿僵尸
     name: '<lightgreen>绿僵尸'
     visible: true
     entity: ZOMBIE
@@ -31,7 +31,7 @@ custom_mobs:
       - 'mat_crafted_reeds,0,1,1,0.1,0.0,1,0'
       - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
   #
-  - id: GREATER_YOBO
+  - id: 黄僵尸
     name: '<yellow>黄僵尸'
     visible: true
     entity: ZOMBIE
@@ -57,7 +57,7 @@ custom_mobs:
       - 'mat_varnish,0,1,1,0.01,0.0,1,0'
       - 'mat_sticky_resin,0,1,1,0.01,0.0,1,0'
   #
-  - id: ELITE_YOBO
+  - id: 紫僵尸
     name: '<lightpurple>紫僵尸'
     visible: true
     entity: ZOMBIE
@@ -84,7 +84,7 @@ custom_mobs:
       - 'mat_sticky_resin,0,1,1,0.01,0.0,1,0'
       - 'mat_smithy_resin,0,1,1,0.005,0.0,1,0'
   #
-  - id: BRUTAL_YOBO
+  - id: 红僵尸
     name: '<rose>红僵尸'
     visible: true
     entity: ZOMBIE
@@ -111,7 +111,7 @@ custom_mobs:
       - 'mat_smithy_resin,0,1,1,0.01,0.0,1,0'
       - 'mat_metallic_crystal_fragment_4,0,1,1,0.01,0.0,1,0'
   #
-  - id: LEGENDARY_YOBO
+  - id: 蓝僵尸
     name: '<lightblue>蓝僵尸'
     visible: true
     entity: ZOMBIE
@@ -135,10 +135,10 @@ custom_mobs:
       - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
       - 'mat_mercury,0,1,1,0.001,0.0,1,0'
   #
-  - id: LESSER_CANNIBAL
-    name: '<lightgreen>绿猪人'
+  - id: 绿野蛮人
+    name: '<lightgreen>绿野蛮人'
     visible: true
-    entity: PIGZOMBIE
+    entity: PIG_ZOMBIE
     max_health: 22.5
     move_speed: 1.05
     attack_dmg: 8.0
@@ -159,10 +159,10 @@ custom_mobs:
       - 'mat_crafted_string,0,1,1,0.1,0.0,1,0'
       - 'mat_carved_leather,0,1,1,0.1,0.0,1,0'
   #
-  - id: GREATER_CANNIBAL
-    name: '<yellow>黄猪人'
+  - id: 黄野蛮人
+    name: '<yellow>黄野蛮人'
     visible: true
-    entity: PIGZOMBIE
+    entity: PIG_ZOMBIE
     max_health: 28.5
     move_speed: 1.05
     attack_dmg: 10.0
@@ -183,10 +183,10 @@ custom_mobs:
       - 'mat_woven_threading,0,1,1,0.05,0.0,1,0'
       - 'mat_crafted_leather,0,1,1,0.05,0.0,1,0'
   #
-  - id: ELITE_CANNIBAL
-    name: '<lightpurple>紫猪人'
+  - id: 紫野蛮人
+    name: '<lightpurple>紫野蛮人'
     visible: true
-    entity: PIGZOMBIE
+    entity: PIG_ZOMBIE
     max_health: 34.5
     move_speed: 1.05
     attack_dmg: 12.0
@@ -208,10 +208,10 @@ custom_mobs:
       - 'mat_reinforced_braid,0,1,1,0.01,0.0,1,0'
       - 'mat_leather_straps,0,1,1,0.01,0.0,1,0'
   #
-  - id: BRUTAL_CANNIBAL
-    name: '<rose>红猪人'
+  - id: 红野蛮人
+    name: '<rose>红野蛮人'
     visible: true
-    entity: PIGZOMBIE
+    entity: PIG_ZOMBIE
     max_health: 40.5
     move_speed: 1.05
     attack_dmg: 14.0
@@ -234,10 +234,10 @@ custom_mobs:
       - 'mat_artisan_leather,0,1,1,0.005,0.0,1,0'
       - 'mat_metallic_crystal_fragment_4,0,1,1,0.01,0.0,1,0'
   #
-  - id: LEGENDARY_CANNIBAL
-    name: '<lightblue>蓝猪人'
+  - id: 蓝野蛮人
+    name: '<lightblue>蓝野蛮人'
     visible: true
-    entity: PIGZOMBIE
+    entity: PIG_ZOMBIE
     max_health: 46.5
     move_speed: 1.05
     attack_dmg: 16.0
@@ -258,7 +258,7 @@ custom_mobs:
       - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
       - 'mat_mercury,0,1,1,0.001,0.0,1,0'
   #
-  - id: LESSER_RUFFIANS
+  - id: 绿女巫
     name: '<lightgreen>绿女巫'
     visible: true
     entity: WITCH
@@ -282,7 +282,7 @@ custom_mobs:
       - 'mat_crafted_string,0,1,1,0.1,0.0,1,0'
       - 'mat_carved_leather,0,1,1,0.1,0.0,1,0'
   #
-  - id: GREATER_RUFFIANS
+  - id: 黄女巫
     name: '<yellow>黄女巫'
     visible: true
     entity: WITCH
@@ -306,7 +306,7 @@ custom_mobs:
       - 'mat_woven_threading,0,1,1,0.05,0.0,1,0'
       - 'mat_crafted_leather,0,1,1,0.05,0.0,1,0'
   #
-  - id: ELITE_RUFFIANS
+  - id: 紫女巫
     name: '<lightpurple>紫女巫'
     visible: true
     entity: WITCH
@@ -331,7 +331,7 @@ custom_mobs:
       - 'mat_reinforced_braid,0,1,1,0.01,0.0,1,0'
       - 'mat_leather_straps,0,1,1,0.01,0.0,1,0'
   #
-  - id: BRUTAL_RUFFIANS
+  - id: 红女巫
     name: '<rose>红女巫'
     visible: true
     entity: WITCH
@@ -355,7 +355,7 @@ custom_mobs:
       - 'mat_composite_bow_string,0,1,1,0.005,0.0,1,0'
       - 'mat_artisan_leather,0,1,1,0.005,0.0,1,0'
   #
-  - id: LEGENDARY_RUFFIANS
+  - id: 蓝女巫
     name: '<lightblue>蓝女巫'
     visible: true
     entity: WITCH
@@ -379,10 +379,10 @@ custom_mobs:
       - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
       - 'mat_mercury,0,1,1,0.001,0.0,1,0'
   #
-  - id: LESSER_BEHEMOTH
-    name: '<lightgreen>绿铁傀儡'
+  - id: 绿巨兽
+    name: '<lightgreen>绿巨兽'
     visible: true
-    entity: IRONGOLEM
+    entity: IRON_GOLEM
     max_health: 25.5
     move_speed: 1.05
     attack_dmg: 10.0
@@ -404,10 +404,10 @@ custom_mobs:
       - 'mat_steel_ingot,0,1,1,0.05,0.0,1,0'
       - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
   #
-  - id: GREATER_BEHEMOTH
-    name: '<yellow>黄铁傀儡'
+  - id: 黄巨兽
+    name: '<yellow>黄巨兽'
     visible: true
-    entity: IRONGOLEM
+    entity: IRON_GOLEM
     max_health: 30.5
     move_speed: 1.05
     attack_dmg: 12.0
@@ -428,10 +428,10 @@ custom_mobs:
       - 'mat_steel_ingot,0,1,1,0.05,0.0,1,0'
       - 'mat_aged_wood_stave,0,1,1,0.05,0.0,1,0'
   #
-  - id: ELITE_BEHEMOTH
-    name: '<lightpurple>紫铁傀儡'
+  - id: 紫巨兽
+    name: '<lightpurple>紫巨兽'
     visible: true
-    entity: IRONGOLEM
+    entity: IRON_GOLEM
     max_health: 35.5
     move_speed: 1.05
     attack_dmg: 14.0
@@ -453,10 +453,10 @@ custom_mobs:
       - 'mat_carbide_steel_ingot,0,1,1,0.01,0.0,1,0'
       - 'mat_longbow_stave,0,1,1,0.01,0.0,1,0'
   #
-  - id: BRUTAL_BEHEMOTH
-    name: '<rose>红铁傀儡'
+  - id: 红巨兽
+    name: '<rose>红巨兽'
     visible: true
-    entity: IRONGOLEM
+    entity: IRON_GOLEM
     max_health: 40.5
     move_speed: 1.05
     attack_dmg: 16.0
@@ -477,10 +477,10 @@ custom_mobs:
       - 'mat_tungsten_ingot,0,1,1,0.005,0.0,1,0'
       - 'mat_composite_bow_stave,0,1,1,0.005,0.0,1,0'
   #
-  - id: LEGENDARY_BEHEMOTH
-    name: '<lightblue>蓝铁傀儡'
+  - id: 蓝巨兽
+    name: '<lightblue>蓝巨兽'
     visible: true
-    entity: IRONGOLEM
+    entity: IRON_GOLEM
     max_health: 45.5
     move_speed: 1.05
     attack_dmg: 18.0
@@ -489,7 +489,7 @@ custom_mobs:
     kb_resistance: 0.5
     exp_min: 85
     exp_max: 200
-    res_exp: 2.3
+    res_exp: 2.3t
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
