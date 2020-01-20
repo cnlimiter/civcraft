@@ -159,7 +159,7 @@ talent_levels:
     levelBuffDesc3: '贸易资源额外获得15％的收入。'
       #      levelBuffDesc1: 'Your cottages produce 10% more coins.'
       #      levelBuffDesc2: 'Your bank is getting more efficient by 10%, doubling the daily interest percentage.'
-      #      levelBuffDesc3: 'Trade resources give 15% more coins.'
+    #      levelBuffDesc3: 'Trade resources give 15% more coins.'
   - level: 9
     levelName: '主动出击'
     levelBuff1: 'level6_extraCPdmgTown'
@@ -239,102 +239,163 @@ talent_levels:
     #    levelBuffDesc3: 'Increases the culture of all cities of civilization by 15% and reduces the cost of wonders by 10%.'
 
 
+
 culture_biomes:
   - name: OCEAN
     hammers: 0.5
     growth: 0.25
     happiness: 0.02
-    beakers: 1.0
-
-  - name: DEEP_OCEAN
-    hammers: 0.5
-    growth: 0.25
-    happiness: 0.0
-    beakers: 1.5
-
-  - name: SMALLER_EXTREME_HILLS
-    hammers: 2.5
-    growth: 0.5
-    happiness: 0.015
-    beakers: 0.5
+    beakers: 1
 
   - name: PLAINS
     hammers: 0.25
-    growth: 2.0
+    growth: 2
     happiness: 0.025
-    beakers: 0.5
-
-  - name: MUTATED_PLAINS
-    hammers: 1.0
-    growth: 1.5
-    happiness: 0.04
-    beakers: 1.0
-
-  - name: SAVANNA
-    hammers: 1.0
-    growth: 1.5
-    happiness: 0.03
-    beakers: 1.0
-
-  - name: MUTATED_SAVANNA
-    hammers: 1.25
-    growth: 1.25
-    happiness: 0.025
-    beakers: 1.0
-
-  - name: MESA
-    hammers: 2.0
-    growth: 0.0
-    happiness: 0.03
-    beakers: 1.5
-
-  - name: MESA_CLEAR_ROCK
-    hammers: 2.0
-    growth: 0.5
-    happiness: 0.01
-    beakers: 0.25
-
-  - name: MESA_ROCK
-    hammers: 2.5
-    growth: 0.0
-    happiness: 0.01
-    beakers: 0.25
-
-  - name: MUTATED_MESA_ROCK
-    hammers: 3.0
-    growth: 0.0
-    happiness: 0.0
-    beakers: 0.25
-
-  - name: MUTATED_MESA
-    hammers: 3.0
-    growth: 0.0
-    happiness: 0.0
-    beakers: 0.25
-
-  - name: MUTATED_MESA_CLEAR_ROCK
-    hammers: 1.5
-    growth: 1.0
-    happiness: 0.02
     beakers: 0.5
 
   - name: DESERT
     hammers: 0.3125
     growth: 0.1875
     happiness: 0.03
-    beakers: 1.0
+    beakers: 1
+
+  - name: MOUNTAINS
+    hammers: 4
+    growth: 0
+    happiness: 0
+    beakers: 0.15
 
   - name: FOREST
-    hammers: 1.0
+    hammers: 1
     growth: 1.25
     happiness: 0.025
     beakers: 0.5
 
-  - name: MUTATED_FOREST
-    hammers: 1.0
-    growth: 1.0
+  - name: TAIGA
+    hammers: 2
+    growth: 0.5
+    happiness: 0.02
+    beakers: 0.5
+
+  - name: SWAMP
+    hammers: 0.25
+    growth: 1
+    happiness: 0.02
+    beakers: 1.5
+
+  - name: RIVER
+    hammers: 1.5
+    growth: 3
+    happiness: 0.025
+    beakers: 0.5
+
+  - name: NETHER
+    hammers: 0.2
+    growth: 0.2
+    happiness: 0
+    beakers: 0.2
+
+  - name: FROZEN_OCEAN
+    hammers: 0.25
+    growth: 0
+    happiness: 0
+    beakers: 3
+
+  - name: FROZEN_RIVER
+    hammers: 2
+    growth: 2.5
+    happiness: 0.015
+    beakers: 1
+
+  - name: SNOWY_TUNDRA
+    hammers: 1
+    growth: 0.5
+    happiness: 0.02
+    beakers: 0.5
+
+  - name: SNOWY_MOUNTAINS
+    hammers: 2
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1
+
+  - name: MUSHROOM_FIELDS
+    hammers: 1
+    growth: 0.5
+    happiness: 0.03
+    beakers: 0.5
+
+  - name: MUSHROOM_FIELD_SHORE
+    hammers: 0.5
+    growth: 0.25
     happiness: 0.05
-    beakers: 0.75
+    beakers: 0.5
+
+  - name: BEACH
+    hammers: 0.25
+    growth: 0.5
+    happiness: 0.06
+    beakers: 1.5
+
+  - name: DESERT_HILLS
+    hammers: 2
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1
+
+  - name: WOODED_HILLS
+    hammers: 3
+    growth: 1
+    happiness: 0.01
+    beakers: 0.5
+
+  - name: TAIGA_HILLS
+    hammers: 1.5
+    growth: 0.5
+    happiness: 0.03
+    beakers: 1
+
+  - name: MOUNTAIN_EDGE
+    hammers: 2.5
+    growth: 0.5
+    happiness: 0.015
+    beakers: 0.5
+
+  - name: JUNGLE
+    hammers: 0.5
+    growth: 1
+    happiness: 0.02
+    beakers: 1
+
+  - name: JUNGLE_HILLS
+    hammers: 2
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1
+
+  - name: JUNGLE_EDGE
+    hammers: 1
+    growth: 0.5
+    happiness: 0.03
+    beakers: 1
+
+  - name: DEEP_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0
+    beakers: 1.5
+
+  - name: STONE_SHORE
+    hammers: 3
+    growth: 0
+    happiness: 0.015
+    beakers: 0.15
+
+  - name: SNOWY_BEACH
+    hammers: 2
+    growth: 0
+    happiness: 0.01
+    beakers: 1
 
   - name: BIRCH_FOREST
     hammers: 1.5
@@ -342,282 +403,264 @@ culture_biomes:
     happiness: 0.025
     beakers: 0.5
 
-  - name: MUTATED_BIRCH_FOREST
-    hammers: 2.5
-    growth: 0.5
-    happiness: 0.01
-    beakers: 1.0
-
-  - name: MUTATED_BIRCH_FOREST_HILLS
-    hammers: 1.5
-    growth: 1.0
-    happiness: 0.02
-    beakers: 1.0
-
-  - name: ROOFED_FOREST
-    hammers: 1.0
-    growth: 0.50
-    happiness: 0.025
-    beakers: 0.75
-
-  - name: MUTATED_ROOFED_FOREST
-    hammers: 2.0
-    growth: 2.0
-    happiness: 0.0
-    beakers: 0.5
-
-  - name: TAIGA
-    hammers: 2.0
-    growth: 0.5
-    happiness: 0.02
-    beakers: 0.5
-
-  - name: MUTATED_REDWOOD_TAIGA
-    hammers: 1.5
-    growth: 0.25
-    happiness: 0.02
-    beakers: 1.5
-
-  - name: REDWOOD_TAIGA
-    hammers: 2.5
-    growth: 0.25
-    happiness: 0.01
-    beakers: 0.25
-
-  - name: REDWOOD_TAIGA_HILLS
-    hammers: 3.0
-    growth: 0.0
-    happiness: 0.03
-    beakers: 0.5
-
-  - name: TAIGA_COLD
-    hammers: 1.0
-    growth: 0.25
-    happiness: 0.02
-    beakers: 1.5
-
-  - name: SWAMPLAND
-    hammers: 0.25
-    growth: 1.0
-    happiness: 0.02
-    beakers: 1.5
-
-  - name: RIVER
-    hammers: 1.5
-    growth: 3.0
-    happiness: 0.025
-    beakers: 0.5
-
-  - name: FROZEN_OCEAN
-    hammers: 0.25
-    growth: 0.0
-    happiness: 0.0
-    beakers: 3.0
-
-  - name: FROZEN_RIVER
-    hammers: 2.0
-    growth: 2.5
-    happiness: 0.015
-    beakers: 1.0
-
-  - name: ICE_FLATS
-    hammers: 1.0
-    growth: 0.5
-    happiness: 0.02
-    beakers: 0.5
-
-  - name: MUTATED_ICE_FLATS
-    coins: 0.5
-    hammers: 0.25
-    growth: 0.25
-    happiness: 0.05
-    beakers: 1.5
-
-  - name: MUTATED_JUNGLE
-    hammers: 3.0
-    growth: 0.5
-    happiness: 0.0
-    beakers: 0.25
-
-  - name: MUTATED_JUNGLE_EDGE
-    hammers: 2.0
-    growth: 0.25
-    happiness: 0.01
-    beakers: 0.5
-
-  - name: ICE_MOUNTAINS
-    hammers: 2.0
-    growth: 0.25
-    happiness: 0.02
-    beakers: 1.0
-
-  - name: SAVANNA_ROCK
-    hammers: 4.0
-    growth: 0.25
-    happiness: 0.0
-    beakers: 0.25
-
-  - name: MUTATED_SAVANNA_ROCK
-    hammers: 3.25
-    growth: 0.5
-    happiness: 0.0
-    beakers: 0.0
-
-  - name: TAIGA_HILLS
-    hammers: 1.5
-    growth: 0.5
-    happiness: 0.03
-    beakers: 1.0
-
-  - name: TAIGA_COLD_HILLS
-    hammers: 3.0
-    growth: 0.0
-    happiness: 0.0
-    beakers: 1.0
-
-  - name: MUTATED_SWAMPLAND
-    hammers: 2.5
-    growth: 0.10
-    happiness: 0.02
-    beakers: 0.5
-
-  - name: SMALL_MOUNTAINS
-    hammers: 2.5
-    growth: 0.5
-    happiness: 0.015
-    beakers: 0.5
-
-  - name: MUSHROOM_ISLAND
-    hammers: 1.0
-    growth: 0.5
-    happiness: 0.03
-    beakers: 0.5
-
-  - name: MUSHROOM_SHORE
-    hammers: 0.5
-    growth: 0.25
-    happiness: 0.05
-    beakers: 0.5
-
-  - name: BEACHES
-    hammers: 0.25
-    growth: 0.5
-    happiness: 0.06
-    beakers: 1.5
-
-  - name: STONE_BEACH
-    hammers: 3.0
-    growth: 0.0
-    happiness: 0.015
-    beakers: 0.15
-
-  - name: COLD_BEACH
-    hammers: 2.0
-    growth: 0.0
-    happiness: 0.01
-    beakers: 1.0
-
-  - name: DESERT_HILLS
-    hammers: 2.0
-    growth: 0.25
-    happiness: 0.03
-    beakers: 1.0
-
-  - name: MUTATED_DESERT
-    hammers: 2.0
-    growth: 0.25
-    happiness: 0.03
-    beakers: 1.0
-
-  - name: FOREST_HILLS
-    hammers: 2.0
-    growth: 0.25
-    happiness: 0.03
-    beakers: 1.0
-
   - name: BIRCH_FOREST_HILLS
-    hammers: 2.0
+    hammers: 2
     growth: 0.15
     happiness: 0.02
     beakers: 0.5
 
-  - name: TAIGA_HILLS
-    hammers: 2.5
+  - name: DARK_FOREST
+    hammers: 1
+    growth: 0.5
+    happiness: 0.025
+    beakers: 0.75
+
+  - name: SNOWY_TAIGA
+    hammers: 1
     growth: 0.25
     happiness: 0.02
-    beakers: 0.15
+    beakers: 1.5
 
-  - name: MUTATED_TAIGA
+  - name: SNOWY_TAIGA_HILLS
+    hammers: 2
+    growth: 0.2
+    happiness: 0.01
+    beakers: 1
+
+  - name: GIANT_TREE_TAIGA
     hammers: 2.5
     growth: 0.25
     happiness: 0.04
     beakers: 0.75
 
-  - name: MUTATED_TAIGA_COLD
-    hammers: 2.0
+  - name: GIANT_TREE_TAIGA_HILLS
+    hammers: 3
     growth: 0.1
+    happiness: 0
+    beakers: 0.1
+
+  - name: WOODED_MOUNTAINS
+    hammers: 4
+    growth: 1
     happiness: 0.01
     beakers: 0.5
 
-  - name: MUTATED_REDWOOD_TAIGA_HILLS
-    hammers: 3.0
-    growth: 0.1
-    happiness: 0.0
-    beakers: 0.1
+  - name: SAVANNA
+    hammers: 1
+    growth: 1.5
+    happiness: 0.03
+    beakers: 1
 
-  - name: TAIGA_HILLS_COLD
+  - name: SAVANNA_PLATEAU
+    hammers: 4
+    growth: 0.25
+    happiness: 0
+    beakers: 0.25
+
+  - name: BADLANDS
+    hammers: 0.2
+    growth: 0.2
+    happiness: 0.01
+    beakers: 0.2
+
+  - name: WOODED_BADLANDS_PLATEAU
+    hammers: 0.3
+    growth: 0.2
+    happiness: 0.02
+    beakers: 0.2
+
+  - name: BADLANDS_PLATEAU
+    hammers: 0.4
+    growth: 0.1
+    happiness: 0.01
+    beakers: 0.2
+
+  - name: WARM_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1
+
+  - name: LUKEWARM_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1
+
+  - name: COLD_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0.02
+    beakers: 1
+  - name: DEEP_WARM_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0
+    beakers: 1.5
+
+  - name: DEEP_LUKEWARM_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0
+    beakers: 1.5
+
+  - name: DEEP_COLD_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0
+    beakers: 1.5
+
+  - name: DEEP_FROZEN_OCEAN
+    hammers: 0.5
+    growth: 0.25
+    happiness: 0
+    beakers: 1.5
+
+  - name: SUNFLOWER_PLAINS
+    hammers: 0.25
+    growth: 2.5
+    happiness: 0.03
+    beakers: 0.5
+
+  - name: DESERT_LAKES
+    hammers: 1.5
+    growth: 4
+    happiness: 0.025
+    beakers: 0.5
+
+  - name: GRAVELLY_MOUNTAINS
+    hammers: 4.5
+    growth: 0
+    happiness: 0
+    beakers: 0
+
+  - name: FLOWER_FOREST
+    hammers: 1
+    growth: 1.5
+    happiness: 0.03
+    beakers: 0.5
+
+  - name: TAIGA_MOUNTAINS
+    hammers: 2
+    growth: 0.25
+    happiness: 0.03
+    beakers: 1
+
+  - name: SWAMP_HILLS
+    hammers: 2.5
+    growth: 0.1
+    happiness: 0.02
+    beakers: 0.5
+
+  - name: ICE_SPIKES
+    hammers: 0.25
+    growth: 0.25
+    happiness: 0.05
+    beakers: 1.5
+
+  - name: MODIFIED_JUNGLE
+    hammers: 3
+    growth: 0.5
+    happiness: 0
+    beakers: 0.25
+
+  - name: MODIFIED_JUNGLE_EDGE
+    hammers: 2
+    growth: 0.25
+    happiness: 0.01
+    beakers: 0.5
+
+  - name: TALL_BIRCH_FOREST
+    hammers: 2.5
+    growth: 0.15
+    happiness: 0.02
+    beakers: 0.5
+
+  - name: TALL_BIRCH_HILLS
+    hammers: 2.5
+    growth: 0.15
+    happiness: 0.02
+    beakers: 0.5
+
+  - name: DARK_FOREST_HILLS
+    hammers: 2
+    growth: 0.5
+    happiness: 0.025
+    beakers: 0.75
+
+  - name: SNOWY_TAIGA_MOUNTAINS
     hammers: 2.5
     growth: 0.15
     happiness: 0.02
     beakers: 0.25
 
-  - name: EXTREME_HILLS
-    hammers: 4.0
-    growth: 0.0
-    happiness: 0.0
-    beakers: 0.15
-
-  - name: EXTREME_HILLS_WITH_TREES
-    hammers: 4.0
-    growth: 0.0
-    happiness: 0.0
-    beakers: 0.5
-
-  - name: MUTATED_EXTREME_HILLS
-    hammers: 4.5
-    growth: 0.0
-    happiness: 0.0
-    beakers: 0.0
-
-  - name: MUTATED_EXTREME_HILLS_WITH_TREES
-    hammers: 4.5
-    growth: 0.0
-    happiness: 0.0
-    beakers: 0.5
-
-  - name: JUNGLE
-    hammers: 0.5
-    growth: 1.0
-    happiness: 0.02
-    beakers: 1.0
-
-  - name: JUNGLE_HILLS
-    hammers: 2.0
+  - name: GIANT_SPRUCE_TAIGA
+    hammers: 3.5
     growth: 0.25
-    happiness: 0.03
-    beakers: 1.0
+    happiness: 0.04
+    beakers: 0.75
 
-  - name: JUNGLE_EDGE
-    hammers: 1.0
-    growth: 0.5
+  - name: GIANT_SPRUCE_TAIGA_HILLS
+    hammers: 4
+    growth: 0.1
+    happiness: 0
+    beakers: 0.1
+
+  - name: MODIFIED_GRAVELLY_MOUNTAINS
+    hammers: 4.5
+    growth: 0
+    happiness: 0
+    beakers: 0
+
+  - name: SHATTERED_SAVANNA
+    hammers: 1
+    growth: 1.5
     happiness: 0.03
-    beakers: 1.0
+    beakers: 1
+
+  - name: SHATTERED_SAVANNA_PLATEAU
+    hammers: 4
+    growth: 0.25
+    happiness: 0.01
+    beakers: 0.25
+
+  - name: ERODED_BADLANDS
+    hammers: 0.3
+    growth: 0.2
+    happiness: 0.01
+    beakers: 0.2
+
+  - name: MODIFIED_WOODED_BADLANDS_PLATEAU
+    hammers: 0.3
+    growth: 0.3
+    happiness: 0.01
+    beakers: 0.2
+
+  - name: MODIFIED_BADLANDS_PLATEAU
+    hammers: 0.5
+    growth: 0.1
+    happiness: 0.01
+    beakers: 0.2
+
+  - name: BAMBOO_JUNGLE
+    hammers: 1.5
+    growth: 1.25
+    happiness: 0.025
+    beakers: 0.5
+
+  - name: BAMBOO_JUNGLE_HILLS
+    hammers: 1.5
+    growth: 1.25
+    happiness: 0.025
+    beakers: 0.5
 
   - name: UNKNOWN
     hammers: 0.2
     growth: 0.2
     happiness: 0.01
     beakers: 0.2
+
+
 
 
 

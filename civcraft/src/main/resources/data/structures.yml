@@ -253,6 +253,24 @@ cottage_levels:
       - 319,1
     count: 288
     coins: 450.0
+
+  - level: 7
+    consumes:
+      - 297,6
+      - 391,7
+      - 392,8
+      - 319,1
+    count: 288
+    coins: 525.0
+
+  - level: 8
+    consumes:
+      - 297,6
+      - 391,9
+      - 392,9
+      - 319,1
+    count: 288
+    coins: 600.0
 ################# Temple Settings #################
 # 寺庙
 temple:
@@ -620,7 +638,7 @@ road:
     #   limit: <number of this type of buildings allowed in town, 0 is unlimited.>
     #   onBuild: <function called when structure is built>
     #   signs: <list of signs attached to structure>
-    #      id: <unique numerical identifier for sign>
+  #      id: <unique numerical identifier for sign>
   #      action: <name of function with params>
   #      (... can contain as many signs as needed)
 
@@ -799,22 +817,22 @@ structures:
         type: 'direct'
         attribute: 'UNHAPPINESS'
         value: '-2.0'
-# 没模板
-#  - id: s_shopingcenter
-#    template: tc
-#    template_y_shift: 0
-#    displayName: 购物中心
-#    require_tech: 'tech_monopoly'
-#    require_structure:
-#    allow_outside_town: false
-#    effect_event:
-#    limit: 1
-#    cost: 125000.0
-#    upkeep: 3000.0
-#    hammer_cost: 3000.0
-#    points: 4000
-#    max_hitpoints: 2000
-#    ignore_floating: false
+  # 没模板
+  #  - id: s_shopingcenter
+  #    template: tc
+  #    template_y_shift: 0
+  #    displayName: 购物中心
+  #    require_tech: 'tech_monopoly'
+  #    require_structure:
+  #    allow_outside_town: false
+  #    effect_event:
+  #    limit: 1
+  #    cost: 125000.0
+  #    upkeep: 3000.0
+  #    hammer_cost: 3000.0
+  #    points: 4000
+  #    max_hitpoints: 2000
+  #    ignore_floating: false
 
   - id: s_stadium
     template: stadium

@@ -30,6 +30,7 @@ custom_mobs:
       - 'mat_forged_clay,0,1,1,0.1,0.0,1,0'
       - 'mat_crafted_reeds,0,1,1,0.1,0.0,1,0'
       - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_1,0,1,1,0.05,0.0,1,0'
   #
   - id: 黄僵尸
     name: '<yellow>黄僵尸'
@@ -56,6 +57,7 @@ custom_mobs:
       - 'mat_steel_ingot,0,1,1,0.05,0.0,1,0'
       - 'mat_varnish,0,1,1,0.01,0.0,1,0'
       - 'mat_sticky_resin,0,1,1,0.01,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_2,0,1,1,0.04,0.0,1,0'
   #
   - id: 紫僵尸
     name: '<lightpurple>紫僵尸'
@@ -83,6 +85,7 @@ custom_mobs:
       - 'mat_carbide_steel_ingot,0,1,1,0.05,0.0,1,0'
       - 'mat_sticky_resin,0,1,1,0.01,0.0,1,0'
       - 'mat_smithy_resin,0,1,1,0.005,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_3,0,1,1,0.03,0.0,1,0'
   #
   - id: 红僵尸
     name: '<rose>红僵尸'
@@ -134,6 +137,7 @@ custom_mobs:
       - 'mat_composite_bow_string,0,1,1,0.02,0.0,1,0'
       - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
       - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
   #
   - id: 绿野蛮人
     name: '<lightgreen>绿野蛮人'
@@ -182,6 +186,7 @@ custom_mobs:
       - 'mat_sticky_resin,0,1,1,0.05,0.0,1,0'
       - 'mat_woven_threading,0,1,1,0.05,0.0,1,0'
       - 'mat_crafted_leather,0,1,1,0.05,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_1,0,1,1,0.05,0.0,1,0'
   #
   - id: 紫野蛮人
     name: '<lightpurple>紫野蛮人'
@@ -207,6 +212,7 @@ custom_mobs:
       - 'mat_varnish,0,1,1,0.01,0.0,1,0'
       - 'mat_reinforced_braid,0,1,1,0.01,0.0,1,0'
       - 'mat_leather_straps,0,1,1,0.01,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_2,0,1,1,0.04,0.0,1,0'
   #
   - id: 红野蛮人
     name: '<rose>红野蛮人'
@@ -232,7 +238,7 @@ custom_mobs:
       - 'mat_smithy_resin,0,1,1,0.005,0.0,1,0'
       - 'mat_composite_bow_string,0,1,1,0.005,0.0,1,0'
       - 'mat_artisan_leather,0,1,1,0.005,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_4,0,1,1,0.01,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_3,0,1,1,0.03,0.0,1,0'
   #
   - id: 蓝野蛮人
     name: '<lightblue>蓝野蛮人'
@@ -257,6 +263,7 @@ custom_mobs:
       - 'mat_composite_bow_string,0,1,1,0.02,0.0,1,0'
       - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
       - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
   #
   - id: 绿女巫
     name: '<lightgreen>绿女巫'
@@ -281,6 +288,7 @@ custom_mobs:
       - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
       - 'mat_crafted_string,0,1,1,0.1,0.0,1,0'
       - 'mat_carved_leather,0,1,1,0.1,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_1,0,1,1,0.05,0.0,1,0'
   #
   - id: 黄女巫
     name: '<yellow>黄女巫'
@@ -305,6 +313,7 @@ custom_mobs:
       - 'mat_aged_wood_stave,0,1,1,0.05,0.0,1,0'
       - 'mat_woven_threading,0,1,1,0.05,0.0,1,0'
       - 'mat_crafted_leather,0,1,1,0.05,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_2,0,1,1,0.04,0.0,1,0'
   #
   - id: 紫女巫
     name: '<lightpurple>紫女巫'
@@ -330,6 +339,7 @@ custom_mobs:
       - 'mat_longbow_stave,0,1,1,0.01,0.0,1,0'
       - 'mat_reinforced_braid,0,1,1,0.01,0.0,1,0'
       - 'mat_leather_straps,0,1,1,0.01,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_3,0,1,1,0.03,0.0,1,0'
   #
   - id: 红女巫
     name: '<rose>红女巫'
@@ -354,6 +364,7 @@ custom_mobs:
       - 'mat_composite_bow_stave,0,1,1,0.005,0.0,1,0'
       - 'mat_composite_bow_string,0,1,1,0.005,0.0,1,0'
       - 'mat_artisan_leather,0,1,1,0.005,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_4,0,1,1,0.02,0.0,1,0'
   #
   - id: 蓝女巫
     name: '<lightblue>蓝女巫'
@@ -378,6 +389,7 @@ custom_mobs:
       - 'mat_composite_bow_string,0,1,1,0.02,0.0,1,0'
       - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
       - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
   #
   - id: 绿巨兽
     name: '<lightgreen>绿巨兽'
