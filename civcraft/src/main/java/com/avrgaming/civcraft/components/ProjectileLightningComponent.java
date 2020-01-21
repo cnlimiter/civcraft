@@ -93,7 +93,7 @@ public class ProjectileLightningComponent extends ProjectileComponent {
                 this.range *= this.getTown().getBuffManager().getEffectiveDouble("buff_statue_of_zeus_tower_range");
             }
             if (this.getTown().getCiv().getCapitol() != null) {
-                this.range += this.getTown().getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraRangeTown");
+                this.range += this.getTown().getCiv().getCapitol().getBuffManager().getEffectiveDouble("level6_extraRangeTown");
             }
             this.min_range = CivSettings.getDouble(CivSettings.warConfig, "tesla_tower.min_range");
             this.fireRate = CivSettings.getInteger(CivSettings.warConfig, "tesla_tower.fire_rate");

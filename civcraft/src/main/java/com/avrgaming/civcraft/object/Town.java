@@ -639,6 +639,11 @@ public class Town extends SQLObject {
         if (this.getBuffManager().hasBuff("level9_capitolCultureCap")) {
             talent += 0.5;
         }
+
+        if (this.getBuffManager().hasBuff("level9_capitolCultureCap")) {
+            talent += 0.2;
+        }
+
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level9_civCultureTown")) {
             talent += 0.2;
         }
@@ -1885,6 +1890,10 @@ public class Town extends SQLObject {
             if (this.getBuffManager().hasBuff("buff_mother_tree_tile_improvement_bonus")) {
                 maxTileImprovements *= 2;
             }
+            int talent = 0;
+            if (getBuffManager().hasBuff("level5_extraBuilding")) {
+                talent = (int) (level.tile_improvements * 0.2);
+            }
             if (this.getTileImprovementCount() > maxTileImprovements) {
                 return false;
             }
@@ -2063,6 +2072,9 @@ public class Town extends SQLObject {
         if (this.getBuffManager().hasBuff("level1_growthCultureCap")) {
             talent = this.getBuffManager().getEffectiveDouble("level1_growthCultureCap");
         }
+        if (this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraStage")) {
+            talent += 0.03;
+        }
         rate = rate * talent;
 
         return new AttrSource(rates, rate, null);
@@ -2099,7 +2111,6 @@ public class Town extends SQLObject {
 
         sources.put("Culture Biomes", cultureSource);
         total += cultureSource;
-
         double grapeCount = 0.0;
         for (final String goodID : this.tradeGoods.split(", ")) {
             if (CivSettings.goods.get(goodID) != null) {
@@ -2112,6 +2123,18 @@ public class Town extends SQLObject {
         }
         total += grapeCount;
         sources.put("Goodies", grapeCount);
+
+        double talent = 0.0;
+        if (this.getCiv().getCapitol() != null) {
+            if (this.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraBeakerTown")) {
+                for (final CultureChunk cultureChunk : this.cultureChunks.values()) {
+                    if (cultureChunk.getBeakers() > 1.25) {
+                        talent += 0.25;
+                    }
+                }
+            }
+        }
+        total += talent;
 
         /* Grab any growth from structures. */
         double structures = 0;
@@ -2946,9 +2969,18 @@ public class Town extends SQLObject {
 
         double talent = 0.0;
         if (this.getCiv().getCapitol() != null) {
-            for (final CultureChunk cultureChunk : this.cultureChunks.values()) {
-                if (this.getCiv().getCapitol().getBuffManager().hasBuff("level3_extraBeakerTown") && cultureChunk.getBeakers() < 1.0) {
-                    talent += 0.25;
+            if (this.getCiv().getCapitol().getBuffManager().hasBuff("level3_extraBeakerTown")) {
+                for (final CultureChunk cultureChunk : this.cultureChunks.values()) {
+                    if (cultureChunk.getBeakers() < 1.0) {
+                        talent += 0.25;
+                    }
+                }
+            }
+            if (this.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraBeakerTown")) {
+                for (final CultureChunk cultureChunk : this.cultureChunks.values()) {
+                    if (cultureChunk.getBeakers() > 1.25) {
+                        talent += 0.25;
+                    }
                 }
             }
         }

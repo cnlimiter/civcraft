@@ -75,8 +75,8 @@ public class MagicShip extends WaterStructure {
         if (this.getTown().getBuffManager().hasBuff("buff_barricade")) {
             rate += this.getTown().getBuffManager().getEffectiveDouble("buff_barricade");
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown")) {
-            rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraTowerHPTown");
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraTowerHPTown")) {
+            rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level6_extraTowerHPTown");
         }
         return (int) ((double) this.info.max_hitpoints * rate);
     }

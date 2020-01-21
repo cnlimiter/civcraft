@@ -51,7 +51,7 @@ public class ProjectileMagicComponent
                 this.range *= this.getTown().getBuffManager().getEffectiveDouble("buff_great_lighthouse_tower_range");
             }
             if (this.getTown().getCiv().getCapitol() != null) {
-                this.range += this.getTown().getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraRangeTown");
+                this.range += this.getTown().getCiv().getCapitol().getBuffManager().getEffectiveDouble("level6_extraRangeTown");
             }
             this.min_range = CivSettings.getDouble(CivSettings.warConfig, "tesla_tower.min_range");
             this.fireRate = 20;

@@ -442,8 +442,8 @@ public class TownInfoCommand extends CommandBase {
         if (town.getBuffManager().hasBuff("buff_hotel")) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", "§a" + Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)));
         }
-        if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraCottageTown")) {
-            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", "§a" + Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraCottageTown") - 1.0) * 100.0)));
+        if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraCottageTown")) {
+            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", "§a" + Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraCottageTown") - 1.0) * 100.0)));
         }
         if (town.getCiv().getStockExchangeLevel() >= 1) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_stockExchange", "§a30%", String.valueOf(town.getCiv().getStockExchangeLevel())));
@@ -610,6 +610,12 @@ public class TownInfoCommand extends CommandBase {
             if (town.getBuffManager().hasBuff("buff_mother_tree_tile_improvement_bonus")) {
                 maxTileImprovements *= 2;
             }
+            int talent = 0;
+            if (town.getBuffManager().hasBuff("level5_extraBuilding")) {
+                talent = (int) (level.tile_improvements * 0.2);
+            }
+
+            maxTileImprovements += talent;
 
             if (town.getTileImprovementCount() > maxTileImprovements) {
                 color = CivColor.Rose;

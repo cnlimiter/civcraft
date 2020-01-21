@@ -18,14 +18,6 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashSet;
-
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.cache.PlayerLocationCache;
 import com.avrgaming.civcraft.components.PlayerProximityComponent;
 import com.avrgaming.civcraft.config.CivSettings;
@@ -37,6 +29,13 @@ import com.avrgaming.civcraft.object.Relation;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashSet;
 
 public class ScoutTower extends Structure {
 
@@ -75,8 +74,8 @@ public class ScoutTower extends Structure {
                 range = 400.0;
                 reportrate = 120;
             }
-            if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraRangeTown")) {
-                range += this.getTown().getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraRangeTown");
+            if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraRangeTown")) {
+                range += this.getTown().getCiv().getCapitol().getBuffManager().getEffectiveDouble("level6_extraRangeTown");
             }
 
             proximityComponent.setRadius(range);
@@ -109,8 +108,8 @@ public class ScoutTower extends Structure {
         if (this.getTown().getBuffManager().hasBuff("buff_barricade")) {
             rate += this.getTown().getBuffManager().getEffectiveDouble("buff_barricade");
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown")) {
-            rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraTowerHPTown");
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraTowerHPTown")) {
+            rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level6_extraTowerHPTown");
         }
         return (int) ((double) this.info.max_hitpoints * rate);
     }

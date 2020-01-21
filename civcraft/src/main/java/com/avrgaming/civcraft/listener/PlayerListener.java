@@ -293,6 +293,7 @@ public class PlayerListener implements Listener {
                 resident.previewUndo.clear();
             }
             resident.clearInteractiveMode();
+            resident.save();
         }
     }
 

@@ -1,19 +1,18 @@
 
 package com.avrgaming.civcraft.structure.wonders;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
 import com.avrgaming.civcraft.components.ProjectileLightningComponent;
 import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.Location;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class StatueOfZeus
         extends Wonder {
@@ -56,8 +55,8 @@ public class StatueOfZeus
         if (this.getTown().getBuffManager().hasBuff("buff_barricade")) {
             rate += this.getTown().getBuffManager().getEffectiveDouble("buff_barricade");
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown")) {
-            rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level5_extraTowerHPTown");
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraTowerHPTown")) {
+            rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level6_extraTowerHPTown");
         }
         return (int) ((double) this.info.max_hitpoints * rate);
     }

@@ -87,8 +87,8 @@ public class Bank extends Structure {
         if (rate > 1) {
             exchange_rate *= rate;
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraBankTown")) {
-            exchange_rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraBankTown");
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraBankTown")) {
+            exchange_rate *= this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraBankTown");
         }
         if (this.getCiv().getStockExchangeLevel() >= 3) {
             exchange_rate *= 1.25;
@@ -149,24 +149,36 @@ public class Bank extends Structure {
         if (itemId == CivData.IRON_INGOT) {
             itemName = CivSettings.localize.localizedString("bank_itemName_iron");
             if (stack.getType().equals(Material.IRON_INGOT) || stack.getType().equals(Material.IRON_BLOCK)) {
+                if (stack.getType().equals(Material.IRON_BLOCK)) {
+                    coins *= 9;
+                }
                 count = stack.getAmount();
                 inv.removeItem(stack);
             }
         } else if (itemId == CivData.GOLD_INGOT) {
             itemName = CivSettings.localize.localizedString("bank_itemName_gold");
             if (stack.getType().equals(Material.GOLD_INGOT) || stack.getType().equals(Material.GOLD_BLOCK)) {
+                if (stack.getType().equals(Material.GOLD_BLOCK)) {
+                    coins *= 9;
+                }
                 count = stack.getAmount();
                 inv.removeItem(stack);
             }
         } else if (itemId == CivData.DIAMOND) {
             itemName = CivSettings.localize.localizedString("bank_itemName_diamond");
             if (stack.getType().equals(Material.DIAMOND) || stack.getType().equals(Material.DIAMOND_BLOCK)) {
+                if (stack.getType().equals(Material.DIAMOND_BLOCK)) {
+                    coins *= 9;
+                }
                 count = stack.getAmount();
                 inv.removeItem(stack);
             }
         } else if (itemId == CivData.EMERALD) {
             itemName = CivSettings.localize.localizedString("bank_itemName_emerald");
             if (stack.getType().equals(Material.EMERALD) || stack.getType().equals(Material.EMERALD_BLOCK)) {
+                if (stack.getType().equals(Material.EMERALD_BLOCK)) {
+                    coins *= 9;
+                }
                 count = stack.getAmount();
                 inv.removeItem(stack);
             }
@@ -340,7 +352,7 @@ public class Bank extends Structure {
             CivMessage.sendTown(this.getTown(), CivColor.LightGray + CivSettings.localize.localizedString("bank_greed"));
         }
 
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraBankTown")) {
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraBankTown")) {
             effectiveInterestRate *= 2.0;
         }
         double newCoins = principal * effectiveInterestRate;

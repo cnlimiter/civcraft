@@ -750,6 +750,11 @@ public abstract class Buildable extends SQLObject {
             if (town.getBuffManager().hasBuff("buff_mother_tree_tile_improvement_bonus")) {
                 maxTileImprovements *= 2;
             }
+            int talent = 0;
+            if (town.getBuffManager().hasBuff("level5_extraBuilding")) {
+                talent = (int) (level.tile_improvements * 0.2);
+            }
+            maxTileImprovements += talent;
             if (getTown().getTileImprovementCount() >= maxTileImprovements) {
                 throw new CivException(CivSettings.localize.localizedString("buildable_errorTILimit"));
             }
@@ -1354,7 +1359,7 @@ public abstract class Buildable extends SQLObject {
         int regenRate = this.getRegenRate();
         regenRate += this.getTown().getBuffManager().getEffectiveInt("buff_chichen_itza_regen_rate");
         regenRate += this.getTown().getBuffManager().getEffectiveInt("buff_statue_of_zeus_struct_regen");
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraTowerHPTown")) {
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraTowerHPTown")) {
             ++regenRate;
         }
         if (regenRate != 0) {

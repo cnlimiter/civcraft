@@ -20,63 +20,63 @@ culture_levels:
     chunks: 6
 
   - level: 1
-    amount: 250
+    amount: 500
     chunks: 8
 
   - level: 2
-    amount: 2500
+    amount: 8000
     chunks: 10
 
   - level: 3
-    amount: 5000
+    amount: 20000
     chunks: 12
 
   - level: 4
-    amount: 10000
+    amount: 50000
     chunks: 14
 
   - level: 5
-    amount: 25000
+    amount: 100000
     chunks: 16
 
   - level: 6
-    amount: 50000
+    amount: 200000
     chunks: 18
 
   - level: 7
-    amount: 100000
+    amount: 500000
     chunks: 20
 
   - level: 8
-    amount: 250000
+    amount: 800000
     chunks: 22
 
   - level: 9
-    amount: 500000
+    amount: 1200000
     chunks: 24
 
   - level: 10
-    amount: 1000000
+    amount: 1700000
     chunks: 26
 
   - level: 11
-    amount: 1500000
+    amount: 2450000
     chunks: 28
 
   - level: 12
-    amount: 2000000
+    amount: 3000000
     chunks: 30
 
   - level: 13
-    amount: 3000000
+    amount: 3700000
     chunks: 32
 
   - level: 14
-    amount: 4000000
+    amount: 4550000
     chunks: 35
 
   - level: 15
-    amount: 5250000
+    amount: 5550000
     chunks: 38
 
   - level: 16
@@ -120,23 +120,29 @@ talent_levels:
     #      levelBuffDesc2: 'For every culture chunk giving less than 0.02 happiness, gives 0.01 additional happiness.'
     #      levelBuffDesc3: 'For every culture chunk giving less than 1 beakers, gives 0.25 additional tubes.'
   - level: 4
-    levelName: '发挥优势'
-    levelBuffDesc1: '对于每个文化块，如果带来的生产力大于2.5，则额外增加0.25。'
-    levelBuffDesc2: '对于每个文化块，如果带来的幸福度和生长速度分别大于0.025和1，则分别增加0.005和0.5'
-    levelBuffDesc3: '对于每个文化块，如果其带来的科研点大于1.5，额外提供0.25。'
+    levelName: '迅猛发展'
+    levelBuff1: 'level4_extraCultureCapitol'
+    levelBuff2: 'level4_extraRiverTown'
+    levelBuff3: 'level4_extraBeakerTown'
+    levelBuffDesc1: '国会大厦的文化增加了20%'
+    levelBuffDesc2: '对于每个文化块，如果生长值大于1.25，则额外增加0.25'
+    levelBuffDesc3: '对于每个文化块，如果其带来的科研点大于1.25，额外提供0.25。'
 
 
   - level: 5
     levelName: '初步发展'
-    levelBuffDesc1: '每个城市可以额外建造20%的经济建筑'
+    levelBuff1: 'level5_extraBuilding'
+    levelBuff2: 'level5_moreMoneyAndFood'
+    levelBuff3: 'level5_extraStage'
+    levelBuffDesc1: '国会大厦可以额外建造20%的经济建筑'
     levelBuffDesc2: '别墅的收益增加15%，但额外消耗25%的食物'
-    levelBuffDesc3: '牧场容量翻倍'
+    levelBuffDesc3: '牧场容量翻倍，所有城镇的生长值增加3%'
 
   - level: 6
     levelName: '防卫'
-    levelBuff1: 'level5_extraTowerHPTown'
-    levelBuff2: 'level5_extraRangeTown'
-    levelBuff3: 'level5_extraHPcpTown'
+    levelBuff1: 'level6_extraTowerHPTown'
+    levelBuff2: 'level6_extraRangeTown'
+    levelBuff3: 'level6_extraHPcpTown'
     levelBuffDesc1: '防御结构的强度提高10％，并且每秒恢复一点。'
     levelBuffDesc2: '将所有塔的半径增加25个方块。'
     levelBuffDesc3: '控制块的强度提高20％'
@@ -151,9 +157,9 @@ talent_levels:
 
   - level: 8
     levelName: '创收'
-    levelBuff1: 'level4_extraCottageTown'
-    levelBuff2: 'level4_extraBankTown'
-    levelBuff3: 'level4_extraTradeTown'
+    levelBuff1: 'level8_extraCottageTown'
+    levelBuff2: 'level8_extraBankTown'
+    levelBuff3: 'level8_extraTradeTown'
     levelBuffDesc1: '你的别墅额外获得10％的收入。'
     levelBuffDesc2: '您的银行的效率提高了10％，并且使日利率提高了一倍。'
     levelBuffDesc3: '贸易资源额外获得15％的收入。'

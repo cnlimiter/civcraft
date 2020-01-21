@@ -98,9 +98,9 @@ talent_levels:
 
   - level: 4
     levelName: '创收'
-    levelBuff1: 'level4_extraCottageTown'
-    levelBuff2: 'level4_extraBankTown'
-    levelBuff3: 'level4_extraTradeTown'
+    levelBuff1: 'level8_extraCottageTown'
+    levelBuff2: 'level8_extraBankTown'
+    levelBuff3: 'level8_extraTradeTown'
     levelBuffDesc1: '你的别墅额外获得10％的收入。'
     levelBuffDesc2: '您的银行的效率提高了10％，并且使日利率提高了一倍。'
     levelBuffDesc3: '贸易资源额外获得15％的收入。'
@@ -110,9 +110,9 @@ talent_levels:
 
   - level: 5
     levelName: '防卫'
-    levelBuff1: 'level5_extraTowerHPTown'
-    levelBuff2: 'level5_extraRangeTown'
-    levelBuff3: 'level5_extraHPcpTown'
+    levelBuff1: 'level6_extraTowerHPTown'
+    levelBuff2: 'level6_extraRangeTown'
+    levelBuff3: 'level6_extraHPcpTown'
     levelBuffDesc1: '防御结构的强度提高10％，并且每秒恢复一点。'
     levelBuffDesc2: '将所有塔的半径增加25个方块。'
     levelBuffDesc3: '控制块的强度提高20％'

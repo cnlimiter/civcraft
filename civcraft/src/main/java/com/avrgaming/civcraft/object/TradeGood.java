@@ -272,8 +272,8 @@ public class TradeGood extends SQLObject {
         rate += getTradeGoodIncomeBonus(good, town);
 
         value *= rate;
-        if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraTradeTown")) {
-            value *= town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraTradeTown");
+        if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraTradeTown")) {
+            value *= town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraTradeTown");
         }
         return value;
     }
@@ -304,8 +304,8 @@ public class TradeGood extends SQLObject {
     public static double getTownTradePayment(Town town) {
         double total_payment = getTownBaseGoodPaymentViaGoodie(town);
         total_payment *= town.getTradeRate();
-        if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraTradeTown")) {
-            total_payment *= town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraTradeTown");
+        if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraTradeTown")) {
+            total_payment *= town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraTradeTown");
         }
         return total_payment;
     }

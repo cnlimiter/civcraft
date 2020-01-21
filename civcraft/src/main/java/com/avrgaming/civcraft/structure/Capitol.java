@@ -239,7 +239,7 @@ public class Capitol extends TownHall {
         if (this.getTown().hasStructure("s_castle")) {
             capitolControlHitpoints += 3;
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraHPcpTown")) {
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraHPcpTown")) {
             capitolControlHitpoints = (int) ((double) capitolControlHitpoints * 1.2);
         }
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level10_dominatorTown")) {

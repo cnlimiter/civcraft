@@ -441,7 +441,7 @@ public class WarCamp extends Buildable implements RespawnLocationHolder {
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_wcHPTown") && this.getCiv().getCapitol() != null) {
             townhallControlHitpoints *= 2;
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level5_extraHPcpTown") && this.getCiv().getCapitol() != null) {
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraHPcpTown") && this.getCiv().getCapitol() != null) {
             townhallControlHitpoints *= (int) 1.2;
         }
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level10_dominatorTown") && this.getCiv().getCapitol() != null) {

@@ -165,6 +165,9 @@ public class Cottage extends Structure {
         if (this.getTown().getBuffManager().hasBuff(Buff.REDUCE_CONSUME)) {
             cottage_consume_mod -= this.getTown().getBuffManager().getEffectiveDouble(Buff.REDUCE_CONSUME);
         }
+        if (this.getTown().getCiv().getCapitol().getBuffManager().hasBuff("level5_moreMoneyAndFood")) {
+            cottage_consume_mod += 0.25;
+        }
         if (this.getTown().getBuffManager().hasBuff("buff_pyramid_cottage_consume")) {
             cottage_consume_mod -= this.getTown().getBuffManager().getEffectiveDouble("buff_pyramid_cottage_consume");
         }
@@ -221,11 +224,14 @@ public class Cottage extends Structure {
         if (this.getTown().getBuffManager().hasBuff("buff_pyramid_cottage_bonus")) {
             total_coins *= this.getTown().getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus");
         }
+        if (this.getTown().getCiv().getCapitol().getBuffManager().hasBuff("level5_moreMoneyAndFood")) {
+            total_coins *= 1.15;
+        }
         if (this.getTown().getBuffManager().hasBuff("buff_hotel")) {
             total_coins = (int) ((double) total_coins * this.getTown().getBuffManager().getEffectiveDouble("buff_hotel"));
         }
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level4_extraCottageTown")) {
-            total_coins = (int) ((double) total_coins * this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level4_extraCottageTown"));
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraCottageTown")) {
+            total_coins = (int) ((double) total_coins * this.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraCottageTown"));
         }
         if (this.getCiv().getStockExchangeLevel() >= 1) {
             total_coins = (int) ((double) total_coins * 1.3);
