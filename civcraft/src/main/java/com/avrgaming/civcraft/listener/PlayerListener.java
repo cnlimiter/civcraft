@@ -133,7 +133,8 @@ public class PlayerListener implements Listener {
                         if (!event.isCancelled()) {
                             CivLog.debug("Cancelled Event " + event.getEventName() + " with cause: " + event.getCause());
                             event.setCancelled(true);
-                            CivMessage.send(resident, CivColor.Red + CivSettings.localize.localizedString("teleportDeniedPrefix") + " " + CivColor.White + CivSettings.localize.localizedString("var_teleportDeniedCiv", CivColor.Green + cc.getCiv().getName() + CivColor.White));
+                            CivMessage.send(resident, CivColor.Red +
+                                    CivSettings.localize.localizedString("teleportDeniedPrefix") + " " + CivColor.White + CivSettings.localize.localizedString("var_teleportDeniedCiv", CivColor.Green + cc.getCiv().getName() + CivColor.White));
                             return;
                         }
                     }

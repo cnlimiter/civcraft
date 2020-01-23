@@ -46,6 +46,7 @@ import org.bukkit.event.entity.EntityCombustEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.ItemDespawnEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
+import org.bukkit.event.hanging.HangingBreakEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
@@ -553,6 +554,13 @@ public class BonusGoodieManager implements Listener {
                 CivMessage.sendError(player, CivSettings.localize.localizedString("bonusGoodie_errorCannotCraft"));
                 event.setCancelled(true);
             }
+        }
+    }
+    @EventHandler(priority = EventPriority.HIGH)
+    public void protectGoodie(HangingBreakEvent event){
+        HangingBreakEvent.RemoveCause cause = event.getCause();
+        if (!cause.equals(HangingBreakEvent.RemoveCause.ENTITY)){
+            event.setCancelled(true);
         }
     }
 }

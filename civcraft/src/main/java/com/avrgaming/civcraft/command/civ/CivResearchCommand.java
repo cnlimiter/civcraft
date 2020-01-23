@@ -31,9 +31,7 @@ import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.TownHall;
 import com.avrgaming.civcraft.util.CivColor;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class CivResearchCommand extends CommandBase {
 
@@ -48,58 +46,58 @@ public class CivResearchCommand extends CommandBase {
         commands.put("change", CivSettings.localize.localizedString("cmd_civ_research_changeDesc"));
         commands.put("finished", CivSettings.localize.localizedString("cmd_civ_research_finishedDesc"));
         commands.put("era", CivSettings.localize.localizedString("cmd_civ_research_eraDesc"));
-        commands.put("calc", CivSettings.localize.localizedString("cmd_civ_researchcalc_Desc"));
+//        commands.put("calc", CivSettings.localize.localizedString("cmd_civ_researchcalc_Desc"));
         commands.put("queuelist", CivSettings.localize.localizedString("cmd_civ_research_queueList"));
-        commands.put("queueadd", CivSettings.localize.localizedString("cmd_civ_research_queueAdd"));
+//        commands.put("queueadd", CivSettings.localize.localizedString("cmd_civ_research_queueAdd"));
         commands.put("info", CivSettings.localize.localizedString("cmd_civ_research_infoDesc"));
 //        commands.put("queueremove", CivSettings.localize.localizedString("cmd_civ_research_queueRemove"));
     }
 
     public void queueadd_cmd() throws CivException {
-        Civilization civ = this.getSenderCiv();
-        Town capitol = CivGlobal.getTown(civ.getCapitolName());
-        TownHall townhall = capitol.getTownHall();
-        if (this.args.length < 2) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueEnterName"));
-        }
-        if (townhall == null) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueTownHallNULL"));
-        }
-        if (!townhall.isActive()) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueNotCompletedTownHall"));
-        }
-        String techname = this.combineArgs(this.stripArgs(this.args, 1));
-        ConfigTech tech = CivSettings.getTechByName(techname);
-        //科技要存在，
-        if (tech == null) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueUnknownTech", techname));
-        }
-        if (civ.hasTech(tech.id)) {
-            throw new CivException(CivSettings.localize.localizedString("civ_research_alreadyDone"));
-        }
-        if (civ.getResearchTech() == tech) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleadyThis"));
-        }
-        if (civ.getResearchTech() == null) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueNoResearchingNow", tech.name));
-        }
-        if (civ.getTechQueued().contains(tech)) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleayIn"));
-        }
-        if (!tech.isAvailable(civ)) {
-            throw new CivException(CivSettings.localize.localizedString("civ_research_missingRequirements"));
-        }
-
-        double cost = tech.getAdjustedTechCost(civ);
-        if (!civ.getTreasury().hasEnough(cost)) {
-            throw new CivException(CivSettings.localize.localizedString("var_civ_research_notEnoughMoney", cost, CivSettings.CURRENCY_NAME));
-        }
-        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueSucussesAdded", tech.name));
-        //现在不存在删除了
-//        CivMessage.send(this.sender, CivColor.YellowBold + CivSettings.localize.localizedString("cmd_civ_research_queueSucussesWithWarning", oldQueue.name, tech.name));
-        civ.getTechQueued().offer(tech);
-        civ.getTreasury().withdraw(cost);
-        civ.save();
+//        Civilization civ = this.getSenderCiv();
+//        Town capitol = CivGlobal.getTown(civ.getCapitolName());
+//        TownHall townhall = capitol.getTownHall();
+//        if (this.args.length < 2) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueEnterName"));
+//        }
+//        if (townhall == null) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueTownHallNULL"));
+//        }
+//        if (!townhall.isActive()) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueNotCompletedTownHall"));
+//        }
+//        String techname = this.combineArgs(this.stripArgs(this.args, 1));
+//        ConfigTech tech = CivSettings.getTechByName(techname);
+//        //科技要存在，
+//        if (tech == null) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueUnknownTech", techname));
+//        }
+//        if (civ.hasTech(tech.id)) {
+//            throw new CivException(CivSettings.localize.localizedString("civ_research_alreadyDone"));
+//        }
+//        if (civ.getResearchTech() == tech) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleadyThis"));
+//        }
+//        if (civ.getResearchTech() == null) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueNoResearchingNow", tech.name));
+//        }
+//        if (civ.getTechQueued().contains(tech)) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_civ_research_queueArleayIn"));
+//        }
+//        if (!tech.isAvailable(civ)) {
+//            throw new CivException(CivSettings.localize.localizedString("civ_research_missingRequirements"));
+//        }
+//
+//        double cost = tech.getAdjustedTechCost(civ);
+//        if (!civ.getTreasury().hasEnough(cost)) {
+//            throw new CivException(CivSettings.localize.localizedString("var_civ_research_notEnoughMoney", cost, CivSettings.CURRENCY_NAME));
+//        }
+//        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_queueSucussesAdded", tech.name));
+//        //现在不存在删除了
+////        CivMessage.send(this.sender, CivColor.YellowBold + CivSettings.localize.localizedString("cmd_civ_research_queueSucussesWithWarning", oldQueue.name, tech.name));
+//        civ.getTechQueued().offer(tech);
+//        civ.getTreasury().withdraw(cost);
+//        civ.save();
     }
 
     public void queueremove_cmd() throws CivException {
@@ -126,21 +124,21 @@ public class CivResearchCommand extends CommandBase {
     }
 
     public void calc_cmd() throws CivException {
-        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
-
-        Resident resident = this.getResident();
-        Civilization civ = this.getSenderCiv();
-        if (resident == null) {
-            throw new CivException(CivSettings.localize.localizedString("resident_null"));
-        }
-        if (civ.getResearchTech() == null) {
-            throw new CivException(CivSettings.localize.localizedString("no_research"));
-        }
-        double mins = (civ.getResearchTech().getAdjustedBeakerCost(civ) - civ.getResearchProgress()) / civ.getBeakers() * 60.0;
-        long timeNow = Calendar.getInstance().getTimeInMillis();
-        double seconds = mins * 60.0;
-        long endResearch = (long) ((double) timeNow + 1000.0 * seconds);
-        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_calc_result", civ.getResearchTech().name, sdf.format(endResearch)));
+//        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+//
+//        Resident resident = this.getResident();
+//        Civilization civ = this.getSenderCiv();
+//        if (resident == null) {
+//            throw new CivException(CivSettings.localize.localizedString("resident_null"));
+//        }
+//        if (civ.getResearchTech() == null) {
+//            throw new CivException(CivSettings.localize.localizedString("no_research"));
+//        }
+//        double mins = (civ.getResearchTech().getAdjustedBeakerCost(civ) - civ.getResearchProgress()) / civ.getBeakers() * 60.0;
+//        long timeNow = Calendar.getInstance().getTimeInMillis();
+//        double seconds = mins * 60.0;
+//        long endResearch = (long) ((double) timeNow + 1000.0 * seconds);
+//        CivMessage.sendCiv(civ, CivSettings.localize.localizedString("cmd_civ_research_calc_result", civ.getResearchTech().name, sdf.format(endResearch)));
     }
 
     public void change_cmd() throws CivException {

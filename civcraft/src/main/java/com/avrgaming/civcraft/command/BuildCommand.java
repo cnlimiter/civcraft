@@ -18,13 +18,6 @@
  */
 package com.avrgaming.civcraft.command;
 
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigBuildableInfo;
 import com.avrgaming.civcraft.exception.CivException;
@@ -39,6 +32,10 @@ import com.avrgaming.civcraft.threading.tasks.BuildAsyncTask;
 import com.avrgaming.civcraft.util.BlockCoord;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.war.War;
+import org.bukkit.entity.Player;
+
+import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class BuildCommand extends CommandBase {
 
@@ -56,27 +53,27 @@ public class BuildCommand extends CommandBase {
         commands.put("demolishnearest", CivSettings.localize.localizedString("cmd_build_demolishnearestDesc"));
         commands.put("refreshnearest", CivSettings.localize.localizedString("cmd_build_refreshnearestDesc"));
         commands.put("validatenearest", CivSettings.localize.localizedString("cmd_build_validateNearestDesc"));
-        commands.put("calc", CivSettings.localize.localizedString("cmd_build_calc_Desc"));
+//        commands.put("calc", CivSettings.localize.localizedString("cmd_build_calc_Desc"));
 
         //commands.put("preview", "shows a preview of this structure at this location.");
     }
 
     public void calc_cmd() throws CivException {
-        Town town = this.getSelectedTown();
-        if (town.build_tasks.size() == 0 || town.build_tasks.isEmpty()) {
-            throw new CivException(CivSettings.localize.localizedString("cmd_build_notBuilding"));
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
-
-        for (BuildAsyncTask task : town.build_tasks) {
-            Buildable b = task.buildable;
-            double mins = (b.getHammerCost() - b.getBuiltHammers()) / 2.0 / town.getHammers().total * 60.0;
-            long timeNow = Calendar.getInstance().getTimeInMillis();
-            double seconds = mins * 60.0;
-            long end = (long) ((double) timeNow + 1000.0 * seconds);
-            String messageSender = CivColor.Green + CivSettings.localize.localizedString("cmd_build_calc_result", new StringBuilder().append(CivColor.Green).append(b.getDisplayName()).append(CivColor.Green).toString(), new StringBuilder().append(CivColor.Red).append(sdf.format(end)).append(CivColor.Green).toString());
-            CivMessage.send(this.sender, messageSender);
-        }
+//        Town town = this.getSelectedTown();
+//        if (town.build_tasks.size() == 0 || town.build_tasks.isEmpty()) {
+//            throw new CivException(CivSettings.localize.localizedString("cmd_build_notBuilding"));
+//        }
+//        SimpleDateFormat sdf = new SimpleDateFormat("M/dd h:mm:ss a z");
+//
+//        for (BuildAsyncTask task : town.build_tasks) {
+//            Buildable b = task.buildable;
+//            double mins = (b.getHammerCost() - b.getBuiltHammers()) / 2.0 / town.getHammers().total * 60.0;
+//            long timeNow = Calendar.getInstance().getTimeInMillis();
+//            double seconds = mins * 60.0;
+//            long end = (long) ((double) timeNow + 1000.0 * seconds);
+//            String messageSender = CivColor.Green + CivSettings.localize.localizedString("cmd_build_calc_result", new StringBuilder().append(CivColor.Green).append(b.getDisplayName()).append(CivColor.Green).toString(), new StringBuilder().append(CivColor.Red).append(sdf.format(end)).append(CivColor.Green).toString());
+//            CivMessage.send(this.sender, messageSender);
+//        }
     }
 
 
