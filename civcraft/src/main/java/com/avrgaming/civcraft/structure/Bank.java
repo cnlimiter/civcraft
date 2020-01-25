@@ -345,15 +345,13 @@ public class Bank extends Structure {
         }
 
         double principal = this.getTown().getTreasury().getPrincipalAmount();
-
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraBankTown")) {
+            effectiveInterestRate *= 2.0;
+        }
         if (this.getTown().getBuffManager().hasBuff("buff_greed")) {
             double increase = this.getTown().getBuffManager().getEffectiveDouble("buff_greed");
             effectiveInterestRate += increase;
             CivMessage.sendTown(this.getTown(), CivColor.LightGray + CivSettings.localize.localizedString("bank_greed"));
-        }
-
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraBankTown")) {
-            effectiveInterestRate *= 2.0;
         }
         double newCoins = principal * effectiveInterestRate;
 

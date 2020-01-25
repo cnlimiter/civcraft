@@ -1661,7 +1661,7 @@ public class Town extends SQLObject {
         return this.cultureChunks.values();
     }
 
-    public Object getCultureChunk(ChunkCoord coord) {
+    public CultureChunk getCultureChunk(ChunkCoord coord) {
         return this.cultureChunks.get(coord);
     }
 
@@ -1758,6 +1758,7 @@ public class Town extends SQLObject {
         }
 
         double cost = wonder.getCost();
+        // TODO:第二个翻倍？
         if (!this.getTreasury().hasEnough(cost)) {
             throw new CivException(CivSettings.localize.localizedString("var_town_buildwonder_errorTooPoor", wonder.getDisplayName(), cost, CivSettings.CURRENCY_NAME));
         }
@@ -2111,16 +2112,16 @@ public class Town extends SQLObject {
 
         sources.put("Culture Biomes", cultureSource);
         total += cultureSource;
-        double grapeCount = 0.0;
-        for (final String goodID : this.tradeGoods.split(", ")) {
-            if (CivSettings.goods.get(goodID) != null) {
-                for (final ConfigBuff configBuff : CivSettings.goods.get(goodID).buffs.values()) {
-                    if (configBuff.id.equals("buff_growth")) {
-                        grapeCount += 150.0;
-                    }
-                }
-            }
-        }
+        double grapeCount = getBuffManager().getEffectiveDouble("buff_growth");
+//        for (final String goodID : this.tradeGoods.split(", ")) {
+//            if (CivSettings.goods.get(goodID) != null) {
+//                for (final ConfigBuff configBuff : CivSettings.goods.get(goodID).buffs.values()) {
+//                    if (configBuff.id.equals("buff_growth")) {
+//                        grapeCount += 150.0;
+//                    }
+//                }
+//            }
+//        }
         total += grapeCount;
         sources.put("Goodies", grapeCount);
 

@@ -116,7 +116,7 @@ perks:
 # ===== Template Sets
     - id: 'template_arctic'
       display_name: '北极模板'
-      simple_name: "北极"
+      simple_name: "arctic"
       item_id: 79
       data: 0
       components:
@@ -124,7 +124,7 @@ perks:
 
     - id: 'template_aztec'
       display_name: '印第安模板'
-      simple_name: "印第安"
+      simple_name: "aztec"
       item_id: 98
       data: 2
       components:
@@ -132,7 +132,7 @@ perks:
 
     - id: 'template_egyptian'
       display_name: '埃及模板'
-      simple_name: "埃及"
+      simple_name: "egyptian"
       item_id: 24
       data: 2
       components:
@@ -140,7 +140,7 @@ perks:
 
     - id: 'template_roman'
       display_name: '罗马模板'
-      simple_name: "罗马"
+      simple_name: "roman"
       item_id: 155
       data: 2
       components:
@@ -148,7 +148,7 @@ perks:
 
     - id: 'template_hell'
       display_name: '地狱模板'
-      simple_name: "地狱"
+      simple_name: "hell"
       item_id: 87
       data: 0
       components:
@@ -156,7 +156,7 @@ perks:
 
     - id: 'template_atlantean'
       display_name: '亚特兰蒂斯模板'
-      simple_name: "亚特兰蒂斯"
+      simple_name: "atlantean"
       item_id: 169
       data: 0
       components:
@@ -164,7 +164,7 @@ perks:
 
     - id: 'template_elven'
       display_name: '精灵模板'
-      simple_name: "精灵"
+      simple_name: "elven"
       item_id: 18
       data: 3
       components:
@@ -172,7 +172,7 @@ perks:
 
     - id: 'template_cultist'
       display_name: '异教徒模板'
-      simple_name: "异教徒"
+      simple_name: "cultist"
       item_id: 397
       data: 1
       components:
@@ -180,7 +180,7 @@ perks:
 
     - id: 'template_medieval'
       display_name: '中世纪模板'
-      simple_name: "中世纪"
+      simple_name: "medieval"
       item_id: 267
       data: 0
       components:
@@ -188,7 +188,7 @@ perks:
 
     - id: 'template_slavic'
       display_name: '斯拉夫模板'
-      simple_name: "斯拉夫"
+      simple_name: "slavic"
       item_id: 322
       data: 1
       components:
@@ -196,7 +196,7 @@ perks:
           
     - id: 'template_turkish'
       display_name: '土耳其模板'
-      simple_name: "土耳其"
+      simple_name: "turkish"
       item_id: 179
       data: 2
       components:

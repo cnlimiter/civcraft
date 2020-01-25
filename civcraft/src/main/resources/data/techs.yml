@@ -398,7 +398,7 @@ techs:
     beaker_cost: 5000.0
     cost: 15000.0
     points: 625
-    require_techs: 'tech_priesthood'
+    require_techs: 'tech_brewing'
     era: 2
     info:
       - '解锁药剂：生命恢复 II'

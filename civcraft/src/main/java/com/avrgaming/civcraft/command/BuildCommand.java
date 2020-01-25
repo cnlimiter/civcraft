@@ -23,6 +23,7 @@ import com.avrgaming.civcraft.config.ConfigBuildableInfo;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.CultureChunk;
 import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.structure.Buildable;
@@ -30,6 +31,7 @@ import com.avrgaming.civcraft.structure.Structure;
 import com.avrgaming.civcraft.structure.wonders.Wonder;
 import com.avrgaming.civcraft.threading.tasks.BuildAsyncTask;
 import com.avrgaming.civcraft.util.BlockCoord;
+import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.CivColor;
 import com.avrgaming.civcraft.war.War;
 import org.bukkit.entity.Player;
@@ -322,7 +324,11 @@ public class BuildCommand extends CommandBase {
         }
 
         Town town = getSelectedTown();
-        if (sinfo.id.equals("wonder_stock_exchange") && !town.canBuildStock(this.getPlayer())) {
+        CultureChunk cultureChunk = town.getCultureChunk(new ChunkCoord(getPlayer().getLocation()));
+        if (cultureChunk == null) {
+            throw new CivException(CivColor.Red + CivSettings.localize.localizedString("var_build_notOnMine"));
+        }
+        if (sinfo.id.equals("w_stock_exchange") && !town.canBuildStock(this.getPlayer())) {
             throw new CivException(CivColor.Red + CivSettings.localize.localizedString("var_buildStockExchange_nogoodCondition", "http://wiki.minetexas.com/index.php/Stock_Exchange"));
         }
         if (sinfo.isWonder) {
