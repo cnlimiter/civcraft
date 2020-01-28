@@ -1895,6 +1895,7 @@ public class Town extends SQLObject {
             if (getBuffManager().hasBuff("level5_extraBuilding")) {
                 talent = (int) (level.tile_improvements * 0.2);
             }
+            maxTileImprovements += talent;
             if (this.getTileImprovementCount() > maxTileImprovements) {
                 return false;
             }
@@ -3892,14 +3893,17 @@ public class Town extends SQLObject {
 
     public double getBonusCottageRate() {
         double rate = 1.0;
-        for (final String goodID : this.tradeGoods.split(", ")) {
-            if (CivSettings.goods.get(goodID) != null) {
-                for (final ConfigBuff configBuff : CivSettings.goods.get(goodID).buffs.values()) {
-                    if (configBuff.id.equals("buff_demand")) {
-                        rate += 0.05;
-                    }
-                }
-            }
+//        for (final String goodID : this.tradeGoods.split(", ")) {
+//            if (CivSettings.goods.get(goodID) != null) {
+//                for (final ConfigBuff configBuff : CivSettings.goods.get(goodID).buffs.values()) {
+//                    if (configBuff.id.equals("buff_demand")) {
+//                        rate += 0.05;
+//                    }
+//                }
+//            }
+//        }
+        if (getBuffManager().hasBuff("buff_demand")) {
+            rate += getBuffManager().getEffectiveDouble("buff_demand");
         }
         return rate;
     }

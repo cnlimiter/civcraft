@@ -278,7 +278,7 @@ public class TownInfoCommand extends CommandBase {
 
         CivMessage.sendHeading(sender, town.getName() + " " + CivSettings.localize.localizedString("cmd_town_info_ratesHeading"));
 
-        DecimalFormat df = new DecimalFormat("#,###.#");
+        DecimalFormat df = new DecimalFormat("#,###.#%");
 
         CivMessage.send(sender,
                 CivColor.Green + " " + CivSettings.localize.localizedString("cmd_civ_gov_infoGrowth") + " " + CivColor.LightGreen + df.format(town.getGrowthRate().total * 100) +
@@ -436,20 +436,27 @@ public class TownInfoCommand extends CommandBase {
         out.add(CivColor.Green + "----------------------------");
         out.add(CivColor.Green + CivSettings.localize.localizedString("SubTotal") + " " + CivColor.Yellow + total);
         out.add(CivColor.Green + CivSettings.localize.localizedString("cmd_civ_gov_infoCottage") + " " + CivColor.Yellow + df.format(town.getCottageRate() * 100) + "%");
+        total *= town.getCottageRate();
         if (town.getBuffManager().hasBuff("buff_pyramid_cottage_bonus")) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_pyramid", "§a" + Math.round((town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus") - 1.0) * 100.0)));
+            total *= town.getBuffManager().getEffectiveDouble("buff_pyramid_cottage_bonus");
         }
         if (town.getBuffManager().hasBuff("buff_hotel")) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_hotel", "§a" + Math.round((town.getBuffManager().getEffectiveDouble("buff_hotel") - 1.0) * 100.0)));
+            total *= town.getBuffManager().getEffectiveDouble("buff_hotel");
         }
         if (town.getCiv().getCapitol() != null && town.getCiv().getCapitol().getBuffManager().hasBuff("level8_extraCottageTown")) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_talent", "§a" + Math.round((town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraCottageTown") - 1.0) * 100.0)));
+            total *= town.getCiv().getCapitol().getBuffManager().getEffectiveDouble("level8_extraCottageTown");
         }
         if (town.getCiv().getStockExchangeLevel() >= 1) {
             out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_stockExchange", "§a30%", String.valueOf(town.getCiv().getStockExchangeLevel())));
+            total *= 1.3;
         }
-        total *= town.getCottageRate();
-        total *= town.getBonusCottageRate();
+        if (town.getBuffManager().hasBuff("buff_demand")){
+            out.add("§2" + CivSettings.localize.localizedString("cmd_town_bonusCottage_demand", "§a" + Math.round(town.getBuffManager().getEffectiveDouble("buff_demand") * 100.0)));
+            total *= town.getBonusCottageRate();
+        }
         out.add(CivColor.Green + CivSettings.localize.localizedString("Total") + " " + CivColor.Yellow + df.format(total) + " " + CivSettings.CURRENCY_NAME);
 
         CivMessage.send(sender, out);

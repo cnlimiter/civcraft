@@ -1267,7 +1267,8 @@ public class BlockListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void OnPlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
 
-        if (event.getRightClicked().getType().equals(EntityType.HORSE)) {
+        if (event.getRightClicked().getType().equals(EntityType.HORSE)
+                || event.getRightClicked().getType().equals(EntityType.SKELETON_HORSE)) {
             if (!HorseModifier.isCivCraftHorse((LivingEntity) event.getRightClicked())) {
                 CivMessage.sendError(event.getPlayer(), CivSettings.localize.localizedString("horseUse_invalidHorse"));
                 event.setCancelled(true);
