@@ -108,7 +108,7 @@ public class TownInfoCommand extends CommandBase {
         Town town = getSelectedTown();
 
         CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_town_info_areaHeading"));
-        HashMap<String, Integer> biomes = new HashMap<String, Integer>();
+        HashMap<String, Integer> biomes = new HashMap<>();
 
         double hammers = 0.0;
         double growth = 0.0;
@@ -135,8 +135,9 @@ public class TownInfoCommand extends CommandBase {
         String out = "";
         //int totalBiomes = 0;
         for (String biome : biomes.keySet()) {
+            String description = CivSettings.getCultureBiome(biome).description;
             Integer count = biomes.get(biome);
-            out += CivColor.Green + biome + ": " + CivColor.LightGreen + count + CivColor.Green + ", ";
+            out += CivColor.Green + description + "(" + biome + "): " + CivColor.LightGreen + count + CivColor.Green + ", ";
             //	totalBiomes += count;
         }
         CivMessage.send(sender, out);

@@ -97,6 +97,9 @@ public class Farm extends Structure {
         this.fc = fc;
     }
 
+    /*
+     * 判断方块是否作物
+     */
     public static boolean isBlockControlled(Block b) {
         switch (ItemManager.getId(b)) {
             case CivData.COCOAPOD:

@@ -74,7 +74,6 @@ import pvptimer.PvPTimer;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Calendar;
 import java.util.Random;
 
 public final class CivCraft extends JavaPlugin {
@@ -211,7 +210,7 @@ public final class CivCraft extends JavaPlugin {
     @Override
     public void onEnable() {
         setPlugin(this);
-        civRandom.setSeed(Calendar.getInstance().getTimeInMillis());
+        civRandom.setSeed(System.currentTimeMillis());
 
         this.saveDefaultConfig();
 
@@ -233,10 +232,7 @@ public final class CivCraft extends JavaPlugin {
                 SLSManager.init();
             } catch (CivException e1) {
                 e1.printStackTrace();
-            } catch (InvalidConfiguration e1) {
-                e1.printStackTrace();
             }
-
 
         } catch (InvalidConfiguration | SQLException | IOException | InvalidConfigurationException | CivException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -245,7 +241,7 @@ public final class CivCraft extends JavaPlugin {
             //TODO disable plugin?
         }
 
-        // Init commands
+        // Init commands 初始化指令
         getCommand("town").setExecutor(new TownCommand());
         getCommand("resident").setExecutor(new ResidentCommand());
         getCommand("dbg").setExecutor(new DebugCommand());

@@ -530,11 +530,20 @@ public class TownCommand extends CommandBase {
         String out = "";
 
         CivMessage.sendHeading(sender, CivSettings.localize.localizedString("cmd_town_listHeading"));
+        for (Civilization civ : CivGlobal.getCivs()) {
+            StringBuilder output = new StringBuilder(civ.getName() + "\n   ");
+            for (Town town : civ.getTowns()) {
+                output.append(town.getName()).append(", ");
+            }
+            CivMessage.send(sender, output.toString());
+        }
+        /*
         for (Town town : CivGlobal.getTowns()) {
             out += town.getName() + "(" + town.getCiv().getName() + ")" + ", ";
         }
 
         CivMessage.send(sender, out);
+        */
     }
 
     public void evict_cmd() throws CivException {
