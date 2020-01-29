@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class ConfigCultureBiomeInfo {
     public String name;
+    public String description;
     public double hammers;
     public double growth;
     public double happiness;
@@ -20,6 +21,7 @@ public class ConfigCultureBiomeInfo {
 
             ConfigCultureBiomeInfo biome = new ConfigCultureBiomeInfo();
             biome.name = (String) cl.get("name");
+            biome.description = (String) cl.get("description");
             biome.hammers = (Double) cl.get("hammers");
             biome.growth = (Double) cl.get("growth");
             biome.happiness = (Double) cl.get("happiness");

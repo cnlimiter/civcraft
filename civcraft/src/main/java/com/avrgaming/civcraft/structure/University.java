@@ -1,12 +1,5 @@
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.main.CivLog;
@@ -14,6 +7,12 @@ import com.avrgaming.civcraft.main.CivMessage;
 import com.avrgaming.civcraft.object.StructureSign;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.CivColor;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class University extends Structure {
 
@@ -57,8 +56,8 @@ public class University extends Structure {
                 return;
             }
 
-            sign.setText("\n" + CivSettings.localize.localizedString("university_sign") + "\n" +
-                    this.getTown().getName());
+            sign.setText("\n" + CivSettings.localize.localizedString("university_sign", this.getTown().getName())
+            );
 
             sign.update();
         }
@@ -66,7 +65,7 @@ public class University extends Structure {
 
     @Override
     public void processSignAction(Player player, StructureSign sign, PlayerInteractEvent event) {
-        CivMessage.send(player, CivColor.Green + CivSettings.localize.localizedString("university_sign") + " " + this.getTown().getName());
+        CivMessage.send(player, CivColor.Green + CivSettings.localize.localizedString("university_sign", this.getTown().getName()));
     }
 
 
