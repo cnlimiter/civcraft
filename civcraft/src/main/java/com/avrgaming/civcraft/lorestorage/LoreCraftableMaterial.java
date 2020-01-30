@@ -9,7 +9,6 @@ import com.avrgaming.civcraft.main.CivData;
 import com.avrgaming.civcraft.main.CivLog;
 import com.avrgaming.civcraft.object.BuildableDamageBlock;
 import com.avrgaming.civcraft.util.ItemManager;
-import com.mysql.jdbc.StringUtils;
 import gpl.AttributeUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -651,7 +650,7 @@ public class LoreCraftableMaterial extends LoreMaterial {
     }
 
     public static ItemStack deserializeEnhancements(ItemStack stack, String serial) {
-        String in = StringUtils.toAsciiString(Base64Coder.decode(serial));
+        String in = new String(Base64Coder.decode(serial));
         String[] enhancementsStrs = in.split(",");
 
         for (String enhString : enhancementsStrs) {

@@ -1,16 +1,6 @@
 package com.avrgaming.civcraft.randomevents;
 
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.database.SQL;
 import com.avrgaming.civcraft.database.SQLUpdate;
@@ -27,7 +17,11 @@ import com.avrgaming.civcraft.randomevents.components.Happiness;
 import com.avrgaming.civcraft.randomevents.components.Unhappiness;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.util.CivColor;
-import com.mysql.jdbc.StringUtils;
+import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 public class RandomEvent extends SQLObject {
 
@@ -122,8 +116,8 @@ public class RandomEvent extends SQLObject {
             String keyEncoded = split[0];
             String valueEncoded = split[1];
 
-            String key = StringUtils.toAsciiString(Base64Coder.decode(keyEncoded));
-            String value = StringUtils.toAsciiString(Base64Coder.decode(valueEncoded));
+            String key = new String(Base64Coder.decode(keyEncoded));
+            String value = new String(Base64Coder.decode(valueEncoded));
 
             this.componentVars.put(key, value);
         }
@@ -133,7 +127,7 @@ public class RandomEvent extends SQLObject {
         String[] messages = input.split(",");
 
         for (String encodedMessage : messages) {
-            String message = StringUtils.toAsciiString(Base64Coder.decode(encodedMessage));
+            String message = new String(Base64Coder.decode(encodedMessage));
             this.savedMessages.add(message);
         }
     }
@@ -159,7 +153,7 @@ public class RandomEvent extends SQLObject {
     }
 
     private String getComponentVarsSaveString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
 
         for (String key : this.componentVars.keySet()) {
             String value = this.componentVars.get(key);
@@ -167,23 +161,23 @@ public class RandomEvent extends SQLObject {
             String keyEncoded = new String(Base64Coder.encode(key.getBytes()));
             String valueEncoded = new String(Base64Coder.encode(value.getBytes()));
 
-            out += keyEncoded + ":" + valueEncoded + ",";
+            out.append(keyEncoded).append(":").append(valueEncoded).append(",");
 
         }
 
-        return out;
+        return out.toString();
     }
 
     private String getSavedMessagesSaveString() {
-        String out = "";
+        StringBuilder out = new StringBuilder();
 
         for (String message : this.savedMessages) {
 
             String msgEncoded = new String(Base64Coder.encode(message.getBytes()));
-            out += msgEncoded + ",";
+            out.append(msgEncoded);
         }
 
-        return out;
+        return out.toString();
     }
 
 
