@@ -1,5 +1,7 @@
 package gpl;
 
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 import com.avrgaming.civcraft.lorestorage.LoreCraftableMaterial;
 import com.avrgaming.civcraft.util.ItemManager;
 import org.bukkit.enchantments.Enchantment;
@@ -7,7 +9,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -46,8 +47,7 @@ public class InventorySerializer {
         ItemMeta meta = is.getItemMeta();
         if (meta != null && meta.hasLore()) {
             for (String lore : meta.getLore()) {
-                char[] encode = Base64Coder.encode(lore.getBytes());
-                String encodedString = new String(encode);
+                String encodedString = Base64Encoder.encode(lore);
                 serializedItemStack += "&l@" + encodedString;
             }
         }
@@ -94,8 +94,7 @@ public class InventorySerializer {
             } else if (itemAttribute[0].equals("e") && createdItemStack) {
                 is.addEnchantment(ItemManager.getEnchantById(Integer.valueOf(itemAttribute[1])), Integer.valueOf(itemAttribute[2]));
             } else if (itemAttribute[0].equals("l") && createdItemStack) {
-                byte[] decode = Base64Coder.decode(itemAttribute[1]);
-                String decodedString = new String(decode);
+                String decodedString = Base64Decoder.decodeStr(itemAttribute[1]);
                 lore.add(decodedString);
             } else if (itemAttribute[0].equals("D") && createdItemStack) {
                 ItemMeta meta = is.getItemMeta();

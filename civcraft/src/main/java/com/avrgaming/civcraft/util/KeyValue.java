@@ -1,6 +1,7 @@
 package com.avrgaming.civcraft.util;
 
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class KeyValue {
             builder.append(value.getClass().getSimpleName());
             builder.append(",");
             String valueString = "" + value;
-            builder.append(Base64Coder.encode(valueString.getBytes()));
+            builder.append(Base64Encoder.encode(valueString));
             builder.append(";");
         }
 
@@ -56,7 +57,7 @@ public class KeyValue {
                 decodedValue = "";
             } else {
                 String encodedValue = data[2];
-                decodedValue = new String(Base64Coder.decode(encodedValue));
+                decodedValue = Base64Decoder.decodeStr(encodedValue);
             }
 
             try {
