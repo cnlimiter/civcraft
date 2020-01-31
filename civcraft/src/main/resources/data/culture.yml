@@ -151,6 +151,9 @@ talent_levels:
     #    levelBuffDesc3: 'Increases the strength of the control blocks by 20%'
   - level: 7
     levelName: '多快好省'
+    levelBuff1: 'level7_lessBuilding'
+    levelBuff2: 'level7_extraHammer'
+    levelBuff3: 'level7_extraGrowth'
     levelBuffDesc1: '建筑制造费用降低15%，奇观价格降低5%'
     levelBuffDesc2: '生产力增加10%，生长速度降低10%'
     levelBuffDesc3: '生长速度增加15%'
@@ -168,9 +171,9 @@ talent_levels:
     #      levelBuffDesc3: 'Trade resources give 15% more coins.'
   - level: 9
     levelName: '主动出击'
-    levelBuff1: 'level6_extraCPdmgTown'
-    levelBuff2: 'level6_extraStrucutreDmgTown'
-    levelBuff3: 'level6_wcHPTown'
+    levelBuff1: 'level9_extraCPdmgTown'
+    levelBuff2: 'level9_extraStrucutreDmgTown'
+    levelBuff3: 'level9_wcHPTown'
     levelBuffDesc1: '你有机会对城市的控制区域造成1点额外伤害。'
     levelBuffDesc2: '你有机会对建筑物造成1点额外伤害。'
     levelBuffDesc3: '战争营地的HP翻倍，并使其每分钟恢复1点 hp。'

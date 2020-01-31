@@ -354,7 +354,48 @@ buffs:
     value: '0.03'
     stackable: false
     parent:
+  #
+  - id: 'level6_extraTowerHPTown'
+    name: "Placeholder Text"
+    description: 'Placeholder Text'
+    value: '1.1'
+    stackable: false
+    parent:
+  #
+  - id: 'level6_extraRangeTown'
+    name: "Placeholder Text"
+    description: 'Placeholder Text'
+    value: '25.0'
+    stackable: false
+    parent:
+  #
+  - id: 'level6_extraHPcpTown'
+    name: "Placeholder Text"
+    description: 'Placeholder Text'
+    value: '1.2'
+    stackable: false
+    parent:
 
+  - id: 'level7_lessBuilding'
+    name: "Placeholder Text"
+    description: 'Placeholder Text'
+    value: '1.2'
+    stackable: false
+    parent:
+
+  - id: 'level7_extraHammer'
+    name: "Placeholder Text"
+    description: 'Placeholder Text'
+    value: '1.2'
+    stackable: false
+    parent:
+
+  - id: 'level7_extraGrowth'
+    name: "Placeholder Text"
+    description: 'Placeholder Text'
+    value: '1.2'
+    stackable: false
+    parent:
 
   - id: 'level8_extraCottageTown'
     name: "Placeholder Text"
@@ -377,42 +418,21 @@ buffs:
     stackable: false
     parent:
   #
-  - id: 'level6_extraTowerHPTown'
-    name: "Placeholder Text"
-    description: 'Placeholder Text'
-    value: '1.1'
-    stackable: false
-    parent:
-  #
-  - id: 'level6_extraRangeTown'
-    name: "Placeholder Text"
-    description: 'Placeholder Text'
-    value: '25.0'
-    stackable: false
-    parent:
-  #
-  - id: 'level6_extraHPcpTown'
-    name: "Placeholder Text"
-    description: 'Placeholder Text'
-    value: '1.2'
-    stackable: false
-    parent:
-  #
-  - id: 'level6_extraCPdmgTown'
+  - id: 'level9_extraCPdmgTown'
     name: "Placeholder Text"
     description: 'Placeholder Text'
     value: '2.0'
     stackable: false
     parent:
   #
-  - id: 'level6_extraStrucutreDmgTown'
+  - id: 'level9_extraStrucutreDmgTown'
     name: "Placeholder Text"
     description: 'Placeholder Text'
     value: '2.0'
     stackable: false
     parent:
   #
-  - id: 'level6_wcHPTown'
+  - id: 'level9_wcHPTown'
     name: "Placeholder Text"
     description: 'Placeholder Text'
     value: '1.0'

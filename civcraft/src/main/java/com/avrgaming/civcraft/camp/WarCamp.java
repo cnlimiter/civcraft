@@ -438,7 +438,7 @@ public class WarCamp extends Buildable implements RespawnLocationHolder {
             }
         }
         townhallControlHitpoints += additionally;
-        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_wcHPTown") && this.getCiv().getCapitol() != null) {
+        if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level9_wcHPTown") && this.getCiv().getCapitol() != null) {
             townhallControlHitpoints *= 2;
         }
         if (this.getCiv().getCapitol() != null && this.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraHPcpTown") && this.getCiv().getCapitol() != null) {
@@ -562,7 +562,7 @@ public class WarCamp extends Buildable implements RespawnLocationHolder {
     @Override
     public int getRegenRate() {
 
-        if (this.getCiv().getCapitol().getBuffManager().hasBuff("level6_wcHPTown")) {
+        if (this.getCiv().getCapitol().getBuffManager().hasBuff("level9_wcHPTown")) {
             return 1;
         }
         if (this.info.regenRate == null) {
