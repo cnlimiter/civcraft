@@ -186,7 +186,7 @@ talent_levels:
     levelBuffDesc3: '箭塔上限增加1，箭船上限增加1'
 
   - level: 11
-    levelName: 开源节流
+    levelName: '开源节流'
     levelBuffDesc1: '贸易船收益增加10%，别墅收益增加5%'
     levelBuffDesc2: '维护费降低15%'
     levelBuffDesc3: '军政处和从银行的所有物品价格降低10%'
@@ -249,192 +249,224 @@ talent_levels:
 
 culture_biomes:
   - name: OCEAN
+    description: '海洋'
     hammers: 0.5
     growth: 0.25
     happiness: 0.02
     beakers: 1.0
 
   - name: DEEP_OCEAN
+    description: '深海'
     hammers: 0.5
     growth: 0.25
     happiness: 0.0
     beakers: 1.5
 
   - name: SMALLER_EXTREME_HILLS
+    description: '小峭壁'
     hammers: 2.5
     growth: 0.5
     happiness: 0.015
     beakers: 0.5
 
   - name: PLAINS
+    description: '草原'
     hammers: 0.25
     growth: 2.0
     happiness: 0.025
     beakers: 0.5
 
   - name: MUTATED_PLAINS
+    description: '怪异草原'
     hammers: 1.0
     growth: 1.5
     happiness: 0.04
     beakers: 1.0
 
   - name: SAVANNA
+    description: '热带草原'
     hammers: 1.0
     growth: 1.5
     happiness: 0.03
     beakers: 1.0
 
   - name: MUTATED_SAVANNA
+    description: '怪异热带草原'
     hammers: 1.25
     growth: 1.25
     happiness: 0.025
     beakers: 1.0
 
   - name: MESA
+    description: '平顶山'
     hammers: 2.0
     growth: 0.0
     happiness: 0.03
     beakers: 1.5
 
   - name: MESA_CLEAR_ROCK
+    description: '平顶山高原'
     hammers: 2.0
     growth: 0.5
     happiness: 0.01
     beakers: 0.25
 
   - name: MESA_ROCK
+    description: '平顶山高原F'
     hammers: 2.5
     growth: 0.0
     happiness: 0.01
     beakers: 0.25
 
   - name: MUTATED_MESA_ROCK
+    description: '怪异平顶山高原F'
     hammers: 3.0
     growth: 0.0
     happiness: 0.0
     beakers: 0.25
 
   - name: MUTATED_MESA
+    description: '怪异平顶山'
     hammers: 3.0
     growth: 0.0
     happiness: 0.0
     beakers: 0.25
 
   - name: MUTATED_MESA_CLEAR_ROCK
+    description: '怪异平顶山高原'
     hammers: 1.5
     growth: 1.0
     happiness: 0.02
     beakers: 0.5
 
   - name: DESERT
+    description: '沙漠'
     hammers: 0.3125
     growth: 0.1875
     happiness: 0.03
     beakers: 1.0
 
   - name: FOREST
+    description: '森林'
     hammers: 1.0
     growth: 1.25
     happiness: 0.025
     beakers: 0.5
 
   - name: MUTATED_FOREST
+    description: '怪异森林'
     hammers: 1.0
     growth: 1.0
     happiness: 0.05
     beakers: 0.75
 
   - name: BIRCH_FOREST
+    description: '桦木森林'
     hammers: 1.5
     growth: 0.75
     happiness: 0.025
     beakers: 0.5
 
   - name: MUTATED_BIRCH_FOREST
+    description: '怪异桦木森林'
     hammers: 2.5
     growth: 0.5
     happiness: 0.01
     beakers: 1.0
 
   - name: MUTATED_BIRCH_FOREST_HILLS
+    description: '怪异桦木森林丘陵'
     hammers: 1.5
     growth: 1.0
     happiness: 0.02
     beakers: 1.0
 
   - name: ROOFED_FOREST
+    description: '黑森林'
     hammers: 1.0
     growth: 0.50
     happiness: 0.025
     beakers: 0.75
 
   - name: MUTATED_ROOFED_FOREST
+    description: '怪异黑森林'
     hammers: 2.0
     growth: 2.0
     happiness: 0.0
     beakers: 0.5
 
   - name: TAIGA
+    description: '针叶林'
     hammers: 2.0
     growth: 0.5
     happiness: 0.02
     beakers: 0.5
 
   - name: MUTATED_REDWOOD_TAIGA
+    description: '怪异巨型针叶林'
     hammers: 1.5
     growth: 0.25
     happiness: 0.02
     beakers: 1.5
 
   - name: REDWOOD_TAIGA
+    description: '巨型针叶林'
     hammers: 2.5
     growth: 0.25
     happiness: 0.01
     beakers: 0.25
 
   - name: REDWOOD_TAIGA_HILLS
+    description: '	巨型针叶林丘陵'
     hammers: 3.0
     growth: 0.0
     happiness: 0.03
     beakers: 0.5
 
   - name: TAIGA_COLD
+    description: '冷针叶林'
     hammers: 1.0
     growth: 0.25
     happiness: 0.02
     beakers: 1.5
 
   - name: SWAMPLAND
+    description: '沼泽地'
     hammers: 0.25
     growth: 1.0
     happiness: 0.02
     beakers: 1.5
 
   - name: RIVER
+    description: '河流'
     hammers: 1.5
     growth: 3.0
     happiness: 0.025
     beakers: 0.5
 
   - name: FROZEN_OCEAN
+    description: '冻洋'
     hammers: 0.25
     growth: 0.0
     happiness: 0.0
     beakers: 3.0
 
   - name: FROZEN_RIVER
+    description: '冻河'
     hammers: 2.0
     growth: 2.5
     happiness: 0.015
     beakers: 1.0
 
   - name: ICE_FLATS
+    description: '冰原'
     hammers: 1.0
     growth: 0.5
     happiness: 0.02
     beakers: 0.5
 
   - name: MUTATED_ICE_FLATS
+    description: '怪异冰原'
     coins: 0.5
     hammers: 0.25
     growth: 0.25
@@ -442,186 +474,217 @@ culture_biomes:
     beakers: 1.5
 
   - name: MUTATED_JUNGLE
+    description: '怪异丛林'
     hammers: 3.0
     growth: 0.5
     happiness: 0.0
     beakers: 0.25
 
   - name: MUTATED_JUNGLE_EDGE
+    description: '怪异丛林边缘'
     hammers: 2.0
     growth: 0.25
     happiness: 0.01
     beakers: 0.5
 
   - name: ICE_MOUNTAINS
+    description: '冰山'
     hammers: 2.0
     growth: 0.25
     happiness: 0.02
     beakers: 1.0
 
   - name: SAVANNA_ROCK
+    description: '热带高原'
     hammers: 4.0
     growth: 0.25
     happiness: 0.0
     beakers: 0.25
 
   - name: MUTATED_SAVANNA_ROCK
+    description: '怪异热带高原'
     hammers: 3.25
     growth: 0.5
     happiness: 0.0
     beakers: 0.0
 
   - name: TAIGA_HILLS
+    description: '针叶林山丘'
     hammers: 1.5
     growth: 0.5
     happiness: 0.03
     beakers: 1.0
 
   - name: TAIGA_COLD_HILLS
+    description: '冻针叶林山丘'
     hammers: 3.0
     growth: 0.0
     happiness: 0.0
     beakers: 1.0
 
   - name: MUTATED_SWAMPLAND
+    description: '怪异沼泽地'
     hammers: 2.5
     growth: 0.10
     happiness: 0.02
     beakers: 0.5
 
   - name: SMALL_MOUNTAINS
+    description: '小山'
     hammers: 2.5
     growth: 0.5
     happiness: 0.015
     beakers: 0.5
 
   - name: MUSHROOM_ISLAND
+    description: '蘑菇岛'
     hammers: 1.0
     growth: 0.5
     happiness: 0.03
     beakers: 0.5
 
   - name: MUSHROOM_SHORE
+    description: '蘑菇岛岸'
     hammers: 0.5
     growth: 0.25
     happiness: 0.05
     beakers: 0.5
 
   - name: BEACHES
+    description: '沙滩'
     hammers: 0.25
     growth: 0.5
     happiness: 0.06
     beakers: 1.5
 
   - name: STONE_BEACH
+    description: '石滩'
     hammers: 3.0
     growth: 0.0
     happiness: 0.015
     beakers: 0.15
 
   - name: COLD_BEACH
+    description: '冻沙滩'
     hammers: 2.0
     growth: 0.0
     happiness: 0.01
     beakers: 1.0
 
   - name: DESERT_HILLS
+    description: '沙漠丘陵'
     hammers: 2.0
     growth: 0.25
     happiness: 0.03
     beakers: 1.0
 
   - name: MUTATED_DESERT
+    description: '怪异沙漠'
     hammers: 2.0
     growth: 0.25
     happiness: 0.03
     beakers: 1.0
 
   - name: FOREST_HILLS
+    description: '森林山丘'
     hammers: 2.0
     growth: 0.25
     happiness: 0.03
     beakers: 1.0
 
   - name: BIRCH_FOREST_HILLS
+    description: '桦木森林山丘'
     hammers: 2.0
     growth: 0.15
     happiness: 0.02
     beakers: 0.5
 
   - name: TAIGA_HILLS
+    description: '针叶林山丘'
     hammers: 2.5
     growth: 0.25
     happiness: 0.02
     beakers: 0.15
 
   - name: MUTATED_TAIGA
+    description: '怪异针叶林'
     hammers: 2.5
     growth: 0.25
     happiness: 0.04
     beakers: 0.75
 
   - name: MUTATED_TAIGA_COLD
+    description: '怪异针叶林山丘'
     hammers: 2.0
     growth: 0.1
     happiness: 0.01
     beakers: 0.5
 
   - name: MUTATED_REDWOOD_TAIGA_HILLS
+    description: '怪异红木山丘'
     hammers: 3.0
     growth: 0.1
     happiness: 0.0
     beakers: 0.1
 
   - name: TAIGA_HILLS_COLD
+    description: '冷针叶林山丘'
     hammers: 2.5
     growth: 0.15
     happiness: 0.02
     beakers: 0.25
 
   - name: EXTREME_HILLS
+    description: '峭壁'
     hammers: 4.0
     growth: 0.0
     happiness: 0.0
     beakers: 0.15
 
   - name: EXTREME_HILLS_WITH_TREES
+    description: '稀树峭壁'
     hammers: 4.0
     growth: 0.0
     happiness: 0.0
     beakers: 0.5
 
   - name: MUTATED_EXTREME_HILLS
+    description: '怪异峭壁'
     hammers: 4.5
     growth: 0.0
     happiness: 0.0
     beakers: 0.0
 
   - name: MUTATED_EXTREME_HILLS_WITH_TREES
+    description: '怪异稀树峭壁'
     hammers: 4.5
     growth: 0.0
     happiness: 0.0
     beakers: 0.5
 
   - name: JUNGLE
+    description: '丛林'
     hammers: 0.5
     growth: 1.0
     happiness: 0.02
     beakers: 1.0
 
   - name: JUNGLE_HILLS
+    description: '丛林山丘'
     hammers: 2.0
     growth: 0.25
     happiness: 0.03
     beakers: 1.0
 
   - name: JUNGLE_EDGE
+    description: '丛林边缘'
     hammers: 1.0
     growth: 0.5
     happiness: 0.03
     beakers: 1.0
 
   - name: UNKNOWN
+    description: '未知'
     hammers: 0.2
     growth: 0.2
     happiness: 0.01

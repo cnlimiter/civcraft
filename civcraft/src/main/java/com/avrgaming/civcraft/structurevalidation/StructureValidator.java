@@ -1,15 +1,5 @@
 package com.avrgaming.civcraft.structurevalidation;
 
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.bukkit.ChunkSnapshot;
-import org.bukkit.Location;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.exception.InvalidConfiguration;
@@ -20,11 +10,16 @@ import com.avrgaming.civcraft.structure.Buildable;
 import com.avrgaming.civcraft.structure.BuildableLayer;
 import com.avrgaming.civcraft.template.TemplateStream;
 import com.avrgaming.civcraft.threading.TaskMaster;
-import com.avrgaming.civcraft.util.BlockCoord;
-import com.avrgaming.civcraft.util.CallbackInterface;
-import com.avrgaming.civcraft.util.ChunkCoord;
-import com.avrgaming.civcraft.util.CivColor;
-import com.avrgaming.civcraft.util.SimpleBlock;
+import com.avrgaming.civcraft.util.*;
+import org.bukkit.ChunkSnapshot;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class StructureValidator implements Runnable {
 
@@ -143,6 +138,7 @@ public class StructureValidator implements Runnable {
 
             for (SimpleBlock sb : bottomLayer) {
                 /* We only want the bottom layer of a template to be checked. */
+                /* 我们只想检查模板的底层. */
                 if (sb.getType() == CivData.AIR) {
                     continue;
                 }

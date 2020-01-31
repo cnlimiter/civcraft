@@ -10,9 +10,6 @@ import com.avrgaming.civcraft.config.ConfigCultureBiomeInfo;
 import com.avrgaming.civcraft.config.ConfigCultureLevel;
 import com.avrgaming.civcraft.main.CivGlobal;
 import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.object.Civilization;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.object.TownChunk;
 import com.avrgaming.civcraft.util.BiomeCache;
 import com.avrgaming.civcraft.util.ChunkCoord;
 import com.avrgaming.civcraft.util.CivColor;
@@ -113,8 +110,7 @@ public class CultureChunk {
 
     public ConfigCultureBiomeInfo getCultureBiomeInfo() {
         if (this.biome != null) {
-            ConfigCultureBiomeInfo info = CivSettings.getCultureBiome(this.biome.name());
-            return info;
+            return CivSettings.getCultureBiome(this.biome.name());
         } else {
             // This can happen within 1 tick of the chunk being created, that's OK.
             return CivSettings.getCultureBiome("UNKNOWN");

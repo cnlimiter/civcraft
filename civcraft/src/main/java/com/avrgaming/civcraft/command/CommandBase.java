@@ -49,14 +49,20 @@ public abstract class CommandBase implements TabExecutor {
 
     private static final int MATCH_LIMIT = 5;
 
-    protected HashMap<String, String> commands = new HashMap<String, String>();
+    //子命令
+    protected HashMap<String, String> commands = new HashMap<>();
 
+    //参数
     protected String[] args;
+
+    //发送人
     protected CommandSender sender;
 
     protected String command = "FIXME";
     protected String displayName = "FIXME";
     protected boolean sendUnknownToDefault = false;
+
+    //数字格式化
     protected DecimalFormat df = new DecimalFormat();
 
     public Town senderTownOverride = null;
@@ -65,12 +71,15 @@ public abstract class CommandBase implements TabExecutor {
     public abstract void init();
 
     /* Called when no arguments are passed. */
+    /* 未传递参数时调用. */
     public abstract void doDefaultAction() throws CivException;
 
     /* Called on syntax error. */
+    /* 因语法错误而调用. */
     public abstract void showHelp();
 
     /* Called before command is executed to check permissions. */
+    /* 在执行命令之前调用,检查权限. */
     public abstract void permissionCheck() throws CivException;
 
     @Override
@@ -106,6 +115,7 @@ public abstract class CommandBase implements TabExecutor {
         for (String c : commands.keySet()) {
             if (c.equalsIgnoreCase(args[0])) {
                 try {
+                    //获取同名_cmd方法
                     Method method = this.getClass().getMethod(args[0].toLowerCase() + "_cmd");
                     try {
                         method.invoke(this);
@@ -117,11 +127,10 @@ public abstract class CommandBase implements TabExecutor {
                         if (e.getCause() instanceof CivException) {
                             CivMessage.sendError(sender, e.getCause().getMessage());
                         } else {
-                            CivMessage.sendError(sender, CivSettings.localize.localizedString("internalCommandException"));
                             e.getCause().printStackTrace();
+                            CivMessage.sendError(sender, CivSettings.localize.localizedString("internalCommandException"));
                         }
                     }
-
 
                 } catch (NoSuchMethodException e) {
                     if (sendUnknownToDefault) {
@@ -244,24 +253,21 @@ public abstract class CommandBase implements TabExecutor {
             return new String[0];
         }
 
-
         String[] argsLeft = new String[someArgs.length - amount];
-        for (int i = 0; i < argsLeft.length; i++) {
-            argsLeft[i] = someArgs[i + amount];
-        }
+        System.arraycopy(someArgs, amount, argsLeft, 0, argsLeft.length);
 
         return argsLeft;
     }
 
     protected String combineArgs(String[] someArgs) {
-        String combined = "";
+        StringBuilder combined = new StringBuilder();
         for (String str : someArgs) {
-            combined += str + " ";
+            combined.append(str).append(" ");
         }
-        combined = combined.trim();
-        return combined;
+        return combined.toString().trim();
     }
 
+    /* 校验城镇管理 */
     public void validMayor() throws CivException {
         Player player = getPlayer();
         Town town = getSelectedTown();
@@ -272,6 +278,7 @@ public abstract class CommandBase implements TabExecutor {
         //if (this.)
     }
 
+    /* 校验文明领导 */
     public void validMayorAssistantLeader() throws CivException {
         Resident resident = getResident();
         Town town = getSelectedTown();
@@ -279,6 +286,7 @@ public abstract class CommandBase implements TabExecutor {
 
         /*
          * If we're using a selected town that isn't ours validate based on the mother civ.
+         * 如果我们使用的是一个选定的城镇，而不是我们基于母文明身份验证的城镇
          */
         if (town.getMotherCiv() != null) {
             civ = town.getMotherCiv();

@@ -1,6 +1,5 @@
 package com.avrgaming.civcraft.util;
 
-import com.mysql.jdbc.StringUtils;
 import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 import java.util.Collection;
@@ -57,20 +56,25 @@ public class KeyValue {
                 decodedValue = "";
             } else {
                 String encodedValue = data[2];
-                decodedValue = StringUtils.toAsciiString(Base64Coder.decode(encodedValue));
+                decodedValue = new String(Base64Coder.decode(encodedValue));
             }
 
             try {
                 Object valueInstance;
 
-                if (className.equals("Integer")) {
-                    valueInstance = Integer.valueOf(decodedValue);
-                } else if (className.equals("Boolean")) {
-                    valueInstance = Boolean.valueOf(decodedValue);
-                } else if (className.equals("Double")) {
-                    valueInstance = Double.valueOf(decodedValue);
-                } else {
-                    valueInstance = decodedValue;
+                switch (className) {
+                    case "Integer":
+                        valueInstance = Integer.valueOf(decodedValue);
+                        break;
+                    case "Boolean":
+                        valueInstance = Boolean.valueOf(decodedValue);
+                        break;
+                    case "Double":
+                        valueInstance = Double.valueOf(decodedValue);
+                        break;
+                    default:
+                        valueInstance = decodedValue;
+                        break;
                 }
 
                 keyValues.put(key, valueInstance);
