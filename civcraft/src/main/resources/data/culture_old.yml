@@ -122,9 +122,9 @@ talent_levels:
 
   - level: 6
     levelName: '军备'
-    levelBuff1: 'level6_extraCPdmgTown'
-    levelBuff2: 'level6_extraStrucutreDmgTown'
-    levelBuff3: 'level6_wcHPTown'
+    levelBuff1: 'level9_extraCPdmgTown'
+    levelBuff2: 'level9_extraStrucutreDmgTown'
+    levelBuff3: 'level9_wcHPTown'
     levelBuffDesc1: '你有机会对城市的控制区域造成1点额外伤害。'
     levelBuffDesc2: '你有机会对建筑物造成1点额外伤害。'
     levelBuffDesc3: '战争营地的HP翻倍，并使其每分钟恢复1点 hp。'

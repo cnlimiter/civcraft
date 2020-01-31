@@ -89,10 +89,10 @@ public class StructureBlockHitEvent implements Runnable {
             }
             int addinationalDamage = 0;
             if (resident.getCiv() != null && resident.getCiv().getCapitol() != null) {
-                if (resident.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraCPdmgTown") && (CivGlobal.getNearestBuildable(player.getLocation()) instanceof Capitol || CivGlobal.getNearestBuildable(player.getLocation()) instanceof TownHall)) {
+                if (resident.getCiv().getCapitol().getBuffManager().hasBuff("level9_extraCPdmgTown") && (CivGlobal.getNearestBuildable(player.getLocation()) instanceof Capitol || CivGlobal.getNearestBuildable(player.getLocation()) instanceof TownHall)) {
                     addinationalDamage += this.getAddinationalBreak();
                 }
-                if (resident.getCiv().getCapitol().getBuffManager().hasBuff("level6_extraStrucutreDmgTown") && !(CivGlobal.getNearestBuildable(player.getLocation()) instanceof Capitol) && !(CivGlobal.getNearestBuildable(player.getLocation()) instanceof TownHall)) {
+                if (resident.getCiv().getCapitol().getBuffManager().hasBuff("level9_extraStrucutreDmgTown") && !(CivGlobal.getNearestBuildable(player.getLocation()) instanceof Capitol) && !(CivGlobal.getNearestBuildable(player.getLocation()) instanceof TownHall)) {
                     addinationalDamage += this.getAddinationalBreak();
                 }
             }
