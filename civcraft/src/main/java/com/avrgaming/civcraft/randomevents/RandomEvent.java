@@ -1,6 +1,8 @@
 package com.avrgaming.civcraft.randomevents;
 
 
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.database.SQL;
 import com.avrgaming.civcraft.database.SQLUpdate;
@@ -17,7 +19,6 @@ import com.avrgaming.civcraft.randomevents.components.Happiness;
 import com.avrgaming.civcraft.randomevents.components.Unhappiness;
 import com.avrgaming.civcraft.sessiondb.SessionEntry;
 import com.avrgaming.civcraft.util.CivColor;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -116,8 +117,8 @@ public class RandomEvent extends SQLObject {
             String keyEncoded = split[0];
             String valueEncoded = split[1];
 
-            String key = new String(Base64Coder.decode(keyEncoded));
-            String value = new String(Base64Coder.decode(valueEncoded));
+            String key = Base64Decoder.decodeStr(keyEncoded);
+            String value = Base64Decoder.decodeStr(valueEncoded);
 
             this.componentVars.put(key, value);
         }
@@ -127,7 +128,7 @@ public class RandomEvent extends SQLObject {
         String[] messages = input.split(",");
 
         for (String encodedMessage : messages) {
-            String message = new String(Base64Coder.decode(encodedMessage));
+            String message = Base64Decoder.decodeStr(encodedMessage);
             this.savedMessages.add(message);
         }
     }
@@ -158,8 +159,8 @@ public class RandomEvent extends SQLObject {
         for (String key : this.componentVars.keySet()) {
             String value = this.componentVars.get(key);
 
-            String keyEncoded = new String(Base64Coder.encode(key.getBytes()));
-            String valueEncoded = new String(Base64Coder.encode(value.getBytes()));
+            String keyEncoded = Base64Encoder.encode(key);
+            String valueEncoded = Base64Encoder.encode(value);
 
             out.append(keyEncoded).append(":").append(valueEncoded).append(",");
 
@@ -173,7 +174,7 @@ public class RandomEvent extends SQLObject {
 
         for (String message : this.savedMessages) {
 
-            String msgEncoded = new String(Base64Coder.encode(message.getBytes()));
+            String msgEncoded = Base64Encoder.encode(message);
             out.append(msgEncoded);
         }
 

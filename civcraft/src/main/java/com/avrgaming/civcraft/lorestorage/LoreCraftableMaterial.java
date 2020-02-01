@@ -1,5 +1,7 @@
 package com.avrgaming.civcraft.lorestorage;
 
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.config.ConfigIngredient;
 import com.avrgaming.civcraft.config.ConfigMaterial;
@@ -24,7 +26,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -645,12 +646,12 @@ public class LoreCraftableMaterial extends LoreMaterial {
             out += enh.getClass().getName() + "@" + enh.serialize(stack) + ",";
         }
 
-        String outEncoded = new String(Base64Coder.encode(out.getBytes()));
+        String outEncoded = Base64Encoder.encode(out);
         return outEncoded;
     }
 
     public static ItemStack deserializeEnhancements(ItemStack stack, String serial) {
-        String in = new String(Base64Coder.decode(serial));
+        String in = Base64Decoder.decodeStr(serial);
         String[] enhancementsStrs = in.split(",");
 
         for (String enhString : enhancementsStrs) {
