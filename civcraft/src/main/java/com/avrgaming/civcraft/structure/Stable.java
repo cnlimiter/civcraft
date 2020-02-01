@@ -39,7 +39,6 @@ import gpl.HorseModifier.HorseVariant;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.craftbukkit.v1_12_R1.util.HashTreeSet;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -48,6 +47,7 @@ import org.bukkit.inventory.ItemStack;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -60,7 +60,7 @@ public class Stable extends Structure {
     private BlockCoord muleSpawnCoord;
     private NonMemberFeeComponent nonMemberFeeComponent;
 
-    public HashTreeSet<ChunkCoord> chunks = new HashTreeSet<>();
+    public HashSet<ChunkCoord> chunks = new HashSet<>();
     public static Map<ChunkCoord, Stable> stableChunks = new ConcurrentHashMap<ChunkCoord, Stable>();
 
     public Stable(ResultSet rs) throws SQLException, CivException {
