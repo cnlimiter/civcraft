@@ -48,6 +48,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'MUTATED_PLAINS'
       - 'BIRCH_FOREST'
       - 'BIRCH_FOREST_HILLS'
       - 'GRAVELLY_MOUNTAINS'
@@ -75,6 +76,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'SMALLER_EXTREME_HILLS'
       - 'DARK_FOREST'
       - 'FLOWER_FOREST'
       - 'MOUNTAINS'
@@ -103,6 +105,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'EXTREME_HILLS'
       - 'TALL_BIRCH_FOREST'
       - 'DARK_FOREST_HILLS'
       - 'TALL_BIRCH_HILLS'
@@ -179,6 +182,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'DESERT_HILLS'
       - 'SAVANNA'
       - 'SAVANNA_PLATEAU'
     drops:
@@ -204,6 +208,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'MUTATED_DESERT'
       - 'SHATTERED_SAVANNA'
       - 'SHATTERED_SAVANNA_PLATEAU'
       - 'TAIGA_HILLS'
@@ -230,6 +235,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'SAVANNA_ROCK'
       - 'GIANT_SPRUCE_TAIGA'
       - 'GIANT_SPRUCE_TAIGA_HILLS'
       - 'TAIGA_MOUNTAINS'
@@ -281,6 +287,7 @@ custom_mobs:
     rxp_mod: 1.05
     mod_type: 'Weapondry'
     biomes:
+      - 'SWAMPLAND'
       - 'SWAMP'
       - 'SWAMP_HILLS'
     drops:
@@ -331,6 +338,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'MUTATED_SWAMPLAND'
       - 'JUNGLE_HILLS'
       - 'WOODED_MOUNTAINS'
       - 'WOODED_HILLS'
@@ -357,6 +365,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'JUNGLE_HILLS'
       - 'MODIFIED_JUNGLE'
       - 'MODIFIED_JUNGLE_EDGE'
     drops:
@@ -407,6 +416,7 @@ custom_mobs:
     rxp_mod: 1.05
     mod_type: 'Weapondry'
     biomes:
+      - 'ICE_FLATS'
       - 'SNOWY_TUNDRA'
       - 'SNOWY_BEACH'
       - 'ICE_SPIKES'
@@ -432,6 +442,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'TAIGA_HILLS_COLD'
       - 'SNOWY_TAIGA'
       - 'SNOWY_TAIGA_HILLS'
     drops:
@@ -456,6 +467,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'MUTATED_ICE_FLATS'
       - 'TAIGA'
       - 'GIANT_TREE_TAIGA'
       - 'GIANT_TREE_TAIGA_HILLS'
@@ -481,6 +493,7 @@ custom_mobs:
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
+      - 'ICE_MOUNTAINS'
       - 'SNOWY_TAIGA_MOUNTAINS'
       - 'SNOWY_MOUNTAINS'
     drops:

@@ -248,6 +248,10 @@ public class BuildCommand extends CommandBase {
                 }
 
                 if (Wonder.isWonderAvailable(sinfo.id)) {
+                    int wonderNum = 0;
+                    for (Town town1 : town.getCiv().getTowns()) {
+                        wonderNum += town1.getWonders().size();
+                    }
                     double rate = 1.0;
                     rate -= town.getBuffManager().getEffectiveDouble("buff_rush");
                     rate -= town.getBuffManager().getEffectiveDouble("buff_grandcanyon_rush");

@@ -217,7 +217,7 @@ public class MobSpawner {
     @SuppressWarnings("deprecation")
     private static void spawnCustomMob(ConfigMobs cmob, Location loc) {
         CraftWorld world = (CraftWorld) loc.getWorld();
-        world.loadChunk(loc.getChunk());
+//        world.loadChunk(loc.getChunk());
 
         Entity ent = world.createEntity(loc, EntityType.valueOf(cmob.entity).getEntityClass());
 
