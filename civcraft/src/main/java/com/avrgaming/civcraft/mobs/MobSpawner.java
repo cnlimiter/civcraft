@@ -11,6 +11,7 @@ import com.avrgaming.civcraft.object.Resident;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.object.TownChunk;
 import com.avrgaming.civcraft.threading.TaskMaster;
+import com.avrgaming.civcraft.util.BukkitObjects;
 import com.avrgaming.civcraft.util.CivColor;
 import net.minecraft.server.v1_12_R1.Entity;
 import org.bukkit.*;
@@ -236,8 +237,9 @@ public class MobSpawner {
         ent.setCustomNameVisible(cmob.visible);
 
         ent.getBukkitEntity().setMetadata("civ_custommob", new FixedMetadataValue(CivCraft.getPlugin(), "true"));
-
-        world.addEntity(ent, CreatureSpawnEvent.SpawnReason.CUSTOM);
+        BukkitObjects.getScheduler().callSyncMethod(CivCraft.getPlugin(), () -> {
+            return world.addEntity(ent, CreatureSpawnEvent.SpawnReason.CUSTOM);
+        });
         CustomMobListener.customMobs.put(ent.getUniqueID(), ent);
         CustomMobListener.mobList.put(ent.getUniqueID(), cmob);
 

@@ -148,7 +148,7 @@ public class WindmillPreProcessTask extends CivAsyncTask {
             BlockCoord coord = blocks.get(rand.nextInt(blocks.size()));
             blocks.remove(coord);
             if (blocks.isEmpty()) {
-                continue;
+                break;
             }
             plantBlocks.add(coord);
         }

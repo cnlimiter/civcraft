@@ -27,10 +27,10 @@ custom_mobs:
       - 'SUNFLOWER_PLAINS'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_forged_clay,0,1,1,0.1,0.0,1,0'
-      - 'mat_crafted_reeds,0,1,1,0.1,0.0,1,0'
-      - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_1,0,1,1,0.05,0.0,1,0'
+      - 'mat_forged_clay,0,1,1,0.3,0.0,1,0'
+      - 'mat_crafted_reeds,0,1,1,0.3,0.0,1,0'
+      - 'mat_crafted_sticks,0,1,1,0.3,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_1,0,1,1,0.1,0.0,1,0'
   #
   - id: 黄僵尸
     name: '<yellow>黄僵尸'
@@ -54,11 +54,11 @@ custom_mobs:
       - 'GRAVELLY_MOUNTAINS'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_clay_molding,0,1,1,0.05,0.0,1,0'
-      - 'mat_steel_ingot,0,1,1,0.05,0.0,1,0'
-      - 'mat_varnish,0,1,1,0.01,0.0,1,0'
-      - 'mat_sticky_resin,0,1,1,0.01,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_2,0,1,1,0.04,0.0,1,0'
+      - 'mat_clay_molding,0,1,1,0.15,0.0,1,0'
+      - 'mat_steel_ingot,0,1,1,0.15,0.0,1,0'
+      - 'mat_varnish,0,1,1,0.15,0.0,1,0'
+      - 'mat_sticky_resin,0,1,1,0.5,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_2,0,1,1,0.2,0.0,1,0'
   #
   - id: 紫僵尸
     name: '<lightpurple>紫僵尸'
@@ -83,11 +83,11 @@ custom_mobs:
       - 'MOUNTAIN_EDGE'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_clay_steel_cast,0,1,1,0.05,0.0,1,0'
-      - 'mat_carbide_steel_ingot,0,1,1,0.05,0.0,1,0'
-      - 'mat_sticky_resin,0,1,1,0.01,0.0,1,0'
-      - 'mat_smithy_resin,0,1,1,0.005,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_3,0,1,1,0.03,0.0,1,0'
+      - 'mat_clay_steel_cast,0,1,1,0.15,0.0,1,0'
+      - 'mat_carbide_steel_ingot,0,1,1,0.15,0.0,1,0'
+      - 'mat_sticky_resin,0,1,1,0.2,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.02,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_3,0,1,1,0.15,0.0,1,0'
   #
   - id: 红僵尸
     name: '<rose>红僵尸'
@@ -112,10 +112,10 @@ custom_mobs:
       - 'MODIFIED_GRAVELLY_MOUNTAINS'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_clay_tungsten_casting,0,1,1,0.005,0.0,1,0'
-      - 'mat_tungsten_ingot,0,1,1,0.005,0.0,1,0'
-      - 'mat_smithy_resin,0,1,1,0.01,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_4,0,1,1,0.01,0.0,1,0'
+      - 'mat_clay_tungsten_casting,0,1,1,0.015,0.0,1,0'
+      - 'mat_tungsten_ingot,0,1,1,0.015,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.05,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
   #
   - id: 蓝僵尸
     name: '<lightblue>蓝僵尸'
@@ -162,9 +162,9 @@ custom_mobs:
       - 'DESERT_HILLS'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_vanilla_slime,0,1,1,0.1,0.0,1,0'
-      - 'mat_crafted_string,0,1,1,0.1,0.0,1,0'
-      - 'mat_carved_leather,0,1,1,0.1,0.0,1,0'
+      - 'mat_vanilla_slime,0,1,1,0.5,0.0,1,0'
+      - 'mat_crafted_string,0,1,1,0.5,0.0,1,0'
+      - 'mat_carved_leather,0,1,1,0.5,0.0,1,0'
   #
   - id: 黄野蛮人
     name: '<yellow>黄野蛮人'
@@ -187,10 +187,10 @@ custom_mobs:
       - 'SAVANNA_PLATEAU'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_sticky_resin,0,1,1,0.05,0.0,1,0'
-      - 'mat_woven_threading,0,1,1,0.05,0.0,1,0'
-      - 'mat_crafted_leather,0,1,1,0.05,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_1,0,1,1,0.05,0.0,1,0'
+      - 'mat_sticky_resin,0,1,1,0.15,0.0,1,0'
+      - 'mat_woven_threading,0,1,1,0.15,0.0,1,0'
+      - 'mat_crafted_leather,0,1,1,0.15,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_1,0,1,1,0.15,0.0,1,0'
   #
   - id: 紫野蛮人
     name: '<lightpurple>紫野蛮人'
@@ -214,10 +214,10 @@ custom_mobs:
       - 'TAIGA_HILLS'
     drops:
       - '367,0,0,2,1.0,0.0,1,0'
-      - 'mat_varnish,0,1,1,0.01,0.0,1,0'
-      - 'mat_reinforced_braid,0,1,1,0.01,0.0,1,0'
-      - 'mat_leather_straps,0,1,1,0.01,0.0,1,0'
-      - 'mat_metallic_crystal_fragment_2,0,1,1,0.04,0.0,1,0'
+      - 'mat_varnish,0,1,1,0.03,0.0,1,0'
+      - 'mat_reinforced_braid,0,1,1,0.03,0.0,1,0'
+      - 'mat_leather_straps,0,1,1,0.03,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_2,0,1,1,0.12,0.0,1,0'
   #
   - id: 红野蛮人
     name: '<rose>红野蛮人'
@@ -514,7 +514,7 @@ custom_mobs:
     kb_resistance: 0.5
     exp_min: 85
     exp_max: 200
-    res_exp: 2.3t
+    res_exp: 2.3
     rxp_mod: 1.1
     mod_type: 'Weapondry'
     biomes:
