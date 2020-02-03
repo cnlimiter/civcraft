@@ -175,7 +175,7 @@ public class RandomEvent extends SQLObject {
         for (String message : this.savedMessages) {
 
             String msgEncoded = Base64Encoder.encode(message);
-            out.append(msgEncoded);
+            out.append(",").append(msgEncoded);
         }
 
         return out.toString();
