@@ -1263,17 +1263,6 @@ public abstract class Buildable extends SQLObject {
             @Override
             public void run() {
                 for (BlockCoord coord : structureBlocks.keySet()) {
-
-                    for (final StructureChest structureChests : structureChests.values()) {
-                        CivGlobal.removeStructureChest(structureChests);
-                    }
-                    for (final BlockCoord blockCoord : getStructureBlocks().keySet()) {
-                        CivGlobal.removeStructureBlock(blockCoord);
-                    }
-                    for (final StructureSign structureSign : structureSigns.values()) {
-                        CivGlobal.removeStructureSign(structureSign);
-                    }
-
                     if (ItemManager.getId(coord.getBlock()) == CivData.AIR) {
                         continue;
                     }
@@ -1331,6 +1320,15 @@ public abstract class Buildable extends SQLObject {
                             }
                         }
                     }
+                }
+                for (final StructureChest structureChests : structureChests.values()) {
+                    CivGlobal.removeStructureChest(structureChests);
+                }
+                for (final BlockCoord blockCoord : getStructureBlocks().keySet()) {
+                    CivGlobal.removeStructureBlock(blockCoord);
+                }
+                for (final StructureSign structureSign : structureSigns.values()) {
+                    CivGlobal.removeStructureSign(structureSign);
                 }
             }
         }

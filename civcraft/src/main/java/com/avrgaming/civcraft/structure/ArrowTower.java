@@ -18,23 +18,21 @@
  */
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
-
 import com.avrgaming.civcraft.components.ProjectileArrowComponent;
 import com.avrgaming.civcraft.exception.CivException;
 import com.avrgaming.civcraft.object.Buff;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.BlockCoord;
+import org.bukkit.Location;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ArrowTower extends Structure {
 
     ProjectileArrowComponent arrowComponent;
 
-    protected ArrowTower(Location center, String id, Town town)
-            throws CivException {
+    protected ArrowTower(Location center, String id, Town town) throws CivException {
         super(center, id, town);
         this.hitpoints = this.getMaxHitPoints();
     }

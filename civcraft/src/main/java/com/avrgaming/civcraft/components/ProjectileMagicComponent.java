@@ -1,21 +1,19 @@
 
 package com.avrgaming.civcraft.components;
 
+import com.avrgaming.civcraft.config.CivSettings;
+import com.avrgaming.civcraft.exception.InvalidConfiguration;
+import com.avrgaming.civcraft.main.CivMessage;
+import com.avrgaming.civcraft.object.Town;
+import com.avrgaming.civcraft.structure.Buildable;
+import com.avrgaming.civcraft.util.BlockCoord;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import com.avrgaming.civcraft.components.ProjectileComponent;
-import com.avrgaming.civcraft.config.CivSettings;
-import com.avrgaming.civcraft.main.CivMessage;
-import com.avrgaming.civcraft.exception.InvalidConfiguration;
-import com.avrgaming.civcraft.object.Town;
-import com.avrgaming.civcraft.structure.Buildable;
-import com.avrgaming.civcraft.util.BlockCoord;
 
-public class ProjectileMagicComponent
-        extends ProjectileComponent {
+public class ProjectileMagicComponent extends ProjectileComponent {
     private int fireRate;
     private int halfSecondCount = 0;
 

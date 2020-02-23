@@ -1,10 +1,5 @@
 package com.avrgaming.civcraft.structure;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import org.bukkit.Location;
-
 import com.avrgaming.civcraft.components.ProjectileCannonComponent;
 import com.avrgaming.civcraft.config.CivSettings;
 import com.avrgaming.civcraft.exception.CivException;
@@ -12,13 +7,16 @@ import com.avrgaming.civcraft.exception.InvalidConfiguration;
 import com.avrgaming.civcraft.object.Buff;
 import com.avrgaming.civcraft.object.Town;
 import com.avrgaming.civcraft.util.BlockCoord;
+import org.bukkit.Location;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CannonShip extends WaterStructure {
 
     ProjectileCannonComponent cannonComponent;
 
-    protected CannonShip(Location center, String id, Town town)
-            throws CivException {
+    protected CannonShip(Location center, String id, Town town) throws CivException {
         super(center, id, town);
     }
 
