@@ -86,7 +86,7 @@ public class MobSpawnerTimer implements Runnable {
                 count++;
                 if (count > MAX_SPAWN_AMOUNT) break;
             }
-            break;
+            //break;
         }
     }
 

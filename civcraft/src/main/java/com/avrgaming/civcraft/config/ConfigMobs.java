@@ -3,6 +3,7 @@ package com.avrgaming.civcraft.config;
 import com.avrgaming.civcraft.main.CivLog;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.entity.Damageable;
@@ -84,11 +85,17 @@ public class ConfigMobs {
     }
 
     public void setAttack(CraftEntity ent, double attack) {
-        ((Attributable) ent).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(attack);
+        AttributeInstance attribute = ((Attributable) ent).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
+        if (attribute != null) {
+            attribute.setBaseValue(attack);
+        }
     }
 
     public void setDefense(CraftEntity ent, double defense) {
-        ((Attributable) ent).getAttribute(Attribute.GENERIC_ARMOR).setBaseValue(defense);
+        AttributeInstance attribute = ((Attributable) ent).getAttribute(Attribute.GENERIC_ARMOR);
+        if (attribute != null) {
+            attribute.setBaseValue(defense);
+        }
     }
 
     public void setFollowRange(CraftEntity ent, double range) {

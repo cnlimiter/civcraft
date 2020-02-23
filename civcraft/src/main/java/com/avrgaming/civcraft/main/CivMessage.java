@@ -115,15 +115,36 @@ public class CivMessage {
     }
 
     public static void send(Object sender, String line) {
-        if ((sender instanceof Player)) {
-            ((Player) sender).sendMessage(line);
-        } else if (sender instanceof CommandSender) {
-            ((CommandSender) sender).sendMessage(line);
-        } else if (sender instanceof Resident) {
-            try {
-                CivGlobal.getPlayer(((Resident) sender)).sendMessage(line);
-            } catch (CivException e) {
-                // No player online
+        List<String> list = new ArrayList<>();
+        if (line.length() > 128) {
+            for (int i = 0; i < line.length() / 128 + 1; i++) {
+                int begin = i * 128;
+                int end = (i + 1) * 128;
+                if (begin < line.length()) {
+                    if (end > line.length()) {
+                        end = line.length();
+                    }
+                    list.add(line.substring(begin, end));
+                }
+            }
+        } else {
+            list.add(line);
+        }
+        send(sender, list);
+    }
+
+    public static void send(Object sender, List<String> list) {
+        for (String line : list) {
+            if ((sender instanceof Player)) {
+                ((Player) sender).sendMessage(line);
+            } else if (sender instanceof CommandSender) {
+                ((CommandSender) sender).sendMessage(line);
+            } else if (sender instanceof Resident) {
+                try {
+                    CivGlobal.getPlayer(((Resident) sender)).sendMessage(line);
+                } catch (CivException e) {
+                    // No player online
+                }
             }
         }
     }
