@@ -227,7 +227,7 @@ public class MobSpawner {
         if (ent.getBukkitEntity().getType() != EntityType.SLIME) {
             cmob.setAttack(ent.getBukkitEntity(), cmob.attack_dmg);
         }
-//        cmob.setDefense(ent.getBukkitEntity(), cmob.defense_dmg);
+        cmob.setDefense(ent.getBukkitEntity(), cmob.defense_dmg);
         cmob.setFollowRange(ent.getBukkitEntity(), cmob.follow_range);
         cmob.setKnockbackResistance(ent.getBukkitEntity(), cmob.kb_resistance);
 

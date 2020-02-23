@@ -86,13 +86,16 @@ public class ConfigMobs {
 
     public void setAttack(CraftEntity ent, double attack) {
         AttributeInstance attribute = ((Attributable) ent).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
-        if(attribute!=null) {
+        if (attribute != null) {
             attribute.setBaseValue(attack);
         }
     }
 
     public void setDefense(CraftEntity ent, double defense) {
-        ((Attributable) ent).getAttribute(Attribute.GENERIC_ARMOR).setBaseValue(defense);
+        AttributeInstance attribute = ((Attributable) ent).getAttribute(Attribute.GENERIC_ARMOR);
+        if (attribute != null) {
+            attribute.setBaseValue(defense);
+        }
     }
 
     public void setFollowRange(CraftEntity ent, double range) {
