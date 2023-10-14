@@ -1,0 +1,600 @@
+#
+# Stores information used by the global marketplace. 
+# Maps sign id's to in-game id's and gives a starting price
+# for each item.
+## 存储全球市场使用的信息。
+#  将ID号映射到游戏中ID并给出起始价
+#对于每个项目。
+# The amount of coins to increase each market 'tick'
+# 增加每个市场“刻度”的硬币数量
+step: 1
+
+# The number of items that need to be sold to initialize a market 'tick'
+step_count: 512
+
+# the percentage at which the buy price is above the sell price
+rate: 0.15
+
+
+# Shelf 1 left side, front 0-4
+items:
+    - id: 0
+      name: '圆石'
+      type_id: 4
+      data: 0
+      value: 1
+    
+    - id: 1
+      name: '粘土'
+      type_id: 337
+      data: 0
+      value: 1
+    
+    - id: 2
+      name: '煤炭'
+      type_id: 263
+      data: 0
+      value: 1
+    
+    - id: 3
+      name: '燧石'
+      type_id: 318
+      data: 0
+      value: 1
+    
+    - id: 4
+      name: 'T1 精制芦苇'
+      custom_id: 'mat_crafted_reeds'
+      type_id: 0
+      data: 0
+      value: 1
+# Shelf 1 right side, front 5-9
+    - id: 5
+      name: '线'
+      type_id: 287
+      data: 0
+      value: 50
+
+    - id: 6
+      name: '皮革'
+      type_id: 334
+      data: 0
+      value: 9
+    
+    - id: 7
+      name: '羽毛'
+      type_id: 288
+      data: 0
+      value: 1
+    
+    - id: 8
+      name: '地狱疣'
+      type_id: 372
+      data: 0
+      value: 1
+
+    - id: 9
+      name: '骨头'
+      type_id: 352
+      data: 0
+      value: 20
+
+# Shelf 1 right side, back 10-14
+    - id: 10
+      name: '橡木'
+      type_id: 17
+      data: 0
+      value: 1
+
+    - id: 11
+      name: '云杉木'
+      type_id: 17
+      data: 1
+      value: 1
+    
+    - id: 12
+      name: '白桦木'
+      type_id: 17 
+      data: 2
+      value: 1
+
+    - id: 13
+      name: '从林木'
+      type_id: 17 
+      data: 3
+      value: 1
+
+#14 is corrupt in some templates, do not use.
+
+# Shelf 1 left side, back 15-19
+    - id: 15
+      name: '钨矿'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_tungsten_ore'
+      value: 1
+    
+    - id: 16
+      name: '铬矿'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_chromium_ore'
+      value: 1
+
+    - id: 17
+      name: '火药'
+      type_id: 289
+      data: 0
+      value: 50
+
+    - id: 18
+      name: '沙砾'
+      type_id: 13
+      data: 0
+      value: 1
+
+# Shelf 2 left side, front 20-24
+    - id: 20
+      name: '绿藻'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_pond_scum'
+      value: 1
+
+    - id: 21
+      name: '绳结'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_tangled_string'
+      value: 1
+
+    - id: 22
+      name: '海草'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_seaweed'
+      value: 1
+
+    - id: 23
+      name: '鱼苗'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_fish_minnows'
+      value: 1
+
+    - id: 24
+      name: '蝌蚪'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_tadpole'
+      value: 1
+
+# Shelf 2 right side, front 25-29
+    - id: 25
+      name: '金合欢木'
+      type_id: 162
+      data: 0
+      value: 1
+
+    - id: 26
+      name: '深色橡木'
+      type_id: 162
+      data: 1
+      value: 1
+
+# Shelf 2 right side, back 30-34
+    - id: 30
+      name: '石砖'
+      type_id: 98
+      data: 0
+      value: 1
+
+    - id: 31
+      name: '苔石砖'
+      type_id: 98
+      data: 1
+      value: 1
+
+    - id: 32
+      name: '裂石砖'
+      type_id: 98
+      data: 2
+      value: 1
+
+    - id: 33
+      name: '錾制石砖'
+      type_id: 98
+      data: 3
+      value: 1
+    
+# Shelf 2 left side, back 35-39
+    - id: 35
+      name: '海绵'
+      type_id: 19
+      data: 0
+      value: 3
+
+    - id: 36
+      name: '海晶石'
+      type_id: 168
+      data: 0
+      value: 1
+
+    - id: 37
+      name: '海晶石砖'
+      type_id: 168
+      data: 1
+      value: 1
+
+    - id: 38
+      name: '暗海晶石'
+      type_id: 168
+      data: 2
+      value: 1
+
+    - id: 39
+      name: '海晶灯'
+      type_id: 169
+      data: 0
+      value: 50
+
+# Shelf 3 left side, front 40-44
+# Shelf 3 right side, front 45-49
+    - id: 45
+      name: '磨制花岗岩'
+      type_id: 1
+      data: 2
+      value: 1
+
+    - id: 46
+      name: '磨制闪长岩'
+      type_id: 1
+      data: 4
+      value: 1
+
+    - id: 47
+      name: '磨制安山岩'
+      type_id: 1
+      data: 6
+      value: 1
+
+    - id: 48
+      name: '青金石块'
+      type_id: 22
+      data: 0
+      value: 1
+
+#    - id: 49
+#      name: ''
+#      type_id: 
+#      data: 
+#      value: 
+
+# Shelf 3 right side, back 50-54
+    - id: 50
+      name: '白色羊毛'
+      type_id: 35
+      data: 0
+      value: 1
+
+    - id: 51
+      name: '橙色羊毛'
+      type_id: 35
+      data: 1
+      value: 1
+
+    - id: 52
+      name: '品红色羊毛'
+      type_id: 35
+      data: 2
+      value: 1
+
+    - id: 53
+      name: '淡蓝色羊毛'
+      type_id: 35
+      data: 3
+      value: 1
+
+    - id: 54
+      name: '黄色羊毛'
+      type_id: 35
+      data: 4
+      value: 1
+
+# Shelf 3 left side, back 55-59
+    - id: 55
+      name: '黄绿色羊毛'
+      type_id: 35
+      data: 5
+      value: 1
+
+    - id: 56
+      name: '粉红色羊毛'
+      type_id: 35
+      data: 6
+      value: 1
+
+    - id: 57
+      name: '灰色羊毛'
+      type_id: 35
+      data: 7
+      value: 1
+
+    - id: 58
+      name: '淡灰色羊毛'
+      type_id: 35
+      data: 8
+      value: 1
+
+    - id: 59
+      name: '青色羊毛'
+      type_id: 35
+      data: 9
+      value: 1
+
+# Shelf 4 left side, front 60-64
+    - id: 60
+      name: '紫色羊毛'
+      type_id: 35
+      data: 10
+      value: 1
+
+    - id: 61
+      name: '蓝色羊毛'
+      type_id: 35
+      data: 11
+      value: 1
+
+    - id: 62
+      name: '棕色羊毛'
+      type_id: 35
+      data: 12
+      value: 1
+
+    - id: 63
+      name: '绿色羊毛'
+      type_id: 35
+      data: 13
+      value: 1
+
+    - id: 64
+      name: '红色羊毛'
+      type_id: 35
+      data: 14
+      value: 1
+
+# Shelf 4 right side, front 65-69
+    - id: 65
+      name: '黑色羊毛'
+      type_id: 35
+      data: 15
+      value: 1
+
+
+# Shelf 4 right side, back 70-74
+# Shelf 4 left side, back 75-79
+
+# Left Side, rear wall 80-82
+# Right Side, rear wall 83-85
+
+# Floor 1 Left side Front Corner 86-89
+# Floor 1 Left side Wall-Front Corner 90-93
+
+# Floor 1 Right side Side-Front Corner 94-97
+    - id: 94
+      name: '普通金属水晶碎片'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_metallic_crystal_fragment_1'
+      value: 10
+    
+    - id: 95
+      name: '普通离子水晶碎片'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_ionic_crystal_fragment_1'
+      value: 10
+
+# Floor 2 Right side Rear 102-105
+    - id: 102
+      name: '生成 牛'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_cow_egg'
+      value: 10
+
+    - id: 103
+      name: '生成 鸡'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_chicken_egg'
+      value: 10
+
+    - id: 104
+      name: '生成 猪'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_pig_egg'
+      value: 10
+
+    - id: 105
+      name: '生成 羊'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_sheep_egg'
+      value: 10
+
+# Floor 2 Right side Middle 106-109
+    - id: 106
+      name: '生成 兔子'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_rabbit_egg'
+      value: 10
+
+    - id: 107
+      name: '生成 爬行者'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_creeper_egg'
+      value: 10
+
+    - id: 108
+      name: '生成 末影人'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_enderman_egg'
+      value: 10
+
+    - id: 109
+      name: '生成 僵尸'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_zombie_egg'
+      value: 10
+
+# Floor 2 Right side Forward 110-113
+    - id: 110
+      name: '生成 骷髅'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_skeleton_egg'
+      value: 10
+
+    - id: 111
+      name: '生成 蜘蛛'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_spider_egg'
+      value: 10
+
+    - id: 112
+      name: '生成 史莱姆'
+      type_id: 0
+      data: 0
+      custom_id: 'mat_slime_egg'
+      value: 10
+
+    # - id: 113
+    #   name: ''
+    #   type_id: 0
+    #   data: 0
+    #   value: 1
+
+# Floor 2 Right side Wall-Front Corner 114-117
+    - id: 114
+      name: '橡树树苗'
+      type_id: 6
+      data: 0
+      value: 1
+
+    - id: 115
+      name: '云杉树苗'
+      type_id: 6
+      data: 1
+      value: 1
+
+    - id: 116
+      name: '白桦树苗'
+      type_id: 6
+      data: 2
+      value: 1
+
+    - id: 117
+      name: '丛林树苗'
+      type_id: 6
+      data: 3
+      value: 1
+
+# Floor 2 Right side Front Corner 118-121
+    - id: 118
+      name: '金合欢树苗'
+      type_id: 6
+      data: 4
+      value: 1
+
+    - id: 119
+      name: '深色橡树树苗'
+      type_id: 6
+      data: 5
+      value: 1
+
+
+# Floor 2 Left side Front Corner 122-125
+    - id: 122
+      name: '面包'
+      type_id: 297
+      data: 0
+      value: 12
+
+    - id: 123
+      name: '胡萝卜'
+      type_id: 391
+      data: 0
+      value: 8
+ 
+    - id: 124
+      name: '马铃薯'
+      type_id: 392
+      data: 0
+      value: 8
+ 
+    - id: 125
+      name: '南瓜'
+      type_id: 86
+      data: 0
+      value: 4
+# Floor 2 Left side Wall-Front Corner 126-129
+    - id: 126
+      name: '西瓜'
+      type_id: 103
+      data: 0
+      value: 3
+ 
+    - id: 127
+      name: '生羊肉'
+      type_id: 423
+      data: 0
+      value: 5
+
+    - id: 128
+      name: '生鱼'
+      type_id: 349
+      data: 0
+      value: 5
+
+    - id: 129
+      name: '生鲑鱼'
+      type_id: 349
+      data: 1
+      value: 5
+
+# Floor 2 Left side Forward 130-133
+    - id: 130
+      name: '生牛肉'
+      type_id: 363
+      data: 0
+      value: 5
+ 
+    - id: 131
+      name: '生猪排'
+      type_id: 319
+      data: 0
+      value: 5
+ 
+    - id: 132
+      name: '生鸡肉'
+      type_id: 365
+      data: 0
+      value: 5
+ 
+    - id: 133
+      name: '生兔肉'
+      type_id: 411
+      data: 0
+      value: 5
+
+# Floor 2 Left side Middle 134-137
+
+# Floor 2 Left side Read 138-141
+#140,141 corrupt, do not use

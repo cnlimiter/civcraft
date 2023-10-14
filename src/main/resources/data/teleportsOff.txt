@@ -1,0 +1,5 @@
+#luckperms group default permission set essentials.back false
+#luckperms group default permission set essentials.tpa false
+#luckperms group default permission set essentials.tpahere false
+#luckperms group default permission set essentials.home false
+广播 战争开始，传送已被禁止

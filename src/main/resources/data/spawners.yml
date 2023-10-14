@@ -1,0 +1,204 @@
+#
+# This file contains information about the mob spawners.
+# 刷怪笼
+# The mob spawners are divided into two lists, land spawners and water spawners.
+# Configuration for them is identical, however as you might expect... water 
+# spawners never spawn on land and land spawners never spawn on water.
+#
+#
+#
+#Master Flag. If this is false, custom mobs are disabled
+enable: true
+
+########### Mob Spawner Generation Options #######
+generation:
+    # Minimum number of chunks mob spawners can be apart
+    chunks_min: 15
+
+    # Maximum number of chunks mob spawners should be apart
+    chunks_max: 30
+
+    # World size in x chunks (radius)
+    chunks_x: 625
+#    chunks_x: 100 
+    # World size in z chunks (radius)
+    chunks_z: 625
+#    chunks_z: 100
+    
+    # Random seed for mob spawner locations
+    seed: 150009142016
+
+########## Mob Spawner Types #######
+# id - unquie ID to identify this spawner
+# name - Display name shown on spawners and messages
+# rarity - The rarity of the spawner, used during random generation
+#
+land_spawners:
+    - id: 'yobo_lesser'
+      name: '绿僵尸'
+      rarity: 1.0
+
+    - id: 'yobo_greater'
+      name: '黄僵尸'
+      rarity: 0.3
+
+    - id: 'yobo_elite'
+      name: '紫僵尸'
+      rarity: 0.1
+
+    - id: 'yobo_brutal'
+      name: '红僵尸'
+      rarity: 0.05
+
+    - id: 'ruffian_lesser'
+      name: '绿女巫'
+      rarity: 1.0
+
+    - id: 'ruffian_greater'
+      name: '黄女巫'
+      rarity: 0.3
+
+    - id: 'ruffian_elite'
+      name: '紫女巫'
+      rarity: 0.1
+
+    - id: 'ruffian_brutal'
+      name: '红女巫'
+      rarity: 0.05
+
+    - id: 'savage_lesser'
+      name: '绿野蛮人'
+      rarity: 1.0
+
+    - id: 'savage_greater'
+      name: '黄野蛮人'
+      rarity: 0.3
+
+    - id: 'savage_elite'
+      name: '紫野蛮人'
+      rarity: 0.1
+
+    - id: 'savage_brutal'
+      name: '红野蛮人'
+      rarity: 0.05
+
+#Behemoth 圣经 巨兽
+    - id: 'behemoth_lesser'
+      name: '绿巨兽'
+      rarity: 1.0
+
+    - id: 'behemoth_greater'
+      name: '黄巨兽'
+      rarity: 0.3
+
+    - id: 'behemoth_elite'
+      name: '紫巨兽'
+      rarity: 0.1
+
+    - id: 'behemoth_brutal'
+      name: '红巨兽'
+      rarity: 0.05
+
+    - id: 'undead_lesser'
+      name: '绿亡灵'
+      rarity: 1.0
+
+    - id: 'undead_greater'
+      name: '黄亡灵'
+      rarity: 0.3
+
+    - id: 'undead_elite'
+      name: '紫亡灵'
+      rarity: 0.1
+
+    - id: 'undead_brutal'
+      name: '红亡灵'
+      rarity: 0.05
+
+#Kodiac 一匹赛马名字
+    - id: 'kodiac_lesser'
+      name: '绿马怪'
+      rarity: 1.0
+
+    - id: 'kodiac_greater'
+      name: '黄马怪'
+      rarity: 0.3
+
+    - id: 'kodiac_elite'
+      name: '紫马怪'
+      rarity: 0.1
+
+    - id: 'kodiac_brutal'
+      name: '红马怪'
+      rarity: 0.05
+
+#Gelatinous Cube 胶质方块
+    - id: 'cube_lesser'
+      name: '绿史莱姆'
+      rarity: 1.0
+
+    - id: 'cube_greater'
+      name: '黄史莱姆'
+      rarity: 0.3
+
+    - id: 'cube_elite'
+      name: '紫史莱姆'
+      rarity: 0.1
+
+    - id: 'cube_brutal'
+      name: '红史莱姆'
+      rarity: 0.05
+
+#Arachne 有着纺织技术的女人，死亡后尸体复活，上半身为女人，下半身为蜘蛛
+
+    - id: 'arachne_lesser'
+      name: '绿蜘蛛女'
+      rarity: 1.0
+
+    - id: 'arachne_greater'
+      name: '黄蜘蛛女'
+      rarity: 0.3
+
+    - id: 'arachne_elite'
+      name: '紫蜘蛛女'
+      rarity: 0.1
+
+    - id: 'arachne_brutal'
+      name: '红蜘蛛女'
+      rarity: 0.05
+
+#Direwolf
+    - id: 'direwolf_lesser'
+      name: '绿冰原狼'
+      rarity: 1.0
+
+    - id: 'direwolf_greater'
+      name: '黄冰原狼'
+      rarity: 0.3
+
+    - id: 'direwolf_elite'
+      name: '紫冰原狼'
+      rarity: 0.1
+
+    - id: 'direwolf_brutal'
+      name: '红冰原狼'
+      rarity: 0.05
+
+water_spawners:
+#Leviathan 利维坦 圣经中怪兽
+#Kraken 北海巨妖 章鱼或乌贼的模样
+    - id: 'kraken_lesser'
+      name: '绿海怪'
+      rarity: 1.0
+
+    - id: 'kraken_greater'
+      name: '黄海怪'
+      rarity: 0.3
+
+    - id: 'kraken_elite'
+      name: '紫海怪'
+      rarity: 0.1
+
+    - id: 'kraken_brutal'
+      name: '红海怪'
+      rarity: 0.05

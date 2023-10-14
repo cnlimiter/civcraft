@@ -1,0 +1,53 @@
+# 
+# This file contains any custom enchantments used on items
+# 此文件包含用于项目的任何自定义附件
+#
+
+enchants:
+   - id: 'ench_fire_aspect'
+     #name: 'Fire Aspect'
+     name: '火焰附加'
+     cost: 50000.0
+     enchant_id: 'FIRE_ASPECT'
+
+   - id: 'ench_fire_protection'
+     # name: 'Fire Protection'
+     name: '火焰保护'
+     cost: 25000.0
+     enchant_id: 'PROTECTION_FIRE'  
+ 
+   - id: 'ench_flame'
+     # name: 'Fire Arrow'
+     name: '火矢'
+     cost: 50000.0
+     enchant_id: 'ARROW_FIRE'
+   
+   - id: 'ench_punchout'
+     # name: 'Punchout'
+     name: '钻孔'
+     cost: 20000.0
+     enchant_id: 'LoreEnhancementPunchout'
+##莫斯科国立大学
+   - id: 'ench_infinity'
+     name: '无限'
+     # 无限
+     cost: 45000.0
+     enchant_id: 'ARROW_INFINITE'
+
+   - id: 'ench_fall_protection'
+     name: '摔落保护'
+     # 摔落保护
+     cost: 75000.0
+     enchant_id: 'PROTECTION_FALL'  
+ 
+   - id: 'ench_oxygen'
+     name: '水下呼吸'
+     # 水下呼吸
+     cost: 25000.0
+     enchant_id: 'OXYGEN'
+
+   - id: 'ench_lightningstrike'
+     name: '雷击'
+     # 雷击
+     cost: 100000.0
+     enchant_id: 'LoreEnhancementLightningStrike'

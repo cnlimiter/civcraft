@@ -1,0 +1,415 @@
+#
+# This file contains information about the trade goods.
+# 该文件包含有关贸易商品的信息。
+# The trade goods are divided into two lists, land goods and water goods.
+# Configuration for them is identical, however as you might expect... water 
+# goods never spawn on land and land goods never spawn on water.
+# 贸易货物分为两类，陆上货物和水上货物。 它们的配置是相同的，但是正如您可能期望的那样……水产品永远不会在陆地上产卵，而陆地产品永远不会在水上产生。
+#
+#
+
+######## Global Trade Good Options #######
+# 您可以从同类型商品获得的最大奖励。
+# maximum bonus from same-type goods you can get.
+trade_good_multiplier_max: 3
+
+# Number of days before repo. When goodies are
+# repo'd they go back to the trade outpost that spawned them.
+# 1 = Sunday
+# 7 = Saturday
+trade_goodie_repo_day: 6
+# Time of day that the repo will occur
+# 0 = Midnight
+# 12 = Noon
+trade_goodie_repo_hour: 20
+
+
+
+########### Trade Good Generation Options #######
+generation:
+    # Minimum number of chunks trade goods can be apart
+    chunks_min: 12
+
+    # Maximum number of chunks trade goods should be apart
+    chunks_max: 24
+
+    # World size in x chunks (radius)
+    chunks_x: 625
+
+    # World size in z chunks (radius)
+    chunks_z: 625
+
+    # Random seed for trade good locations
+    seed: 2520150148
+
+# Hemispheres, valid ranges that trade goods can spawn in.
+# The the minecraft world...
+#  north direction is z-
+#  south direction is z+
+#  west direction is x-
+#  east direction is x+
+#  By using 0 as a min or max means you dont care.
+hemispheres:
+      # The following hemisphere is north.
+      # We dont care about x (east/west) so
+      # they are zero.
+      # the z_min (how far negative we can go) do dont
+      # care about, so it is also zero.
+      # the z_max is set to -400 so that we must be greater than -400 to
+      # registered as a northern hemisphere.
+    - id: 'hemi_north'
+      x_min: 0
+      x_max: 0
+      z_min: 0
+      z_max: -200
+        
+    - id: 'hemi_south'
+      x_min: 0
+      x_max: 0
+      z_min: 200
+      z_max: 0
+      
+    - id: 'hemi_east'
+      x_min: 200
+      x_max: 0
+      z_min: 0
+      z_max: 0
+
+    - id: 'hemi_west'
+      x_min: 0
+      x_max: -200
+      z_min: 0
+      z_max: 0
+
+    # Overlapping hemishperes are OK.
+    - id: 'hemi_equator'
+      x_min: 0
+      x_max: 0
+      z_min: -200
+      z_max: 200
+
+    - id: 'hemi_northeast'
+      x_min: 200
+      x_max: 0
+      z_min: 0
+      z_max: -200
+
+    - id: 'hemi_northwest'
+      x_min: 0
+      x_max: -200
+      z_min: 0
+      z_max: -200
+
+    - id: 'hemi_southwest'
+      x_min: 0
+      x_max: -200
+      z_min: 200
+      z_max: 0
+
+    - id: 'hemi_southeast'
+      x_min: 200
+      x_max: 0
+      z_min: 200
+      z_max: 0
+
+########## Trade Good Types #######
+# id - unquie ID to identify this good
+# name - Display name shown on goods and messages
+# rarity - a Goodie's rarity value. Higher values are rarer (range 1-4)
+# value - amount of base coins this good generates
+# buffs - list of buff id's that this trade good is using. (See buffs.yml)
+# material - item id of in-game item used for visuals.
+# material_data - data value of in-game item used for visuals.
+#
+#
+
+land_goods:
+    - id: 'good_pelts'
+      name: 皮毛
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_monopoly, buff_fine_art'
+      material: 334 # leather
+      material_data: 0
+     
+    - id: 'good_horses'
+      name: 马
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_advanced_tooling, buff_year_of_plenty'
+      material: 329 # saddle
+      material_data: 0 
+
+    - id: 'good_oil'
+      name: 油
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_advanced_tooling, buff_extraction, buff_fire_bomb'
+      material: 351 # ink sack
+      material_data: 0
+
+    - id: 'good_papyrus'
+      name: 莎草纸
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_innovation'
+      material: 351 # Ink sack
+      material_data: 2 # green
+
+    - id: 'good_silver'
+      name: 银
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_barter, buff_hedonism'
+      material: 265 # iron ingot
+      material_data: 0
+
+    - id: 'good_poison_ivy'
+      name: 毒葛
+      rarity: 3
+      value: 400.0
+      buffs: 'buff_return, buff_farm'
+      material: 106 # vines
+      material_data: 0
+
+    - id: 'good_ivory'
+      name: 象牙
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_fine_art, buff_monopoly'
+      material: 406 # nether quartz
+      material_data: 0
+
+    - id: 'good_incense'
+      name: 熏香
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_fine_art, buff_innovation'
+      material: 362 # melon seed
+      material_data: 0
+    
+    - id: 'good_herbs'
+      name: 草药
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_medicine, buff_year_of_plenty'
+      material: 31 # tall grass
+      material_data: 2 # fern
+
+    - id: 'good_hemlock'
+      name: 毒药
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_espionage, buff_sabotage, buff_dirty_money'
+      material: 31 # tall grass
+      material_data: 0
+
+    - id: 'good_guarana'
+      name: 瓜拿那
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_extraction, buff_rush, buff_medicine'
+      material: 351 # ink sack
+      material_data: 1 # red
+
+    - id: 'good_grapes'
+      name: 葡萄
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_year_of_plenty, buff_hedonism, buff_demand'
+      material: 372 # nether wart seed
+      material_data: 0
+
+    - id: 'good_gems'
+      name: 绿宝石
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_barter, buff_greed, buff_monopoly'
+      material: 388 # emerald
+      material_data: 0
+    
+    - id: 'good_olives'
+      name: 橄榄
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_hedonism, buff_demand, buff_growth'
+      material: 375 # seeds
+      material_data: 0
+
+    - id: 'good_cotton'
+      name: 棉花
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_fine_art'
+      material: 387 # string
+      material_data: 0
+
+    - id: 'good_corn'
+      name: 玉米
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_year_of_plenty'
+      material: 371 # gold nugget
+      material_data: 0
+
+    - id: 'good_copper'
+      name: 铜
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_advanced_tooling'
+      material: 369 # blaze rod
+      material_data: 0
+
+    - id: 'good_coffee'
+      name: 咖啡
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_innovation, buff_extraction, buff_rush'
+      material: 372 # nether wart seed
+      material_data: 0
+      hemispheres: 'hemi_northwest'
+
+    - id: 'good_limestone'
+      name: 石灰石
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_construction, buff_barricade'
+      material: 351 # light grey dye
+      material_data: 7
+    
+    - id: 'good_tobacco'
+      name: 烟草
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_fine_art, buff_greed, buff_monopoly'
+      material: 338 # sugar canes
+      material_data: 0
+
+    - id: 'good_spice'
+      name: 辣椒
+      rarity: 1
+      value: 125.0
+      buffs: 'buff_preservative, buff_demand'
+      material: 295 # seeds
+      material_data: 0
+
+    - id: 'good_Marble'
+      name: 大理石
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_fine_art, buff_construction'
+      material: 155 # quartz block
+      material_data: 0
+
+    - id: 'good_tea'
+      name: 茶叶
+      value: 250.0
+      rarity: 2
+      buffs: 'buff_monopoly, buff_innovation'
+      material: 175 # подсолнух
+      material_data: 0
+
+    - id: 'good_rice'
+      name: 稻子
+      value: 250.0
+      rarity: 2
+      buffs: 'buff_innovation'
+      material: 361 # семки тыквы
+      material_data: 0
+
+    - id: 'good_niter'
+      name: 硝石
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_advanced_tooling, buff_advanced_mixing'
+      material: 263 # уголь
+      material_data: 1
+
+    - id: 'good_jade'
+      name: 玉石
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_advanced_touring, buff_fine_art'
+      material: 295 # семки пшена
+      material_data: 0
+
+    - id: 'good_cocoa'
+      name: 可可
+      rarity: 4
+      value: 500.0
+      buffs: 'buff_advanced_touring, buff_year_of_plenty, buff_preservative'
+      material: 351
+      material_data: 3 # какао
+
+    - id: 'good_orange'
+      name: 橘子
+      rarity: 1
+      value: 100.0
+      buffs: 'buff_year_of_plenty'
+      material: 351
+      material_data: 14 # краситель
+
+    - id: 'good_titanium'
+      name: 钛
+      rarity: 4
+      value: 500.0
+      buffs: 'buff_titan, buff_return'
+      material: 7 # бедрок
+      material_data: 0
+    
+water_goods: 
+    - id: 'good_crabs'
+      name: 螃蟹
+      rarity: 1
+      value: 100.0
+      buffs: 'buff_year_of_plenty, buff_fishing'
+      material: 376 # fermented spider eye
+      material_data: 0
+
+    - id: 'good_salmon'
+      name: 三文鱼
+      rarity: 1
+      value: 100.0
+      buffs: 'buff_year_of_plenty, buff_fishing'
+      material: 350 # cooked fish
+      material_data: 0
+
+    - id: 'good_pearls'
+      name: 珍珠
+      rarity: 3
+      value: 375.0
+      buffs: 'buff_monopoly, buff_greed'
+      material: 332 # Snow ball
+      material_data: 0
+    
+    - id: 'good_whale'
+      name: 鲸鱼
+      rarity: 4
+      value: 500.0
+      buffs: 'buff_innovation, buff_advanced_tooling, buff_fine_art, buff_extraction'
+      material: 345 # compass
+      material_data: 0
+
+    - id: 'good_shrimp'
+      name: 银鳕鱼
+      rarity: 1
+      value: 100.0
+      buffs: 'buff_year_of_plenty, buff_fishing'
+      material: 375 # Spider Eye
+      material_data: 0 
+
+    - id: 'good_tuna'
+      name: 金枪鱼
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_year_of_plenty, buff_fishing'
+      material: 349 # fish
+      material_data: 0
+
+    - id: 'good_sea_salt'
+      name: 海盐
+      rarity: 2
+      value: 250.0
+      buffs: 'buff_advanced_touring, buff_fine_art'
+      material: 353
+      material_data: 0

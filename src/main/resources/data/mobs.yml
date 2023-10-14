@@ -1,0 +1,596 @@
+custom_mobs_enabled: true
+
+# New custom mobs, should be able to take place of the original CivCraft mobs.
+
+#   drops:
+#     - '物品id 看[Material.java],物品子id,最小掉落数量,最大掉落数量,掉落概率,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+#     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
+custom_mobs:
+  - id: 绿僵尸
+    name: '<lightgreen>绿僵尸'
+    visible: true
+    entity: ZOMBIE
+    max_health: 17.5
+    move_speed: 1.05
+    attack_dmg: 8.0
+    defense_dmg: 4.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 5
+    exp_max: 15
+    res_exp: 0.5
+    rxp_mod: 1.05
+    mod_type: 'Weapondry'
+    biomes:
+      - 'PLAINS'
+      - 'FOREST'
+      - 'SUNFLOWER_PLAINS'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_forged_clay,0,1,1,0.3,0.0,1,0'
+      - 'mat_crafted_reeds,0,1,1,0.3,0.0,1,0'
+      - 'mat_crafted_sticks,0,1,1,0.3,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_1,0,1,1,0.1,0.0,1,0'
+  #
+  - id: 黄僵尸
+    name: '<yellow>黄僵尸'
+    visible: true
+    entity: ZOMBIE
+    max_health: 23.5
+    move_speed: 1.05
+    attack_dmg: 10.0
+    defense_dmg: 5.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 15
+    exp_max: 40
+    res_exp: 1.1
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'MUTATED_PLAINS'
+      - 'BIRCH_FOREST'
+      - 'BIRCH_FOREST_HILLS'
+      - 'GRAVELLY_MOUNTAINS'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_molding,0,1,1,0.15,0.0,1,0'
+      - 'mat_steel_ingot,0,1,1,0.15,0.0,1,0'
+      - 'mat_varnish,0,1,1,0.15,0.0,1,0'
+      - 'mat_sticky_resin,0,1,1,0.5,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_2,0,1,1,0.2,0.0,1,0'
+  #
+  - id: 紫僵尸
+    name: '<lightpurple>紫僵尸'
+    visible: true
+    entity: ZOMBIE
+    max_health: 29.5
+    move_speed: 1.05
+    attack_dmg: 12.0
+    defense_dmg: 7.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 30
+    exp_max: 75
+    res_exp: 1.5
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'SMALLER_EXTREME_HILLS'
+      - 'DARK_FOREST'
+      - 'FLOWER_FOREST'
+      - 'MOUNTAINS'
+      - 'MOUNTAIN_EDGE'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_steel_cast,0,1,1,0.15,0.0,1,0'
+      - 'mat_carbide_steel_ingot,0,1,1,0.15,0.0,1,0'
+      - 'mat_sticky_resin,0,1,1,0.2,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.02,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_3,0,1,1,0.15,0.0,1,0'
+  #
+  - id: 红僵尸
+    name: '<rose>红僵尸'
+    visible: true
+    entity: ZOMBIE
+    max_health: 35.5
+    move_speed: 1.05
+    attack_dmg: 14.0
+    defense_dmg: 9.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 50
+    exp_max: 115
+    res_exp: 1.9
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'EXTREME_HILLS'
+      - 'TALL_BIRCH_FOREST'
+      - 'DARK_FOREST_HILLS'
+      - 'TALL_BIRCH_HILLS'
+      - 'MODIFIED_GRAVELLY_MOUNTAINS'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_tungsten_casting,0,1,1,0.015,0.0,1,0'
+      - 'mat_tungsten_ingot,0,1,1,0.015,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.05,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
+  #
+  - id: 蓝僵尸
+    name: '<lightblue>蓝僵尸'
+    visible: true
+    entity: ZOMBIE
+    max_health: 41.5
+    move_speed: 1.05
+    attack_dmg: 16.0
+    defense_dmg: 11.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 85
+    exp_max: 200
+    res_exp: 2.3
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'NETHER'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.02,0.0,1,0'
+      - 'mat_composite_bow_string,0,1,1,0.02,0.0,1,0'
+      - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
+      - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
+  #
+  - id: 绿野蛮人
+    name: '<lightgreen>绿野蛮人'
+    visible: true
+    entity: PIG_ZOMBIE
+    max_health: 22.5
+    move_speed: 1.05
+    attack_dmg: 8.0
+    defense_dmg: 4.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 5
+    exp_max: 15
+    res_exp: 0.5
+    rxp_mod: 1.05
+    mod_type: 'Weapondry'
+    biomes:
+      - 'DESERT'
+      - 'DESERT_HILLS'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_vanilla_slime,0,1,1,0.5,0.0,1,0'
+      - 'mat_crafted_string,0,1,1,0.5,0.0,1,0'
+      - 'mat_carved_leather,0,1,1,0.5,0.0,1,0'
+  #
+  - id: 黄野蛮人
+    name: '<yellow>黄野蛮人'
+    visible: true
+    entity: PIG_ZOMBIE
+    max_health: 28.5
+    move_speed: 1.05
+    attack_dmg: 10.0
+    defense_dmg: 5.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 15
+    exp_max: 40
+    res_exp: 1.1
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'DESERT_HILLS'
+      - 'SAVANNA'
+      - 'SAVANNA_PLATEAU'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_sticky_resin,0,1,1,0.15,0.0,1,0'
+      - 'mat_woven_threading,0,1,1,0.15,0.0,1,0'
+      - 'mat_crafted_leather,0,1,1,0.15,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_1,0,1,1,0.15,0.0,1,0'
+  #
+  - id: 紫野蛮人
+    name: '<lightpurple>紫野蛮人'
+    visible: true
+    entity: PIG_ZOMBIE
+    max_health: 34.5
+    move_speed: 1.05
+    attack_dmg: 12.0
+    defense_dmg: 7.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 30
+    exp_max: 75
+    res_exp: 1.1
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'MUTATED_DESERT'
+      - 'SHATTERED_SAVANNA'
+      - 'SHATTERED_SAVANNA_PLATEAU'
+      - 'TAIGA_HILLS'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_varnish,0,1,1,0.03,0.0,1,0'
+      - 'mat_reinforced_braid,0,1,1,0.03,0.0,1,0'
+      - 'mat_leather_straps,0,1,1,0.03,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_2,0,1,1,0.12,0.0,1,0'
+  #
+  - id: 红野蛮人
+    name: '<rose>红野蛮人'
+    visible: true
+    entity: PIG_ZOMBIE
+    max_health: 40.5
+    move_speed: 1.05
+    attack_dmg: 14.0
+    defense_dmg: 9.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 50
+    exp_max: 115
+    res_exp: 1.9
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'SAVANNA_ROCK'
+      - 'GIANT_SPRUCE_TAIGA'
+      - 'GIANT_SPRUCE_TAIGA_HILLS'
+      - 'TAIGA_MOUNTAINS'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.005,0.0,1,0'
+      - 'mat_composite_bow_string,0,1,1,0.005,0.0,1,0'
+      - 'mat_artisan_leather,0,1,1,0.005,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_3,0,1,1,0.03,0.0,1,0'
+  #
+  - id: 蓝野蛮人
+    name: '<lightblue>蓝野蛮人'
+    visible: true
+    entity: PIG_ZOMBIE
+    max_health: 46.5
+    move_speed: 1.05
+    attack_dmg: 16.0
+    defense_dmg: 11.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 85
+    exp_max: 200
+    res_exp: 2.3
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'NETHER'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'mat_smithy_resin,0,1,1,0.02,0.0,1,0'
+      - 'mat_composite_bow_string,0,1,1,0.02,0.0,1,0'
+      - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
+      - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+      - 'mat_metallic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
+  #
+  - id: 绿女巫
+    name: '<lightgreen>绿女巫'
+    visible: true
+    entity: WITCH
+    max_health: 17.5
+    move_speed: 1.05
+    attack_dmg: 8.0
+    defense_dmg: 4.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 5
+    exp_max: 15
+    res_exp: 0.5
+    rxp_mod: 1.05
+    mod_type: 'Weapondry'
+    biomes:
+      - 'SWAMPLAND'
+      - 'SWAMP'
+      - 'SWAMP_HILLS'
+    drops:
+      - '331,0,0,2,1.0,0.0,1,0'
+      - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
+      - 'mat_crafted_string,0,1,1,0.1,0.0,1,0'
+      - 'mat_carved_leather,0,1,1,0.1,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_1,0,1,1,0.05,0.0,1,0'
+  #
+  - id: 黄女巫
+    name: '<yellow>黄女巫'
+    visible: true
+    entity: WITCH
+    max_health: 23.5
+    move_speed: 1.05
+    attack_dmg: 10.0
+    defense_dmg: 5.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 15
+    exp_max: 40
+    res_exp: 1.1
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'JUNGLE'
+      - 'JUNGLE_EDGE'
+    drops:
+      - '331,0,0,2,1.0,0.0,1,0'
+      - 'mat_aged_wood_stave,0,1,1,0.05,0.0,1,0'
+      - 'mat_woven_threading,0,1,1,0.05,0.0,1,0'
+      - 'mat_crafted_leather,0,1,1,0.05,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_2,0,1,1,0.04,0.0,1,0'
+  #
+  - id: 紫女巫
+    name: '<lightpurple>紫女巫'
+    visible: true
+    entity: WITCH
+    max_health: 29.5
+    move_speed: 1.05
+    attack_dmg: 12.0
+    defense_dmg: 7.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 30
+    exp_max: 75
+    res_exp: 1.5
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'MUTATED_SWAMPLAND'
+      - 'JUNGLE_HILLS'
+      - 'WOODED_MOUNTAINS'
+      - 'WOODED_HILLS'
+    drops:
+      - '331,0,0,2,1.0,0.0,1,0'
+      - 'mat_longbow_stave,0,1,1,0.01,0.0,1,0'
+      - 'mat_reinforced_braid,0,1,1,0.01,0.0,1,0'
+      - 'mat_leather_straps,0,1,1,0.01,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_3,0,1,1,0.03,0.0,1,0'
+  #
+  - id: 红女巫
+    name: '<rose>红女巫'
+    visible: true
+    entity: WITCH
+    max_health: 35.5
+    move_speed: 1.05
+    attack_dmg: 14.0
+    defense_dmg: 9.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 50
+    exp_max: 115
+    res_exp: 1.9
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'JUNGLE_HILLS'
+      - 'MODIFIED_JUNGLE'
+      - 'MODIFIED_JUNGLE_EDGE'
+    drops:
+      - '331,0,0,2,1.0,0.0,1,0'
+      - 'mat_composite_bow_stave,0,1,1,0.005,0.0,1,0'
+      - 'mat_composite_bow_string,0,1,1,0.005,0.0,1,0'
+      - 'mat_artisan_leather,0,1,1,0.005,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_4,0,1,1,0.02,0.0,1,0'
+  #
+  - id: 蓝女巫
+    name: '<lightblue>蓝女巫'
+    visible: true
+    entity: WITCH
+    max_health: 41.5
+    move_speed: 1.05
+    attack_dmg: 16.0
+    defense_dmg: 11.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 85
+    exp_max: 200
+    res_exp: 2.3
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'NETHER'
+    drops:
+      - '331,0,0,2,1.0,0.0,1,0'
+      - 'mat_composite_bow_stave,0,1,1,0.02,0.0,1,0'
+      - 'mat_composite_bow_string,0,1,1,0.02,0.0,1,0'
+      - 'mat_artisan_leather,0,1,1,0.02,0.0,1,0'
+      - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+      - 'mat_ionic_crystal_fragment_4,0,1,1,0.05,0.0,1,0'
+  #
+  - id: 绿巨兽
+    name: '<lightgreen>绿巨兽'
+    visible: true
+    entity: IRON_GOLEM
+    max_health: 25.5
+    move_speed: 1.05
+    attack_dmg: 10.0
+    defense_dmg: 6.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 5
+    exp_max: 15
+    res_exp: 0.5
+    rxp_mod: 1.05
+    mod_type: 'Weapondry'
+    biomes:
+      - 'ICE_FLATS'
+      - 'SNOWY_TUNDRA'
+      - 'SNOWY_BEACH'
+      - 'ICE_SPIKES'
+    drops:
+      - '265,0,0,2,1.0,0.0,1,0'
+      - 'mat_forged_clay,0,1,1,0.1,0.0,1,0'
+      - 'mat_steel_ingot,0,1,1,0.05,0.0,1,0'
+      - 'mat_crafted_sticks,0,1,1,0.1,0.0,1,0'
+  #
+  - id: 黄巨兽
+    name: '<yellow>黄巨兽'
+    visible: true
+    entity: IRON_GOLEM
+    max_health: 30.5
+    move_speed: 1.05
+    attack_dmg: 12.0
+    defense_dmg: 8.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 15
+    exp_max: 40
+    res_exp: 1.1
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'TAIGA_HILLS_COLD'
+      - 'SNOWY_TAIGA'
+      - 'SNOWY_TAIGA_HILLS'
+    drops:
+      - '265,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_molding,0,1,1,0.05,0.0,1,0'
+      - 'mat_steel_ingot,0,1,1,0.05,0.0,1,0'
+      - 'mat_aged_wood_stave,0,1,1,0.05,0.0,1,0'
+  #
+  - id: 紫巨兽
+    name: '<lightpurple>紫巨兽'
+    visible: true
+    entity: IRON_GOLEM
+    max_health: 35.5
+    move_speed: 1.05
+    attack_dmg: 14.0
+    defense_dmg: 10.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 30
+    exp_max: 75
+    res_exp: 1.5
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'MUTATED_ICE_FLATS'
+      - 'TAIGA'
+      - 'GIANT_TREE_TAIGA'
+      - 'GIANT_TREE_TAIGA_HILLS'
+    drops:
+      - '265,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_steel_cast,0,1,1,0.01,0.0,1,0'
+      - 'mat_carbide_steel_ingot,0,1,1,0.01,0.0,1,0'
+      - 'mat_longbow_stave,0,1,1,0.01,0.0,1,0'
+  #
+  - id: 红巨兽
+    name: '<rose>红巨兽'
+    visible: true
+    entity: IRON_GOLEM
+    max_health: 40.5
+    move_speed: 1.05
+    attack_dmg: 16.0
+    defense_dmg: 12.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 50
+    exp_max: 115
+    res_exp: 1.9
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'ICE_MOUNTAINS'
+      - 'SNOWY_TAIGA_MOUNTAINS'
+      - 'SNOWY_MOUNTAINS'
+    drops:
+      - '265,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_tungsten_casting,0,1,1,0.005,0.0,1,0'
+      - 'mat_tungsten_ingot,0,1,1,0.005,0.0,1,0'
+      - 'mat_composite_bow_stave,0,1,1,0.005,0.0,1,0'
+  #
+  - id: 蓝巨兽
+    name: '<lightblue>蓝巨兽'
+    visible: true
+    entity: IRON_GOLEM
+    max_health: 45.5
+    move_speed: 1.05
+    attack_dmg: 18.0
+    defense_dmg: 14.5
+    follow_range: 24.0
+    kb_resistance: 0.5
+    exp_min: 85
+    exp_max: 200
+    res_exp: 2.3
+    rxp_mod: 1.1
+    mod_type: 'Weapondry'
+    biomes:
+      - 'NETHER'
+    drops:
+      - '265,0,0,2,1.0,0.0,1,0'
+      - 'mat_clay_tungsten_casting,0,1,1,0.02,0.0,1,0'
+      - 'mat_tungsten_ingot,0,1,1,0.02,0.0,1,0'
+      - 'mat_composite_bow_stave,0,1,1,0.02,0.0,1,0'
+      - 'mat_mercury,0,1,1,0.001,0.0,1,0'
+
+
+
+
+
+#
+#
+vanilla_mobs:
+  - id: ZOMBIE
+    max_health: 20.0
+    move_speed: 1.0
+    attack_dmg: 3.5
+    defense_dmg: 2.0
+    follow_range: 40.0
+    kb_resistance: 0.2
+    exp_min: 5
+    exp_max: 10
+    res_exp: 0.05
+    rxp_mod: 1.05
+    mod_type: 'Weapondry'
+    drops:
+      - '367,0,0,2,1.0,0.0,1,0'
+      - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
+      - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
+      - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
+  #
+  - id: SKELETON
+    max_health: 20.0
+    move_speed: 1.0
+    attack_dmg: 4.0
+    defense_dmg: 2.0
+    follow_range: 40.0
+    kb_resistance: 0.2
+    exp_min: 5
+    exp_max: 10
+    res_exp: 0.05
+    rxp_mod: 1.05
+    mod_type: 'Weapondry'
+    drops:
+      #     - '(Material Number [Bukkit Material.java]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+      - '262,0,0,2,1.0,0.0,1,0'
+      - '352,0,0,2,1.0,0.0,1,0'
+      - 'civ_forged_clay,0,1,1,0.1,0.0,1,0'
+      - 'civ_crafted_reeds,0,1,1,0.1,0.0,1,0'
+      - 'civ_crafted_sticks,0,1,1,0.1,0.0,1,0'
+#
+
+
+
+
+
+# OLD CUSTOM MOBS, REMOVING FOR NEW ONES
+
+# Example
+#
+# - id: Entity Name for Bukkit to Track Mob (EntityType)
+#   exp_min: min EXP to drop
+#   exp_max: max EXP to drop
+#   exp_mod: EXP modifier for skill levels
+#   type: '(name)' skill level used for modifications
+#   drops:
+#     - '(Material [Bukkit Material.java]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Minecraft Item
+#     - '(civ:(matName) [CivCraft materials.yml]),itemData,minDrop,maxDrop,dropChance,lootingRate,lootingDrops,dropMod' ## Custom Item
+#    ## Note: the 'lootingRate' changes +(add) drop percent. if 0,looting will not work.
+#    ## 'lootingDrops' will increase drops on items. If 0,looting will not work.
+#    ## dropMod will require the 'type' to be this lvl before it drops
+#
+
+common_drops: '287,0,1,1,0.1,0.02,1,-0.01;289,0,1,1,0.1,0.015,1,-0.005;334,0,1,1,0.1,0.02,1,-0.01;341,0,1,1,0.04,0.01,1,0.01;391,0,1,1,0.075,0.025,1,-0.005;392,0,1,1,0.075,0.025,1,-0.005;434,0,1,1,0.075,0.025,1,-0.005'

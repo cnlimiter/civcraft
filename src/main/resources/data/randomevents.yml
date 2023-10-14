@@ -1,0 +1,226 @@
+#w
+#
+# This file allows us to configure random events on the server.
+#
+# The following limitations are being enforced to reduce complexity(for now):
+# - Random events can only have a SUCCESS or FAILURE state, not multiple options.
+# 
+
+# Here is an explaination of the various options
+# id - unquie ID for this event
+# chance - chance for event to occur, out of 1000. 100 = 10% chance.
+# name - display name for the event
+# message - message to display when event occurs.
+# length - amount of time in hours to complete the requirements
+# 
+# The following sections are lists of components. Each represent and AND relationship
+# this means all of them will be executed.
+#
+# actions - list of components that run when this event happens
+# requirements- list of requirements that ALL must be completed to count as successful.
+# success - list of components that run when this event is completed successfully
+# failure - list of components that run when this event is failed.
+#
+#
+# --- Components -----
+# Each component has its own set of properties that are important to it.
+# All component properties are strings and must have quotes around them.
+# All components have a 'name' which must be unquie.
+#
+# I'll attempt to document available components here:
+#
+# SpawnMobs - Spawns in mobs when activated. 
+#     where - location to spawn. Possibilities are TownChunk or CultureChunk
+#     what - Entity name of the mob to spawn.
+#     amount - Number of entities to spawn
+#     spread - how tightly packed they should be when spawned.
+# 
+# KillMobs - Listens on entity death. If its the right entity and the right town, it registers
+#     where: only register if entity is in this area.
+#     what: only check for this entity name;
+#     amount: total needed to be successful.
+#
+
+# World Information
+max_x: 6000
+min_x: -6000
+max_z: 6000
+min_z: -6000
+
+random_events:
+
+  # ========= Maintenence Events =========
+
+  - id: 'event_slime_plague'
+    name: "史莱姆瘟疫"
+    chance: 50
+    message:
+      - "妈个球! 一场史莱姆瘟疫要毁了这个城镇."
+      #- "Holy moth balls! A Slime plague is threatening to destroy the town."
+      - "消灭20个史莱姆，否则幸福度下降!"
+      #- "Slaughter 20 of them or suffer a happiness penalty!"
+    length: 48
+    actions:
+      - name: 'SpawnMobs'
+        where: 'TownChunk'
+        what: 'SLIME'
+        amount: '40'
+        spread: '100'
+    requirements:
+      - name: 'KillMobs'
+        where: 'TownChunk'
+        what: 'SLIME'
+        amount: '4'
+    success:
+      - name: 'MessageTown'
+        message: "我们清理了足够的史莱姆. 避免了幸福度下降 "
+        #message: "We've cleared enough slime. We've averted the happiness penalty."
+    failure:
+      - name: 'MessageTown'
+        message: "啊!!!(无能狂怒) 我们的人民又害怕又恐惧! 幸福度下降"
+        #message: "Arg! Our people are terrified and scared! We suffer a happiness penalty"
+      - name: 'Unhappiness'
+        value: '3'
+        duration: '48'
+
+  # ====== Events that Just kinda happen ============
+  # Happiness Events
+  - id: 'event_truffles'
+    name: '“松露”'
+    chance: 50
+    message:
+      - "我们城市的面包店做了整个CivCraft最棒的“松露”!"
+      #- "Our local bakery have made some of the best truffles in all of CivCraft!"
+      - "松露是如此令人着迷, 我们的人民在接下来的三天都会很开心!"
+      #- "Since they're so good, our people are going to be happier for the next 3 days!"
+    length: 72
+    actions:
+      - name: 'Happiness'
+        value: '5'
+        duration: '72'
+    requirements:
+    success:
+    failure:
+      - name: 'MessageTown'
+        message: "我们从“松露”中得到的快乐已经逝去. 这已是昨日黄花了."
+        #message: "The happiness we've been getting from our truffles has expired. It's yesterday's jam."
+
+    #    - id: 'event_dispute'
+    #      name: 'Land Dispute'
+    #      chance: 50
+    #      message:
+    #        - "Two local residents are having a dispute over their property boundaries. The two have managed to"
+    #        - "divide the town into two seperate factions, both accusing the other of side of being land thieves."
+    #        - "The only way to end the in-fighting is to lay down the heavy hand of the law. Which invariably steps"
+    #       - "on peoples toes. Causing unhappiness for the next 3 days."
+    #      length: 72
+    #      actions:
+    #        - name: 'Unhappiness'
+    #          value: '5'
+    #          duration: '72'
+    #      requirements:
+    #      success:
+    #      failure:
+    #         - name: 'MessageTown'
+    #           message: "The locals have finally gotten over the silly land dispute and are now going back to their lives as normal"
+
+  # Hammer Events
+  - id: 'event_productivity'
+    name: '生产率飙升!'
+    chance: 50
+    message:
+      - "大街上熙熙攘攘! 城里每一个人都在尽心尽力工作."
+      #- "The streets are bustling with activity! Everyone in the town is doing their best and working their hardest."
+      - "由于周全的计划和出色的管理(韭菜精神)。"
+      #- "Due to carefully planning and skilled management. We've managed to increase the productivity in our town."
+      - "我们镇将在接下来的3天内提高生产率!"
+      #- "Our town is going to expreience increased hammer rates for the next 3 days!"
+    length: 72
+    actions:
+      - name: 'HammerRate'
+        value: '1.5'
+        duration: '72'
+    requirements:
+    success:
+    failure:
+      - name: 'MessageTown'
+        message: "人们已筋疲力尽(韭菜割光了)，生产率回到原来水平."
+        #message: "The locals are burnt out and we're no longer getting our hammer bonus."
+
+  #    - id: 'event_lazy'
+  #      name: 'Lazyiness'
+  #      chance: 50
+  #      message:
+  #        - "An air of laziness has struck the town. People just aren't working as hard as they used to."
+  #        - "They'd rather relax and drink iced tea in the afternoons. We'll have to crack the whip to get them back to work!"
+  #        - "Our town is going to experience decreasted hammer rates for the next 3 days."
+  #      length: 72
+  #      actions:
+  #         - name: 'HammerRate'
+  #           value: '0.70'
+  #           duration: '72'
+  #      requirements:
+  #      success:
+  #      failure:
+  #         - name: 'MessageTown'
+  #           message: "The locals are finally back to work. Our hammer rates have returned to normal."
+
+  # ========== Opportunities ============
+
+  - id: 'event_herbs'
+    name: '药草'
+    chance: 50
+    message:
+      - "我们的医学家认为,这些药草也许能治愈许多困扰我们文明很长时间的疑难杂症."
+      #- "Our medical scientists think they might be able to cure one of the many annoying illnesses that have"
+      - "如果我们能够找到合适的草药，我们的科学家将有机会治愈它，从而给我们的小镇带来幸福感."
+      #- "plauged our civlization for so long. If we're able to retrieve the right herbs our scientists will have"
+      - "我们有8个小时去找草药."
+      #- "a chance to cure it, giving our town a happiness boost. We have 8 hours to find the herbs."
+    length: 8
+    actions:
+      - name: 'PickRandomLocation'
+        varname: 'loc'
+    requirements:
+      - name: 'LocationCheck'
+        varname: 'loc'
+    success:
+      - name: 'MessageTown'
+        message: "我们找到了草药！人民欢呼雀跃!"
+      - name: 'Happiness'
+        value: '5'
+        duration: '120'
+    failure:
+      - name: 'MessageTown'
+        message: "我们未能及时找到草药!(流泪)"
+
+  - id: 'event_gold_rush'
+    name: '淘金热!(One Piece)'
+    chance: 50
+    message:
+      - "城镇里流传着谣言：说有很多硬币藏在世界的某个地方。"
+      #- "There is a rumor going around the town that there is a large cache of coins, hidden somewhere out in"
+      - "如果我们找到隐藏的方块，敲破它，我们将获得丰厚的回报"
+      #- "the world. If we can find the block it's hidden in and break it, we'll be able to collect a massive"
+      - "第一个敲破方块的玩家将获得奖励。我们有12个小时找到它。"
+      #- "reward! The first person to break the block recieves a reward. We have 12 hours to find the coins."
+      - "(想要我的宝藏吗？如果想要的话，那就去找吧，我全部都放在那里。)"
+    length: 12
+    actions:
+      - name: 'PickRandomBlock'
+        varname: 'loc'
+    requirements:
+      - name: 'BlockBreak'
+        varname: 'loc'
+        playername_var: 'player'
+    success:
+      - name: 'MessageTown'
+        message: "一位玩家发现了宝藏所在的方块(One Piece是存在的)!"
+        #message: "One of the town residents have found the cache of coins!"
+      - name: 'PayPlayer'
+        playername_var: 'player'
+        amount: '75000'
+    failure:
+      - name: 'MessageTown'
+        message: "我们未能及时找到宝藏!(都随风~~~)"
+        

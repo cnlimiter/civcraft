@@ -1,0 +1,221 @@
+spacemissions_levels:
+  - level: 1
+    name: '发射地球轨道卫星'
+    require_hammers: '50000.0'
+    require_beakers: '50000.0'
+
+  - level: 2
+    name: '月球探测'
+    require_hammers: '100000.0'
+    require_beakers: '100000.0'
+
+  - level: 3
+    name: '火星探测'
+    require_hammers: '150000.0'
+    require_beakers: '150000.0'
+
+  - level: 4
+    name: '太阳探测'
+    require_hammers: '200000.0'
+    require_beakers: '200000.0'
+
+  - level: 5
+    name: '飞向太阳系边缘'
+    require_hammers: '250000.0'
+    require_beakers: '250000.0'
+
+  - level: 6
+    name: '跃迁到参宿四星系(猎户座α星)'
+    require_hammers: '500000.0'
+    require_beakers: '500000.0'
+
+  - level: 7
+    name: '跃迁到Trestellar星球(无人深空)'
+    require_hammers: '750000.0'
+    require_beakers: '750000.0'
+
+spacerocket_names:
+  - level: 1
+    name: 'V2短程弹道火箭(德国)'
+    components: 'mat_satellite1:mat_fuel_tanks1:mat_engines1'
+
+  - level: 2
+    name: '土星5号重型运载火箭(美国)'
+    components: 'mat_landing_module1:mat_orbital_station1:mat_fuel_tanks1:mat_engines1'
+
+  - level: 3
+    name: '北极星A-1中程弹道导弹(苏联)'
+    components: 'mat_residential_module1:mat_landing_module1:mat_orbital_station1:mat_fuel_tanks1:mat_engines1'
+
+  - level: 4
+    name: 'R-7洲际弹道导弹(苏联)'
+    components: 'mat_solar_reflector1:mat_satellite1:mat_equipment1:mat_fuel_tanks2:mat_engines1'
+
+  - level: 5
+    name: '和平保卫者陆基洲际弹道导弹(美国)'
+    components: 'mat_solar_sail1:mat_satellite1:mat_equipment2:mat_fuel_tanks2:mat_engines1'
+
+  - level: 6
+    name: 'LGM-30民兵陆基洲际弹道导弹(美国)'
+    components: 'mat_solar_reflector1:mat_orbital_station1:mat_provisions1:mat_residential_module1:mat_equipment1:mat_warp_core1:mat_warp_engine1:mat_gondolas1'
+
+  - level: 7
+    name: '三叉戟II型潜地弹道导弹(美国)'
+    components: 'mat_landing_module1:mat_orbital_station1:mat_provisions1:mat_residential_module2:mat_equipment1:mat_warp_core1:mat_warp_engine1:mat_gondolas1'
+
+space_crafts:
+  - originalCraftMat: 'mat_satellite'
+    civcraftComponents: 'mat_electronic20:mat_steel_plate4'
+
+  - originalCraftMat: 'mat_fuel_tanks'
+    civcraftComponents: 'mat_steel_plate10'
+    minecraftComponents:
+      - type_id: 378
+        data: 0
+        name: 'Magma Core'
+        count: 250
+
+  - originalCraftMat: 'mat_engines'
+    civcraftComponents: 'mat_electronic10:mat_tungsten_plate4'
+
+  - originalCraftMat: 'mat_landing_module'
+    civcraftComponents: 'mat_leather_straps8:mat_reinforced_braid5:mat_smithy_resin8:mat_compacted_stone8:mat_electronic16'
+
+  - originalCraftMat: 'mat_orbital_station'
+    civcraftComponents: 'mat_electronic50:mat_tungsten_plate4:mat_masonry_mortar20:mat_smithy_resin16:mat_reinforced_braid8'
+    minecraftComponents:
+      - type_id: 320
+        data: 0
+        name: '熟猪排'
+        count: 256
+      - type_id: 391
+        data: 0
+        name: '胡萝卜'
+        count: 512
+
+  - originalCraftMat: 'mat_residential_module'
+    civcraftComponents: 'mat_electronic24:mat_tungsten_plate8:mat_masonry_mortar10:mat_smithy_resin16:mat_reinforced_braid8'
+    minecraftComponents:
+      - type_id: 374
+        data: 0
+        name: '玻璃瓶'
+        count: 512
+      - type_id: 326
+        data: 0
+        name: '水桶'
+        count: 3
+      - type_id: 320
+        data: 0
+        name: '熟猪排'
+        count: 256
+      - type_id: 391
+        data: 0
+        name: '胡萝卜'
+        count: 320
+      - type_id: 392
+        data: 0
+        name: '土豆'
+        count: 256
+      - type_id: 412
+        data: 0
+        name: '熟兔肉'
+        count: 64
+      - type_id: 393
+        data: 0
+        name: '烤土豆'
+        count: 64
+      - type_id: 40
+        data: 0
+        name: '红蘑菇'
+        count: 128
+      - type_id: 39
+        data: 0
+        name: '棕蘑菇'
+        count: 64
+      - type_id: 281
+        data: 0
+        name: '碗'
+        count: 128
+
+  - originalCraftMat: 'mat_solar_reflector'
+    civcraftComponents: 'mat_electronic32:mat_tungsten_plate8'
+    minecraftComponents:
+      - type_id: 266
+        data: 0
+        name: '金锭'
+        count: 1024
+
+  - originalCraftMat: 'mat_equipment'
+    civcraftComponents: 'mat_electronic50'
+    minecraftComponents:
+      - type_id: 356
+        data: 0
+        name: '红石中继器'
+        count: 32
+      - type_id: 404 # not found
+        data: 0
+        name: '红石比较器'
+        count: 32
+      - type_id: 151
+        data: 0
+        name: '阳光传感器'
+        count: 646
+
+  - originalCraftMat: 'mat_solar_sail'
+    civcraftComponents: 'mat_reinforced_braid16:mat_steel_plate16'
+
+  - originalCraftMat: 'mat_provisions'
+    civcraftComponents: ''
+    minecraftComponents:
+      - type_id: 374
+        data: 0
+        name: '玻璃瓶'
+        count: 2048
+      - type_id: 326
+        data: 0
+        name: '水桶'
+        count: 15
+      - type_id: 320
+        data: 0
+        name: '熟猪排'
+        count: 1024
+      - type_id: 391
+        data: 0
+        name: '胡萝卜'
+        count: 2048
+      - type_id: 392
+        data: 0
+        name: '土豆'
+        count: 2048
+      - type_id: 412
+        data: 0
+        name: '熟兔肉'
+        count: 64
+      - type_id: 393
+        data: 0
+        name: '烤土豆'
+        count: 64
+      - type_id: 40
+        data: 0
+        name: '红蘑菇'
+        count: 128
+      - type_id: 39
+        data: 0
+        name: '棕蘑菇'
+        count: 64
+      - type_id: 281
+        data: 0
+        name: '碗'
+        count: 128
+
+  - originalCraftMat: 'mat_warp_core'
+    civcraftComponents: 'mat_metallic_crystal_4:mat_ionic_crystal_4:mat_mercury_bath4'
+
+  - originalCraftMat: 'mat_warp_engine'
+    civcraftComponents: 'mat_tungsten_ingot10:mat_carbide_steel_ingot16:mat_tungsten_plate8'
+
+  - originalCraftMat: 'mat_gondolas'
+    civcraftComponents: 'mat_clay_steel_cast32:mat_tungsten_ingot18:mat_reinforced_braid8:mat_smithy_resin16'
+
+  - originalCraftMat: 'mat_found_space_shuttle'
+    civcraftComponents: 'mat_carbide_steel_plate25:mat_smithy_resin20:mat_masonry_mortar50:mat_reinforced_braid25:mat_industrial_diamond5:mat_electronic20'
