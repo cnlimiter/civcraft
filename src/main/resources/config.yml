@@ -6,28 +6,12 @@
 # If you wish to localize CivilizationCraft, run the server once to generate a default_lang.yml file
 # Then rename the file. For example "ru_lang.yml" and then translate the strings to Russian.
 # Update this config line below to match the name of your translated file.
-localization_file: "zh_lang.yml"
+localization_file: "default_lang.yml"
 
 # ============================== Database Configuration ====================================
 
-# MySQL database to store game data in across reloads.
-sqlite: true
-game: # MySql need
-  useSSL: 'false'
-  hostname: localhost
-  port: '3306'
-  database: game
-  username: user
-  password: 'PasswordForDatabaseUser'
-  table_prefix: ''
-
-global: # MySql need
-  useSSL: 'false'
-  hostname: localhost
-  port: '3306'
-  database: global
-  username: user
-  password: 'PasswordForDatabaseUser'
+# database to store game data in across reloads.
+table_prefix: ''
 
 server_phase: 'beta8'
 

@@ -26,7 +26,7 @@ public class SLSManager implements Runnable {
     public static String gen_id;
 
     public static void init() throws CivException, InvalidConfiguration {
-        boolean useListing = CivSettings.getBooleanStructure("use_server_listing_service");
+        boolean useListing = CivSettings.getBooleanBase("use_server_listing_service");
 
 
         if (!useListing) {

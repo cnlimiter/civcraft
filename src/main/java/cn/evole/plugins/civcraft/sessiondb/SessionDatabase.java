@@ -31,7 +31,7 @@ public class SessionDatabase {
      * to store temporary information in the SQL database.
      */
     private boolean initalized;
-    private ConcurrentHashMap<String, ArrayList<SessionEntry>> cache = new ConcurrentHashMap<String, ArrayList<SessionEntry>>();
+    private final ConcurrentHashMap<String, ArrayList<SessionEntry>> cache = new ConcurrentHashMap<String, ArrayList<SessionEntry>>();
     public SessionDatabase() {
         tb_prefix = SQL.tb_prefix;
     }
@@ -39,16 +39,17 @@ public class SessionDatabase {
     public static void init() throws SQLException {
         System.out.println("================= SESSION DB INIT ======================");
         // Check/Build SessionDB tables
+
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`request_id` int(11) unsigned NOT NULL auto_increment," +
-                    "`key` mediumtext," +
-                    "`value` mediumtext," +
+                    "`request_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`key` TEXT," +
+                    "`value` TEXT," +
                     "`town_id` int(11)," +
                     "`civ_id` int(11)," +
                     "`struct_id` int(11)," +
-                    "`time` long," +
-                    "PRIMARY KEY (`request_id`)" + ")";
+                    "`time` INTEGER" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -61,14 +62,14 @@ public class SessionDatabase {
         // Check/Build SessionDB tables
         if (!SQL.hasGlobalTable(GLOBAL_TABLE_NAME)) {
             String table_create = "CREATE TABLE " + GLOBAL_TABLE_NAME + " (" +
-                    "`request_id` int(11) unsigned NOT NULL auto_increment," +
-                    "`key` mediumtext," +
-                    "`value` mediumtext," +
+                    "`request_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`key` TEXT," +
+                    "`value` TEXT," +
                     "`town_id` int(11)," +
                     "`civ_id` int(11)," +
                     "`struct_id` int(11)," +
-                    "`time` long," +
-                    "PRIMARY KEY (`request_id`)" + ")";
+                    "`time` INTEGER" +
+                    ")";
 
             SQL.makeGlobalTable(table_create);
             CivLog.info("Created " + GLOBAL_TABLE_NAME + " table");
@@ -130,7 +131,7 @@ public class SessionDatabase {
             }
 
             // Couldnt find in cache, attempt DB lookup.
-            retList = new ArrayList<SessionEntry>();
+            retList = new ArrayList<>();
             code = "SELECT * FROM `" + tb_prefix + "SESSIONS` WHERE `key` = ?";
 
             try {

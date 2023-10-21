@@ -47,13 +47,13 @@ public class RoadBlock extends SQLObject implements BuildableDamageBlock {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "`road_id` int(11) NOT NULL DEFAULT 0," +
                     "`old_type` int(11) NOT NULL DEFAULT 0," +
                     "`old_data` int(11) NOT NULL DEFAULT 0," +
-                    "`above_road` bool DEFAULT 0," +
-                    "`coord` mediumtext DEFAULT NULL," +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`above_road` boolean DEFAULT false," +
+                    "`coord` mediumtext DEFAULT NULL" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

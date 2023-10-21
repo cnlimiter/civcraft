@@ -45,7 +45,7 @@ public final class Reflection {
 
     public static synchronized Class<?> getOBCClass(String className) {
         if (_loadedOBCClasses.containsKey(className)) {
-            return (Class<?>) _loadedOBCClasses.get(className);
+            return _loadedOBCClasses.get(className);
         }
         String fullName = "org.bukkit.craftbukkit." + getVersion() + className;
         Class<?> clazz = null;

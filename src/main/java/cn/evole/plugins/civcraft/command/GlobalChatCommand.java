@@ -24,7 +24,7 @@ public class GlobalChatCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
         //TODO let non players use this command
-        if ((sender instanceof Player) == false) {
+        if (!(sender instanceof Player)) {
             return false;
         }
 
@@ -43,14 +43,6 @@ public class GlobalChatCommand implements CommandExecutor {
         }
 
         CivMessage.sendError(sender, CivSettings.localize.localizedString("cmd_gc_disabled"));
-        return true;
-
-//		String fullArgs = "";
-//		for (String arg : args) {
-//			fullArgs += arg + " ";
-//		}
-//		
-//		CivMessage.sendChat(resident, "<%s> %s", fullArgs);
-//		return true;
+		return true;
     }
 }

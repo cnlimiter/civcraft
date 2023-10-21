@@ -48,10 +48,10 @@ public class EventTimer {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`name` VARCHAR(64) NOT NULL," +
+                    "`name` VARCHAR(64) PRIMARY KEY NOT NULL," +
                     "`nextEvent` long," +
-                    "`lastEvent` long," +
-                    "PRIMARY KEY (`name`)" + ")";
+                    "`lastEvent` long" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -205,16 +205,25 @@ public class EventTimer {
         PreparedStatement ps = null;
 
         try {
-            String query = "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`name`, `nextEvent`, `lastEvent`) " +
-                    "VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `nextEvent`=?, `lastEvent`=?";
+            String query =
+                    "insert or replace into `" + SQL.tb_prefix + TABLE_NAME + "` (`name`, `nextEvent`, `lastEvent`) "
+                            +"VALUES (?," +
+                            " COALESCE((SELECT `nextEvent` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `name` = ?), ?)," +
+                            " COALESCE((SELECT `lastEvent` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `name` = ?), ?))"
+                    ;
+
+
+//                    "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`name`, `nextEvent`, `lastEvent`) " +
+//                    "VALUES (?, ?, ?) ON conflict(`name`) do update set `nextEvent`=?, `lastEvent`=?";
             context = SQL.getGameConnection();
             ps = context.prepareStatement(query);
 
             ps.setString(1, this.name);
-            ps.setLong(2, next.getTime().getTime());
-            ps.setLong(3, last.getTime().getTime());
-            ps.setLong(4, next.getTime().getTime());
+            ps.setString(2, this.name);
+            ps.setLong(3, next.getTime().getTime());
+            ps.setString(4, this.name);
             ps.setLong(5, last.getTime().getTime());
+
 
             int rs = ps.executeUpdate();
             if (rs == 0) {

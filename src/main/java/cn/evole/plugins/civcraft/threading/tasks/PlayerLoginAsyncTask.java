@@ -113,6 +113,7 @@ public class PlayerLoginAsyncTask implements Runnable {
             }
 
             if (!resident.isGivenKit()) {
+                //CivLog.info(String.valueOf(resident.isGivenKit()));
                 TaskMaster.syncTask(new GivePlayerStartingKit(resident.getName()));
             }
 
@@ -193,10 +194,10 @@ public class PlayerLoginAsyncTask implements Runnable {
                 Player p = CivGlobal.getPlayer(resident);
 
                 ArrayList<SessionEntry> deathEvents = CivGlobal.getSessionDB().lookup("pvplogger:death:" + resident.getName());
-                if (deathEvents.size() != 0) {
+                if (!deathEvents.isEmpty()) {
                     CivMessage.send(resident, CivColor.Rose + CivColor.BOLD + CivSettings.localize.localizedString("PlayerLoginAsync_killedWhilePVPLogged"));
                     class SyncTask implements Runnable {
-                        String playerName;
+                        final String playerName;
 
                         public SyncTask(String playerName) {
                             this.playerName = playerName;
@@ -217,7 +218,7 @@ public class PlayerLoginAsyncTask implements Runnable {
 
                     TaskMaster.syncTask(new SyncTask(p.getName()));
                 }
-            } catch (CivException e1) {
+            } catch (CivException ignored) {
             }
 
             if (EndConditionDiplomacy.canPeopleVote()) {

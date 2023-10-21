@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ChunkCoord {
 
-    private static ConcurrentHashMap<String, World> worlds = new ConcurrentHashMap<String, World>();
+    private static final ConcurrentHashMap<String, World> worlds = new ConcurrentHashMap<String, World>();
     private String worldname;
     private int x;
     private int z;

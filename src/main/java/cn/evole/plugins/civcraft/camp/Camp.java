@@ -163,15 +163,15 @@ public class Camp extends Buildable {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "`name` VARCHAR(64) NOT NULL," +
                     "`owner_name` mediumtext NOT NULL," +
                     "`firepoints` int(11) DEFAULT 0," +
                     "`next_raid_date` long," +
-                    "`corner` mediumtext," +
-                    "`upgrades` mediumtext," +
-                    "`template_name` mediumtext," +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`corner` TEXT," +
+                    "`upgrades` TEXT," +
+                    "`template_name` TEXT" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -762,10 +762,7 @@ public class Camp extends Buildable {
         try {
             //tpl.load_template(this.getSavedTemplatePath());
             tpl = Template.getTemplate(this.getSavedTemplatePath(), null);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        } catch (CivException e) {
+        } catch (IOException | CivException e) {
             e.printStackTrace();
             return;
         }
@@ -1258,7 +1255,7 @@ public class Camp extends Buildable {
 
     public Date getNextRaidDate() {
         Date raidEnd = new Date(this.nextRaidDate.getTime());
-        raidEnd.setTime(this.nextRaidDate.getTime() + 60 * 60 * 1000 * this.raidLength);
+        raidEnd.setTime(this.nextRaidDate.getTime() + 60L * 60 * 1000 * this.raidLength);
 
         Date now = new Date();
         if (now.getTime() > raidEnd.getTime()) {

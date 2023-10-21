@@ -43,7 +43,7 @@ public class Perk {
         List<HashMap<String, String>> compInfoList = this.configPerk.components;
         if (compInfoList != null) {
             for (HashMap<String, String> compInfo : compInfoList) {
-                String className = "cn.evole.global.perks.components." + compInfo.get("name");
+                String className = "cn.evole.plugins.global.perks.components." + compInfo.get("name");
                 Class<?> someClass;
 
                 try {

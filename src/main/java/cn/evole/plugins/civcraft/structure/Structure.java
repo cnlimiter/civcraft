@@ -579,18 +579,18 @@ public class Structure extends Buildable {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "`type_id` mediumtext NOT NULL," +
                     "`town_id` int(11) DEFAULT NULL," +
-                    "`complete` bool NOT NULL DEFAULT '0'," +
+                    "`complete` boolean NOT NULL DEFAULT false," +
                     "`builtBlockCount` int(11) DEFAULT NULL, " +
                     "`cornerBlockHash` mediumtext DEFAULT NULL," +
                     "`template_name` mediumtext DEFAULT NULL, " +
                     "`template_x` int(11) DEFAULT NULL, " +
                     "`template_y` int(11) DEFAULT NULL, " +
                     "`template_z` int(11) DEFAULT NULL, " +
-                    "`hitpoints` int(11) DEFAULT '100'," +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`hitpoints` int(11) DEFAULT '100'" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -602,6 +602,7 @@ public class Structure extends Buildable {
     @Override
     public void onCheck() throws CivException {
         /* Override in children */
+        super.onCheck();
     }
 
     private void loadComponents() {
@@ -983,11 +984,7 @@ public class Structure extends Buildable {
                     }
 
                     compClass.createComponent(this, false);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }

@@ -38,8 +38,8 @@ public class GivePlayerStartingKit implements Runnable {
 
                 ItemStack stack;
                 try {
-                    Integer type = Integer.valueOf(split[0]);
-                    Integer amount = Integer.valueOf(split[1]);
+                    int type = Integer.parseInt(split[0]);
+                    int amount = Integer.parseInt(split[1]);
 
                     stack = ItemManager.createItemStack(type, amount);
 

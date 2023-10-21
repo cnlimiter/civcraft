@@ -3,7 +3,6 @@
 # 最终这些增益也可能适用于政府和/或奇迹
 #
 #
-
 buffs:
   - id: 'buff_construction'
     name: '建筑'
@@ -474,7 +473,7 @@ buffs:
     stackable: false
     parent:
   #
- - id: 'level11_unhappyConquerorTown'
+  - id: 'level11_unhappyConquerorTown'
     name: "Placeholder Text"
     description: 'Placeholder Text'
     value: '0.0'

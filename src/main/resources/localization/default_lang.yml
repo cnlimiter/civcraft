@@ -14,7 +14,14 @@ welcome_string: "Welcome to MineTexas CivilizationCraft [%0] [%1] [%2]"
 
 # Eventually, All strings that have variables will be replacing their counterparts in this file.
 # I will try to denote them with the var_ prefix for the key.
-
+#============================翻译者信息=====================================
+# 本份汉化遵循GPL开源协议
+# 演变            id=cnlimiter   补充，校对    个人主页 www.evole.cn
+# Vasilis         id=Vasilis      主要汉化者
+# VviuygKing      id=Vviuyg_King            个人主页 vviuygking.vv-group.cn
+# shanjian        id=shanjian     主要汉化者
+# brrb            id=brrb
+# CN_ChiTu        id=CN_ChiTu     主要是校对
 # =========================== Generic Section =========================
 #This is your currency name. MineTexas uses "RedBacks."
 #Changing this here renames every instance of the term throughout the plugin.

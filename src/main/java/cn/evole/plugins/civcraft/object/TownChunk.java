@@ -69,22 +69,22 @@ public class TownChunk extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
-                    "`town_id` int(11) unsigned NOT NULL," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`town_id` int(11) NOT NULL," +
                     "`world` VARCHAR(32) NOT NULL," +
                     "`x` bigint(20) NOT NULL," +
                     "`z` bigint(20) NOT NULL," +
-                    "`owner_id` int(11) unsigned DEFAULT NULL," +
+                    "`owner_id` int(11) DEFAULT NULL," +
                     "`groups` mediumtext DEFAULT NULL," +
                     "`permissions` mediumtext NOT NULL," +
-                    "`for_sale` bool NOT NULL DEFAULT '0'," +
+                    "`for_sale` boolean NOT NULL DEFAULT false," +
                     "`value` float NOT NULL DEFAULT '0'," +
                     "`price` float NOT NULL DEFAULT '0'," +
-                    "`canunclaim` bool DEFAULT '1'," +
-                    "`outpost` bool DEFAULT '0'," +
+                    "`canunclaim` boolean DEFAULT false," +
+                    "`outpost` boolean DEFAULT false" +
                     //	 "FOREIGN KEY (owner_id) REFERENCES "+SQL.tb_prefix+Resident.TABLE_NAME+"(id),"+
                     //	 "FOREIGN KEY (town_id) REFERENCES "+SQL.tb_prefix+Town.TABLE_NAME+"(id),"+
-                    "PRIMARY KEY (`id`)" + ")";
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -343,7 +343,7 @@ public class TownChunk extends SQLObject {
             hashmap.put("owner_id", null);
         }
 
-        if (this.perms.getGroups().size() != 0) {
+        if (!this.perms.getGroups().isEmpty()) {
             String out = "";
             for (PermissionGroup grp : this.perms.getGroups()) {
                 out += grp.getId() + ":";

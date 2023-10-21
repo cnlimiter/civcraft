@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class PerkComponent {
 
-    private HashMap<String, String> attributes = new HashMap<String, String>();
+    private final HashMap<String, String> attributes = new HashMap<String, String>();
     private String name;
     private Perk parent;
 

@@ -56,14 +56,14 @@ public class TradeGood extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "`name` VARCHAR(64) NOT NULL," +
                     "`town_id` int(11)," +
                     "`structure_id` int(11), " +
                     "`coord` mediumtext DEFAULT NULL," +
-                    "`bonusLocation` mediumtext DEFAULT NULL," +
+                    "`bonusLocation` mediumtext DEFAULT NULL" +
                     //	 "FOREIGN KEY (town_id) REFERENCES "+SQL.tb_prefix+"TOWNS(id),"+
-                    "PRIMARY KEY (`id`)" + ")";
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -74,8 +74,7 @@ public class TradeGood extends SQLObject {
 
     public static double getBaseValue(TradeGood good) {
         ConfigTradeGood configTradeGood = good.getInfo();
-        double value = configTradeGood.value;
-        return value;
+        return configTradeGood.value;
     }
 
     public static int getTradeGoodCount(BonusGoodie goodie, Town town) {

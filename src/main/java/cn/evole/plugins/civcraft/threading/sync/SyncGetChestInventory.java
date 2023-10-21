@@ -28,7 +28,7 @@ public class SyncGetChestInventory implements Runnable {
     public static ReentrantLock lock = new ReentrantLock();
     public static ConcurrentLinkedQueue<GetChestRequest> requestQueue =
             new ConcurrentLinkedQueue<>();
-    private Object synchronizer = new Object();
+    private final Object synchronizer = new Object();
 
     public SyncGetChestInventory() {
     }

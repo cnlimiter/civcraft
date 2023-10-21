@@ -53,14 +53,14 @@ public class Relation extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "`civ_id` int(11) NOT NULL DEFAULT 0," +
                     "`other_civ_id` int(11) NOT NULL DEFAULT 0," +
                     "`relation` mediumtext DEFAULT NULL," +
                     "`aggressor_civ_id` int(11) NOT NULL DEFAULT 0," +
                     "`created` long," +
-                    "`expires` long," +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`expires` long" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -120,14 +120,14 @@ public class Relation extends SQLObject {
         }
 
 
-        Long createdLong = rs.getLong("created");
-        Long expiresLong = rs.getLong("expires");
+        long createdLong = rs.getLong("created");
+        long expiresLong = rs.getLong("expires");
 
-        if (createdLong != null && createdLong != 0) {
+        if (createdLong != 0) {
             created = new Date(createdLong);
         }
 
-        if (expiresLong != null && expiresLong != 0) {
+        if (expiresLong != 0) {
             expires = new Date(expiresLong);
         }
     }

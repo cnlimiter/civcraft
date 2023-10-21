@@ -37,7 +37,7 @@ public class Localize {
 
     public void setLanguageFile(String langFile) {
         if (langFile.isEmpty()) {
-            this.languageFile = "zh_lang.yml";
+            this.languageFile = "default_lang.yml";
         } else {
             this.languageFile = langFile;
         }
@@ -95,7 +95,6 @@ public class Localize {
         try {
             CivSettings.streamResourceToDisk("/localization/" + defaultLanguageFile);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -106,11 +105,7 @@ public class Localize {
         YamlConfiguration cfg = new YamlConfiguration();
         try {
             cfg.load(defaultLocalizedStringsFile);
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        } catch (InvalidConfigurationException e1) {
+        } catch (InvalidConfigurationException | IOException e1) {
             e1.printStackTrace();
         }
         defaultLocalizedStrings.setDefaults(cfg);
@@ -138,11 +133,7 @@ public class Localize {
         YamlConfiguration cfg = new YamlConfiguration();
         try {
             cfg.load(localizedStringsFile);
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        } catch (InvalidConfigurationException e1) {
+        } catch (InvalidConfigurationException | IOException e1) {
             e1.printStackTrace();
         }
         localizedStrings.setDefaults(cfg);

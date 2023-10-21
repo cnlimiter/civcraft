@@ -37,7 +37,18 @@ public class Report
 
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
-            String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (`id` int(11) unsigned NOT NULL auto_increment,`cause` mediumtext,`proof` mediumtext,`reportedBy` mediumtext,`time` long,`bug` boolean DEFAULT false,`closed` boolean DEFAULT false,`whoClosed` mediumtext,`result` mediumtext,`closeTime` long,PRIMARY KEY (`id`))";
+            String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME +
+                    " (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`cause` TEXT," +
+                    "`proof` TEXT," +
+                    "`reportedBy` TEXT," +
+                    "`time` long," +
+                    "`bug` boolean DEFAULT false," +
+                    "`closed` boolean DEFAULT false," +
+                    "`whoClosed` TEXT," +
+                    "`result` TEXT," +
+                    "`closeTime` long" +
+                    ")";
             SQL.makeTable(table_create);
             CivLog.info("Created REPORTS table");
         } else {

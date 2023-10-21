@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 提示的timer
+ * 定时广播
  */
 public class AnnouncementTimer implements Runnable {
 
@@ -35,7 +35,6 @@ public class AnnouncementTimer implements Runnable {
             try {
                 CivSettings.streamResourceToDisk("/data/" + filename);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -80,7 +79,7 @@ public class AnnouncementTimer implements Runnable {
             CivMessage.sendAll(CivColor.Gold + CivSettings.localize.localizedString("TipHeading") + " " + CivColor.White + str);
 
             try {
-                Thread.sleep(60 * minutes * 1000); //sleep for x mins
+                Thread.sleep(60L * minutes * 1000); //sleep for x mins
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 return;

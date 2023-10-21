@@ -159,8 +159,8 @@ public class Town extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
-                    "`name` VARCHAR(64) NOT NULL," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`name` VARCHAR(64) UNIQUE NOT NULL," +
                     "`civ_id` int(11) NOT NULL DEFAULT 0," +
                     "`master_civ_id` int(11) NOT NULL DEFAULT 0," + //XXX no longer used.
                     "`mother_civ_id` int(11) NOT NULL DEFAULT 0," +
@@ -179,12 +179,11 @@ public class Town extends SQLObject {
                     "`created_date` long," +
                     "`outlaws` mediumtext DEFAULT NULL," +
                     "`dbg_civ_name` mediumtext DEFAULT NULL," +
-                    "`talents` mediumtext," +
+                    "`talents` TEXT," +
                     "`tradeGoods` mediumtext DEFAULT NULL," +
-                    "`conquered_date` mediumtext," +
-                    "`quarryPickaxes` mediumtext," +
-                    "UNIQUE KEY (`name`), " +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`conquered_date` TEXT," +
+                    "`quarryPickaxes` TEXT" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -439,13 +438,11 @@ public class Town extends SQLObject {
         if (outlawRaw != null) {
             String[] outlaws = outlawRaw.split(",");
 
-            for (String outlaw : outlaws) {
-                this.outlaws.add(outlaw);
-            }
+            Collections.addAll(this.outlaws, outlaws);
         }
 
-        Long ctime = rs.getLong("created_date");
-        if (ctime == null || ctime == 0) {
+        long ctime = rs.getLong("created_date");
+        if (ctime == 0) {
             this.setCreated(new Date(0)); //Forever in the past.
         } else {
             this.setCreated(new Date(ctime));
@@ -497,11 +494,11 @@ public class Town extends SQLObject {
             hashmap.put("created_date", null);
         }
 
-        String outlaws = "";
+        StringBuilder outlaws = new StringBuilder();
         for (String outlaw : this.outlaws) {
-            outlaws += outlaw + ",";
+            outlaws.append(outlaw).append(",");
         }
-        hashmap.put("outlaws", outlaws);
+        hashmap.put("outlaws", outlaws.toString());
 
         SQL.updateNamedObject(this, hashmap, TABLE_NAME);
     }
@@ -580,7 +577,7 @@ public class Town extends SQLObject {
         String[] split = upgradeString.split(",");
 
         for (String str : split) {
-            if (str == null || str.equals("")) {
+            if (str == null || str.isEmpty()) {
                 continue;
             }
 
@@ -759,7 +756,7 @@ public class Town extends SQLObject {
             for (Civilization civ : CivGlobal.getCivs()) {
                 townCount += civ.getTownCount();
             }
-            double culturePercentPerTown = Double.valueOf(CivSettings.buffs.get("buff_globe_theatre_culture_from_towns").value);
+            double culturePercentPerTown = Double.parseDouble(CivSettings.buffs.get("buff_globe_theatre_culture_from_towns").value);
 
             double bonus = culturePercentPerTown * townCount;
             additional += bonus;
@@ -859,7 +856,7 @@ public class Town extends SQLObject {
     public void addAccumulatedCulture(double generated) {
         ConfigCultureLevel clc = CivSettings.cultureLevels.get(this.getCultureLevel());
 
-        this.culture += generated;
+        this.culture += (int) generated;
         this.save();
         if (this.getCultureLevel() != CivSettings.getMaxCultureLevel()) {
             if (this.culture >= clc.amount) {
@@ -1197,7 +1194,7 @@ public class Town extends SQLObject {
 
         try {
             upgrade.processAction(this);
-        } catch (CivException e) {
+        } catch (CivException ignored) {
         }
         this.upgrades.put(upgrade.id, upgrade);
         this.save();
@@ -1642,7 +1639,7 @@ public class Town extends SQLObject {
     }
 
     public void giveExtraHammers(double extra) {
-        if (build_tasks.size() == 0) {
+        if (build_tasks.isEmpty()) {
             //Nothing is building, store the extra hammers for when a structure starts building.
             extraHammers = extra;
         } else {
@@ -1671,7 +1668,7 @@ public class Town extends SQLObject {
 
         Wonder wonder = Wonder.newWonder(center, id, this);
 
-        if (!this.hasUpgrade(wonder.getRequiredUpgrade())) {
+        if (wonder != null && !this.hasUpgrade(wonder.getRequiredUpgrade())) {
             throw new CivException(CivSettings.localize.localizedString("town_buildwonder_errorMissingUpgrade") + " §6" + CivSettings.getUpgradeById(wonder.getRequiredUpgrade()).name);
         }
 
@@ -1745,7 +1742,7 @@ public class Town extends SQLObject {
 
         Structure struct = Structure.newStructure(center, id, this);
 
-        if (!this.hasUpgrade(struct.getRequiredUpgrade())) {
+        if (struct != null && !this.hasUpgrade(struct.getRequiredUpgrade())) {
             throw new CivException(CivSettings.localize.localizedString("town_buildwonder_errorMissingUpgrade") + " §6" + CivSettings.getUpgradeById(struct.getRequiredUpgrade()).name);
         }
 
@@ -1784,12 +1781,8 @@ public class Town extends SQLObject {
              * Make them use the structure preview code and they don't yet
              */
             if (tpl == null) {
-                try {
-                    tpl = new Template();
-                    tpl.initTemplate(center, struct);
-                } catch (Exception e) {
-                    throw e;
-                }
+                tpl = new Template();
+                tpl.initTemplate(center, struct);
             }
 
             struct.build(player, center, tpl);
@@ -1830,7 +1823,7 @@ public class Town extends SQLObject {
 
         if (struct.isTileImprovement()) {
             ConfigTownLevel level = CivSettings.townLevels.get(this.getLevel());
-            Integer maxTileImprovements = level.tile_improvements;
+            int maxTileImprovements = level.tile_improvements;
             if (this.getBuffManager().hasBuff("buff_mother_tree_tile_improvement_bonus")) {
                 maxTileImprovements *= 2;
             }
@@ -1839,14 +1832,8 @@ public class Town extends SQLObject {
                 talent = (int) (level.tile_improvements * 0.2);
             }
             maxTileImprovements += talent;
-            if (this.getTileImprovementCount() > maxTileImprovements) {
-                return false;
-            }
-        } else if ((struct.getLimit() != 0) && (count > struct.getLimit())) {
-            return false;
-        }
-
-        return true;
+            return this.getTileImprovementCount() <= maxTileImprovements;
+        } else return (struct.getLimit() == 0) || (count <= struct.getLimit());
     }
 
     public void addStructure(Structure struct) {
@@ -1932,7 +1919,7 @@ public class Town extends SQLObject {
         if (!struct.allowDemolish() && !isAdmin) {
             throw new CivException(CivSettings.localize.localizedString("town_demolish_Cannot"));
         }
-        if ((struct instanceof TradeOutpost || struct instanceof FishingBoat) && !CivGlobal.allowDemolishOutPost()) {
+        if (struct instanceof TradeOutpost && !CivGlobal.allowDemolishOutPost()) {
             throw new CivException(CivSettings.localize.localizedString("town_demolish_CannotNotNow"));
         }
 
@@ -2136,8 +2123,7 @@ public class Town extends SQLObject {
     }
 
     public double getTempleRate() {
-        double rate = 1.0;
-        return rate;
+        return 1.0;
     }
 
     public double getSpreadUpkeep() throws InvalidConfiguration {
@@ -2563,14 +2549,14 @@ public class Town extends SQLObject {
         // also coins.
         try {
             double perResident = CivSettings.getInteger(CivSettings.scoreConfig, "town_scores.resident");
-            points += perResident * this.getResidents().size();
+            points += (int) (perResident * this.getResidents().size());
 
             double perTownChunk = CivSettings.getInteger(CivSettings.scoreConfig, "town_scores.town_chunk");
-            points += perTownChunk * this.getTownChunks().size();
+            points += (int) (perTownChunk * this.getTownChunks().size());
 
             double perCultureChunk = CivSettings.getInteger(CivSettings.scoreConfig, "town_scores.culture_chunk");
             if (this.cultureChunks != null) {
-                points += perCultureChunk * this.cultureChunks.size();
+                points += (int) (perCultureChunk * this.cultureChunks.size());
             } else {
                 CivLog.warning("Town " + this.getName() + " has no culture chunks??");
             }
@@ -2756,7 +2742,7 @@ public class Town extends SQLObject {
                 resident.getTreasury().withdraw(amount);
             }
 
-            if (this.getTreasury().inDebt() == false) {
+            if (!this.getTreasury().inDebt()) {
                 this.daysInDebt = 0;
                 CivMessage.global(CivSettings.localize.localizedString("town_ruin_nolongerInDebt", this.getName()));
             }
@@ -2788,9 +2774,7 @@ public class Town extends SQLObject {
             }
         }
 
-        for (Resident resident : this.fakeResidents.values()) {
-            residents.add(resident);
-        }
+        residents.addAll(this.fakeResidents.values());
 
         return residents;
     }
@@ -3306,7 +3290,7 @@ public class Town extends SQLObject {
                 message += CivSettings.localize.localizedString("var_town_spy_perpetrator", resident.getName());
             }
 
-            if (message.length() > 0) {
+            if (!message.isEmpty()) {
                 if (lastMessage == null || !lastMessage.equals(message)) {
                     CivMessage.sendTown(this, CivColor.Yellow + CivColor.BOLD + message);
                     lastMessage = message;
@@ -3322,12 +3306,8 @@ public class Town extends SQLObject {
     public ArrayList<Perk> getTemplatePerks(Buildable buildable, Resident resident, ConfigBuildableInfo info) {
         ArrayList<Perk> perks = CustomTemplate.getTemplatePerksForBuildable(this, buildable.getTemplateBaseName());
 
-        for (Perk perk : resident.getPersonalTemplatePerks(info)) {
-            perks.add(perk);
-        }
-        for (Perk perk : resident.getUnboundTemplatePerks(perks, info)) {
-            perks.add(perk);
-        }
+        perks.addAll(resident.getPersonalTemplatePerks(info));
+        perks.addAll(resident.getUnboundTemplatePerks(perks, info));
 
         return perks;
     }
@@ -3371,7 +3351,7 @@ public class Town extends SQLObject {
                 throw new CivException(CivSettings.localize.localizedString("internalCommandException"));
             }
 
-            if (now.getTime() < this.lastBuildableRefresh.getTime() + (buildable_refresh_cooldown * 60 * 1000)) {
+            if (now.getTime() < this.lastBuildableRefresh.getTime() + ((long) buildable_refresh_cooldown * 60 * 1000)) {
                 throw new CivException(CivSettings.localize.localizedString("var_town_refresh_wait1", buildable_refresh_cooldown));
             }
         }
@@ -3535,10 +3515,7 @@ public class Town extends SQLObject {
     }
 
     public boolean hasDisabledStructures() {
-        if (this.disabledBuildables.size() == 0) {
-            return false;
-        }
-        return true;
+        return !this.disabledBuildables.isEmpty();
     }
 
     public Collection<Buildable> getDisabledBuildables() {
@@ -3587,7 +3564,7 @@ public class Town extends SQLObject {
     }
 
     private void setTalentsFromString(final String talents) throws CivException {
-        if (talents.length() == 0) {
+        if (talents.isEmpty()) {
             return;
         }
         String[] split = talents.split(",");
@@ -3596,13 +3573,13 @@ public class Town extends SQLObject {
                 continue;
             }
             String[] talentParsed = talentUnparsed.split("\\.");
-            Talent talent = new Talent(Integer.valueOf(talentParsed[0]), talentParsed[1]);
+            Talent talent = new Talent(Integer.parseInt(talentParsed[0]), talentParsed[1]);
             this.talents.add(talent);
             if (!this.getBuffManager().hasBuff(talent.buff) && talent.buff != null) {
                 this.getBuffManager().addBuff(talent.buff, talent.buff, "Talent in " + this.getName());
             }
         }
-        if (this.talents.size() >= 1) {
+        if (!this.talents.isEmpty()) {
             for (final Structure structure : this.getStructures()) {
                 structure.onBonusGoodieUpdate();
             }
@@ -3650,8 +3627,7 @@ public class Town extends SQLObject {
     }
 
     public void updateQuarryPickaxes(final int cobble, final int iron, final int diamond, final int gold, final int effCobble, final int effIron, final int effDiamond, final int effGold) {
-        final String newQuarryPickaxes = cobble + ":" + iron + ":" + diamond + ":" + gold + ":" + ((effCobble == -1) ? 0 : effCobble) + ":" + ((effIron == -1) ? 0 : effIron) + ":" + ((effDiamond == -1) ? 0 : effDiamond) + ":" + ((effGold == -1) ? 0 : effGold);
-        this.quarryPickaxes = newQuarryPickaxes;
+        this.quarryPickaxes = cobble + ":" + iron + ":" + diamond + ":" + gold + ":" + ((effCobble == -1) ? 0 : effCobble) + ":" + ((effIron == -1) ? 0 : effIron) + ":" + ((effDiamond == -1) ? 0 : effDiamond) + ":" + ((effGold == -1) ? 0 : effGold);
         this.save();
     }
 
@@ -3730,8 +3706,7 @@ public class Town extends SQLObject {
         final String[] goods = this.tradeGoods.split(", ");
         final ArrayList<String> newGoods = new ArrayList<String>();
         boolean withdrawed = false;
-        for (int i = 0; i < goods.length; ++i) {
-            final String goodID = goods[i];
+        for (final String goodID : goods) {
             if (!withdrawed && goodID.equals(id)) {
                 withdrawed = true;
             } else {
@@ -3758,7 +3733,7 @@ public class Town extends SQLObject {
     public boolean hasScroll() {
         final String key = "scrollHammers_" + this.getId();
         final ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(key);
-        if (entries == null || entries.size() < 1) {
+        if (entries == null || entries.isEmpty()) {
             return false;
         }
         final SessionEntry cd = entries.get(0);
@@ -3773,7 +3748,7 @@ public class Town extends SQLObject {
     public String getScrollTill() {
         final String key = "scrollHammers_" + this.getId();
         final ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(key);
-        if (entries == null || entries.size() < 1) {
+        if (entries == null || entries.isEmpty()) {
             return null;
         }
         final SessionEntry cd = entries.get(0);
@@ -3786,7 +3761,7 @@ public class Town extends SQLObject {
         final String key = "scrollHammers_" + this.getId();
         final String value = Calendar.getInstance().getTimeInMillis() + time + "";
         final ArrayList<SessionEntry> entries = CivGlobal.getSessionDB().lookup(key);
-        if (entries == null || entries.size() < 1) {
+        if (entries == null || entries.isEmpty()) {
             CivGlobal.getSessionDB().add(key, value, 0, 0, 0);
             return;
         }
@@ -3918,7 +3893,7 @@ public class Town extends SQLObject {
         return Math.max(total, 1.0);
     }
 
-    class AttrCache {
+    static class AttrCache {
         public Date lastUpdate;
         public AttrSource sources;
     }

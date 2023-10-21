@@ -54,14 +54,14 @@ public class PermissionGroup extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     "`name` VARCHAR(64) NOT NULL," +
                     "`town_id` int(11)," +
                     "`civ_id` int(11)," +
-                    "`members` mediumtext," +
+                    "`members` TEXT" +
                     //"FOREIGN KEY (town_id) REFERENCES "+SQL.tb_prefix+"TOWN(id),"+
                     //"FOREIGN KEY (civ_id) REFERENCES "+SQL.tb_prefix+"CIVILIZATIONS(id),"+
-                    "PRIMARY KEY (`id`)" + ")";
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

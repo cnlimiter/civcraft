@@ -29,8 +29,8 @@ import java.util.Random;
 
 public class WindmillPreProcessTask extends CivAsyncTask {
 
-    private ArrayList<ChunkSnapshot> snapshots;
-    private Windmill windmill;
+    private final ArrayList<ChunkSnapshot> snapshots;
+    private final Windmill windmill;
 
     public WindmillPreProcessTask(Windmill windmill, ArrayList<ChunkSnapshot> snaphots) {
         this.snapshots = snaphots;

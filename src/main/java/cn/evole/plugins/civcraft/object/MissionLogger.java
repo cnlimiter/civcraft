@@ -31,14 +31,14 @@ public class MissionLogger {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
-                    "`town_id` int(11) unsigned DEFAULT 0," +
-                    "`target_id` int(11) unsigned DEFAULT 0," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`town_id` int(11) DEFAULT 0," +
+                    "`target_id` int(11) DEFAULT 0," +
                     "`time` long," +
-                    "`playerName` mediumtext," +
-                    "`missionName` mediumtext," +
-                    "`result` mediumtext," +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`playerName` TEXT," +
+                    "`missionName` TEXT," +
+                    "`result` TEXT" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

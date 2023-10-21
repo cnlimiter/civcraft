@@ -104,9 +104,7 @@ public class CustomTemplate extends PerkComponent {
         Template tpl = new Template();
         try {
             tpl.initTemplate(player.getLocation(), buildable, this.getString("theme"));
-        } catch (CivException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (CivException | IOException e) {
             e.printStackTrace();
         }
 

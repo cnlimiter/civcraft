@@ -260,13 +260,6 @@ public class CivSettings {
         LoreCraftableMaterial.buildRecipes();
         Template.initAttachableTypes();
 
-        if (CivSettings.plugin.hasPlugin("VanishNoPacket")) {
-            hasVanishNoPacket = true;
-            CivLog.info("VanishNoPacket hooks enabled");
-        } else {
-            CivLog.warning("VanishNoPacket not found, not registering VanishNoPacket hooks. This is fine if you're not using VanishNoPacket.");
-        }
-
         if (CivSettings.plugin.hasPlugin("TitleAPI")) {
             hasTitleAPI = true;
             CivLog.info("TitleAPI hooks enabled");
@@ -594,6 +587,10 @@ public class CivSettings {
          */
         blockPlaceExceptions.put(Material.FIRE, 0);
         blockPlaceExceptions.put(Material.PORTAL, 0);
+    }
+
+    public static boolean getBooleanBase(String path) throws InvalidConfiguration {
+        return getBoolean(plugin.getConfig(), path);
     }
 
     public static String getStringBase(String path) throws InvalidConfiguration {

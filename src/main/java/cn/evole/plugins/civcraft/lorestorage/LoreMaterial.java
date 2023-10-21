@@ -36,6 +36,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -47,7 +48,7 @@ public abstract class LoreMaterial {
     private String id;
     private int typeID;
     private short damage;
-    private LinkedList<String> lore = new LinkedList<String>();
+    private final LinkedList<String> lore = new LinkedList<String>();
     private String name;
 
     public LoreMaterial(String id, int typeID, short damage) {
@@ -245,9 +246,7 @@ public abstract class LoreMaterial {
 
     public void setLore(String[] lore) {
         this.lore.clear();
-        for (String str : lore) {
-            this.lore.add(str);
-        }
+        Collections.addAll(this.lore, lore);
     }
 
     public String getName() {

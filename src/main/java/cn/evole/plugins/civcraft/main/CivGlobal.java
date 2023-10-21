@@ -106,37 +106,37 @@ public class CivGlobal {
     public static int highestCivEra = 0;
     public static int ruinsGenerated = 0;
     private static boolean useEconomy;
-    private static Map<String, QuestionBaseTask> questions = new ConcurrentHashMap<String, QuestionBaseTask>();
-    private static Map<String, Resident> residents = new ConcurrentHashMap<String, Resident>();
+    private static final Map<String, QuestionBaseTask> questions = new ConcurrentHashMap<String, QuestionBaseTask>();
+    private static final Map<String, Resident> residents = new ConcurrentHashMap<String, Resident>();
 
     //public static Scoreboard globalBoard;
-    private static Map<UUID, Resident> residentsViaUUID = new ConcurrentHashMap<UUID, Resident>();
-    private static Map<String, Town> towns = new ConcurrentHashMap<String, Town>();
-    private static Map<String, Civilization> civs = new ConcurrentHashMap<String, Civilization>();
-    private static Map<String, Civilization> conqueredCivs = new ConcurrentHashMap<String, Civilization>();
-    private static Map<ChunkCoord, TownChunk> townChunks = new ConcurrentHashMap<ChunkCoord, TownChunk>();
-    private static Map<ChunkCoord, CultureChunk> cultureChunks = new ConcurrentHashMap<ChunkCoord, CultureChunk>();
-    private static Map<BlockCoord, Structure> structures = new ConcurrentHashMap<BlockCoord, Structure>();
-    private static Map<BlockCoord, Wonder> wonders = new ConcurrentHashMap<BlockCoord, Wonder>();
-    private static Map<BlockCoord, StructureBlock> structureBlocks = new ConcurrentHashMap<BlockCoord, StructureBlock>();
+    private static final Map<UUID, Resident> residentsViaUUID = new ConcurrentHashMap<UUID, Resident>();
+    private static final Map<String, Town> towns = new ConcurrentHashMap<String, Town>();
+    private static final Map<String, Civilization> civs = new ConcurrentHashMap<String, Civilization>();
+    private static final Map<String, Civilization> conqueredCivs = new ConcurrentHashMap<String, Civilization>();
+    private static final Map<ChunkCoord, TownChunk> townChunks = new ConcurrentHashMap<ChunkCoord, TownChunk>();
+    private static final Map<ChunkCoord, CultureChunk> cultureChunks = new ConcurrentHashMap<ChunkCoord, CultureChunk>();
+    private static final Map<BlockCoord, Structure> structures = new ConcurrentHashMap<BlockCoord, Structure>();
+    private static final Map<BlockCoord, Wonder> wonders = new ConcurrentHashMap<BlockCoord, Wonder>();
+    private static final Map<BlockCoord, StructureBlock> structureBlocks = new ConcurrentHashMap<BlockCoord, StructureBlock>();
     //private static Map<BlockCoord, LinkedList<StructureBlock>> structureBlocksIn2D = new ConcurrentHashMap<BlockCoord, LinkedList<StructureBlock>>();
-    private static Map<String, HashSet<Buildable>> buildablesInChunk = new ConcurrentHashMap<String, HashSet<Buildable>>();
-    private static Map<BlockCoord, CampBlock> campBlocks = new ConcurrentHashMap<BlockCoord, CampBlock>();
-    private static Map<BlockCoord, StructureSign> structureSigns = new ConcurrentHashMap<BlockCoord, StructureSign>();
-    private static Map<BlockCoord, StructureChest> structureChests = new ConcurrentHashMap<BlockCoord, StructureChest>();
-    private static Map<BlockCoord, TradeGood> tradeGoods = new ConcurrentHashMap<BlockCoord, TradeGood>();
-    private static Map<BlockCoord, ProtectedBlock> protectedBlocks = new ConcurrentHashMap<BlockCoord, ProtectedBlock>();
-    private static Map<ChunkCoord, FarmChunk> farmChunks = new ConcurrentHashMap<ChunkCoord, FarmChunk>();
-    private static Queue<FarmChunk> farmChunkUpdateQueue = new LinkedList<FarmChunk>();
+    private static final Map<String, HashSet<Buildable>> buildablesInChunk = new ConcurrentHashMap<String, HashSet<Buildable>>();
+    private static final Map<BlockCoord, CampBlock> campBlocks = new ConcurrentHashMap<BlockCoord, CampBlock>();
+    private static final Map<BlockCoord, StructureSign> structureSigns = new ConcurrentHashMap<BlockCoord, StructureSign>();
+    private static final Map<BlockCoord, StructureChest> structureChests = new ConcurrentHashMap<BlockCoord, StructureChest>();
+    private static final Map<BlockCoord, TradeGood> tradeGoods = new ConcurrentHashMap<BlockCoord, TradeGood>();
+    private static final Map<BlockCoord, ProtectedBlock> protectedBlocks = new ConcurrentHashMap<BlockCoord, ProtectedBlock>();
+    private static final Map<ChunkCoord, FarmChunk> farmChunks = new ConcurrentHashMap<ChunkCoord, FarmChunk>();
+    private static final Queue<FarmChunk> farmChunkUpdateQueue = new LinkedList<FarmChunk>();
     private static Queue<FarmChunk> farmGrowQueue = new LinkedList<FarmChunk>();
-    private static Map<UUID, ItemFrameStorage> protectedItemFrames = new ConcurrentHashMap<UUID, ItemFrameStorage>();
-    private static Map<BlockCoord, BonusGoodie> bonusGoodies = new ConcurrentHashMap<BlockCoord, BonusGoodie>();
-    private static Map<ChunkCoord, HashSet<Wall>> wallChunks = new ConcurrentHashMap<ChunkCoord, HashSet<Wall>>();
-    private static Map<BlockCoord, RoadBlock> roadBlocks = new ConcurrentHashMap<BlockCoord, RoadBlock>();
-    private static Map<String, Camp> camps = new ConcurrentHashMap<String, Camp>();
-    private static Map<ChunkCoord, Camp> campChunks = new ConcurrentHashMap<ChunkCoord, Camp>();
-    private static Map<BlockCoord, Market> markets = new ConcurrentHashMap<BlockCoord, Market>();
-    private static Map<Integer, Report> reports = new HashMap<Integer, Report>();
+    private static final Map<UUID, ItemFrameStorage> protectedItemFrames = new ConcurrentHashMap<UUID, ItemFrameStorage>();
+    private static final Map<BlockCoord, BonusGoodie> bonusGoodies = new ConcurrentHashMap<BlockCoord, BonusGoodie>();
+    private static final Map<ChunkCoord, HashSet<Wall>> wallChunks = new ConcurrentHashMap<ChunkCoord, HashSet<Wall>>();
+    private static final Map<BlockCoord, RoadBlock> roadBlocks = new ConcurrentHashMap<BlockCoord, RoadBlock>();
+    private static final Map<String, Camp> camps = new ConcurrentHashMap<String, Camp>();
+    private static final Map<ChunkCoord, Camp> campChunks = new ConcurrentHashMap<ChunkCoord, Camp>();
+    private static final Map<BlockCoord, Market> markets = new ConcurrentHashMap<BlockCoord, Market>();
+    private static final Map<Integer, Report> reports = new HashMap<Integer, Report>();
     //TODO convert this to completely static?
     private static SessionDatabase sdb;
 
@@ -247,7 +247,7 @@ public class CivGlobal {
         PreparedStatement ps = null;
         try {
             context = SQL.getGameConnection();
-            ps = context.prepareStatement("SELECT * FROM " + SQL.tb_prefix + "REPORTS");
+            ps = context.prepareStatement("SELECT * FROM " + SQL.tb_prefix + Report.TABLE_NAME);
             rs = ps.executeQuery();
             while (rs.next()) {
                 try {
@@ -929,11 +929,10 @@ public class CivGlobal {
     }
 
     public static Location getLocationFromHash(String hash) {
-        String split[] = hash.split(",");
-        Location loc = new Location(BukkitObjects.getWorld(split[0]), Double.valueOf(split[1]),
-                Double.valueOf(split[2]),
+        String[] split = hash.split(",");
+        return new Location(BukkitObjects.getWorld(split[0]), Double.parseDouble(split[1]),
+                Double.parseDouble(split[2]),
                 Double.parseDouble(split[3]));
-        return loc;
     }
 
     public static void removeStructure(Structure structure) {
@@ -1331,7 +1330,7 @@ public class CivGlobal {
 
                     if (!eFrameEmpty) {
                         Boolean droppedAlready = droppedItems.get(ItemManager.getId(eFrame.getItem()));
-                        if (droppedAlready == null || droppedAlready == false) {
+                        if (droppedAlready == null || !droppedAlready) {
                             droppedItems.put(ItemManager.getId(eFrame.getItem()), true);
                             eFrame.getLocation().getWorld().dropItemNaturally(eFrame.getLocation(), eFrame.getItem());
                         }
@@ -1638,7 +1637,7 @@ public class CivGlobal {
 
     public static HashSet<Wall> getWallChunk(ChunkCoord coord) {
         HashSet<Wall> walls = wallChunks.get(coord);
-        if (walls != null && walls.size() > 0) {
+        if (walls != null && !walls.isEmpty()) {
             return walls;
         } else {
             return null;
@@ -2003,7 +2002,7 @@ public class CivGlobal {
         long cooldown = 0L;
         final String key = "unitCooldown_" + unit.getSimpleName() + "_" + user.getUniqueId();
         final ArrayList<SessionEntry> entries = getSessionDB().lookup(key);
-        if (entries == null || entries.size() < 1) {
+        if (entries == null || entries.isEmpty()) {
             return cooldown;
         }
         final SessionEntry cd = entries.get(0);
@@ -2015,7 +2014,7 @@ public class CivGlobal {
         final String key = "unitCooldown_" + unit.getSimpleName() + "_" + user.getUniqueId();
         final String value = Calendar.getInstance().getTimeInMillis() + 60000 * minutes + "";
         final ArrayList<SessionEntry> entries = getSessionDB().lookup(key);
-        if (entries == null || entries.size() < 1) {
+        if (entries == null || entries.isEmpty()) {
             CivGlobal.getSessionDB().add(key, value, 0, 0, 0);
             return;
         }

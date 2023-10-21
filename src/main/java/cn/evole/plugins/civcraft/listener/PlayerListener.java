@@ -71,7 +71,10 @@ public class PlayerListener implements Listener {
         String name;
         boolean rare = false;
         ItemStack item = event.getItem().getItemStack();
-        if (item.getItemMeta().hasDisplayName()) {
+        if (item.getItemMeta().hasLocalizedName()){
+            name = item.getItemMeta().getLocalizedName();
+            rare = true;
+        } else if (item.getItemMeta().hasDisplayName()) {
             name = item.getItemMeta().getDisplayName();
             rare = true;
         } else {
@@ -92,8 +95,6 @@ public class PlayerListener implements Listener {
         TaskMaster.asyncTask("onPlayerLogin-" + event.getPlayer().getName(), new PlayerLoginAsyncTask(event.getPlayer().getUniqueId()), 0);
 
         PlayerLocationCacheUpdate.playerQueue.add(event.getPlayer().getName());
-
-//		MobSpawnerTimer.playerQueue.add((event.getPlayer().getName()));
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -146,14 +147,14 @@ public class PlayerListener implements Listener {
                 }
 
 //				if (War.isWarTime()) {
-//					
+//
 //					if (toCamp != null && toCamp == resident.getCamp()) {
 //						return;
 //					}
 //					if (cc != null && (cc.getCiv() == resident.getCiv() || cc.getCiv().isAdminCiv())) {
 //						return;
 //					}
-//					
+//
 //					event.setTo(event.getFrom());
 //					if (!event.isCancelled())
 //					{
@@ -293,7 +294,7 @@ public class PlayerListener implements Listener {
     public void onEntityDeath(EntityDeathEvent event) {
         if (event.getEntity() instanceof Player) {
             //Unit.removeUnit(((Player)event.getEntity()));
-            Boolean keepInventory = Boolean.valueOf(Bukkit.getWorld("world").getGameRuleValue("keepInventory"));
+            boolean keepInventory = Boolean.parseBoolean(Bukkit.getWorld("world").getGameRuleValue("keepInventory"));
             if (!keepInventory) {
                 ArrayList<ItemStack> stacksToRemove = new ArrayList<>();
                 for (ItemStack stack : event.getDrops()) {

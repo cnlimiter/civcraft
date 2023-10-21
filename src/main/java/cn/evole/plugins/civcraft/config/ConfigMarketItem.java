@@ -102,7 +102,7 @@ public class ConfigMarketItem {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`ident` VARCHAR(64) NOT NULL," +
+                    "`ident` VARCHAR(64) PRIMARY KEY NOT NULL," +
                     "`buy_value` int(11) NOT NULL DEFAULT 105," +
                     "`buy_bulk` int(11) NOT NULL DEFAULT 1," +
                     "`sell_value` int(11) NOT NULL DEFAULT 95," +
@@ -110,8 +110,8 @@ public class ConfigMarketItem {
                     "`buysell` int(11) NOT NULL DEFAULT 0," +
                     "`bought` int(11) NOT NULL DEFAULT 0," +
                     "`sold` int(11) NOT NULL DEFAULT 0," +
-                    "`last_action` mediumtext, " +
-                    "PRIMARY KEY (`ident`)" + ")";
+                    "`last_action` TEXT" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -177,28 +177,44 @@ public class ConfigMarketItem {
         PreparedStatement ps = null;
 
         try {
-            String query = "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`ident`, `buy_value`, `buy_bulk`, `sell_value`, `sell_bulk`, `bought`, `sold`, `last_action`, `buysell`) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `buy_value`=?, `buy_bulk`=?, `sell_value`=?, `sell_bulk`=?, `bought`=?, `sold`=?, `last_action`=?, `buysell`=?";
+            String query =
+                    "insert or replace into `" + SQL.tb_prefix + TABLE_NAME + "` (`ident`, `buy_value`, `buy_bulk`, `sell_value`, `sell_bulk`, `bought`, `sold`, `last_action`, `buysell`) "
+                    +"VALUES (?," +
+                            " COALESCE((SELECT `buy_value` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `buy_bulk` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `sell_value` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `sell_bulk` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `bought` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `sold` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `last_action` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?)," +
+                            " COALESCE((SELECT `buysell` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `ident` = ?), ?))"
+                    ;
+
+
+
+//                    "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`ident`, `buy_value`, `buy_bulk`, `sell_value`, `sell_bulk`, `bought`, `sold`, `last_action`, `buysell`) " +
+//                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON conflict(`ident`) do update set `buy_value`=?, `buy_bulk`=?, `sell_value`=?, `sell_bulk`=?, `bought`=?, `sold`=?, `last_action`=?, `buysell`=?";
             context = SQL.getGameConnection();
             ps = context.prepareStatement(query);
 
             ps.setString(1, getIdent());
-            ps.setInt(2, buy_value);
-            ps.setInt(3, buy_bulk);
-            ps.setInt(4, sell_value);
-            ps.setInt(5, sell_bulk);
-            ps.setInt(6, bought);
-            ps.setInt(7, sold);
-            ps.setString(8, lastaction.toString());
-            ps.setInt(9, buysell_count);
-            ps.setInt(10, buy_value);
-            ps.setInt(11, buy_bulk);
-            ps.setInt(12, sell_value);
-            ps.setInt(13, sell_bulk);
-            ps.setInt(14, bought);
-            ps.setInt(15, sold);
-            ps.setString(16, lastaction.toString());
+            ps.setString(2, getIdent());
+            ps.setInt(3, buy_value);
+            ps.setString(4, getIdent());
+            ps.setInt(5, buy_bulk);
+            ps.setString(6, getIdent());
+            ps.setInt(7, sell_value);
+            ps.setString(8, getIdent());
+            ps.setInt(9, sell_bulk);
+            ps.setString(10, getIdent());
+            ps.setInt(11, bought);
+            ps.setString(12, getIdent());
+            ps.setInt(13, sold);
+            ps.setString(14, getIdent());
+            ps.setString(15, lastaction.toString());
+            ps.setString(16, getIdent());
             ps.setInt(17, buysell_count);
+
 
             int rs = ps.executeUpdate();
             if (rs == 0) {

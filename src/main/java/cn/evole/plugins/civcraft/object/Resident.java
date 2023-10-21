@@ -105,7 +105,7 @@ public class Resident extends SQLObject {
     private long lastOnline;
     private int daysTilEvict;
     private boolean givenKit;
-    private ConcurrentHashMap<String, Integer> friends = new ConcurrentHashMap<String, Integer>();
+    private final ConcurrentHashMap<String, Integer> friends = new ConcurrentHashMap<String, Integer>();
     private EconObject treasury;
     private boolean muted;
     private Date muteExpires = null;
@@ -152,34 +152,33 @@ public class Resident extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` int(11) unsigned NOT NULL auto_increment," +
-                    "`name` VARCHAR(64) NOT NULL," +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`name` VARCHAR(64) UNIQUE NOT NULL," +
                     "`uuid` VARCHAR(256) NOT NULL DEFAULT 'UNKNOWN'," +
                     "`currentName` VARCHAR(64) DEFAULT NULL," +
                     "`town_id` int(11)," +
                     "`lastOnline` BIGINT NOT NULL," +
                     "`registered` BIGINT NOT NULL," +
-                    "`friends` mediumtext," +
+                    "`friends` TEXT," +
                     "`debt` double DEFAULT 0," +
                     "`coins` double DEFAULT 0," +
-                    "`daysTilEvict` mediumint DEFAULT NULL," +
-                    "`givenKit` bool NOT NULL DEFAULT '0'," +
+                    "`daysTilEvict` mediumtext DEFAULT NULL," +
+                    "`givenKit` boolean NOT NULL DEFAULT false," +
                     "`camp_id` int(11)," +
-                    "`timezone` mediumtext," +
-                    "`banned` bool NOT NULL DEFAULT '0'," +
+                    "`timezone` TEXT," +
+                    "`banned` boolean NOT NULL DEFAULT false," +
                     "`bannedMessage` mediumtext DEFAULT NULL," +
                     "`savedInventory` mediumtext DEFAULT NULL," +
-                    "`isProtected` bool NOT NULL DEFAULT '0'," +
+                    "`isProtected` boolean NOT NULL DEFAULT false," +
                     "`flags` mediumtext DEFAULT NULL," +
                     "`last_ip` mediumtext DEFAULT NULL," +
                     "`debug_town` mediumtext DEFAULT NULL," +
                     "`debug_civ` mediumtext DEFAULT NuLL," +
                     "`language_id` int(11) DEFAULT '1033'," +
                     "`nextTeleport` BIGINT NOT NULL DEFAULT '0'," +
-                    "`reportResult` mediumtext," +
-                    "`reportChecked` boolean DEFAULT false," +
-                    "UNIQUE KEY (`name`), " +
-                    "PRIMARY KEY (`id`)" + ")";
+                    "`reportResult` TEXT," +
+                    "`reportChecked` boolean DEFAULT false" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -1910,7 +1909,7 @@ public class Resident extends SQLObject {
     }
 
     public void addPosionImmune() {
-        poisonImmune = Calendar.getInstance().getTimeInMillis() + 1000 * Resident.POISON_DURATION;
+        poisonImmune = Calendar.getInstance().getTimeInMillis() + 1000L * Resident.POISON_DURATION;
     }
 
     public boolean isLevitateImmune() {
@@ -1918,7 +1917,7 @@ public class Resident extends SQLObject {
     }
 
     public void addLevitateImmune() {
-        levitateImmune = Calendar.getInstance().getTimeInMillis() + 1000 * (Resident.LEVITATE_DURATION + 3);
+        levitateImmune = Calendar.getInstance().getTimeInMillis() + 1000L * (Resident.LEVITATE_DURATION + 3);
     }
 
     public void addPLCImmune(final int seconds) {

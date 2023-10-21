@@ -9,6 +9,7 @@
  */
 package cn.evole.plugins.civcraft.main;
 
+import cn.evole.plugins.civ_dynmap.CivDynmap;
 import cn.evole.plugins.civcraft.command.*;
 import cn.evole.plugins.civcraft.command.admin.AdminCommand;
 import cn.evole.plugins.civcraft.command.camp.CampCommand;
@@ -58,6 +59,7 @@ import cn.evole.plugins.global.scores.CalculateScoreTimer;
 import cn.evole.plugins.pvptimer.PvPListener;
 import cn.evole.plugins.pvptimer.PvPTimer;
 import cn.evole.plugins.sls.SLSManager;
+import cn.evole.plugins.tp.TpMain;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -74,12 +76,12 @@ public final class CivCraft extends JavaPlugin {
     private static JavaPlugin plugin;
     private boolean isError = false;
 
-    public static JavaPlugin getPlugin() {
-        return plugin;
-    }
-
     public static void setPlugin(JavaPlugin plugin) {
         CivCraft.plugin = plugin;
+    }
+
+    public static Plugin getPlugin() {
+        return plugin;
     }
 
     private void startTimers() {
@@ -137,8 +139,8 @@ public final class CivCraft extends JavaPlugin {
         TaskMaster.asyncTimer("FarmGrowthTimer",
                 new FarmGrowthSyncTask(), TimeTools.toTicks(Farm.GROW_RATE));
 
-        TaskMaster.asyncTimer("announcer", new AnnouncementTimer("tips.txt", 5), 0, TimeTools.toTicks(60 * 60));
-        TaskMaster.asyncTimer("announcerwar", new AnnouncementTimer("war.txt", 60), 0, TimeTools.toTicks(60 * 60));
+        TaskMaster.asyncTimer("AnnouncerTips", new AnnouncementTimer("tips.txt", 5), 0, TimeTools.toTicks(60 * 60));
+        TaskMaster.asyncTimer("AnnouncerWar", new AnnouncementTimer("war.txt", 60), 0, TimeTools.toTicks(60 * 60));
 
         TaskMaster.asyncTimer("ChangeGovernmentTimer", new ChangeGovernmentTimer(), TimeTools.toTicks(60));
         TaskMaster.asyncTimer("CalculateScoreTimer", new CalculateScoreTimer(), 0, TimeTools.toTicks(60));
@@ -171,7 +173,7 @@ public final class CivCraft extends JavaPlugin {
         pluginManager.registerEvents(new LoreGuiItemListener(), this);
         pluginManager.registerEvents(new MobListener(), this);
 
-        Boolean useEXPAsCurrency = true;
+        boolean useEXPAsCurrency;
         try {
             useEXPAsCurrency = CivSettings.getBoolean(CivSettings.civConfig, "global.use_exp_as_currency");
 
@@ -211,7 +213,7 @@ public final class CivCraft extends JavaPlugin {
         try {
             CivSettings.init(this);
 
-            SQL.initialize();
+            SQL.initialize(this);
             SQL.initCivObjectTables();
             ChunkCoord.buildWorldList();
             CivGlobal.loadGlobals();
@@ -227,10 +229,9 @@ public final class CivCraft extends JavaPlugin {
             e.printStackTrace();
             setError(true);
             return;
-            //TODO disable plugin?
         }
 
-        // Init commands 初始化指令
+        //初始化指令
         getCommand("town").setExecutor(new TownCommand());
         getCommand("resident").setExecutor(new ResidentCommand());
         getCommand("dbg").setExecutor(new DebugCommand());
@@ -240,7 +241,7 @@ public final class CivCraft extends JavaPlugin {
         getCommand("civ").setExecutor(new CivCommand());
         getCommand("tc").setExecutor(new TownChatCommand());
         getCommand("cc").setExecutor(new CivChatCommand());
-        //getCommand("gc").setExecutor(new GlobalChatCommand());
+        getCommand("gc").setExecutor(new GlobalChatCommand());
         getCommand("ad").setExecutor(new AdminCommand());
         getCommand("econ").setExecutor(new EconCommand());
         getCommand("pay").setExecutor(new PayCommand());
@@ -255,6 +256,15 @@ public final class CivCraft extends JavaPlugin {
 
         registerEvents();
         startTimers();
+
+        if (hasPlugin("dynmap")) CivDynmap.INSTANCE.init(this);
+        new TpMain(this).onEnable();
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        new TpMain(this).onLoad();
     }
 
     @Override
@@ -262,6 +272,7 @@ public final class CivCraft extends JavaPlugin {
         super.onDisable();
         isDisable = true;
         SQLUpdate.save();
+        new TpMain(this).onDisable();
     }
 
     public boolean hasPlugin(String name) {

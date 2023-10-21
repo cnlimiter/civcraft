@@ -53,3 +53,53 @@ commands:
     aliases:
   sb:
     aliases:
+  tpa:
+    description: 传送
+    usage:
+    permission: TPA.tpa
+    permission-message: §c你没有执行命令的权限
+  acctp:
+    description: 接受传送
+    usage:
+    permission: TPA.acctp
+    permission-message: §c你没有执行命令的权限
+  noacctp:
+    description: 拒绝传送
+    usage:
+    permission: TPA.noacctp
+    permission-message: §c你没有执行命令的权限
+  bklist:
+    description: 加入黑名单
+    usage:
+    permission: TPA.bklist
+    permission-message: §c你没有执行命令的权限
+  bklistde:
+    description: 从黑名单删除一个玩家
+    usage:
+    permission: TPA.bklistde
+    permission-message: §c你没有执行命令的权限
+       
+permissions:
+  TPA.*:
+    description: 所有权限
+    children:
+      TPA.tpa: true
+      TPA.acctp: true
+      TPA.noacctp: true
+      TPA.bklist: true
+      TPA.bklistde: true
+  TPA.tpa:
+    description: TP
+    default: true
+  TPA.acctp:
+    description: 接受TP
+    default: true
+  TPA.noacctp:
+    description: 不接受TP
+    default: true
+  TPA.bklist:
+    description: 加入黑名单
+    default: true
+  TPA.bklistde:
+    description: 删除黑名单
+    default: true

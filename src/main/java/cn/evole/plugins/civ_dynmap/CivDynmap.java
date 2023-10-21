@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 public class CivDynmap {
     public static final Logger log = CivLog.plugin.getLogger();
+    public static CivDynmap INSTANCE = new CivDynmap();
     DynmapAPI api;
     Plugin dynmap;
     MarkerSet townBorderSet;

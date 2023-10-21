@@ -142,8 +142,8 @@ public class CivMessage {
 
     public static String itemTooltip(ItemStack itemStack) {
         try {
-            Object nmsItem = Reflection.getMethod(Reflection.getOBCClass("inventory.CraftItemStack"), "asNMSCopy", new Class[]{ItemStack.class}).invoke(null, new Object[]{itemStack});
-            return (Reflection.getMethod(Reflection.getNMSClass("ItemStack"), "save", new Class[]{Reflection.getNMSClass("NBTTagCompound")}).invoke(nmsItem, new Object[]{Reflection.getNMSClass("NBTTagCompound").newInstance()}).toString());
+            Object nmsItem = Reflection.getMethod(Reflection.getOBCClass("inventory.CraftItemStack"), "asNMSCopy", new Class[]{ItemStack.class}).invoke(null, itemStack);
+            return (Reflection.getMethod(Reflection.getNMSClass("ItemStack"), "save", new Class[]{Reflection.getNMSClass("NBTTagCompound")}).invoke(nmsItem, Reflection.getNMSClass("NBTTagCompound").newInstance()).toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

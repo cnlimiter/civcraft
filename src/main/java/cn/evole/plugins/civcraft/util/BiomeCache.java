@@ -30,9 +30,9 @@ public class BiomeCache {
         System.out.println("================= BiomeCache INIT ======================");
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`key` varchar(64) NOT NULL," +
-                    "`value` mediumtext," +
-                    "PRIMARY KEY (`key`)" + ")";
+                    "`key` varchar(64) PRIMARY KEY NOT NULL," +
+                    "`value` TEXT" +
+                    ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -79,11 +79,17 @@ public class BiomeCache {
                 PreparedStatement ps = null;
 
                 try {
+                    String query =
+                            "insert or replace into `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) "
+                                    +"VALUES (?," +
+                                    " COALESCE((SELECT `value` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `key` = ?), ?))";
+
+                    //"insert into `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) values (?, ?)" +
+                    //                            " on conflict(key) do update set `value` = ?"
                     context = SQL.getGameConnection();
-                    ps = context.prepareStatement("INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) VALUES (?, ?)" +
-                            " ON DUPLICATE KEY UPDATE `value` = ?");
+                    ps = context.prepareStatement(query);
                     ps.setString(1, cc.getChunkCoord().toString());
-                    ps.setString(2, cc.getBiome().name());
+                    ps.setString(2, cc.getChunkCoord().toString());
                     ps.setString(3, cc.getBiome().name());
 
                     int rs = ps.executeUpdate();
@@ -113,7 +119,7 @@ public class BiomeCache {
             return Biome.valueOf(biomeCache.get(cc.getChunkCoord().toString()));
         } else {
             class SyncTask implements Runnable {
-                CultureChunk cc;
+                final CultureChunk cc;
 
                 public SyncTask(CultureChunk cc) {
                     this.cc = cc;

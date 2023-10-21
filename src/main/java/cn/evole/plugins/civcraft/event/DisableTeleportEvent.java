@@ -38,19 +38,17 @@ public class DisableTeleportEvent implements EventInterface {
                 String line;
                 try {
                     CivMessage.globalHeading(CivColor.BOLD + CivSettings.localize.localizedString(CivSettings.localize.localizedString("warteleportDisable")));
-                    while ((line = br.readLine()) != null) {
+                    while ((line = br.readLine()) != null && !line.startsWith("#")) {
                         Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), line);
                     }
 
                     br.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    return;
                 }
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                return;
             }
         }
     }
@@ -72,19 +70,17 @@ public class DisableTeleportEvent implements EventInterface {
             try {
 
                 CivMessage.globalHeading(CivColor.BOLD + CivSettings.localize.localizedString("warteleportEnable"));
-                while ((line = br.readLine()) != null) {
+                while ((line = br.readLine()) != null && !line.startsWith("#")) {
                     Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), line);
                 }
 
                 br.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                return;
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return;
         }
     }
 
