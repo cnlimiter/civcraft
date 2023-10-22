@@ -38,13 +38,14 @@ public class ScoreManager {
         // Check/Build SessionDB tables
         if (!SQL.hasGlobalTable(TOWN_TABLE_NAME)) {
             String table_create = "CREATE TABLE " + TOWN_TABLE_NAME + " (" +
-                    "`key` VARCHAR(128) PRIMARY KEY," +
+                    "`key` VARCHAR(128)," +
                     "`server` VARCHAR(64)," +
                     "`local_id` int(11)," +
-                    "`local_name` TEXT," +
-                    "`local_civ_name` TEXT," +
-                    "`points` int(11)" +
-                    "); CREATE INDEX `server_index` ON "+TOWN_TABLE_NAME+" (`server`)";
+                    "`local_name` mediumtext," +
+                    "`local_civ_name` mediumtext," +
+                    "`points` int(11)," +
+                    "INDEX (`server`)," +
+                    "PRIMARY KEY (`key`)" + ")";
 
             SQL.makeGlobalTable(table_create);
             CivLog.info("Created " + TOWN_TABLE_NAME + " table");
@@ -59,13 +60,14 @@ public class ScoreManager {
         // Check/Build SessionDB tables
         if (!SQL.hasGlobalTable(CIV_TABLE_NAME)) {
             String table_create = "CREATE TABLE " + CIV_TABLE_NAME + " (" +
-                    "`key` VARCHAR(128) PRIMARY KEY," +
+                    "`key` VARCHAR(128)," +
                     "`server` VARCHAR(64)," +
                     "`local_id` int(11)," +
-                    "`local_name` TEXT," +
-                    "`local_capitol_name` TEXT," +
-                    "`points` int(11)" +
-                    "); CREATE INDEX `server_index` ON "+CIV_TABLE_NAME+" (`server`)";
+                    "`local_name` mediumtext," +
+                    "`local_capitol_name` mediumtext," +
+                    "`points` int(11)," +
+                    "INDEX (`server`)," +
+                    "PRIMARY KEY (`key`)" + ")";
 
 
             SQL.makeGlobalTable(table_create);
@@ -84,29 +86,29 @@ public class ScoreManager {
         try {
             global_context = SQL.getGlobalConnection();
             String query =
-                    "insert or replace into `" + CIV_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_capitol_name`, `points`) "
-                            +"VALUES (?," +
-                            "?," +
-                            "?," +
-                            " COALESCE((SELECT `local_name` FROM `" + CIV_TABLE_NAME + "` WHERE `key` = ?), ?)," +
-                            " COALESCE((SELECT `local_capitol_name` FROM `" + CIV_TABLE_NAME + "` WHERE `key` = ?), ?)," +
-                            " COALESCE((SELECT `points` FROM `" + CIV_TABLE_NAME + "` WHERE `key` = ?), ?))"
-                    ;
+//                    "insert or replace into `" + CIV_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_capitol_name`, `points`) "
+//                            +"VALUES (?," +
+//                            "?," +
+//                            "?," +
+//                            " COALESCE((SELECT `local_name` FROM `" + CIV_TABLE_NAME + "` WHERE `key` = ?), ?)," +
+//                            " COALESCE((SELECT `local_capitol_name` FROM `" + CIV_TABLE_NAME + "` WHERE `key` = ?), ?)," +
+//                            " COALESCE((SELECT `points` FROM `" + CIV_TABLE_NAME + "` WHERE `key` = ?), ?))"
+//                    ;
 
 
-//            "INSERT INTO `" + CIV_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_capitol_name`, `points`) " +
-//                    "VALUES (?, ?, ?, ?, ?, ?) ON conflict(`key`) do update set `local_name`=?, `local_capitol_name`=?, `points`=?";
+            "INSERT INTO `" + CIV_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_capitol_name`, `points`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?) ON conflict(`key`) do update set `local_name`=?, `local_capitol_name`=?, `points`=?";
             s = global_context.prepareStatement(query);
 
             s.setString(1, getCivKey(civ));
             s.setString(2, Bukkit.getServerName());
             s.setInt(3, civ.getId());
+            s.setString(4, civ.getName());
+            s.setString(5, civ.getCapitolName());
+            s.setInt(6, points);
 
-            s.setString(4, getCivKey(civ));
-            s.setString(5, civ.getName());
-            s.setString(6, getCivKey(civ));
-            s.setString(7, civ.getCapitolName());
-            s.setString(8, getCivKey(civ));
+            s.setString(7, civ.getName());
+            s.setString(8, civ.getCapitolName());
             s.setInt(9, points);
 
 
@@ -127,29 +129,29 @@ public class ScoreManager {
         try {
             global_context = SQL.getGlobalConnection();
             String query =
-                    "insert or replace into `" + TOWN_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_civ_name`, `points`) "
-                            +"VALUES (?," +
-                            "?," +
-                            "?," +
-                            " COALESCE((SELECT `local_name` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?)," +
-                            " COALESCE((SELECT `local_civ_name` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?)," +
-                            " COALESCE((SELECT `points` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?))"
-                    ;
-//                    "INSERT INTO `" + TOWN_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_civ_name`, `points`) " +
-//                    "VALUES (?, ?, ?, ?, ?, ?) ON conflict(`key`) do update set `local_name`=?, `local_civ_name`=?, `points`=?";
-//
+//                    "insert or replace into `" + TOWN_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_civ_name`, `points`) "
+//                            +"VALUES (?," +
+//                            "?," +
+//                            "?," +
+//                            " COALESCE((SELECT `local_name` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?)," +
+//                            " COALESCE((SELECT `local_civ_name` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?)," +
+//                            " COALESCE((SELECT `points` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?))"
+//                    ;
+                    "INSERT INTO `" + TOWN_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_civ_name`, `points`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?) ON conflict(`key`) do update set `local_name`=?, `local_civ_name`=?, `points`=?";
+
 
             s = global_context.prepareStatement(query);
 
             s.setString(1, getTownKey(town));
             s.setString(2, Bukkit.getServerName());
             s.setInt(3, town.getId());
+            s.setString(4, town.getName());
+            s.setString(5, town.getCiv().getName());
+            s.setInt(6, points);
 
-            s.setString(4, getTownKey(town));
-            s.setString(5, town.getName());
-            s.setString(6, getTownKey(town));
-            s.setString(7, town.getCiv().getName());
-            s.setString(8, getTownKey(town));
+            s.setString(7, town.getName());
+            s.setString(8, town.getCiv().getName());
             s.setInt(9, points);
 
 

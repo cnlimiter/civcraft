@@ -40,28 +40,55 @@ import java.util.Iterator;
 
 public class SQL {
 
+    public static String hostname = "";
+    public static String port = "";
+    public static String db_name = "";
+    public static String username = "";
+    public static String password = "";
+    public static String useSSL = "false";
     public static String tb_prefix = "";
+
+
+    public static String global_dsn = "";
+    public static String global_hostname = "";
+    public static String global_port = "";
+    public static String global_username = "";
+    public static String global_password = "";
+    public static String global_db = "";
+    public static String global_useSSL = "false";
     public static ConnectionPool gameDatabase;
     public static ConnectionPool globalDatabase;
     public static ConnectionPool perkDatabase;
     private static String dsn = "";
-    private static String global_dsn = "";
 
     public static void initialize(Plugin plugin) throws InvalidConfiguration, SQLException, ClassNotFoundException {
-        CivLog.heading("Initializing Game SQL");
-        SQL.tb_prefix = CivSettings.getStringBase("table_prefix");
-        SQL.dsn = "jdbc:sqlite://" + Paths.get(plugin.getDataFolder().getAbsolutePath() + File.separator  + "game.db");
+        CivLog.heading("Initializing SQL");
 
+        SQL.useSSL = CivSettings.getStringBase("game.useSSL");
+        SQL.hostname = CivSettings.getStringBase("game.hostname");
+        SQL.port = CivSettings.getStringBase("game.port");
+        SQL.db_name = CivSettings.getStringBase("game.database");
+        SQL.username = CivSettings.getStringBase("game.username");
+        SQL.password = CivSettings.getStringBase("game.password");
+        SQL.tb_prefix = CivSettings.getStringBase("game.table_prefix");
+        SQL.dsn = "jdbc:mariadb://" + hostname + ":" + port + "/" + tb_prefix + db_name + "?useSSL=" + SQL.useSSL + "&requireSSL=" + SQL.useSSL;
+        CivLog.info("\t Using " + SQL.hostname + ":" + SQL.port + " user:" + SQL.username + " DB:" + SQL.db_name);
         CivLog.info("\t Building Connection Pool for GAME database.");
-        gameDatabase = new ConnectionPool(SQL.dsn);
+        gameDatabase = new ConnectionPool(SQL.dsn, SQL.username, SQL.password);
         CivLog.info("\t Connected to GAME database");
 
         CivLog.heading("Initializing Global SQL Database");
-        SQL.global_dsn =
-                "jdbc:sqlite://" + Paths.get(plugin.getDataFolder().getAbsolutePath() + File.separator  + "global.db") ;
+        SQL.global_useSSL = CivSettings.getStringBase("global.useSSL");
+        SQL.global_hostname = CivSettings.getStringBase("global.hostname");
+        SQL.global_port = CivSettings.getStringBase("global.port");
+        SQL.global_username = CivSettings.getStringBase("global.username");
+        SQL.global_password = CivSettings.getStringBase("global.password");
+        SQL.global_db = CivSettings.getStringBase("global.database");
 
+        SQL.global_dsn = "jdbc:mariadb://" + SQL.global_hostname + ":" + SQL.global_port + "/" + SQL.global_db + "?useSSL=" + SQL.global_useSSL + "&requireSSL=" + SQL.global_useSSL;
+        CivLog.info("\t Using GLOBAL db at:" + SQL.global_hostname + ":" + SQL.global_port + " user:" + SQL.global_username + " DB:" + SQL.global_db);
         CivLog.info("\t Building Connection Pool for GLOBAL database.");
-        globalDatabase = new ConnectionPool(SQL.global_dsn);
+        globalDatabase = new ConnectionPool(SQL.global_dsn, SQL.global_username, SQL.global_password);
         CivLog.info("\t Connected to GLOBAL database");
 
         CivGlobal.perkManager = new PerkManager();

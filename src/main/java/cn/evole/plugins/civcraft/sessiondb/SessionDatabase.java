@@ -42,14 +42,14 @@ public class SessionDatabase {
 
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`request_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`key` TEXT," +
-                    "`value` TEXT," +
+                    "`request_id` int(11) unsigned NOT NULL auto_increment," +
+                    "`key` mediumtext," +
+                    "`value` mediumtext," +
                     "`town_id` int(11)," +
                     "`civ_id` int(11)," +
                     "`struct_id` int(11)," +
-                    "`time` INTEGER" +
-                    ")";
+                    "`time` long," +
+                    "PRIMARY KEY (`request_id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -62,14 +62,14 @@ public class SessionDatabase {
         // Check/Build SessionDB tables
         if (!SQL.hasGlobalTable(GLOBAL_TABLE_NAME)) {
             String table_create = "CREATE TABLE " + GLOBAL_TABLE_NAME + " (" +
-                    "`request_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`key` TEXT," +
-                    "`value` TEXT," +
+                    "`request_id` int(11) unsigned NOT NULL auto_increment," +
+                    "`key` mediumtext," +
+                    "`value` mediumtext," +
                     "`town_id` int(11)," +
                     "`civ_id` int(11)," +
                     "`struct_id` int(11)," +
-                    "`time` INTEGER" +
-                    ")";
+                    "`time` long," +
+                    "PRIMARY KEY (`request_id`)" + ")";
 
             SQL.makeGlobalTable(table_create);
             CivLog.info("Created " + GLOBAL_TABLE_NAME + " table");

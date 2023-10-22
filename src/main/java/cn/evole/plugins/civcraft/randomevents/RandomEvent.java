@@ -56,14 +56,14 @@ public class RandomEvent extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`config_id` TEXT," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`config_id` mediumtext," +
                     "`town_id` int(11)," +
                     "`start_date` long NOT NULL," +
                     "`active` boolean DEFAULT false," +
-                    "`component_vars` TEXT," +
-                    "`saved_messages` TEXT" +
-                    ")";
+                    "`component_vars` mediumtext," +
+                    "`saved_messages` mediumtext," +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

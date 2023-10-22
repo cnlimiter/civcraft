@@ -106,14 +106,14 @@ public class BonusGoodie extends LoreItem {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
                     "`holder_location` mediumtext DEFAULT NULL," +
                     "`player_name` mediumtext DEFAULT NULL," +
                     "`frame_location` mediumtext DEFAULT NULL," +
                     "`frame_uid` mediumtext DEFAULT NULL," +
                     "`item_uid` mediumtext DEFAULT NULL," +
-                    "`outpost_location` mediumtext DEFAULT NULL" +
-                    ")";
+                    "`outpost_location` mediumtext DEFAULT NULL," +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

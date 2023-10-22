@@ -117,10 +117,10 @@ public class Civilization extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`name` VARCHAR(64) UNIQUE NOT NULL," +
-                    "`leaderName` TEXT," +
-                    "`capitolName` TEXT," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`name` VARCHAR(64) NOT NULL," +
+                    "`leaderName` mediumtext," +
+                    "`capitolName` mediumtext," +
                     "`debt` float NOT NULL DEFAULT '0'," +
                     "`coins` double DEFAULT 0," +
                     "`daysInDebt` int NOT NULL DEFAULT '0'," +
@@ -145,9 +145,10 @@ public class Civilization extends SQLObject {
                     "`settlerCost` double DEFAULT 25000," +
                     "`currentMission` int(11) DEFAULT 0," +
                     "`missionActive` boolean DEFAULT false," +
-                    "`missionProgress` TEXT," +
-                    "`tradeGoods` mediumtext DEFAULT NULL" +
-                    ")";
+                    "`missionProgress` mediumtext," +
+                    "`tradeGoods` mediumtext DEFAULT NULL," +
+                    "UNIQUE KEY (`name`), " +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

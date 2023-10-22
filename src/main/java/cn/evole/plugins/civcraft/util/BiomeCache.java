@@ -30,9 +30,9 @@ public class BiomeCache {
         System.out.println("================= BiomeCache INIT ======================");
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`key` varchar(64) PRIMARY KEY NOT NULL," +
-                    "`value` TEXT" +
-                    ")";
+                    "`key` varchar(64) NOT NULL," +
+                    "`value` mediumtext," +
+                    "PRIMARY KEY (`key`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
@@ -80,16 +80,16 @@ public class BiomeCache {
 
                 try {
                     String query =
-                            "insert or replace into `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) "
-                                    +"VALUES (?," +
-                                    " COALESCE((SELECT `value` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `key` = ?), ?))";
+//                            "insert or replace into `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) "
+//                                    +"VALUES (?," +
+//                                    " COALESCE((SELECT `value` FROM `" + SQL.tb_prefix + TABLE_NAME + "` WHERE `key` = ?), ?))";
 
-                    //"insert into `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) values (?, ?)" +
-                    //                            " on conflict(key) do update set `value` = ?"
+                    "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`key`, `value`) VALUES (?, ?)" +
+                            " ON DUPLICATE KEY UPDATE `value` = ?";
                     context = SQL.getGameConnection();
                     ps = context.prepareStatement(query);
                     ps.setString(1, cc.getChunkCoord().toString());
-                    ps.setString(2, cc.getChunkCoord().toString());
+                    ps.setString(2, cc.getBiome().name());
                     ps.setString(3, cc.getBiome().name());
 
                     int rs = ps.executeUpdate();

@@ -63,18 +63,18 @@ public abstract class Wonder extends Buildable {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
                     "`type_id` mediumtext NOT NULL," +
                     "`town_id` int(11) DEFAULT NULL," +
-                    "`complete` boolean NOT NULL DEFAULT false," +
+                    "`complete` bool NOT NULL DEFAULT '0'," +
                     "`builtBlockCount` int(11) DEFAULT NULL, " +
                     "`cornerBlockHash` mediumtext DEFAULT NULL," +
                     "`template_name` mediumtext DEFAULT NULL, " +
                     "`template_x` int(11) DEFAULT NULL, " +
                     "`template_y` int(11) DEFAULT NULL, " +
                     "`template_z` int(11) DEFAULT NULL, " +
-                    "`hitpoints` int(11) DEFAULT '100'" +
-                    ")";
+                    "`hitpoints` int(11) DEFAULT '100'," +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

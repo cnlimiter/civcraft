@@ -46,15 +46,15 @@ public class StructureSign extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`text` TEXT, " +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`text` mediumtext, " +
                     "`structure_id` int(11), " +
                     "`wonder_id` int(11)," +
-                    "`type` TEXT, " +
-                    "`action` TEXT, " +
-                    "`coordHash` TEXT, " +
-                    "`direction` int(11)" +
-                    ")";
+                    "`type` mediumtext, " +
+                    "`action` mediumtext, " +
+                    "`coordHash` mediumtext, " +
+                    "`direction` int(11), " +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

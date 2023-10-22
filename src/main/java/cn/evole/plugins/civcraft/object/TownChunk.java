@@ -69,22 +69,23 @@ public class TownChunk extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`town_id` int(11) NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`town_id` int(11) unsigned NOT NULL," +
                     "`world` VARCHAR(32) NOT NULL," +
                     "`x` bigint(20) NOT NULL," +
                     "`z` bigint(20) NOT NULL," +
-                    "`owner_id` int(11) DEFAULT NULL," +
+                    "`owner_id` int(11) unsigned DEFAULT NULL," +
                     "`groups` mediumtext DEFAULT NULL," +
                     "`permissions` mediumtext NOT NULL," +
-                    "`for_sale` boolean NOT NULL DEFAULT false," +
+                    "`for_sale` bool NOT NULL DEFAULT '0'," +
                     "`value` float NOT NULL DEFAULT '0'," +
                     "`price` float NOT NULL DEFAULT '0'," +
-                    "`canunclaim` boolean DEFAULT false," +
-                    "`outpost` boolean DEFAULT false" +
+                    "`canunclaim` bool DEFAULT '1'," +
+                    "`outpost` bool DEFAULT '0'," +
                     //	 "FOREIGN KEY (owner_id) REFERENCES "+SQL.tb_prefix+Resident.TABLE_NAME+"(id),"+
                     //	 "FOREIGN KEY (town_id) REFERENCES "+SQL.tb_prefix+Town.TABLE_NAME+"(id),"+
-                    ")";
+                    "PRIMARY KEY (`id`)" + ")";
+
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

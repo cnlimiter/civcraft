@@ -159,8 +159,8 @@ public class Town extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "`name` VARCHAR(64) UNIQUE NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
+                    "`name` VARCHAR(64) NOT NULL," +
                     "`civ_id` int(11) NOT NULL DEFAULT 0," +
                     "`master_civ_id` int(11) NOT NULL DEFAULT 0," + //XXX no longer used.
                     "`mother_civ_id` int(11) NOT NULL DEFAULT 0," +
@@ -179,11 +179,12 @@ public class Town extends SQLObject {
                     "`created_date` long," +
                     "`outlaws` mediumtext DEFAULT NULL," +
                     "`dbg_civ_name` mediumtext DEFAULT NULL," +
-                    "`talents` TEXT," +
+                    "`talents` mediumtext," +
                     "`tradeGoods` mediumtext DEFAULT NULL," +
-                    "`conquered_date` TEXT," +
-                    "`quarryPickaxes` TEXT" +
-                    ")";
+                    "`conquered_date` mediumtext," +
+                    "`quarryPickaxes` mediumtext," +
+                    "UNIQUE KEY (`name`), " +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

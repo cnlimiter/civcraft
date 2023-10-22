@@ -163,15 +163,15 @@ public class Camp extends Buildable {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
                     "`name` VARCHAR(64) NOT NULL," +
                     "`owner_name` mediumtext NOT NULL," +
                     "`firepoints` int(11) DEFAULT 0," +
                     "`next_raid_date` long," +
-                    "`corner` TEXT," +
-                    "`upgrades` TEXT," +
-                    "`template_name` TEXT" +
-                    ")";
+                    "`corner` mediumtext," +
+                    "`upgrades` mediumtext," +
+                    "`template_name` mediumtext," +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");

@@ -41,11 +41,11 @@ public class ProtectedBlock extends SQLObject {
     public static void init() throws SQLException {
         if (!SQL.hasTable(TABLE_NAME)) {
             String table_create = "CREATE TABLE " + SQL.tb_prefix + TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
                     "`coord` mediumtext NOT NULL," +
                     "`type` mediumtext NOT NULL," +
-                    "`structure_id` int(11) DEFAULT 0" +
-                    ")";
+                    "`structure_id` int(11) DEFAULT 0," +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeTable(table_create);
             CivLog.info("Created " + TABLE_NAME + " table");
