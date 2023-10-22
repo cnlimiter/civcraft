@@ -193,7 +193,7 @@ public class ConfigMarketItem {
 
 
                     "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`ident`, `buy_value`, `buy_bulk`, `sell_value`, `sell_bulk`, `bought`, `sold`, `last_action`, `buysell`) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON conflict(`ident`) do update set `buy_value`=?, `buy_bulk`=?, `sell_value`=?, `sell_bulk`=?, `bought`=?, `sold`=?, `last_action`=?, `buysell`=?";
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `buy_value`=?, `buy_bulk`=?, `sell_value`=?, `sell_bulk`=?, `bought`=?, `sold`=?, `last_action`=?, `buysell`=?";
             context = SQL.getGameConnection();
             ps = context.prepareStatement(query);
 

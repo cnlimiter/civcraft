@@ -28,11 +28,11 @@ public class PerkManagerSimple extends PerkManager {
         // Check/Build SessionDB tables
         if (!SQL.hasGlobalTable(USER_PERKS_TABLE_NAME)) {
             String table_create = "CREATE TABLE " + USER_PERKS_TABLE_NAME + " (" +
-                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    "`id` int(11) unsigned NOT NULL auto_increment," +
                     "`uuid` varchar(256)," +
-                    "`perk_id` TEXT," +
-                    "`used_phase` TEXT" +
-                    ")";
+                    "`perk_id` mediumtext," +
+                    "`used_phase` mediumtext," +
+                    "PRIMARY KEY (`id`)" + ")";
 
             SQL.makeGlobalTable(table_create);
             CivLog.info("Created " + USER_PERKS_TABLE_NAME + " table");

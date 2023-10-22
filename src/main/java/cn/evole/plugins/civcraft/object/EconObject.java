@@ -33,9 +33,9 @@ public class EconObject {
     public double getBalance() {
         coins = Math.floor(coins);
 
-        synchronized (coins) {
+        //synchronized (coins) {
             return coins;
-        }
+        //}
     }
 
 
@@ -49,9 +49,9 @@ public class EconObject {
         }
         amount = Math.floor(amount);
 
-        synchronized (coins) {
+//        synchronized (coins) {
             coins = amount;
-        }
+//        }
 
         if (save) {
             holder.save();
@@ -72,9 +72,9 @@ public class EconObject {
         }
         amount = Math.floor(amount);
 
-        synchronized (coins) {
+//        synchronized (coins) {
             coins += amount;
-        }
+//        }
 
         if (save) {
             holder.save();
@@ -102,7 +102,7 @@ public class EconObject {
          * if our current balance dips below the principal,
          * then we subtract from the principal.
          */
-        synchronized (principalAmount) {
+        //synchronized (principalAmount) {
             if (principalAmount > 0) {
                 double currentBalance = this.getBalance();
                 double diff = currentBalance - principalAmount;
@@ -112,11 +112,11 @@ public class EconObject {
                     principalAmount -= (-diff);
                 }
             }
-        }
+        //}
 
-        synchronized (coins) {
+        //synchronized (coins) {
             coins -= amount;
-        }
+        //}
 
         if (save) {
             holder.save();
@@ -133,13 +133,9 @@ public class EconObject {
     public boolean hasEnough(double amount) {
         amount = Math.floor(amount);
 
-        synchronized (coins) {
-            if (coins >= amount) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        //synchronized (coins) {
+            return coins >= amount;
+        //}
         //	return CivGlobal.econ.has(getEconomyName(), amount);
     }
 
@@ -174,10 +170,7 @@ public class EconObject {
     public boolean inDebt() {
         debt = Math.floor(debt);
 
-        if (debt > 0) {
-            return true;
-        }
-        return false;
+        return debt > 0;
     }
 
     public double getDebt() {

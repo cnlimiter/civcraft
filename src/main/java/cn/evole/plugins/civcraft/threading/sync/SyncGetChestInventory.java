@@ -68,7 +68,8 @@ public class SyncGetChestInventory implements Runnable {
             } finally {
                 lock.unlock();
             }
-        } else {
+        }
+        else {
             CivLog.warning("SyncGetChestInventory: lock was busy, try again next tick.");
         }
     }

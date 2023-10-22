@@ -11,7 +11,24 @@ localization_file: "default_lang.yml"
 # ============================== Database Configuration ====================================
 
 # database to store game data in across reloads.
-table_prefix: ''
+sql_type: 'mysql'
+sql_driver: 'com.mysql.jdbc.Driver'
+game:
+  useSSL: 'false'
+  hostname: localhost
+  port: '3306'
+  database: game
+  username: user
+  password: 'PasswordForDatabaseUser'
+  table_prefix: ''
+
+global:
+  useSSL: 'false'
+  database: global
+  hostname: localhost
+  port: '3306'
+  username: user
+  password: 'PasswordForDatabaseUser'
 
 server_phase: 'beta8'
 

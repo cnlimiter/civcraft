@@ -214,7 +214,7 @@ public class EventTimer {
 
 
                     "INSERT INTO `" + SQL.tb_prefix + TABLE_NAME + "` (`name`, `nextEvent`, `lastEvent`) " +
-                    "VALUES (?, ?, ?) ON conflict(`name`) do update set `nextEvent`=?, `lastEvent`=?";
+                            "VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `nextEvent`=?, `lastEvent`=?";
             context = SQL.getGameConnection();
             ps = context.prepareStatement(query);
 

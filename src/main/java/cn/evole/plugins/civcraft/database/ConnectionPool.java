@@ -11,13 +11,13 @@ public class ConnectionPool {
     HikariDataSource pool;
 
 
-    public ConnectionPool(String dbcUrl, String user, String pass) throws ClassNotFoundException, SQLException {
+    public ConnectionPool(String driver, String dbcUrl, String user, String pass) throws ClassNotFoundException, SQLException {
 
         /* setup the connection pool */
 
         HikariConfig config = new HikariConfig();
         config.setPoolName("CivCraftPool");
-        config.setDriverClassName("org.mariadb.jdbc.Driver");
+        config.setDriverClassName(driver);
         config.setJdbcUrl(dbcUrl);
         config.setUsername(user);
         config.setPassword(pass);

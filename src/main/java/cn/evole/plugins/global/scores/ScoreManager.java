@@ -96,8 +96,8 @@ public class ScoreManager {
 //                    ;
 
 
-            "INSERT INTO `" + CIV_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_capitol_name`, `points`) " +
-                    "VALUES (?, ?, ?, ?, ?, ?) ON conflict(`key`) do update set `local_name`=?, `local_capitol_name`=?, `points`=?";
+                    "INSERT INTO `" + CIV_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_capitol_name`, `points`) " +
+                    "VALUES (?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `local_name`=?, `local_capitol_name`=?, `points`=?";
             s = global_context.prepareStatement(query);
 
             s.setString(1, getCivKey(civ));
@@ -138,8 +138,7 @@ public class ScoreManager {
 //                            " COALESCE((SELECT `points` FROM `" + TOWN_TABLE_NAME + "` WHERE `key` = ?), ?))"
 //                    ;
                     "INSERT INTO `" + TOWN_TABLE_NAME + "` (`key`, `server`, `local_id`, `local_name`, `local_civ_name`, `points`) " +
-                    "VALUES (?, ?, ?, ?, ?, ?) ON conflict(`key`) do update set `local_name`=?, `local_civ_name`=?, `points`=?";
-
+                            "VALUES (?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE `local_name`=?, `local_civ_name`=?, `points`=?";
 
             s = global_context.prepareStatement(query);
 
