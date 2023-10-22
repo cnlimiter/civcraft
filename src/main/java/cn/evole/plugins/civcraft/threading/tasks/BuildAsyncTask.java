@@ -49,7 +49,7 @@ public class BuildAsyncTask extends CivAsyncTask {
     private int count;
     private int extra_blocks;
     private int percent_complete;
-    private Queue<SimpleBlock> sbs; //Blocks to add to main sync task queue;
+    private final Queue<SimpleBlock> sbs; //Blocks to add to main sync task queue;
 
     public BuildAsyncTask(Buildable bld, Template t, int s, int blocks_per_tick, Block center) {
         buildable = bld;
@@ -58,7 +58,7 @@ public class BuildAsyncTask extends CivAsyncTask {
         centerBlock = center;
         this.blocks_per_tick = blocks_per_tick;
         this.percent_complete = 0;
-        sbs = new LinkedList<SimpleBlock>();
+        sbs = new LinkedList<>();
     }
 
     @Override
@@ -82,7 +82,7 @@ public class BuildAsyncTask extends CivAsyncTask {
 
             synchronized (aborted) {
                 if (aborted) {
-                    return aborted;
+                    return true;
                 }
             }
 
@@ -139,7 +139,7 @@ public class BuildAsyncTask extends CivAsyncTask {
                     this.updateBlocksQueue(sbs);
                     sbs.clear();
                 } else {
-                    return aborted;
+                    return true;
                 }
             }
 
@@ -195,7 +195,7 @@ public class BuildAsyncTask extends CivAsyncTask {
             }
         }
         // Make sure the last iteration makes it on to the queue.
-        if (sbs.size() > 0) {
+        if (!sbs.isEmpty()) {
             updateBlocksQueue(sbs);
             sbs.clear();
         }
@@ -278,7 +278,7 @@ public class BuildAsyncTask extends CivAsyncTask {
                     sbs.add(sb);
                 }
 
-                if (buildable.isDestroyable() == false && sb.getType() != CivData.AIR) {
+                if (!buildable.isDestroyable() && sb.getType() != CivData.AIR) {
                     if (sb.specialType != Type.COMMAND) {
                         BlockCoord coord = new BlockCoord(sb.worldname, sb.x, sb.y, sb.z);
                         if (sb.y == 0) {

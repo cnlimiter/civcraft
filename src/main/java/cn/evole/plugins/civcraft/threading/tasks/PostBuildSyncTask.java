@@ -300,7 +300,7 @@ public class PostBuildSyncTask implements Runnable {
                 case "/itemframe":
                     String strvalue = sb.keyvalues.get("id");
                     if (strvalue != null) {
-                        int index = Integer.valueOf(strvalue);
+                        int index = Integer.parseInt(strvalue);
 
                         if (buildable instanceof TownHall) {
                             TownHall townhall = (TownHall) buildable;

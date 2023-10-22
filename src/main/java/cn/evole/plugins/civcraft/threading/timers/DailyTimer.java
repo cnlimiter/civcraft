@@ -89,7 +89,7 @@ public class DailyTimer implements Runnable {
             if (wonder != null) {
                 if (wonder.getConfigId().equals("w_colossus")) {
                     try {
-                        ((TheColossus) wonder).processCoinsFromCulture();
+                        wonder.processCoinsFromCulture();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

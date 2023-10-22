@@ -179,7 +179,7 @@ public class CivSettings {
     public static Map<Integer, ConfigSpaceRocket> spaceRocket_name = new HashMap<Integer, ConfigSpaceRocket>();
     public static Map<String, ConfigSpaceCraftMat> space_crafts = new HashMap<String, ConfigSpaceCraftMat>();
     public static Map<Integer, ConfigLabLevel> labLevels = new HashMap<Integer, ConfigLabLevel>();
-    private static Map<String, ConfigCultureBiomeInfo> cultureBiomes = new HashMap<String, ConfigCultureBiomeInfo>();
+    private static final Map<String, ConfigCultureBiomeInfo> cultureBiomes = new HashMap<String, ConfigCultureBiomeInfo>();
 
     public static void init(JavaPlugin plugin) throws FileNotFoundException, IOException, InvalidConfigurationException, InvalidConfiguration {
         CivSettings.plugin = (CivCraft) plugin;

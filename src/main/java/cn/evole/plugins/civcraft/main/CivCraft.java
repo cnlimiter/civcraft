@@ -59,7 +59,6 @@ import cn.evole.plugins.global.scores.CalculateScoreTimer;
 import cn.evole.plugins.pvptimer.PvPListener;
 import cn.evole.plugins.pvptimer.PvPTimer;
 import cn.evole.plugins.sls.SLSManager;
-import cn.evole.plugins.tp.TpMain;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -258,13 +257,13 @@ public final class CivCraft extends JavaPlugin {
         startTimers();
 
         if (hasPlugin("dynmap")) CivDynmap.INSTANCE.init(this);
-        new TpMain(this).onEnable();
+        //new TpMain(this).onEnable();
     }
 
     @Override
     public void onLoad() {
         super.onLoad();
-        new TpMain(this).onLoad();
+        //new TpMain(this).onLoad();
     }
 
     @Override
@@ -272,7 +271,7 @@ public final class CivCraft extends JavaPlugin {
         super.onDisable();
         isDisable = true;
         SQLUpdate.save();
-        new TpMain(this).onDisable();
+        //new TpMain(this).onDisable();
     }
 
     public boolean hasPlugin(String name) {
