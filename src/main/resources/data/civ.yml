@@ -92,7 +92,7 @@ global:
 
    #使用Vault实现玩家经济。 默认值：false
    #数据仍将从数据库加载并保存到数据库，但现在将链接到Vault
-   use_vault: true
+   use_vault: false
 
 newspaper:
 

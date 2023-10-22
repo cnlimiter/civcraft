@@ -316,7 +316,7 @@ public class EconCommand extends CommandBase {
 
         try {
 
-            Double amount = Double.valueOf(args[2]);
+            double amount = Double.parseDouble(args[2]);
             civ.getTreasury().withdraw(amount);
             CivMessage.sendSuccess(sender, CivSettings.localize.localizedString("var_cmd_econ_Subtracted", args[2], CivSettings.CURRENCY_NAME, args[1]));
 
