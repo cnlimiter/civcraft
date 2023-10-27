@@ -3404,7 +3404,7 @@ PlayerLoginAsync_onlyWarriorsAllowed: "Only players in civilizations at war can 
 PlayerLoginAsync_loginDuringWar: "你被传送回家，因为你登录时是战争期间。"
 var_PlayerLoginAsync_inBorderAlert: "[%0] has logged-in within our borders"
 #PlayerLoginAsync_perksMsg1: "You have access to the Following Perks:"
-PlayerLoginAsync_perksMsg1: "你可以选择一下模板:"
+PlayerLoginAsync_perksMsg1: "你可以选择以下模板:"
 PlayerLoginAsync_perk_Atlantean: "亚特兰蒂斯"
 PlayerLoginAsync_perk_Arctic: "北极"
 PlayerLoginAsync_perk_Aztec: "印第安"
@@ -4588,3 +4588,9 @@ cmd_civ_VictoriesHeading: "文明胜利者"
 cmd_civ_research_infoDesc: "查看该科技解锁的能力"
 cmd_civ_research_infoPrompt: "输入你想查看的科技的名称。"
 var_build_notOnMine: "你必须要在选择的城镇的范围内建筑。"
+#############
+#幸福来源
+culture_biomes:
+structures:
+goodies_wonders:
+education:

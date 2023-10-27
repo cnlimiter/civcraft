@@ -58,6 +58,14 @@ public class SQL {
     public static String global_db = "";
     public static boolean global_useSSL = false;
 
+    public static String perks_dsn = "";
+    public static String perks_hostname = "";
+    public static String perks_port = "";
+    public static String perks_username = "";
+    public static String perks_password = "";
+    public static String perks_db = "";
+    public static boolean perks_useSSL = false;
+
     public static String driver = "";
     public static String type = "";
     public static ConnectionPool gameDatabase;
@@ -96,11 +104,27 @@ public class SQL {
         globalDatabase = new ConnectionPool(SQL.driver, SQL.global_dsn, SQL.global_username, SQL.global_password);
         CivLog.info("\t Connected to GLOBAL database");
 
-        CivGlobal.perkManager = new PerkManager();
+        //CivGlobal.perkManager = new PerkManager();
+//		if (PlatinumManager.isLegacyEnabled()) {
+//        CivLog.heading("Initializing PERKS SQL Database");
+//        SQL.perks_useSSL = CivSettings.getBooleanBase("perks.useSSL");
+//        SQL.perks_hostname = CivSettings.getStringBase("perks.hostname");
+//        SQL.perks_port = CivSettings.getStringBase("perks.port");
+//        SQL.perks_username = CivSettings.getStringBase("perks.username");
+//        SQL.perks_password = CivSettings.getStringBase("perks.password");
+//        SQL.perks_db = CivSettings.getStringBase("perks.database");
+//
+//        SQL.perks_dsn = "jdbc:"+ SQL.type +"://" + SQL.perks_hostname + ":" + SQL.perks_port + "/" + SQL.perks_db + "?useSSL=" + SQL.perks_useSSL + "&requireSSL=" + SQL.perks_useSSL;
+//        CivLog.info("\t Using PERKS db at:" + SQL.perks_hostname + ":" + SQL.perks_port + " user:" + SQL.perks_username + " DB:" + SQL.perks_db);
+//        CivLog.info("\t Building Connection Pool for PERKS database.");
+//        perkDatabase = new ConnectionPool(SQL.driver, SQL.perks_dsn, SQL.perks_hostname, SQL.perks_password);
+//        CivLog.info("\t Connected to PERKS database");
+        //} else if (PlatinumManager.isEnabled()) {
+
         CivGlobal.perkManager = new PerkManagerSimple();
         CivGlobal.perkManager.init();
         CivLog.info("Enabled SIMPLE PerkManager");
-
+        //}
 
         CivLog.heading("Initializing SQL Finished");
     }

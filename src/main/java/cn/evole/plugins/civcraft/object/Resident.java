@@ -1128,7 +1128,7 @@ public class Resident extends SQLObject {
 
     public void loadPerks(final Player player) {
         class AsyncTask implements Runnable {
-            Resident resident;
+            final Resident resident;
 
             public AsyncTask(Resident resident) {
                 this.resident = resident;
@@ -1153,26 +1153,26 @@ public class Resident extends SQLObject {
                 }
                 try {
 
-                    String perkMessage = "";
+                    StringBuilder perkMessage = new StringBuilder();
                     if (CivSettings.getString(CivSettings.perkConfig, "system.free_perks").equalsIgnoreCase("true")) {
                         resident.giveAllFreePerks();
-                        perkMessage = CivSettings.localize.localizedString("PlayerLoginAsync_perksMsg1") + " ";
+                        perkMessage = new StringBuilder(CivSettings.localize.localizedString("PlayerLoginAsync_perksMsg1") + " ");
                     } else if (CivSettings.getString(CivSettings.perkConfig, "system.free_admin_perks").equalsIgnoreCase("true")) {
                         if (player.hasPermission(CivSettings.MINI_ADMIN) || player.hasPermission(CivSettings.FREE_PERKS)) {
                             resident.giveAllFreePerks();
-                            perkMessage = CivSettings.localize.localizedString("PlayerLoginAsync_perksMsg1") + ": ";
-                            perkMessage += "Weather" + ", ";
+                            perkMessage = new StringBuilder(CivSettings.localize.localizedString("PlayerLoginAsync_perksMsg1") + ": ");
+                            perkMessage.append("Weather" + ", ");
                         }
                     }
 
                     for (ConfigPerk p : CivSettings.templates.values()) {
                         if (player.hasPermission("civ.perk." + p.simple_name)) {
                             resident.giveTemplate(p.simple_name);
-                            perkMessage += p.display_name + ", ";
+                            perkMessage.append(p.display_name).append(", ");
                         }
                     }
 
-                    perkMessage += CivSettings.localize.localizedString("PlayerLoginAsync_perksMsg2");
+                    perkMessage.append(CivSettings.localize.localizedString("PlayerLoginAsync_perksMsg2"));
 
                     CivMessage.send(resident, CivColor.LightGreen + perkMessage);
                 } catch (InvalidConfiguration e) {
@@ -1754,25 +1754,24 @@ public class Resident extends SQLObject {
 
         Inventory inv = Bukkit.getServer().createInventory(player, Book.MAX_CHEST_SIZE * 9, CivSettings.localize.localizedString("resident_perksGuiHeading"));
 
-        for (Object obj : perks.values()) {
-            Perk p = (Perk) obj;
+        for (Perk obj : perks.values()) {
 
-            if (p.getIdent().startsWith("temp")) {
-                ItemStack stack = LoreGuiItem.build(p.configPerk.display_name,
-                        p.configPerk.type_id,
-                        p.configPerk.data, CivColor.LightBlue + CivSettings.localize.localizedString("resident_perksGuiClickToView"),
+            if (obj.getIdent().startsWith("temp")) {
+                ItemStack stack = LoreGuiItem.build(obj.configPerk.display_name,
+                        obj.configPerk.type_id,
+                        obj.configPerk.data, CivColor.LightBlue + CivSettings.localize.localizedString("resident_perksGuiClickToView"),
                         CivColor.LightBlue + CivSettings.localize.localizedString("resident_perksGuiTheseTemplates"));
                 stack = LoreGuiItem.setAction(stack, "ShowTemplateType");
-                stack = LoreGuiItem.setActionData(stack, "perk", p.configPerk.id);
+                stack = LoreGuiItem.setActionData(stack, "perk", obj.configPerk.id);
 
                 inv.addItem(stack);
-            } else if (p.getIdent().startsWith("perk")) {
-                ItemStack stack = LoreGuiItem.build(p.getDisplayName(),
-                        p.configPerk.type_id,
-                        p.configPerk.data, CivColor.Gold + CivSettings.localize.localizedString("resident_perksGui_clickToActivate"),
+            } else if (obj.getIdent().startsWith("perk")) {
+                ItemStack stack = LoreGuiItem.build(obj.getDisplayName(),
+                        obj.configPerk.type_id,
+                        obj.configPerk.data, CivColor.Gold + CivSettings.localize.localizedString("resident_perksGui_clickToActivate"),
                         "Unlimted Uses");
                 stack = LoreGuiItem.setAction(stack, "ActivatePerk");
-                stack = LoreGuiItem.setActionData(stack, "perk", p.configPerk.id);
+                stack = LoreGuiItem.setActionData(stack, "perk", obj.configPerk.id);
 
                 inv.addItem(stack);
 

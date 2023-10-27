@@ -39,6 +39,7 @@ import cn.evole.plugins.civcraft.util.*;
 import cn.evole.plugins.civcraft.war.War;
 import cn.evole.plugins.civcraft.war.WarRegen;
 import cn.evole.plugins.global.perks.PerkManager;
+import cn.evole.plugins.global.perks.PerkManagerSimple;
 import gpl.AttributeUtil;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.*;
@@ -101,7 +102,7 @@ public class CivGlobal {
     public static boolean checkForBooks = true;
     public static boolean debugDateBypass = false;
     public static boolean endWorld = false;
-    public static PerkManager perkManager = null;
+    public static PerkManagerSimple perkManager = null;
     public static boolean installMode = false;
     public static int highestCivEra = 0;
     public static int ruinsGenerated = 0;

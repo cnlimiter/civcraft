@@ -77,20 +77,25 @@ public class PerkManagerSimple extends PerkManager {
                 SQL.close(rs, s, null);
             }
 
-            for (String perkID : perkCounts.keySet()) {
-                ConfigPerk configPerk = CivSettings.perks.get(perkID);
-                if (configPerk == null) {
-                    continue;
-                }
+//            for (String perkID : perkCounts.keySet()) {
+//                ConfigPerk configPerk = CivSettings.perks.get(perkID);
+//                if (configPerk == null) {
+//                    continue;
+//                }
+//
+//                int count = perkCounts.get(perkID);
+//
+//                Perk p = new Perk(configPerk);
+//                p.count = count;
+//                resident.perks.put(p.getIdent(), p);
+//            }
 
-                int count = perkCounts.get(perkID);
-
+            for (ConfigPerk configPerk : CivSettings.perks.values()) {//免费使用所有模板
                 Perk p = new Perk(configPerk);
-                p.count = count;
+                p.count = 100000;
                 resident.perks.put(p.getIdent(), p);
             }
 
-            return;
         } finally {
             SQL.close(rs, s, context);
         }

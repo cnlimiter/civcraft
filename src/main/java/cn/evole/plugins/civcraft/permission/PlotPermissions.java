@@ -41,7 +41,7 @@ public class PlotPermissions {
         }
 
         String groupString = "0";
-        if (groups.size() != 0) {
+        if (!groups.isEmpty()) {
             for (PermissionGroup grp : groups) {
                 groupString += grp.getId() + ":";
             }

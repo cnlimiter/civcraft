@@ -30,6 +30,14 @@ global:
   username: user
   password: 'PasswordForDatabaseUser'
 
+perks:
+  useSSL: 'false'
+  database: global
+  hostname: localhost
+  port: '3306'
+  username: user
+  password: 'PasswordForDatabaseUser'
+
 server_phase: 'beta8'
 
 # =========================== civcraft.net Server Listing Service (SLS) =========================
